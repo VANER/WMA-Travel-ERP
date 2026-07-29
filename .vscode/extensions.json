@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        "DavidAnson.vscode-markdownlint",
+        "streetsidesoftware.code-spell-checker",
+        "yzhang.markdown-all-in-one",
+        "ms-python.python",
+        "ms-python.black-formatter",
+        "ms-python.vscode-pylance",
+        "mtxr.sqltools",
+        "ms-azuretools.vscode-docker",
+        "GitHub.vscode-github-actions",
+        "eamodio.gitlens",
+        "PKief.material-icon-theme",
+        "esbenp.prettier-vscode"
+    ]
+}
