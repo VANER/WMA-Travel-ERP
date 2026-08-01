@@ -6,27 +6,38 @@
 
 ## Índice
 
-- [1. Objetivo](#1-objetivo)
-- [2. Escopo](#2-escopo)
-- [3. Organização da Documentação](#3-organização-da-documentação)
-- [4. Estrutura do Projeto](#4-estrutura-do-projeto)
-- [5. Documentação Institucional](#5-documentação-institucional)
-- [6. Documentação Técnica](#6-documentação-técnica)
-- [7. Banco de Dados](#7-banco-de-dados)
-- [8. Framework DBA](#8-framework-dba)
-- [9. Desenvolvimento](#9-desenvolvimento)
-- [10. Implantação](#10-implantação)
-- [11. Governança](#11-governança)
-- [12. Segurança](#12-segurança)
-- [13. Fluxo da Documentação](#13-fluxo-da-documentação)
-- [14. Ordem Recomendada de Leitura](#14-ordem-recomendada-de-leitura)
-- [15. Controle do Documento](#15-controle-do-documento)
+- [WMA Travel ERP — Manual Mestre da Documentação](#wma-travel-erp--manual-mestre-da-documentação)
+  - [Índice](#índice)
+  - [1. Objetivo](#1-objetivo)
+  - [2. Escopo](#2-escopo)
+  - [3. Organização da Documentação](#3-organização-da-documentação)
+  - [4. Estrutura do Projeto](#4-estrutura-do-projeto)
+  - [5. Documentação Institucional](#5-documentação-institucional)
+  - [6. Documentação Técnica](#6-documentação-técnica)
+  - [7. Banco de Dados](#7-banco-de-dados)
+  - [8. Framework DBA](#8-framework-dba)
+  - [9. Desenvolvimento](#9-desenvolvimento)
+  - [10. Implantação](#10-implantação)
+  - [11. Governança](#11-governança)
+  - [12. Segurança](#12-segurança)
+  - [13. Fluxo da Documentação](#13-fluxo-da-documentação)
+  - [14. Ordem Recomendada de Leitura](#14-ordem-recomendada-de-leitura)
+  - [15. Controle do Documento](#15-controle-do-documento)
+  - [Observações](#observações)
 
 ---
 
 ## 1. Objetivo
 
-Este documento centraliza toda a documentação oficial do **WMA Travel ERP**, servindo como ponto único de navegação para desenvolvedores, arquitetos de software, administradores de banco de dados (DBA), analistas, gestores e auditores.
+Este documento centraliza toda a documentação oficial do
+**WMA Travel ERP**, servindo como ponto único de navegação para:
+
+- desenvolvedores;
+- arquitetos de software;
+- administradores de banco de dados (DBA);
+- analistas;
+- gestores;
+- auditores.
 
 Todos os documentos oficiais do projeto deverão estar referenciados neste manual.
 
@@ -67,7 +78,7 @@ A documentação está organizada nas seguintes categorias:
 ## 4. Estrutura do Projeto
 
 ```text
-WMATRAVEL_ERP/
+WMA_TRAVEL_ERP/
 
 ├── README.md
 ├── CHANGELOG.md
@@ -130,7 +141,13 @@ A documentação oficial do banco está organizada na seguinte sequência:
 2. DATA_DICTIONARY.md
 3. DBA_FRAMEWORK.md
 
-Essa organização permite compreender inicialmente a arquitetura do banco, posteriormente seu dicionário de dados e, por fim, os processos de auditoria, governança e certificação.
+Essa organização permite compreender:
+
+- a arquitetura do banco;
+- o dicionário de dados;
+- os processos de auditoria;
+- a governança;
+- a certificação técnica.
 
 ---
 
