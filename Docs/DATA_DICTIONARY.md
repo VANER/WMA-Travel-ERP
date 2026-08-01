@@ -1083,7 +1083,7 @@
   - [GIN INDEX](#gin-index)
   - [GiST INDEX](#gist-index)
   - [BRIN INDEX](#brin-index)
-- [Estratégia de Indexação](#estratégia-de-indexação)
+  - [Estratégia de Indexação](#estratégia-de-indexação)
   - [Índices Obrigatórios](#índices-obrigatórios)
   - [Empresa](#empresa-1)
   - [Cliente](#cliente-1)
@@ -1103,13 +1103,13 @@
   - [Índices Geográficos](#índices-geográficos)
   - [Auditoria dos Índices](#auditoria-dos-índices)
   - [Indicadores Monitorados](#indicadores-monitorados)
-  - [Boas Práticas](#boas-práticas-2)
-  - [Estatísticas Previstas](#estatísticas-previstas-3)
-  - [Benefícios](#benefícios-2)
+    - [Boas Práticas](#boas-práticas-2)
+    - [Estatísticas Previstas](#estatísticas-previstas-3)
+    - [Benefícios](#benefícios-2)
   - [6.15 Chaves Estrangeiras (Foreign Keys)](#615-chaves-estrangeiras-foreign-keys)
-  - [Objetivos](#objetivos-14)
-  - [Convenções](#convenções-6)
-  - [Estrutura da Documentação](#estrutura-da-documentação-3)
+    - [Objetivos](#objetivos-14)
+    - [Convenções](#convenções-6)
+    - [Estrutura da Documentação](#estrutura-da-documentação-3)
   - [Cardinalidades](#cardinalidades)
   - [Um para Um (1:1)](#um-para-um-11)
   - [Um para Muitos (1:N)](#um-para-muitos-1n)
@@ -1122,12 +1122,12 @@
     - [SET NULL](#set-null)
     - [NO ACTION](#no-action)
   - [Relacionamentos Administrativos](#relacionamentos-administrativos)
-  - [Empresa](#empresa-2)
-  - [Usuário](#usuário-1)
+    - [Empresa](#empresa-2)
+    - [Usuário](#usuário-1)
   - [Relacionamentos Financeiros](#relacionamentos-financeiros)
-  - [Plano de Contas](#plano-de-contas)
-  - [Contas a Receber](#contas-a-receber-1)
-  - [Contas a Pagar](#contas-a-pagar-1)
+    - [Plano de Contas](#plano-de-contas)
+    - [Contas a Receber](#contas-a-receber-1)
+    - [Contas a Pagar](#contas-a-pagar-1)
   - [Relacionamentos Comerciais](#relacionamentos-comerciais)
   - [Relacionamentos Fiscais](#relacionamentos-fiscais)
   - [Relacionamentos Turismo](#relacionamentos-turismo)
@@ -1137,15 +1137,15 @@
   - [Relacionamentos Governança](#relacionamentos-governança)
     - [Índices Obrigatórios](#índices-obrigatórios-1)
     - [Auditoria Automática](#auditoria-automática)
-  - [Boas Práticas](#boas-práticas-3)
-  - [Dependências](#dependências-4)
-  - [Estatísticas Previstas](#estatísticas-previstas-4)
-  - [Benefícios](#benefícios-3)
+    - [Boas Práticas](#boas-práticas-3)
+    - [Dependências](#dependências-4)
+    - [Estatísticas Previstas](#estatísticas-previstas-4)
+    - [Benefícios](#benefícios-3)
   - [Certificação](#certificação)
   - [6.16 Constraints](#616-constraints)
     - [Objetivos](#objetivos-15)
   - [Tipos de Constraints](#tipos-de-constraints)
-  - [Convenções](#convenções-7)
+    - [Convenções](#convenções-7)
   - [Primary Key](#primary-key-1)
   - [Foreign Key](#foreign-key)
   - [Unique](#unique)
@@ -1166,15 +1166,15 @@
   - [Constraints Recursos Humanos](#constraints-recursos-humanos)
   - [Constraints Segurança](#constraints-segurança)
   - [Auditoria das Constraints](#auditoria-das-constraints)
-  - [Dependências](#dependências-5)
-  - [Boas Práticas](#boas-práticas-4)
-  - [Estatísticas Previstas](#estatísticas-previstas-5)
+    - [Dependências](#dependências-5)
+    - [Boas Práticas](#boas-práticas-4)
+    - [Estatísticas Previstas](#estatísticas-previstas-5)
   - [Critérios para Certificação](#critérios-para-certificação)
-  - [Benefícios](#benefícios-4)
+    - [Benefícios](#benefícios-4)
   - [6.17 Sequences](#617-sequences)
-  - [Objetivos](#objetivos-16)
-  - [Convenções](#convenções-8)
-  - [Estrutura da Documentação](#estrutura-da-documentação-4)
+    - [Objetivos](#objetivos-16)
+    - [Convenções](#convenções-8)
+    - [Estrutura da Documentação](#estrutura-da-documentação-4)
   - [Configuração Padrão](#configuração-padrão)
   - [Exemplo](#exemplo)
   - [Associação com a Tabela](#associação-com-a-tabela)
@@ -1192,15 +1192,15 @@
   - [Ciclo](#ciclo)
   - [Identity Columns](#identity-columns)
   - [Auditoria das Sequences](#auditoria-das-sequences)
-  - [Boas Práticas](#boas-práticas-5)
-  - [Dependências](#dependências-6)
-  - [Estatísticas Previstas](#estatísticas-previstas-6)
-  - [Critérios para Certificação](#critérios-para-certificação-1)
-  - [Benefícios](#benefícios-5)
+    - [Boas Práticas](#boas-práticas-5)
+    - [Dependências](#dependências-6)
+    - [Estatísticas Previstas](#estatísticas-previstas-6)
+    - [Critérios para Certificação](#critérios-para-certificação-1)
+    - [Benefícios](#benefícios-5)
   - [6.18 Materialized Views](#618-materialized-views)
-  - [Objetivos](#objetivos-17)
-  - [Convenções](#convenções-9)
-  - [Estrutura da Documentação](#estrutura-da-documentação-5)
+    - [Objetivos](#objetivos-17)
+    - [Convenções](#convenções-9)
+    - [Estrutura da Documentação](#estrutura-da-documentação-5)
   - [Estratégia de Atualização](#estratégia-de-atualização)
   - [Atualização](#atualização)
   - [Materialized Views Financeiras](#materialized-views-financeiras)
@@ -1291,10 +1291,10 @@
     - [Critérios para Certificação](#critérios-para-certificação-2)
     - [Benefícios](#benefícios-6)
   - [6.19 Domínios (Domains) e Tipos Personalizados (Custom Types)](#619-domínios-domains-e-tipos-personalizados-custom-types)
-  - [Objetivos](#objetivos-18)
-  - [Tipos Utilizados](#tipos-utilizados-1)
-  - [Convenções](#convenções-10)
-  - [Estrutura da Documentação](#estrutura-da-documentação-6)
+    - [Objetivos](#objetivos-18)
+    - [Tipos Utilizados](#tipos-utilizados-1)
+    - [Convenções](#convenções-10)
+    - [Estrutura da Documentação](#estrutura-da-documentação-6)
   - [Domains Gerais](#domains-gerais)
   - [dm\_nome](#dm_nome)
   - [dm\_descricao](#dm_descricao)
@@ -1342,7 +1342,7 @@
     - [Critérios para Certificação](#critérios-para-certificação-3)
     - [Benefícios](#benefícios-7)
   - [6.20 Extensões PostgreSQL (Extensions)](#620-extensões-postgresql-extensions)
-  - [Objetivos](#objetivos-19)
+    - [Objetivos](#objetivos-19)
   - [Política de Utilização](#política-de-utilização)
     - [Estrutura da Documentação](#estrutura-da-documentação-7)
   - [Extensões Obrigatórias](#extensões-obrigatórias)
@@ -1365,14 +1365,14 @@
   - [timescaledb](#timescaledb)
   - [Extensões Não Permitidas](#extensões-não-permitidas)
   - [Instalação](#instalação)
-  - [Auditoria](#auditoria-2)
+    - [Auditoria](#auditoria-2)
     - [Boas Práticas](#boas-práticas-8)
     - [Dependências](#dependências-9)
     - [Estatísticas Previstas](#estatísticas-previstas-9)
     - [Critérios para Certificação](#critérios-para-certificação-4)
     - [Benefícios](#benefícios-8)
-- [6.21 Performance e Otimização](#621-performance-e-otimização)
-  - [Objetivos](#objetivos-20)
+  - [6.21 Performance e Otimização](#621-performance-e-otimização)
+    - [Objetivos](#objetivos-20)
   - [Áreas Monitoradas](#áreas-monitoradas)
   - [Estratégia de Otimização](#estratégia-de-otimização)
   - [Estatísticas (ANALYZE)](#estatísticas-analyze)
@@ -1383,10 +1383,10 @@
   - [CLUSTER](#cluster)
   - [EXPLAIN](#explain)
   - [EXPLAIN ANALYZE](#explain-analyze)
-  - [Índices](#índices-9)
+    - [Índices](#índices-9)
   - [Consultas Lentas](#consultas-lentas)
-  - [pg\_stat\_statements](#pg_stat_statements-1)
-  - [Cache](#cache-1)
+    - [pg\_stat\_statements](#pg_stat_statements-1)
+    - [Cache](#cache-1)
   - [Memória](#memória)
   - [Configurações Recomendadas](#configurações-recomendadas)
   - [shared\_buffers](#shared_buffers)
@@ -1400,68 +1400,344 @@
   - [Conexões](#conexões)
   - [Locks](#locks)
   - [KPI de Performance](#kpi-de-performance)
-  - [Auditoria](#auditoria-3)
+    - [Auditoria](#auditoria-3)
   - [Ferramentas Utilizadas](#ferramentas-utilizadas)
-  - [Boas Práticas](#boas-práticas-9)
+    - [Boas Práticas](#boas-práticas-9)
   - [Integração com o Framework DBA](#integração-com-o-framework-dba)
-- [Critérios para Certificação](#critérios-para-certificação-5)
-- [Benefícios](#benefícios-9)
+  - [Critérios para Certificação](#critérios-para-certificação-5)
+  - [Benefícios](#benefícios-9)
   - [6.22 Backup, Recuperação e Continuidade de Negócios](#622-backup-recuperação-e-continuidade-de-negócios)
-  - [Objetivos](#objetivos-21)
+    - [Objetivos](#objetivos-21)
   - [Estratégia de Backup](#estratégia-de-backup)
   - [Tipos de Backup](#tipos-de-backup)
-  - [Backup Completo](#backup-completo)
-  - [Backup Incremental](#backup-incremental)
-  - [Backup Diferencial](#backup-diferencial)
-  - [Backup Lógico](#backup-lógico)
-  - [Backup Físico](#backup-físico)
+    - [Backup Completo](#backup-completo)
+    - [Backup Incremental](#backup-incremental)
+    - [Backup Diferencial](#backup-diferencial)
+    - [Backup Lógico](#backup-lógico)
+    - [Backup Físico](#backup-físico)
   - [WAL Archiving](#wal-archiving)
-- [Point-in-Time Recovery (PITR)](#point-in-time-recovery-pitr)
-- [Frequência](#frequência)
-- [Retenção](#retenção)
-- [Armazenamento](#armazenamento)
-- [Criptografia](#criptografia)
-- [Compactação](#compactação)
-- [Validação](#validação)
-- [Testes de Recuperação](#testes-de-recuperação)
-- [Recovery Time Objective (RTO)](#recovery-time-objective-rto)
-- [Recovery Point Objective (RPO)](#recovery-point-objective-rpo)
-- [Disaster Recovery (DR)](#disaster-recovery-dr)
-- [Alta Disponibilidade](#alta-disponibilidade)
-- [Monitoramento](#monitoramento)
-- [Auditoria](#auditoria-4)
-- [Indicadores](#indicadores-29)
-- [Boas Práticas](#boas-práticas-10)
-- [Integração com o Framework DBA](#integração-com-o-framework-dba-1)
-- [Critérios para Certificação](#critérios-para-certificação-6)
-  - [Benefícios](#benefícios-10)
+  - [Point-in-Time Recovery (PITR)](#point-in-time-recovery-pitr)
+  - [Frequência](#frequência)
+  - [Retenção](#retenção)
+  - [Armazenamento](#armazenamento)
+  - [Criptografia](#criptografia)
+  - [Compactação](#compactação)
+  - [Validação](#validação)
+  - [Testes de Recuperação](#testes-de-recuperação)
+  - [Recovery Time Objective (RTO)](#recovery-time-objective-rto)
+  - [Recovery Point Objective (RPO)](#recovery-point-objective-rpo)
+  - [Disaster Recovery (DR)](#disaster-recovery-dr)
+  - [Alta Disponibilidade](#alta-disponibilidade)
+  - [Monitoramento](#monitoramento)
+    - [Auditoria](#auditoria-4)
+  - [Indicadores](#indicadores-29)
+    - [Boas Práticas](#boas-práticas-10)
+    - [Integração com o Framework DBA](#integração-com-o-framework-dba-1)
+    - [Critérios para Certificação](#critérios-para-certificação-6)
+    - [Benefícios](#benefícios-10)
   - [6.23 Monitoramento e Observabilidade](#623-monitoramento-e-observabilidade)
-  - [Objetivos](#objetivos-22)
-- [Escopo](#escopo)
-- [Componentes Monitorados](#componentes-monitorados)
+    - [Objetivos](#objetivos-22)
+  - [Escopo](#escopo)
+  - [Componentes Monitorados](#componentes-monitorados)
   - [Banco de Dados](#banco-de-dados)
   - [Sistema Operacional](#sistema-operacional)
   - [Infraestrutura](#infraestrutura)
-- [Métricas Coletadas](#métricas-coletadas)
-  - [Disponibilidade](#disponibilidade)
-  - [CPU](#cpu)
-  - [Memória](#memória-1)
-  - [Disco](#disco)
-  - [Banco de Dados](#banco-de-dados-1)
-- [Monitoramento de Consultas](#monitoramento-de-consultas)
-- [Monitoramento de Locks](#monitoramento-de-locks)
-- [Logs](#logs)
-- [Alertas Automáticos](#alertas-automáticos)
-- [Ferramentas Homologadas](#ferramentas-homologadas)
-- [Dashboard Técnico](#dashboard-técnico)
-- [Health Check](#health-check)
-- [Indicadores (KPIs)](#indicadores-kpis)
-- [Eventos Monitorados](#eventos-monitorados)
-- [Auditoria](#auditoria-5)
-- [Boas Práticas](#boas-práticas-11)
-- [Integração com o Framework DBA](#integração-com-o-framework-dba-2)
-- [Critérios para Certificação](#critérios-para-certificação-7)
-- [Benefícios](#benefícios-11)
+  - [Métricas Coletadas](#métricas-coletadas)
+    - [Disponibilidade](#disponibilidade)
+    - [CPU](#cpu)
+    - [Memória](#memória-1)
+    - [Disco](#disco)
+    - [Banco de Dados](#banco-de-dados-1)
+  - [Monitoramento de Consultas](#monitoramento-de-consultas)
+  - [Monitoramento de Locks](#monitoramento-de-locks)
+  - [Logs](#logs)
+  - [Alertas Automáticos](#alertas-automáticos)
+  - [Ferramentas Homologadas](#ferramentas-homologadas)
+  - [Dashboard Técnico](#dashboard-técnico)
+  - [Health Check](#health-check)
+  - [Indicadores (KPIs)](#indicadores-kpis)
+  - [Eventos Monitorados](#eventos-monitorados)
+    - [Auditoria](#auditoria-5)
+    - [Boas Práticas](#boas-práticas-11)
+    - [Integração com o Framework DBA](#integração-com-o-framework-dba-2)
+    - [Critérios para Certificação](#critérios-para-certificação-7)
+    - [Benefícios](#benefícios-11)
+  - [6.24 Segurança do Banco de Dados](#624-segurança-do-banco-de-dados)
+    - [Objetivos](#objetivos-23)
+  - [Princípios](#princípios)
+  - [Classificação das Informações](#classificação-das-informações)
+  - [Controle de Acesso](#controle-de-acesso)
+  - [Roles Corporativas](#roles-corporativas)
+  - [Política de Permissões](#política-de-permissões)
+  - [Autenticação](#autenticação)
+  - [Criptografia](#criptografia-1)
+  - [Conexões Seguras](#conexões-seguras)
+  - [Dados Sensíveis](#dados-sensíveis)
+  - [Mascaramento de Dados](#mascaramento-de-dados)
+  - [LGPD](#lgpd)
+  - [Row Level Security (RLS)](#row-level-security-rls)
+    - [Auditoria](#auditoria-6)
+  - [Logs](#logs-1)
+  - [Políticas de Senha](#políticas-de-senha)
+  - [Bloqueio de Conta](#bloqueio-de-conta)
+  - [Backup Seguro](#backup-seguro)
+  - [Monitoramento](#monitoramento-1)
+  - [Auditoria Automática](#auditoria-automática-1)
+  - [Indicadores de Segurança](#indicadores-de-segurança)
+  - [Ferramentas](#ferramentas)
+    - [Integração com o Framework DBA](#integração-com-o-framework-dba-3)
+    - [Critérios para Certificação](#critérios-para-certificação-8)
+    - [Benefícios](#benefícios-12)
+  - [6.25 Framework DBA e Certificação Técnica](#625-framework-dba-e-certificação-técnica)
+    - [Objetivos](#objetivos-24)
+  - [Componentes do Framework](#componentes-do-framework)
+  - [Arquitetura do Framework](#arquitetura-do-framework)
+  - [Auditorias Executadas](#auditorias-executadas)
+  - [Health Check](#health-check-1)
+  - [Índice de Conformidade do Banco (ICB)](#índice-de-conformidade-do-banco-icb-1)
+  - [Critérios Avaliados](#critérios-avaliados)
+  - [Pesos](#pesos)
+  - [Plano Automático de Correção](#plano-automático-de-correção)
+  - [Classificação das Não Conformidades](#classificação-das-não-conformidades)
+  - [Dashboard Técnico](#dashboard-técnico-1)
+  - [Dashboard Executivo](#dashboard-executivo)
+  - [Indicadores (KPIs)](#indicadores-kpis-1)
+  - [Frequência das Auditorias](#frequência-das-auditorias)
+  - [Certificação Técnica](#certificação-técnica)
+  - [Níveis de Maturidade](#níveis-de-maturidade)
+  - [Integração](#integração)
+  - [Benefícios](#benefícios-13)
+  - [Critérios para Certificação Final](#critérios-para-certificação-final)
+  - [6.26 Glossário Técnico](#626-glossário-técnico)
+    - [Objetivos](#objetivos-25)
+  - [Termos Gerais](#termos-gerais)
+  - [API](#api)
+  - [Banco de Dados](#banco-de-dados-2)
+  - [PostgreSQL](#postgresql)
+  - [Schema](#schema)
+  - [Tabela](#tabela)
+  - [Coluna](#coluna)
+  - [Registro](#registro)
+- [Objetos do Banco](#objetos-do-banco)
+  - [Primary Key (PK)](#primary-key-pk)
+  - [Foreign Key (FK)](#foreign-key-fk)
+  - [Constraint](#constraint)
+  - [Sequence](#sequence)
+  - [Trigger](#trigger)
+  - [Function](#function)
+  - [Procedure](#procedure)
+  - [View](#view)
+  - [Materialized View](#materialized-view)
+  - [Index](#index)
+- [Segurança](#segurança)
+  - [Role](#role)
+  - [Permission](#permission)
+  - [RLS](#rls)
+  - [LGPD](#lgpd-1)
+  - [Criptografia](#criptografia-2)
+  - [TLS](#tls)
+- [Performance](#performance)
+  - [VACUUM](#vacuum-1)
+  - [ANALYZE](#analyze)
+  - [EXPLAIN](#explain-1)
+  - [EXPLAIN ANALYZE](#explain-analyze-1)
+  - [Cache Hit Ratio](#cache-hit-ratio)
+  - [Deadlock](#deadlock)
+- [Backup](#backup)
+  - [Backup Full](#backup-full)
+  - [Backup Incremental](#backup-incremental-1)
+  - [PITR](#pitr)
+  - [WAL](#wal)
+  - [Restore](#restore)
+  - [Framework DBA](#framework-dba)
+  - [Health Check](#health-check-2)
+  - [ICB](#icb)
+  - [Score Técnico](#score-técnico)
+  - [Plano Automático de Correção](#plano-automático-de-correção-1)
+  - [Certificação Técnica](#certificação-técnica-1)
+  - [Desenvolvimento](#desenvolvimento)
+  - [Clean Code](#clean-code)
+  - [SOLID](#solid)
+  - [DDD](#ddd)
+  - [SemVer](#semver)
+  - [Git](#git)
+  - [GitHub](#github)
+  - [Business Intelligence](#business-intelligence)
+  - [Dashboard](#dashboard)
+  - [KPI](#kpi)
+  - [ETL](#etl)
+  - [Turismo](#turismo)
+  - [Pacote Turístico](#pacote-turístico-1)
+  - [Reserva](#reserva-2)
+  - [Bike Tour](#bike-tour)
+  - [Convenções](#convenções-11)
+  - [Benefícios](#benefícios-14)
+  - [6.27 Referências Técnicas](#627-referências-técnicas)
+  - [Objetivos](#objetivos-26)
+  - [Banco de Dados](#banco-de-dados-3)
+  - [PostgreSQL](#postgresql-1)
+  - [SQL](#sql)
+  - [ISO/IEC 9075](#isoiec-9075)
+  - [Segurança](#segurança-1)
+  - [ISO/IEC 27001](#isoiec-27001)
+  - [ISO/IEC 27002](#isoiec-27002)
+  - [OWASP](#owasp)
+  - [CIS PostgreSQL Benchmark](#cis-postgresql-benchmark)
+  - [Governança](#governança)
+  - [COBIT](#cobit)
+  - [ITIL](#itil)
+  - [Desenvolvimento](#desenvolvimento-1)
+  - [Clean Architecture](#clean-architecture)
+  - [Clean Code](#clean-code-1)
+  - [SOLID](#solid-1)
+  - [Domain Driven Design (DDD)](#domain-driven-design-ddd)
+  - [Versionamento](#versionamento)
+  - [Semantic Versioning](#semantic-versioning)
+  - [Keep a Changelog](#keep-a-changelog)
+  - [Git](#git-1)
+  - [GitHub](#github-1)
+  - [Python](#python)
+  - [PEP](#pep)
+  - [FastAPI](#fastapi)
+  - [SQLAlchemy](#sqlalchemy)
+  - [Alembic](#alembic)
+  - [React](#react)
+  - [TypeScript](#typescript)
+  - [Flutter](#flutter)
+  - [Microsoft Power BI](#microsoft-power-bi)
+  - [LGPD](#lgpd-2)
+  - [Convenções Utilizadas](#convenções-utilizadas)
+  - [Compatibilidade](#compatibilidade)
+  - [Atualização das Referências](#atualização-das-referências)
+  - [Benefícios](#benefícios-15)
+  - [Apêndice A — Convenções de Nomenclatura](#apêndice-a--convenções-de-nomenclatura)
+  - [Objetivos](#objetivos-27)
+  - [Regras Gerais](#regras-gerais)
+  - [Banco de Dados](#banco-de-dados-4)
+    - [Nome do Banco](#nome-do-banco)
+    - [Schemas](#schemas)
+    - [Tabelas](#tabelas)
+    - [Colunas](#colunas-11)
+    - [Chaves Primárias](#chaves-primárias-1)
+    - [Chaves Estrangeiras](#chaves-estrangeiras)
+    - [Constraints](#constraints)
+  - [Primary Key](#primary-key-3)
+  - [Foreign Key](#foreign-key-2)
+  - [Unique](#unique-2)
+  - [Check](#check-2)
+  - [Índices](#índices-10)
+  - [Sequences](#sequences)
+  - [Views](#views)
+  - [Materialized Views](#materialized-views)
+  - [Procedures](#procedures)
+  - [Functions](#functions)
+  - [Triggers](#triggers)
+  - [Tipos Personalizados](#tipos-personalizados)
+  - [Domains](#domains)
+- [APIs](#apis)
+  - [Classes Python](#classes-python)
+  - [Métodos Python](#métodos-python)
+  - [Variáveis Python](#variáveis-python)
+  - [Constantes](#constantes)
+  - [Arquivos SQL](#arquivos-sql)
+  - [Arquivos Markdown](#arquivos-markdown)
+  - [Branches Git](#branches-git)
+  - [Commits](#commits)
+  - [Versionamento](#versionamento-1)
+  - [Benefícios](#benefícios-16)
+  - [Apêndice B — Checklist de Conformidade](#apêndice-b--checklist-de-conformidade)
+  - [Objetivos](#objetivos-28)
+  - [Estrutura do Checklist](#estrutura-do-checklist)
+  - [1. Estrutura do Banco](#1-estrutura-do-banco)
+  - [2. Tabelas](#2-tabelas)
+  - [3. Colunas](#3-colunas)
+  - [4. Chaves Primárias](#4-chaves-primárias)
+  - [5. Chaves Estrangeiras](#5-chaves-estrangeiras)
+  - [6. Índices](#6-índices)
+  - [7. Constraints](#7-constraints)
+  - [8. Sequences](#8-sequences)
+  - [9. Views](#9-views)
+  - [10. Materialized Views](#10-materialized-views)
+  - [11. Procedures](#11-procedures)
+  - [12. Functions](#12-functions)
+  - [13. Triggers](#13-triggers)
+  - [14. Segurança](#14-segurança)
+  - [15. Performance](#15-performance)
+  - [16. Backup](#16-backup)
+  - [17. Monitoramento](#17-monitoramento)
+  - [18. Documentação](#18-documentação)
+  - [19. Governança](#19-governança)
+  - [20. Certificação Técnica](#20-certificação-técnica)
+  - [Resultado Final](#resultado-final)
+  - [Benefícios](#benefícios-17)
+  - [Apêndice C — Estatísticas Consolidadas do Banco de Dados](#apêndice-c--estatísticas-consolidadas-do-banco-de-dados)
+  - [Objetivos](#objetivos-29)
+  - [Visão Geral](#visão-geral-7)
+  - [Estrutura Geral](#estrutura-geral)
+  - [Estatísticas das Tabelas](#estatísticas-das-tabelas)
+  - [Exemplo](#exemplo-1)
+  - [Estatísticas de Colunas](#estatísticas-de-colunas)
+  - [Estatísticas de Índices](#estatísticas-de-índices)
+  - [Indicadores](#indicadores-30)
+  - [Estatísticas de Constraints](#estatísticas-de-constraints)
+  - [Exemplo](#exemplo-2)
+  - [Estatísticas de Relacionamentos](#estatísticas-de-relacionamentos)
+  - [Estatísticas de Views](#estatísticas-de-views)
+  - [Estatísticas de Procedures](#estatísticas-de-procedures)
+  - [Estatísticas de Functions](#estatísticas-de-functions)
+  - [Estatísticas de Triggers](#estatísticas-de-triggers)
+  - [Estatísticas de Auditoria](#estatísticas-de-auditoria)
+  - [Estatísticas de Segurança](#estatísticas-de-segurança)
+  - [Estatísticas de Backup](#estatísticas-de-backup)
+  - [Estatísticas de Performance](#estatísticas-de-performance)
+  - [Estatísticas de Crescimento](#estatísticas-de-crescimento)
+  - [Indicadores Técnicos](#indicadores-técnicos-1)
+  - [Índice de Conformidade do Banco (ICB)](#índice-de-conformidade-do-banco-icb-2)
+  - [Score Técnico](#score-técnico-1)
+  - [Atualização das Estatísticas](#atualização-das-estatísticas)
+  - [Fontes das Informações](#fontes-das-informações)
+  - [Benefícios](#benefícios-18)
+  - [Apêndice D — Matriz de Rastreabilidade](#apêndice-d--matriz-de-rastreabilidade)
+  - [Objetivos](#objetivos-30)
+  - [Estrutura da Matriz](#estrutura-da-matriz)
+  - [Identificação dos Requisitos](#identificação-dos-requisitos)
+  - [Estrutura dos Módulos](#estrutura-dos-módulos)
+  - [Matriz de Rastreabilidade](#matriz-de-rastreabilidade)
+  - [Rastreabilidade das Tabelas](#rastreabilidade-das-tabelas)
+  - [Exemplo](#exemplo-3)
+  - [Rastreabilidade das APIs](#rastreabilidade-das-apis)
+  - [Exemplo](#exemplo-4)
+  - [Rastreabilidade das Auditorias](#rastreabilidade-das-auditorias)
+  - [Integração com o Framework DBA](#integração-com-o-framework-dba-4)
+  - [Controle de Mudanças](#controle-de-mudanças)
+  - [Benefícios](#benefícios-19)
+  - [Apêndice E — Estrutura Completa do Framework DBA](#apêndice-e--estrutura-completa-do-framework-dba)
+  - [Objetivos](#objetivos-31)
+  - [Arquitetura Geral](#arquitetura-geral)
+  - [Estrutura de Diretórios](#estrutura-de-diretórios)
+  - [CORE](#core)
+  - [Auditorias](#auditorias)
+  - [Documentação](#documentação)
+  - [Performance](#performance-1)
+  - [Segurança](#segurança-2)
+  - [Backup](#backup-1)
+  - [Monitoramento](#monitoramento-2)
+  - [Governança](#governança-1)
+  - [Certificação](#certificação-1)
+  - [Dashboard Técnico](#dashboard-técnico-2)
+  - [Dashboard Executivo](#dashboard-executivo-1)
+  - [Fluxo de Execução](#fluxo-de-execução)
+  - [Fluxo da Certificação](#fluxo-da-certificação)
+  - [Integração com o ERP](#integração-com-o-erp)
+  - [Integração com CI/CD](#integração-com-cicd)
+  - [Cronograma de Execução](#cronograma-de-execução)
+  - [Indicadores](#indicadores-31)
+  - [Evolução do Framework](#evolução-do-framework)
+  - [Versão 1](#versão-1)
+  - [Versão 2](#versão-2)
+  - [Versão 3](#versão-3)
+  - [Benefícios](#benefícios-20)
+  - [Encerramento](#encerramento)
 
 ---
 
@@ -1469,7 +1745,9 @@
 
 O Dicionário de Dados documenta todos os objetos existentes no banco de dados do **WMA Travel ERP**.
 
-Seu objetivo é padronizar o entendimento da estrutura física e lógica do banco de dados, servindo como referência para desenvolvedores, DBAs, analistas e auditores.
+Seu objetivo é padronizar o entendimento da estrutura física e lógica do banco de dados,
+servindo como referência técnica para desenvolvedores, DBAs, analistas de sistemas,
+arquitetos de software e equipes de auditoria.
 
 ---
 
@@ -1586,7 +1864,9 @@ O banco está organizado em aproximadamente:
 
 ## 6.1 Módulo Administrativo
 
-O módulo Administrativo concentra as entidades responsáveis pela configuração, autenticação, controle de usuários, perfis de acesso e parâmetros globais do ERP.
+O módulo **Administrativo** concentra as entidades responsáveis pela configuração geral
+do sistema, autenticação de usuários, gerenciamento de perfis de acesso, controle de
+permissões e manutenção dos parâmetros globais do ERP.
 
 ---
 
@@ -1598,7 +1878,10 @@ Armazena as informações cadastrais das empresas administradas pelo ERP.
 
 ### Finalidade
 
-Representa a entidade principal do sistema. Todas as demais tabelas corporativas possuem relacionamento direto ou indireto com esta tabela.
+Representa a entidade central do sistema, responsável pelo cadastro principal da
+organização. Todas as demais entidades corporativas possuem relacionamento direto
+ou indireto com esta tabela, garantindo a integração e a consistência dos dados
+entre os módulos do ERP.
 
 ### Chave Primária
 
@@ -2464,7 +2747,9 @@ Utilizado pelo Power BI.
 
 ## 6.3 Módulo Comercial
 
-O módulo Comercial concentra todas as operações relacionadas à gestão de clientes, fornecedores, vendas, CRM, contratos e propostas.
+O módulo **Comercial** concentra as operações relacionadas à gestão do relacionamento
+com clientes e fornecedores, processos de vendas, CRM, propostas comerciais,
+contratos e acompanhamento das oportunidades de negócio.
 Relaciona-se ao ciclo de relacionamento comercial.
 
 É responsável pelo ciclo completo de vendas do WMA Travel ERP, desde a prospecção até o faturamento.
@@ -2953,9 +3238,15 @@ Pós-venda
 
 ## 6.4 Módulo Fiscal
 
-O módulo Fiscal é responsável pelo gerenciamento das obrigações tributárias, emissão de documentos fiscais, apuração de impostos e integração com os órgãos governamentais.
+O módulo **Fiscal** é responsável pelo gerenciamento das obrigações tributárias,
+emissão de documentos fiscais, apuração de impostos e integração com os órgãos
+governamentais, assegurando a conformidade legal e o cumprimento da legislação
+tributária vigente.
 
-Seu objetivo é garantir conformidade com a legislação brasileira e fornecer suporte às operações financeiras e contábeis da empresa.
+Seu objetivo é garantir a conformidade com a legislação tributária brasileira,
+oferecendo suporte aos processos fiscais, financeiros e contábeis da empresa,
+com foco na integridade das informações, na rastreabilidade das operações e no
+cumprimento das obrigações legais.
 
 ---
 
@@ -3381,7 +3672,11 @@ Obrigações Acessórias
 
 ## 6.5 Módulo Turismo
 
-O módulo Turismo concentra todas as operações relacionadas à comercialização, planejamento, execução e acompanhamento dos serviços turísticos oferecidos pela WMA Travel.
+O módulo **Turismo** concentra as operações relacionadas ao planejamento,
+comercialização, execução e acompanhamento dos produtos e serviços turísticos
+oferecidos pela WMA Travel, abrangendo todas as etapas do ciclo operacional,
+desde a criação dos roteiros até a conclusão das viagens e a avaliação dos
+serviços prestados.
 
 Este módulo integra-se diretamente aos módulos Comercial, Financeiro, Fiscal e CRM.
 
@@ -3894,7 +4189,11 @@ Avaliação
 
 ## 6.6 Módulo Bike Tour
 
-O módulo **Bike Tour** é responsável pelo gerenciamento completo das operações de cicloturismo da WMA Travel, incluindo eventos, roteiros, inscrições, participantes, apoio logístico, bicicletas, pontos de controle e monitoramento operacional.
+O módulo **Bike Tour** é responsável pelo gerenciamento completo das operações de
+cicloturismo da WMA Travel, incluindo o planejamento e a execução de eventos,
+roteiros, inscrições, participantes, apoio logístico, bicicletas, pontos de
+controle e monitoramento operacional, garantindo a organização, a segurança e
+a rastreabilidade de todas as atividades.
 
 Este módulo integra-se diretamente aos módulos Comercial, Financeiro, Turismo, CRM e Auditoria.
 
@@ -4358,7 +4657,9 @@ Avaliação
 
 ## 6.7 Módulo Recursos Humanos
 
-O módulo Recursos Humanos (RH) é responsável pelo gerenciamento dos colaboradores, departamentos, cargos, jornadas, folha de pagamento, benefícios, férias, treinamentos e demais processos relacionados à gestão de pessoas.
+O módulo Recursos Humanos (RH) é responsável pelo gerenciamento dos colaboradores,
+departamentos, cargos, jornadas,folha de pagamento, benefícios, férias,
+treinamentos e demais processos relacionados à gestão de pessoas.
 
 Este módulo integra-se diretamente aos módulos Financeiro, Administrativo, Auditoria e Governança.
 
@@ -4726,9 +5027,11 @@ Desligamento
 
 ## 6.8 Framework de Auditoria
 
-O Framework de Auditoria é responsável pela validação estrutural, documental, funcional e operacional do banco de dados do WMA Travel ERP.
+O Framework de Auditoria é responsável pela validação estrutural, documental,
+funcional e operacional do banco de dados do WMA Travel ERP.
 
-Seu objetivo é garantir que todas as estruturas do banco estejam em conformidade com os padrões corporativos definidos pelo projeto.
+Seu objetivo é garantir que todas as estruturas do banco estejam
+em conformidade com os padrões corporativos definidos pelo projeto.
 
 Este framework permite a certificação automática do banco de dados por meio do Índice de Conformidade do Banco (ICB).
 
@@ -5131,7 +5434,9 @@ O Framework calcula automaticamente o ICB utilizando critérios ponderados.
 
 ## 6.9 Framework de Governança
 
-O Framework de Governança estabelece todas as políticas, normas, controles e mecanismos necessários para garantir integridade, rastreabilidade, conformidade e padronização do banco de dados do WMA Travel ERP.
+O Framework de Governança estabelece todas as políticas, normas,
+controles e mecanismos necessários para garantir integridade, rastreabilidade,
+conformidade e padronização do banco de dados do WMA Travel ERP.
 
 Sua principal finalidade é assegurar que o ambiente permaneça consistente durante toda a evolução do sistema.
 
@@ -6082,7 +6387,8 @@ Previsão para a versão 1.0.0:
 
 ## 6.11 Procedures
 
-As Stored Procedures do WMA Travel ERP concentram processos automatizados responsáveis pela execução de rotinas administrativas, financeiras, fiscais, operacionais e de auditoria.
+As Stored Procedures do WMA Travel ERP concentram processos automatizados responsáveis pela execução de rotinas administrativas,
+financeiras, fiscais, operacionais e de auditoria.
 
 O objetivo é centralizar regras críticas de negócio dentro do PostgreSQL, garantindo padronização, desempenho e segurança.
 
@@ -7323,7 +7629,8 @@ As Functions podem ser utilizadas por:
 
 ## 6.13 Triggers
 
-Os Triggers do WMA Travel ERP automatizam regras críticas do banco de dados, garantindo integridade, auditoria, rastreabilidade e sincronização dos dados.
+Os Triggers do WMA Travel ERP automatizam regras críticas do banco de dados,
+garantindo integridade, auditoria, rastreabilidade e sincronização dos dados.
 
 Os gatilhos são executados automaticamente em resposta a eventos de INSERT, UPDATE, DELETE e TRUNCATE.
 
@@ -8083,7 +8390,7 @@ Movimentações financeiras.
 
 ---
 
-# Estratégia de Indexação
+## Estratégia de Indexação
 
 Cada tabela deverá possuir:
 
@@ -8356,7 +8663,7 @@ O Framework DBA valida automaticamente:
 
 ---
 
-## Boas Práticas
+### Boas Práticas
 
 Todos os índices deverão:
 
@@ -8369,7 +8676,7 @@ Todos os índices deverão:
 
 ---
 
-## Estatísticas Previstas
+### Estatísticas Previstas
 
 | Categoria           |      Quantidade |
 | ------------------- | --------------: |
@@ -8387,7 +8694,7 @@ Todos os índices deverão:
 
 ---
 
-## Benefícios
+### Benefícios
 
 A estratégia de indexação proporciona:
 
@@ -8405,13 +8712,14 @@ A estratégia de indexação proporciona:
 
 ## 6.15 Chaves Estrangeiras (Foreign Keys)
 
-As Chaves Estrangeiras (Foreign Keys) garantem a integridade referencial do banco de dados, assegurando que os relacionamentos entre tabelas permaneçam consistentes durante toda a vida útil do sistema.
+As Chaves Estrangeiras (Foreign Keys) garantem a integridade referencial do banco de dados,
+assegurando que os relacionamentos entre tabelas permaneçam consistentes durante toda a vida útil do sistema.
 
 Todas as Foreign Keys do WMA Travel ERP seguem padrões corporativos de nomenclatura, indexação e documentação.
 
 ---
 
-## Objetivos
+### Objetivos
 
 A estratégia de Foreign Keys possui os seguintes objetivos:
 
@@ -8425,7 +8733,7 @@ A estratégia de Foreign Keys possui os seguintes objetivos:
 
 ---
 
-## Convenções
+### Convenções
 
 Todas as Foreign Keys seguem o padrão:
 
@@ -8447,7 +8755,7 @@ fk_usuario_perfil
 
 ---
 
-## Estrutura da Documentação
+### Estrutura da Documentação
 
 Cada Foreign Key documenta:
 
@@ -8569,7 +8877,7 @@ Utilizado em situações específicas.
 
 ## Relacionamentos Administrativos
 
-## Empresa
+### Empresa
 
 Relacionamentos principais
 
@@ -8595,7 +8903,7 @@ configuracao
 
 ---
 
-## Usuário
+### Usuário
 
 Relacionamentos
 
@@ -8619,7 +8927,7 @@ log_acesso
 
 ## Relacionamentos Financeiros
 
-## Plano de Contas
+### Plano de Contas
 
 ```text
 plano_conta
@@ -8635,7 +8943,7 @@ fluxo_caixa
 
 ---
 
-## Contas a Receber
+### Contas a Receber
 
 ```text
 cliente
@@ -8651,7 +8959,7 @@ recebimento
 
 ---
 
-## Contas a Pagar
+### Contas a Pagar
 
 ```text
 fornecedor
@@ -8841,7 +9149,7 @@ O Framework DBA valida automaticamente:
 
 ---
 
-## Boas Práticas
+### Boas Práticas
 
 Todas as Foreign Keys deverão:
 
@@ -8854,7 +9162,7 @@ Todas as Foreign Keys deverão:
 
 ---
 
-## Dependências
+### Dependências
 
 As Foreign Keys suportam:
 
@@ -8867,7 +9175,7 @@ As Foreign Keys suportam:
 
 ---
 
-## Estatísticas Previstas
+### Estatísticas Previstas
 
 | Categoria              | Quantidade |
 | ---------------------- | ---------: |
@@ -8880,7 +9188,7 @@ As Foreign Keys suportam:
 
 ---
 
-## Benefícios
+### Benefícios
 
 A utilização adequada das Foreign Keys proporciona:
 
@@ -8911,7 +9219,8 @@ Para certificação do banco, todas as Foreign Keys deverão atender aos seguint
 
 ## 6.16 Constraints
 
-As Constraints (Restrições) garantem a integridade estrutural e lógica do banco de dados, impedindo o armazenamento de dados inválidos e assegurando que todas as regras fundamentais do modelo sejam respeitadas.
+As Constraints (Restrições) garantem a integridade estrutural e lógica do banco de dados,
+impedindo o armazenamento de dados inválidos e assegurando que todas as regras fundamentais do modelo sejam respeitadas.
 
 No WMA Travel ERP, todas as Constraints seguem um padrão único de nomenclatura, documentação e auditoria.
 
@@ -8945,7 +9254,7 @@ O banco utiliza os seguintes tipos:
 
 ---
 
-## Convenções
+### Convenções
 
 Todas as Constraints seguem nomenclatura padronizada.
 
@@ -9290,7 +9599,7 @@ O Framework DBA verifica automaticamente:
 
 ---
 
-## Dependências
+### Dependências
 
 As Constraints são utilizadas por:
 
@@ -9303,7 +9612,7 @@ As Constraints são utilizadas por:
 
 ---
 
-## Boas Práticas
+### Boas Práticas
 
 Todas as Constraints deverão:
 
@@ -9316,7 +9625,7 @@ Todas as Constraints deverão:
 
 ---
 
-## Estatísticas Previstas
+### Estatísticas Previstas
 
 | Constraint         |   Quantidade Estimada |
 | ------------------ | --------------------: |
@@ -9346,7 +9655,7 @@ Todas as Constraints deverão atender aos seguintes requisitos.
 
 ---
 
-## Benefícios
+### Benefícios
 
 A utilização das Constraints proporciona:
 
@@ -9363,13 +9672,15 @@ A utilização das Constraints proporciona:
 
 ## 6.17 Sequences
 
-As Sequences são objetos responsáveis pela geração automática de valores numéricos sequenciais utilizados principalmente nas chaves primárias das tabelas do WMA Travel ERP.
+As Sequences são objetos responsáveis pela geração automática de valores numéricos sequenciais utilizados principalmente
+nas chaves primárias das tabelas do WMA Travel ERP.
 
-Embora o PostgreSQL possua suporte ao padrão `GENERATED AS IDENTITY`, o projeto documenta todas as Sequences para garantir rastreabilidade, padronização e auditoria.
+Embora o PostgreSQL possua suporte ao padrão `GENERATED AS IDENTITY`,
+o projeto documenta todas as Sequences para garantir rastreabilidade, padronização e auditoria.
 
 ---
 
-## Objetivos
+### Objetivos
 
 As Sequences possuem os seguintes objetivos:
 
@@ -9383,7 +9694,7 @@ As Sequences possuem os seguintes objetivos:
 
 ---
 
-## Convenções
+### Convenções
 
 Todas as Sequences seguem o padrão:
 
@@ -9404,7 +9715,7 @@ seq_evento
 
 ---
 
-## Estrutura da Documentação
+### Estrutura da Documentação
 
 Cada Sequence documenta:
 
@@ -9640,7 +9951,7 @@ O Framework DBA verifica automaticamente:
 
 ---
 
-## Boas Práticas
+### Boas Práticas
 
 Todas as Sequences deverão:
 
@@ -9654,7 +9965,7 @@ Todas as Sequences deverão:
 
 ---
 
-## Dependências
+### Dependências
 
 As Sequences são utilizadas por:
 
@@ -9666,7 +9977,7 @@ As Sequences são utilizadas por:
 
 ---
 
-## Estatísticas Previstas
+### Estatísticas Previstas
 
 | Categoria                 |        Quantidade |
 | ------------------------- | ----------------: |
@@ -9683,7 +9994,7 @@ As Sequences são utilizadas por:
 
 ---
 
-## Critérios para Certificação
+### Critérios para Certificação
 
 Todas as Sequences deverão atender aos seguintes requisitos.
 
@@ -9699,7 +10010,7 @@ Todas as Sequences deverão atender aos seguintes requisitos.
 
 ---
 
-## Benefícios
+### Benefícios
 
 A utilização padronizada das Sequences proporciona:
 
@@ -9716,13 +10027,15 @@ A utilização padronizada das Sequences proporciona:
 
 ## 6.18 Materialized Views
 
-As Materialized Views (Visões Materializadas) são utilizadas para armazenar previamente o resultado de consultas complexas, reduzindo o tempo de resposta de dashboards, indicadores, relatórios e análises estratégicas.
+As Materialized Views (Visões Materializadas) são utilizadas para armazenar previamente o resultado de consultas complexas,
+reduzindo o tempo de resposta de dashboards, indicadores, relatórios e análises estratégicas.
 
-Diferentemente das Views convencionais, os dados são persistidos fisicamente e atualizados através do comando `REFRESH MATERIALIZED VIEW`.
+Diferentemente das Views convencionais, os dados são persistidos fisicamente e
+atualizados através do comando `REFRESH MATERIALIZED VIEW`.
 
 ---
 
-## Objetivos
+### Objetivos
 
 As Materialized Views possuem os seguintes objetivos:
 
@@ -9736,7 +10049,7 @@ As Materialized Views possuem os seguintes objetivos:
 
 ---
 
-## Convenções
+### Convenções
 
 Todas as Materialized Views seguem o padrão:
 
@@ -9756,7 +10069,7 @@ mv_auditoria_icb
 
 ---
 
-## Estrutura da Documentação
+### Estrutura da Documentação
 
 Cada Materialized View documenta:
 
@@ -10221,13 +10534,14 @@ A utilização de Materialized Views proporciona:
 
 ## 6.19 Domínios (Domains) e Tipos Personalizados (Custom Types)
 
-Os Domains e Custom Types são objetos reutilizáveis do PostgreSQL utilizados para padronizar tipos de dados, reduzir redundância e garantir consistência em todo o banco de dados.
+Os Domains e Custom Types são objetos reutilizáveis do PostgreSQL utilizados para padronizar tipos de dados,
+reduzir redundância e garantir consistência em todo o banco de dados.
 
 Sempre que uma mesma regra de validação for utilizada em múltiplas tabelas, deverá ser implementada através de um Domain.
 
 ---
 
-## Objetivos
+### Objetivos
 
 Os Domains possuem os seguintes objetivos:
 
@@ -10241,7 +10555,7 @@ Os Domains possuem os seguintes objetivos:
 
 ---
 
-## Tipos Utilizados
+### Tipos Utilizados
 
 O projeto utiliza os seguintes objetos:
 
@@ -10254,7 +10568,7 @@ O projeto utiliza os seguintes objetos:
 
 ---
 
-## Convenções
+### Convenções
 
 Todos os Domains seguem o padrão:
 
@@ -10826,7 +11140,8 @@ A utilização de Domains e Tipos Personalizados proporciona:
 
 As Extensões (Extensions) adicionam funcionalidades nativas ao PostgreSQL que não fazem parte do núcleo do banco de dados.
 
-O WMA Travel ERP utiliza apenas extensões homologadas, amplamente utilizadas pela comunidade PostgreSQL e compatíveis com ambientes corporativos.
+O WMA Travel ERP utiliza apenas extensões homologadas,
+amplamente utilizadas pela comunidade PostgreSQL e compatíveis com ambientes corporativos.
 
 ---
 
@@ -11290,13 +11605,15 @@ A utilização controlada de extensões proporciona:
 
 ## 6.21 Performance e Otimização
 
-A camada de Performance e Otimização estabelece as diretrizes técnicas para garantir que o banco de dados do WMA Travel ERP opere com alta disponibilidade, baixa latência, escalabilidade e utilização eficiente dos recursos computacionais.
+A camada de Performance e Otimização estabelece as diretrizes técnicas para garantir
+que o banco de dados do WMA Travel ERP opere com alta disponibilidade,
+baixa latência, escalabilidade e utilização eficiente dos recursos computacionais.
 
 Esta política faz parte do Framework DBA e é continuamente monitorada pelo processo de Certificação Técnica do Banco.
 
 ---
 
-## Objetivos
+### Objetivos
 
 A estratégia de otimização possui os seguintes objetivos:
 
@@ -11465,7 +11782,7 @@ Indicadores observados:
 
 ---
 
-## Índices
+### Índices
 
 As seguintes situações são monitoradas:
 
@@ -11501,7 +11818,7 @@ são classificadas como:
 
 ---
 
-## pg_stat_statements
+### pg_stat_statements
 
 Monitora:
 
@@ -11514,7 +11831,7 @@ Monitora:
 
 ---
 
-## Cache
+### Cache
 
 Itens monitorados:
 
@@ -11677,7 +11994,7 @@ Monitoramento:
 
 ---
 
-## Auditoria
+### Auditoria
 
 O Framework DBA verifica automaticamente:
 
@@ -11707,7 +12024,7 @@ O Framework DBA verifica automaticamente:
 
 ---
 
-## Boas Práticas
+### Boas Práticas
 
 Todas as consultas deverão:
 
@@ -11733,7 +12050,7 @@ A camada de Performance fornece informações para:
 
 ---
 
-# Critérios para Certificação
+## Critérios para Certificação
 
 | Critério                      | Obrigatório |
 | ----------------------------- | :---------: |
@@ -11747,7 +12064,7 @@ A camada de Performance fornece informações para:
 
 ---
 
-# Benefícios
+## Benefícios
 
 A estratégia de Performance proporciona:
 
@@ -11765,13 +12082,16 @@ A estratégia de Performance proporciona:
 
 ## 6.22 Backup, Recuperação e Continuidade de Negócios
 
-A estratégia de Backup, Recuperação e Continuidade de Negócios do WMA Travel ERP garante a proteção das informações corporativas contra falhas de hardware, erros humanos, corrupção de dados, ataques cibernéticos e desastres operacionais.
+A estratégia de Backup, Recuperação e Continuidade de Negócios do WMA Travel ERP
+garante a proteção das informações corporativas contra falhas de hardware,
+erros humanos, corrupção de dados, ataques cibernéticos e desastres operacionais.
 
-Toda a política é monitorada automaticamente pelo Framework DBA e faz parte do processo de Certificação Técnica do Banco de Dados.
+Toda a política é monitorada automaticamente pelo Framework DBA
+e faz parte do processo de Certificação Técnica do Banco de Dados.
 
 ---
 
-## Objetivos
+### Objetivos
 
 A política possui os seguintes objetivos:
 
@@ -12037,7 +12357,7 @@ O Framework DBA monitora:
 
 ---
 
-## Auditoria
+### Auditoria
 
 São auditados:
 
@@ -12062,7 +12382,7 @@ São auditados:
 
 ---
 
-## Boas Práticas
+### Boas Práticas
 
 Todos os backups deverão:
 
@@ -12076,7 +12396,7 @@ Todos os backups deverão:
 
 ---
 
-## Integração com o Framework DBA
+### Integração com o Framework DBA
 
 O módulo de Backup fornece informações para:
 
@@ -12088,7 +12408,7 @@ O módulo de Backup fornece informações para:
 
 ---
 
-## Critérios para Certificação
+### Critérios para Certificação
 
 | Critério             | Obrigatório |
 | -------------------- | :---------: |
@@ -12103,7 +12423,7 @@ O módulo de Backup fornece informações para:
 
 ---
 
-## Benefícios
+### Benefícios
 
 A política de Backup e Recuperação proporciona:
 
@@ -12120,9 +12440,12 @@ A política de Backup e Recuperação proporciona:
 
 ## 6.23 Monitoramento e Observabilidade
 
-O Monitoramento e a Observabilidade são responsáveis por acompanhar continuamente a saúde, disponibilidade, desempenho e segurança do banco de dados PostgreSQL do WMA Travel ERP.
+O Monitoramento e a Observabilidade são responsáveis por acompanhar continuamente a saúde,
+disponibilidade, desempenho e segurança do banco de dados PostgreSQL do WMA Travel ERP.
 
-Esta camada integra o Framework DBA, permitindo detectar problemas de forma proativa, reduzir indisponibilidades e fornecer informações para auditorias, dashboards e certificação técnica.
+Esta camada integra o Framework DBA, permitindo detectar problemas de forma proativa,
+reduzir indisponibilidades e fornecer informações para auditorias,
+dashboards e certificação técnica.
 
 ---
 
@@ -12408,7 +12731,7 @@ São registrados:
 
 ---
 
-## Auditoria
+### Auditoria
 
 O Framework DBA audita:
 
@@ -12423,7 +12746,7 @@ O Framework DBA audita:
 
 ---
 
-## Boas Práticas
+### Boas Práticas
 
 O monitoramento deverá:
 
@@ -12436,7 +12759,7 @@ O monitoramento deverá:
 
 ---
 
-## Integração com o Framework DBA
+### Integração com o Framework DBA
 
 As informações alimentam:
 
@@ -12449,7 +12772,7 @@ As informações alimentam:
 
 ---
 
-## Critérios para Certificação
+### Critérios para Certificação
 
 | Critério               | Obrigatório |
 | ---------------------- | :---------: |
@@ -12462,7 +12785,7 @@ As informações alimentam:
 
 ---
 
-## Benefícios
+### Benefícios
 
 O monitoramento contínuo proporciona:
 
@@ -12480,7 +12803,9 @@ O monitoramento contínuo proporciona:
 
 ## 6.24 Segurança do Banco de Dados
 
-A Segurança do Banco de Dados define as políticas, mecanismos e controles utilizados para proteger as informações do WMA Travel ERP contra acessos não autorizados, perda de dados, vazamento de informações, alterações indevidas e ataques cibernéticos.
+A Segurança do Banco de Dados define as políticas, mecanismos e controles utilizados
+ para proteger as informações do WMA Travel ERP contra acessos não autorizados,
+ perda de dados, vazamento de informações, alterações indevidas e ataques cibernéticos.
 
 Esta camada integra o Framework DBA e faz parte do processo de Certificação Técnica do Banco de Dados.
 
@@ -12588,7 +12913,7 @@ Métodos suportados:
 
 ---
 
-## Criptografia
+### Criptografia
 
 São utilizadas criptografias para:
 
@@ -12692,7 +13017,7 @@ Eventos registrados:
 
 ---
 
-## Logs
+### Logs
 
 São registrados:
 
@@ -12739,7 +13064,7 @@ Todos os backups deverão:
 
 ---
 
-## Monitoramento
+### Monitoramento
 
 São monitorados:
 
@@ -12838,9 +13163,12 @@ A política de segurança proporciona:
 
 ## 6.25 Framework DBA e Certificação Técnica
 
-O Framework DBA é o conjunto de processos, políticas, auditorias, métricas, indicadores e ferramentas responsáveis pela administração, monitoramento, governança e certificação técnica do banco de dados do WMA Travel ERP.
+O Framework DBA é o conjunto de processos, políticas, auditorias, métricas,
+indicadores e ferramentas responsáveis pela administração, monitoramento,
+governança e certificação técnica do banco de dados do WMA Travel ERP.
 
-Este framework foi desenvolvido para garantir que o ambiente PostgreSQL permaneça seguro, íntegro, documentado, performático e aderente às melhores práticas internacionais.
+Este framework foi desenvolvido para garantir que o ambiente PostgreSQL permaneça seguro,
+íntegro, documentado, performático e aderente às melhores práticas internacionais.
 
 ---
 
@@ -12940,7 +13268,7 @@ O Health Check avalia continuamente:
 
 ---
 
-## Índice de Conformidade do Banco (ICB)
+### Índice de Conformidade do Banco (ICB)
 
 O ICB representa o nível de conformidade técnica do banco de dados.
 
@@ -13012,7 +13340,7 @@ Sempre que uma auditoria detectar inconsistências, o Framework gera automaticam
 
 ---
 
-## Dashboard Técnico
+### Dashboard Técnico
 
 O Dashboard apresenta:
 
@@ -13041,7 +13369,7 @@ O Dashboard Executivo apresenta indicadores consolidados para gestão:
 
 ---
 
-## Indicadores (KPIs)
+### Indicadores (KPIs)
 
 | Indicador                  | Meta   |
 | -------------------------- | ------ |
@@ -13147,7 +13475,8 @@ A utilização do Framework DBA proporciona:
 
 ## 6.26 Glossário Técnico
 
-Este glossário reúne os principais termos técnicos utilizados na documentação do WMA Travel ERP, proporcionando uma referência única para desenvolvedores, DBAs, analistas, arquitetos de software e auditores.
+Este glossário reúne os principais termos técnicos utilizados na documentação do WMA Travel ERP,
+proporcionando uma referência única para desenvolvedores, DBAs, analistas, arquitetos de software e auditores.
 
 ---
 
@@ -13174,7 +13503,7 @@ Conjunto de serviços utilizados para comunicação entre sistemas.
 
 ---
 
-## Banco de Dados
+### Banco de Dados
 
 Repositório estruturado responsável pelo armazenamento das informações do ERP.
 
@@ -13210,9 +13539,9 @@ Linha armazenada em uma tabela.
 
 ---
 
-# Objetos do Banco
+## Objetos do Banco
 
-## Primary Key (PK)
+### Primary Key (PK)
 
 Chave Primária.
 
@@ -13220,7 +13549,7 @@ Identifica unicamente um registro.
 
 ---
 
-## Foreign Key (FK)
+### Foreign Key (FK)
 
 Chave Estrangeira.
 
@@ -13228,63 +13557,63 @@ Relaciona duas tabelas.
 
 ---
 
-## Constraint
+### Constraint
 
 Regra utilizada para garantir integridade dos dados.
 
 ---
 
-## Sequence
+### Sequence
 
 Objeto responsável pela geração automática de identificadores.
 
 ---
 
-## Trigger
+### Trigger
 
 Procedimento executado automaticamente após determinado evento.
 
 ---
 
-## Function
+### Function
 
 Objeto que retorna um valor após execução.
 
 ---
 
-## Procedure
+### Procedure
 
 Objeto responsável por executar rotinas sem necessidade de retorno.
 
 ---
 
-## View
+### View
 
 Consulta armazenada utilizada como tabela virtual.
 
 ---
 
-## Materialized View
+### Materialized View
 
 Consulta persistida fisicamente.
 
 ---
 
-## Index
+### Index
 
 Estrutura utilizada para acelerar consultas.
 
 ---
 
-# Segurança
+## Segurança
 
-## Role
+### Role
 
 Conjunto de permissões atribuídas a usuários.
 
 ---
 
-## Permission
+### Permission
 
 Autorização concedida para execução de determinada operação.
 
@@ -13298,7 +13627,7 @@ Controle de acesso por registro.
 
 ---
 
-## LGPD
+### LGPD
 
 Lei Geral de Proteção de Dados.
 
@@ -13306,13 +13635,13 @@ Legislação brasileira responsável pela proteção dos dados pessoais.
 
 ---
 
-## Criptografia
+### Criptografia
 
 Processo de proteção das informações através de algoritmos matemáticos.
 
 ---
 
-## TLS
+### TLS
 
 Transport Layer Security.
 
@@ -13320,59 +13649,59 @@ Protocolo utilizado para comunicação segura.
 
 ---
 
-# Performance
+## Performance
 
-## VACUUM
+### VACUUM
 
 Processo responsável pela limpeza de registros mortos.
 
 ---
 
-## ANALYZE
+### ANALYZE
 
 Atualização das estatísticas utilizadas pelo otimizador do PostgreSQL.
 
 ---
 
-## EXPLAIN
+### EXPLAIN
 
 Comando utilizado para visualizar o plano de execução de uma consulta.
 
 ---
 
-## EXPLAIN ANALYZE
+### EXPLAIN ANALYZE
 
 Executa a consulta e apresenta o plano real de execução.
 
 ---
 
-## Cache Hit Ratio
+### Cache Hit Ratio
 
 Percentual de consultas atendidas diretamente pela memória.
 
 ---
 
-## Deadlock
+### Deadlock
 
 Situação onde duas ou mais transações aguardam recursos mutuamente.
 
 ---
 
-# Backup
+## Backup
 
-## Backup Full
+### Backup Full
 
 Cópia completa do banco de dados.
 
 ---
 
-## Backup Incremental
+### Backup Incremental
 
 Cópia apenas das alterações desde o último backup.
 
 ---
 
-## PITR
+### PITR
 
 Point-in-Time Recovery.
 
@@ -13380,7 +13709,7 @@ Recuperação do banco para um instante específico.
 
 ---
 
-## WAL
+### WAL
 
 Write Ahead Log.
 
@@ -13388,7 +13717,7 @@ Arquivo de transações utilizado para recuperação do banco.
 
 ---
 
-## Restore
+### Restore
 
 Processo de restauração de um backup.
 
@@ -13396,13 +13725,13 @@ Processo de restauração de um backup.
 
 ## Framework DBA
 
-## Health Check
+### Health Check
 
 Rotina automatizada responsável pela verificação da saúde do banco.
 
 ---
 
-## ICB
+### ICB
 
 Índice de Conformidade do Banco.
 
@@ -13410,19 +13739,19 @@ Indicador que mede o nível de aderência às boas práticas estabelecidas.
 
 ---
 
-## Score Técnico
+### Score Técnico
 
 Pontuação consolidada utilizada pelo processo de certificação.
 
 ---
 
-## Plano Automático de Correção
+### Plano Automático de Correção
 
 Documento gerado automaticamente contendo recomendações para correção de inconsistências.
 
 ---
 
-## Certificação Técnica
+### Certificação Técnica
 
 Processo que valida a conformidade estrutural, documental, operacional e de segurança do banco de dados.
 
@@ -13502,13 +13831,13 @@ Processo de extração, transformação e carga de dados.
 
 ## Turismo
 
-## Pacote Turístico
+### Pacote Turístico
 
 Conjunto de serviços comercializados de forma integrada.
 
 ---
 
-## Reserva
+### Reserva
 
 Registro de contratação de serviços turísticos.
 
@@ -13520,7 +13849,7 @@ Modalidade de turismo baseada em cicloturismo e experiências ao ar livre.
 
 ---
 
-## Convenções
+### Convenções
 
 Todos os termos técnicos utilizados no projeto deverão seguir as definições estabelecidas neste glossário.
 
@@ -13528,7 +13857,7 @@ Novos termos deverão ser incluídos neste capítulo sempre que forem incorporad
 
 ---
 
-## Benefícios
+### Benefícios
 
 A utilização deste glossário proporciona:
 
@@ -13543,13 +13872,14 @@ A utilização deste glossário proporciona:
 
 ## 6.27 Referências Técnicas
 
-Este capítulo reúne as principais referências técnicas, normas, padrões, documentações oficiais e boas práticas utilizadas durante a concepção, desenvolvimento e manutenção do WMA Travel ERP.
+Este capítulo reúne as principais referências técnicas, normas, padrões,
+documentações oficiais e boas práticas utilizadas durante a concepção, desenvolvimento e manutenção do WMA Travel ERP.
 
 Todas as tecnologias empregadas no projeto possuem documentação oficial amplamente reconhecida pela comunidade técnica.
 
 ---
 
-## Objetivos
+### Objetivos
 
 Este capítulo possui os seguintes objetivos:
 
@@ -13562,9 +13892,9 @@ Este capítulo possui os seguintes objetivos:
 
 ---
 
-## Banco de Dados
+### Banco de Dados
 
-## PostgreSQL
+### PostgreSQL
 
 Documentação oficial utilizada durante todo o desenvolvimento.
 
@@ -13607,7 +13937,7 @@ Aplicação:
 
 ---
 
-## Segurança
+### Segurança
 
 ## ISO/IEC 27001
 
@@ -13686,7 +14016,7 @@ Aplicações:
 
 ---
 
-## Desenvolvimento
+### Desenvolvimento
 
 ## Clean Architecture
 
@@ -13700,7 +14030,7 @@ Aplicações:
 
 ---
 
-## Clean Code
+### Clean Code
 
 Conjunto de boas práticas para desenvolvimento de software.
 
@@ -13712,7 +14042,7 @@ Robert C. Martin
 
 ---
 
-## SOLID
+### SOLID
 
 Princípios de orientação a objetos.
 
@@ -13768,7 +14098,7 @@ https://keepachangelog.com
 
 ---
 
-## Git
+### Git
 
 Documentação oficial do Git.
 
@@ -13787,7 +14117,7 @@ https://git-scm.com
 
 ---
 
-## GitHub
+### GitHub
 
 Aplicações:
 
@@ -13804,7 +14134,7 @@ https://docs.github.com
 
 ---
 
-## Python
+### Python
 
 Documentação oficial da linguagem.
 
@@ -13822,7 +14152,7 @@ https://docs.python.org
 
 ---
 
-## PEP
+### PEP
 
 Python Enhancement Proposals.
 
@@ -13834,7 +14164,7 @@ Aplicações:
 
 ---
 
-## FastAPI
+### FastAPI
 
 Framework utilizado na API do ERP.
 
@@ -13852,7 +14182,7 @@ https://fastapi.tiangolo.com
 
 ---
 
-## SQLAlchemy
+### SQLAlchemy
 
 ORM oficial do projeto.
 
@@ -13870,7 +14200,7 @@ https://sqlalchemy.org
 
 ---
 
-## Alembic
+### Alembic
 
 Ferramenta para migração de banco de dados.
 
@@ -13881,7 +14211,7 @@ Aplicações:
 
 ---
 
-## React
+### React
 
 Biblioteca utilizada no Front-end.
 
@@ -13893,7 +14223,7 @@ https://react.dev
 
 ---
 
-## TypeScript
+### TypeScript
 
 Linguagem utilizada no Front-end.
 
@@ -13905,7 +14235,7 @@ https://www.typescriptlang.org
 
 ---
 
-## Flutter
+### Flutter
 
 Framework Mobile.
 
@@ -13922,7 +14252,7 @@ https://flutter.dev
 
 ---
 
-## Microsoft Power BI
+### Microsoft Power BI
 
 Ferramenta de Business Intelligence.
 
@@ -13940,7 +14270,7 @@ https://powerbi.microsoft.com
 
 ---
 
-## LGPD
+### LGPD
 
 Lei nº 13.709/2018.
 
@@ -13953,7 +14283,7 @@ Aplicações:
 
 ---
 
-## Convenções Utilizadas
+### Convenções Utilizadas
 
 O projeto adota os seguintes padrões:
 
@@ -13967,7 +14297,7 @@ O projeto adota os seguintes padrões:
 
 ---
 
-## Compatibilidade
+### Compatibilidade
 
 O projeto é compatível com:
 
@@ -13982,7 +14312,7 @@ O projeto é compatível com:
 
 ---
 
-## Atualização das Referências
+### Atualização das Referências
 
 Todas as referências deverão ser revisadas periodicamente.
 
@@ -13998,7 +14328,7 @@ Periodicidade recomendada:
 
 ---
 
-## Benefícios
+### Benefícios
 
 A utilização destas referências proporciona:
 
@@ -14013,13 +14343,14 @@ A utilização destas referências proporciona:
 
 ## Apêndice A — Convenções de Nomenclatura
 
-Este apêndice estabelece as convenções oficiais de nomenclatura adotadas no WMA Travel ERP para bancos de dados, objetos PostgreSQL, APIs, documentação e código-fonte.
+Este apêndice estabelece as convenções oficiais de nomenclatura adotadas no WMA Travel
+ERP para bancos de dados, objetos PostgreSQL, APIs, documentação e código-fonte.
 
 A padronização garante consistência, legibilidade, facilidade de manutenção e integração entre todos os módulos do sistema.
 
 ---
 
-## Objetivos
+### Objetivos
 
 As convenções possuem os seguintes objetivos:
 
@@ -14168,7 +14499,7 @@ id_usuario
 
 ### Constraints
 
-## Primary Key
+### Primary Key
 
 Formato
 
@@ -14184,7 +14515,7 @@ pk_cliente
 
 ---
 
-## Foreign Key
+### Foreign Key
 
 Formato
 
@@ -14204,7 +14535,7 @@ fk_usuario_perfil
 
 ---
 
-## Unique
+### Unique
 
 Formato
 
@@ -14220,7 +14551,7 @@ uk_cliente_cpf
 
 ---
 
-## Check
+### Check
 
 Formato
 
