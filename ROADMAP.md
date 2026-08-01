@@ -1,16 +1,34 @@
 # Roadmap do WMA Travel ERP
 
-**Versão do Documento:** 1.0.0  
-**Última Atualização:** 29/07/2026  
-**Status:** Em Desenvolvimento  
+**Versão do Documento:** 1.0.0
+**Última Atualização:** 29/07/2026
+**Status:** Em Desenvolvimento
 
 ---
 
 ## Visão Geral
 
-O **WMA Travel ERP** é uma plataforma completa de gestão empresarial voltada para agências de turismo, operadoras, receptivos, cicloturismo e empresas de serviços.
+O **WMA Travel ERP** é uma plataforma completa de gestão empresarial voltada para:
 
-O objetivo do projeto é construir um ERP moderno, modular, escalável e baseado em tecnologias Open Source, seguindo padrões profissionais de desenvolvimento, governança de dados e qualidade empresarial.
+- Agências de turismo;
+- Operadoras de turismo;
+- Receptivos turísticos;
+- Empresas de serviços;
+- Operações de cicloturismo.
+
+O projeto tem como objetivo desenvolver um **ERP moderno, modular, escalável e baseado em tecnologias Open Source**,
+seguindo padrões profissionais de desenvolvimento de software, governança de dados, segurança da informação e
+qualidade empresarial.
+
+A plataforma foi projetada para integrar processos:
+
+- Administrativos;
+- Financeiros;
+- Comerciais;
+- Operacionais;
+- Gerenciais.
+
+O sistema proporciona maior controle, rastreabilidade das informações e suporte à tomada de decisões estratégicas.
 
 ---
 
