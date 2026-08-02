@@ -6996,7 +6996,8 @@ As Procedures podem utilizar:
 
 ## 6.12 Functions
 
-As Functions do WMA Travel ERP implementam regras reutilizáveis de negócio, cálculos, validações e operações auxiliares executadas diretamente pelo PostgreSQL.
+As Functions do WMA Travel ERP implementam regras reutilizáveis de negócio,
+cálculos, validações e operações auxiliares executadas diretamente pelo PostgreSQL.
 
 São utilizadas por:
 
@@ -8206,7 +8207,8 @@ A utilização dos Triggers proporciona:
 
 ## 6.14 Índices (Indexes)
 
-Os Índices do WMA Travel ERP são responsáveis por otimizar o acesso aos dados, reduzir o tempo de resposta das consultas e garantir desempenho adequado para operações transacionais e analíticas.
+Os Índices do WMA Travel ERP são responsáveis por otimizar o acesso aos dados,
+reduzir o tempo de resposta das consultas e garantir desempenho adequado para operações transacionais e analíticas.
 
 A estratégia de indexação foi projetada considerando um ambiente corporativo com crescimento contínuo do volume de dados.
 
@@ -13160,7 +13162,6 @@ A política de segurança proporciona:
 
 ---
 
-
 ## 6.25 Framework DBA e Certificação Técnica
 
 O Framework DBA é o conjunto de processos, políticas, auditorias, métricas,
@@ -14567,7 +14568,7 @@ ck_fluxo_valor
 
 ---
 
-## Índices
+### Índices
 
 Formato
 
@@ -14713,7 +14714,7 @@ dm_<nome>
 
 ---
 
-# APIs
+## APIs
 
 Formato
 
@@ -14893,7 +14894,7 @@ ci:
 
 ---
 
-## Versionamento
+### Versionamento
 
 Formato
 
@@ -14909,7 +14910,7 @@ Exemplo
 
 ---
 
-## Benefícios
+### Benefícios
 
 A adoção destas convenções proporciona:
 
@@ -14925,13 +14926,15 @@ A adoção destas convenções proporciona:
 
 ## Apêndice B — Checklist de Conformidade
 
-Este checklist estabelece os critérios oficiais utilizados pelo Framework DBA para avaliar a conformidade técnica do banco de dados do WMA Travel ERP.
+Este checklist estabelece os critérios oficiais utilizados pelo Framework DBA
+para avaliar a conformidade técnica do banco de dados do WMA Travel ERP.
 
-Cada item é verificado automaticamente durante as auditorias e contribui para o cálculo do Índice de Conformidade do Banco (ICB) e da Certificação Técnica.
+Cada item é verificado automaticamente durante as auditorias e
+contribui para o cálculo do Índice de Conformidade do Banco (ICB) e da Certificação Técnica.
 
 ---
 
-## Objetivos
+### Objetivos
 
 O checklist possui os seguintes objetivos:
 
@@ -15192,7 +15195,7 @@ Para emissão da Certificação Técnica deverão ser atendidos os seguintes cri
 
 ---
 
-## Benefícios
+### Benefícios
 
 A utilização deste checklist proporciona:
 
@@ -15210,11 +15213,12 @@ A utilização deste checklist proporciona:
 
 Este apêndice apresenta o inventário consolidado da estrutura do banco de dados do WMA Travel ERP.
 
-As informações são utilizadas pelo Framework DBA para monitoramento, auditoria, planejamento de capacidade e certificação técnica.
+As informações são utilizadas pelo Framework DBA para monitoramento,
+auditoria, planejamento de capacidade e certificação técnica.
 
 ---
 
-## Objetivos
+### Objetivos
 
 Este apêndice possui os seguintes objetivos:
 
@@ -15227,7 +15231,7 @@ Este apêndice possui os seguintes objetivos:
 
 ---
 
-## Visão Geral
+### Visão Geral
 
 O banco de dados do WMA Travel ERP foi projetado utilizando arquitetura corporativa modular.
 
@@ -15267,7 +15271,7 @@ Serão monitorados:
 
 ---
 
-## Exemplo
+### Exemplo
 
 | Módulo         | Tabelas |
 | -------------- | ------: |
@@ -15306,7 +15310,7 @@ Itens monitorados:
 
 ---
 
-## Indicadores
+### Indicadores
 
 | Indicador          |              Valor |
 | ------------------ | -----------------: |
@@ -15328,7 +15332,7 @@ São monitoradas:
 
 ---
 
-## Exemplo
+### Exemplo
 
 | Constraint  | Quantidade |
 | ----------- | ---------: |
@@ -15455,7 +15459,7 @@ São registrados:
 
 ---
 
-## Indicadores Técnicos
+### Indicadores Técnicos
 
 | Indicador             | Meta    |
 | --------------------- | ------- |
@@ -15468,7 +15472,7 @@ São registrados:
 
 ---
 
-## Índice de Conformidade do Banco (ICB)
+### Índice de Conformidade do Banco (ICB)
 
 O Framework DBA consolida automaticamente o ICB.
 
@@ -15529,7 +15533,7 @@ As estatísticas são obtidas a partir de:
 
 ---
 
-## Benefícios
+### Benefícios
 
 A consolidação estatística proporciona:
 
@@ -15546,9 +15550,11 @@ A consolidação estatística proporciona:
 
 ## Apêndice D — Matriz de Rastreabilidade
 
-A Matriz de Rastreabilidade estabelece o relacionamento entre os requisitos funcionais e não funcionais do WMA Travel ERP e os componentes técnicos responsáveis por sua implementação.
+A Matriz de Rastreabilidade estabelece o relacionamento entre os requisitos funcionais
+e não funcionais do WMA Travel ERP e os componentes técnicos responsáveis por sua implementação.
 
-Seu objetivo é garantir rastreabilidade completa durante todo o ciclo de vida do sistema, desde a especificação até a implantação, manutenção e auditoria.
+Seu objetivo é garantir rastreabilidade completa durante todo o ciclo de vida do sistema,
+desde a especificação até a implantação, manutenção e auditoria.
 
 ---
 
@@ -15638,7 +15644,7 @@ Cada tabela deverá possuir vínculo com:
 
 ---
 
-## Exemplo
+### Exemplo
 
 | Tabela      | Módulo         | Processo           |
 | ----------- | -------------- | ------------------ |
@@ -15661,7 +15667,7 @@ Cada endpoint deverá possuir:
 
 ---
 
-## Exemplo
+### Exemplo
 
 | Endpoint    | Método | Módulo         |
 | ----------- | ------ | -------------- |
@@ -15683,7 +15689,7 @@ Todas as auditorias deverão indicar:
 
 ---
 
-## Integração com o Framework DBA
+### Integração com o Framework DBA
 
 A Matriz de Rastreabilidade integra-se aos seguintes componentes:
 
@@ -15711,7 +15717,7 @@ Toda alteração deverá atualizar:
 
 ---
 
-## Benefícios
+### Benefícios
 
 A utilização da Matriz de Rastreabilidade proporciona:
 
@@ -15727,13 +15733,14 @@ A utilização da Matriz de Rastreabilidade proporciona:
 
 ## Apêndice E — Estrutura Completa do Framework DBA
 
-O Framework DBA é o componente responsável pela administração, padronização, auditoria, monitoramento, governança e certificação técnica do banco de dados PostgreSQL do WMA Travel ERP.
+O Framework DBA é o componente responsável pela administração,
+padronização, auditoria, monitoramento, governança e certificação técnica do banco de dados PostgreSQL do WMA Travel ERP.
 
 Sua arquitetura foi concebida para permitir evolução contínua, automação das verificações e manutenção simplificada.
 
 ---
 
-## Objetivos
+### Objetivos
 
 O Framework DBA possui os seguintes objetivos:
 
@@ -15866,7 +15873,7 @@ Responsável por validar:
 
 ---
 
-## Performance
+### Performance
 
 Executa auditorias relacionadas a:
 
@@ -15880,7 +15887,7 @@ Executa auditorias relacionadas a:
 
 ---
 
-## Segurança
+### Segurança
 
 Audita:
 
@@ -15894,7 +15901,7 @@ Audita:
 
 ---
 
-## Backup
+### Backup
 
 Valida:
 
@@ -15907,7 +15914,7 @@ Valida:
 
 ---
 
-## Monitoramento
+### Monitoramento
 
 Executa:
 
@@ -15919,7 +15926,7 @@ Executa:
 
 ---
 
-## Governança
+### Governança
 
 Valida:
 
@@ -15931,7 +15938,7 @@ Valida:
 
 ---
 
-## Certificação
+### Certificação
 
 Responsável por:
 
@@ -15942,7 +15949,7 @@ Responsável por:
 
 ---
 
-## Dashboard Técnico
+### Dashboard Técnico
 
 Apresenta:
 
@@ -15955,7 +15962,7 @@ Apresenta:
 
 ---
 
-## Dashboard Executivo
+### Dashboard Executivo
 
 Apresenta:
 
@@ -16175,7 +16182,7 @@ Certificação
 
 ---
 
-## Benefícios
+### Benefícios
 
 A arquitetura do Framework DBA proporciona:
 
@@ -16196,7 +16203,9 @@ A arquitetura do Framework DBA proporciona:
 
 O Framework DBA representa a base de governança do banco de dados do WMA Travel ERP.
 
-Sua utilização garante conformidade técnica, rastreabilidade, monitoramento contínuo e certificação do ambiente PostgreSQL, apoiando a evolução sustentável do sistema e assegurando elevados padrões de qualidade e confiabilidade.
+Sua utilização garante conformidade técnica, rastreabilidade, monitoramento contínuo
+e certificação do ambiente PostgreSQL,
+apoiando a evolução sustentável do sistema e assegurando elevados padrões de qualidade e confiabilidade.
 
 ---
 
