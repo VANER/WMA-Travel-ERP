@@ -21,7 +21,8 @@
 
 ## 1. Visão Geral
 
-A API do **WMA Travel ERP** disponibiliza serviços REST para integração entre os módulos internos do sistema e aplicações externas.
+A API do **WMA Travel ERP** disponibiliza serviços REST
+para integração entre os módulos internos do sistema e aplicações externas.
 
 A arquitetura foi projetada para suportar:
 
@@ -105,16 +106,16 @@ A API segue os seguintes padrões:
 
 ## 5. Tecnologias
 
-| Tecnologia   | Utilização     |
+| Tecnologia | Utilização |
 | ------------ | -------------- |
-| Python 3.12+ | Linguagem      |
-| FastAPI      | Framework REST |
-| SQLAlchemy   | ORM            |
-| Alembic      | Migrações      |
-| PostgreSQL   | Banco de Dados |
-| Pydantic     | Validação      |
-| Uvicorn      | Servidor ASGI  |
-| JWT          | Autenticação   |
+| Python 3.12+ | Linguagem |
+| FastAPI | Framework REST |
+| SQLAlchemy | ORM |
+| Alembic | Migrações |
+| PostgreSQL | Banco de Dados |
+| Pydantic | Validação |
+| Uvicorn | Servidor ASGI |
+| JWT | Autenticação |
 
 ---
 
@@ -184,13 +185,13 @@ As URLs deverão:
 
 ## 8. Métodos HTTP
 
-| Método | Finalidade           |
+| Método | Finalidad |
 | ------ | -------------------- |
-| GET    | Consulta             |
-| POST   | Inclusão             |
-| PUT    | Atualização completa |
-| PATCH  | Atualização parcial  |
-| DELETE | Exclusão lógica      |
+| GET | Consulta |
+| POST | Inclusão |
+| PUT | Atualização completa |
+| PATCH | Atualização parcial |
+| DELETE | Exclusão lógica |
 
 ---
 
@@ -507,7 +508,7 @@ PUT /api/v1/auth/change-password
 Os perfis controlam o acesso aos recursos do ERP.
 
 | Perfil | Descrição |
-|---------|-----------|
+| --------- | ----------- |
 | Administrador | Acesso total |
 | Gestor | Gestão da empresa |
 | Financeiro | Operações financeiras |
@@ -542,7 +543,7 @@ Exemplos:
 ## 21. Matriz de Permissões
 
 | Recurso | GET | POST | PUT | DELETE |
-|----------|:---:|:----:|:---:|:------:|
+| ---------- | --- | ---- | --- | ------ |
 | Clientes | ✔ | ✔ | ✔ | ✔ |
 | Empresas | ✔ | ✔ | ✔ | ✔ |
 | Financeiro | ✔ | ✔ | ✔ | ✔ |
@@ -554,7 +555,7 @@ Exemplos:
 ## 22. Expiração dos Tokens
 
 | Token | Tempo |
-|--------|------:|
+| -------- | ------ |
 | Access Token | 1 hora |
 | Refresh Token | 30 dias |
 
@@ -594,7 +595,7 @@ A API deverá seguir as seguintes recomendações:
 ## 25. Códigos HTTP Utilizados
 
 | Código | Significado |
-|---------|-------------|
+| --------- | ------------- |
 | 200 | OK |
 | 201 | Criado |
 | 204 | Sem conteúdo |
@@ -616,7 +617,7 @@ Todos os endpoints que retornam coleções deverão suportar paginação.
 ### Parâmetros
 
 | Parâmetro | Tipo | Obrigatório | Descrição |
-|-----------|------|:-----------:|-----------|
+| ----------- | ------ | ----------- | ----------- |
 | page | Integer | Não | Número da página |
 | page_size | Integer | Não | Quantidade de registros |
 | sort | String | Não | Campo para ordenação |
@@ -799,7 +800,7 @@ Para proteger a infraestrutura, a API implementará limitação de requisições
 Exemplo de política:
 
 | Endpoint | Limite |
-|-----------|--------:|
+| ----------- | -------- |
 | Login | 5 requisições por minuto |
 | Consultas | 300 requisições por minuto |
 | Demais operações | Configurável |
@@ -953,7 +954,7 @@ Base URL
 ```
 
 | Método | Endpoint | Descrição |
-|---------|----------|-----------|
+| --------- | ---------- | ----------- |
 | POST | /login | Realizar login |
 | POST | /logout | Encerrar sessão |
 | POST | /refresh | Renovar token |
@@ -972,7 +973,7 @@ Base URL
 ```
 
 | Método | Endpoint | Descrição |
-|---------|----------|-----------|
+| --------- | ---------- | ----------- |
 | GET | / | Listar empresas |
 | GET | /{id} | Consultar empresa |
 | POST | / | Cadastrar empresa |
@@ -991,7 +992,7 @@ Base URL
 ```
 
 | Método | Endpoint | Descrição |
-|---------|----------|-----------|
+| --------- | ---------- | ----------- |
 | GET | / | Listar usuários |
 | GET | /{id} | Consultar usuário |
 | POST | / | Criar usuário |
@@ -1046,7 +1047,7 @@ Base URL
 Principais operações:
 
 | Método | Descrição |
-|---------|-----------|
+| --------- | ----------- |
 | GET | Listagem |
 | GET | Consulta por ID |
 | POST | Cadastro |
@@ -1383,7 +1384,7 @@ Base URL
 Endpoints:
 
 | Endpoint | Descrição |
-|----------|-----------|
+| ---------- | ----------- |
 | /health | Status geral |
 | /database | Banco de Dados |
 | /api | API |
@@ -1500,7 +1501,7 @@ Resposta
 ## 68. Códigos de Erro da Aplicação
 
 | Código | Descrição |
-|---------|-----------|
+| --------- | ----------- |
 | AUTH001 | Credenciais inválidas |
 | AUTH002 | Token expirado |
 | AUTH003 | Token inválido |
@@ -1716,7 +1717,7 @@ Documentações utilizadas como referência:
 ## 80. Controle do Documento
 
 | Campo | Valor |
-|--------|--------|
+| -------- | -------- |
 | Documento | API.md |
 | Projeto | WMA Travel ERP |
 | Tipo | Documentação Técnica |

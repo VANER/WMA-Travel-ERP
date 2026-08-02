@@ -92,6 +92,7 @@ WMA_TRAVEL_ERP/
 │   ├── PROJECT_DOCUMENTATION.md
 │   ├── ARCHITECTURE.md
 │   ├── DATABASE_GUIDE.md
+│   ├── DATABASE_STANDARDS.md
 │   ├── DATA_DICTIONARY.md
 │   ├── API.md
 │   ├── DEPLOYMENT.md
@@ -105,31 +106,32 @@ WMA_TRAVEL_ERP/
 
 ## 5. Documentação Institucional
 
-| Documento          | Finalidade               |
+| Documento | Finalidade |
 | ------------------ | ------------------------ |
-| README.md          | Visão geral do projeto   |
-| CHANGELOG.md       | Histórico de versões     |
-| ROADMAP.md         | Planejamento de evolução |
-| CONTRIBUTING.md    | Processo de contribuição |
-| CODE_OF_CONDUCT.md | Código de conduta        |
-| LICENSE            | Licenciamento            |
-| VERSION            | Versão oficial           |
+| README.md | Visão geral do projeto |
+| CHANGELOG.md | Histórico de versões |
+| ROADMAP.md | Planejamento de evolução |
+| CONTRIBUTING.md | Processo de contribuição |
+| CODE_OF_CONDUCT.md | Código de conduta |
+| LICENSE | Licenciamento |
+| VERSION | Versão oficial |
 
 ---
 
 ## 6. Documentação Técnica
 
-| Documento          | Finalidade                 |
-| ------------------ | -------------------------- |
-| ARCHITECTURE.md    | Arquitetura corporativa    |
-| DATABASE_GUIDE.md  | Guia do banco de dados     |
-| DATA_DICTIONARY.md | Dicionário de dados        |
-| API.md             | APIs REST                  |
-| DEPLOYMENT.md      | Processo de implantação    |
-| GOVERNANCE.md      | Governança do projeto      |
-| SECURITY.md        | Política de segurança      |
-| STYLE_GUIDE.md     | Padrões de desenvolvimento |
-| DBA_FRAMEWORK.md   | Framework DBA              |
+| Documento | Finalidade |
+| ---------------------- | -------------------------- |
+| ARCHITECTURE.md | Arquitetura corporativa |
+| DATABASE_GUIDE.md | Guia do banco de dados |
+| DATABASE_STANDARDS.md | Padrões técnicos do banco |
+| DATA_DICTIONARY.md | Dicionário de dados |
+| API.md | APIs REST |
+| DEPLOYMENT.md | Processo de implantação |
+| GOVERNANCE.md | Governança do projeto |
+| SECURITY.md | Política de segurança |
+| STYLE_GUIDE.md | Padrões de desenvolvimento |
+| DBA_FRAMEWORK.md | Framework DBA |
 
 ---
 
@@ -138,8 +140,9 @@ WMA_TRAVEL_ERP/
 A documentação oficial do banco está organizada na seguinte sequência:
 
 1. DATABASE_GUIDE.md
-2. DATA_DICTIONARY.md
-3. DBA_FRAMEWORK.md
+2. DATABASE_STANDARDS.md
+3. DATA_DICTIONARY.md
+4. DBA_FRAMEWORK.md
 
 Essa organização permite compreender:
 
@@ -270,6 +273,10 @@ DATABASE GUIDE
 
 ↓
 
+DATABASE STANDARDS
+
+↓
+
 DATA DICTIONARY
 
 ↓
@@ -306,28 +313,29 @@ Para novos colaboradores recomenda-se a seguinte sequência:
 1. README.md
 2. ARCHITECTURE.md
 3. DATABASE_GUIDE.md
-4. DATA_DICTIONARY.md
-5. DBA_FRAMEWORK.md
-6. API.md
-7. DEPLOYMENT.md
-8. GOVERNANCE.md
-9. SECURITY.md
-10. ROADMAP.md
+4. DATABASE_STANDARDS.md
+5. DATA_DICTIONARY.md
+6. DBA_FRAMEWORK.md
+7. API.md
+8. DEPLOYMENT.md
+9. GOVERNANCE.md
+10. SECURITY.md
+11. ROADMAP.md
 
 ---
 
 ## 15. Controle do Documento
 
-| Campo              | Valor                         |
+| Campo | Valor |
 | ------------------ | ----------------------------- |
-| Documento          | PROJECT_DOCUMENTATION.md      |
-| Projeto            | WMA Travel ERP                |
-| Tipo               | Manual Mestre da Documentação |
-| Versão             | 1.0.0                         |
-| Status             | Oficial                       |
-| Responsável        | WMA Travel Ltda.              |
-| Compatibilidade    | Markdownlint                  |
-| Última atualização | 2026                          |
+| Documento | PROJECT_DOCUMENTATION.md |
+| Projeto | WMA Travel ERP |
+| Tipo | Manual Mestre da Documentação |
+| Versão | 1.0.0 |
+| Status | Oficial |
+| Responsável | WMA Travel Ltda. |
+| Compatibilidade | Markdownlint |
+| Última atualização | 2026 |
 
 ---
 

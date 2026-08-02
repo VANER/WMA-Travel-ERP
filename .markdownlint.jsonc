@@ -2,54 +2,81 @@
   // ==========================================================
   // WMA Travel ERP
   // Configuração Corporativa do Markdownlint
-  // Versão: 1.0.0
+  // Compatível com:
+  // - markdownlint (David Anson)
+  // - markdownlint-cli
+  // - GitHub Flavored Markdown
   // ==========================================================
 
-  // Apenas um título H1 por documento
-  "MD025": true,
+  // ----------------------------------------------------------
+  // Títulos
+  // ----------------------------------------------------------
 
-  // Não permitir títulos duplicados no mesmo nível
+  "MD001": true,
+  "MD002": false,
+
+  "MD003": {
+    "style": "atx"
+  },
+
+  "MD018": true,
+  "MD019": true,
+  "MD022": true,
+  "MD023": true,
+
   "MD024": {
     "siblings_only": true
   },
 
-  // Permitir apenas uma linha em branco consecutiva
-  "MD012": {
-    "maximum": 1
-  },
+  "MD025": true,
 
-  // Exigir linguagem em blocos de código
-  "MD040": true,
+  // Permite títulos terminados com ":" e similares
+  "MD026": false,
 
-  // Arquivos devem terminar com uma única quebra de linha
-  "MD047": true,
+  // ----------------------------------------------------------
+  // Listas
+  // ----------------------------------------------------------
 
-  // Não permitir URLs sem formatação
-  "MD034": true,
-
-  // Marcador de listas com hífen (-)
   "MD004": {
     "style": "dash"
   },
 
-  // Recuo de listas
+  "MD005": true,
+  "MD006": true,
+
   "MD007": {
     "indent": 2
   },
 
-  // Linhas em branco ao redor dos títulos
-  "MD022": true,
+  "MD029": {
+    "style": "ordered"
+  },
 
-  // Linhas em branco ao redor das listas
+  "MD030": true,
   "MD032": true,
 
-  // Tabelas com pipes nas extremidades
-  "MD055": true,
+  // ----------------------------------------------------------
+  // Espaçamento
+  // ----------------------------------------------------------
 
-  // Espaço interno em tabelas
-  "MD056": true,
+  "MD009": true,
 
-  // Limite de tamanho das linhas
+  "MD010": {
+    "code_blocks": false
+  },
+
+  "MD012": {
+    "maximum": 1
+  },
+
+  "MD027": true,
+  "MD028": true,
+  "MD031": true,
+
+  // ----------------------------------------------------------
+  // Comprimento das linhas
+  // ----------------------------------------------------------
+
   "MD013": {
     "line_length": 120,
     "heading_line_length": 120,
@@ -59,32 +86,65 @@
     "strict": false
   },
 
-  // Permitir HTML quando necessário
+  // ----------------------------------------------------------
+  // HTML
+  // ----------------------------------------------------------
+
   "MD033": false,
 
-  // Permitir texto em negrito como subtítulo
-  "MD036": false,
+  // ----------------------------------------------------------
+  // Links
+  // ----------------------------------------------------------
 
-  // Permitir numeração repetida em listas ordenadas
-  "MD029": {
-    "style": "ordered"
+  "MD034": true,
+  "MD039": true,
+
+  "MD051": true,
+  "MD052": true,
+  "MD053": true,
+  "MD054": true,
+  "MD059": true,
+
+  // ----------------------------------------------------------
+  // Blocos de código
+  // ----------------------------------------------------------
+
+  "MD036": false,
+  "MD037": true,
+  "MD038": true,
+  "MD040": true,
+
+  "MD046": {
+    "style": "fenced"
   },
 
-  // Permitir números duplicados em cabeçalhos
-  "MD001": true,
+  "MD048": {
+    "style": "backtick"
+  },
 
-  // Exigir um espaço após o símbolo #
-  "MD018": true,
+  // ----------------------------------------------------------
+  // Arquivos
+  // ----------------------------------------------------------
 
-  // Não permitir múltiplos espaços após #
-  "MD019": true,
+  "MD041": false,
+  "MD042": false,
+  "MD045": true,
+  "MD047": true,
 
-  // Exigir cabeçalhos cercados por linhas em branco
-  "MD022": true,
+  // ----------------------------------------------------------
+  // Tabelas
+  // ----------------------------------------------------------
 
-  // Exigir linhas em branco antes e depois de blocos de código
-  "MD031": true,
+  "MD055": {
+    "style": "leading_and_trailing"
+  },
 
-  // Exigir linhas em branco antes e depois de citações
-  "MD028": true
+  "MD056": true,
+
+  "MD058": true,
+
+  "MD060": {
+    "style": "compact",
+    "aligned_delimiter": false
+  }
 }

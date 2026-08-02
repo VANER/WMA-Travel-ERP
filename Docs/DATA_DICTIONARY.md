@@ -1151,7 +1151,7 @@
   - [Unique](#unique)
   - [Check](#check)
   - [Default](#default)
-  - [PRIMARY KEY](#primary-key-2)
+    - [PRIMARY KEY](#primary-key-2)
   - [FOREIGN KEY](#foreign-key-1)
   - [UNIQUE](#unique-1)
   - [CHECK](#check-1)
@@ -1404,8 +1404,8 @@
   - [Ferramentas Utilizadas](#ferramentas-utilizadas)
     - [Boas Práticas](#boas-práticas-9)
   - [Integração com o Framework DBA](#integração-com-o-framework-dba)
-  - [Critérios para Certificação](#critérios-para-certificação-5)
-  - [Benefícios](#benefícios-9)
+    - [Critérios para Certificação](#critérios-para-certificação-5)
+    - [Benefícios](#benefícios-9)
   - [6.22 Backup, Recuperação e Continuidade de Negócios](#622-backup-recuperação-e-continuidade-de-negócios)
     - [Objetivos](#objetivos-21)
   - [Estratégia de Backup](#estratégia-de-backup)
@@ -1470,18 +1470,18 @@
   - [Roles Corporativas](#roles-corporativas)
   - [Política de Permissões](#política-de-permissões)
   - [Autenticação](#autenticação)
-  - [Criptografia](#criptografia-1)
+    - [Criptografia](#criptografia-1)
   - [Conexões Seguras](#conexões-seguras)
   - [Dados Sensíveis](#dados-sensíveis)
   - [Mascaramento de Dados](#mascaramento-de-dados)
   - [LGPD](#lgpd)
   - [Row Level Security (RLS)](#row-level-security-rls)
     - [Auditoria](#auditoria-6)
-  - [Logs](#logs-1)
+    - [Logs](#logs-1)
   - [Políticas de Senha](#políticas-de-senha)
   - [Bloqueio de Conta](#bloqueio-de-conta)
   - [Backup Seguro](#backup-seguro)
-  - [Monitoramento](#monitoramento-1)
+    - [Monitoramento](#monitoramento-1)
   - [Auditoria Automática](#auditoria-automática-1)
   - [Indicadores de Segurança](#indicadores-de-segurança)
   - [Ferramentas](#ferramentas)
@@ -1493,68 +1493,68 @@
   - [Componentes do Framework](#componentes-do-framework)
   - [Arquitetura do Framework](#arquitetura-do-framework)
   - [Auditorias Executadas](#auditorias-executadas)
-  - [Health Check](#health-check-1)
-  - [Índice de Conformidade do Banco (ICB)](#índice-de-conformidade-do-banco-icb-1)
+    - [Health Check](#health-check-1)
+    - [Índice de Conformidade do Banco (ICB)](#índice-de-conformidade-do-banco-icb-1)
   - [Critérios Avaliados](#critérios-avaliados)
   - [Pesos](#pesos)
   - [Plano Automático de Correção](#plano-automático-de-correção)
   - [Classificação das Não Conformidades](#classificação-das-não-conformidades)
-  - [Dashboard Técnico](#dashboard-técnico-1)
+    - [Dashboard Técnico](#dashboard-técnico-1)
   - [Dashboard Executivo](#dashboard-executivo)
-  - [Indicadores (KPIs)](#indicadores-kpis-1)
+    - [Indicadores (KPIs)](#indicadores-kpis-1)
   - [Frequência das Auditorias](#frequência-das-auditorias)
   - [Certificação Técnica](#certificação-técnica)
   - [Níveis de Maturidade](#níveis-de-maturidade)
   - [Integração](#integração)
-  - [Benefícios](#benefícios-13)
+    - [Benefícios](#benefícios-13)
   - [Critérios para Certificação Final](#critérios-para-certificação-final)
   - [6.26 Glossário Técnico](#626-glossário-técnico)
     - [Objetivos](#objetivos-25)
   - [Termos Gerais](#termos-gerais)
   - [API](#api)
-  - [Banco de Dados](#banco-de-dados-2)
+    - [Banco de Dados](#banco-de-dados-2)
   - [PostgreSQL](#postgresql)
   - [Schema](#schema)
   - [Tabela](#tabela)
   - [Coluna](#coluna)
   - [Registro](#registro)
-- [Objetos do Banco](#objetos-do-banco)
-  - [Primary Key (PK)](#primary-key-pk)
-  - [Foreign Key (FK)](#foreign-key-fk)
-  - [Constraint](#constraint)
-  - [Sequence](#sequence)
-  - [Trigger](#trigger)
-  - [Function](#function)
-  - [Procedure](#procedure)
-  - [View](#view)
-  - [Materialized View](#materialized-view)
-  - [Index](#index)
-- [Segurança](#segurança)
-  - [Role](#role)
-  - [Permission](#permission)
+  - [Objetos do Banco](#objetos-do-banco)
+    - [Primary Key (PK)](#primary-key-pk)
+    - [Foreign Key (FK)](#foreign-key-fk)
+    - [Constraint](#constraint)
+    - [Sequence](#sequence)
+    - [Trigger](#trigger)
+    - [Function](#function)
+    - [Procedure](#procedure)
+    - [View](#view)
+    - [Materialized View](#materialized-view)
+    - [Index](#index)
+  - [Segurança](#segurança)
+    - [Role](#role)
+    - [Permission](#permission)
   - [RLS](#rls)
-  - [LGPD](#lgpd-1)
-  - [Criptografia](#criptografia-2)
-  - [TLS](#tls)
-- [Performance](#performance)
-  - [VACUUM](#vacuum-1)
-  - [ANALYZE](#analyze)
-  - [EXPLAIN](#explain-1)
-  - [EXPLAIN ANALYZE](#explain-analyze-1)
-  - [Cache Hit Ratio](#cache-hit-ratio)
-  - [Deadlock](#deadlock)
-- [Backup](#backup)
-  - [Backup Full](#backup-full)
-  - [Backup Incremental](#backup-incremental-1)
-  - [PITR](#pitr)
-  - [WAL](#wal)
-  - [Restore](#restore)
+    - [LGPD](#lgpd-1)
+    - [Criptografia](#criptografia-2)
+    - [TLS](#tls)
+  - [Performance](#performance)
+    - [VACUUM](#vacuum-1)
+    - [ANALYZE](#analyze)
+    - [EXPLAIN](#explain-1)
+    - [EXPLAIN ANALYZE](#explain-analyze-1)
+    - [Cache Hit Ratio](#cache-hit-ratio)
+    - [Deadlock](#deadlock)
+  - [Backup](#backup)
+    - [Backup Full](#backup-full)
+    - [Backup Incremental](#backup-incremental-1)
+    - [PITR](#pitr)
+    - [WAL](#wal)
+    - [Restore](#restore)
   - [Framework DBA](#framework-dba)
-  - [Health Check](#health-check-2)
-  - [ICB](#icb)
-  - [Score Técnico](#score-técnico)
-  - [Plano Automático de Correção](#plano-automático-de-correção-1)
-  - [Certificação Técnica](#certificação-técnica-1)
+    - [Health Check](#health-check-2)
+    - [ICB](#icb)
+    - [Score Técnico](#score-técnico)
+    - [Plano Automático de Correção](#plano-automático-de-correção-1)
+    - [Certificação Técnica](#certificação-técnica-1)
   - [Desenvolvimento](#desenvolvimento)
   - [Clean Code](#clean-code)
   - [SOLID](#solid)
@@ -1567,18 +1567,18 @@
   - [KPI](#kpi)
   - [ETL](#etl)
   - [Turismo](#turismo)
-  - [Pacote Turístico](#pacote-turístico-1)
-  - [Reserva](#reserva-2)
+    - [Pacote Turístico](#pacote-turístico-1)
+    - [Reserva](#reserva-2)
   - [Bike Tour](#bike-tour)
-  - [Convenções](#convenções-11)
-  - [Benefícios](#benefícios-14)
+    - [Convenções](#convenções-11)
+    - [Benefícios](#benefícios-14)
   - [6.27 Referências Técnicas](#627-referências-técnicas)
-  - [Objetivos](#objetivos-26)
-  - [Banco de Dados](#banco-de-dados-3)
-  - [PostgreSQL](#postgresql-1)
+    - [Objetivos](#objetivos-26)
+    - [Banco de Dados](#banco-de-dados-3)
+    - [PostgreSQL](#postgresql-1)
   - [SQL](#sql)
   - [ISO/IEC 9075](#isoiec-9075)
-  - [Segurança](#segurança-1)
+    - [Segurança](#segurança-1)
   - [ISO/IEC 27001](#isoiec-27001)
   - [ISO/IEC 27002](#isoiec-27002)
   - [OWASP](#owasp)
@@ -1586,34 +1586,34 @@
   - [Governança](#governança)
   - [COBIT](#cobit)
   - [ITIL](#itil)
-  - [Desenvolvimento](#desenvolvimento-1)
+    - [Desenvolvimento](#desenvolvimento-1)
   - [Clean Architecture](#clean-architecture)
-  - [Clean Code](#clean-code-1)
-  - [SOLID](#solid-1)
+    - [Clean Code](#clean-code-1)
+    - [SOLID](#solid-1)
   - [Domain Driven Design (DDD)](#domain-driven-design-ddd)
   - [Versionamento](#versionamento)
   - [Semantic Versioning](#semantic-versioning)
   - [Keep a Changelog](#keep-a-changelog)
-  - [Git](#git-1)
-  - [GitHub](#github-1)
-  - [Python](#python)
-  - [PEP](#pep)
-  - [FastAPI](#fastapi)
-  - [SQLAlchemy](#sqlalchemy)
-  - [Alembic](#alembic)
-  - [React](#react)
-  - [TypeScript](#typescript)
-  - [Flutter](#flutter)
-  - [Microsoft Power BI](#microsoft-power-bi)
-  - [LGPD](#lgpd-2)
-  - [Convenções Utilizadas](#convenções-utilizadas)
-  - [Compatibilidade](#compatibilidade)
-  - [Atualização das Referências](#atualização-das-referências)
-  - [Benefícios](#benefícios-15)
+    - [Git](#git-1)
+    - [GitHub](#github-1)
+    - [Python](#python)
+    - [PEP](#pep)
+    - [FastAPI](#fastapi)
+    - [SQLAlchemy](#sqlalchemy)
+    - [Alembic](#alembic)
+    - [React](#react)
+    - [TypeScript](#typescript)
+    - [Flutter](#flutter)
+    - [Microsoft Power BI](#microsoft-power-bi)
+    - [LGPD](#lgpd-2)
+    - [Convenções Utilizadas](#convenções-utilizadas)
+    - [Compatibilidade](#compatibilidade)
+    - [Atualização das Referências](#atualização-das-referências)
+    - [Benefícios](#benefícios-15)
   - [Apêndice A — Convenções de Nomenclatura](#apêndice-a--convenções-de-nomenclatura)
-  - [Objetivos](#objetivos-27)
+    - [Objetivos](#objetivos-27)
   - [Regras Gerais](#regras-gerais)
-  - [Banco de Dados](#banco-de-dados-4)
+    - [Banco de Dados](#banco-de-dados-4)
     - [Nome do Banco](#nome-do-banco)
     - [Schemas](#schemas)
     - [Tabelas](#tabelas)
@@ -1621,11 +1621,11 @@
     - [Chaves Primárias](#chaves-primárias-1)
     - [Chaves Estrangeiras](#chaves-estrangeiras)
     - [Constraints](#constraints)
-  - [Primary Key](#primary-key-3)
-  - [Foreign Key](#foreign-key-2)
-  - [Unique](#unique-2)
-  - [Check](#check-2)
-  - [Índices](#índices-10)
+    - [Primary Key](#primary-key-3)
+    - [Foreign Key](#foreign-key-2)
+    - [Unique](#unique-2)
+    - [Check](#check-2)
+    - [Índices](#índices-10)
   - [Sequences](#sequences)
   - [Views](#views)
   - [Materialized Views](#materialized-views)
@@ -1634,7 +1634,7 @@
   - [Triggers](#triggers)
   - [Tipos Personalizados](#tipos-personalizados)
   - [Domains](#domains)
-- [APIs](#apis)
+  - [APIs](#apis)
   - [Classes Python](#classes-python)
   - [Métodos Python](#métodos-python)
   - [Variáveis Python](#variáveis-python)
@@ -1643,10 +1643,10 @@
   - [Arquivos Markdown](#arquivos-markdown)
   - [Branches Git](#branches-git)
   - [Commits](#commits)
-  - [Versionamento](#versionamento-1)
-  - [Benefícios](#benefícios-16)
+    - [Versionamento](#versionamento-1)
+    - [Benefícios](#benefícios-16)
   - [Apêndice B — Checklist de Conformidade](#apêndice-b--checklist-de-conformidade)
-  - [Objetivos](#objetivos-28)
+    - [Objetivos](#objetivos-28)
   - [Estrutura do Checklist](#estrutura-do-checklist)
   - [1. Estrutura do Banco](#1-estrutura-do-banco)
   - [2. Tabelas](#2-tabelas)
@@ -1669,18 +1669,18 @@
   - [19. Governança](#19-governança)
   - [20. Certificação Técnica](#20-certificação-técnica)
   - [Resultado Final](#resultado-final)
-  - [Benefícios](#benefícios-17)
+    - [Benefícios](#benefícios-17)
   - [Apêndice C — Estatísticas Consolidadas do Banco de Dados](#apêndice-c--estatísticas-consolidadas-do-banco-de-dados)
-  - [Objetivos](#objetivos-29)
-  - [Visão Geral](#visão-geral-7)
+    - [Objetivos](#objetivos-29)
+    - [Visão Geral](#visão-geral-7)
   - [Estrutura Geral](#estrutura-geral)
   - [Estatísticas das Tabelas](#estatísticas-das-tabelas)
-  - [Exemplo](#exemplo-1)
+    - [Exemplo](#exemplo-1)
   - [Estatísticas de Colunas](#estatísticas-de-colunas)
   - [Estatísticas de Índices](#estatísticas-de-índices)
-  - [Indicadores](#indicadores-30)
+    - [Indicadores](#indicadores-30)
   - [Estatísticas de Constraints](#estatísticas-de-constraints)
-  - [Exemplo](#exemplo-2)
+    - [Exemplo](#exemplo-2)
   - [Estatísticas de Relacionamentos](#estatísticas-de-relacionamentos)
   - [Estatísticas de Views](#estatísticas-de-views)
   - [Estatísticas de Procedures](#estatísticas-de-procedures)
@@ -1691,52 +1691,52 @@
   - [Estatísticas de Backup](#estatísticas-de-backup)
   - [Estatísticas de Performance](#estatísticas-de-performance)
   - [Estatísticas de Crescimento](#estatísticas-de-crescimento)
-  - [Indicadores Técnicos](#indicadores-técnicos-1)
-  - [Índice de Conformidade do Banco (ICB)](#índice-de-conformidade-do-banco-icb-2)
+    - [Indicadores Técnicos](#indicadores-técnicos-1)
+    - [Índice de Conformidade do Banco (ICB)](#índice-de-conformidade-do-banco-icb-2)
   - [Score Técnico](#score-técnico-1)
   - [Atualização das Estatísticas](#atualização-das-estatísticas)
   - [Fontes das Informações](#fontes-das-informações)
-  - [Benefícios](#benefícios-18)
+    - [Benefícios](#benefícios-18)
   - [Apêndice D — Matriz de Rastreabilidade](#apêndice-d--matriz-de-rastreabilidade)
-  - [Objetivos](#objetivos-30)
+    - [Objetivos](#objetivos-30)
   - [Estrutura da Matriz](#estrutura-da-matriz)
   - [Identificação dos Requisitos](#identificação-dos-requisitos)
   - [Estrutura dos Módulos](#estrutura-dos-módulos)
   - [Matriz de Rastreabilidade](#matriz-de-rastreabilidade)
   - [Rastreabilidade das Tabelas](#rastreabilidade-das-tabelas)
-  - [Exemplo](#exemplo-3)
+    - [Exemplo](#exemplo-3)
   - [Rastreabilidade das APIs](#rastreabilidade-das-apis)
-  - [Exemplo](#exemplo-4)
+    - [Exemplo](#exemplo-4)
   - [Rastreabilidade das Auditorias](#rastreabilidade-das-auditorias)
-  - [Integração com o Framework DBA](#integração-com-o-framework-dba-4)
+    - [Integração com o Framework DBA](#integração-com-o-framework-dba-4)
   - [Controle de Mudanças](#controle-de-mudanças)
-  - [Benefícios](#benefícios-19)
+    - [Benefícios](#benefícios-19)
   - [Apêndice E — Estrutura Completa do Framework DBA](#apêndice-e--estrutura-completa-do-framework-dba)
-  - [Objetivos](#objetivos-31)
+    - [Objetivos](#objetivos-31)
   - [Arquitetura Geral](#arquitetura-geral)
   - [Estrutura de Diretórios](#estrutura-de-diretórios)
   - [CORE](#core)
   - [Auditorias](#auditorias)
   - [Documentação](#documentação)
-  - [Performance](#performance-1)
-  - [Segurança](#segurança-2)
-  - [Backup](#backup-1)
-  - [Monitoramento](#monitoramento-2)
-  - [Governança](#governança-1)
-  - [Certificação](#certificação-1)
-  - [Dashboard Técnico](#dashboard-técnico-2)
-  - [Dashboard Executivo](#dashboard-executivo-1)
+    - [Performance](#performance-1)
+    - [Segurança](#segurança-2)
+    - [Backup](#backup-1)
+    - [Monitoramento](#monitoramento-2)
+    - [Governança](#governança-1)
+    - [Certificação](#certificação-1)
+    - [Dashboard Técnico](#dashboard-técnico-2)
+    - [Dashboard Executivo](#dashboard-executivo-1)
   - [Fluxo de Execução](#fluxo-de-execução)
   - [Fluxo da Certificação](#fluxo-da-certificação)
   - [Integração com o ERP](#integração-com-o-erp)
   - [Integração com CI/CD](#integração-com-cicd)
   - [Cronograma de Execução](#cronograma-de-execução)
-  - [Indicadores](#indicadores-31)
+    - [Indicadores](#indicadores-31)
   - [Evolução do Framework](#evolução-do-framework)
   - [Versão 1](#versão-1)
   - [Versão 2](#versão-2)
   - [Versão 3](#versão-3)
-  - [Benefícios](#benefícios-20)
+    - [Benefícios](#benefícios-20)
   - [Encerramento](#encerramento)
 
 ---
@@ -1830,15 +1830,15 @@ id_usuario
 
 Todas as tabelas corporativas possuem:
 
-| Coluna     | Tipo      |
-| ---------- |
-| created_at | timestamp |
-| updated_at | timestamp |
-| deleted_at | timestamp |
-| created_by | integer   |
-| updated_by | integer   |
-| deleted_by | integer   |
-| versao     | integer   |
+|Coluna|Tipo|
+|----------|
+|created_at|timestamp|
+|updated_at|timestamp|
+|deleted_at|timestamp|
+|created_by|integer|
+|updated_by|integer|
+|deleted_by|integer|
+|versao|integer|
 
 ---
 
@@ -1846,15 +1846,15 @@ Todas as tabelas corporativas possuem:
 
 O banco está organizado em aproximadamente:
 
-|       Objeto | Quantidade |
-| -----------: |
-|      Tabelas | 190        |
-|        Views | 25+        |
-|   Procedures | 40+        |
-|    Functions | 80+        |
-|     Triggers | 60+        |
-| Foreign Keys | 142+       |
-|      Índices | 500+       |
+|Objeto|Quantidade|
+|-----------:|
+|Tabelas|190|
+|Views|25+|
+|Procedures|40+|
+|Functions|80+|
+|Triggers|60+|
+|Foreign Keys|142+|
+|Índices|500+|
 
 ---
 
@@ -1885,48 +1885,48 @@ entre os módulos do ERP.
 
 ### Chave Primária
 
-| Coluna     |
-| ---------- |
+| Coluna |
+| -------- |
 | id_empresa |
 
 ### Relacionamentos
 
-| Tabela           | Cardinalidade |
-| ---------------- |
-| usuário          | 1:N           |
-| cliente          | 1:N           |
-| fornecedor       | 1:N           |
-| conta_financeira | 1:N           |
-| plano_conta      | 1:N           |
+|Tabela|Cardinalidade|
+|----------------|
+|usuário|1:N|
+|cliente|1:N|
+|fornecedor|1:N|
+|conta_financeira|1:N|
+|plano_conta|1:N|
 
 ### Colunas
 
-| Coluna              | Tipo         | Nulo | Descrição                            |
-| ------------------- | ------------ | ---- |
-| id_empresa          | bigint       | Não  | Identificador único da empresa       |
-| razao_social        | varchar(255) | Não  | Razão social                         |
-| nome_fantasia       | varchar(255) | Sim  | Nome fantasia                        |
-| cnpj                | varchar(18)  | Não  | Cadastro Nacional da Pessoa Jurídica |
-| inscricao_estadual  | varchar(30)  | Sim  | Inscrição estadual                   |
-| inscricao_municipal | varchar(30)  | Sim  | Inscrição municipal                  |
-| email               | varchar(255) | Sim  | E-mail principal                     |
-| telefone            | varchar(30)  | Sim  | Telefone                             |
-| site                | varchar(255) | Sim  | Website                              |
-| created_at          | timestamp    | Não  | Data de criação                      |
-| updated_at          | timestamp    | Não  | Última alteração                     |
-| deleted_at          | timestamp    | Sim  | Exclusão lógica                      |
-| created_by          | integer      | Sim  | Usuário criador                      |
-| updated_by          | integer      | Sim  | Usuário responsável pela alteração   |
-| deleted_by          | integer      | Sim  | Usuário responsável pela exclusão    |
-| versao              | integer      | Não  | Controle de versão                   |
+|Coluna|Tipo|Nulo|Descrição|
+|-------------------|------------|----|
+|id_empresa|bigint|Não|Identificador único da empresa|
+|razao_social|varchar(255)|Não|Razão social|
+|nome_fantasia|varchar(255)|Sim|Nome fantasia|
+|cnpj|varchar(18)|Não|Cadastro Nacional da Pessoa Jurídica|
+|inscricao_estadual|varchar(30)|Sim|Inscrição estadual|
+|inscricao_municipal|varchar(30)|Sim|Inscrição municipal|
+|email|varchar(255)|Sim|E-mail principal|
+|telefone|varchar(30)|Sim|Telefone|
+|site|varchar(255)|Sim|Website|
+|created_at|timestamp|Não|Data de criação|
+|updated_at|timestamp|Não|Última alteração|
+|deleted_at|timestamp|Sim|Exclusão lógica|
+|created_by|integer|Sim|Usuário criador|
+|updated_by|integer|Sim|Usuário responsável pela alteração|
+|deleted_by|integer|Sim|Usuário responsável pela exclusão|
+|versao|integer|Não|Controle de versão|
 
 ### Índices
 
-| Índice                   | Tipo        |
-| ------------------------ |
-| pk_empresa               | Primary Key |
-| uk_empresa_cnpj          | Unique      |
-| idx_empresa_razao_social | B-tree      |
+|Índice|Tipo|
+|------------------------|
+|pk_empresa|Primary Key|
+|uk_empresa_cnpj|Unique|
+|idx_empresa_razao_social|B-tree|
 
 ### Observações
 
@@ -1948,46 +1948,46 @@ Controlar autenticação, autorização e auditoria.
 
 ### Chave Primária
 
-| Coluna     |
-| ---------- |
-| id_usuario |
+|Coluna|
+|----------|
+|id_usuario|
 
 ### Relacionamentos
 
-| Tabela     | Cardinalidade |
-| ---------- | ------------- |
-| empresa    | N:1           |
-| perfil     | N:1           |
-| log_acesso | 1:N           |
+|Tabela|Cardinalidade|
+|----------|-------------|
+|empresa|N:1|
+|perfil|N:1|
+|log_acesso|1:N|
 
 ### Colunas
 
-| Coluna       | Tipo         | Nulo | Descrição           |
-| ------------ | ------------ | ---- |
-| id_usuario   | bigint       | Não  | Identificador       |
-| id_empresa   | bigint       | Não  | Empresa             |
-| id_perfil    | bigint       | Não  | Perfil de acesso    |
-| nome         | varchar(150) | Não  | Nome completo       |
-| email        | varchar(255) | Não  | Login               |
-| senha_hash   | varchar(255) | Não  | Senha criptografada |
-| ativo        | boolean      | Não  | Situação            |
-| ultimo_login | timestamp    | Sim  | Último acesso       |
-| created_at   | timestamp    | Não  | Data de criação     |
-| updated_at   | timestamp    | Não  | Última alteração    |
-| deleted_at   | timestamp    | Sim  | Exclusão lógica     |
-| created_by   | integer      | Sim  | Usuário criador     |
-| updated_by   | integer      | Sim  | Usuário alteração   |
-| deleted_by   | integer      | Sim  | Usuário exclusão    |
-| versao       | integer      | Não  | Controle de versão  |
+|Coluna|Tipo|Nulo|Descrição|
+|------------|------------|----|
+|id_usuario|bigint|Não|Identificador|
+|id_empresa|bigint|Não|Empresa|
+|id_perfil|bigint|Não|Perfil de acesso|
+|nome|varchar(150)|Não|Nome completo|
+|email|varchar(255)|Não|Login|
+|senha_hash|varchar(255)|Não|Senha criptografada|
+|ativo|boolean|Não|Situação|
+|ultimo_login|timestamp|Sim|Último acesso|
+|created_at|timestamp|Não|Data de criação|
+|updated_at|timestamp|Não|Última alteração|
+|deleted_at|timestamp|Sim|Exclusão lógica|
+|created_by|integer|Sim|Usuário criador|
+|updated_by|integer|Sim|Usuário alteração|
+|deleted_by|integer|Sim|Usuário exclusão|
+|versao|integer|Não|Controle de versão|
 
 ### Índices
 
-| Índice              | Tipo        |
-| ------------------- |
-| pk_usuario          | Primary Key |
-| uk_usuario_email    | Unique      |
-| idx_usuario_empresa | B-tree      |
-| idx_usuario_perfil  | B-tree      |
+|Índice|Tipo|
+|-------------------|
+|pk_usuario|Primary Key|
+|uk_usuario_email|Unique|
+|idx_usuario_empresa|B-tree|
+|idx_usuario_perfil|B-tree|
 
 ### Observações
 
@@ -2009,25 +2009,25 @@ Implementar o controle de acesso baseado em papéis (RBAC).
 
 ### Chave Primária
 
-| Coluna    |
-| --------- |
-| id_perfil |
+|Coluna|
+|---------|
+|id_perfil|
 
 ### Colunas
 
-| Coluna     | Tipo         | Nulo | Descrição          |
-| ---------- | ------------ | ---- | ------------------ |
-| id_perfil  | bigint       | Não  | Identificador      |
-| nome       | varchar(100) | Não  | Nome do perfil     |
-| descricao  | text         | Sim  | Descrição          |
-| ativo      | boolean      | Não  | Situação           |
-| created_at | timestamp    | Não  | Criação            |
-| updated_at | timestamp    | Não  | Alteração          |
-| deleted_at | timestamp    | Sim  | Exclusão lógica    |
-| created_by | integer      | Sim  | Criador            |
-| updated_by | integer      | Sim  | Alteração          |
-| deleted_by | integer      | Sim  | Exclusão           |
-| versao     | integer      | Não  | Controle de versão |
+|Coluna|Tipo|Nulo|Descrição|
+|----------|------------|----|------------------|
+|id_perfil|bigint|Não|Identificador|
+|nome|varchar(100)|Não|Nome do perfil|
+|descricao|text|Sim|Descrição|
+|ativo|boolean|Não|Situação|
+|created_at|timestamp|Não|Criação|
+|updated_at|timestamp|Não|Alteração|
+|deleted_at|timestamp|Sim|Exclusão lógica|
+|created_by|integer|Sim|Criador|
+|updated_by|integer|Sim|Alteração|
+|deleted_by|integer|Sim|Exclusão|
+|versao|integer|Não|Controle de versão|
 
 ### Perfis previstos
 
@@ -2055,14 +2055,14 @@ Permitir granularidade de acesso aos recursos do ERP.
 
 ### Colunas principais
 
-| Coluna       | Tipo         |
-| ------------ | ------------ |
-| id_permissao | bigint       |
-| codigo       | varchar(100) |
-| descricao    | varchar(255) |
-| modulo       | varchar(100) |
-| ativo        | boolean      |
-| versao       | integer      |
+|Coluna|Tipo|
+|------------|------------|
+|id_permissao|bigint|
+|codigo|varchar(100)|
+|descricao|varchar(255)|
+|modulo|varchar(100)|
+|ativo|boolean|
+|versao|integer|
 
 ---
 
@@ -2078,9 +2078,9 @@ Tabela de associação (N:N).
 
 ### Relacionamentos
 
-| Origem | Destino   |
-| ------ | --------- |
-| perfil | permissao |
+|Origem|Destino|
+|------|---------|
+|perfil|permissao|
 
 ### Chave composta
 
@@ -2190,26 +2190,26 @@ Organizar todas as contas contábeis do ERP em grandes grupos.
 
 ### Chave Primária
 
-| Coluna   |
-| -------- |
-| id_grupo |
+|Coluna|
+|--------|
+|id_grupo|
 
 ### Colunas
 
-| Coluna     | Tipo         | Nulo | Descrição           |
-| ---------- | ------------ | ---- | ------------------- |
-| id_grupo   | smallint     | Não  | Identificador       |
-| codigo     | varchar(10)  | Não  | Código              |
-| descricao  | varchar(150) | Não  | Nome do grupo       |
-| natureza   | varchar(30)  | Não  | Natureza financeira |
-| ativo      | boolean      | Não  | Situação            |
-| created_at | timestamp    | Não  | Auditoria           |
-| updated_at | timestamp    | Não  | Auditoria           |
-| deleted_at | timestamp    | Sim  | Auditoria           |
-| created_by | integer      | Sim  | Auditoria           |
-| updated_by | integer      | Sim  | Auditoria           |
-| deleted_by | integer      | Sim  | Auditoria           |
-| versao     | integer      | Não  | Controle de versão  |
+|Coluna|Tipo|Nulo|Descrição|
+|----------|------------|----|-------------------|
+|id_grupo|smallint|Não|Identificador|
+|codigo|varchar(10)|Não|Código|
+|descricao|varchar(150)|Não|Nome do grupo|
+|natureza|varchar(30)|Não|Natureza financeira|
+|ativo|boolean|Não|Situação|
+|created_at|timestamp|Não|Auditoria|
+|updated_at|timestamp|Não|Auditoria|
+|deleted_at|timestamp|Sim|Auditoria|
+|created_by|integer|Sim|Auditoria|
+|updated_by|integer|Sim|Auditoria|
+|deleted_by|integer|Sim|Auditoria|
+|versao|integer|Não|Controle de versão|
 
 ### Relacionamentos
 
@@ -2320,15 +2320,15 @@ Conta
 
 ### Colunas
 
-| Coluna            | Tipo         |
-| ----------------- | ------------ |
-| id_plano_conta    | bigint       |
-| codigo            | varchar(30)  |
-| descricao         | varchar(255) |
-| natureza          | varchar(20)  |
-| aceita_lancamento | boolean      |
-| ativo             | boolean      |
-| versao            | integer      |
+|Coluna|Tipo|
+|-----------------|------------|
+|id_plano_conta|bigint|
+|codigo|varchar(30)|
+|descricao|varchar(255)|
+|natureza|varchar(20)|
+|aceita_lancamento|boolean|
+|ativo|boolean|
+|versao|integer|
 
 ---
 
@@ -2783,42 +2783,42 @@ Representa o cadastro principal de clientes.
 
 ### Chave Primária
 
-| Coluna     |
-| ---------- |
-| id_cliente |
+|Coluna|
+|----------|
+|id_cliente|
 
 ### Relacionamentos
 
-| Tabela   | Cardinalidade |
-| -------- | ------------- |
-| empresa  | N:1           |
-| endereco | 1:N           |
-| contato  | 1:N           |
-| venda    | 1:N           |
-| contrato | 1:N           |
-| proposta | 1:N           |
-| reserva  | 1:N           |
+|Tabela|Cardinalidade|
+|--------|-------------|
+|empresa|N:1|
+|endereco|1:N|
+|contato|1:N|
+|venda|1:N|
+|contrato|1:N|
+|proposta|1:N|
+|reserva|1:N|
 
 ### Colunas
 
-| Coluna          | Tipo         | Nulo | Descrição          |
-| --------------- | ------------ | ---- | ------------------ |
-| id_cliente      | bigint       | Não  | Identificador      |
-| id_empresa      | bigint       | Não  | Empresa            |
-| tipo_pessoa     | varchar(2)   | Não  | PF/PJ              |
-| nome            | varchar(255) | Não  | Nome/Razão Social  |
-| cpf_cnpj        | varchar(20)  | Não  | Documento          |
-| data_nascimento | date         | Sim  | Data nascimento    |
-| email           | varchar(255) | Sim  | Email              |
-| telefone        | varchar(30)  | Sim  | Telefone           |
-| ativo           | boolean      | Não  | Situação           |
-| created_at      | timestamp    | Não  | Auditoria          |
-| updated_at      | timestamp    | Não  | Auditoria          |
-| deleted_at      | timestamp    | Sim  | Auditoria          |
-| created_by      | integer      | Sim  | Auditoria          |
-| updated_by      | integer      | Sim  | Auditoria          |
-| deleted_by      | integer      | Sim  | Auditoria          |
-| versao          | integer      | Não  | Controle de versão |
+|Coluna|Tipo|Nulo|Descrição|
+|---------------|------------|----|------------------|
+|id_cliente|bigint|Não|Identificador|
+|id_empresa|bigint|Não|Empresa|
+|tipo_pessoa|varchar(2)|Não|PF/PJ|
+|nome|varchar(255)|Não|Nome/Razão Social|
+|cpf_cnpj|varchar(20)|Não|Documento|
+|data_nascimento|date|Sim|Data nascimento|
+|email|varchar(255)|Sim|Email|
+|telefone|varchar(30)|Sim|Telefone|
+|ativo|boolean|Não|Situação|
+|created_at|timestamp|Não|Auditoria|
+|updated_at|timestamp|Não|Auditoria|
+|deleted_at|timestamp|Sim|Auditoria|
+|created_by|integer|Sim|Auditoria|
+|updated_by|integer|Sim|Auditoria|
+|deleted_by|integer|Sim|Auditoria|
+|versao|integer|Não|Controle de versão|
 
 ### Índices
 
@@ -3275,38 +3275,38 @@ Armazena todos os documentos fiscais emitidos ou recebidos pelo ERP.
 
 ### Chave Primária
 
-| Coluna              |
-| ------------------- |
-| id_documento_fiscal |
+|Coluna|
+|-------------------|
+|id_documento_fiscal|
 
 ### Relacionamentos
 
-| Tabela      | Cardinalidade |
-| ----------- | ------------- |
-| empresa     | N:1           |
-| cliente     | N:1           |
-| fornecedor  | N:1           |
-| nota_fiscal | 1:N           |
-| imposto     | 1:N           |
+|Tabela|Cardinalidade|
+|-----------|-------------|
+|empresa|N:1|
+|cliente|N:1|
+|fornecedor|N:1|
+|nota_fiscal|1:N|
+|imposto|1:N|
 
 ### Colunas
 
-| Coluna              | Tipo        | Nulo | Descrição          |
-| ------------------- | ----------- | ---- | ------------------ |
-| id_documento_fiscal | bigint      | Não  | Identificador      |
-| id_empresa          | bigint      | Não  | Empresa            |
-| tipo_documento      | varchar(30) | Não  | Tipo fiscal        |
-| numero              | varchar(30) | Não  | Número             |
-| serie               | varchar(10) | Sim  | Série              |
-| data_emissao        | timestamp   | Não  | Emissão            |
-| situacao            | varchar(30) | Não  | Situação           |
-| created_at          | timestamp   | Não  | Auditoria          |
-| updated_at          | timestamp   | Não  | Auditoria          |
-| deleted_at          | timestamp   | Sim  | Exclusão lógica    |
-| created_by          | integer     | Sim  | Auditoria          |
-| updated_by          | integer     | Sim  | Auditoria          |
-| deleted_by          | integer     | Sim  | Auditoria          |
-| versao              | integer     | Não  | Controle de versão |
+|Coluna|Tipo|Nulo|Descrição|
+|-------------------|-----------|----|------------------|
+|id_documento_fiscal|bigint|Não|Identificador|
+|id_empresa|bigint|Não|Empresa|
+|tipo_documento|varchar(30)|Não|Tipo fiscal|
+|numero|varchar(30)|Não|Número|
+|serie|varchar(10)|Sim|Série|
+|data_emissao|timestamp|Não|Emissão|
+|situacao|varchar(30)|Não|Situação|
+|created_at|timestamp|Não|Auditoria|
+|updated_at|timestamp|Não|Auditoria|
+|deleted_at|timestamp|Sim|Exclusão lógica|
+|created_by|integer|Sim|Auditoria|
+|updated_by|integer|Sim|Auditoria|
+|deleted_by|integer|Sim|Auditoria|
+|versao|integer|Não|Controle de versão|
 
 ### Índices
 
@@ -3710,39 +3710,39 @@ Representa o principal produto vendido pela agência.
 
 ### Chave Primária
 
-| Coluna    |
-| --------- |
-| id_pacote |
+|Coluna|
+|---------|
+|id_pacote|
 
 ### Relacionamentos
 
-| Tabela           | Cardinalidade |
-| ---------------- | ------------- |
-| destino          | N:1           |
-| roteiro          | 1:N           |
-| reserva          | 1:N           |
-| fornecedor       | N:N           |
-| categoria_pacote | N:1           |
+|Tabela|Cardinalidade|
+|----------------|-------------|
+|destino|N:1|
+|roteiro|1:N|
+|reserva|1:N|
+|fornecedor|N:N|
+|categoria_pacote|N:1|
 
 ### Colunas
 
-| Coluna     | Tipo          | Nulo | Descrição            |
-| ---------- | ------------- | ---- | -------------------- |
-| id_pacote  | bigint        | Não  | Identificador        |
-| codigo     | varchar(30)   | Não  | Código interno       |
-| nome       | varchar(255)  | Não  | Nome do pacote       |
-| descricao  | text          | Sim  | Descrição            |
-| dias       | integer       | Não  | Quantidade de dias   |
-| noites     | integer       | Não  | Quantidade de noites |
-| valor_base | numeric(15,2) | Não  | Valor inicial        |
-| ativo      | boolean       | Não  | Situação             |
-| created_at | timestamp     | Não  | Auditoria            |
-| updated_at | timestamp     | Não  | Auditoria            |
-| deleted_at | timestamp     | Sim  | Exclusão lógica      |
-| created_by | integer       | Sim  | Auditoria            |
-| updated_by | integer       | Sim  | Auditoria            |
-| deleted_by | integer       | Sim  | Auditoria            |
-| versao     | integer       | Não  | Controle de versão   |
+|Coluna|Tipo|Nulo|Descrição|
+|----------|-------------|----|--------------------|
+|id_pacote|bigint|Não|Identificador|
+|codigo|varchar(30)|Não|Código interno|
+|nome|varchar(255)|Não|Nome do pacote|
+|descricao|text|Sim|Descrição|
+|dias|integer|Não|Quantidade de dias|
+|noites|integer|Não|Quantidade de noites|
+|valor_base|numeric(15,2)|Não|Valor inicial|
+|ativo|boolean|Não|Situação|
+|created_at|timestamp|Não|Auditoria|
+|updated_at|timestamp|Não|Auditoria|
+|deleted_at|timestamp|Sim|Exclusão lógica|
+|created_by|integer|Sim|Auditoria|
+|updated_by|integer|Sim|Auditoria|
+|deleted_by|integer|Sim|Auditoria|
+|versao|integer|Não|Controle de versão|
 
 ### Índices
 
@@ -4227,41 +4227,41 @@ Representa o evento principal.
 
 ### Chave Primária
 
-| Coluna         |
-| -------------- |
-| id_evento_bike |
+|Coluna|
+|--------------|
+|id_evento_bike|
 
 ### Relacionamentos
 
-| Tabela         | Cardinalidade |
-| -------------- | ------------- |
-| roteiro_bike   | 1:N           |
-| inscricao_bike | 1:N           |
-| apoio_evento   | 1:N           |
-| ponto_controle | 1:N           |
+|Tabela|Cardinalidade|
+|--------------|-------------|
+|roteiro_bike|1:N|
+|inscricao_bike|1:N|
+|apoio_evento|1:N|
+|ponto_controle|1:N|
 
 ### Colunas
 
-| Coluna          | Tipo          | Nulo | Descrição          |
-| --------------- | ------------- | ---- | ------------------ |
-| id_evento_bike  | bigint        | Não  | Identificador      |
-| codigo          | varchar(30)   | Não  | Código interno     |
-| nome            | varchar(255)  | Não  | Nome do evento     |
-| descricao       | text          | Sim  | Descrição          |
-| data_evento     | date          | Não  | Data               |
-| cidade          | varchar(150)  | Não  | Cidade             |
-| uf              | char(2)       | Não  | Estado             |
-| vagas           | integer       | Não  | Número de vagas    |
-| valor_inscricao | numeric(15,2) | Não  | Valor              |
-| status          | varchar(30)   | Não  | Situação           |
-| ativo           | boolean       | Não  | Situação           |
-| created_at      | timestamp     | Não  | Auditoria          |
-| updated_at      | timestamp     | Não  | Auditoria          |
-| deleted_at      | timestamp     | Sim  | Exclusão lógica    |
-| created_by      | integer       | Sim  | Auditoria          |
-| updated_by      | integer       | Sim  | Auditoria          |
-| deleted_by      | integer       | Sim  | Auditoria          |
-| versao          | integer       | Não  | Controle de versão |
+|Coluna|Tipo|Nulo|Descrição|
+|---------------|-------------|----|------------------|
+|id_evento_bike|bigint|Não|Identificador|
+|codigo|varchar(30)|Não|Código interno|
+|nome|varchar(255)|Não|Nome do evento|
+|descricao|text|Sim|Descrição|
+|data_evento|date|Não|Data|
+|cidade|varchar(150)|Não|Cidade|
+|uf|char(2)|Não|Estado|
+|vagas|integer|Não|Número de vagas|
+|valor_inscricao|numeric(15,2)|Não|Valor|
+|status|varchar(30)|Não|Situação|
+|ativo|boolean|Não|Situação|
+|created_at|timestamp|Não|Auditoria|
+|updated_at|timestamp|Não|Auditoria|
+|deleted_at|timestamp|Sim|Exclusão lógica|
+|created_by|integer|Sim|Auditoria|
+|updated_by|integer|Sim|Auditoria|
+|deleted_by|integer|Sim|Auditoria|
+|versao|integer|Não|Controle de versão|
 
 ### Índices
 
@@ -4694,43 +4694,43 @@ Representa todos os empregados, estagiários, aprendizes, temporários e prestad
 
 ### Chave Primária
 
-| Coluna         |
-| -------------- |
-| id_colaborador |
+|Coluna|
+|--------------|
+|id_colaborador|
 
 ### Relacionamentos
 
-| Tabela          | Cardinalidade |
-| --------------- | ------------- |
-| empresa         | N:1           |
-| departamento    | N:1           |
-| cargo           | N:1           |
-| folha_pagamento | 1:N           |
-| ferias          | 1:N           |
-| ponto           | 1:N           |
-| treinamento     | N:N           |
+|Tabela|Cardinalidade|
+|---------------|-------------|
+|empresa|N:1|
+|departamento|N:1|
+|cargo|N:1|
+|folha_pagamento|1:N|
+|ferias|1:N|
+|ponto|1:N|
+|treinamento|N:N|
 
 ### Colunas
 
-| Coluna          | Tipo          | Nulo | Descrição          |
-| --------------- | ------------- | ---- | ------------------ |
-| id_colaborador  | bigint        | Não  | Identificador      |
-| id_empresa      | bigint        | Não  | Empresa            |
-| id_departamento | bigint        | Não  | Departamento       |
-| id_cargo        | bigint        | Não  | Cargo              |
-| nome            | varchar(255)  | Não  | Nome completo      |
-| cpf             | varchar(14)   | Não  | CPF                |
-| data_admissao   | date          | Não  | Admissão           |
-| data_demissao   | date          | Sim  | Demissão           |
-| salario         | numeric(15,2) | Não  | Salário base       |
-| status          | varchar(20)   | Não  | Situação           |
-| created_at      | timestamp     | Não  | Auditoria          |
-| updated_at      | timestamp     | Não  | Auditoria          |
-| deleted_at      | timestamp     | Sim  | Exclusão lógica    |
-| created_by      | integer       | Sim  | Auditoria          |
-| updated_by      | integer       | Sim  | Auditoria          |
-| deleted_by      | integer       | Sim  | Auditoria          |
-| versao          | integer       | Não  | Controle de versão |
+|Coluna|Tipo|Nulo|Descrição|
+|---------------|-------------|----|------------------|
+|id_colaborador|bigint|Não|Identificador|
+|id_empresa|bigint|Não|Empresa|
+|id_departamento|bigint|Não|Departamento|
+|id_cargo|bigint|Não|Cargo|
+|nome|varchar(255)|Não|Nome completo|
+|cpf|varchar(14)|Não|CPF|
+|data_admissao|date|Não|Admissão|
+|data_demissao|date|Sim|Demissão|
+|salario|numeric(15,2)|Não|Salário base|
+|status|varchar(20)|Não|Situação|
+|created_at|timestamp|Não|Auditoria|
+|updated_at|timestamp|Não|Auditoria|
+|deleted_at|timestamp|Sim|Exclusão lógica|
+|created_by|integer|Sim|Auditoria|
+|updated_by|integer|Sim|Auditoria|
+|deleted_by|integer|Sim|Auditoria|
+|versao|integer|Não|Controle de versão|
 
 ### Índices
 
@@ -5067,22 +5067,22 @@ Cada execução recebe um identificador único que agrupa todos os resultados pr
 
 ### Chave Primária
 
-| Coluna      |
-| ----------- |
-| id_execucao |
+|Coluna|
+|-----------|
+|id_execucao|
 
 ### Colunas
 
-| Coluna            | Tipo         | Descrição     |
-| ----------------- | ------------ | ------------- |
-| id_execucao       | bigint       | Identificador |
-| data_inicio       | timestamp    | Início        |
-| data_fim          | timestamp    | Término       |
-| usuario_execucao  | varchar(100) | Usuário       |
-| versao_banco      | varchar(50)  | PostgreSQL    |
-| versao_framework  | varchar(20)  | Framework     |
-| status            | varchar(30)  | Situação      |
-| tempo_execucao_ms | bigint       | Tempo         |
+|Coluna|Tipo|Descrição|
+|-----------------|------------|-------------|
+|id_execucao|bigint|Identificador|
+|data_inicio|timestamp|Início|
+|data_fim|timestamp|Término|
+|usuario_execucao|varchar(100)|Usuário|
+|versao_banco|varchar(50)|PostgreSQL|
+|versao_framework|varchar(20)|Framework|
+|status|varchar(30)|Situação|
+|tempo_execucao_ms|bigint|Tempo|
 
 ### Índices
 
@@ -5403,12 +5403,12 @@ O Framework calcula automaticamente o ICB utilizando critérios ponderados.
 
 ## Faixas
 
-| ICB    | Classificação             |
-| ------ | ------------------------- |
-| 0–59   | Não Conforme              |
-| 60–79  | Conforme com Restrições   |
-| 80–94  | Conforme                  |
-| 95–100 | Certificado para Produção |
+|ICB|Classificação|
+|------|-------------------------|
+|0–59|Não Conforme|
+|60–79|Conforme com Restrições|
+|80–94|Conforme|
+|95–100|Certificado para Produção|
 
 ---
 
@@ -5518,13 +5518,13 @@ Controle das versões do banco de dados.
 
 ### Informações
 
-| Campo       | Descrição |
-| ----------- | --------- |
-| Versão      |
-| Data        |
-| Autor       |
-| Ambiente    |
-| Observações |
+|Campo|Descrição|
+|-----------|---------|
+|Versão|
+|Data|
+|Autor|
+|Ambiente|
+|Observações|
 
 ---
 
@@ -5892,7 +5892,8 @@ O Framework de Governança integra-se diretamente com:
 
 ## 6.10 Views
 
-As Views do WMA Travel ERP possuem como objetivo disponibilizar informações consolidadas para consultas, dashboards, APIs e Business Intelligence.
+As Views do WMA Travel ERP possuem como objetivo disponibilizar informações consolidadas
+para consultas, dashboards, APIs e Business Intelligence.
 
 As Views nunca armazenam dados permanentemente.
 
@@ -6343,10 +6344,10 @@ As Views devem:
 
 ## Convenções de Nomenclatura
 
-| Prefixo | Significado       |
-| ------- | ----------------- |
-| vw_     | View              |
-| mvw_    | Materialized View |
+|Prefixo|Significado|
+|-------|-----------------|
+|vw_|View|
+|mvw_|Materialized View|
 
 ---
 
@@ -6370,18 +6371,18 @@ As Views suportam indicadores dos módulos:
 
 Previsão para a versão 1.0.0:
 
-| Objeto             | Quantidade Estimada |
-| ------------------ | ------------------: |
-| Views Operacionais |                  18 |
-| Views Financeiras  |                  12 |
-| Views Comerciais   |                  10 |
-| Views Fiscais      |                   8 |
-| Views Turismo      |                  10 |
-| Views Bike Tour    |                   8 |
-| Views RH           |                   6 |
-| Views Auditoria    |                  12 |
-| Views Governança   |                  10 |
-| **Total Estimado** |        **94 Views** |
+|Objeto|Quantidade Estimada|
+|------------------|------------------:|
+|Views Operacionais|18|
+|Views Financeiras|12|
+|Views Comerciais|10|
+|Views Fiscais|8|
+|Views Turismo|10|
+|Views Bike Tour|8|
+|Views RH|6|
+|Views Auditoria|12|
+|Views Governança|10|
+|**Total Estimado**|**94 Views**|
 
 ---
 
@@ -6485,10 +6486,10 @@ Garantir a criação consistente dos registros iniciais.
 
 ### Parâmetros
 
-| Nome   | Tipo    |
-| ------ | ------- |
-| p_nome | varchar |
-| p_cnpj | varchar |
+|Nome|Tipo|
+|------|-------|
+|p_nome|varchar|
+|p_cnpj|varchar|
 
 ### Retorno
 
@@ -6978,19 +6979,19 @@ As Procedures podem utilizar:
 
 ### Estatísticas Previstas
 
-| Categoria          |         Quantidade |
-| ------------------ | -----------------: |
-| Administrativas    |                 10 |
-| Financeiras        |                 18 |
-| Comerciais         |                 10 |
-| Fiscais            |                 10 |
-| Turismo            |                 12 |
-| Bike Tour          |                  8 |
-| RH                 |                  8 |
-| Auditoria          |                 15 |
-| Governança         |                 10 |
-| Sistema            |                 12 |
-| **Total Estimado** | **113 Procedures** |
+|Categoria|Quantidade|
+|------------------|-----------------:|
+|Administrativas|10|
+|Financeiras|18|
+|Comerciais|10|
+|Fiscais|10|
+|Turismo|12|
+|Bike Tour|8|
+|RH|8|
+|Auditoria|15|
+|Governança|10|
+|Sistema|12|
+|**Total Estimado**|**113 Procedures**|
 
 ---
 
@@ -7610,21 +7611,21 @@ As Functions podem ser utilizadas por:
 
 ## Estatísticas Previstas
 
-| Categoria          |        Quantidade |
-| ------------------ | ----------------: |
-| Utilitárias        |                25 |
-| Financeiras        |                30 |
-| Comerciais         |                15 |
-| Fiscais            |                20 |
-| Turismo            |                20 |
-| Bike Tour          |                10 |
-| RH                 |                15 |
-| Auditoria          |                20 |
-| Governança         |                15 |
-| Segurança          |                10 |
-| LGPD               |                10 |
-| Sistema            |                15 |
-| **Total Estimado** | **205 Functions** |
+|Categoria|Quantidade|
+|------------------|----------------:|
+|Utilitárias|25|
+|Financeiras|30|
+|Comerciais|15|
+|Fiscais|20|
+|Turismo|20|
+|Bike Tour|10|
+|RH|15|
+|Auditoria|20|
+|Governança|15|
+|Segurança|10|
+|LGPD|10|
+|Sistema|15|
+|**Total Estimado**|**205 Functions**|
 
 ---
 
@@ -8170,22 +8171,22 @@ Os Triggers dependem de:
 
 ### Estatísticas Previstas
 
-| Categoria          |       Quantidade |
-| ------------------ | ---------------: |
-| Auditoria          |               18 |
-| Datas              |                8 |
-| Versão             |                6 |
-| Exclusão Lógica    |                6 |
-| Financeiro         |               20 |
-| Comercial          |               12 |
-| Fiscal             |               10 |
-| Turismo            |               12 |
-| Bike Tour          |                8 |
-| RH                 |               10 |
-| Governança         |                8 |
-| Segurança          |                8 |
-| Sistema            |               10 |
-| **Total Estimado** | **136 Triggers** |
+|Categoria|Quantidade|
+|------------------|---------------:|
+|Auditoria|18|
+|Datas|8|
+|Versão|6|
+|Exclusão Lógica|6|
+|Financeiro|20|
+|Comercial|12|
+|Fiscal|10|
+|Turismo|12|
+|Bike Tour|8|
+|RH|10|
+|Governança|8|
+|Segurança|8|
+|Sistema|10|
+|**Total Estimado**|**136 Triggers**|
 
 ---
 
@@ -8680,19 +8681,19 @@ Todos os índices deverão:
 
 ### Estatísticas Previstas
 
-| Categoria           |      Quantidade |
-| ------------------- | --------------: |
-| Primary Keys        |             190 |
-| Foreign Key Indexes |             142 |
-| Índices Simples     |             260 |
-| Índices Compostos   |             120 |
-| Índices Únicos      |              70 |
-| Índices Funcionais  |              30 |
-| Índices Parciais    |              40 |
-| Índices GIN         |              15 |
-| Índices GiST        |              10 |
-| Índices BRIN        |               8 |
-| **Total Estimado**  | **885 Índices** |
+|Categoria|Quantidade|
+|-------------------|--------------:|
+|Primary Keys|190|
+|Foreign Key Indexes|142|
+|Índices Simples|260|
+|Índices Compostos|120|
+|Índices Únicos|70|
+|Índices Funcionais|30|
+|Índices Parciais|40|
+|Índices GIN|15|
+|Índices GiST|10|
+|Índices BRIN|8|
+|**Total Estimado**|**885 Índices**|
 
 ---
 
@@ -9179,14 +9180,14 @@ As Foreign Keys suportam:
 
 ### Estatísticas Previstas
 
-| Categoria              | Quantidade |
-| ---------------------- | ---------: |
-| Relacionamentos 1:1    |         18 |
-| Relacionamentos 1:N    |        110 |
-| Relacionamentos N:N    |         14 |
-| Foreign Keys Totais    |        142 |
-| Foreign Keys Indexadas |        142 |
-| Cobertura Esperada     |       100% |
+|Categoria|Quantidade|
+|----------------------|---------:|
+|Relacionamentos 1:1|18|
+|Relacionamentos 1:N|110|
+|Relacionamentos N:N|14|
+|Foreign Keys Totais|142|
+|Foreign Keys Indexadas|142|
+|Cobertura Esperada|100%|
 
 ---
 
@@ -9208,14 +9209,14 @@ A utilização adequada das Foreign Keys proporciona:
 
 Para certificação do banco, todas as Foreign Keys deverão atender aos seguintes critérios:
 
-| Critério                 | Obrigatório |
-| ------------------------ | :---------: |
-| Constraint criada        |     Sim     |
-| Índice correspondente    |     Sim     |
-| COMMENT ON CONSTRAINT    |     Sim     |
-| Nomenclatura padronizada |     Sim     |
-| Integridade validada     |     Sim     |
-| Auditoria aprovada       |     Sim     |
+|Critério|Obrigatório|
+|------------------------|:---------:|
+|Constraint criada|Sim|
+|Índice correspondente|Sim|
+|COMMENT ON CONSTRAINT|Sim|
+|Nomenclatura padronizada|Sim|
+|Integridade validada|Sim|
+|Auditoria aprovada|Sim|
 
 ---
 
@@ -9339,7 +9340,7 @@ DEFAULT TRUE
 
 ---
 
-## PRIMARY KEY
+### PRIMARY KEY
 
 Toda tabela possui exatamente uma chave primária.
 
@@ -9629,16 +9630,16 @@ Todas as Constraints deverão:
 
 ### Estatísticas Previstas
 
-| Constraint         |   Quantidade Estimada |
-| ------------------ | --------------------: |
-| PRIMARY KEY        |                   190 |
-| FOREIGN KEY        |                   142 |
-| UNIQUE             |                    72 |
-| CHECK              |                   118 |
-| NOT NULL           |                 1.450 |
-| DEFAULT            |                   680 |
-| EXCLUDE            |                     6 |
-| **Total Estimado** | **2.658 Constraints** |
+|Constraint|Quantidade Estimada|
+|------------------|--------------------:|
+|PRIMARY KEY|190|
+|FOREIGN KEY|142|
+|UNIQUE|72|
+|CHECK|118|
+|NOT NULL|1.450|
+|DEFAULT|680|
+|EXCLUDE|6|
+|**Total Estimado**|**2.658 Constraints**|
 
 ---
 
@@ -9646,14 +9647,14 @@ Todas as Constraints deverão:
 
 Todas as Constraints deverão atender aos seguintes requisitos.
 
-| Critério                  | Obrigatório |
-| ------------------------- | :---------: |
-| Nome padronizado          |     Sim     |
-| COMMENT ON                |     Sim     |
-| Documentada               |     Sim     |
-| Auditada                  |     Sim     |
-| Validada                  |     Sim     |
-| Compatível com PostgreSQL |     Sim     |
+|Critério|Obrigatório|
+|-------------------------|:---------:|
+|Nome padronizado|Sim|
+|COMMENT ON|Sim|
+|Documentada|Sim|
+|Auditada|Sim|
+|Validada|Sim|
+|Compatível com PostgreSQL|Sim|
 
 ---
 
@@ -9736,14 +9737,14 @@ Cada Sequence documenta:
 
 Todas as Sequences seguem a configuração abaixo.
 
-| Parâmetro    |  Valor |
-| ------------ | -----: |
-| START WITH   |      1 |
-| INCREMENT BY |      1 |
-| MINVALUE     |      1 |
-| MAXVALUE     | BIGINT |
-| CACHE        |    100 |
-| CYCLE        |    NÃO |
+|Parâmetro|Valor|
+|------------|-----:|
+|START WITH|1|
+|INCREMENT BY|1|
+|MINVALUE|1|
+|MAXVALUE|BIGINT|
+|CACHE|100|
+|CYCLE|NÃO|
 
 ---
 
@@ -9772,101 +9773,101 @@ SET DEFAULT nextval('seq_cliente');
 
 ## Sequences Administrativas
 
-| Sequence         | Tabela       |
-| ---------------- | ------------ |
-| seq_empresa      | empresa      |
-| seq_usuario      | usuario      |
-| seq_departamento | departamento |
-| seq_perfil       | perfil       |
-| seq_parametro    | parametro    |
+|Sequence|Tabela|
+|----------------|------------|
+|seq_empresa|empresa|
+|seq_usuario|usuario|
+|seq_departamento|departamento|
+|seq_perfil|perfil|
+|seq_parametro|parametro|
 
 ---
 
 ## Sequences Financeiras
 
-| Sequence          | Tabela                |
-| ----------------- | --------------------- |
-| seq_plano_conta   | plano_conta           |
-| seq_fluxo_caixa   | fluxo_caixa           |
-| seq_conta_receber | conta_receber         |
-| seq_conta_pagar   | conta_pagar           |
-| seq_lancamento    | lancamento_financeiro |
+|Sequence|Tabela|
+|-----------------|---------------------|
+|seq_plano_conta|plano_conta|
+|seq_fluxo_caixa|fluxo_caixa|
+|seq_conta_receber|conta_receber|
+|seq_conta_pagar|conta_pagar|
+|seq_lancamento|lancamento_financeiro|
 
 ---
 
 ## Sequences Comerciais
 
-| Sequence       | Tabela     |
-| -------------- | ---------- |
-| seq_cliente    | cliente    |
-| seq_fornecedor | fornecedor |
-| seq_proposta   | proposta   |
-| seq_pedido     | pedido     |
-| seq_venda      | venda      |
+|Sequence|Tabela|
+|--------------|----------|
+|seq_cliente|cliente|
+|seq_fornecedor|fornecedor|
+|seq_proposta|proposta|
+|seq_pedido|pedido|
+|seq_venda|venda|
 
 ---
 
 ## Sequences Fiscais
 
-| Sequence     | Tabela          |
-| ------------ | --------------- |
-| seq_nf       | nota_fiscal     |
-| seq_apuracao | apuracao_fiscal |
-| seq_tributo  | tributo         |
+|Sequence|Tabela|
+|------------|---------------|
+|seq_nf|nota_fiscal|
+|seq_apuracao|apuracao_fiscal|
+|seq_tributo|tributo|
 
 ---
 
 ## Sequences Turismo
 
-| Sequence    | Tabela  |
-| ----------- | ------- |
-| seq_destino | destino |
-| seq_pacote  | pacote  |
-| seq_reserva | reserva |
-| seq_hotel   | hotel   |
-| seq_voo     | voo     |
+|Sequence|Tabela|
+|-----------|-------|
+|seq_destino|destino|
+|seq_pacote|pacote|
+|seq_reserva|reserva|
+|seq_hotel|hotel|
+|seq_voo|voo|
 
 ---
 
 ## Sequences Bike Tour
 
-| Sequence         | Tabela       |
-| ---------------- | ------------ |
-| seq_evento       | evento       |
-| seq_inscricao    | inscricao    |
-| seq_participante | participante |
-| seq_resultado    | resultado    |
+|Sequence|Tabela|
+|----------------|------------|
+|seq_evento|evento|
+|seq_inscricao|inscricao|
+|seq_participante|participante|
+|seq_resultado|resultado|
 
 ---
 
 ## Sequences Recursos Humanos
 
-| Sequence        | Tabela          |
-| --------------- | --------------- |
-| seq_colaborador | colaborador     |
-| seq_cargo       | cargo           |
-| seq_folha       | folha_pagamento |
+|Sequence|Tabela|
+|---------------|---------------|
+|seq_colaborador|colaborador|
+|seq_cargo|cargo|
+|seq_folha|folha_pagamento|
 
 ---
 
 ## Sequences Auditoria
 
-| Sequence         | Tabela                 |
-| ---------------- | ---------------------- |
-| seq_execucao     | auditoria.execucao     |
-| seq_resultado    | auditoria.resultado    |
-| seq_score        | auditoria.score        |
-| seq_certificacao | auditoria.certificacao |
+|Sequence|Tabela|
+|----------------|----------------------|
+|seq_execucao|auditoria.execucao|
+|seq_resultado|auditoria.resultado|
+|seq_score|auditoria.score|
+|seq_certificacao|auditoria.certificacao|
 
 ---
 
 ## Sequences Governança
 
-| Sequence     | Tabela   |
-| ------------ | -------- |
-| seq_release  | release  |
-| seq_migracao | migracao |
-| seq_metadata | metadata |
+|Sequence|Tabela|
+|------------|--------|
+|seq_release|release|
+|seq_migracao|migracao|
+|seq_metadata|metadata|
 
 ---
 
@@ -9981,18 +9982,18 @@ As Sequences são utilizadas por:
 
 ### Estatísticas Previstas
 
-| Categoria                 |        Quantidade |
-| ------------------------- | ----------------: |
-| Sequences Administrativas |                12 |
-| Sequences Financeiras     |                20 |
-| Sequences Comerciais      |                15 |
-| Sequences Fiscais         |                10 |
-| Sequences Turismo         |                18 |
-| Sequences Bike Tour       |                10 |
-| Sequences RH              |                10 |
-| Sequences Auditoria       |                 8 |
-| Sequences Governança      |                 6 |
-| **Total Estimado**        | **109 Sequences** |
+|Categoria|Quantidade|
+|-------------------------|----------------:|
+|Sequences Administrativas|12|
+|Sequences Financeiras|20|
+|Sequences Comerciais|15|
+|Sequences Fiscais|10|
+|Sequences Turismo|18|
+|Sequences Bike Tour|10|
+|Sequences RH|10|
+|Sequences Auditoria|8|
+|Sequences Governança|6|
+|**Total Estimado**|**109 Sequences**|
 
 ---
 
@@ -10000,15 +10001,15 @@ As Sequences são utilizadas por:
 
 Todas as Sequences deverão atender aos seguintes requisitos.
 
-| Critério            | Obrigatório |
-| ------------------- | :---------: |
-| Nome padronizado    |     Sim     |
-| COMMENT ON SEQUENCE |     Sim     |
-| BIGINT              |     Sim     |
-| CACHE configurado   |     Sim     |
-| NO CYCLE            |     Sim     |
-| Documentada         |     Sim     |
-| Auditada            |     Sim     |
+|Critério|Obrigatório|
+|-------------------|:---------:|
+|Nome padronizado|Sim|
+|COMMENT ON SEQUENCE|Sim|
+|BIGINT|Sim|
+|CACHE configurado|Sim|
+|NO CYCLE|Sim|
+|Documentada|Sim|
+|Auditada|Sim|
 
 ---
 
@@ -10474,33 +10475,33 @@ E são consumidas por:
 
 ## Frequência Recomendada
 
-| Categoria           | Frequência        |
-| ------------------- | ----------------- |
-| Financeiro          | A cada 15 minutos |
-| Comercial           | A cada 15 minutos |
-| Turismo             | A cada 30 minutos |
-| Bike Tour           | A cada 30 minutos |
-| Fiscal              | Diária            |
-| Auditoria           | Sob demanda       |
-| Governança          | Sob demanda       |
-| Dashboard Executivo | Horária           |
+|Categoria|Frequência|
+|-------------------|-----------------|
+|Financeiro|A cada 15 minutos|
+|Comercial|A cada 15 minutos|
+|Turismo|A cada 30 minutos|
+|Bike Tour|A cada 30 minutos|
+|Fiscal|Diária|
+|Auditoria|Sob demanda|
+|Governança|Sob demanda|
+|Dashboard Executivo|Horária|
 
 ---
 
 ### Estatísticas Previstas
 
-| Categoria          |                Quantidade |
-| ------------------ | ------------------------: |
-| Financeiras        |                        12 |
-| Comerciais         |                         8 |
-| Fiscais            |                         6 |
-| Turismo            |                         8 |
-| Bike Tour          |                         6 |
-| Recursos Humanos   |                         5 |
-| Auditoria          |                         8 |
-| Governança         |                         5 |
-| Dashboards         |                        10 |
-| **Total Estimado** | **68 Materialized Views** |
+|Categoria|Quantidade|
+|------------------|------------------------:|
+|Financeiras|12|
+|Comerciais|8|
+|Fiscais|6|
+|Turismo|8|
+|Bike Tour|6|
+|Recursos Humanos|5|
+|Auditoria|8|
+|Governança|5|
+|Dashboards|10|
+|**Total Estimado**|**68 Materialized Views**|
 
 ---
 
@@ -10508,14 +10509,14 @@ E são consumidas por:
 
 Todas as Materialized Views deverão atender aos seguintes requisitos.
 
-| Critério                           | Obrigatório |
-| ---------------------------------- | :---------: |
-| Nome padronizado                   |     Sim     |
-| COMMENT ON MATERIALIZED VIEW       |     Sim     |
-| Índices criados                    |     Sim     |
-| Estratégia de atualização definida |     Sim     |
-| Auditoria habilitada               |     Sim     |
-| Documentação completa              |     Sim     |
+|Critério|Obrigatório|
+|----------------------------------|:---------:|
+|Nome padronizado|Sim|
+|COMMENT ON MATERIALIZED VIEW|Sim|
+|Índices criados|Sim|
+|Estratégia de atualização definida|Sim|
+|Auditoria habilitada|Sim|
+|Documentação completa|Sim|
 
 ---
 
@@ -11094,18 +11095,18 @@ Os Domains são utilizados por:
 
 ### Estatísticas Previstas
 
-| Categoria           |      Quantidade |
-| ------------------- | --------------: |
-| Domains Gerais      |              18 |
-| Domains Financeiros |              20 |
-| Domains Datas       |              12 |
-| Domains Documentos  |              15 |
-| Domains Contato     |              10 |
-| Domains Auditoria   |              10 |
-| ENUM Types          |              28 |
-| Composite Types     |              12 |
-| JSONB Estruturados  |              15 |
-| **Total Estimado**  | **140 Objetos** |
+|Categoria|Quantidade|
+|-------------------|--------------:|
+|Domains Gerais|18|
+|Domains Financeiros|20|
+|Domains Datas|12|
+|Domains Documentos|15|
+|Domains Contato|10|
+|Domains Auditoria|10|
+|ENUM Types|28|
+|Composite Types|12|
+|JSONB Estruturados|15|
+|**Total Estimado**|**140 Objetos**|
 
 ---
 
@@ -11113,13 +11114,13 @@ Os Domains são utilizados por:
 
 Todos os Domains deverão atender aos seguintes requisitos.
 
-| Critério              | Obrigatório |
-| --------------------- | :---------: |
-| Nome padronizado      |     Sim     |
-| COMMENT ON DOMAIN     |     Sim     |
-| Documentação completa |     Sim     |
-| Auditoria habilitada  |     Sim     |
-| Reutilização adequada |     Sim     |
+|Critério|Obrigatório|
+|---------------------|:---------:|
+|Nome padronizado|Sim|
+|COMMENT ON DOMAIN|Sim|
+|Documentação completa|Sim|
+|Auditoria habilitada|Sim|
+|Reutilização adequada|Sim|
 
 ---
 
@@ -11559,18 +11560,18 @@ As extensões são utilizadas por:
 
 ### Estatísticas Previstas
 
-| Categoria             |       Quantidade |
-| --------------------- | ---------------: |
-| Segurança             |                2 |
-| Pesquisa              |                3 |
-| Índices               |                2 |
-| Performance           |                1 |
-| Relatórios            |                1 |
-| Geolocalização        |                2 |
-| Integração            |                1 |
-| Estruturas            |                1 |
-| Business Intelligence |                2 |
-| **Total Homologado**  | **15 Extensões** |
+|Categoria|Quantidade|
+|---------------------|---------------:|
+|Segurança|2|
+|Pesquisa|3|
+|Índices|2|
+|Performance|1|
+|Relatórios|1|
+|Geolocalização|2|
+|Integração|1|
+|Estruturas|1|
+|Business Intelligence|2|
+|**Total Homologado**|**15 Extensões**|
 
 ---
 
@@ -11578,14 +11579,14 @@ As extensões são utilizadas por:
 
 Todas as extensões deverão atender aos seguintes requisitos.
 
-| Critério                  | Obrigatório |
-| ------------------------- | :---------: |
-| Instalada                 |     Sim     |
-| Homologada                |     Sim     |
-| Documentada               |     Sim     |
-| Compatível com PostgreSQL |     Sim     |
-| Auditada                  |     Sim     |
-| Versão Controlada         |     Sim     |
+|Critério|Obrigatório|
+|-------------------------|:---------:|
+|Instalada|Sim|
+|Homologada|Sim|
+|Documentada|Sim|
+|Compatível com PostgreSQL|Sim|
+|Auditada|Sim|
+|Versão Controlada|Sim|
 
 ---
 
@@ -11985,14 +11986,14 @@ Monitoramento:
 
 ## KPI de Performance
 
-| Indicador                    | Meta     |
-| ---------------------------- | -------- |
-| Tempo médio das consultas    | < 100 ms |
-| Cache Hit Ratio              | ≥ 99%    |
-| Deadlocks                    | 0        |
-| Seq Scan em tabelas críticas | Mínimo   |
-| Índices utilizados           | ≥ 95%    |
-| Consultas críticas           | < 2 s    |
+|Indicador|Meta|
+|----------------------------|--------|
+|Tempo médio das consultas|< 100 ms|
+|Cache Hit Ratio|≥ 99%|
+|Deadlocks|0|
+|Seq Scan em tabelas críticas|Mínimo|
+|Índices utilizados|≥ 95%|
+|Consultas críticas|< 2 s|
 
 ---
 
@@ -12052,21 +12053,21 @@ A camada de Performance fornece informações para:
 
 ---
 
-## Critérios para Certificação
+### Critérios para Certificação
 
-| Critério                      | Obrigatório |
-| ----------------------------- | :---------: |
-| Estatísticas atualizadas      |     Sim     |
-| VACUUM executado              |     Sim     |
-| Índices íntegros              |     Sim     |
-| Consultas críticas otimizadas |     Sim     |
-| Cache adequado                |     Sim     |
-| Sem deadlocks                 |     Sim     |
-| Monitoramento ativo           |     Sim     |
+|Critério|Obrigatório|
+|-----------------------------|:---------:|
+|Estatísticas atualizadas|Sim|
+|VACUUM executado|Sim|
+|Índices íntegros|Sim|
+|Consultas críticas otimizadas|Sim|
+|Cache adequado|Sim|
+|Sem deadlocks|Sim|
+|Monitoramento ativo|Sim|
 
 ---
 
-## Benefícios
+### Benefícios
 
 A estratégia de Performance proporciona:
 
@@ -12217,24 +12218,24 @@ Exemplo:
 
 ## Frequência
 
-| Tipo             | Frequência |
-| ---------------- | ---------- |
-| Full             | Semanal    |
-| Incremental      | Diário     |
-| WAL              | Contínuo   |
-| Snapshot         | Diário     |
-| Teste de Restore | Mensal     |
+|Tipo|Frequência|
+|----------------|----------|
+|Full|Semanal|
+|Incremental|Diário|
+|WAL|Contínuo|
+|Snapshot|Diário|
+|Teste de Restore|Mensal|
 
 ---
 
 ## Retenção
 
-| Backup  |   Retenção |
-| ------- | ---------: |
-| Diário  |    30 dias |
-| Semanal | 12 semanas |
-| Mensal  |   12 meses |
-| Anual   | Permanente |
+|Backup|Retenção|
+|-------|---------:|
+|Diário|30 dias|
+|Semanal|12 semanas|
+|Mensal|12 meses|
+|Anual|Permanente|
 
 ---
 
@@ -12289,11 +12290,11 @@ Os testes deverão ocorrer periodicamente.
 
 Periodicidade:
 
-| Teste             | Frequência |
-| ----------------- | ---------- |
-| Restore Parcial   | Mensal     |
-| Restore Completo  | Trimestral |
-| Disaster Recovery | Semestral  |
+|Teste|Frequência|
+|-----------------|----------|
+|Restore Parcial|Mensal|
+|Restore Completo|Trimestral|
+|Disaster Recovery|Semestral|
 
 ---
 
@@ -12374,13 +12375,13 @@ São auditados:
 
 ## Indicadores
 
-| Indicador                | Meta |
-| ------------------------ | ---- |
-| Backup diário executado  | 100% |
-| Backup semanal executado | 100% |
-| Testes de Restore        | 100% |
-| Backups íntegros         | 100% |
-| Criptografia             | 100% |
+|Indicador|Meta|
+|------------------------|----|
+|Backup diário executado|100%|
+|Backup semanal executado|100%|
+|Testes de Restore|100%|
+|Backups íntegros|100%|
+|Criptografia|100%|
 
 ---
 
@@ -12412,16 +12413,16 @@ O módulo de Backup fornece informações para:
 
 ### Critérios para Certificação
 
-| Critério             | Obrigatório |
-| -------------------- | :---------: |
-| Backup diário        |     Sim     |
-| Backup completo      |     Sim     |
-| WAL ativo            |     Sim     |
-| PITR configurado     |     Sim     |
-| Backup criptografado |     Sim     |
-| Restore testado      |     Sim     |
-| Retenção configurada |     Sim     |
-| Auditoria ativa      |     Sim     |
+|Critério|Obrigatório|
+|--------------------|:---------:|
+|Backup diário|Sim|
+|Backup completo|Sim|
+|WAL ativo|Sim|
+|PITR configurado|Sim|
+|Backup criptografado|Sim|
+|Restore testado|Sim|
+|Retenção configurada|Sim|
+|Auditoria ativa|Sim|
 
 ---
 
@@ -12706,15 +12707,15 @@ O Health Check verifica automaticamente:
 
 ## Indicadores (KPIs)
 
-| Indicador                 | Meta     |
-| ------------------------- | -------- |
-| Disponibilidade           | ≥ 99,9%  |
-| Tempo médio das consultas | < 100 ms |
-| Deadlocks                 | 0        |
-| Uso de CPU                | < 80%    |
-| Uso de Disco              | < 85%    |
-| Backup diário             | 100%     |
-| Cache Hit Ratio           | ≥ 99%    |
+|Indicador|Meta|
+|-------------------------|--------|
+|Disponibilidade|≥ 99,9%|
+|Tempo médio das consultas|< 100 ms|
+|Deadlocks|0|
+|Uso de CPU|< 80%|
+|Uso de Disco|< 85%|
+|Backup diário|100%|
+|Cache Hit Ratio|≥ 99%|
 
 ---
 
@@ -12776,14 +12777,14 @@ As informações alimentam:
 
 ### Critérios para Certificação
 
-| Critério               | Obrigatório |
-| ---------------------- | :---------: |
-| Monitoramento contínuo |     Sim     |
-| Alertas automáticos    |     Sim     |
-| Histórico de métricas  |     Sim     |
-| Dashboard atualizado   |     Sim     |
-| Auditoria habilitada   |     Sim     |
-| Health Check ativo     |     Sim     |
+|Critério|Obrigatório|
+|----------------------|:---------:|
+|Monitoramento contínuo|Sim|
+|Alertas automáticos|Sim|
+|Histórico de métricas|Sim|
+|Dashboard atualizado|Sim|
+|Auditoria habilitada|Sim|
+|Health Check ativo|Sim|
 
 ---
 
@@ -12847,12 +12848,12 @@ Toda a arquitetura de segurança segue os princípios:
 
 As informações do banco são classificadas em:
 
-| Classificação | Descrição                  |
-| ------------- | -------------------------- |
-| Pública       | Informações sem restrição  |
-| Interna       | Uso exclusivo da empresa   |
-| Confidencial  | Dados estratégicos         |
-| Restrita      | Dados protegidos pela LGPD |
+|Classificação|Descrição|
+|-------------|--------------------------|
+|Pública|Informações sem restrição|
+|Interna|Uso exclusivo da empresa|
+|Confidencial|Dados estratégicos|
+|Restrita|Dados protegidos pela LGPD|
 
 ---
 
@@ -12872,17 +12873,17 @@ Todo acesso ocorre através de:
 
 As principais Roles do banco são:
 
-| Role          | Finalidade             |
-| ------------- | ---------------------- |
-| dba_admin     | Administração completa |
-| dba_auditoria | Auditoria              |
-| app_backend   | API                    |
-| app_frontend  | Aplicação              |
-| bi_readonly   | Business Intelligence  |
-| financeiro    | Financeiro             |
-| comercial     | Comercial              |
-| fiscal        | Fiscal                 |
-| administrador | Administração ERP      |
+|Role|Finalidade|
+|-------------|----------------------|
+|dba_admin|Administração completa|
+|dba_auditoria|Auditoria|
+|app_backend|API|
+|app_frontend|Aplicação|
+|bi_readonly|Business Intelligence|
+|financeiro|Financeiro|
+|comercial|Comercial|
+|fiscal|Fiscal|
+|administrador|Administração ERP|
 
 ---
 
@@ -13094,14 +13095,14 @@ O Framework DBA verifica:
 
 ## Indicadores de Segurança
 
-| Indicador            | Meta |
-| -------------------- | ---- |
-| Contas órfãs         | 0    |
-| Objetos sem Owner    | 0    |
-| Roles duplicadas     | 0    |
-| Permissões públicas  | 0    |
-| Auditoria ativa      | 100% |
-| Backup criptografado | 100% |
+|Indicador|Meta|
+|--------------------|----|
+|Contas órfãs|0|
+|Objetos sem Owner|0|
+|Roles duplicadas|0|
+|Permissões públicas|0|
+|Auditoria ativa|100%|
+|Backup criptografado|100%|
 
 ---
 
@@ -13133,16 +13134,16 @@ A camada de Segurança fornece informações para:
 
 ### Critérios para Certificação
 
-| Critério             | Obrigatório |
-| -------------------- | :---------: |
-| Roles documentadas   |     Sim     |
-| Permissões revisadas |     Sim     |
-| Auditoria habilitada |     Sim     |
-| Backup criptografado |     Sim     |
-| SSL obrigatório      |     Sim     |
-| LGPD atendida        |     Sim     |
-| RLS quando aplicável |     Sim     |
-| Framework DBA ativo  |     Sim     |
+|Critério|Obrigatório|
+|--------------------|:---------:|
+|Roles documentadas|Sim|
+|Permissões revisadas|Sim|
+|Auditoria habilitada|Sim|
+|Backup criptografado|Sim|
+|SSL obrigatório|Sim|
+|LGPD atendida|Sim|
+|RLS quando aplicável|Sim|
+|Framework DBA ativo|Sim|
 
 ---
 
@@ -13254,7 +13255,7 @@ O Framework executa auditorias automáticas sobre:
 
 ---
 
-## Health Check
+### Health Check
 
 O Health Check avalia continuamente:
 
@@ -13275,13 +13276,13 @@ O ICB representa o nível de conformidade técnica do banco de dados.
 
 Faixa de classificação:
 
-|    ICB | Classificação |
-| -----: | ------------- |
-| 95–100 | Excelente     |
-|  90–94 | Muito Bom     |
-|  80–89 | Bom           |
-|  70–79 | Regular       |
-|   < 70 | Crítico       |
+|ICB|Classificação|
+|-----:|-------------|
+|95–100|Excelente|
+|90–94|Muito Bom|
+|80–89|Bom|
+|70–79|Regular|
+|< 70|Crítico|
 
 ---
 
@@ -13303,16 +13304,16 @@ O cálculo do ICB considera:
 
 ## Pesos
 
-| Categoria     | Peso |
-| ------------- | ---: |
-| Estrutura     |  20% |
-| Segurança     |  20% |
-| Performance   |  15% |
-| Integridade   |  15% |
-| Governança    |  10% |
-| Backup        |  10% |
-| Monitoramento |   5% |
-| Documentação  |   5% |
+|Categoria|Peso|
+|-------------|---:|
+|Estrutura|20%|
+|Segurança|20%|
+|Performance|15%|
+|Integridade|15%|
+|Governança|10%|
+|Backup|10%|
+|Monitoramento|5%|
+|Documentação|5%|
 
 ---
 
@@ -13332,12 +13333,12 @@ Sempre que uma auditoria detectar inconsistências, o Framework gera automaticam
 
 ## Classificação das Não Conformidades
 
-| Nível   | Descrição                                     |
-| ------- | --------------------------------------------- |
-| Baixa   | Não impacta operação                          |
-| Média   | Impacto moderado                              |
-| Alta    | Pode comprometer desempenho                   |
-| Crítica | Pode comprometer disponibilidade ou segurança |
+|Nível|Descrição|
+|-------|---------------------------------------------|
+|Baixa|Não impacta operação|
+|Média|Impacto moderado|
+|Alta|Pode comprometer desempenho|
+|Crítica|Pode comprometer disponibilidade ou segurança|
 
 ---
 
@@ -13372,28 +13373,28 @@ O Dashboard Executivo apresenta indicadores consolidados para gestão:
 
 ### Indicadores (KPIs)
 
-| Indicador                  | Meta   |
-| -------------------------- | ------ |
-| ICB                        | ≥ 95%  |
-| Auditorias executadas      | 100%   |
-| Não conformidades críticas | 0      |
-| Backups válidos            | 100%   |
-| Health Check               | Diário |
-| Score Técnico              | ≥ 95%  |
+|Indicador|Meta|
+|--------------------------|------|
+|ICB|≥ 95%|
+|Auditorias executadas|100%|
+|Não conformidades críticas|0|
+|Backups válidos|100%|
+|Health Check|Diário|
+|Score Técnico|≥ 95%|
 
 ---
 
 ## Frequência das Auditorias
 
-| Auditoria    | Frequência |
-| ------------ | ---------- |
-| Estrutural   | Diária     |
-| Performance  | Diária     |
-| Segurança    | Diária     |
-| Integridade  | Diária     |
-| Backup       | Diária     |
-| Documentação | Semanal    |
-| Governança   | Mensal     |
+|Auditoria|Frequência|
+|------------|----------|
+|Estrutural|Diária|
+|Performance|Diária|
+|Segurança|Diária|
+|Integridade|Diária|
+|Backup|Diária|
+|Documentação|Semanal|
+|Governança|Mensal|
 
 ---
 
@@ -13412,13 +13413,13 @@ A certificação somente poderá ser emitida quando:
 
 ## Níveis de Maturidade
 
-| Nível   | Descrição    |
-| ------- | ------------ |
-| Nível 1 | Básico       |
-| Nível 2 | Padronizado  |
-| Nível 3 | Gerenciado   |
-| Nível 4 | Automatizado |
-| Nível 5 | Certificado  |
+|Nível|Descrição|
+|-------|------------|
+|Nível 1|Básico|
+|Nível 2|Padronizado|
+|Nível 3|Gerenciado|
+|Nível 4|Automatizado|
+|Nível 5|Certificado|
 
 Objetivo do WMA Travel ERP:
 
@@ -13443,7 +13444,7 @@ O Framework DBA integra-se aos seguintes componentes:
 
 ---
 
-## Benefícios
+### Benefícios
 
 A utilização do Framework DBA proporciona:
 
@@ -13461,16 +13462,16 @@ A utilização do Framework DBA proporciona:
 
 ## Critérios para Certificação Final
 
-| Critério              | Obrigatório |
-| --------------------- | :---------: |
-| ICB ≥ 95%             |     Sim     |
-| Framework DBA ativo   |     Sim     |
-| Auditorias concluídas |     Sim     |
-| Health Check aprovado |     Sim     |
-| Backups válidos       |     Sim     |
-| Segurança validada    |     Sim     |
-| Documentação completa |     Sim     |
-| Dashboard atualizado  |     Sim     |
+|Critério|Obrigatório|
+|---------------------|:---------:|
+|ICB ≥ 95%|Sim|
+|Framework DBA ativo|Sim|
+|Auditorias concluídas|Sim|
+|Health Check aprovado|Sim|
+|Backups válidos|Sim|
+|Segurança validada|Sim|
+|Documentação completa|Sim|
+|Dashboard atualizado|Sim|
 
 ---
 
@@ -14302,14 +14303,14 @@ O projeto adota os seguintes padrões:
 
 O projeto é compatível com:
 
-| Tecnologia | Versão    |
-| ---------- | --------- |
-| PostgreSQL | 15+       |
-| Python     | 3.12+     |
-| FastAPI    | Atual LTS |
-| SQLAlchemy | 2.x       |
-| React      | Atual LTS |
-| Flutter    | Atual LTS |
+|Tecnologia|Versão|
+|----------|---------|
+|PostgreSQL|15+|
+|Python|3.12+|
+|FastAPI|Atual LTS|
+|SQLAlchemy|2.x|
+|React|Atual LTS|
+|Flutter|Atual LTS|
 
 ---
 
@@ -14319,13 +14320,13 @@ Todas as referências deverão ser revisadas periodicamente.
 
 Periodicidade recomendada:
 
-| Item       | Frequência                |
-| ---------- | ------------------------- |
-| PostgreSQL | Anual                     |
-| Python     | Anual                     |
-| Frameworks | Semestral                 |
-| Normas ISO | Quando houver atualização |
-| LGPD       | Conforme legislação       |
+|Item|Frequência|
+|----------|-------------------------|
+|PostgreSQL|Anual|
+|Python|Anual|
+|Frameworks|Semestral|
+|Normas ISO|Quando houver atualização|
+|LGPD|Conforme legislação|
 
 ---
 
@@ -14378,7 +14379,7 @@ Todos os objetos deverão obedecer às seguintes regras:
 
 ---
 
-## Banco de Dados
+### Banco de Dados
 
 ### Nome do Banco
 
@@ -14951,220 +14952,220 @@ O checklist possui os seguintes objetivos:
 
 Cada item deverá possuir um dos seguintes status:
 
-| Status        | Descrição                         |
-| ------------- | --------------------------------- |
-| Conforme      | Atende integralmente ao requisito |
-| Parcial       | Atende parcialmente               |
-| Não Conforme  | Não atende ao requisito           |
-| Não Aplicável | Requisito não se aplica           |
+|Status|Descrição|
+|-------------|---------------------------------|
+|Conforme|Atende integralmente ao requisito|
+|Parcial|Atende parcialmente|
+|Não Conforme|Não atende ao requisito|
+|Não Aplicável|Requisito não se aplica|
 
 ---
 
 ## 1. Estrutura do Banco
 
-| Item                 | Obrigatório |
-| -------------------- | :---------: |
-| Banco criado         |     Sim     |
-| Encoding UTF-8       |     Sim     |
-| Locale configurado   |     Sim     |
-| Timezone configurado |     Sim     |
-| Schemas padronizados |     Sim     |
-| Owner definido       |     Sim     |
+|Item|Obrigatório|
+|--------------------|:---------:|
+|Banco criado|Sim|
+|Encoding UTF-8|Sim|
+|Locale configurado|Sim|
+|Timezone configurado|Sim|
+|Schemas padronizados|Sim|
+|Owner definido|Sim|
 
 ---
 
 ## 2. Tabelas
 
-| Item                          | Obrigatório |
-| ----------------------------- | :---------: |
-| Todas as tabelas documentadas |     Sim     |
-| Nome padronizado              |     Sim     |
-| Comentários preenchidos       |     Sim     |
-| Chave primária existente      |     Sim     |
-| Auditoria habilitada          |     Sim     |
+|Item|Obrigatório|
+|-----------------------------|:---------:|
+|Todas as tabelas documentadas|Sim|
+|Nome padronizado|Sim|
+|Comentários preenchidos|Sim|
+|Chave primária existente|Sim|
+|Auditoria habilitada|Sim|
 
 ---
 
 ## 3. Colunas
 
-| Item                           | Obrigatório |
-| ------------------------------ | :---------: |
-| Nome padronizado               |     Sim     |
-| Tipo correto                   |     Sim     |
-| Comentário preenchido          |     Sim     |
-| NULL corretamente definido     |     Sim     |
-| Valor padrão quando necessário |     Sim     |
+|Item|Obrigatório|
+|------------------------------|:---------:|
+|Nome padronizado|Sim|
+|Tipo correto|Sim|
+|Comentário preenchido|Sim|
+|NULL corretamente definido|Sim|
+|Valor padrão quando necessário|Sim|
 
 ---
 
 ## 4. Chaves Primárias
 
-| Item             | Obrigatório |
-| ---------------- | :---------: |
-| PK existente     |     Sim     |
-| Nome padronizado |     Sim     |
-| Índice criado    |     Sim     |
+|Item|Obrigatório|
+|----------------|:---------:|
+|PK existente|Sim|
+|Nome padronizado|Sim|
+|Índice criado|Sim|
 
 ---
 
 ## 5. Chaves Estrangeiras
 
-| Item                 | Obrigatório |
-| -------------------- | :---------: |
-| FK existente         |     Sim     |
-| Nome padronizado     |     Sim     |
-| Integridade validada |     Sim     |
-| Índice criado        |     Sim     |
+|Item|Obrigatório|
+|--------------------|:---------:|
+|FK existente|Sim|
+|Nome padronizado|Sim|
+|Integridade validada|Sim|
+|Índice criado|Sim|
 
 ---
 
 ## 6. Índices
 
-| Item                            | Obrigatório |
-| ------------------------------- | :---------: |
-| Índices duplicados inexistentes |     Sim     |
-| Índices inválidos inexistentes  |     Sim     |
-| Índices documentados            |     Sim     |
-| Índices utilizados              |     Sim     |
+|Item|Obrigatório|
+|-------------------------------|:---------:|
+|Índices duplicados inexistentes|Sim|
+|Índices inválidos inexistentes|Sim|
+|Índices documentados|Sim|
+|Índices utilizados|Sim|
 
 ---
 
 ## 7. Constraints
 
-| Item                     | Obrigatório |
-| ------------------------ | :---------: |
-| CHECK documentadas       |     Sim     |
-| UNIQUE documentadas      |     Sim     |
-| FOREIGN KEY documentadas |     Sim     |
-| PRIMARY KEY documentadas |     Sim     |
+|Item|Obrigatório|
+|------------------------|:---------:|
+|CHECK documentadas|Sim|
+|UNIQUE documentadas|Sim|
+|FOREIGN KEY documentadas|Sim|
+|PRIMARY KEY documentadas|Sim|
 
 ---
 
 ## 8. Sequences
 
-| Item                   | Obrigatório |
-| ---------------------- | :---------: |
-| Sequence existente     |     Sim     |
-| Vinculada corretamente |     Sim     |
-| Nome padronizado       |     Sim     |
+|Item|Obrigatório|
+|----------------------|:---------:|
+|Sequence existente|Sim|
+|Vinculada corretamente|Sim|
+|Nome padronizado|Sim|
 
 ---
 
 ## 9. Views
 
-| Item                 | Obrigatório |
-| -------------------- | :---------: |
-| Documentadas         |     Sim     |
-| Comentadas           |     Sim     |
-| Performance validada |     Sim     |
+|Item|Obrigatório|
+|--------------------|:---------:|
+|Documentadas|Sim|
+|Comentadas|Sim|
+|Performance validada|Sim|
 
 ---
 
 ## 10. Materialized Views
 
-| Item                    | Obrigatório |
-| ----------------------- | :---------: |
-| Atualização definida    |     Sim     |
-| Índices criados         |     Sim     |
-| Comentários preenchidos |     Sim     |
+|Item|Obrigatório|
+|-----------------------|:---------:|
+|Atualização definida|Sim|
+|Índices criados|Sim|
+|Comentários preenchidos|Sim|
 
 ---
 
 ## 11. Procedures
 
-| Item                   | Obrigatório |
-| ---------------------- | :---------: |
-| Nome padronizado       |     Sim     |
-| Comentários            |     Sim     |
-| Tratamento de exceções |     Sim     |
+|Item|Obrigatório|
+|----------------------|:---------:|
+|Nome padronizado|Sim|
+|Comentários|Sim|
+|Tratamento de exceções|Sim|
 
 ---
 
 ## 12. Functions
 
-| Item                | Obrigatório |
-| ------------------- | :---------: |
-| Nome padronizado    |     Sim     |
-| Comentários         |     Sim     |
-| Retorno documentado |     Sim     |
+|Item|Obrigatório|
+|-------------------|:---------:|
+|Nome padronizado|Sim|
+|Comentários|Sim|
+|Retorno documentado|Sim|
 
 ---
 
 ## 13. Triggers
 
-| Item               | Obrigatório |
-| ------------------ | :---------: |
-| Nome padronizado   |     Sim     |
-| Evento documentado |     Sim     |
-| Auditoria validada |     Sim     |
+|Item|Obrigatório|
+|------------------|:---------:|
+|Nome padronizado|Sim|
+|Evento documentado|Sim|
+|Auditoria validada|Sim|
 
 ---
 
 ## 14. Segurança
 
-| Item                 | Obrigatório |
-| -------------------- | :---------: |
-| Roles configuradas   |     Sim     |
-| Permissões revisadas |     Sim     |
-| SSL habilitado       |     Sim     |
-| Backup criptografado |     Sim     |
-| Auditoria ativa      |     Sim     |
+|Item|Obrigatório|
+|--------------------|:---------:|
+|Roles configuradas|Sim|
+|Permissões revisadas|Sim|
+|SSL habilitado|Sim|
+|Backup criptografado|Sim|
+|Auditoria ativa|Sim|
 
 ---
 
 ## 15. Performance
 
-| Item                          | Obrigatório |
-| ----------------------------- | :---------: |
-| Estatísticas atualizadas      |     Sim     |
-| VACUUM executado              |     Sim     |
-| Índices utilizados            |     Sim     |
-| Consultas críticas otimizadas |     Sim     |
+|Item|Obrigatório|
+|-----------------------------|:---------:|
+|Estatísticas atualizadas|Sim|
+|VACUUM executado|Sim|
+|Índices utilizados|Sim|
+|Consultas críticas otimizadas|Sim|
 
 ---
 
 ## 16. Backup
 
-| Item                 | Obrigatório |
-| -------------------- | :---------: |
-| Backup diário        |     Sim     |
-| Backup completo      |     Sim     |
-| Teste de restore     |     Sim     |
-| Retenção configurada |     Sim     |
+|Item|Obrigatório|
+|--------------------|:---------:|
+|Backup diário|Sim|
+|Backup completo|Sim|
+|Teste de restore|Sim|
+|Retenção configurada|Sim|
 
 ---
 
 ## 17. Monitoramento
 
-| Item                 | Obrigatório |
-| -------------------- | :---------: |
-| Health Check ativo   |     Sim     |
-| Alertas configurados |     Sim     |
-| Logs monitorados     |     Sim     |
-| Dashboard atualizado |     Sim     |
+|Item|Obrigatório|
+|--------------------|:---------:|
+|Health Check ativo|Sim|
+|Alertas configurados|Sim|
+|Logs monitorados|Sim|
+|Dashboard atualizado|Sim|
 
 ---
 
 ## 18. Documentação
 
-| Item                       | Obrigatório |
-| -------------------------- | :---------: |
-| Data Dictionary atualizado |     Sim     |
-| Architecture atualizado    |     Sim     |
-| README atualizado          |     Sim     |
-| Changelog atualizado       |     Sim     |
-| Roadmap atualizado         |     Sim     |
+|Item|Obrigatório|
+|--------------------------|:---------:|
+|Data Dictionary atualizado|Sim|
+|Architecture atualizado|Sim|
+|README atualizado|Sim|
+|Changelog atualizado|Sim|
+|Roadmap atualizado|Sim|
 
 ---
 
 ## 19. Governança
 
-| Item                         | Obrigatório |
-| ---------------------------- | :---------: |
-| Versionamento ativo          |     Sim     |
-| Framework DBA atualizado     |     Sim     |
-| Auditorias executadas        |     Sim     |
-| Plano de Correção atualizado |     Sim     |
+|Item|Obrigatório|
+|----------------------------|:---------:|
+|Versionamento ativo|Sim|
+|Framework DBA atualizado|Sim|
+|Auditorias executadas|Sim|
+|Plano de Correção atualizado|Sim|
 
 ---
 
@@ -15172,26 +15173,26 @@ Cada item deverá possuir um dos seguintes status:
 
 Para emissão da Certificação Técnica deverão ser atendidos os seguintes critérios mínimos:
 
-| Critério                     | Valor |
-| ---------------------------- | ----: |
-| Índice de Conformidade (ICB) | ≥ 95% |
-| Não conformidades críticas   |     0 |
-| Auditorias concluídas        |  100% |
-| Backup validado              |   Sim |
-| Segurança validada           |   Sim |
-| Performance aprovada         |   Sim |
-| Documentação completa        |   Sim |
+|Critério|Valor|
+|----------------------------|----:|
+|Índice de Conformidade (ICB)|≥ 95%|
+|Não conformidades críticas|0|
+|Auditorias concluídas|100%|
+|Backup validado|Sim|
+|Segurança validada|Sim|
+|Performance aprovada|Sim|
+|Documentação completa|Sim|
 
 ---
 
 ## Resultado Final
 
-| Faixa         | Situação                   |
-| ------------- | -------------------------- |
-| 95–100%       | Banco Certificado          |
-| 90–94%        | Aprovado com Recomendações |
-| 80–89%        | Necessita Correções        |
-| Abaixo de 80% | Reprovado                  |
+|Faixa|Situação|
+|-------------|--------------------------|
+|95–100%|Banco Certificado|
+|90–94%|Aprovado com Recomendações|
+|80–89%|Necessita Correções|
+|Abaixo de 80%|Reprovado|
 
 ---
 
@@ -15241,20 +15242,20 @@ As estatísticas apresentadas neste documento deverão ser atualizadas automatic
 
 ## Estrutura Geral
 
-| Item               |             Quantidade |
-| ------------------ | ---------------------: |
-| Bancos de Dados    |                      1 |
-| Schemas            | Conforme implementação |
-| Tabelas            | Conforme implementação |
-| Views              | Conforme implementação |
-| Materialized Views | Conforme implementação |
-| Functions          | Conforme implementação |
-| Procedures         | Conforme implementação |
-| Triggers           | Conforme implementação |
-| Sequences          | Conforme implementação |
-| Domains            | Conforme implementação |
-| Índices            | Conforme implementação |
-| Constraints        | Conforme implementação |
+|Item|Quantidade|
+|------------------|---------------------:|
+|Bancos de Dados|1|
+|Schemas|Conforme implementação|
+|Tabelas|Conforme implementação|
+|Views|Conforme implementação|
+|Materialized Views|Conforme implementação|
+|Functions|Conforme implementação|
+|Procedures|Conforme implementação|
+|Triggers|Conforme implementação|
+|Sequences|Conforme implementação|
+|Domains|Conforme implementação|
+|Índices|Conforme implementação|
+|Constraints|Conforme implementação|
 
 ---
 
@@ -15273,16 +15274,16 @@ Serão monitorados:
 
 ### Exemplo
 
-| Módulo         | Tabelas |
-| -------------- | ------: |
-| Administrativo |       — |
-| Financeiro     |       — |
-| Fiscal         |       — |
-| Comercial      |       — |
-| Turismo        |       — |
-| Bike Tour      |       — |
-| Configuração   |       — |
-| Auditoria      |       — |
+|Módulo|Tabelas|
+|--------------|------:|
+|Administrativo|—|
+|Financeiro|—|
+|Fiscal|—|
+|Comercial|—|
+|Turismo|—|
+|Bike Tour|—|
+|Configuração|—|
+|Auditoria|—|
 
 ---
 
@@ -15312,11 +15313,11 @@ Itens monitorados:
 
 ### Indicadores
 
-| Indicador          |              Valor |
-| ------------------ | -----------------: |
-| Índices utilizados | Conforme auditoria |
-| Índices duplicados | Conforme auditoria |
-| Índices inválidos  | Conforme auditoria |
+|Indicador|Valor|
+|------------------|-----------------:|
+|Índices utilizados|Conforme auditoria|
+|Índices duplicados|Conforme auditoria|
+|Índices inválidos|Conforme auditoria|
 
 ---
 
@@ -15334,12 +15335,12 @@ São monitoradas:
 
 ### Exemplo
 
-| Constraint  | Quantidade |
-| ----------- | ---------: |
-| Primary Key |          — |
-| Foreign Key |          — |
-| Unique      |          — |
-| Check       |          — |
+|Constraint|Quantidade|
+|-----------|---------:|
+|Primary Key|—|
+|Foreign Key|—|
+|Unique|—|
+|Check|—|
 
 ---
 
@@ -15461,14 +15462,14 @@ São registrados:
 
 ### Indicadores Técnicos
 
-| Indicador             | Meta    |
-| --------------------- | ------- |
-| Disponibilidade       | ≥ 99,9% |
-| Cache Hit Ratio       | ≥ 99%   |
-| Consultas lentas      | 0       |
-| Deadlocks             | 0       |
-| Backup válido         | 100%    |
-| Auditorias executadas | 100%    |
+|Indicador|Meta|
+|---------------------|-------|
+|Disponibilidade|≥ 99,9%|
+|Cache Hit Ratio|≥ 99%|
+|Consultas lentas|0|
+|Deadlocks|0|
+|Backup válido|100%|
+|Auditorias executadas|100%|
 
 ---
 
@@ -15478,13 +15479,13 @@ O Framework DBA consolida automaticamente o ICB.
 
 Faixas:
 
-| Faixa  | Classificação |
-| ------ | ------------- |
-| 95–100 | Excelente     |
-| 90–94  | Muito Bom     |
-| 80–89  | Bom           |
-| 70–79  | Regular       |
-| < 70   | Crítico       |
+|Faixa|Classificação|
+|------|-------------|
+|95–100|Excelente|
+|90–94|Muito Bom|
+|80–89|Bom|
+|70–79|Regular|
+|< 70|Crítico|
 
 ---
 
@@ -15492,16 +15493,16 @@ Faixas:
 
 O Score Técnico é composto pelos seguintes componentes:
 
-| Categoria     | Peso |
-| ------------- | ---: |
-| Estrutura     |  20% |
-| Segurança     |  20% |
-| Performance   |  15% |
-| Integridade   |  15% |
-| Backup        |  10% |
-| Governança    |  10% |
-| Monitoramento |   5% |
-| Documentação  |   5% |
+|Categoria|Peso|
+|-------------|---:|
+|Estrutura|20%|
+|Segurança|20%|
+|Performance|15%|
+|Integridade|15%|
+|Backup|10%|
+|Governança|10%|
+|Monitoramento|5%|
+|Documentação|5%|
 
 ---
 
@@ -15509,14 +15510,14 @@ O Score Técnico é composto pelos seguintes componentes:
 
 As estatísticas deverão ser atualizadas automaticamente:
 
-| Processo                 | Frequência  |
-| ------------------------ | ----------- |
-| Auditoria Estrutural     | Diária      |
-| Auditoria de Segurança   | Diária      |
-| Auditoria de Performance | Diária      |
-| Backup                   | Diária      |
-| Dashboard Técnico        | Tempo real  |
-| Certificação             | Sob demanda |
+|Processo|Frequência|
+|------------------------|-----------|
+|Auditoria Estrutural|Diária|
+|Auditoria de Segurança|Diária|
+|Auditoria de Performance|Diária|
+|Backup|Diária|
+|Dashboard Técnico|Tempo real|
+|Certificação|Sob demanda|
 
 ---
 
@@ -15558,7 +15559,7 @@ desde a especificação até a implantação, manutenção e auditoria.
 
 ---
 
-## Objetivos
+### Objetivos
 
 A Matriz de Rastreabilidade possui os seguintes objetivos:
 
@@ -15605,30 +15606,30 @@ REQ-0003
 
 Os módulos oficiais do ERP são:
 
-| Código  | Módulo                |
-| ------- | --------------------- |
-| MOD-ADM | Administrativo        |
-| MOD-FIN | Financeiro            |
-| MOD-FIS | Fiscal                |
-| MOD-COM | Comercial             |
-| MOD-TUR | Turismo               |
-| MOD-BKT | Bike Tour             |
-| MOD-RH  | Recursos Humanos      |
-| MOD-BI  | Business Intelligence |
-| MOD-SEG | Segurança             |
-| MOD-CFG | Configuração          |
+|Código|Módulo|
+|-------|---------------------|
+|MOD-ADM|Administrativo|
+|MOD-FIN|Financeiro|
+|MOD-FIS|Fiscal|
+|MOD-COM|Comercial|
+|MOD-TUR|Turismo|
+|MOD-BKT|Bike Tour|
+|MOD-RH|Recursos Humanos|
+|MOD-BI|Business Intelligence|
+|MOD-SEG|Segurança|
+|MOD-CFG|Configuração|
 
 ---
 
 ## Matriz de Rastreabilidade
 
-| Requisito | Processo             | Banco          | API         | Interface  | Auditoria | Testes |
-| --------- | -------------------- | -------------- | ----------- | ---------- | --------- | ------ |
-| REQ-0001  | Cadastro de Clientes | cliente        | /clientes   | Clientes   | Sim       | Sim    |
-| REQ-0002  | Cadastro de Empresas | empresa        | /empresas   | Empresas   | Sim       | Sim    |
-| REQ-0003  | Fluxo de Caixa       | fluxo_caixa    | /financeiro | Financeiro | Sim       | Sim    |
-| REQ-0004  | Contas a Pagar       | contas_pagar   | /financeiro | Financeiro | Sim       | Sim    |
-| REQ-0005  | Contas a Receber     | contas_receber | /financeiro | Financeiro | Sim       | Sim    |
+|Requisito|Processo|Banco|API|Interface|Auditoria|Testes|
+|---------|--------------------|--------------|-----------|----------|---------|------|
+|REQ-0001|Cadastro de Clientes|cliente|/clientes|Clientes|Sim|Sim|
+|REQ-0002|Cadastro de Empresas|empresa|/empresas|Empresas|Sim|Sim|
+|REQ-0003|Fluxo de Caixa|fluxo_caixa|/financeiro|Financeiro|Sim|Sim|
+|REQ-0004|Contas a Pagar|contas_pagar|/financeiro|Financeiro|Sim|Sim|
+|REQ-0005|Contas a Receber|contas_receber|/financeiro|Financeiro|Sim|Sim|
 
 ---
 
@@ -15646,12 +15647,12 @@ Cada tabela deverá possuir vínculo com:
 
 ### Exemplo
 
-| Tabela      | Módulo         | Processo           |
-| ----------- | -------------- | ------------------ |
-| cliente     | Comercial      | Cadastro           |
-| empresa     | Administrativo | Empresa            |
-| usuario     | Segurança      | Controle de Acesso |
-| fluxo_caixa | Financeiro     | Fluxo de Caixa     |
+|Tabela|Módulo|Processo|
+|-----------|--------------|------------------|
+|cliente|Comercial|Cadastro|
+|empresa|Administrativo|Empresa|
+|usuario|Segurança|Controle de Acesso|
+|fluxo_caixa|Financeiro|Fluxo de Caixa|
 
 ---
 
@@ -15669,12 +15670,12 @@ Cada endpoint deverá possuir:
 
 ### Exemplo
 
-| Endpoint    | Método | Módulo         |
-| ----------- | ------ | -------------- |
-| /clientes   | GET    | Comercial      |
-| /clientes   | POST   | Comercial      |
-| /empresas   | GET    | Administrativo |
-| /financeiro | GET    | Financeiro     |
+|Endpoint|Método|Módulo|
+|-----------|------|--------------|
+|/clientes|GET|Comercial|
+|/clientes|POST|Comercial|
+|/empresas|GET|Administrativo|
+|/financeiro|GET|Financeiro|
 
 ---
 
@@ -16129,27 +16130,27 @@ Certificação
 
 ## Cronograma de Execução
 
-| Processo              | Frequência  |
-| --------------------- | ----------- |
-| Auditoria Estrutural  | Diária      |
-| Auditoria Segurança   | Diária      |
-| Auditoria Performance | Diária      |
-| Backup                | Diária      |
-| Dashboard             | Tempo Real  |
-| Certificação          | Sob Demanda |
+|Processo|Frequência|
+|---------------------|-----------|
+|Auditoria Estrutural|Diária|
+|Auditoria Segurança|Diária|
+|Auditoria Performance|Diária|
+|Backup|Diária|
+|Dashboard|Tempo Real|
+|Certificação|Sob Demanda|
 
 ---
 
-## Indicadores
+### Indicadores
 
-| Indicador       | Meta    |
-| --------------- | ------- |
-| Auditorias      | 100%    |
-| Backup          | 100%    |
-| Health Check    | 100%    |
-| ICB             | ≥ 95%   |
-| Score Técnico   | ≥ 95%   |
-| Disponibilidade | ≥ 99,9% |
+|Indicador|Meta|
+|---------------|-------|
+|Auditorias|100%|
+|Backup|100%|
+|Health Check|100%|
+|ICB|≥ 95%|
+|Score Técnico|≥ 95%|
+|Disponibilidade|≥ 99,9%|
 
 ---
 

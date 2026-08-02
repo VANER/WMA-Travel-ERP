@@ -2,7 +2,8 @@
 
 Todas as alterações relevantes do projeto **WMA Travel ERP** serão documentadas neste arquivo.
 
-Este changelog segue o padrão **Keep a Changelog 1.1.0** e o projeto utiliza **Versionamento Semântico (Semantic Versioning 2.0.0)**.
+Este changelog segue o padrão **Keep a Changelog 1.1.0**
+e o projeto utiliza **Versionamento Semântico (Semantic Versioning 2.0.0)**.
 
 ---
 
@@ -49,6 +50,7 @@ Alterações planejadas para próximas versões.
 
 ### Adicionado
 
+- Documento DATABASE_STANDARDS.md, consolidando os padrões técnicos de nomenclatura e modelagem do banco.
 - Dashboards avançados de Business Intelligence.
 - Framework inicial de integração com Inteligência Artificial.
 - Expansão dos endpoints da API.
@@ -70,7 +72,10 @@ Alterações planejadas para próximas versões.
 
 ### Corrigido
 
-- Nenhuma correção registrada.
+- Recuperação física dos arquivos DEPLOYMENT.md, GOVERNANCE.md, SECURITY.md, STYLE_GUIDE.md e
+  DBA_FRAMEWORK.md, que constavam como concluídos na documentação (CHANGELOG, README,
+  PROJECT_DOCUMENTATION) desde a v1.0.0, mas não existiam fisicamente no diretório do projeto.
+  Conteúdo gerado e validado contra `_markdownlint.jsonc` em 2026-08-09.
 
 ### Segurança
 
@@ -86,7 +91,7 @@ Primeira versão oficial do projeto **WMA Travel ERP**.
 
 ---
 
-### Alterações da Versãogit init
+### Alterações da versão git init
 
 #### Fundação do Projeto
 
@@ -189,6 +194,7 @@ Documentações do projeto:
 - VERSION.
 - ARCHITECTURE.md.
 - DATABASE_GUIDE.md.
+- DATABASE_STANDARDS.md.
 - DATA_DICTIONARY.md.
 - API.md.
 - DEPLOYMENT.md.
