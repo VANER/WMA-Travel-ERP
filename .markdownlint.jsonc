@@ -2,6 +2,10 @@
   // ==========================================================
   // WMA Travel ERP
   // Configuração Corporativa do Markdownlint
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 31f1e1fd52cedf287bafa18086017076c7e6162d
   // Compatível com:
   // - markdownlint (David Anson)
   // - markdownlint-cli
@@ -24,10 +28,26 @@
   "MD022": true,
   "MD023": true,
 
+<<<<<<< HEAD
+=======
+=======
+  // Versão: 1.0.0
+  // ==========================================================
+
+  // Apenas um título H1 por documento
+  "MD025": true,
+
+  // Não permitir títulos duplicados no mesmo nível
+>>>>>>> 7b373d9b72c35a24b78d2a56cbfbc4035c0422e4
+>>>>>>> 31f1e1fd52cedf287bafa18086017076c7e6162d
   "MD024": {
     "siblings_only": true
   },
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 31f1e1fd52cedf287bafa18086017076c7e6162d
   "MD025": true,
 
   // Permite títulos terminados com ":" e similares
@@ -65,10 +85,20 @@
     "code_blocks": false
   },
 
+<<<<<<< HEAD
+=======
+=======
+  // Permitir apenas uma linha em branco consecutiva
+>>>>>>> 7b373d9b72c35a24b78d2a56cbfbc4035c0422e4
+>>>>>>> 31f1e1fd52cedf287bafa18086017076c7e6162d
   "MD012": {
     "maximum": 1
   },
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 31f1e1fd52cedf287bafa18086017076c7e6162d
   "MD027": true,
   "MD028": true,
   "MD031": true,
@@ -77,6 +107,43 @@
   // Comprimento das linhas
   // ----------------------------------------------------------
 
+<<<<<<< HEAD
+=======
+=======
+  // Exigir linguagem em blocos de código
+  "MD040": true,
+
+  // Arquivos devem terminar com uma única quebra de linha
+  "MD047": true,
+
+  // Não permitir URLs sem formatação
+  "MD034": true,
+
+  // Marcador de listas com hífen (-)
+  "MD004": {
+    "style": "dash"
+  },
+
+  // Recuo de listas
+  "MD007": {
+    "indent": 2
+  },
+
+  // Linhas em branco ao redor dos títulos
+  "MD022": true,
+
+  // Linhas em branco ao redor das listas
+  "MD032": true,
+
+  // Tabelas com pipes nas extremidades
+  "MD055": true,
+
+  // Espaço interno em tabelas
+  "MD056": true,
+
+  // Limite de tamanho das linhas
+>>>>>>> 7b373d9b72c35a24b78d2a56cbfbc4035c0422e4
+>>>>>>> 31f1e1fd52cedf287bafa18086017076c7e6162d
   "MD013": {
     "line_length": 120,
     "heading_line_length": 120,
@@ -86,6 +153,10 @@
     "strict": false
   },
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 31f1e1fd52cedf287bafa18086017076c7e6162d
   // ----------------------------------------------------------
   // HTML
   // ----------------------------------------------------------
@@ -147,4 +218,37 @@
     "style": "compact",
     "aligned_delimiter": false
   }
+<<<<<<< HEAD
+=======
+=======
+  // Permitir HTML quando necessário
+  "MD033": false,
+
+  // Permitir texto em negrito como subtítulo
+  "MD036": false,
+
+  // Permitir numeração repetida em listas ordenadas
+  "MD029": {
+    "style": "ordered"
+  },
+
+  // Permitir números duplicados em cabeçalhos
+  "MD001": true,
+
+  // Exigir um espaço após o símbolo #
+  "MD018": true,
+
+  // Não permitir múltiplos espaços após #
+  "MD019": true,
+
+  // Exigir cabeçalhos cercados por linhas em branco
+  "MD022": true,
+
+  // Exigir linhas em branco antes e depois de blocos de código
+  "MD031": true,
+
+  // Exigir linhas em branco antes e depois de citações
+  "MD028": true
+>>>>>>> 7b373d9b72c35a24b78d2a56cbfbc4035c0422e4
+>>>>>>> 31f1e1fd52cedf287bafa18086017076c7e6162d
 }
