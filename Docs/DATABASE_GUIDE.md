@@ -1,15 +1,16 @@
 # Guia de Banco de Dados - WMA Travel ERP
 
-**Versão do Documento:** 1.0.0  
-**Última Atualização:** 29/07/2026  
-**Banco de Dados:** PostgreSQL  
-**Status:** Em Desenvolvimento  
+**Versão do Documento:** 1.0.0
+**Última Atualização:** 29/07/2026
+**Banco de Dados:** PostgreSQL
+**Status:** Em Desenvolvimento
 
 ---
 
 ## 1. Objetivo
 
-Este documento define os padrões técnicos, arquiteturais e operacionais utilizados no banco de dados corporativo do **WMA Travel ERP**.
+Este documento define os padrões técnicos, arquiteturais e operacionais
+utilizados no banco de dados corporativo do **WMA Travel ERP**.
 
 O objetivo é garantir uma base de dados:
 
@@ -524,5 +525,5 @@ Banco estruturado e preparado para evolução contínua.
 
 ---
 
-**Copyright © 2026 WMA Travel Ltda.**  
+**Copyright © 2026 WMA Travel Ltda.**
 **Todos os direitos reservados.**

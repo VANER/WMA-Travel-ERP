@@ -1,8 +1,8 @@
 # Arquitetura do WMA Travel ERP
 
-**Versão do Documento:** 1.0.0  
-**Última Atualização:** 29/07/2026  
-**Status:** Em Desenvolvimento  
+**Versão do Documento:** 1.0.0
+**Última Atualização:** 29/07/2026
+**Status:** Em Desenvolvimento
 
 ---
 
@@ -10,9 +10,12 @@
 
 ## 1.1 Introdução
 
-O **WMA Travel ERP** é uma plataforma corporativa de gestão empresarial desenvolvida para atender às necessidades da **WMA Travel Ltda.**, empresa especializada em turismo, lazer, experiências e cicloturismo.
+O **WMA Travel ERP** é uma plataforma corporativa de gestão empresarial
+desenvolvida para atender às necessidades da **WMA Travel Ltda.**,
+empresa especializada em turismo, lazer, experiências e cicloturismo.
 
-O sistema tem como objetivo centralizar processos administrativos, financeiros, fiscais, comerciais e operacionais em uma única plataforma integrada.
+O sistema tem como objetivo centralizar processos administrativos,
+financeiros, fiscais, comerciais e operacionais em uma única plataforma integrada.
 
 A arquitetura foi projetada utilizando princípios modernos de engenharia de software, permitindo:
 
@@ -502,14 +505,15 @@ Documentos relacionados:
 
 ## Conclusão
 
-O **WMA Travel ERP** foi projetado com uma arquitetura corporativa moderna, preparada para suportar crescimento, integração de novos módulos, governança de dados e evolução tecnológica contínua.
+O **WMA Travel ERP** foi projetado com uma arquitetura corporativa moderna,
+preparada para suportar crescimento, integração de novos módulos, governança de dados e evolução tecnológica contínua.
 
 A arquitetura estabelece uma base sólida para construção de um ERP profissional, seguro e escalável.
 
 ---
 
-**Projeto:** WMA Travel ERP  
-**Empresa:** WMA Travel Ltda.  
+**Projeto:** WMA Travel ERP
+**Empresa:** WMA Travel Ltda.
 
-**Copyright © 2026 WMA Travel Ltda.**  
+**Copyright © 2026 WMA Travel Ltda.**
 **Todos os direitos reservados.**

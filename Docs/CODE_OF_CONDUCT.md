@@ -1,14 +1,15 @@
 # Código de Conduta
 
-**Projeto:** WMA Travel ERP  
-**Versão:** 1.0.0  
-**Última atualização:** 29/07/2026  
+**Projeto:** WMA Travel ERP
+**Versão:** 1.0.0
+**Última atualização:** 29/07/2026
 
 ---
 
 ## Objetivo
 
-O **WMA Travel ERP** é um projeto desenvolvido para promover qualidade técnica, colaboração, profissionalismo, ética e respeito entre todos os participantes.
+O **WMA Travel ERP** é um projeto desenvolvido para promover qualidade técnica,
+colaboração, profissionalismo, ética e respeito entre todos os participantes.
 
 Este Código de Conduta estabelece os princípios de comportamento esperados durante todas as atividades relacionadas ao projeto.
 
@@ -233,7 +234,9 @@ Este documento complementa:
 
 ## Compromisso
 
-Ao contribuir com o **WMA Travel ERP**, cada participante declara que leu, compreendeu e concorda em seguir este Código de Conduta, contribuindo para um ambiente colaborativo, respeitoso e tecnicamente consistente.
+Ao contribuir com o **WMA Travel ERP**, cada participante declara que leu,
+compreendeu e concorda em seguir este Código de Conduta, contribuindo para um ambiente colaborativo,
+respeitoso e tecnicamente consistente.
 
 ---
 
