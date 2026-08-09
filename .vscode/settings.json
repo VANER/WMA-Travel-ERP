@@ -8,27 +8,23 @@
     // ----------------------------------------------------------
     // Idioma
     // ----------------------------------------------------------
-
     "locale": "pt-br",
 
     // ----------------------------------------------------------
     // Tema
     // ----------------------------------------------------------
-
     "workbench.colorTheme": "Dark Modern",
     "workbench.iconTheme": "material-icon-theme",
 
     // ----------------------------------------------------------
     // Auto Save
     // ----------------------------------------------------------
-
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 1000,
 
     // ----------------------------------------------------------
     // Encoding
     // ----------------------------------------------------------
-
     "files.encoding": "utf8",
     "files.eol": "\n",
     "files.trimTrailingWhitespace": true,
@@ -38,7 +34,6 @@
     // ----------------------------------------------------------
     // Excluir Pastas
     // ----------------------------------------------------------
-
     "files.exclude": {
         "**/.git": true,
         "**/.venv": true,
@@ -50,7 +45,6 @@
         "**/dist": true,
         "**/build": true
     },
-
     "search.exclude": {
         "**/.git": true,
         "**/.venv": true,
@@ -63,14 +57,12 @@
     // ----------------------------------------------------------
     // Explorer
     // ----------------------------------------------------------
-
     "explorer.confirmDelete": true,
     "explorer.confirmDragAndDrop": false,
 
     // ----------------------------------------------------------
     // Editor
     // ----------------------------------------------------------
-
     "editor.fontFamily": "Cascadia Code",
     "editor.fontLigatures": true,
     "editor.fontSize": 15,
@@ -90,27 +82,12 @@
     // ----------------------------------------------------------
     // Markdown
     // ----------------------------------------------------------
-
     "markdown.preview.breaks": true,
     "markdown.preview.typographer": true,
-
-    "[markdown]": {
-        "editor.wordWrap": "on",
-        "editor.quickSuggestions": {
-            "comments": "off",
-            "strings": "off",
-            "other": "off"
-        }
-    },
-
-    "markdownlint.config": {
-        "extends": ".markdownlint.jsonc"
-    },
 
     // ----------------------------------------------------------
     // CSpell
     // ----------------------------------------------------------
-
     "cSpell.language": "pt-BR,en",
     "cSpell.useGitignore": true,
     "cSpell.enabled": true,
@@ -119,7 +96,6 @@
     // ----------------------------------------------------------
     // Python
     // ----------------------------------------------------------
-
     "python.defaultInterpreterPath": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
     "python.terminal.activateEnvironment": true,
     "python.analysis.typeCheckingMode": "basic",
@@ -131,13 +107,11 @@
     // ----------------------------------------------------------
     // Terminal
     // ----------------------------------------------------------
-
     "terminal.integrated.defaultProfile.windows": "PowerShell",
 
     // ----------------------------------------------------------
     // Git
     // ----------------------------------------------------------
-
     "git.autofetch": true,
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
@@ -146,19 +120,21 @@
     // ----------------------------------------------------------
     // Formatter
     // ----------------------------------------------------------
-
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-
     "[markdown]": {
-        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        }
     },
-
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
@@ -166,7 +142,6 @@
     // ----------------------------------------------------------
     // SQL
     // ----------------------------------------------------------
-
     "[sql]": {
         "editor.insertSpaces": true,
         "editor.tabSize": 4
@@ -175,7 +150,6 @@
     // ----------------------------------------------------------
     // Arquivos
     // ----------------------------------------------------------
-
     "files.associations": {
         "*.dbml": "plaintext",
         "*.sql": "sql"
@@ -184,12 +158,10 @@
     // ----------------------------------------------------------
     // Segurança
     // ----------------------------------------------------------
-
     "security.workspace.trust.enabled": true,
 
     // ----------------------------------------------------------
     // Telemetria
     // ----------------------------------------------------------
-
     "telemetry.telemetryLevel": "off"
 }
