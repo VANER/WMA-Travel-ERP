@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Licença de Software
 
 ## WMA Travel ERP
@@ -252,3 +253,259 @@ Todos os direitos não expressamente concedidos nesta licença permanecem reserv
 **Copyright © 2026 WMA Travel Ltda.**
 
 **Todos os direitos reservados.**
+=======
+# Licença de Software
+
+## WMA Travel ERP
+
+## Contrato de Licença de Software Proprietário
+
+**Versão:** 1.0.0
+**Data de Vigência:** 29 de julho de 2026
+
+---
+
+## Direitos Autorais
+
+Copyright © 2026 WMA Travel Ltda.
+
+Todos os direitos reservados.
+
+---
+
+## 1. Propriedade Intelectual
+
+O **WMA Travel ERP**, incluindo, mas não limitado a:
+
+- código-fonte;
+- modelos de banco de dados;
+- scripts SQL;
+- procedimentos armazenados;
+- funções;
+- gatilhos;
+- documentação;
+- manuais;
+- arquitetura;
+- fluxos de trabalho;
+- regras de negócio;
+- relatórios;
+- dashboards;
+- APIs;
+- imagens;
+- logotipos;
+- marcas;
+- elementos de design;
+- documentação técnica;
+- dicionários de dados;
+- scripts de migração;
+- scripts de implantação;
+- scripts de automação;
+- componentes do framework;
+
+é propriedade intelectual exclusiva da **WMA Travel Ltda.**
+
+Esta licença não transfere qualquer direito de propriedade sobre o software.
+
+---
+
+## 2. Concessão de Licença
+
+Esta licença concede apenas um direito limitado, revogável, não exclusivo e intransferível de utilização do software,
+exclusivamente conforme autorizado pela **WMA Travel Ltda.**
+
+Nenhum direito de propriedade intelectual ou titularidade é transferido ao usuário.
+
+---
+
+## 3. Restrições de Uso
+
+Sem autorização prévia e formal da **WMA Travel Ltda.**, é expressamente proibido:
+
+- copiar o software;
+- reproduzir o software;
+- distribuir o software;
+- sublicenciar o software;
+- vender o software;
+- alugar o software;
+- disponibilizar publicamente o software;
+- divulgar o código-fonte;
+- realizar engenharia reversa;
+- descompilar;
+- desmontar componentes proprietários;
+- modificar componentes proprietários;
+- remover avisos de direitos autorais;
+- redistribuir scripts do banco de dados;
+- redistribuir documentação;
+- criar trabalhos derivados para fins comerciais.
+
+---
+
+## 4. Uso Interno
+
+Funcionários, prestadores de serviço e fornecedores autorizados poderão utilizar o software exclusivamente
+para atividades formalmente autorizadas pela **WMA Travel Ltda.**
+
+As permissões de acesso deverão seguir as políticas internas de segurança da empresa.
+
+---
+
+## 5. Informações Confidenciais
+
+Todas as informações técnicas relacionadas ao projeto são consideradas confidenciais, incluindo:
+
+- arquitetura do sistema;
+- estrutura do banco de dados;
+- código-fonte;
+- credenciais;
+- documentação interna;
+- procedimentos de implantação;
+- regras de negócio;
+- algoritmos;
+- especificações técnicas.
+
+A divulgação sem autorização formal é proibida.
+
+---
+
+## 6. Direitos de Propriedade
+
+Todos os direitos de propriedade intelectual permanecem exclusivamente pertencentes à **WMA Travel Ltda.**
+
+Isso inclui:
+
+- novas versões;
+- atualizações;
+- correções;
+- melhorias;
+- evoluções;
+- trabalhos derivados desenvolvidos para o projeto.
+
+---
+
+## 7. Contribuições
+
+Salvo acordo formal em contrário, qualquer contribuição enviada ao projeto
+poderá ser incorporada ao software proprietário pertencente à **WMA Travel Ltda.**
+
+Os colaboradores reconhecem que códigos enviados poderão ser:
+
+- modificados;
+- incorporados;
+- aprimorados;
+- removidos;
+
+pelos responsáveis pela manutenção do projeto.
+
+---
+
+## 8. Componentes de Terceiros
+
+O projeto poderá utilizar bibliotecas, frameworks ou componentes de terceiros distribuídos sob suas próprias licenças.
+
+Esses componentes permanecem sujeitos aos respectivos termos de licença.
+
+Esta licença não substitui obrigações relacionadas a componentes externos.
+
+---
+
+## 9. Isenção de Garantias
+
+O software é fornecido no estado atual de desenvolvimento.
+
+Na máxima extensão permitida pela legislação aplicável, a **WMA Travel Ltda.**
+não oferece garantias expressas ou implícitas, incluindo:
+
+- comercialização;
+- adequação para finalidade específica;
+- ausência de violação;
+- funcionamento ininterrupto;
+- execução livre de erros.
+
+---
+
+## 10. Limitação de Responsabilidade
+
+Em nenhuma circunstância a **WMA Travel Ltda.** será responsável por:
+
+- danos indiretos;
+- danos consequenciais;
+- perdas financeiras;
+- interrupção de negócios;
+- perda de dados;
+- uso não autorizado.
+
+A responsabilidade, quando aplicável, será limitada conforme permitido pela legislação vigente.
+
+---
+
+## 11. Segurança da Informação
+
+Os usuários são responsáveis pela proteção de:
+
+- senhas;
+- credenciais;
+- certificados;
+- chaves de criptografia;
+- backups;
+- infraestrutura onde o software está instalado.
+
+Tentativas de acesso não autorizado são proibidas.
+
+---
+
+## 12. Conformidade Legal
+
+Os usuários devem cumprir todas as leis e regulamentações aplicáveis, incluindo:
+
+- legislação de propriedade intelectual;
+- leis de direitos autorais;
+- regulamentações de licenciamento de software;
+- legislação de proteção de dados e privacidade.
+
+---
+
+## 13. Encerramento da Licença
+
+A violação de qualquer cláusula desta licença resultará automaticamente no encerramento dos direitos concedidos.
+
+Após o encerramento, todas as cópias do software,
+documentação e materiais relacionados deverão ser removidas, salvo quando a retenção for exigida por lei.
+
+---
+
+## 14. Legislação Aplicável
+
+Esta licença será regida pelas leis da **República Federativa do Brasil**.
+
+Eventuais conflitos relacionados a esta licença deverão ser submetidos aos tribunais competentes,
+salvo disposições legais obrigatórias em contrário.
+
+---
+
+## 15. Contato
+
+**WMA Travel Ltda.**
+
+Site oficial:
+
+[WMA Travel](https://wmatravel.com.br)
+
+---
+
+## 16. Acordo Integral
+
+Esta licença representa o acordo integral referente ao uso do software
+e substitui entendimentos anteriores relacionados ao licenciamento.
+
+---
+
+## Reserva de Direitos
+
+Todos os direitos não expressamente concedidos nesta licença permanecem reservados exclusivamente à **WMA Travel Ltda.**
+
+---
+
+**Copyright © 2026 WMA Travel Ltda.**
+
+**Todos os direitos reservados.**
+>>>>>>> 7b373d9b72c35a24b78d2a56cbfbc4035c0422e4
