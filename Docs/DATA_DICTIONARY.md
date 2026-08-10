@@ -494,583 +494,553 @@
     - [Fluxo Operacional](#fluxo-operacional-2)
   - [Indicadores de Recursos Humanos](#indicadores-de-recursos-humanos)
   - [6.8 Framework de Auditoria](#68-framework-de-auditoria)
-    - [Visão Geral](#visão-geral-5)
-    - [Objetivos](#objetivos-6)
-  - [execucao\_auditoria](#execucao_auditoria)
+  - [catalogo\_schema](#catalogo_schema)
     - [Descrição](#descrição-133)
+    - [Finalidade](#finalidade-9)
     - [Chave Primária](#chave-primária-10)
     - [Colunas](#colunas-10)
-    - [Índices](#índices-7)
-  - [auditoria\_categoria](#auditoria_categoria)
+    - [Observações](#observações-3)
+  - [catalogo\_tabela](#catalogo_tabela)
     - [Descrição](#descrição-134)
-    - [Exemplos](#exemplos-42)
-  - [auditoria\_item](#auditoria_item)
-    - [Descrição](#descrição-135)
-    - [Exemplos](#exemplos-43)
-  - [auditoria\_resultado](#auditoria_resultado)
-    - [Descrição](#descrição-136)
-    - [Situações](#situações-9)
+    - [Finalidade](#finalidade-10)
+    - [Chave Primária](#chave-primária-11)
     - [Relacionamentos](#relacionamentos-16)
-  - [auditoria\_score](#auditoria_score)
+    - [Colunas](#colunas-11)
+    - [Observações](#observações-4)
+  - [catalogo\_coluna](#catalogo_coluna)
+    - [Descrição](#descrição-135)
+    - [Finalidade](#finalidade-11)
+    - [Chave Primária](#chave-primária-12)
+    - [Relacionamentos](#relacionamentos-17)
+    - [Colunas](#colunas-12)
+    - [Observações](#observações-5)
+  - [categoria](#categoria)
+    - [Descrição](#descrição-136)
+    - [Finalidade](#finalidade-12)
+    - [Chave Primária](#chave-primária-13)
+    - [Relacionamentos](#relacionamentos-18)
+    - [Colunas](#colunas-13)
+  - [configuracao (auditoria)](#configuracao-auditoria)
     - [Descrição](#descrição-137)
-    - [Indicadores](#indicadores-13)
-  - [auditoria\_certificacao](#auditoria_certificacao)
+    - [Finalidade](#finalidade-13)
+    - [Chave Primária](#chave-primária-14)
+    - [Colunas](#colunas-14)
+  - [core](#core)
     - [Descrição](#descrição-138)
-    - [Classificações](#classificações)
-  - [plano\_correcao](#plano_correcao)
+    - [Finalidade](#finalidade-14)
+    - [Chave Primária](#chave-primária-15)
+    - [Colunas](#colunas-15)
+    - [Observações](#observações-6)
+  - [executor](#executor)
     - [Descrição](#descrição-139)
-    - [Informações](#informações-27)
-  - [plano\_correcao\_item](#plano_correcao_item)
+    - [Finalidade](#finalidade-15)
+    - [Chave Primária](#chave-primária-16)
+    - [Relacionamentos](#relacionamentos-19)
+    - [Colunas](#colunas-16)
+  - [execucao](#execucao)
     - [Descrição](#descrição-140)
-  - [revalidacao](#revalidacao)
+    - [Finalidade](#finalidade-16)
+    - [Chave Primária](#chave-primária-17)
+    - [Relacionamentos](#relacionamentos-20)
+    - [Colunas](#colunas-17)
+  - [item](#item)
     - [Descrição](#descrição-141)
-    - [Objetivo](#objetivo-6)
-  - [auditoria\_objeto](#auditoria_objeto)
+    - [Finalidade](#finalidade-17)
+    - [Chave Primária](#chave-primária-18)
+    - [Relacionamentos](#relacionamentos-21)
+    - [Colunas](#colunas-18)
+  - [regra](#regra)
     - [Descrição](#descrição-142)
-    - [Tipos](#tipos-2)
-  - [auditoria\_documentacao](#auditoria_documentacao)
+    - [Finalidade](#finalidade-18)
+    - [Chave Primária](#chave-primária-19)
+    - [Relacionamentos](#relacionamentos-22)
+    - [Colunas](#colunas-19)
+  - [resultado](#resultado)
     - [Descrição](#descrição-143)
-    - [Critérios](#critérios-2)
-  - [auditoria\_indices](#auditoria_indices)
+    - [Finalidade](#finalidade-19)
+    - [Chave Primária](#chave-primária-20)
+    - [Relacionamentos](#relacionamentos-23)
+    - [Colunas](#colunas-20)
+  - [score](#score)
     - [Descrição](#descrição-144)
-    - [Verificações](#verificações)
-  - [auditoria\_fk](#auditoria_fk)
+    - [Finalidade](#finalidade-20)
+    - [Chave Primária](#chave-primária-21)
+    - [Relacionamentos](#relacionamentos-24)
+    - [Colunas](#colunas-21)
+  - [script](#script)
     - [Descrição](#descrição-145)
-    - [Critérios](#critérios-3)
-  - [auditoria\_performance](#auditoria_performance)
+    - [Finalidade](#finalidade-21)
+    - [Chave Primária](#chave-primária-22)
+    - [Colunas](#colunas-22)
+  - [log](#log)
     - [Descrição](#descrição-146)
-    - [Métricas](#métricas)
-  - [auditoria\_seguranca](#auditoria_seguranca)
+    - [Finalidade](#finalidade-22)
+    - [Chave Primária](#chave-primária-23)
+    - [Relacionamentos](#relacionamentos-25)
+    - [Colunas](#colunas-23)
+    - [Observações](#observações-7)
+  - [log\_correcao](#log_correcao)
     - [Descrição](#descrição-147)
-    - [Critérios](#critérios-4)
-  - [auditoria\_healthcheck](#auditoria_healthcheck)
+    - [Finalidade](#finalidade-23)
+    - [Chave Primária](#chave-primária-24)
+    - [Colunas](#colunas-24)
+    - [Observações](#observações-8)
+  - [recomendacao](#recomendacao)
     - [Descrição](#descrição-148)
-    - [Exemplos](#exemplos-44)
-  - [dashboard\_auditoria](#dashboard_auditoria)
-    - [Descrição](#descrição-149)
-    - [Indicadores](#indicadores-14)
-  - [Fluxo da Auditoria](#fluxo-da-auditoria)
-  - [Índice de Conformidade do Banco (ICB)](#índice-de-conformidade-do-banco-icb)
-  - [Faixas](#faixas)
-  - [Indicadores Técnicos](#indicadores-técnicos)
-  - [6.9 Framework de Governança](#69-framework-de-governança)
-    - [Visão Geral](#visão-geral-6)
-    - [Objetivos](#objetivos-7)
-  - [governanca\_politica](#governanca_politica)
-    - [Descrição](#descrição-150)
-    - [Exemplos](#exemplos-45)
-  - [governanca\_categoria](#governanca_categoria)
-    - [Descrição](#descrição-151)
-    - [Exemplos](#exemplos-46)
-  - [governanca\_documento](#governanca_documento)
-    - [Descrição](#descrição-152)
-    - [Exemplos](#exemplos-47)
-  - [governanca\_versao](#governanca_versao)
-    - [Descrição](#descrição-153)
-    - [Informações](#informações-28)
-  - [governanca\_release](#governanca_release)
-    - [Descrição](#descrição-154)
-    - [Exemplos](#exemplos-48)
-  - [governanca\_migracao](#governanca_migracao)
-    - [Descrição](#descrição-155)
-    - [Informações](#informações-29)
-  - [governanca\_change](#governanca_change)
-    - [Descrição](#descrição-156)
-    - [Eventos](#eventos-3)
-  - [governanca\_aprovacao](#governanca_aprovacao)
-    - [Descrição](#descrição-157)
-    - [Fluxo](#fluxo)
-  - [governanca\_risco](#governanca_risco)
-    - [Descrição](#descrição-158)
-    - [Classificações](#classificações-1)
-  - [governanca\_incidente](#governanca_incidente)
-    - [Descrição](#descrição-159)
-    - [Exemplos](#exemplos-49)
-  - [governanca\_lgpd](#governanca_lgpd)
-    - [Descrição](#descrição-160)
-    - [Informações](#informações-30)
-  - [governanca\_log](#governanca_log)
-    - [Descrição](#descrição-161)
-    - [Exemplos](#exemplos-50)
-  - [governanca\_backup](#governanca_backup)
-    - [Descrição](#descrição-162)
-    - [Informações](#informações-31)
-  - [governanca\_restore](#governanca_restore)
-    - [Descrição](#descrição-163)
-    - [Objetivo](#objetivo-7)
-  - [governanca\_ambiente](#governanca_ambiente)
-    - [Descrição](#descrição-164)
-    - [Exemplos](#exemplos-51)
-  - [governanca\_servidor](#governanca_servidor)
-    - [Descrição](#descrição-165)
-    - [Informações](#informações-32)
-  - [governanca\_role](#governanca_role)
-    - [Descrição](#descrição-166)
-    - [Exemplos](#exemplos-52)
-  - [governanca\_permissao](#governanca_permissao)
-    - [Descrição](#descrição-167)
-    - [Objetivos](#objetivos-8)
-  - [governanca\_compliance](#governanca_compliance)
-    - [Descrição](#descrição-168)
-    - [Critérios](#critérios-5)
-  - [governanca\_metadata](#governanca_metadata)
-    - [Descrição](#descrição-169)
-    - [Conteúdo](#conteúdo)
-  - [dashboard\_governanca](#dashboard_governanca)
-    - [Descrição](#descrição-170)
-    - [Indicadores](#indicadores-15)
-  - [Fluxo de Governança](#fluxo-de-governança)
-  - [Indicadores de Governança](#indicadores-de-governança)
-  - [Integração com Outros Frameworks](#integração-com-outros-frameworks)
-  - [Benefícios](#benefícios)
-  - [6.10 Views](#610-views)
-    - [Objetivos](#objetivos-9)
+    - [Finalidade](#finalidade-24)
+    - [Chave Primária](#chave-primária-25)
+    - [Relacionamentos](#relacionamentos-26)
+    - [Colunas](#colunas-25)
+    - [Fluxo da Auditoria](#fluxo-da-auditoria)
+    - [Índice de Conformidade do Banco (ICB)](#índice-de-conformidade-do-banco-icb)
+  - [6.9 Views](#69-views)
+    - [Objetivos](#objetivos-6)
   - [Convenções](#convenções)
   - [Classificação](#classificação)
   - [vw\_empresa](#vw_empresa)
-    - [Descrição](#descrição-171)
+    - [Descrição](#descrição-149)
     - [Origem](#origem)
     - [Utilização](#utilização-1)
   - [vw\_clientes](#vw_clientes)
-    - [Descrição](#descrição-172)
+    - [Descrição](#descrição-150)
     - [Origem](#origem-1)
     - [Campos principais](#campos-principais)
   - [vw\_fornecedores](#vw_fornecedores)
-    - [Descrição](#descrição-173)
+    - [Descrição](#descrição-151)
     - [Origem](#origem-2)
   - [vw\_colaboradores](#vw_colaboradores)
-    - [Descrição](#descrição-174)
+    - [Descrição](#descrição-152)
     - [Origem](#origem-3)
   - [vw\_contas\_receber](#vw_contas_receber)
-    - [Descrição](#descrição-175)
+    - [Descrição](#descrição-153)
     - [Origem](#origem-4)
-    - [Indicadores](#indicadores-16)
+    - [Indicadores](#indicadores-13)
   - [vw\_contas\_pagar](#vw_contas_pagar)
-    - [Descrição](#descrição-176)
+    - [Descrição](#descrição-154)
     - [Origem](#origem-5)
   - [vw\_fluxo\_caixa](#vw_fluxo_caixa)
-    - [Descrição](#descrição-177)
+    - [Descrição](#descrição-155)
     - [Origem](#origem-6)
-    - [Indicadores](#indicadores-17)
+    - [Indicadores](#indicadores-14)
   - [vw\_dre](#vw_dre)
-    - [Descrição](#descrição-178)
+    - [Descrição](#descrição-156)
     - [Origem](#origem-7)
-    - [Indicadores](#indicadores-18)
+    - [Indicadores](#indicadores-15)
   - [vw\_balancete](#vw_balancete)
-    - [Descrição](#descrição-179)
+    - [Descrição](#descrição-157)
     - [Origem](#origem-8)
   - [vw\_reservas](#vw_reservas)
-    - [Descrição](#descrição-180)
+    - [Descrição](#descrição-158)
     - [Origem](#origem-9)
   - [vw\_pacotes](#vw_pacotes)
-    - [Descrição](#descrição-181)
+    - [Descrição](#descrição-159)
     - [Origem](#origem-10)
   - [vw\_eventos\_bike](#vw_eventos_bike)
-    - [Descrição](#descrição-182)
+    - [Descrição](#descrição-160)
     - [Origem](#origem-11)
   - [vw\_participantes\_bike](#vw_participantes_bike)
-    - [Descrição](#descrição-183)
+    - [Descrição](#descrição-161)
     - [Origem](#origem-12)
   - [vw\_dashboard\_financeiro](#vw_dashboard_financeiro)
-    - [Descrição](#descrição-184)
-    - [Indicadores](#indicadores-19)
+    - [Descrição](#descrição-162)
+    - [Indicadores](#indicadores-16)
   - [vw\_dashboard\_comercial](#vw_dashboard_comercial)
-    - [Descrição](#descrição-185)
-    - [Indicadores](#indicadores-20)
+    - [Descrição](#descrição-163)
+    - [Indicadores](#indicadores-17)
   - [vw\_dashboard\_turismo](#vw_dashboard_turismo)
-    - [Descrição](#descrição-186)
-    - [Indicadores](#indicadores-21)
+    - [Descrição](#descrição-164)
+    - [Indicadores](#indicadores-18)
   - [vw\_dashboard\_bike](#vw_dashboard_bike)
-    - [Descrição](#descrição-187)
-    - [Indicadores](#indicadores-22)
+    - [Descrição](#descrição-165)
+    - [Indicadores](#indicadores-19)
   - [vw\_dashboard\_rh](#vw_dashboard_rh)
-    - [Descrição](#descrição-188)
-    - [Indicadores](#indicadores-23)
+    - [Descrição](#descrição-166)
+    - [Indicadores](#indicadores-20)
   - [vw\_dashboard\_fiscal](#vw_dashboard_fiscal)
-    - [Descrição](#descrição-189)
-    - [Indicadores](#indicadores-24)
+    - [Descrição](#descrição-167)
+    - [Indicadores](#indicadores-21)
   - [vw\_dashboard\_governanca](#vw_dashboard_governanca)
-    - [Descrição](#descrição-190)
-    - [Indicadores](#indicadores-25)
+    - [Descrição](#descrição-168)
+    - [Indicadores](#indicadores-22)
   - [vw\_dashboard\_auditoria](#vw_dashboard_auditoria)
-    - [Descrição](#descrição-191)
-    - [Indicadores](#indicadores-26)
+    - [Descrição](#descrição-169)
+    - [Indicadores](#indicadores-23)
   - [vw\_health\_check](#vw_health_check)
-    - [Descrição](#descrição-192)
-    - [Indicadores](#indicadores-27)
+    - [Descrição](#descrição-170)
+    - [Indicadores](#indicadores-24)
   - [vw\_indicadores\_auditoria](#vw_indicadores_auditoria)
-    - [Descrição](#descrição-193)
+    - [Descrição](#descrição-171)
     - [Origem](#origem-13)
-    - [Indicadores](#indicadores-28)
+    - [Indicadores](#indicadores-25)
   - [Dependências](#dependências)
   - [Boas Práticas](#boas-práticas)
   - [Convenções de Nomenclatura](#convenções-de-nomenclatura)
   - [Indicadores Cobertos](#indicadores-cobertos)
   - [Estatísticas do Projeto](#estatísticas-do-projeto)
-  - [6.11 Procedures](#611-procedures)
-    - [Objetivos](#objetivos-10)
+  - [6.10 Procedures](#610-procedures)
+    - [Objetivos](#objetivos-7)
     - [Convenções](#convenções-1)
   - [Organização](#organização)
   - [Estrutura da Documentação](#estrutura-da-documentação)
   - [Procedures Administrativas](#procedures-administrativas)
   - [sp\_cadastrar\_empresa](#sp_cadastrar_empresa)
-    - [Descrição](#descrição-194)
-    - [Objetivo](#objetivo-8)
+    - [Descrição](#descrição-172)
+    - [Objetivo](#objetivo-6)
     - [Parâmetros](#parâmetros)
     - [Retorno](#retorno)
   - [sp\_atualizar\_empresa](#sp_atualizar_empresa)
-    - [Descrição](#descrição-195)
+    - [Descrição](#descrição-173)
   - [sp\_inativar\_empresa](#sp_inativar_empresa)
-    - [Descrição](#descrição-196)
+    - [Descrição](#descrição-174)
   - [Procedures Financeiras](#procedures-financeiras)
   - [sp\_gerar\_fluxo\_caixa](#sp_gerar_fluxo_caixa)
-    - [Descrição](#descrição-197)
+    - [Descrição](#descrição-175)
     - [Responsabilidade](#responsabilidade-3)
   - [sp\_recalcular\_saldos](#sp_recalcular_saldos)
-    - [Descrição](#descrição-198)
+    - [Descrição](#descrição-176)
   - [sp\_fechamento\_financeiro](#sp_fechamento_financeiro)
-    - [Descrição](#descrição-199)
+    - [Descrição](#descrição-177)
     - [Processos](#processos)
   - [sp\_abrir\_competencia](#sp_abrir_competencia)
-    - [Descrição](#descrição-200)
+    - [Descrição](#descrição-178)
   - [sp\_fechar\_competencia](#sp_fechar_competencia)
-    - [Descrição](#descrição-201)
+    - [Descrição](#descrição-179)
   - [sp\_reabrir\_competencia](#sp_reabrir_competencia)
-    - [Descrição](#descrição-202)
+    - [Descrição](#descrição-180)
   - [sp\_calcular\_dre](#sp_calcular_dre)
-    - [Descrição](#descrição-203)
+    - [Descrição](#descrição-181)
   - [sp\_calcular\_balancete](#sp_calcular_balancete)
-    - [Descrição](#descrição-204)
+    - [Descrição](#descrição-182)
   - [Procedures Comerciais](#procedures-comerciais)
   - [sp\_converter\_lead](#sp_converter_lead)
-    - [Descrição](#descrição-205)
+    - [Descrição](#descrição-183)
   - [sp\_gerar\_proposta](#sp_gerar_proposta)
-    - [Descrição](#descrição-206)
+    - [Descrição](#descrição-184)
   - [sp\_fechar\_venda](#sp_fechar_venda)
-    - [Descrição](#descrição-207)
+    - [Descrição](#descrição-185)
   - [sp\_cancelar\_venda](#sp_cancelar_venda)
-    - [Descrição](#descrição-208)
+    - [Descrição](#descrição-186)
   - [Procedures Fiscais](#procedures-fiscais)
   - [sp\_emitir\_nf](#sp_emitir_nf)
-    - [Descrição](#descrição-209)
+    - [Descrição](#descrição-187)
   - [sp\_cancelar\_nf](#sp_cancelar_nf)
-    - [Descrição](#descrição-210)
+    - [Descrição](#descrição-188)
   - [sp\_apurar\_impostos](#sp_apurar_impostos)
-    - [Descrição](#descrição-211)
+    - [Descrição](#descrição-189)
   - [sp\_gerar\_das](#sp_gerar_das)
-    - [Descrição](#descrição-212)
+    - [Descrição](#descrição-190)
   - [sp\_gerar\_darf](#sp_gerar_darf)
-    - [Descrição](#descrição-213)
+    - [Descrição](#descrição-191)
   - [Procedures Turismo](#procedures-turismo)
   - [sp\_confirmar\_reserva](#sp_confirmar_reserva)
-    - [Descrição](#descrição-214)
+    - [Descrição](#descrição-192)
   - [sp\_cancelar\_reserva](#sp_cancelar_reserva)
-    - [Descrição](#descrição-215)
+    - [Descrição](#descrição-193)
   - [sp\_emitir\_voucher](#sp_emitir_voucher)
-    - [Descrição](#descrição-216)
+    - [Descrição](#descrição-194)
   - [sp\_gerar\_roteiro](#sp_gerar_roteiro)
-    - [Descrição](#descrição-217)
+    - [Descrição](#descrição-195)
   - [Procedures Bike Tour](#procedures-bike-tour)
   - [sp\_confirmar\_inscricao](#sp_confirmar_inscricao)
-    - [Descrição](#descrição-218)
+    - [Descrição](#descrição-196)
   - [sp\_entregar\_kit](#sp_entregar_kit)
-    - [Descrição](#descrição-219)
+    - [Descrição](#descrição-197)
   - [sp\_registrar\_checkin](#sp_registrar_checkin)
-    - [Descrição](#descrição-220)
+    - [Descrição](#descrição-198)
   - [sp\_classificar\_evento](#sp_classificar_evento)
-    - [Descrição](#descrição-221)
+    - [Descrição](#descrição-199)
   - [sp\_emitir\_certificado](#sp_emitir_certificado)
-    - [Descrição](#descrição-222)
+    - [Descrição](#descrição-200)
   - [Procedures RH](#procedures-rh)
   - [sp\_calcular\_folha](#sp_calcular_folha)
-    - [Descrição](#descrição-223)
+    - [Descrição](#descrição-201)
   - [sp\_calcular\_ferias](#sp_calcular_ferias)
-    - [Descrição](#descrição-224)
+    - [Descrição](#descrição-202)
   - [sp\_processar\_ponto](#sp_processar_ponto)
-    - [Descrição](#descrição-225)
+    - [Descrição](#descrição-203)
   - [Procedures Auditoria](#procedures-auditoria)
   - [sp\_executar\_auditoria](#sp_executar_auditoria)
-    - [Descrição](#descrição-226)
+    - [Descrição](#descrição-204)
   - [sp\_auditar\_colunas](#sp_auditar_colunas)
-    - [Descrição](#descrição-227)
+    - [Descrição](#descrição-205)
   - [sp\_auditar\_indices](#sp_auditar_indices)
-    - [Descrição](#descrição-228)
+    - [Descrição](#descrição-206)
   - [sp\_auditar\_documentacao](#sp_auditar_documentacao)
-    - [Descrição](#descrição-229)
+    - [Descrição](#descrição-207)
   - [sp\_auditar\_seguranca](#sp_auditar_seguranca)
-    - [Descrição](#descrição-230)
+    - [Descrição](#descrição-208)
   - [sp\_calcular\_score](#sp_calcular_score)
-    - [Descrição](#descrição-231)
+    - [Descrição](#descrição-209)
   - [sp\_calcular\_icb](#sp_calcular_icb)
-    - [Descrição](#descrição-232)
+    - [Descrição](#descrição-210)
   - [sp\_gerar\_plano\_correcao](#sp_gerar_plano_correcao)
-    - [Descrição](#descrição-233)
+    - [Descrição](#descrição-211)
   - [sp\_revalidar\_banco](#sp_revalidar_banco)
-    - [Descrição](#descrição-234)
+    - [Descrição](#descrição-212)
   - [sp\_certificar\_banco](#sp_certificar_banco)
-    - [Descrição](#descrição-235)
+    - [Descrição](#descrição-213)
   - [Procedures Governança](#procedures-governança)
   - [sp\_registrar\_release](#sp_registrar_release)
-    - [Descrição](#descrição-236)
+    - [Descrição](#descrição-214)
   - [sp\_registrar\_migracao](#sp_registrar_migracao)
-    - [Descrição](#descrição-237)
+    - [Descrição](#descrição-215)
   - [sp\_registrar\_backup](#sp_registrar_backup)
-    - [Descrição](#descrição-238)
+    - [Descrição](#descrição-216)
   - [sp\_registrar\_restore](#sp_registrar_restore)
-    - [Descrição](#descrição-239)
+    - [Descrição](#descrição-217)
   - [sp\_atualizar\_metadata](#sp_atualizar_metadata)
-    - [Descrição](#descrição-240)
+    - [Descrição](#descrição-218)
   - [Procedures do Sistema](#procedures-do-sistema)
   - [sp\_health\_check](#sp_health_check)
-    - [Descrição](#descrição-241)
+    - [Descrição](#descrição-219)
   - [sp\_limpeza\_logs](#sp_limpeza_logs)
-    - [Descrição](#descrição-242)
+    - [Descrição](#descrição-220)
   - [sp\_reindex\_database](#sp_reindex_database)
-    - [Descrição](#descrição-243)
+    - [Descrição](#descrição-221)
   - [sp\_vacuum\_database](#sp_vacuum_database)
-    - [Descrição](#descrição-244)
+    - [Descrição](#descrição-222)
   - [sp\_analyze\_database](#sp_analyze_database)
-    - [Descrição](#descrição-245)
+    - [Descrição](#descrição-223)
     - [Convenções](#convenções-2)
     - [Dependências](#dependências-1)
     - [Estatísticas Previstas](#estatísticas-previstas)
-  - [6.12 Functions](#612-functions)
-    - [Objetivos](#objetivos-11)
+  - [6.11 Functions](#611-functions)
+    - [Objetivos](#objetivos-8)
     - [Convenções](#convenções-3)
     - [Classificação](#classificação-1)
     - [Estrutura da Documentação](#estrutura-da-documentação-1)
   - [Functions Utilitárias](#functions-utilitárias)
   - [fn\_uuid](#fn_uuid)
-    - [Descrição](#descrição-246)
+    - [Descrição](#descrição-224)
     - [Retorno](#retorno-1)
   - [fn\_now\_brasil](#fn_now_brasil)
-    - [Descrição](#descrição-247)
+    - [Descrição](#descrição-225)
     - [Retorno](#retorno-2)
   - [fn\_normalizar\_texto](#fn_normalizar_texto)
-    - [Descrição](#descrição-248)
+    - [Descrição](#descrição-226)
     - [Retorno](#retorno-3)
   - [fn\_remover\_caracteres\_especiais](#fn_remover_caracteres_especiais)
-    - [Descrição](#descrição-249)
+    - [Descrição](#descrição-227)
   - [fn\_formatar\_documento](#fn_formatar_documento)
-    - [Descrição](#descrição-250)
+    - [Descrição](#descrição-228)
   - [Functions Financeiras](#functions-financeiras)
   - [fn\_calcular\_saldo](#fn_calcular_saldo)
-    - [Descrição](#descrição-251)
+    - [Descrição](#descrição-229)
     - [Retorno](#retorno-4)
   - [fn\_calcular\_fluxo\_caixa](#fn_calcular_fluxo_caixa)
-    - [Descrição](#descrição-252)
+    - [Descrição](#descrição-230)
   - [fn\_calcular\_dre](#fn_calcular_dre)
-    - [Descrição](#descrição-253)
+    - [Descrição](#descrição-231)
   - [fn\_calcular\_balancete](#fn_calcular_balancete)
-    - [Descrição](#descrição-254)
+    - [Descrição](#descrição-232)
   - [fn\_calcular\_ticket\_medio](#fn_calcular_ticket_medio)
-    - [Descrição](#descrição-255)
+    - [Descrição](#descrição-233)
   - [fn\_calcular\_lucro](#fn_calcular_lucro)
-    - [Descrição](#descrição-256)
+    - [Descrição](#descrição-234)
   - [fn\_calcular\_markup](#fn_calcular_markup)
-    - [Descrição](#descrição-257)
+    - [Descrição](#descrição-235)
   - [fn\_calcular\_margem](#fn_calcular_margem)
-    - [Descrição](#descrição-258)
+    - [Descrição](#descrição-236)
   - [Functions Comerciais](#functions-comerciais)
   - [fn\_total\_vendas\_cliente](#fn_total_vendas_cliente)
-    - [Descrição](#descrição-259)
+    - [Descrição](#descrição-237)
   - [fn\_total\_pedidos](#fn_total_pedidos)
-    - [Descrição](#descrição-260)
+    - [Descrição](#descrição-238)
   - [fn\_total\_clientes\_ativos](#fn_total_clientes_ativos)
-    - [Descrição](#descrição-261)
+    - [Descrição](#descrição-239)
   - [fn\_calcular\_comissao](#fn_calcular_comissao)
-    - [Descrição](#descrição-262)
+    - [Descrição](#descrição-240)
   - [Functions Fiscais](#functions-fiscais)
   - [fn\_calcular\_simples](#fn_calcular_simples)
-    - [Descrição](#descrição-263)
+    - [Descrição](#descrição-241)
   - [fn\_calcular\_iss](#fn_calcular_iss)
-    - [Descrição](#descrição-264)
+    - [Descrição](#descrição-242)
   - [fn\_calcular\_pis](#fn_calcular_pis)
-    - [Descrição](#descrição-265)
+    - [Descrição](#descrição-243)
   - [fn\_calcular\_cofins](#fn_calcular_cofins)
-    - [Descrição](#descrição-266)
+    - [Descrição](#descrição-244)
   - [fn\_calcular\_irpj](#fn_calcular_irpj)
-    - [Descrição](#descrição-267)
+    - [Descrição](#descrição-245)
   - [fn\_calcular\_csll](#fn_calcular_csll)
-    - [Descrição](#descrição-268)
+    - [Descrição](#descrição-246)
   - [Functions Turismo](#functions-turismo)
   - [fn\_calcular\_valor\_pacote](#fn_calcular_valor_pacote)
-    - [Descrição](#descrição-269)
+    - [Descrição](#descrição-247)
   - [fn\_calcular\_desconto](#fn_calcular_desconto)
-    - [Descrição](#descrição-270)
+    - [Descrição](#descrição-248)
   - [fn\_disponibilidade\_pacote](#fn_disponibilidade_pacote)
-    - [Descrição](#descrição-271)
+    - [Descrição](#descrição-249)
   - [fn\_total\_reservas](#fn_total_reservas)
-    - [Descrição](#descrição-272)
+    - [Descrição](#descrição-250)
   - [Functions Bike Tour](#functions-bike-tour)
   - [fn\_calcular\_pontuacao](#fn_calcular_pontuacao)
-    - [Descrição](#descrição-273)
+    - [Descrição](#descrição-251)
   - [fn\_calcular\_classificacao](#fn_calcular_classificacao)
-    - [Descrição](#descrição-274)
+    - [Descrição](#descrição-252)
   - [fn\_total\_participantes](#fn_total_participantes)
-    - [Descrição](#descrição-275)
+    - [Descrição](#descrição-253)
   - [Functions RH](#functions-rh)
   - [fn\_calcular\_salario](#fn_calcular_salario)
-    - [Descrição](#descrição-276)
+    - [Descrição](#descrição-254)
   - [fn\_calcular\_ferias](#fn_calcular_ferias)
-    - [Descrição](#descrição-277)
+    - [Descrição](#descrição-255)
   - [fn\_calcular\_13](#fn_calcular_13)
-    - [Descrição](#descrição-278)
+    - [Descrição](#descrição-256)
   - [fn\_calcular\_horas\_extras](#fn_calcular_horas_extras)
-    - [Descrição](#descrição-279)
+    - [Descrição](#descrição-257)
   - [Functions Auditoria](#functions-auditoria)
   - [fn\_calcular\_score](#fn_calcular_score)
-    - [Descrição](#descrição-280)
+    - [Descrição](#descrição-258)
   - [fn\_calcular\_icb](#fn_calcular_icb)
-    - [Descrição](#descrição-281)
+    - [Descrição](#descrição-259)
   - [fn\_total\_erros](#fn_total_erros)
-    - [Descrição](#descrição-282)
+    - [Descrição](#descrição-260)
   - [fn\_total\_alertas](#fn_total_alertas)
-    - [Descrição](#descrição-283)
+    - [Descrição](#descrição-261)
   - [fn\_percentual\_documentacao](#fn_percentual_documentacao)
-    - [Descrição](#descrição-284)
+    - [Descrição](#descrição-262)
   - [Functions Governança](#functions-governança)
   - [fn\_versao\_atual](#fn_versao_atual)
-    - [Descrição](#descrição-285)
+    - [Descrição](#descrição-263)
   - [fn\_release\_atual](#fn_release_atual)
-    - [Descrição](#descrição-286)
+    - [Descrição](#descrição-264)
   - [fn\_total\_migracoes](#fn_total_migracoes)
-    - [Descrição](#descrição-287)
+    - [Descrição](#descrição-265)
   - [fn\_metadata\_objeto](#fn_metadata_objeto)
-    - [Descrição](#descrição-288)
+    - [Descrição](#descrição-266)
   - [Functions Segurança](#functions-segurança)
   - [fn\_hash\_senha](#fn_hash_senha)
-    - [Descrição](#descrição-289)
+    - [Descrição](#descrição-267)
   - [fn\_validar\_permissao](#fn_validar_permissao)
-    - [Descrição](#descrição-290)
+    - [Descrição](#descrição-268)
   - [fn\_usuario\_admin](#fn_usuario_admin)
-    - [Descrição](#descrição-291)
+    - [Descrição](#descrição-269)
   - [Functions LGPD](#functions-lgpd)
   - [fn\_anonimizar\_nome](#fn_anonimizar_nome)
-    - [Descrição](#descrição-292)
+    - [Descrição](#descrição-270)
   - [fn\_anonimizar\_email](#fn_anonimizar_email)
-    - [Descrição](#descrição-293)
+    - [Descrição](#descrição-271)
   - [fn\_mascarar\_documento](#fn_mascarar_documento)
-    - [Descrição](#descrição-294)
+    - [Descrição](#descrição-272)
   - [fn\_mascarar\_telefone](#fn_mascarar_telefone)
-    - [Descrição](#descrição-295)
+    - [Descrição](#descrição-273)
   - [Functions Sistema](#functions-sistema)
   - [fn\_health\_check](#fn_health_check)
-    - [Descrição](#descrição-296)
+    - [Descrição](#descrição-274)
   - [fn\_database\_size](#fn_database_size)
-    - [Descrição](#descrição-297)
+    - [Descrição](#descrição-275)
   - [fn\_schema\_size](#fn_schema_size)
-    - [Descrição](#descrição-298)
+    - [Descrição](#descrição-276)
   - [fn\_table\_size](#fn_table_size)
-    - [Descrição](#descrição-299)
+    - [Descrição](#descrição-277)
   - [fn\_index\_size](#fn_index_size)
-    - [Descrição](#descrição-300)
+    - [Descrição](#descrição-278)
     - [Boas Práticas](#boas-práticas-1)
     - [Dependências](#dependências-2)
   - [Estatísticas Previstas](#estatísticas-previstas-1)
-  - [6.13 Triggers](#613-triggers)
-    - [Objetivos](#objetivos-12)
+  - [6.12 Triggers](#612-triggers)
+    - [Objetivos](#objetivos-9)
     - [Convenções](#convenções-4)
     - [Estrutura da Documentação](#estrutura-da-documentação-2)
     - [Classificação](#classificação-2)
   - [Triggers de Auditoria](#triggers-de-auditoria)
   - [tg\_bi\_auditoria](#tg_bi_auditoria)
     - [Evento](#evento)
-    - [Objetivo](#objetivo-9)
+    - [Objetivo](#objetivo-7)
     - [Campos Atualizados](#campos-atualizados)
   - [tg\_bu\_auditoria](#tg_bu_auditoria)
     - [Evento](#evento-1)
-    - [Objetivo](#objetivo-10)
+    - [Objetivo](#objetivo-8)
     - [Campos Atualizados](#campos-atualizados-1)
   - [tg\_bd\_auditoria](#tg_bd_auditoria)
     - [Evento](#evento-2)
-    - [Objetivo](#objetivo-11)
+    - [Objetivo](#objetivo-9)
   - [tg\_ad\_log](#tg_ad_log)
     - [Evento](#evento-3)
-    - [Objetivo](#objetivo-12)
+    - [Objetivo](#objetivo-10)
   - [Triggers de Controle de Datas](#triggers-de-controle-de-datas)
   - [tg\_created\_at](#tg_created_at)
-    - [Objetivo](#objetivo-13)
+    - [Objetivo](#objetivo-11)
   - [tg\_updated\_at](#tg_updated_at)
-    - [Objetivo](#objetivo-14)
+    - [Objetivo](#objetivo-12)
   - [tg\_deleted\_at](#tg_deleted_at)
-    - [Objetivo](#objetivo-15)
+    - [Objetivo](#objetivo-13)
   - [Triggers de Controle de Versão](#triggers-de-controle-de-versão)
   - [tg\_incrementar\_versao](#tg_incrementar_versao)
-    - [Objetivo](#objetivo-16)
+    - [Objetivo](#objetivo-14)
   - [Triggers de Exclusão Lógica](#triggers-de-exclusão-lógica)
   - [tg\_soft\_delete](#tg_soft_delete)
-    - [Objetivo](#objetivo-17)
+    - [Objetivo](#objetivo-15)
     - [Campos](#campos-1)
   - [Triggers Financeiros](#triggers-financeiros)
   - [tg\_fluxo\_caixa](#tg_fluxo_caixa)
     - [Evento](#evento-4)
-    - [Objetivo](#objetivo-18)
+    - [Objetivo](#objetivo-16)
   - [tg\_contas\_receber](#tg_contas_receber)
-    - [Objetivo](#objetivo-19)
+    - [Objetivo](#objetivo-17)
   - [tg\_contas\_pagar](#tg_contas_pagar)
-    - [Objetivo](#objetivo-20)
+    - [Objetivo](#objetivo-18)
   - [tg\_recalcular\_saldo](#tg_recalcular_saldo)
-    - [Objetivo](#objetivo-21)
+    - [Objetivo](#objetivo-19)
   - [Triggers Comerciais](#triggers-comerciais)
   - [tg\_cliente\_status](#tg_cliente_status)
-    - [Objetivo](#objetivo-22)
+    - [Objetivo](#objetivo-20)
   - [tg\_venda\_total](#tg_venda_total)
-    - [Objetivo](#objetivo-23)
+    - [Objetivo](#objetivo-21)
   - [tg\_comissao](#tg_comissao)
-    - [Objetivo](#objetivo-24)
+    - [Objetivo](#objetivo-22)
   - [Triggers Fiscais](#triggers-fiscais)
   - [tg\_nota\_fiscal](#tg_nota_fiscal)
-    - [Objetivo](#objetivo-25)
+    - [Objetivo](#objetivo-23)
   - [tg\_impostos](#tg_impostos)
-    - [Objetivo](#objetivo-26)
+    - [Objetivo](#objetivo-24)
   - [Triggers Turismo](#triggers-turismo)
   - [tg\_reserva](#tg_reserva)
-    - [Objetivo](#objetivo-27)
+    - [Objetivo](#objetivo-25)
   - [tg\_pacote](#tg_pacote)
-    - [Objetivo](#objetivo-28)
+    - [Objetivo](#objetivo-26)
   - [tg\_voucher](#tg_voucher)
-    - [Objetivo](#objetivo-29)
+    - [Objetivo](#objetivo-27)
   - [Triggers Bike Tour](#triggers-bike-tour)
   - [tg\_inscricao](#tg_inscricao)
-    - [Objetivo](#objetivo-30)
+    - [Objetivo](#objetivo-28)
   - [tg\_checkin](#tg_checkin)
-    - [Objetivo](#objetivo-31)
+    - [Objetivo](#objetivo-29)
   - [tg\_classificacao](#tg_classificacao)
-    - [Objetivo](#objetivo-32)
+    - [Objetivo](#objetivo-30)
   - [Triggers Recursos Humanos](#triggers-recursos-humanos)
   - [tg\_ponto](#tg_ponto)
-    - [Objetivo](#objetivo-33)
+    - [Objetivo](#objetivo-31)
   - [tg\_folha](#tg_folha)
-    - [Objetivo](#objetivo-34)
+    - [Objetivo](#objetivo-32)
   - [Triggers Governança](#triggers-governança)
   - [tg\_metadata](#tg_metadata)
-    - [Objetivo](#objetivo-35)
+    - [Objetivo](#objetivo-33)
   - [tg\_release](#tg_release)
-    - [Objetivo](#objetivo-36)
+    - [Objetivo](#objetivo-34)
   - [tg\_migracao](#tg_migracao)
-    - [Objetivo](#objetivo-37)
+    - [Objetivo](#objetivo-35)
   - [Triggers Segurança](#triggers-segurança)
   - [tg\_log\_login](#tg_log_login)
-    - [Objetivo](#objetivo-38)
+    - [Objetivo](#objetivo-36)
   - [tg\_log\_permissao](#tg_log_permissao)
-    - [Objetivo](#objetivo-39)
+    - [Objetivo](#objetivo-37)
   - [tg\_log\_role](#tg_log_role)
-    - [Objetivo](#objetivo-40)
+    - [Objetivo](#objetivo-38)
   - [Triggers Sistema](#triggers-sistema)
   - [tg\_health\_check](#tg_health_check)
-    - [Objetivo](#objetivo-41)
+    - [Objetivo](#objetivo-39)
   - [tg\_dashboard](#tg_dashboard)
-    - [Objetivo](#objetivo-42)
+    - [Objetivo](#objetivo-40)
   - [tg\_cache](#tg_cache)
-    - [Objetivo](#objetivo-43)
+    - [Objetivo](#objetivo-41)
   - [Ordem de Execução](#ordem-de-execução)
   - [Padrões Obrigatórios](#padrões-obrigatórios)
     - [Dependências](#dependências-3)
     - [Estatísticas Previstas](#estatísticas-previstas-2)
-    - [Benefícios](#benefícios-1)
-  - [6.14 Índices (Indexes)](#614-índices-indexes)
-    - [Objetivos](#objetivos-13)
+    - [Benefícios](#benefícios)
+  - [6.13 Índices (Indexes)](#613-índices-indexes)
+    - [Objetivos](#objetivos-10)
     - [Convenções](#convenções-5)
   - [Tipos Utilizados](#tipos-utilizados)
   - [PRIMARY KEY](#primary-key)
@@ -1105,9 +1075,9 @@
   - [Indicadores Monitorados](#indicadores-monitorados)
     - [Boas Práticas](#boas-práticas-2)
     - [Estatísticas Previstas](#estatísticas-previstas-3)
-    - [Benefícios](#benefícios-2)
-  - [6.15 Chaves Estrangeiras (Foreign Keys)](#615-chaves-estrangeiras-foreign-keys)
-    - [Objetivos](#objetivos-14)
+    - [Benefícios](#benefícios-1)
+  - [6.14 Chaves Estrangeiras (Foreign Keys)](#614-chaves-estrangeiras-foreign-keys)
+    - [Objetivos](#objetivos-11)
     - [Convenções](#convenções-6)
     - [Estrutura da Documentação](#estrutura-da-documentação-3)
   - [Cardinalidades](#cardinalidades)
@@ -1140,10 +1110,10 @@
     - [Boas Práticas](#boas-práticas-3)
     - [Dependências](#dependências-4)
     - [Estatísticas Previstas](#estatísticas-previstas-4)
-    - [Benefícios](#benefícios-3)
+    - [Benefícios](#benefícios-2)
   - [Certificação](#certificação)
-  - [6.16 Constraints](#616-constraints)
-    - [Objetivos](#objetivos-15)
+  - [6.15 Constraints](#615-constraints)
+    - [Objetivos](#objetivos-12)
   - [Tipos de Constraints](#tipos-de-constraints)
     - [Convenções](#convenções-7)
   - [Primary Key](#primary-key-1)
@@ -1170,9 +1140,9 @@
     - [Boas Práticas](#boas-práticas-4)
     - [Estatísticas Previstas](#estatísticas-previstas-5)
   - [Critérios para Certificação](#critérios-para-certificação)
-    - [Benefícios](#benefícios-4)
-  - [6.17 Sequences](#617-sequences)
-    - [Objetivos](#objetivos-16)
+    - [Benefícios](#benefícios-3)
+  - [6.16 Sequences](#616-sequences)
+    - [Objetivos](#objetivos-13)
     - [Convenções](#convenções-8)
     - [Estrutura da Documentação](#estrutura-da-documentação-4)
   - [Configuração Padrão](#configuração-padrão)
@@ -1196,102 +1166,102 @@
     - [Dependências](#dependências-6)
     - [Estatísticas Previstas](#estatísticas-previstas-6)
     - [Critérios para Certificação](#critérios-para-certificação-1)
-    - [Benefícios](#benefícios-5)
-  - [6.18 Materialized Views](#618-materialized-views)
-    - [Objetivos](#objetivos-17)
+    - [Benefícios](#benefícios-4)
+  - [6.17 Materialized Views](#617-materialized-views)
+    - [Objetivos](#objetivos-14)
     - [Convenções](#convenções-9)
     - [Estrutura da Documentação](#estrutura-da-documentação-5)
   - [Estratégia de Atualização](#estratégia-de-atualização)
   - [Atualização](#atualização)
   - [Materialized Views Financeiras](#materialized-views-financeiras)
   - [mv\_fluxo\_caixa](#mv_fluxo_caixa)
-    - [Objetivo](#objetivo-44)
+    - [Objetivo](#objetivo-42)
     - [Atualização](#atualização-1)
     - [Origem](#origem-14)
   - [mv\_dre](#mv_dre)
-    - [Objetivo](#objetivo-45)
+    - [Objetivo](#objetivo-43)
   - [mv\_balancete](#mv_balancete)
-    - [Objetivo](#objetivo-46)
+    - [Objetivo](#objetivo-44)
   - [mv\_indicadores\_financeiros](#mv_indicadores_financeiros)
-    - [Objetivo](#objetivo-47)
+    - [Objetivo](#objetivo-45)
   - [Materialized Views Comerciais](#materialized-views-comerciais)
   - [mv\_vendas](#mv_vendas)
-    - [Objetivo](#objetivo-48)
+    - [Objetivo](#objetivo-46)
   - [mv\_clientes](#mv_clientes)
-    - [Objetivo](#objetivo-49)
+    - [Objetivo](#objetivo-47)
   - [mv\_ticket\_medio](#mv_ticket_medio)
-    - [Objetivo](#objetivo-50)
+    - [Objetivo](#objetivo-48)
   - [mv\_comissoes](#mv_comissoes)
-    - [Objetivo](#objetivo-51)
+    - [Objetivo](#objetivo-49)
   - [Materialized Views Fiscais](#materialized-views-fiscais)
   - [mv\_apuracao\_fiscal](#mv_apuracao_fiscal)
-    - [Objetivo](#objetivo-52)
+    - [Objetivo](#objetivo-50)
   - [mv\_notas\_emitidas](#mv_notas_emitidas)
-    - [Objetivo](#objetivo-53)
+    - [Objetivo](#objetivo-51)
   - [mv\_obrigacoes](#mv_obrigacoes)
-    - [Objetivo](#objetivo-54)
+    - [Objetivo](#objetivo-52)
   - [Materialized Views Turismo](#materialized-views-turismo)
   - [mv\_reservas](#mv_reservas)
-    - [Objetivo](#objetivo-55)
+    - [Objetivo](#objetivo-53)
   - [mv\_ocupacao](#mv_ocupacao)
-    - [Objetivo](#objetivo-56)
+    - [Objetivo](#objetivo-54)
   - [mv\_destinos](#mv_destinos)
-    - [Objetivo](#objetivo-57)
+    - [Objetivo](#objetivo-55)
   - [mv\_pacotes](#mv_pacotes)
-    - [Objetivo](#objetivo-58)
+    - [Objetivo](#objetivo-56)
   - [Materialized Views Bike Tour](#materialized-views-bike-tour)
   - [mv\_eventos](#mv_eventos)
-    - [Objetivo](#objetivo-59)
+    - [Objetivo](#objetivo-57)
   - [mv\_participantes](#mv_participantes)
-    - [Objetivo](#objetivo-60)
+    - [Objetivo](#objetivo-58)
   - [mv\_classificacao](#mv_classificacao)
-    - [Objetivo](#objetivo-61)
+    - [Objetivo](#objetivo-59)
   - [Materialized Views Recursos Humanos](#materialized-views-recursos-humanos)
   - [mv\_folha](#mv_folha)
-    - [Objetivo](#objetivo-62)
+    - [Objetivo](#objetivo-60)
   - [mv\_colaboradores](#mv_colaboradores)
-    - [Objetivo](#objetivo-63)
+    - [Objetivo](#objetivo-61)
   - [mv\_horas](#mv_horas)
-    - [Objetivo](#objetivo-64)
+    - [Objetivo](#objetivo-62)
   - [Materialized Views Auditoria](#materialized-views-auditoria)
   - [mv\_icb](#mv_icb)
-    - [Objetivo](#objetivo-65)
+    - [Objetivo](#objetivo-63)
   - [mv\_score](#mv_score)
-    - [Objetivo](#objetivo-66)
+    - [Objetivo](#objetivo-64)
   - [mv\_execucoes](#mv_execucoes)
-    - [Objetivo](#objetivo-67)
+    - [Objetivo](#objetivo-65)
   - [mv\_nao\_conformidades](#mv_nao_conformidades)
-    - [Objetivo](#objetivo-68)
+    - [Objetivo](#objetivo-66)
   - [Materialized Views Governança](#materialized-views-governança)
   - [mv\_release](#mv_release)
-    - [Objetivo](#objetivo-69)
+    - [Objetivo](#objetivo-67)
   - [mv\_metadata](#mv_metadata)
-    - [Objetivo](#objetivo-70)
+    - [Objetivo](#objetivo-68)
   - [mv\_migracoes](#mv_migracoes)
-    - [Objetivo](#objetivo-71)
+    - [Objetivo](#objetivo-69)
   - [Materialized Views Dashboard](#materialized-views-dashboard)
   - [mv\_dashboard\_executivo](#mv_dashboard_executivo)
-    - [Objetivo](#objetivo-72)
+    - [Objetivo](#objetivo-70)
   - [mv\_dashboard\_operacional](#mv_dashboard_operacional)
-    - [Objetivo](#objetivo-73)
+    - [Objetivo](#objetivo-71)
   - [mv\_dashboard\_financeiro](#mv_dashboard_financeiro)
-    - [Objetivo](#objetivo-74)
+    - [Objetivo](#objetivo-72)
   - [mv\_dashboard\_comercial](#mv_dashboard_comercial)
-    - [Objetivo](#objetivo-75)
+    - [Objetivo](#objetivo-73)
   - [mv\_dashboard\_turismo](#mv_dashboard_turismo)
-    - [Objetivo](#objetivo-76)
+    - [Objetivo](#objetivo-74)
   - [mv\_dashboard\_bike](#mv_dashboard_bike)
-    - [Objetivo](#objetivo-77)
-  - [Índices](#índices-8)
+    - [Objetivo](#objetivo-75)
+  - [Índices](#índices-7)
   - [Auditoria](#auditoria)
     - [Boas Práticas](#boas-práticas-6)
     - [Dependências](#dependências-7)
   - [Frequência Recomendada](#frequência-recomendada)
     - [Estatísticas Previstas](#estatísticas-previstas-7)
     - [Critérios para Certificação](#critérios-para-certificação-2)
-    - [Benefícios](#benefícios-6)
-  - [6.19 Domínios (Domains) e Tipos Personalizados (Custom Types)](#619-domínios-domains-e-tipos-personalizados-custom-types)
-    - [Objetivos](#objetivos-18)
+    - [Benefícios](#benefícios-5)
+  - [6.18 Domínios (Domains) e Tipos Personalizados (Custom Types)](#618-domínios-domains-e-tipos-personalizados-custom-types)
+    - [Objetivos](#objetivos-15)
     - [Tipos Utilizados](#tipos-utilizados-1)
     - [Convenções](#convenções-10)
     - [Estrutura da Documentação](#estrutura-da-documentação-6)
@@ -1340,9 +1310,9 @@
     - [Dependências](#dependências-8)
     - [Estatísticas Previstas](#estatísticas-previstas-8)
     - [Critérios para Certificação](#critérios-para-certificação-3)
-    - [Benefícios](#benefícios-7)
-  - [6.20 Extensões PostgreSQL (Extensions)](#620-extensões-postgresql-extensions)
-    - [Objetivos](#objetivos-19)
+    - [Benefícios](#benefícios-6)
+  - [6.19 Extensões PostgreSQL (Extensions)](#619-extensões-postgresql-extensions)
+    - [Objetivos](#objetivos-16)
   - [Política de Utilização](#política-de-utilização)
     - [Estrutura da Documentação](#estrutura-da-documentação-7)
   - [Extensões Obrigatórias](#extensões-obrigatórias)
@@ -1370,9 +1340,9 @@
     - [Dependências](#dependências-9)
     - [Estatísticas Previstas](#estatísticas-previstas-9)
     - [Critérios para Certificação](#critérios-para-certificação-4)
-    - [Benefícios](#benefícios-8)
-  - [6.21 Performance e Otimização](#621-performance-e-otimização)
-    - [Objetivos](#objetivos-20)
+    - [Benefícios](#benefícios-7)
+  - [6.20 Performance e Otimização](#620-performance-e-otimização)
+    - [Objetivos](#objetivos-17)
   - [Áreas Monitoradas](#áreas-monitoradas)
   - [Estratégia de Otimização](#estratégia-de-otimização)
   - [Estatísticas (ANALYZE)](#estatísticas-analyze)
@@ -1383,7 +1353,7 @@
   - [CLUSTER](#cluster)
   - [EXPLAIN](#explain)
   - [EXPLAIN ANALYZE](#explain-analyze)
-    - [Índices](#índices-9)
+    - [Índices](#índices-8)
   - [Consultas Lentas](#consultas-lentas)
     - [pg\_stat\_statements](#pg_stat_statements-1)
     - [Cache](#cache-1)
@@ -1405,9 +1375,9 @@
     - [Boas Práticas](#boas-práticas-9)
   - [Integração com o Framework DBA](#integração-com-o-framework-dba)
     - [Critérios para Certificação](#critérios-para-certificação-5)
-    - [Benefícios](#benefícios-9)
-  - [6.22 Backup, Recuperação e Continuidade de Negócios](#622-backup-recuperação-e-continuidade-de-negócios)
-    - [Objetivos](#objetivos-21)
+    - [Benefícios](#benefícios-8)
+  - [6.21 Backup, Recuperação e Continuidade de Negócios](#621-backup-recuperação-e-continuidade-de-negócios)
+    - [Objetivos](#objetivos-18)
   - [Estratégia de Backup](#estratégia-de-backup)
   - [Tipos de Backup](#tipos-de-backup)
     - [Backup Completo](#backup-completo)
@@ -1430,13 +1400,13 @@
   - [Alta Disponibilidade](#alta-disponibilidade)
   - [Monitoramento](#monitoramento)
     - [Auditoria](#auditoria-4)
-  - [Indicadores](#indicadores-29)
+  - [Indicadores](#indicadores-26)
     - [Boas Práticas](#boas-práticas-10)
     - [Integração com o Framework DBA](#integração-com-o-framework-dba-1)
     - [Critérios para Certificação](#critérios-para-certificação-6)
-    - [Benefícios](#benefícios-10)
-  - [6.23 Monitoramento e Observabilidade](#623-monitoramento-e-observabilidade)
-    - [Objetivos](#objetivos-22)
+    - [Benefícios](#benefícios-9)
+  - [6.22 Monitoramento e Observabilidade](#622-monitoramento-e-observabilidade)
+    - [Objetivos](#objetivos-19)
   - [Escopo](#escopo)
   - [Componentes Monitorados](#componentes-monitorados)
   - [Banco de Dados](#banco-de-dados)
@@ -1461,9 +1431,9 @@
     - [Boas Práticas](#boas-práticas-11)
     - [Integração com o Framework DBA](#integração-com-o-framework-dba-2)
     - [Critérios para Certificação](#critérios-para-certificação-7)
-    - [Benefícios](#benefícios-11)
-  - [6.24 Segurança do Banco de Dados](#624-segurança-do-banco-de-dados)
-    - [Objetivos](#objetivos-23)
+    - [Benefícios](#benefícios-10)
+  - [6.23 Segurança do Banco de Dados](#623-segurança-do-banco-de-dados)
+    - [Objetivos](#objetivos-20)
   - [Princípios](#princípios)
   - [Classificação das Informações](#classificação-das-informações)
   - [Controle de Acesso](#controle-de-acesso)
@@ -1487,9 +1457,9 @@
   - [Ferramentas](#ferramentas)
     - [Integração com o Framework DBA](#integração-com-o-framework-dba-3)
     - [Critérios para Certificação](#critérios-para-certificação-8)
-    - [Benefícios](#benefícios-12)
-  - [6.25 Framework DBA e Certificação Técnica](#625-framework-dba-e-certificação-técnica)
-    - [Objetivos](#objetivos-24)
+    - [Benefícios](#benefícios-11)
+  - [6.24 Framework DBA e Certificação Técnica](#624-framework-dba-e-certificação-técnica)
+    - [Objetivos](#objetivos-21)
   - [Componentes do Framework](#componentes-do-framework)
   - [Arquitetura do Framework](#arquitetura-do-framework)
   - [Auditorias Executadas](#auditorias-executadas)
@@ -1506,10 +1476,10 @@
   - [Certificação Técnica](#certificação-técnica)
   - [Níveis de Maturidade](#níveis-de-maturidade)
   - [Integração](#integração)
-    - [Benefícios](#benefícios-13)
+    - [Benefícios](#benefícios-12)
   - [Critérios para Certificação Final](#critérios-para-certificação-final)
-  - [6.26 Glossário Técnico](#626-glossário-técnico)
-    - [Objetivos](#objetivos-25)
+  - [6.25 Glossário Técnico](#625-glossário-técnico)
+    - [Objetivos](#objetivos-22)
   - [Termos Gerais](#termos-gerais)
   - [API](#api)
     - [Banco de Dados](#banco-de-dados-2)
@@ -1571,9 +1541,9 @@
     - [Reserva](#reserva-2)
   - [Bike Tour](#bike-tour)
     - [Convenções](#convenções-11)
-    - [Benefícios](#benefícios-14)
-  - [6.27 Referências Técnicas](#627-referências-técnicas)
-    - [Objetivos](#objetivos-26)
+    - [Benefícios](#benefícios-13)
+  - [6.26 Referências Técnicas](#626-referências-técnicas)
+    - [Objetivos](#objetivos-23)
     - [Banco de Dados](#banco-de-dados-3)
     - [PostgreSQL](#postgresql-1)
   - [SQL](#sql)
@@ -1609,15 +1579,15 @@
     - [Convenções Utilizadas](#convenções-utilizadas)
     - [Compatibilidade](#compatibilidade)
     - [Atualização das Referências](#atualização-das-referências)
-    - [Benefícios](#benefícios-15)
+    - [Benefícios](#benefícios-14)
   - [Apêndice A — Convenções de Nomenclatura](#apêndice-a--convenções-de-nomenclatura)
-    - [Objetivos](#objetivos-27)
+    - [Objetivos](#objetivos-24)
   - [Regras Gerais](#regras-gerais)
     - [Banco de Dados](#banco-de-dados-4)
     - [Nome do Banco](#nome-do-banco)
     - [Schemas](#schemas)
     - [Tabelas](#tabelas)
-    - [Colunas](#colunas-11)
+    - [Colunas](#colunas-26)
     - [Chaves Primárias](#chaves-primárias-1)
     - [Chaves Estrangeiras](#chaves-estrangeiras)
     - [Constraints](#constraints)
@@ -1625,7 +1595,7 @@
     - [Foreign Key](#foreign-key-2)
     - [Unique](#unique-2)
     - [Check](#check-2)
-    - [Índices](#índices-10)
+    - [Índices](#índices-9)
   - [Sequences](#sequences)
   - [Views](#views)
   - [Materialized Views](#materialized-views)
@@ -1644,9 +1614,9 @@
   - [Branches Git](#branches-git)
   - [Commits](#commits)
     - [Versionamento](#versionamento-1)
-    - [Benefícios](#benefícios-16)
+    - [Benefícios](#benefícios-15)
   - [Apêndice B — Checklist de Conformidade](#apêndice-b--checklist-de-conformidade)
-    - [Objetivos](#objetivos-28)
+    - [Objetivos](#objetivos-25)
   - [Estrutura do Checklist](#estrutura-do-checklist)
   - [1. Estrutura do Banco](#1-estrutura-do-banco)
   - [2. Tabelas](#2-tabelas)
@@ -1669,16 +1639,16 @@
   - [19. Governança](#19-governança)
   - [20. Certificação Técnica](#20-certificação-técnica)
   - [Resultado Final](#resultado-final)
-    - [Benefícios](#benefícios-17)
+    - [Benefícios](#benefícios-16)
   - [Apêndice C — Estatísticas Consolidadas do Banco de Dados](#apêndice-c--estatísticas-consolidadas-do-banco-de-dados)
-    - [Objetivos](#objetivos-29)
-    - [Visão Geral](#visão-geral-7)
+    - [Objetivos](#objetivos-26)
+    - [Visão Geral](#visão-geral-5)
   - [Estrutura Geral](#estrutura-geral)
   - [Estatísticas das Tabelas](#estatísticas-das-tabelas)
     - [Exemplo](#exemplo-1)
   - [Estatísticas de Colunas](#estatísticas-de-colunas)
   - [Estatísticas de Índices](#estatísticas-de-índices)
-    - [Indicadores](#indicadores-30)
+    - [Indicadores](#indicadores-27)
   - [Estatísticas de Constraints](#estatísticas-de-constraints)
     - [Exemplo](#exemplo-2)
   - [Estatísticas de Relacionamentos](#estatísticas-de-relacionamentos)
@@ -1691,14 +1661,14 @@
   - [Estatísticas de Backup](#estatísticas-de-backup)
   - [Estatísticas de Performance](#estatísticas-de-performance)
   - [Estatísticas de Crescimento](#estatísticas-de-crescimento)
-    - [Indicadores Técnicos](#indicadores-técnicos-1)
+    - [Indicadores Técnicos](#indicadores-técnicos)
     - [Índice de Conformidade do Banco (ICB)](#índice-de-conformidade-do-banco-icb-2)
   - [Score Técnico](#score-técnico-1)
   - [Atualização das Estatísticas](#atualização-das-estatísticas)
   - [Fontes das Informações](#fontes-das-informações)
-    - [Benefícios](#benefícios-18)
+    - [Benefícios](#benefícios-17)
   - [Apêndice D — Matriz de Rastreabilidade](#apêndice-d--matriz-de-rastreabilidade)
-    - [Objetivos](#objetivos-30)
+    - [Objetivos](#objetivos-27)
   - [Estrutura da Matriz](#estrutura-da-matriz)
   - [Identificação dos Requisitos](#identificação-dos-requisitos)
   - [Estrutura dos Módulos](#estrutura-dos-módulos)
@@ -1710,12 +1680,12 @@
   - [Rastreabilidade das Auditorias](#rastreabilidade-das-auditorias)
     - [Integração com o Framework DBA](#integração-com-o-framework-dba-4)
   - [Controle de Mudanças](#controle-de-mudanças)
-    - [Benefícios](#benefícios-19)
+    - [Benefícios](#benefícios-18)
   - [Apêndice E — Estrutura Completa do Framework DBA](#apêndice-e--estrutura-completa-do-framework-dba)
-    - [Objetivos](#objetivos-31)
+    - [Objetivos](#objetivos-28)
   - [Arquitetura Geral](#arquitetura-geral)
   - [Estrutura de Diretórios](#estrutura-de-diretórios)
-  - [CORE](#core)
+  - [CORE](#core-1)
   - [Auditorias](#auditorias)
   - [Documentação](#documentação)
     - [Performance](#performance-1)
@@ -1731,15 +1701,13 @@
   - [Integração com o ERP](#integração-com-o-erp)
   - [Integração com CI/CD](#integração-com-cicd)
   - [Cronograma de Execução](#cronograma-de-execução)
-    - [Indicadores](#indicadores-31)
+    - [Indicadores](#indicadores-28)
   - [Evolução do Framework](#evolução-do-framework)
   - [Versão 1](#versão-1)
   - [Versão 2](#versão-2)
   - [Versão 3](#versão-3)
-    - [Benefícios](#benefícios-20)
+    - [Benefícios](#benefícios-19)
   - [Encerramento](#encerramento)
-
----
 
 ## 1. Visão Geral
 
@@ -5035,862 +5003,803 @@ em conformidade com os padrões corporativos definidos pelo projeto.
 
 Este framework permite a certificação automática do banco de dados por meio do Índice de Conformidade do Banco (ICB).
 
----
-
-### Visão Geral
-
-### Objetivos
-
-- Auditoria estrutural
-- Auditoria documental
-- Auditoria de segurança
-- Auditoria de índices
-- Auditoria de Foreign Keys
-- Auditoria de Views
-- Auditoria de Procedures
-- Auditoria de Functions
-- Auditoria de Triggers
-- Auditoria de Comentários
-- Auditoria de Performance
-- Plano Automático de Correção
-- Certificação Técnica
+Todas as 16 tabelas deste módulo pertencem ao schema `auditoria` e possuem PK própria (id_*); os nomes
+não repetem o prefixo `auditoria_`, pois já estão isolados no schema correspondente.
 
 ---
 
-## execucao_auditoria
+## catalogo_schema
 
 ### Descrição
 
-Controla cada execução do processo de auditoria do banco de dados.
+Catálogo de todos os schemas existentes no banco de dados, usado como base para a varredura estrutural do framework.
 
-Cada execução recebe um identificador único que agrupa todos os resultados produzidos.
+### Finalidade
+
+Registrar cada schema do banco (`public`, `financeiro`, `auditoria`, `config`, `dw`, `logs`, `seguranca`, `util`) com seu
+responsável (owner) e situação de atividade, servindo de raiz hierárquica para `catalogo_tabela`.
 
 ### Chave Primária
 
-|Coluna|
-|-----------|
-|id_execucao|
+| Coluna |
+| ------ |
+| id_schema |
 
 ### Colunas
 
-|Coluna|Tipo|Descrição|
-|-----------------|------------|-------------|
-|id_execucao|bigint|Identificador|
-|data_inicio|timestamp|Início|
-|data_fim|timestamp|Término|
-|usuario_execucao|varchar(100)|Usuário|
-|versao_banco|varchar(50)|PostgreSQL|
-|versao_framework|varchar(20)|Framework|
-|status|varchar(30)|Situação|
-|tempo_execucao_ms|bigint|Tempo|
+| Coluna | Tipo | Nulo | Descrição |
+| ------ | ---- | ---- | --------- |
+| id_schema | bigint | Não | Identificador único do schema |
+| schema_nome | varchar(100) | Sim | Nome do schema no banco |
+| owner_name | varchar(100) | Sim | Proprietário (role) do schema |
+| comentario | text | Sim | Observação livre |
+| ativo | boolean | Sim | Indica se o schema está em uso (default true) |
+| created_at | timestamp | Sim | Data de criação |
+| updated_at | timestamp | Sim | Última alteração |
+| deleted_at | timestamp | Sim | Exclusão lógica |
+| created_by | integer | Sim | Usuário criador |
+| updated_by | integer | Sim | Usuário responsável pela alteração |
+| deleted_by | integer | Sim | Usuário responsável pela exclusão |
+| versao | integer | Sim | Controle de versão |
 
-### Índices
+### Observações
 
-- pk_execucao_auditoria
-- idx_execucao_data
-
----
-
-## auditoria_categoria
-
-### Descrição
-
-Cadastro das categorias auditadas.
-
-### Exemplos
-
-- Estrutura
-- Segurança
-- Performance
-- Documentação
-- Índices
-- Constraints
-- Foreign Keys
-- Views
-- Procedures
-- Functions
-- Triggers
+- PK adicionada pela Migração 04 (`04_pk_catalogo.sql`, executada em `wma_staging`).
+- Alimenta `catalogo_tabela` via `id_schema`.
 
 ---
 
-## auditoria_item
+## catalogo_tabela
 
 ### Descrição
 
-Define cada item verificável durante uma auditoria.
+Catálogo técnico de todas as tabelas do banco, com metadados de estrutura (PK, FK, índices, triggers) e volumetria.
 
-### Exemplos
+### Finalidade
 
-- Todas as tabelas possuem PK
-- Todas as FKs possuem índice
-- Todas as tabelas possuem comentários
-- Todas as colunas possuem documentação
-- Todas possuem auditoria
+Servir de inventário vivo das ~190 tabelas do banco para as rotinas de diagnóstico do Framework de Auditoria,
+incluindo estatísticas de tamanho e datas de manutenção (vacuum/analyze).
 
----
+### Chave Primária
 
-## auditoria_resultado
-
-### Descrição
-
-Armazena o resultado individual de cada verificação.
-
-### Situações
-
-- OK
-- ALERTA
-- ERRO
-- CRÍTICO
+| Coluna |
+| ------ |
+| id_tabela |
 
 ### Relacionamentos
 
-Execução
+| Tabela | Cardinalidade |
+| ------ | ------------- |
+| catalogo_schema | N:1 |
+| catalogo_coluna | 1:N |
 
-↓
+### Colunas
 
-Categoria
+| Coluna | Tipo | Nulo | Descrição |
+| ------ | ---- | ---- | --------- |
+| id_tabela | bigint | Não | Identificador único da tabela catalogada |
+| id_schema | bigint | Sim | Schema ao qual a tabela pertence (FK lógica) |
+| nome | varchar(120) | Sim | Nome da tabela |
+| tipo | varchar(30) | Sim | Tipo do objeto (tabela, view, etc.) |
+| owner_name | varchar(100) | Sim | Proprietário da tabela |
+| comentario | text | Sim | Observação livre |
+| possui_pk | boolean | Sim | Indica se a tabela possui chave primária |
+| possui_fk | boolean | Sim | Indica se a tabela possui chave estrangeira |
+| possui_indice | boolean | Sim | Indica se a tabela possui índice adicional |
+| possui_trigger | boolean | Sim | Indica se a tabela possui trigger |
+| possui_auditoria | boolean | Sim | Indica se a tabela possui trigger de auditoria (`trg_log_auditoria`) |
+| quantidade_colunas | integer | Sim | Total de colunas da tabela |
+| quantidade_registros | bigint | Sim | Total de registros (snapshot da última varredura) |
+| tamanho_mb | numeric(12,2) | Sim | Tamanho em disco em MB |
+| ultimo_vacuum | timestamp | Sim | Data do último VACUUM |
+| ultimo_analyze | timestamp | Sim | Data do último ANALYZE |
+| ativo | boolean | Sim | Indica se a tabela está em uso (default true) |
+| created_at | timestamp | Sim | Data de criação |
+| updated_at | timestamp | Sim | Última alteração |
+| deleted_at | timestamp | Sim | Exclusão lógica |
+| created_by | integer | Sim | Usuário criador |
+| updated_by | integer | Sim | Usuário responsável pela alteração |
+| deleted_by | integer | Sim | Usuário responsável pela exclusão |
+| versao | integer | Sim | Controle de versão |
 
-↓
+### Observações
 
-Item
-
-↓
-
-Resultado
+- PK adicionada pela Migração 04 (`04_pk_catalogo.sql`, executada em `wma_staging`).
 
 ---
 
-## auditoria_score
+## catalogo_coluna
 
 ### Descrição
 
-Armazena a pontuação obtida por categoria.
+Catálogo técnico de todas as colunas de todas as tabelas do banco, incluindo tipo, nulidade e papel estrutural (PK/FK/unique/índice).
 
-### Indicadores
+### Finalidade
 
-- Estrutura
-- Segurança
-- Documentação
-- Performance
-- Governança
+Fornecer o nível de detalhe mais granular do inventário de metadados, usado para checagens automáticas de
+padronização de nomenclatura e tipos entre tabelas.
+
+### Chave Primária
+
+| Coluna |
+| ------ |
+| id_coluna |
+
+### Relacionamentos
+
+| Tabela | Cardinalidade |
+| ------ | ------------- |
+| catalogo_tabela | N:1 |
+
+### Colunas
+
+| Coluna | Tipo | Nulo | Descrição |
+| ------ | ---- | ---- | --------- |
+| id_coluna | bigint | Não | Identificador único da coluna catalogada |
+| id_tabela | bigint | Sim | Tabela à qual a coluna pertence (FK lógica) |
+| nome | varchar(120) | Sim | Nome da coluna |
+| tipo | varchar(80) | Sim | Tipo de dado PostgreSQL |
+| tamanho | integer | Sim | Tamanho/precisão declarada, quando aplicável |
+| nullable | boolean | Sim | Indica se a coluna aceita nulo |
+| default_value | text | Sim | Valor padrão declarado |
+| pk | boolean | Sim | Indica se a coluna faz parte da chave primária |
+| fk | boolean | Sim | Indica se a coluna é chave estrangeira |
+| unique_key | boolean | Sim | Indica se a coluna possui constraint UNIQUE |
+| indice | boolean | Sim | Indica se a coluna possui índice dedicado |
+| comentario | text | Sim | Observação livre |
+| created_at | timestamp | Sim | Data de criação |
+| updated_at | timestamp | Sim | Última alteração |
+| deleted_at | timestamp | Sim | Exclusão lógica |
+| created_by | integer | Sim | Usuário criador |
+| updated_by | integer | Sim | Usuário responsável pela alteração |
+| deleted_by | integer | Sim | Usuário responsável pela exclusão |
+| versao | integer | Sim | Controle de versão |
+
+### Observações
+
+- PK adicionada pela Migração 04 (`04_pk_catalogo.sql`, executada em `wma_staging`).
 
 ---
 
-## auditoria_certificacao
+## categoria
 
 ### Descrição
 
-Resultado final da auditoria.
+Categorias utilizadas no cálculo do Índice de Conformidade do Banco (ICB).
 
-### Classificações
+### Finalidade
 
-- Não Conforme
-- Conforme com Restrições
-- Conforme
-- Certificado para Produção
+Agrupar os itens de verificação (`item`) em grandes dimensões de qualidade (estrutura, integridade, segurança,
+performance, documentação etc.), cada uma com peso próprio no score final.
+
+### Chave Primária
+
+| Coluna |
+| ------ |
+| id_categoria |
+
+### Relacionamentos
+
+| Tabela | Cardinalidade |
+| ------ | ------------- |
+| item | 1:N |
+
+### Colunas
+
+| Coluna | Tipo | Nulo | Descrição |
+| ------ | ---- | ---- | --------- |
+| id_categoria | smallint | Não | Identificador único da categoria |
+| codigo | varchar(30) | Não | Código curto da categoria |
+| descricao | varchar(200) | Não | Nome descritivo da categoria |
+| peso | numeric(5,2) | Não | Peso da categoria no cálculo do ICB |
+| ativo | boolean | Não | Indica se a categoria está em uso |
+| created_at | timestamp | Não | Data de criação |
+| updated_at | timestamp | Sim | Última alteração |
+| deleted_at | timestamp | Sim | Exclusão lógica |
+| created_by | integer | Sim | Usuário criador |
+| updated_by | integer | Sim | Usuário responsável pela alteração |
+| deleted_by | integer | Sim | Usuário responsável pela exclusão |
+| versao | integer | Não | Controle de versão |
 
 ---
 
-## plano_correcao
+## configuracao (auditoria)
 
 ### Descrição
 
-Lista automaticamente todas as correções necessárias.
+Parâmetros de configuração exclusivos do Framework de Auditoria.
 
-### Informações
+### Finalidade
 
-- Problema
-- Severidade
-- Script sugerido
-- Responsável
-- Prazo
+Armazenar chaves de configuração (limites, thresholds, flags de comportamento) que controlam a execução
+das rotinas de auditoria, de forma independente da tabela `public.parametro_sistema`.
+
+### Chave Primária
+
+| Coluna |
+| ------ |
+| id_configuracao |
+
+### Colunas
+
+| Coluna | Tipo | Nulo | Descrição |
+| ------ | ---- | ---- | --------- |
+| id_configuracao | smallint | Não | Identificador único da configuração |
+| chave | varchar(100) | Não | Nome da chave de configuração |
+| valor | varchar(500) | Sim | Valor da configuração |
+| descricao | text | Sim | Descrição do parâmetro |
+| ativo | boolean | Não | Indica se a configuração está em uso |
+| created_at | timestamp | Não | Data de criação |
+| updated_at | timestamp | Sim | Última alteração |
+| deleted_at | timestamp | Sim | Exclusão lógica |
+| created_by | integer | Sim | Usuário criador |
+| updated_by | integer | Sim | Usuário responsável pela alteração |
+| deleted_by | integer | Sim | Usuário responsável pela exclusão |
+| versao | integer | Não | Controle de versão |
 
 ---
 
-## plano_correcao_item
+## core
 
 ### Descrição
 
-Itens pertencentes ao plano de correção.
+Cadastro do núcleo do Framework Enterprise (auditoria).
 
-Cada item corresponde a um problema identificado.
+### Finalidade
+
+Registrar a identidade e versão do próprio framework de auditoria (código, nome, versão, status, ambiente),
+permitindo rastrear qual versão do framework gerou cada execução.
+
+### Chave Primária
+
+| Coluna |
+| ------ |
+| id_core |
+
+### Colunas
+
+| Coluna | Tipo | Nulo | Descrição |
+| ------ | ---- | ---- | --------- |
+| id_core | bigint | Não | Identificador único do núcleo |
+| codigo | varchar(50) | Não | Código do núcleo/framework |
+| nome | varchar(200) | Não | Nome descritivo |
+| descricao | text | Sim | Descrição detalhada |
+| versao | varchar(20) | Sim | Versão do framework |
+| status | varchar(30) | Sim | Situação atual (ativo, obsoleto etc.) |
+| ambiente | varchar(20) | Sim | Ambiente de referência (staging, produção) |
+| ativo | boolean | Sim | Indica se o núcleo está em uso |
+| created_at | timestamp | Sim | Data de criação |
+| updated_at | timestamp | Sim | Última alteração |
+| deleted_at | timestamp | Sim | Exclusão lógica |
+| created_by | integer | Sim | Usuário criador |
+| updated_by | integer | Sim | Usuário responsável pela alteração |
+| deleted_by | integer | Sim | Usuário responsável pela exclusão |
+| revisao | integer | Sim | Controle de revisão (equivalente a `versao` nesta tabela) |
+
+### Observações
+
+- Única tabela do schema `auditoria` cuja coluna de controle de versão se chama `revisao`, não `versao`.
 
 ---
 
-## revalidacao
+## executor
 
 ### Descrição
 
-Controla as revalidações realizadas após correções.
+Cadastro dos executores do Framework Enterprise (auditoria).
 
-### Objetivo
+### Finalidade
 
-Confirmar que os problemas foram solucionados.
+Descrever as procedures/rotinas que efetivamente executam cada verificação, permitindo reuso de um mesmo
+executor por múltiplas regras (`regra.id_executor`).
+
+### Chave Primária
+
+| Coluna |
+| ------ |
+| id_executor |
+
+### Relacionamentos
+
+| Tabela | Cardinalidade |
+| ------ | ------------- |
+| regra | 1:N |
+
+### Colunas
+
+| Coluna | Tipo | Nulo | Descrição |
+| ------ | ---- | ---- | --------- |
+| id_executor | bigint | Não | Identificador único do executor |
+| codigo | varchar(50) | Não | Código do executor |
+| nome | varchar(150) | Não | Nome descritivo |
+| descricao | text | Sim | Descrição detalhada |
+| tipo_objeto | varchar(50) | Sim | Tipo de objeto auditado pelo executor |
+| procedure_execucao | varchar(200) | Não | Nome da procedure/função que realiza a execução |
+| aceita_parametros | boolean | Sim | Indica se o executor aceita parâmetros de entrada |
+| permite_correcao | boolean | Sim | Indica se o executor pode aplicar correção automática |
+| ordem_execucao | integer | Sim | Ordem de execução relativa entre executores |
+| ativo | boolean | Sim | Indica se o executor está em uso |
+| created_at | timestamp | Sim | Data de criação |
+| updated_at | timestamp | Sim | Última alteração |
+| deleted_at | timestamp | Sim | Exclusão lógica |
+| created_by | integer | Sim | Usuário criador |
+| updated_by | integer | Sim | Usuário responsável pela alteração |
+| deleted_by | integer | Sim | Usuário responsável pela exclusão |
+| versao | integer | Sim | Controle de versão |
 
 ---
 
-## auditoria_objeto
+## execucao
 
 ### Descrição
 
-Cadastro dos objetos auditáveis.
+Cabeçalho das execuções de auditoria do banco.
 
-### Tipos
+### Finalidade
 
-- Tabela
-- View
-- Procedure
-- Function
-- Trigger
-- Índice
-- Constraint
-- Sequence
+Registrar cada rodada completa de auditoria (início, fim, score final, status), servindo como tabela pai de
+`log`, `recomendacao`, `resultado` e `score`.
+
+### Chave Primária
+
+| Coluna |
+| ------ |
+| id_execucao |
+
+### Relacionamentos
+
+| Tabela | Cardinalidade |
+| ------ | ------------- |
+| log | 1:N |
+| recomendacao | 1:N |
+| resultado | 1:N |
+| score | 1:N |
+
+### Colunas
+
+| Coluna | Tipo | Nulo | Descrição |
+| ------ | ---- | ---- | --------- |
+| id_execucao | bigint | Não | Identificador único da execução |
+| versao_banco | varchar(30) | Não | Versão do banco no momento da execução |
+| versao_script | varchar(30) | Não | Versão do script de auditoria utilizado |
+| schema_auditado | varchar(100) | Não | Schema alvo da auditoria |
+| usuario_execucao | varchar(100) | Não | Usuário que disparou a execução |
+| host_execucao | varchar(200) | Sim | Host de origem da execução |
+| banco | varchar(100) | Sim | Nome do banco de dados auditado |
+| data_inicio | timestamp | Não | Início da execução |
+| data_fim | timestamp | Sim | Fim da execução |
+| tempo_execucao_ms | bigint | Sim | Duração total em milissegundos |
+| score_final | numeric(5,2) | Sim | Score consolidado (ICB) da execução |
+| classificacao | varchar(30) | Sim | Classificação do score (ex.: Excelente, Bom) |
+| status_execucao | varchar(30) | Sim | Situação da execução (em andamento, concluída, erro) |
+| observacao | text | Sim | Observação livre |
+| created_at | timestamp | Não | Data de criação |
+| updated_at | timestamp | Sim | Última alteração |
+| deleted_at | timestamp | Sim | Exclusão lógica |
+| created_by | integer | Sim | Usuário criador |
+| updated_by | integer | Sim | Usuário responsável pela alteração |
+| deleted_by | integer | Sim | Usuário responsável pela exclusão |
+| versao | integer | Não | Controle de versão |
 
 ---
 
-## auditoria_documentacao
+## item
 
 ### Descrição
 
-Avalia a documentação técnica do banco.
+Catálogo das regras de auditoria.
 
-### Critérios
+### Finalidade
 
-- COMMENT ON TABLE
-- COMMENT ON COLUMN
-- COMMENT ON VIEW
-- COMMENT ON FUNCTION
+Detalhar cada item individual de verificação vinculado a uma `categoria`, incluindo criticidade e peso,
+usado como referência pelos resultados (`resultado.id_item`).
+
+### Chave Primária
+
+| Coluna |
+| ------ |
+| id_item |
+
+### Relacionamentos
+
+| Tabela | Cardinalidade |
+| ------ | ------------- |
+| categoria | N:1 |
+| resultado | 1:N |
+
+### Colunas
+
+| Coluna | Tipo | Nulo | Descrição |
+| ------ | ---- | ---- | --------- |
+| id_item | bigint | Não | Identificador único do item |
+| id_categoria | smallint | Não | Categoria à qual o item pertence (FK → `categoria`) |
+| codigo | varchar(30) | Não | Código curto do item |
+| descricao | varchar(500) | Não | Descrição do que é verificado |
+| criticidade | varchar(20) | Não | Nível de criticidade (baixa, média, alta, crítica) |
+| peso | numeric(5,2) | Não | Peso do item no cálculo do score da categoria |
+| ativo | boolean | Não | Indica se o item está em uso |
+| tipo_verificacao | varchar(30) | Sim | Tipo de verificação executada |
+| objeto_alvo | varchar(30) | Sim | Tipo de objeto de banco alvo da verificação |
+| script_origem | varchar(100) | Sim | Script de origem da regra |
+| procedure_execucao | varchar(100) | Sim | Procedure responsável por executar a verificação |
+| habilitado | boolean | Não | Indica se o item está habilitado para execução |
+| ordem_execucao | integer | Sim | Ordem relativa de execução |
+| versao_minima | varchar(20) | Sim | Versão mínima do banco em que o item se aplica |
+| versao_maxima | varchar(20) | Sim | Versão máxima do banco em que o item se aplica |
+| categoria_tecnica | varchar(50) | Sim | Classificação técnica complementar |
+| tempo_estimado_ms | integer | Sim | Tempo estimado de execução em milissegundos |
+| observacao_tecnica | text | Sim | Observação técnica livre |
+| created_at | timestamp | Não | Data de criação |
+| updated_at | timestamp | Sim | Última alteração |
+| deleted_at | timestamp | Sim | Exclusão lógica |
+| created_by | integer | Sim | Usuário criador |
+| updated_by | integer | Sim | Usuário responsável pela alteração |
+| deleted_by | integer | Sim | Usuário responsável pela exclusão |
+| versao | integer | Não | Controle de versão |
 
 ---
 
-## auditoria_indices
+## regra
 
 ### Descrição
 
-Audita todos os índices do banco.
+Cadastro central de todas as regras de diagnóstico do Framework.
 
-### Verificações
+### Finalidade
 
-- Índices duplicados
-- Índices ausentes
-- Índices não utilizados
+Consolidar, para cada regra, o SQL de diagnóstico e o SQL de correção sugerida (ou automática), associada a
+um executor responsável pela execução.
+
+### Chave Primária
+
+| Coluna |
+| ------ |
+| id_regra |
+
+### Relacionamentos
+
+| Tabela | Cardinalidade |
+| ------ | ------------- |
+| executor | N:1 |
+
+### Colunas
+
+| Coluna | Tipo | Nulo | Descrição |
+| ------ | ---- | ---- | --------- |
+| id_regra | bigint | Não | Identificador único da regra |
+| codigo | varchar(30) | Sim | Código curto da regra |
+| descricao | varchar(300) | Sim | Descrição da regra |
+| categoria | varchar(50) | Sim | Categoria textual da regra |
+| objeto | varchar(50) | Sim | Objeto de banco alvo |
+| consulta_sql | text | Sim | Consulta SQL de diagnóstico |
+| script_recomendado | text | Sim | Script de correção recomendado |
+| peso | numeric(5,2) | Sim | Peso da regra |
+| criticidade | varchar(20) | Sim | Nível de criticidade |
+| habilitado | boolean | Sim | Indica se a regra está habilitada |
+| ordem | integer | Sim | Ordem de exibição/execução |
+| tipo_objeto | varchar(30) | Sim | Tipo do objeto alvo |
+| objeto_alvo | varchar(100) | Sim | Nome específico do objeto alvo |
+| sql_diagnostico | text | Sim | SQL de diagnóstico (campo estendido) |
+| sql_correcao | text | Sim | SQL de correção (campo estendido) |
+| correcao_automatica | boolean | Sim | Indica se a correção pode ser aplicada automaticamente |
+| ativo | boolean | Sim | Indica se a regra está ativa |
+| prioridade | smallint | Sim | Prioridade de execução |
+| ordem_execucao | integer | Sim | Ordem relativa de execução |
+| tempo_estimado_ms | integer | Sim | Tempo estimado de execução em milissegundos |
+| versao_minima | varchar(20) | Sim | Versão mínima do banco em que a regra se aplica |
+| versao_maxima | varchar(20) | Sim | Versão máxima do banco em que a regra se aplica |
+| observacao | text | Sim | Observação livre |
+| id_executor | bigint | Sim | Executor responsável pela regra (FK → `executor`) |
+| created_at | timestamp | Sim | Data de criação |
+| updated_at | timestamp | Sim | Última alteração |
+| deleted_at | timestamp | Sim | Exclusão lógica |
+| created_by | integer | Sim | Usuário criador |
+| updated_by | integer | Sim | Usuário responsável pela alteração |
+| deleted_by | integer | Sim | Usuário responsável pela exclusão |
+| versao | integer | Sim | Controle de versão |
 
 ---
 
-## auditoria_fk
+## resultado
 
 ### Descrição
 
-Audita as Foreign Keys.
+Resultado individual de cada verificação executada.
 
-### Critérios
+### Finalidade
 
-- Existência
-- Índice correspondente
-- Integridade referencial
+Registrar, para cada `item` avaliado dentro de uma `execucao`, o status encontrado (conforme/não conforme),
+o valor esperado versus o valor encontrado e a severidade do desvio.
+
+### Chave Primária
+
+| Coluna |
+| ------ |
+| id_resultado |
+
+### Relacionamentos
+
+| Tabela | Cardinalidade |
+| ------ | ------------- |
+| execucao | N:1 |
+| item | N:1 |
+
+### Colunas
+
+| Coluna | Tipo | Nulo | Descrição |
+| ------ | ---- | ---- | --------- |
+| id_resultado | bigint | Não | Identificador único do resultado |
+| id_execucao | bigint | Não | Execução à qual o resultado pertence (FK → `execucao`) |
+| id_item | bigint | Não | Item verificado (FK → `item`) |
+| schema_nome | varchar(100) | Sim | Schema do objeto avaliado |
+| tabela_nome | varchar(100) | Sim | Tabela do objeto avaliado |
+| coluna_nome | varchar(100) | Sim | Coluna do objeto avaliado, quando aplicável |
+| objeto_nome | varchar(200) | Sim | Nome completo do objeto avaliado |
+| status | varchar(20) | Não | Situação do resultado (conforme, não conforme etc.) |
+| severidade | varchar(20) | Sim | Severidade do desvio encontrado |
+| valor_encontrado | text | Sim | Valor observado na verificação |
+| valor_esperado | text | Sim | Valor esperado pela regra |
+| observacao | text | Sim | Observação livre |
+| sqlstate | varchar(10) | Sim | Código SQLSTATE, quando houver erro |
+| data_execucao | timestamp | Sim | Data/hora da verificação |
+| created_at | timestamp | Não | Data de criação |
+| updated_at | timestamp | Sim | Última alteração |
+| deleted_at | timestamp | Sim | Exclusão lógica |
+| created_by | integer | Sim | Usuário criador |
+| updated_by | integer | Sim | Usuário responsável pela alteração |
+| deleted_by | integer | Sim | Usuário responsável pela exclusão |
+| versao | integer | Não | Controle de versão |
 
 ---
 
-## auditoria_performance
+## score
 
 ### Descrição
 
-Monitora indicadores de desempenho.
+Consolidação por dimensão do Índice de Conformidade do Banco (ICB) para cada execução.
 
-### Métricas
+### Finalidade
 
-- Tempo médio
-- Leituras
-- Escritas
-- Seq Scan
-- Index Scan
+Armazenar as notas parciais por dimensão (estrutura, integridade, auditoria, performance, segurança,
+normalização, padronização, documentação) e o score final de cada execução de auditoria.
+
+### Chave Primária
+
+| Coluna |
+| ------ |
+| id_score |
+
+### Relacionamentos
+
+| Tabela | Cardinalidade |
+| ------ | ------------- |
+| execucao | N:1 |
+
+### Colunas
+
+| Coluna | Tipo | Nulo | Descrição |
+| ------ | ---- | ---- | --------- |
+| id_score | bigint | Não | Identificador único do score |
+| id_execucao | bigint | Não | Execução à qual o score pertence (FK → `execucao`) |
+| estrutura | numeric(5,2) | Sim | Nota da dimensão estrutura |
+| integridade | numeric(5,2) | Sim | Nota da dimensão integridade |
+| auditoria | numeric(5,2) | Sim | Nota da dimensão auditoria |
+| performance | numeric(5,2) | Sim | Nota da dimensão performance |
+| seguranca | numeric(5,2) | Sim | Nota da dimensão segurança |
+| normalizacao | numeric(5,2) | Sim | Nota da dimensão normalização |
+| padronizacao | numeric(5,2) | Sim | Nota da dimensão padronização |
+| documentacao | numeric(5,2) | Sim | Nota da dimensão documentação |
+| score_final | numeric(5,2) | Sim | Score final consolidado |
+| classificacao | varchar(30) | Sim | Classificação do score final |
+| created_at | timestamp | Não | Data de criação |
+| updated_at | timestamp | Sim | Última alteração |
+| deleted_at | timestamp | Sim | Exclusão lógica |
+| created_by | integer | Sim | Usuário criador |
+| updated_by | integer | Sim | Usuário responsável pela alteração |
+| deleted_by | integer | Sim | Usuário responsável pela exclusão |
+| versao | integer | Sim | Controle de versão |
 
 ---
 
-## auditoria_seguranca
+## script
 
 ### Descrição
 
-Avalia a configuração de segurança.
+Cadastro dos scripts de migração/correção executados pelo Framework de Auditoria.
 
-### Critérios
+### Finalidade
 
-- Owners
-- Roles
-- Grants
-- Schemas
-- Permissões
+Registrar cada script (procedure) associado ao framework, sua ordem de execução e categoria, servindo de
+inventário para orquestração (equivalente ao papel que um `install.sh` teria em nível de aplicação).
+
+### Chave Primária
+
+| Coluna |
+| ------ |
+| id_script |
+
+### Colunas
+
+| Coluna | Tipo | Nulo | Descrição |
+| ------ | ---- | ---- | --------- |
+| id_script | bigint | Não | Identificador único do script |
+| codigo | varchar(30) | Não | Código curto do script |
+| descricao | varchar(200) | Não | Descrição do script |
+| procedure_name | varchar(150) | Não | Nome da procedure associada |
+| ordem_execucao | integer | Não | Ordem de execução do script |
+| categoria | varchar(50) | Sim | Categoria do script |
+| ativo | boolean | Sim | Indica se o script está ativo |
+| created_at | timestamp | Sim | Data de criação |
+| updated_at | timestamp | Sim | Última alteração |
+| deleted_at | timestamp | Sim | Exclusão lógica |
+| created_by | integer | Sim | Usuário criador |
+| updated_by | integer | Sim | Usuário responsável pela alteração |
+| deleted_by | integer | Sim | Usuário responsável pela exclusão |
+| versao | integer | Sim | Controle de versão |
 
 ---
 
-## auditoria_healthcheck
+## log
 
 ### Descrição
 
-Executa verificações gerais do ambiente.
+Registro de erros, avisos e mensagens produzidos durante a execução da auditoria.
 
-### Exemplos
+### Finalidade
 
-- Tabelas órfãs
-- Constraints inválidas
-- Objetos sem uso
-- Objetos inválidos
+Capturar o log técnico (SQLSTATE, mensagem, detalhe, hint, contexto) de cada etapa de uma `execucao`, para
+apoio a troubleshooting.
+
+### Chave Primária
+
+| Coluna |
+| ------ |
+| id_log |
+
+### Relacionamentos
+
+| Tabela | Cardinalidade |
+| ------ | ------------- |
+| execucao | N:1 |
+
+### Colunas
+
+| Coluna | Tipo | Nulo | Descrição |
+| ------ | ---- | ---- | --------- |
+| id_log | bigint | Não | Identificador único do log |
+| id_execucao | bigint | Sim | Execução à qual o log pertence (FK → `execucao`) |
+| script | varchar(200) | Sim | Script em execução no momento do log |
+| etapa | varchar(100) | Sim | Etapa em que o log foi gerado |
+| sqlstate | varchar(10) | Sim | Código SQLSTATE, quando aplicável |
+| mensagem | text | Sim | Mensagem do log |
+| detalhe | text | Sim | Detalhe técnico complementar |
+| hint | text | Sim | Sugestão de correção retornada pelo PostgreSQL |
+| contexto | text | Sim | Contexto de execução (stack) |
+| severidade | varchar(20) | Sim | Severidade do log (info, warning, error) |
+| data_log | timestamp | Não | Data/hora do registro |
+| created_at | timestamp | Não | Data de criação |
+| updated_at | timestamp | Sim | Última alteração |
+| deleted_at | timestamp | Sim | Exclusão lógica |
+| created_by | integer | Sim | Usuário criador |
+| updated_by | integer | Sim | Usuário responsável pela alteração |
+| deleted_by | integer | Sim | Usuário responsável pela exclusão |
+| versao | integer | Não | Controle de versão |
+
+### Observações
+
+- Não confundir com `auditoria.log_correcao` (log de correções aplicadas) nem com `public.log_auditoria`
+  (trilha de auditoria genérica das tabelas sensíveis, gravada por `fn_log_auditoria()`).
 
 ---
 
-## dashboard_auditoria
+## log_correcao
 
 ### Descrição
 
-Materialização dos indicadores utilizados pelo Dashboard Técnico.
+Log de correções aplicadas manualmente ou via script sobre o banco de dados.
 
-### Indicadores
+### Finalidade
 
-- Total de Auditorias
-- Tempo Médio
-- Score Geral
-- ICB
-- Problemas Críticos
-- Problemas Resolvidos
-- Objetos Auditados
-- Objetos Certificados
+Registrar, com estrutura própria (`schema_nome`, `tabela_nome`, `objeto`, `tipo_correcao`, `descricao`,
+`sql_executado`, `resultado`), toda correção corretiva aplicada durante migrações — é a tabela usada pelas
+migrações 01–05 para auditoria das próprias execuções de correção.
 
----
+### Chave Primária
 
-## Fluxo da Auditoria
+| Coluna |
+| ------ |
+| id_log |
 
-```text
-Execução
+### Colunas
 
-↓
+| Coluna | Tipo | Nulo | Descrição |
+| ------ | ---- | ---- | --------- |
+| id_log | bigint | Não | Identificador único do registro |
+| data_execucao | timestamp | Não | Data/hora da execução da correção |
+| schema_nome | varchar(100) | Sim | Schema do objeto corrigido |
+| tabela_nome | varchar(100) | Sim | Tabela do objeto corrigido |
+| objeto | varchar(100) | Sim | Nome do objeto corrigido |
+| tipo_correcao | varchar(100) | Sim | Tipo de correção aplicada |
+| descricao | text | Sim | Descrição da correção |
+| sql_executado | text | Sim | SQL efetivamente executado |
+| resultado | varchar(20) | Sim | Resultado da execução (sucesso, erro) |
+| erro | text | Sim | Mensagem de erro, quando houver |
 
-Categorias
+### Observações
 
-↓
-
-Itens
-
-↓
-
-Resultados
-
-↓
-
-Score
-
-↓
-
-Plano de Correção
-
-↓
-
-Revalidação
-
-↓
-
-Certificação
-
-↓
-
-Dashboard
-```
+- Não possui colunas de auditoria padrão (`created_at`/`versao` etc.) — é, ela própria, um log.
+- Usada pelas migrações do projeto (scripts `01_normalizar_3fn_enderecos.sql` a `05_triggers.sql`) para
+  registrar cada correção estrutural aplicada.
 
 ---
 
-## Índice de Conformidade do Banco (ICB)
-
-O Framework calcula automaticamente o ICB utilizando critérios ponderados.
-
-## Faixas
-
-|ICB|Classificação|
-|------|-------------------------|
-|0–59|Não Conforme|
-|60–79|Conforme com Restrições|
-|80–94|Conforme|
-|95–100|Certificado para Produção|
-
----
-
-## Indicadores Técnicos
-
-- Total de Objetos Auditados
-- Total de Tabelas
-- Total de Views
-- Total de Procedures
-- Total de Functions
-- Total de Triggers
-- Total de Índices
-- Total de Foreign Keys
-- Total de Comentários
-- Total de Problemas
-- Total de Problemas Críticos
-- Percentual de Documentação
-- Percentual de Auditoria
-- ICB Geral
-- Tempo Médio de Auditoria
-
----
-
-## 6.9 Framework de Governança
-
-O Framework de Governança estabelece todas as políticas, normas,
-controles e mecanismos necessários para garantir integridade, rastreabilidade,
-conformidade e padronização do banco de dados do WMA Travel ERP.
-
-Sua principal finalidade é assegurar que o ambiente permaneça consistente durante toda a evolução do sistema.
-
----
-
-### Visão Geral
-
-### Objetivos
-
-- Padronização do banco
-- Controle de versões
-- Gestão de mudanças
-- Governança de dados
-- Catálogo de metadados
-- LGPD
-- Segurança
-- Compliance
-- Integridade referencial
-- Gestão documental
-
----
-
-## governanca_politica
+## recomendacao
 
 ### Descrição
 
-Cadastro das políticas de governança aplicadas ao ERP.
+Recomendações automáticas geradas durante a auditoria.
 
-### Exemplos
+### Finalidade
 
-- Política de Backup
-- Política de Auditoria
-- Política de Segurança
-- Política LGPD
-- Política de Versionamento
-- Política de Desenvolvimento
+Sugerir ações corretivas (script sugerido) para cada não conformidade encontrada em uma `execucao`,
+com controle de status de correção (`corrigido`, `data_correcao`).
 
----
+### Chave Primária
 
-## governanca_categoria
+| Coluna |
+| ------ |
+| id_recomendacao |
 
-### Descrição
+### Relacionamentos
 
-Classificação das políticas.
+| Tabela | Cardinalidade |
+| ------ | ------------- |
+| execucao | N:1 |
 
-### Exemplos
+### Colunas
 
-- Segurança
-- Banco de Dados
-- Desenvolvimento
-- Infraestrutura
-- Compliance
-- Auditoria
-
----
-
-## governanca_documento
-
-### Descrição
-
-Cadastro dos documentos oficiais da governança.
-
-### Exemplos
-
-- Manual DBA
-- Manual Desenvolvedor
-- Arquitetura
-- Data Dictionary
-- API
-- Roadmap
+| Coluna | Tipo | Nulo | Descrição |
+| ------ | ---- | ---- | --------- |
+| id_recomendacao | bigint | Não | Identificador único da recomendação |
+| id_execucao | bigint | Não | Execução à qual a recomendação pertence (FK → `execucao`) |
+| prioridade | varchar(20) | Não | Prioridade da recomendação |
+| categoria | varchar(50) | Sim | Categoria textual da recomendação |
+| tabela_nome | varchar(100) | Sim | Tabela alvo da recomendação |
+| coluna_nome | varchar(100) | Sim | Coluna alvo da recomendação, quando aplicável |
+| descricao | text | Não | Descrição da recomendação |
+| script_sugerido | varchar(255) | Sim | Script sugerido para correção |
+| corrigido | boolean | Não | Indica se a recomendação já foi aplicada |
+| data_correcao | timestamp | Sim | Data em que a correção foi aplicada |
+| observacao | text | Sim | Observação livre |
+| created_at | timestamp | Não | Data de criação |
+| updated_at | timestamp | Sim | Última alteração |
+| deleted_at | timestamp | Sim | Exclusão lógica |
+| created_by | integer | Sim | Usuário criador |
+| updated_by | integer | Sim | Usuário responsável pela alteração |
+| deleted_by | integer | Sim | Usuário responsável pela exclusão |
+| versao | integer | Não | Controle de versão |
 
 ---
 
-## governanca_versao
+### Fluxo da Auditoria
 
-### Descrição
+1. `catalogo_schema` e `catalogo_tabela`/`catalogo_coluna` são varridos e atualizados (inventário estrutural).
+2. Uma nova `execucao` é aberta.
+3. Cada `regra` habilitada é disparada pelo seu `executor`.
+4. Para cada `item` avaliado, um `resultado` é gravado.
+5. Não conformidades geram `recomendacao`; erros/avisos técnicos geram `log`.
+6. Ao final, `score` consolida as notas por dimensão e o `score_final` é gravado em `execucao`.
+7. Correções manuais aplicadas fora do fluxo automático são registradas em `log_correcao`.
 
-Controle das versões do banco de dados.
+### Índice de Conformidade do Banco (ICB)
 
-### Informações
-
-|Campo|Descrição|
-|-----------|---------|
-|Versão|
-|Data|
-|Autor|
-|Ambiente|
-|Observações|
-
----
-
-## governanca_release
-
-### Descrição
-
-Controle das releases publicadas.
-
-### Exemplos
-
-- 1.0.0
-- 1.1.0
-- 1.2.0
+O ICB é o score final (0–100) calculado a partir das dimensões registradas em `score`
+(estrutura, integridade, auditoria, performance, segurança, normalização, padronização, documentação),
+ponderadas pelos pesos definidos em `categoria`.
 
 ---
 
-## governanca_migracao
-
-### Descrição
-
-Histórico de migrações executadas.
-
-### Informações
-
-- Script
-- Data
-- Responsável
-- Tempo
-- Status
-
----
-
-## governanca_change
-
-### Descrição
-
-Registro de alterações estruturais.
-
-### Eventos
-
-- CREATE
-- ALTER
-- DROP
-- RENAME
-- COMMENT
-
----
-
-## governanca_aprovacao
-
-### Descrição
-
-Controle das aprovações das mudanças.
-
-### Fluxo
-
-Solicitação
-
-↓
-
-Análise
-
-↓
-
-Aprovação
-
-↓
-
-Execução
-
-↓
-
-Homologação
-
-↓
-
-Produção
-
----
-
-## governanca_risco
-
-### Descrição
-
-Cadastro dos riscos identificados.
-
-### Classificações
-
-- Baixo
-- Médio
-- Alto
-- Crítico
-
----
-
-## governanca_incidente
-
-### Descrição
-
-Registro de incidentes.
-
-### Exemplos
-
-- Falha de Backup
-- Queda de Banco
-- Corrupção
-- Lentidão
-- Segurança
-
----
-
-## governanca_lgpd
-
-### Descrição
-
-Controle dos requisitos da Lei Geral de Proteção de Dados.
-
-### Informações
-
-- Base Legal
-- Consentimento
-- Finalidade
-- Retenção
-- Anonimização
-
----
-
-## governanca_log
-
-### Descrição
-
-Registro consolidado de eventos administrativos.
-
-### Exemplos
-
-- Login
-- Alteração
-- Exclusão
-- Backup
-- Restore
-
----
-
-## governanca_backup
-
-### Descrição
-
-Controle dos backups realizados.
-
-### Informações
-
-- Tipo
-- Data
-- Ambiente
-- Local
-- Responsável
-
----
-
-## governanca_restore
-
-### Descrição
-
-Registro dos testes de restauração.
-
-### Objetivo
-
-Garantir recuperação do ambiente.
-
----
-
-## governanca_ambiente
-
-### Descrição
-
-Cadastro dos ambientes.
-
-### Exemplos
-
-- Desenvolvimento
-- Homologação
-- Produção
-- Backup
-
----
-
-## governanca_servidor
-
-### Descrição
-
-Cadastro dos servidores.
-
-### Informações
-
-- Host
-- Sistema Operacional
-- PostgreSQL
-- Memória
-- CPU
-
----
-
-## governanca_role
-
-### Descrição
-
-Cadastro das Roles do PostgreSQL.
-
-### Exemplos
-
-- dba
-- administrador
-- desenvolvedor
-- leitura
-- auditor
-
----
-
-## governanca_permissao
-
-### Descrição
-
-Controle das permissões concedidas.
-
-### Objetivos
-
-- Menor privilégio
-- Segregação de funções
-- Auditoria
-
----
-
-## governanca_compliance
-
-### Descrição
-
-Controle de conformidade.
-
-### Critérios
-
-- ISO 27001
-- LGPD
-- Boas práticas PostgreSQL
-- Normas internas
-
----
-
-## governanca_metadata
-
-### Descrição
-
-Catálogo corporativo de metadados.
-
-### Conteúdo
-
-- Tabelas
-- Colunas
-- Índices
-- Views
-- Procedures
-- Functions
-
----
-
-## dashboard_governanca
-
-### Descrição
-
-Materialização dos indicadores de governança.
-
-### Indicadores
-
-- Políticas Ativas
-- Versões
-- Releases
-- Migrações
-- Backups
-- Restores
-- Incidentes
-- Compliance
-- LGPD
-- Score Geral
-
----
-
-## Fluxo de Governança
-
-```text
-Política
-
-↓
-
-Versionamento
-
-↓
-
-Mudança
-
-↓
-
-Aprovação
-
-↓
-
-Migração
-
-↓
-
-Auditoria
-
-↓
-
-Certificação
-
-↓
-
-Produção
-```
-
----
-
-## Indicadores de Governança
-
-- Políticas implantadas
-- Versões publicadas
-- Releases homologadas
-- Migrações executadas
-- Backups realizados
-- Restores testados
-- Incidentes
-- Tempo médio de recuperação (RTO)
-- Perda máxima aceitável (RPO)
-- Conformidade LGPD
-- Compliance
-- Score de Governança
-
----
-
-## Integração com Outros Frameworks
-
-O Framework de Governança integra-se diretamente com:
-
-- Framework de Auditoria
-- Framework de Certificação
-- Framework de Segurança
-- Framework de Versionamento
-- Framework DBA
-- Dashboard Executivo
-
----
-
-## Benefícios
-
-- Padronização corporativa
-- Controle de mudanças
-- Rastreabilidade completa
-- Segurança da informação
-- Conformidade legal
-- Facilidade de auditoria
-- Evolução controlada
-- Base para certificação técnica
-
----
-
-## 6.10 Views
+## 6.9 Views
 
 As Views do WMA Travel ERP possuem como objetivo disponibilizar informações consolidadas
 para consultas, dashboards, APIs e Business Intelligence.
@@ -6386,7 +6295,7 @@ Previsão para a versão 1.0.0:
 
 ---
 
-## 6.11 Procedures
+## 6.10 Procedures
 
 As Stored Procedures do WMA Travel ERP concentram processos automatizados responsáveis pela execução de rotinas administrativas,
 financeiras, fiscais, operacionais e de auditoria.
@@ -6995,7 +6904,7 @@ As Procedures podem utilizar:
 
 ---
 
-## 6.12 Functions
+## 6.11 Functions
 
 As Functions do WMA Travel ERP implementam regras reutilizáveis de negócio,
 cálculos, validações e operações auxiliares executadas diretamente pelo PostgreSQL.
@@ -7629,7 +7538,7 @@ As Functions podem ser utilizadas por:
 
 ---
 
-## 6.13 Triggers
+## 6.12 Triggers
 
 Os Triggers do WMA Travel ERP automatizam regras críticas do banco de dados,
 garantindo integridade, auditoria, rastreabilidade e sincronização dos dados.
@@ -8206,7 +8115,7 @@ A utilização dos Triggers proporciona:
 
 ---
 
-## 6.14 Índices (Indexes)
+## 6.13 Índices (Indexes)
 
 Os Índices do WMA Travel ERP são responsáveis por otimizar o acesso aos dados,
 reduzir o tempo de resposta das consultas e garantir desempenho adequado para operações transacionais e analíticas.
@@ -8713,7 +8622,7 @@ A estratégia de indexação proporciona:
 
 ---
 
-## 6.15 Chaves Estrangeiras (Foreign Keys)
+## 6.14 Chaves Estrangeiras (Foreign Keys)
 
 As Chaves Estrangeiras (Foreign Keys) garantem a integridade referencial do banco de dados,
 assegurando que os relacionamentos entre tabelas permaneçam consistentes durante toda a vida útil do sistema.
@@ -9220,7 +9129,7 @@ Para certificação do banco, todas as Foreign Keys deverão atender aos seguint
 
 ---
 
-## 6.16 Constraints
+## 6.15 Constraints
 
 As Constraints (Restrições) garantem a integridade estrutural e lógica do banco de dados,
 impedindo o armazenamento de dados inválidos e assegurando que todas as regras fundamentais do modelo sejam respeitadas.
@@ -9673,7 +9582,7 @@ A utilização das Constraints proporciona:
 
 ---
 
-## 6.17 Sequences
+## 6.16 Sequences
 
 As Sequences são objetos responsáveis pela geração automática de valores numéricos sequenciais utilizados principalmente
 nas chaves primárias das tabelas do WMA Travel ERP.
@@ -10028,7 +9937,7 @@ A utilização padronizada das Sequences proporciona:
 
 ---
 
-## 6.18 Materialized Views
+## 6.17 Materialized Views
 
 As Materialized Views (Visões Materializadas) são utilizadas para armazenar previamente o resultado de consultas complexas,
 reduzindo o tempo de resposta de dashboards, indicadores, relatórios e análises estratégicas.
@@ -10535,7 +10444,7 @@ A utilização de Materialized Views proporciona:
 
 ---
 
-## 6.19 Domínios (Domains) e Tipos Personalizados (Custom Types)
+## 6.18 Domínios (Domains) e Tipos Personalizados (Custom Types)
 
 Os Domains e Custom Types são objetos reutilizáveis do PostgreSQL utilizados para padronizar tipos de dados,
 reduzir redundância e garantir consistência em todo o banco de dados.
@@ -11139,7 +11048,7 @@ A utilização de Domains e Tipos Personalizados proporciona:
 
 ---
 
-## 6.20 Extensões PostgreSQL (Extensions)
+## 6.19 Extensões PostgreSQL (Extensions)
 
 As Extensões (Extensions) adicionam funcionalidades nativas ao PostgreSQL que não fazem parte do núcleo do banco de dados.
 
@@ -11606,7 +11515,7 @@ A utilização controlada de extensões proporciona:
 
 ---
 
-## 6.21 Performance e Otimização
+## 6.20 Performance e Otimização
 
 A camada de Performance e Otimização estabelece as diretrizes técnicas para garantir
 que o banco de dados do WMA Travel ERP opere com alta disponibilidade,
@@ -12083,7 +11992,7 @@ A estratégia de Performance proporciona:
 
 ---
 
-## 6.22 Backup, Recuperação e Continuidade de Negócios
+## 6.21 Backup, Recuperação e Continuidade de Negócios
 
 A estratégia de Backup, Recuperação e Continuidade de Negócios do WMA Travel ERP
 garante a proteção das informações corporativas contra falhas de hardware,
@@ -12441,7 +12350,7 @@ A política de Backup e Recuperação proporciona:
 
 --
 
-## 6.23 Monitoramento e Observabilidade
+## 6.22 Monitoramento e Observabilidade
 
 O Monitoramento e a Observabilidade são responsáveis por acompanhar continuamente a saúde,
 disponibilidade, desempenho e segurança do banco de dados PostgreSQL do WMA Travel ERP.
@@ -12804,7 +12713,7 @@ O monitoramento contínuo proporciona:
 
 ---
 
-## 6.24 Segurança do Banco de Dados
+## 6.23 Segurança do Banco de Dados
 
 A Segurança do Banco de Dados define as políticas, mecanismos e controles utilizados
  para proteger as informações do WMA Travel ERP contra acessos não autorizados,
@@ -13163,7 +13072,7 @@ A política de segurança proporciona:
 
 ---
 
-## 6.25 Framework DBA e Certificação Técnica
+## 6.24 Framework DBA e Certificação Técnica
 
 O Framework DBA é o conjunto de processos, políticas, auditorias, métricas,
 indicadores e ferramentas responsáveis pela administração, monitoramento,
@@ -13475,7 +13384,7 @@ A utilização do Framework DBA proporciona:
 
 ---
 
-## 6.26 Glossário Técnico
+## 6.25 Glossário Técnico
 
 Este glossário reúne os principais termos técnicos utilizados na documentação do WMA Travel ERP,
 proporcionando uma referência única para desenvolvedores, DBAs, analistas, arquitetos de software e auditores.
@@ -13872,7 +13781,7 @@ A utilização deste glossário proporciona:
 
 ---
 
-## 6.27 Referências Técnicas
+## 6.26 Referências Técnicas
 
 Este capítulo reúne as principais referências técnicas, normas, padrões,
 documentações oficiais e boas práticas utilizadas durante a concepção, desenvolvimento e manutenção do WMA Travel ERP.
