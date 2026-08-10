@@ -2,12 +2,12 @@
 -- PostgreSQL database dump
 --
 
-\restrict fab4e4WrjUUMn7pCC6frOjMDhgdeJ6fusLcfFWUaXrRDWmwDXbiampxUE4AOyKG
+\restrict JadDCQm73QcBfzRNknzx3lkqXa7IwYoFQ9NMMbfLaOUWu3rH65KPjVkPWReTlyG
 
 -- Dumped from database version 18.4
 -- Dumped by pg_dump version 18.4
 
--- Started on 2026-08-10 09:17:41
+-- Started on 2026-08-10 19:05:25
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -32,12 +32,12 @@ CREATE SCHEMA auditoria;
 ALTER SCHEMA auditoria OWNER TO postgres;
 
 --
--- TOC entry 8187 (class 0 OID 0)
+-- TOC entry 8357 (class 0 OID 0)
 -- Dependencies: 10
 -- Name: SCHEMA auditoria; Type: COMMENT; Schema: -; Owner: postgres
 --
 
-COMMENT ON SCHEMA auditoria IS 'Schema responsável pela Governança, Auditoria Técnica, Health Check e Compliance do Banco de Dados WMA Travel ERP';
+COMMENT ON SCHEMA auditoria IS 'Objetos utilizados para auditoria estrutural, integridade e conformidade do WMA Travel ERP.';
 
 
 --
@@ -71,7 +71,7 @@ CREATE SCHEMA financeiro;
 ALTER SCHEMA financeiro OWNER TO postgres;
 
 --
--- TOC entry 8188 (class 0 OID 0)
+-- TOC entry 8358 (class 0 OID 0)
 -- Dependencies: 8
 -- Name: SCHEMA financeiro; Type: COMMENT; Schema: -; Owner: postgres
 --
@@ -118,7 +118,7 @@ CREATE EXTENSION IF NOT EXISTS pgcrypto WITH SCHEMA public;
 
 
 --
--- TOC entry 8189 (class 0 OID 0)
+-- TOC entry 8359 (class 0 OID 0)
 -- Dependencies: 3
 -- Name: EXTENSION pgcrypto; Type: COMMENT; Schema: -; Owner: 
 --
@@ -135,7 +135,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp" WITH SCHEMA public;
 
 
 --
--- TOC entry 8190 (class 0 OID 0)
+-- TOC entry 8360 (class 0 OID 0)
 -- Dependencies: 2
 -- Name: EXTENSION "uuid-ossp"; Type: COMMENT; Schema: -; Owner: 
 --
@@ -144,7 +144,7 @@ COMMENT ON EXTENSION "uuid-ossp" IS 'generate universally unique identifiers (UU
 
 
 --
--- TOC entry 675 (class 1255 OID 41637)
+-- TOC entry 727 (class 1255 OID 41637)
 -- Name: fn_calcular_score(bigint); Type: FUNCTION; Schema: auditoria; Owner: postgres
 --
 
@@ -177,7 +177,7 @@ $$;
 ALTER FUNCTION auditoria.fn_calcular_score(p_execucao bigint) OWNER TO postgres;
 
 --
--- TOC entry 719 (class 1255 OID 41807)
+-- TOC entry 721 (class 1255 OID 41807)
 -- Name: fn_classificacao_score(numeric); Type: FUNCTION; Schema: auditoria; Owner: postgres
 --
 
@@ -207,7 +207,7 @@ $$;
 ALTER FUNCTION auditoria.fn_classificacao_score(p_score numeric) OWNER TO postgres;
 
 --
--- TOC entry 651 (class 1255 OID 41633)
+-- TOC entry 723 (class 1255 OID 41633)
 -- Name: fn_finalizar_execucao(bigint, numeric, character varying); Type: FUNCTION; Schema: auditoria; Owner: postgres
 --
 
@@ -249,7 +249,7 @@ $$;
 ALTER FUNCTION auditoria.fn_finalizar_execucao(p_execucao bigint, p_score numeric, p_classificacao character varying) OWNER TO postgres;
 
 --
--- TOC entry 643 (class 1255 OID 41640)
+-- TOC entry 741 (class 1255 OID 41640)
 -- Name: fn_health_check(); Type: FUNCTION; Schema: auditoria; Owner: postgres
 --
 
@@ -285,7 +285,7 @@ $$;
 ALTER FUNCTION auditoria.fn_health_check() OWNER TO postgres;
 
 --
--- TOC entry 726 (class 1255 OID 41632)
+-- TOC entry 722 (class 1255 OID 41632)
 -- Name: fn_iniciar_execucao(character varying, character varying); Type: FUNCTION; Schema: auditoria; Owner: postgres
 --
 
@@ -343,7 +343,7 @@ $$;
 ALTER FUNCTION auditoria.fn_iniciar_execucao(p_versao_script character varying, p_schema character varying) OWNER TO postgres;
 
 --
--- TOC entry 688 (class 1255 OID 41636)
+-- TOC entry 726 (class 1255 OID 41636)
 -- Name: fn_obter_configuracao(character varying); Type: FUNCTION; Schema: auditoria; Owner: postgres
 --
 
@@ -373,7 +373,7 @@ $$;
 ALTER FUNCTION auditoria.fn_obter_configuracao(p_chave character varying) OWNER TO postgres;
 
 --
--- TOC entry 664 (class 1255 OID 41808)
+-- TOC entry 728 (class 1255 OID 41808)
 -- Name: fn_prioridade(character varying); Type: FUNCTION; Schema: auditoria; Owner: postgres
 --
 
@@ -399,7 +399,7 @@ $$;
 ALTER FUNCTION auditoria.fn_prioridade(p_criticidade character varying) OWNER TO postgres;
 
 --
--- TOC entry 716 (class 1255 OID 41639)
+-- TOC entry 734 (class 1255 OID 41639)
 -- Name: fn_registrar_erro(bigint, character varying, character varying, text); Type: FUNCTION; Schema: auditoria; Owner: postgres
 --
 
@@ -434,7 +434,7 @@ $$;
 ALTER FUNCTION auditoria.fn_registrar_erro(p_execucao bigint, p_script character varying, p_sqlstate character varying, p_mensagem text) OWNER TO postgres;
 
 --
--- TOC entry 692 (class 1255 OID 41634)
+-- TOC entry 724 (class 1255 OID 41634)
 -- Name: fn_registrar_log(bigint, character varying, character varying, character varying, text, character varying); Type: FUNCTION; Schema: auditoria; Owner: postgres
 --
 
@@ -486,7 +486,7 @@ $$;
 ALTER FUNCTION auditoria.fn_registrar_log(p_execucao bigint, p_script character varying, p_etapa character varying, p_sqlstate character varying, p_mensagem text, p_severidade character varying) OWNER TO postgres;
 
 --
--- TOC entry 671 (class 1255 OID 41638)
+-- TOC entry 733 (class 1255 OID 41638)
 -- Name: fn_registrar_recomendacao(bigint, character varying, character varying, character varying, character varying, text, character varying); Type: FUNCTION; Schema: auditoria; Owner: postgres
 --
 
@@ -542,7 +542,7 @@ $$;
 ALTER FUNCTION auditoria.fn_registrar_recomendacao(p_execucao bigint, p_prioridade character varying, p_categoria character varying, p_tabela character varying, p_coluna character varying, p_descricao text, p_script character varying) OWNER TO postgres;
 
 --
--- TOC entry 649 (class 1255 OID 41635)
+-- TOC entry 725 (class 1255 OID 41635)
 -- Name: fn_registrar_resultado(bigint, bigint, character varying, character varying, character varying, character varying, text); Type: FUNCTION; Schema: auditoria; Owner: postgres
 --
 
@@ -598,7 +598,7 @@ $$;
 ALTER FUNCTION auditoria.fn_registrar_resultado(p_execucao bigint, p_item bigint, p_tabela character varying, p_coluna character varying, p_status character varying, p_severidade character varying, p_observacao text) OWNER TO postgres;
 
 --
--- TOC entry 695 (class 1255 OID 41809)
+-- TOC entry 742 (class 1255 OID 41809)
 -- Name: fn_tempo_execucao(timestamp without time zone, timestamp without time zone); Type: FUNCTION; Schema: auditoria; Owner: postgres
 --
 
@@ -615,7 +615,7 @@ $$;
 ALTER FUNCTION auditoria.fn_tempo_execucao(p_inicio timestamp without time zone, p_fim timestamp without time zone) OWNER TO postgres;
 
 --
--- TOC entry 706 (class 1255 OID 41691)
+-- TOC entry 749 (class 1255 OID 41691)
 -- Name: sp_auditoria_estrutura(bigint, character varying); Type: PROCEDURE; Schema: auditoria; Owner: postgres
 --
 
@@ -751,7 +751,7 @@ $$;
 ALTER PROCEDURE auditoria.sp_auditoria_estrutura(IN p_execucao bigint, IN p_schema character varying) OWNER TO postgres;
 
 --
--- TOC entry 700 (class 1255 OID 41821)
+-- TOC entry 753 (class 1255 OID 41821)
 -- Name: sp_executar_framework(bigint); Type: PROCEDURE; Schema: auditoria; Owner: postgres
 --
 
@@ -799,7 +799,7 @@ $$;
 ALTER PROCEDURE auditoria.sp_executar_framework(IN p_execucao bigint) OWNER TO postgres;
 
 --
--- TOC entry 710 (class 1255 OID 41641)
+-- TOC entry 744 (class 1255 OID 41641)
 -- Name: sp_executar_governanca(character varying); Type: PROCEDURE; Schema: auditoria; Owner: postgres
 --
 
@@ -891,7 +891,7 @@ $$;
 ALTER PROCEDURE auditoria.sp_executar_governanca(IN p_schema character varying) OWNER TO postgres;
 
 --
--- TOC entry 654 (class 1255 OID 41822)
+-- TOC entry 754 (class 1255 OID 41822)
 -- Name: sp_executar_regra(bigint, bigint); Type: PROCEDURE; Schema: auditoria; Owner: postgres
 --
 
@@ -931,7 +931,7 @@ $$;
 ALTER PROCEDURE auditoria.sp_executar_regra(IN p_execucao bigint, IN p_regra bigint) OWNER TO postgres;
 
 --
--- TOC entry 693 (class 1255 OID 41645)
+-- TOC entry 748 (class 1255 OID 41645)
 -- Name: sp_exportar_relatorio(bigint); Type: PROCEDURE; Schema: auditoria; Owner: postgres
 --
 
@@ -951,7 +951,7 @@ $$;
 ALTER PROCEDURE auditoria.sp_exportar_relatorio(IN p_execucao bigint) OWNER TO postgres;
 
 --
--- TOC entry 665 (class 1255 OID 41811)
+-- TOC entry 751 (class 1255 OID 41811)
 -- Name: sp_finalizar_execucao(bigint, character varying); Type: PROCEDURE; Schema: auditoria; Owner: postgres
 --
 
@@ -992,7 +992,7 @@ $$;
 ALTER PROCEDURE auditoria.sp_finalizar_execucao(IN p_id_execucao bigint, IN p_status character varying) OWNER TO postgres;
 
 --
--- TOC entry 705 (class 1255 OID 41810)
+-- TOC entry 750 (class 1255 OID 41810)
 -- Name: sp_iniciar_execucao(character varying, character varying, text); Type: PROCEDURE; Schema: auditoria; Owner: postgres
 --
 
@@ -1037,7 +1037,7 @@ $$;
 ALTER PROCEDURE auditoria.sp_iniciar_execucao(IN p_schema character varying, IN p_versao_script character varying, IN p_observacao text) OWNER TO postgres;
 
 --
--- TOC entry 678 (class 1255 OID 41643)
+-- TOC entry 746 (class 1255 OID 41643)
 -- Name: sp_limpar_historico(integer); Type: PROCEDURE; Schema: auditoria; Owner: postgres
 --
 
@@ -1063,7 +1063,7 @@ $$;
 ALTER PROCEDURE auditoria.sp_limpar_historico(IN p_dias integer) OWNER TO postgres;
 
 --
--- TOC entry 680 (class 1255 OID 41642)
+-- TOC entry 745 (class 1255 OID 41642)
 -- Name: sp_recalcular_score(bigint); Type: PROCEDURE; Schema: auditoria; Owner: postgres
 --
 
@@ -1101,7 +1101,7 @@ $$;
 ALTER PROCEDURE auditoria.sp_recalcular_score(IN p_execucao bigint) OWNER TO postgres;
 
 --
--- TOC entry 652 (class 1255 OID 41812)
+-- TOC entry 752 (class 1255 OID 41812)
 -- Name: sp_registrar_resultado(bigint, bigint, character varying, character varying, character varying, character varying, character varying, character varying, text, text, text); Type: PROCEDURE; Schema: auditoria; Owner: postgres
 --
 
@@ -1179,7 +1179,7 @@ $$;
 ALTER PROCEDURE auditoria.sp_registrar_resultado(IN p_execucao bigint, IN p_item bigint, IN p_schema character varying, IN p_tabela character varying, IN p_coluna character varying, IN p_objeto character varying, IN p_status character varying, IN p_severidade character varying, IN p_valor_encontrado text, IN p_valor_esperado text, IN p_observacao text) OWNER TO postgres;
 
 --
--- TOC entry 644 (class 1255 OID 41644)
+-- TOC entry 747 (class 1255 OID 41644)
 -- Name: sp_reprocessar_execucao(bigint); Type: PROCEDURE; Schema: auditoria; Owner: postgres
 --
 
@@ -1215,7 +1215,7 @@ $$;
 ALTER PROCEDURE auditoria.sp_reprocessar_execucao(IN p_execucao bigint) OWNER TO postgres;
 
 --
--- TOC entry 676 (class 1255 OID 25072)
+-- TOC entry 717 (class 1255 OID 25072)
 -- Name: fn_atualiza_updated_at(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1238,7 +1238,7 @@ $$;
 ALTER FUNCTION public.fn_atualiza_updated_at() OWNER TO postgres;
 
 --
--- TOC entry 699 (class 1255 OID 33283)
+-- TOC entry 719 (class 1255 OID 33283)
 -- Name: fn_incrementar_versao(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1260,7 +1260,7 @@ $$;
 ALTER FUNCTION public.fn_incrementar_versao() OWNER TO postgres;
 
 --
--- TOC entry 670 (class 1255 OID 25901)
+-- TOC entry 755 (class 1255 OID 25901)
 -- Name: fn_log_auditoria(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1324,7 +1324,7 @@ $$;
 ALTER FUNCTION public.fn_log_auditoria() OWNER TO postgres;
 
 --
--- TOC entry 673 (class 1255 OID 33282)
+-- TOC entry 718 (class 1255 OID 33282)
 -- Name: fn_updated_at(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1346,7 +1346,7 @@ $$;
 ALTER FUNCTION public.fn_updated_at() OWNER TO postgres;
 
 --
--- TOC entry 667 (class 1255 OID 33284)
+-- TOC entry 720 (class 1255 OID 33284)
 -- Name: fn_usuario_logado(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1522,7 +1522,7 @@ CREATE TABLE auditoria.categoria (
 ALTER TABLE auditoria.categoria OWNER TO postgres;
 
 --
--- TOC entry 8191 (class 0 OID 0)
+-- TOC entry 8361 (class 0 OID 0)
 -- Dependencies: 598
 -- Name: TABLE categoria; Type: COMMENT; Schema: auditoria; Owner: postgres
 --
@@ -1537,6 +1537,113 @@ COMMENT ON TABLE auditoria.categoria IS 'Categorias utilizadas no cálculo do IC
 
 ALTER TABLE auditoria.categoria ALTER COLUMN id_categoria ADD GENERATED ALWAYS AS IDENTITY (
     SEQUENCE NAME auditoria.categoria_id_categoria_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 667 (class 1259 OID 42870)
+-- Name: colunas_identificadoras; Type: TABLE; Schema: auditoria; Owner: postgres
+--
+
+CREATE TABLE auditoria.colunas_identificadoras (
+    id bigint NOT NULL,
+    schema_name character varying(255) NOT NULL,
+    table_name character varying(255) NOT NULL,
+    column_name character varying(255) NOT NULL,
+    data_type character varying(255) NOT NULL,
+    is_nullable character varying(3) NOT NULL,
+    column_default text,
+    auditado_em timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+
+ALTER TABLE auditoria.colunas_identificadoras OWNER TO postgres;
+
+--
+-- TOC entry 666 (class 1259 OID 42869)
+-- Name: colunas_identificadoras_id_seq; Type: SEQUENCE; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE auditoria.colunas_identificadoras ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME auditoria.colunas_identificadoras_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 653 (class 1259 OID 42755)
+-- Name: colunas_not_null_sem_default; Type: TABLE; Schema: auditoria; Owner: postgres
+--
+
+CREATE TABLE auditoria.colunas_not_null_sem_default (
+    id bigint NOT NULL,
+    schema_name character varying(255) NOT NULL,
+    table_name character varying(255) NOT NULL,
+    column_name character varying(255) NOT NULL,
+    data_type character varying(255) NOT NULL,
+    detectado_em timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+
+ALTER TABLE auditoria.colunas_not_null_sem_default OWNER TO postgres;
+
+--
+-- TOC entry 652 (class 1259 OID 42754)
+-- Name: colunas_not_null_sem_default_id_seq; Type: SEQUENCE; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE auditoria.colunas_not_null_sem_default ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME auditoria.colunas_not_null_sem_default_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 651 (class 1259 OID 42738)
+-- Name: colunas_sem_comentario; Type: TABLE; Schema: auditoria; Owner: postgres
+--
+
+CREATE TABLE auditoria.colunas_sem_comentario (
+    id bigint NOT NULL,
+    schema_name character varying(255) NOT NULL,
+    table_name character varying(255) NOT NULL,
+    column_name character varying(255) NOT NULL,
+    data_type character varying(255) NOT NULL,
+    detectado_em timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+
+ALTER TABLE auditoria.colunas_sem_comentario OWNER TO postgres;
+
+--
+-- TOC entry 8362 (class 0 OID 0)
+-- Dependencies: 651
+-- Name: TABLE colunas_sem_comentario; Type: COMMENT; Schema: auditoria; Owner: postgres
+--
+
+COMMENT ON TABLE auditoria.colunas_sem_comentario IS 'Colunas que ainda não possuem documentação estrutural.';
+
+
+--
+-- TOC entry 650 (class 1259 OID 42737)
+-- Name: colunas_sem_comentario_id_seq; Type: SEQUENCE; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE auditoria.colunas_sem_comentario ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME auditoria.colunas_sem_comentario_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -1610,7 +1717,7 @@ CREATE TABLE auditoria.core (
 ALTER TABLE auditoria.core OWNER TO postgres;
 
 --
--- TOC entry 8192 (class 0 OID 0)
+-- TOC entry 8363 (class 0 OID 0)
 -- Dependencies: 641
 -- Name: TABLE core; Type: COMMENT; Schema: auditoria; Owner: postgres
 --
@@ -1634,7 +1741,7 @@ CREATE SEQUENCE auditoria.core_id_core_seq
 ALTER SEQUENCE auditoria.core_id_core_seq OWNER TO postgres;
 
 --
--- TOC entry 8193 (class 0 OID 0)
+-- TOC entry 8364 (class 0 OID 0)
 -- Dependencies: 640
 -- Name: core_id_core_seq; Type: SEQUENCE OWNED BY; Schema: auditoria; Owner: postgres
 --
@@ -1675,7 +1782,7 @@ CREATE TABLE auditoria.execucao (
 ALTER TABLE auditoria.execucao OWNER TO postgres;
 
 --
--- TOC entry 8194 (class 0 OID 0)
+-- TOC entry 8365 (class 0 OID 0)
 -- Dependencies: 596
 -- Name: TABLE execucao; Type: COMMENT; Schema: auditoria; Owner: postgres
 --
@@ -1684,7 +1791,7 @@ COMMENT ON TABLE auditoria.execucao IS 'Cabeçalho das execuções de auditoria 
 
 
 --
--- TOC entry 8195 (class 0 OID 0)
+-- TOC entry 8366 (class 0 OID 0)
 -- Dependencies: 596
 -- Name: COLUMN execucao.score_final; Type: COMMENT; Schema: auditoria; Owner: postgres
 --
@@ -1693,7 +1800,7 @@ COMMENT ON COLUMN auditoria.execucao.score_final IS 'Índice Geral de Conformida
 
 
 --
--- TOC entry 8196 (class 0 OID 0)
+-- TOC entry 8367 (class 0 OID 0)
 -- Dependencies: 596
 -- Name: COLUMN execucao.classificacao; Type: COMMENT; Schema: auditoria; Owner: postgres
 --
@@ -1702,12 +1809,46 @@ COMMENT ON COLUMN auditoria.execucao.classificacao IS 'Excelente, Muito Bom, Bom
 
 
 --
--- TOC entry 8197 (class 0 OID 0)
+-- TOC entry 8368 (class 0 OID 0)
 -- Dependencies: 596
 -- Name: COLUMN execucao.status_execucao; Type: COMMENT; Schema: auditoria; Owner: postgres
 --
 
 COMMENT ON COLUMN auditoria.execucao.status_execucao IS 'EXECUTANDO, FINALIZADO ou ERRO.';
+
+
+--
+-- TOC entry 643 (class 1259 OID 42667)
+-- Name: execucao_correcao; Type: TABLE; Schema: auditoria; Owner: postgres
+--
+
+CREATE TABLE auditoria.execucao_correcao (
+    id_execucao bigint NOT NULL,
+    script character varying(200) NOT NULL,
+    etapa character varying(200) NOT NULL,
+    iniciado_em timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    finalizado_em timestamp with time zone,
+    status character varying(30) DEFAULT 'EM_EXECUCAO'::character varying NOT NULL,
+    observacao text,
+    CONSTRAINT ck_execucao_correcao_status CHECK (((status)::text = ANY ((ARRAY['EM_EXECUCAO'::character varying, 'CONCLUIDO'::character varying, 'ATENCAO'::character varying, 'ERRO'::character varying])::text[])))
+);
+
+
+ALTER TABLE auditoria.execucao_correcao OWNER TO postgres;
+
+--
+-- TOC entry 642 (class 1259 OID 42666)
+-- Name: execucao_correcao_id_execucao_seq; Type: SEQUENCE; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE auditoria.execucao_correcao ALTER COLUMN id_execucao ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME auditoria.execucao_correcao_id_execucao_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
 
 
 --
@@ -1754,7 +1895,7 @@ CREATE TABLE auditoria.executor (
 ALTER TABLE auditoria.executor OWNER TO postgres;
 
 --
--- TOC entry 8198 (class 0 OID 0)
+-- TOC entry 8369 (class 0 OID 0)
 -- Dependencies: 639
 -- Name: TABLE executor; Type: COMMENT; Schema: auditoria; Owner: postgres
 --
@@ -1778,12 +1919,269 @@ CREATE SEQUENCE auditoria.executor_id_executor_seq
 ALTER SEQUENCE auditoria.executor_id_executor_seq OWNER TO postgres;
 
 --
--- TOC entry 8199 (class 0 OID 0)
+-- TOC entry 8370 (class 0 OID 0)
 -- Dependencies: 638
 -- Name: executor_id_executor_seq; Type: SEQUENCE OWNED BY; Schema: auditoria; Owner: postgres
 --
 
 ALTER SEQUENCE auditoria.executor_id_executor_seq OWNED BY auditoria.executor.id_executor;
+
+
+--
+-- TOC entry 655 (class 1259 OID 42772)
+-- Name: fks_sem_indice; Type: TABLE; Schema: auditoria; Owner: postgres
+--
+
+CREATE TABLE auditoria.fks_sem_indice (
+    id bigint NOT NULL,
+    schema_name character varying(255) NOT NULL,
+    table_name character varying(255) NOT NULL,
+    constraint_name character varying(255) NOT NULL,
+    detectado_em timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+
+ALTER TABLE auditoria.fks_sem_indice OWNER TO postgres;
+
+--
+-- TOC entry 654 (class 1259 OID 42771)
+-- Name: fks_sem_indice_id_seq; Type: SEQUENCE; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE auditoria.fks_sem_indice ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME auditoria.fks_sem_indice_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 661 (class 1259 OID 42823)
+-- Name: indices_potencialmente_duplicados; Type: TABLE; Schema: auditoria; Owner: postgres
+--
+
+CREATE TABLE auditoria.indices_potencialmente_duplicados (
+    id bigint NOT NULL,
+    schema_name character varying(255) NOT NULL,
+    table_name character varying(255) NOT NULL,
+    index_1 character varying(255) NOT NULL,
+    index_2 character varying(255) NOT NULL,
+    definicao text NOT NULL,
+    detectado_em timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+
+ALTER TABLE auditoria.indices_potencialmente_duplicados OWNER TO postgres;
+
+--
+-- TOC entry 660 (class 1259 OID 42822)
+-- Name: indices_potencialmente_duplicados_id_seq; Type: SEQUENCE; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE auditoria.indices_potencialmente_duplicados ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME auditoria.indices_potencialmente_duplicados_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 657 (class 1259 OID 42788)
+-- Name: inventario_constraints; Type: TABLE; Schema: auditoria; Owner: postgres
+--
+
+CREATE TABLE auditoria.inventario_constraints (
+    id bigint NOT NULL,
+    schema_name character varying(255) NOT NULL,
+    table_name character varying(255) NOT NULL,
+    constraint_name character varying(255) NOT NULL,
+    constraint_type character varying(50) NOT NULL,
+    definition text NOT NULL,
+    auditado_em timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+
+ALTER TABLE auditoria.inventario_constraints OWNER TO postgres;
+
+--
+-- TOC entry 8371 (class 0 OID 0)
+-- Dependencies: 657
+-- Name: TABLE inventario_constraints; Type: COMMENT; Schema: auditoria; Owner: postgres
+--
+
+COMMENT ON TABLE auditoria.inventario_constraints IS 'Inventário das constraints existentes no banco.';
+
+
+--
+-- TOC entry 656 (class 1259 OID 42787)
+-- Name: inventario_constraints_id_seq; Type: SEQUENCE; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE auditoria.inventario_constraints ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME auditoria.inventario_constraints_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 665 (class 1259 OID 42854)
+-- Name: inventario_identity; Type: TABLE; Schema: auditoria; Owner: postgres
+--
+
+CREATE TABLE auditoria.inventario_identity (
+    id bigint NOT NULL,
+    schema_name character varying(255) NOT NULL,
+    table_name character varying(255) NOT NULL,
+    column_name character varying(255) NOT NULL,
+    identity_generation character varying(30),
+    auditado_em timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+
+ALTER TABLE auditoria.inventario_identity OWNER TO postgres;
+
+--
+-- TOC entry 664 (class 1259 OID 42853)
+-- Name: inventario_identity_id_seq; Type: SEQUENCE; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE auditoria.inventario_identity ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME auditoria.inventario_identity_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 659 (class 1259 OID 42806)
+-- Name: inventario_indices; Type: TABLE; Schema: auditoria; Owner: postgres
+--
+
+CREATE TABLE auditoria.inventario_indices (
+    id bigint NOT NULL,
+    schema_name character varying(255) NOT NULL,
+    table_name character varying(255) NOT NULL,
+    index_name character varying(255) NOT NULL,
+    index_definition text NOT NULL,
+    tamanho_bytes bigint,
+    tamanho_formatado text,
+    auditado_em timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+
+ALTER TABLE auditoria.inventario_indices OWNER TO postgres;
+
+--
+-- TOC entry 8372 (class 0 OID 0)
+-- Dependencies: 659
+-- Name: TABLE inventario_indices; Type: COMMENT; Schema: auditoria; Owner: postgres
+--
+
+COMMENT ON TABLE auditoria.inventario_indices IS 'Inventário dos índices existentes no banco.';
+
+
+--
+-- TOC entry 658 (class 1259 OID 42805)
+-- Name: inventario_indices_id_seq; Type: SEQUENCE; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE auditoria.inventario_indices ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME auditoria.inventario_indices_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 663 (class 1259 OID 42839)
+-- Name: inventario_sequences; Type: TABLE; Schema: auditoria; Owner: postgres
+--
+
+CREATE TABLE auditoria.inventario_sequences (
+    id bigint NOT NULL,
+    sequence_schema character varying(255) NOT NULL,
+    sequence_name character varying(255) NOT NULL,
+    auditado_em timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+
+ALTER TABLE auditoria.inventario_sequences OWNER TO postgres;
+
+--
+-- TOC entry 662 (class 1259 OID 42838)
+-- Name: inventario_sequences_id_seq; Type: SEQUENCE; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE auditoria.inventario_sequences ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME auditoria.inventario_sequences_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 645 (class 1259 OID 42685)
+-- Name: inventario_tabelas; Type: TABLE; Schema: auditoria; Owner: postgres
+--
+
+CREATE TABLE auditoria.inventario_tabelas (
+    id_inventario bigint NOT NULL,
+    schema_name character varying(255) NOT NULL,
+    table_name character varying(255) NOT NULL,
+    row_estimate bigint,
+    tamanho_bytes bigint,
+    tamanho_formatado text,
+    possui_pk boolean DEFAULT false NOT NULL,
+    possui_fk boolean DEFAULT false NOT NULL,
+    possui_indices boolean DEFAULT false NOT NULL,
+    possui_comentario boolean DEFAULT false NOT NULL,
+    auditado_em timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+
+ALTER TABLE auditoria.inventario_tabelas OWNER TO postgres;
+
+--
+-- TOC entry 8373 (class 0 OID 0)
+-- Dependencies: 645
+-- Name: TABLE inventario_tabelas; Type: COMMENT; Schema: auditoria; Owner: postgres
+--
+
+COMMENT ON TABLE auditoria.inventario_tabelas IS 'Inventário estrutural das tabelas existentes no WMA Travel ERP.';
+
+
+--
+-- TOC entry 644 (class 1259 OID 42684)
+-- Name: inventario_tabelas_id_inventario_seq; Type: SEQUENCE; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE auditoria.inventario_tabelas ALTER COLUMN id_inventario ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME auditoria.inventario_tabelas_id_inventario_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
 
 
 --
@@ -1823,7 +2221,7 @@ CREATE TABLE auditoria.item (
 ALTER TABLE auditoria.item OWNER TO postgres;
 
 --
--- TOC entry 8200 (class 0 OID 0)
+-- TOC entry 8374 (class 0 OID 0)
 -- Dependencies: 600
 -- Name: TABLE item; Type: COMMENT; Schema: auditoria; Owner: postgres
 --
@@ -1876,7 +2274,7 @@ CREATE TABLE auditoria.log (
 ALTER TABLE auditoria.log OWNER TO postgres;
 
 --
--- TOC entry 8201 (class 0 OID 0)
+-- TOC entry 8375 (class 0 OID 0)
 -- Dependencies: 608
 -- Name: TABLE log; Type: COMMENT; Schema: auditoria; Owner: postgres
 --
@@ -1921,7 +2319,7 @@ CREATE SEQUENCE auditoria.log_correcao_id_log_seq
 ALTER SEQUENCE auditoria.log_correcao_id_log_seq OWNER TO postgres;
 
 --
--- TOC entry 8202 (class 0 OID 0)
+-- TOC entry 8376 (class 0 OID 0)
 -- Dependencies: 635
 -- Name: log_correcao_id_log_seq; Type: SEQUENCE OWNED BY; Schema: auditoria; Owner: postgres
 --
@@ -1974,7 +2372,7 @@ CREATE TABLE auditoria.recomendacao (
 ALTER TABLE auditoria.recomendacao OWNER TO postgres;
 
 --
--- TOC entry 8203 (class 0 OID 0)
+-- TOC entry 8377 (class 0 OID 0)
 -- Dependencies: 606
 -- Name: TABLE recomendacao; Type: COMMENT; Schema: auditoria; Owner: postgres
 --
@@ -2040,7 +2438,7 @@ CREATE TABLE auditoria.regra (
 ALTER TABLE auditoria.regra OWNER TO postgres;
 
 --
--- TOC entry 8204 (class 0 OID 0)
+-- TOC entry 8378 (class 0 OID 0)
 -- Dependencies: 624
 -- Name: TABLE regra; Type: COMMENT; Schema: auditoria; Owner: postgres
 --
@@ -2049,7 +2447,7 @@ COMMENT ON TABLE auditoria.regra IS 'Cadastro central de todas as regras de diag
 
 
 --
--- TOC entry 8205 (class 0 OID 0)
+-- TOC entry 8379 (class 0 OID 0)
 -- Dependencies: 624
 -- Name: COLUMN regra.sql_diagnostico; Type: COMMENT; Schema: auditoria; Owner: postgres
 --
@@ -2058,7 +2456,7 @@ COMMENT ON COLUMN auditoria.regra.sql_diagnostico IS 'SQL responsável por local
 
 
 --
--- TOC entry 8206 (class 0 OID 0)
+-- TOC entry 8380 (class 0 OID 0)
 -- Dependencies: 624
 -- Name: COLUMN regra.sql_correcao; Type: COMMENT; Schema: auditoria; Owner: postgres
 --
@@ -2067,7 +2465,7 @@ COMMENT ON COLUMN auditoria.regra.sql_correcao IS 'SQL utilizado para corrigir a
 
 
 --
--- TOC entry 8207 (class 0 OID 0)
+-- TOC entry 8381 (class 0 OID 0)
 -- Dependencies: 624
 -- Name: COLUMN regra.correcao_automatica; Type: COMMENT; Schema: auditoria; Owner: postgres
 --
@@ -2123,7 +2521,7 @@ CREATE TABLE auditoria.resultado (
 ALTER TABLE auditoria.resultado OWNER TO postgres;
 
 --
--- TOC entry 8208 (class 0 OID 0)
+-- TOC entry 8382 (class 0 OID 0)
 -- Dependencies: 602
 -- Name: TABLE resultado; Type: COMMENT; Schema: auditoria; Owner: postgres
 --
@@ -2223,6 +2621,84 @@ ALTER TABLE auditoria.script OWNER TO postgres;
 
 ALTER TABLE auditoria.script ALTER COLUMN id_script ADD GENERATED ALWAYS AS IDENTITY (
     SEQUENCE NAME auditoria.script_id_script_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 649 (class 1259 OID 42723)
+-- Name: tabelas_sem_indices; Type: TABLE; Schema: auditoria; Owner: postgres
+--
+
+CREATE TABLE auditoria.tabelas_sem_indices (
+    id bigint NOT NULL,
+    schema_name character varying(255) NOT NULL,
+    table_name character varying(255) NOT NULL,
+    detectado_em timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+
+ALTER TABLE auditoria.tabelas_sem_indices OWNER TO postgres;
+
+--
+-- TOC entry 8383 (class 0 OID 0)
+-- Dependencies: 649
+-- Name: TABLE tabelas_sem_indices; Type: COMMENT; Schema: auditoria; Owner: postgres
+--
+
+COMMENT ON TABLE auditoria.tabelas_sem_indices IS 'Tabelas detectadas sem índices.';
+
+
+--
+-- TOC entry 648 (class 1259 OID 42722)
+-- Name: tabelas_sem_indices_id_seq; Type: SEQUENCE; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE auditoria.tabelas_sem_indices ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME auditoria.tabelas_sem_indices_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 647 (class 1259 OID 42708)
+-- Name: tabelas_sem_pk; Type: TABLE; Schema: auditoria; Owner: postgres
+--
+
+CREATE TABLE auditoria.tabelas_sem_pk (
+    id bigint NOT NULL,
+    schema_name character varying(255) NOT NULL,
+    table_name character varying(255) NOT NULL,
+    detectado_em timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+
+ALTER TABLE auditoria.tabelas_sem_pk OWNER TO postgres;
+
+--
+-- TOC entry 8384 (class 0 OID 0)
+-- Dependencies: 647
+-- Name: TABLE tabelas_sem_pk; Type: COMMENT; Schema: auditoria; Owner: postgres
+--
+
+COMMENT ON TABLE auditoria.tabelas_sem_pk IS 'Tabelas detectadas sem chave primária.';
+
+
+--
+-- TOC entry 646 (class 1259 OID 42707)
+-- Name: tabelas_sem_pk_id_seq; Type: SEQUENCE; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE auditoria.tabelas_sem_pk ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME auditoria.tabelas_sem_pk_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -2379,6 +2855,39 @@ CREATE VIEW auditoria.vw_logs AS
 ALTER VIEW auditoria.vw_logs OWNER TO postgres;
 
 --
+-- TOC entry 669 (class 1259 OID 42891)
+-- Name: vw_problemas_estruturais; Type: VIEW; Schema: auditoria; Owner: postgres
+--
+
+CREATE VIEW auditoria.vw_problemas_estruturais AS
+ SELECT 'TABELA_SEM_PK'::text AS tipo_problema,
+    tabelas_sem_pk.schema_name,
+    tabelas_sem_pk.table_name,
+    NULL::text AS objeto
+   FROM auditoria.tabelas_sem_pk
+UNION ALL
+ SELECT 'TABELA_SEM_INDICE'::text AS tipo_problema,
+    tabelas_sem_indices.schema_name,
+    tabelas_sem_indices.table_name,
+    NULL::text AS objeto
+   FROM auditoria.tabelas_sem_indices
+UNION ALL
+ SELECT 'COLUNA_SEM_COMENTARIO'::text AS tipo_problema,
+    colunas_sem_comentario.schema_name,
+    colunas_sem_comentario.table_name,
+    colunas_sem_comentario.column_name AS objeto
+   FROM auditoria.colunas_sem_comentario
+UNION ALL
+ SELECT 'NOT_NULL_SEM_DEFAULT'::text AS tipo_problema,
+    colunas_not_null_sem_default.schema_name,
+    colunas_not_null_sem_default.table_name,
+    colunas_not_null_sem_default.column_name AS objeto
+   FROM auditoria.colunas_not_null_sem_default;
+
+
+ALTER VIEW auditoria.vw_problemas_estruturais OWNER TO postgres;
+
+--
 -- TOC entry 615 (class 1259 OID 41665)
 -- Name: vw_recomendacoes; Type: VIEW; Schema: auditoria; Owner: postgres
 --
@@ -2396,6 +2905,23 @@ CREATE VIEW auditoria.vw_recomendacoes AS
 
 
 ALTER VIEW auditoria.vw_recomendacoes OWNER TO postgres;
+
+--
+-- TOC entry 668 (class 1259 OID 42887)
+-- Name: vw_resumo_estrutura; Type: VIEW; Schema: auditoria; Owner: postgres
+--
+
+CREATE VIEW auditoria.vw_resumo_estrutura AS
+ SELECT count(*) AS total_tabelas,
+    count(*) FILTER (WHERE possui_pk) AS tabelas_com_pk,
+    count(*) FILTER (WHERE (NOT possui_pk)) AS tabelas_sem_pk,
+    count(*) FILTER (WHERE possui_fk) AS tabelas_com_fk,
+    count(*) FILTER (WHERE possui_indices) AS tabelas_com_indices,
+    count(*) FILTER (WHERE (NOT possui_indices)) AS tabelas_sem_indices
+   FROM auditoria.inventario_tabelas;
+
+
+ALTER VIEW auditoria.vw_resumo_estrutura OWNER TO postgres;
 
 --
 -- TOC entry 620 (class 1259 OID 41686)
@@ -2485,7 +3011,7 @@ CREATE SEQUENCE config.migracao_id_seq
 ALTER SEQUENCE config.migracao_id_seq OWNER TO postgres;
 
 --
--- TOC entry 8209 (class 0 OID 0)
+-- TOC entry 8385 (class 0 OID 0)
 -- Dependencies: 633
 -- Name: migracao_id_seq; Type: SEQUENCE OWNED BY; Schema: config; Owner: postgres
 --
@@ -2540,7 +3066,7 @@ CREATE SEQUENCE config.versao_banco_id_seq
 ALTER SEQUENCE config.versao_banco_id_seq OWNER TO postgres;
 
 --
--- TOC entry 8210 (class 0 OID 0)
+-- TOC entry 8386 (class 0 OID 0)
 -- Dependencies: 631
 -- Name: versao_banco_id_seq; Type: SEQUENCE OWNED BY; Schema: config; Owner: postgres
 --
@@ -2583,7 +3109,7 @@ CREATE SEQUENCE dw.dim_cliente_id_cliente_dw_seq
 ALTER SEQUENCE dw.dim_cliente_id_cliente_dw_seq OWNER TO postgres;
 
 --
--- TOC entry 8211 (class 0 OID 0)
+-- TOC entry 8387 (class 0 OID 0)
 -- Dependencies: 516
 -- Name: dim_cliente_id_cliente_dw_seq; Type: SEQUENCE OWNED BY; Schema: dw; Owner: postgres
 --
@@ -2625,7 +3151,7 @@ CREATE SEQUENCE dw.dim_destino_id_destino_dw_seq
 ALTER SEQUENCE dw.dim_destino_id_destino_dw_seq OWNER TO postgres;
 
 --
--- TOC entry 8212 (class 0 OID 0)
+-- TOC entry 8388 (class 0 OID 0)
 -- Dependencies: 520
 -- Name: dim_destino_id_destino_dw_seq; Type: SEQUENCE OWNED BY; Schema: dw; Owner: postgres
 --
@@ -2665,7 +3191,7 @@ CREATE SEQUENCE dw.dim_fornecedor_id_fornecedor_dw_seq
 ALTER SEQUENCE dw.dim_fornecedor_id_fornecedor_dw_seq OWNER TO postgres;
 
 --
--- TOC entry 8213 (class 0 OID 0)
+-- TOC entry 8389 (class 0 OID 0)
 -- Dependencies: 522
 -- Name: dim_fornecedor_id_fornecedor_dw_seq; Type: SEQUENCE OWNED BY; Schema: dw; Owner: postgres
 --
@@ -2706,7 +3232,7 @@ CREATE SEQUENCE dw.dim_plano_conta_id_conta_dw_seq
 ALTER SEQUENCE dw.dim_plano_conta_id_conta_dw_seq OWNER TO postgres;
 
 --
--- TOC entry 8214 (class 0 OID 0)
+-- TOC entry 8390 (class 0 OID 0)
 -- Dependencies: 524
 -- Name: dim_plano_conta_id_conta_dw_seq; Type: SEQUENCE OWNED BY; Schema: dw; Owner: postgres
 --
@@ -2748,7 +3274,7 @@ CREATE SEQUENCE dw.dim_produto_turistico_id_produto_dw_seq
 ALTER SEQUENCE dw.dim_produto_turistico_id_produto_dw_seq OWNER TO postgres;
 
 --
--- TOC entry 8215 (class 0 OID 0)
+-- TOC entry 8391 (class 0 OID 0)
 -- Dependencies: 518
 -- Name: dim_produto_turistico_id_produto_dw_seq; Type: SEQUENCE OWNED BY; Schema: dw; Owner: postgres
 --
@@ -2794,7 +3320,7 @@ CREATE SEQUENCE dw.dim_tempo_id_tempo_seq
 ALTER SEQUENCE dw.dim_tempo_id_tempo_seq OWNER TO postgres;
 
 --
--- TOC entry 8216 (class 0 OID 0)
+-- TOC entry 8392 (class 0 OID 0)
 -- Dependencies: 514
 -- Name: dim_tempo_id_tempo_seq; Type: SEQUENCE OWNED BY; Schema: dw; Owner: postgres
 --
@@ -2835,7 +3361,7 @@ CREATE SEQUENCE dw.fato_financeiro_id_financeiro_dw_seq
 ALTER SEQUENCE dw.fato_financeiro_id_financeiro_dw_seq OWNER TO postgres;
 
 --
--- TOC entry 8217 (class 0 OID 0)
+-- TOC entry 8393 (class 0 OID 0)
 -- Dependencies: 528
 -- Name: fato_financeiro_id_financeiro_dw_seq; Type: SEQUENCE OWNED BY; Schema: dw; Owner: postgres
 --
@@ -2878,7 +3404,7 @@ CREATE SEQUENCE dw.fato_marketing_id_marketing_dw_seq
 ALTER SEQUENCE dw.fato_marketing_id_marketing_dw_seq OWNER TO postgres;
 
 --
--- TOC entry 8218 (class 0 OID 0)
+-- TOC entry 8394 (class 0 OID 0)
 -- Dependencies: 530
 -- Name: fato_marketing_id_marketing_dw_seq; Type: SEQUENCE OWNED BY; Schema: dw; Owner: postgres
 --
@@ -2923,7 +3449,7 @@ CREATE SEQUENCE dw.fato_vendas_id_venda_dw_seq
 ALTER SEQUENCE dw.fato_vendas_id_venda_dw_seq OWNER TO postgres;
 
 --
--- TOC entry 8219 (class 0 OID 0)
+-- TOC entry 8395 (class 0 OID 0)
 -- Dependencies: 526
 -- Name: fato_vendas_id_venda_dw_seq; Type: SEQUENCE OWNED BY; Schema: dw; Owner: postgres
 --
@@ -2966,7 +3492,7 @@ CREATE SEQUENCE dw.log_etl_id_execucao_seq
 ALTER SEQUENCE dw.log_etl_id_execucao_seq OWNER TO postgres;
 
 --
--- TOC entry 8220 (class 0 OID 0)
+-- TOC entry 8396 (class 0 OID 0)
 -- Dependencies: 532
 -- Name: log_etl_id_execucao_seq; Type: SEQUENCE OWNED BY; Schema: dw; Owner: postgres
 --
@@ -3034,7 +3560,7 @@ CREATE SEQUENCE financeiro.anexo_id_anexo_seq
 ALTER SEQUENCE financeiro.anexo_id_anexo_seq OWNER TO postgres;
 
 --
--- TOC entry 8221 (class 0 OID 0)
+-- TOC entry 8397 (class 0 OID 0)
 -- Dependencies: 278
 -- Name: anexo_id_anexo_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -3074,7 +3600,7 @@ CREATE SEQUENCE financeiro.banco_id_banco_seq
 ALTER SEQUENCE financeiro.banco_id_banco_seq OWNER TO postgres;
 
 --
--- TOC entry 8222 (class 0 OID 0)
+-- TOC entry 8398 (class 0 OID 0)
 -- Dependencies: 244
 -- Name: banco_id_banco_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -3122,7 +3648,7 @@ CREATE SEQUENCE financeiro.categoria_id_categoria_seq
 ALTER SEQUENCE financeiro.categoria_id_categoria_seq OWNER TO postgres;
 
 --
--- TOC entry 8223 (class 0 OID 0)
+-- TOC entry 8399 (class 0 OID 0)
 -- Dependencies: 234
 -- Name: categoria_id_categoria_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -3162,7 +3688,7 @@ CREATE SEQUENCE financeiro.centro_custo_id_centro_custo_seq
 ALTER SEQUENCE financeiro.centro_custo_id_centro_custo_seq OWNER TO postgres;
 
 --
--- TOC entry 8224 (class 0 OID 0)
+-- TOC entry 8400 (class 0 OID 0)
 -- Dependencies: 242
 -- Name: centro_custo_id_centro_custo_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -3203,7 +3729,7 @@ CREATE TABLE financeiro.classificacao (
 ALTER TABLE financeiro.classificacao OWNER TO postgres;
 
 --
--- TOC entry 8225 (class 0 OID 0)
+-- TOC entry 8401 (class 0 OID 0)
 -- Dependencies: 239
 -- Name: TABLE classificacao; Type: COMMENT; Schema: financeiro; Owner: postgres
 --
@@ -3212,7 +3738,7 @@ COMMENT ON TABLE financeiro.classificacao IS 'Tabela de Classificações Finance
 
 
 --
--- TOC entry 8226 (class 0 OID 0)
+-- TOC entry 8402 (class 0 OID 0)
 -- Dependencies: 239
 -- Name: COLUMN classificacao.id_natureza_financeira; Type: COMMENT; Schema: financeiro; Owner: postgres
 --
@@ -3221,7 +3747,7 @@ COMMENT ON COLUMN financeiro.classificacao.id_natureza_financeira IS 'FK para Na
 
 
 --
--- TOC entry 8227 (class 0 OID 0)
+-- TOC entry 8403 (class 0 OID 0)
 -- Dependencies: 239
 -- Name: COLUMN classificacao.id_tipo_dre; Type: COMMENT; Schema: financeiro; Owner: postgres
 --
@@ -3230,7 +3756,7 @@ COMMENT ON COLUMN financeiro.classificacao.id_tipo_dre IS 'FK para Tipo DRE';
 
 
 --
--- TOC entry 8228 (class 0 OID 0)
+-- TOC entry 8404 (class 0 OID 0)
 -- Dependencies: 239
 -- Name: COLUMN classificacao.ordem_dre; Type: COMMENT; Schema: financeiro; Owner: postgres
 --
@@ -3239,7 +3765,7 @@ COMMENT ON COLUMN financeiro.classificacao.ordem_dre IS 'Ordem de exibição na 
 
 
 --
--- TOC entry 8229 (class 0 OID 0)
+-- TOC entry 8405 (class 0 OID 0)
 -- Dependencies: 239
 -- Name: COLUMN classificacao.gera_fluxo_caixa; Type: COMMENT; Schema: financeiro; Owner: postgres
 --
@@ -3248,7 +3774,7 @@ COMMENT ON COLUMN financeiro.classificacao.gera_fluxo_caixa IS 'Indica se partic
 
 
 --
--- TOC entry 8230 (class 0 OID 0)
+-- TOC entry 8406 (class 0 OID 0)
 -- Dependencies: 239
 -- Name: COLUMN classificacao.gera_dre; Type: COMMENT; Schema: financeiro; Owner: postgres
 --
@@ -3257,7 +3783,7 @@ COMMENT ON COLUMN financeiro.classificacao.gera_dre IS 'Indica se participa da D
 
 
 --
--- TOC entry 8231 (class 0 OID 0)
+-- TOC entry 8407 (class 0 OID 0)
 -- Dependencies: 239
 -- Name: COLUMN classificacao.aceita_cliente; Type: COMMENT; Schema: financeiro; Owner: postgres
 --
@@ -3266,7 +3792,7 @@ COMMENT ON COLUMN financeiro.classificacao.aceita_cliente IS 'Permite vínculo c
 
 
 --
--- TOC entry 8232 (class 0 OID 0)
+-- TOC entry 8408 (class 0 OID 0)
 -- Dependencies: 239
 -- Name: COLUMN classificacao.aceita_fornecedor; Type: COMMENT; Schema: financeiro; Owner: postgres
 --
@@ -3275,7 +3801,7 @@ COMMENT ON COLUMN financeiro.classificacao.aceita_fornecedor IS 'Permite víncul
 
 
 --
--- TOC entry 8233 (class 0 OID 0)
+-- TOC entry 8409 (class 0 OID 0)
 -- Dependencies: 239
 -- Name: COLUMN classificacao.aceita_centro_custo; Type: COMMENT; Schema: financeiro; Owner: postgres
 --
@@ -3284,7 +3810,7 @@ COMMENT ON COLUMN financeiro.classificacao.aceita_centro_custo IS 'Permite Centr
 
 
 --
--- TOC entry 8234 (class 0 OID 0)
+-- TOC entry 8410 (class 0 OID 0)
 -- Dependencies: 239
 -- Name: COLUMN classificacao.aceita_conta_bancaria; Type: COMMENT; Schema: financeiro; Owner: postgres
 --
@@ -3293,7 +3819,7 @@ COMMENT ON COLUMN financeiro.classificacao.aceita_conta_bancaria IS 'Permite Con
 
 
 --
--- TOC entry 8235 (class 0 OID 0)
+-- TOC entry 8411 (class 0 OID 0)
 -- Dependencies: 239
 -- Name: COLUMN classificacao.created_at; Type: COMMENT; Schema: financeiro; Owner: postgres
 --
@@ -3302,7 +3828,7 @@ COMMENT ON COLUMN financeiro.classificacao.created_at IS 'Data de criação';
 
 
 --
--- TOC entry 8236 (class 0 OID 0)
+-- TOC entry 8412 (class 0 OID 0)
 -- Dependencies: 239
 -- Name: COLUMN classificacao.updated_at; Type: COMMENT; Schema: financeiro; Owner: postgres
 --
@@ -3311,7 +3837,7 @@ COMMENT ON COLUMN financeiro.classificacao.updated_at IS 'Data da última altera
 
 
 --
--- TOC entry 8237 (class 0 OID 0)
+-- TOC entry 8413 (class 0 OID 0)
 -- Dependencies: 239
 -- Name: COLUMN classificacao.created_by; Type: COMMENT; Schema: financeiro; Owner: postgres
 --
@@ -3320,7 +3846,7 @@ COMMENT ON COLUMN financeiro.classificacao.created_by IS 'Usuário criador';
 
 
 --
--- TOC entry 8238 (class 0 OID 0)
+-- TOC entry 8414 (class 0 OID 0)
 -- Dependencies: 239
 -- Name: COLUMN classificacao.updated_by; Type: COMMENT; Schema: financeiro; Owner: postgres
 --
@@ -3329,7 +3855,7 @@ COMMENT ON COLUMN financeiro.classificacao.updated_by IS 'Usuário que alterou';
 
 
 --
--- TOC entry 8239 (class 0 OID 0)
+-- TOC entry 8415 (class 0 OID 0)
 -- Dependencies: 239
 -- Name: COLUMN classificacao.deleted_at; Type: COMMENT; Schema: financeiro; Owner: postgres
 --
@@ -3354,7 +3880,7 @@ CREATE SEQUENCE financeiro.classificacao_id_classificacao_seq
 ALTER SEQUENCE financeiro.classificacao_id_classificacao_seq OWNER TO postgres;
 
 --
--- TOC entry 8240 (class 0 OID 0)
+-- TOC entry 8416 (class 0 OID 0)
 -- Dependencies: 238
 -- Name: classificacao_id_classificacao_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -3399,7 +3925,7 @@ CREATE SEQUENCE financeiro.cliente_id_cliente_seq
 ALTER SEQUENCE financeiro.cliente_id_cliente_seq OWNER TO postgres;
 
 --
--- TOC entry 8241 (class 0 OID 0)
+-- TOC entry 8417 (class 0 OID 0)
 -- Dependencies: 248
 -- Name: cliente_id_cliente_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -3439,7 +3965,7 @@ CREATE SEQUENCE financeiro.conciliacao_bancaria_id_conciliacao_seq
 ALTER SEQUENCE financeiro.conciliacao_bancaria_id_conciliacao_seq OWNER TO postgres;
 
 --
--- TOC entry 8242 (class 0 OID 0)
+-- TOC entry 8418 (class 0 OID 0)
 -- Dependencies: 272
 -- Name: conciliacao_bancaria_id_conciliacao_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -3487,7 +4013,7 @@ CREATE SEQUENCE financeiro.configuracao_id_configuracao_seq
 ALTER SEQUENCE financeiro.configuracao_id_configuracao_seq OWNER TO postgres;
 
 --
--- TOC entry 8243 (class 0 OID 0)
+-- TOC entry 8419 (class 0 OID 0)
 -- Dependencies: 254
 -- Name: configuracao_id_configuracao_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -3557,7 +4083,7 @@ CREATE SEQUENCE financeiro.conta_bancaria_id_conta_bancaria_seq
 ALTER SEQUENCE financeiro.conta_bancaria_id_conta_bancaria_seq OWNER TO postgres;
 
 --
--- TOC entry 8244 (class 0 OID 0)
+-- TOC entry 8420 (class 0 OID 0)
 -- Dependencies: 246
 -- Name: conta_bancaria_id_conta_bancaria_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -3582,7 +4108,7 @@ CREATE SEQUENCE financeiro.conta_id_conta_seq
 ALTER SEQUENCE financeiro.conta_id_conta_seq OWNER TO postgres;
 
 --
--- TOC entry 8245 (class 0 OID 0)
+-- TOC entry 8421 (class 0 OID 0)
 -- Dependencies: 240
 -- Name: conta_id_conta_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -3638,7 +4164,7 @@ CREATE SEQUENCE financeiro.empresa_id_empresa_seq
 ALTER SEQUENCE financeiro.empresa_id_empresa_seq OWNER TO postgres;
 
 --
--- TOC entry 8246 (class 0 OID 0)
+-- TOC entry 8422 (class 0 OID 0)
 -- Dependencies: 228
 -- Name: empresa_id_empresa_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -3677,7 +4203,7 @@ CREATE SEQUENCE financeiro.forma_pagamento_id_forma_pagamento_seq
 ALTER SEQUENCE financeiro.forma_pagamento_id_forma_pagamento_seq OWNER TO postgres;
 
 --
--- TOC entry 8247 (class 0 OID 0)
+-- TOC entry 8423 (class 0 OID 0)
 -- Dependencies: 252
 -- Name: forma_pagamento_id_forma_pagamento_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -3721,7 +4247,7 @@ CREATE SEQUENCE financeiro.fornecedor_id_fornecedor_seq
 ALTER SEQUENCE financeiro.fornecedor_id_fornecedor_seq OWNER TO postgres;
 
 --
--- TOC entry 8248 (class 0 OID 0)
+-- TOC entry 8424 (class 0 OID 0)
 -- Dependencies: 250
 -- Name: fornecedor_id_fornecedor_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -3769,7 +4295,7 @@ CREATE SEQUENCE financeiro.grupo_id_grupo_seq
 ALTER SEQUENCE financeiro.grupo_id_grupo_seq OWNER TO postgres;
 
 --
--- TOC entry 8249 (class 0 OID 0)
+-- TOC entry 8425 (class 0 OID 0)
 -- Dependencies: 232
 -- Name: grupo_id_grupo_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -3818,7 +4344,7 @@ CREATE SEQUENCE financeiro.historico_lancamento_id_historico_seq
 ALTER SEQUENCE financeiro.historico_lancamento_id_historico_seq OWNER TO postgres;
 
 --
--- TOC entry 8250 (class 0 OID 0)
+-- TOC entry 8426 (class 0 OID 0)
 -- Dependencies: 276
 -- Name: historico_lancamento_id_historico_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -3883,7 +4409,7 @@ CREATE TABLE financeiro.lancamento (
 ALTER TABLE financeiro.lancamento OWNER TO postgres;
 
 --
--- TOC entry 8251 (class 0 OID 0)
+-- TOC entry 8427 (class 0 OID 0)
 -- Dependencies: 265
 -- Name: CONSTRAINT chk_lancamento_valor_bruto ON lancamento; Type: COMMENT; Schema: financeiro; Owner: postgres
 --
@@ -3907,7 +4433,7 @@ CREATE SEQUENCE financeiro.lancamento_id_lancamento_seq
 ALTER SEQUENCE financeiro.lancamento_id_lancamento_seq OWNER TO postgres;
 
 --
--- TOC entry 8252 (class 0 OID 0)
+-- TOC entry 8428 (class 0 OID 0)
 -- Dependencies: 264
 -- Name: lancamento_id_lancamento_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -3955,7 +4481,7 @@ CREATE SEQUENCE financeiro.lancamento_parcela_id_parcela_seq
 ALTER SEQUENCE financeiro.lancamento_parcela_id_parcela_seq OWNER TO postgres;
 
 --
--- TOC entry 8253 (class 0 OID 0)
+-- TOC entry 8429 (class 0 OID 0)
 -- Dependencies: 266
 -- Name: lancamento_parcela_id_parcela_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -4007,7 +4533,7 @@ CREATE SEQUENCE financeiro.movimentacao_bancaria_id_movimento_seq
 ALTER SEQUENCE financeiro.movimentacao_bancaria_id_movimento_seq OWNER TO postgres;
 
 --
--- TOC entry 8254 (class 0 OID 0)
+-- TOC entry 8430 (class 0 OID 0)
 -- Dependencies: 270
 -- Name: movimentacao_bancaria_id_movimento_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -4066,7 +4592,7 @@ CREATE SEQUENCE financeiro.pagamento_id_pagamento_seq
 ALTER SEQUENCE financeiro.pagamento_id_pagamento_seq OWNER TO postgres;
 
 --
--- TOC entry 8255 (class 0 OID 0)
+-- TOC entry 8431 (class 0 OID 0)
 -- Dependencies: 268
 -- Name: pagamento_id_pagamento_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -4100,7 +4626,7 @@ CREATE TABLE financeiro.rateio_centro_custo (
 ALTER TABLE financeiro.rateio_centro_custo OWNER TO postgres;
 
 --
--- TOC entry 8256 (class 0 OID 0)
+-- TOC entry 8432 (class 0 OID 0)
 -- Dependencies: 275
 -- Name: CONSTRAINT chk_rateio_percentual ON rateio_centro_custo; Type: COMMENT; Schema: financeiro; Owner: postgres
 --
@@ -4124,7 +4650,7 @@ CREATE SEQUENCE financeiro.rateio_centro_custo_id_rateio_seq
 ALTER SEQUENCE financeiro.rateio_centro_custo_id_rateio_seq OWNER TO postgres;
 
 --
--- TOC entry 8257 (class 0 OID 0)
+-- TOC entry 8433 (class 0 OID 0)
 -- Dependencies: 274
 -- Name: rateio_centro_custo_id_rateio_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -4171,7 +4697,7 @@ CREATE SEQUENCE financeiro.status_lancamento_id_status_seq
 ALTER SEQUENCE financeiro.status_lancamento_id_status_seq OWNER TO postgres;
 
 --
--- TOC entry 8258 (class 0 OID 0)
+-- TOC entry 8434 (class 0 OID 0)
 -- Dependencies: 258
 -- Name: status_lancamento_id_status_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -4219,7 +4745,7 @@ CREATE SEQUENCE financeiro.subcategoria_id_subcategoria_seq
 ALTER SEQUENCE financeiro.subcategoria_id_subcategoria_seq OWNER TO postgres;
 
 --
--- TOC entry 8259 (class 0 OID 0)
+-- TOC entry 8435 (class 0 OID 0)
 -- Dependencies: 236
 -- Name: subcategoria_id_subcategoria_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -4259,7 +4785,7 @@ CREATE SEQUENCE financeiro.tipo_documento_id_tipo_documento_seq
 ALTER SEQUENCE financeiro.tipo_documento_id_tipo_documento_seq OWNER TO postgres;
 
 --
--- TOC entry 8260 (class 0 OID 0)
+-- TOC entry 8436 (class 0 OID 0)
 -- Dependencies: 260
 -- Name: tipo_documento_id_tipo_documento_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -4292,7 +4818,7 @@ CREATE TABLE financeiro.tipo_lancamento (
 ALTER TABLE financeiro.tipo_lancamento OWNER TO postgres;
 
 --
--- TOC entry 8261 (class 0 OID 0)
+-- TOC entry 8437 (class 0 OID 0)
 -- Dependencies: 257
 -- Name: CONSTRAINT chk_tipo_natureza ON tipo_lancamento; Type: COMMENT; Schema: financeiro; Owner: postgres
 --
@@ -4317,7 +4843,7 @@ CREATE SEQUENCE financeiro.tipo_lancamento_id_tipo_lancamento_seq
 ALTER SEQUENCE financeiro.tipo_lancamento_id_tipo_lancamento_seq OWNER TO postgres;
 
 --
--- TOC entry 8262 (class 0 OID 0)
+-- TOC entry 8438 (class 0 OID 0)
 -- Dependencies: 256
 -- Name: tipo_lancamento_id_tipo_lancamento_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -4366,7 +4892,7 @@ CREATE SEQUENCE financeiro.tipo_movimentacao_id_tipo_movimentacao_seq
 ALTER SEQUENCE financeiro.tipo_movimentacao_id_tipo_movimentacao_seq OWNER TO postgres;
 
 --
--- TOC entry 8263 (class 0 OID 0)
+-- TOC entry 8439 (class 0 OID 0)
 -- Dependencies: 262
 -- Name: tipo_movimentacao_id_tipo_movimentacao_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -4410,7 +4936,7 @@ CREATE SEQUENCE financeiro.usuario_id_usuario_seq
 ALTER SEQUENCE financeiro.usuario_id_usuario_seq OWNER TO postgres;
 
 --
--- TOC entry 8264 (class 0 OID 0)
+-- TOC entry 8440 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: usuario_id_usuario_seq; Type: SEQUENCE OWNED BY; Schema: financeiro; Owner: postgres
 --
@@ -4461,7 +4987,7 @@ CREATE SEQUENCE public.agenda_id_agenda_seq
 ALTER SEQUENCE public.agenda_id_agenda_seq OWNER TO postgres;
 
 --
--- TOC entry 8265 (class 0 OID 0)
+-- TOC entry 8441 (class 0 OID 0)
 -- Dependencies: 415
 -- Name: agenda_id_agenda_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -4505,7 +5031,7 @@ CREATE SEQUENCE public.agendamento_rotina_id_rotina_seq
 ALTER SEQUENCE public.agendamento_rotina_id_rotina_seq OWNER TO postgres;
 
 --
--- TOC entry 8266 (class 0 OID 0)
+-- TOC entry 8442 (class 0 OID 0)
 -- Dependencies: 496
 -- Name: agendamento_rotina_id_rotina_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -4547,7 +5073,7 @@ CREATE SEQUENCE public.anexo_projeto_id_anexo_seq
 ALTER SEQUENCE public.anexo_projeto_id_anexo_seq OWNER TO postgres;
 
 --
--- TOC entry 8267 (class 0 OID 0)
+-- TOC entry 8443 (class 0 OID 0)
 -- Dependencies: 481
 -- Name: anexo_projeto_id_anexo_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -4596,7 +5122,7 @@ CREATE SEQUENCE public.aplicacao_api_id_aplicacao_seq
 ALTER SEQUENCE public.aplicacao_api_id_aplicacao_seq OWNER TO postgres;
 
 --
--- TOC entry 8268 (class 0 OID 0)
+-- TOC entry 8444 (class 0 OID 0)
 -- Dependencies: 499
 -- Name: aplicacao_api_id_aplicacao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -4645,7 +5171,7 @@ CREATE SEQUENCE public.aporte_capital_id_aporte_seq
 ALTER SEQUENCE public.aporte_capital_id_aporte_seq OWNER TO postgres;
 
 --
--- TOC entry 8269 (class 0 OID 0)
+-- TOC entry 8445 (class 0 OID 0)
 -- Dependencies: 337
 -- Name: aporte_capital_id_aporte_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -4697,7 +5223,7 @@ CREATE SEQUENCE public.aprovacao_processo_id_aprovacao_seq
 ALTER SEQUENCE public.aprovacao_processo_id_aprovacao_seq OWNER TO postgres;
 
 --
--- TOC entry 8270 (class 0 OID 0)
+-- TOC entry 8446 (class 0 OID 0)
 -- Dependencies: 537
 -- Name: aprovacao_processo_id_aprovacao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -4742,7 +5268,7 @@ CREATE SEQUENCE public.arquivo_digital_id_arquivo_seq
 ALTER SEQUENCE public.arquivo_digital_id_arquivo_seq OWNER TO postgres;
 
 --
--- TOC entry 8271 (class 0 OID 0)
+-- TOC entry 8447 (class 0 OID 0)
 -- Dependencies: 458
 -- Name: arquivo_digital_id_arquivo_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -4787,7 +5313,7 @@ CREATE SEQUENCE public.assinatura_digital_id_assinatura_seq
 ALTER SEQUENCE public.assinatura_digital_id_assinatura_seq OWNER TO postgres;
 
 --
--- TOC entry 8272 (class 0 OID 0)
+-- TOC entry 8448 (class 0 OID 0)
 -- Dependencies: 462
 -- Name: assinatura_digital_id_assinatura_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -4841,7 +5367,7 @@ CREATE SEQUENCE public.ativo_imobilizado_id_ativo_seq
 ALTER SEQUENCE public.ativo_imobilizado_id_ativo_seq OWNER TO postgres;
 
 --
--- TOC entry 8273 (class 0 OID 0)
+-- TOC entry 8449 (class 0 OID 0)
 -- Dependencies: 424
 -- Name: ativo_imobilizado_id_ativo_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -4885,7 +5411,7 @@ CREATE SEQUENCE public.avaliacao_pos_viagem_id_avaliacao_seq
 ALTER SEQUENCE public.avaliacao_pos_viagem_id_avaliacao_seq OWNER TO postgres;
 
 --
--- TOC entry 8274 (class 0 OID 0)
+-- TOC entry 8450 (class 0 OID 0)
 -- Dependencies: 404
 -- Name: avaliacao_pos_viagem_id_avaliacao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -4935,7 +5461,7 @@ CREATE SEQUENCE public.banco_id_banco_seq
 ALTER SEQUENCE public.banco_id_banco_seq OWNER TO postgres;
 
 --
--- TOC entry 8275 (class 0 OID 0)
+-- TOC entry 8451 (class 0 OID 0)
 -- Dependencies: 290
 -- Name: banco_id_banco_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -4987,7 +5513,7 @@ CREATE SEQUENCE public.campanha_id_campanha_seq
 ALTER SEQUENCE public.campanha_id_campanha_seq OWNER TO postgres;
 
 --
--- TOC entry 8276 (class 0 OID 0)
+-- TOC entry 8452 (class 0 OID 0)
 -- Dependencies: 396
 -- Name: campanha_id_campanha_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -5035,7 +5561,7 @@ CREATE SEQUENCE public.cargo_id_cargo_seq
 ALTER SEQUENCE public.cargo_id_cargo_seq OWNER TO postgres;
 
 --
--- TOC entry 8277 (class 0 OID 0)
+-- TOC entry 8453 (class 0 OID 0)
 -- Dependencies: 407
 -- Name: cargo_id_cargo_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -5084,7 +5610,7 @@ CREATE SEQUENCE public.categoria_ativo_id_categoria_ativo_seq
 ALTER SEQUENCE public.categoria_ativo_id_categoria_ativo_seq OWNER TO postgres;
 
 --
--- TOC entry 8278 (class 0 OID 0)
+-- TOC entry 8454 (class 0 OID 0)
 -- Dependencies: 422
 -- Name: categoria_ativo_id_categoria_ativo_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -5131,7 +5657,7 @@ CREATE SEQUENCE public.categoria_conta_id_categoria_seq
 ALTER SEQUENCE public.categoria_conta_id_categoria_seq OWNER TO postgres;
 
 --
--- TOC entry 8279 (class 0 OID 0)
+-- TOC entry 8455 (class 0 OID 0)
 -- Dependencies: 296
 -- Name: categoria_conta_id_categoria_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -5179,7 +5705,7 @@ CREATE SEQUENCE public.centro_custo_id_centro_custo_seq
 ALTER SEQUENCE public.centro_custo_id_centro_custo_seq OWNER TO postgres;
 
 --
--- TOC entry 8280 (class 0 OID 0)
+-- TOC entry 8456 (class 0 OID 0)
 -- Dependencies: 300
 -- Name: centro_custo_id_centro_custo_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -5222,7 +5748,7 @@ CREATE SEQUENCE public.chave_api_id_chave_seq
 ALTER SEQUENCE public.chave_api_id_chave_seq OWNER TO postgres;
 
 --
--- TOC entry 8281 (class 0 OID 0)
+-- TOC entry 8457 (class 0 OID 0)
 -- Dependencies: 503
 -- Name: chave_api_id_chave_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -5272,7 +5798,7 @@ CREATE SEQUENCE public.checklist_viagem_id_checklist_seq
 ALTER SEQUENCE public.checklist_viagem_id_checklist_seq OWNER TO postgres;
 
 --
--- TOC entry 8282 (class 0 OID 0)
+-- TOC entry 8458 (class 0 OID 0)
 -- Dependencies: 388
 -- Name: checklist_viagem_id_checklist_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -5320,7 +5846,7 @@ CREATE SEQUENCE public.classificacao_dre_id_classificacao_seq
 ALTER SEQUENCE public.classificacao_dre_id_classificacao_seq OWNER TO postgres;
 
 --
--- TOC entry 8283 (class 0 OID 0)
+-- TOC entry 8459 (class 0 OID 0)
 -- Dependencies: 302
 -- Name: classificacao_dre_id_classificacao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -5367,7 +5893,7 @@ CREATE SEQUENCE public.cliente_id_cliente_seq
 ALTER SEQUENCE public.cliente_id_cliente_seq OWNER TO postgres;
 
 --
--- TOC entry 8284 (class 0 OID 0)
+-- TOC entry 8460 (class 0 OID 0)
 -- Dependencies: 286
 -- Name: cliente_id_cliente_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -5417,7 +5943,7 @@ CREATE SEQUENCE public.colaborador_id_colaborador_seq
 ALTER SEQUENCE public.colaborador_id_colaborador_seq OWNER TO postgres;
 
 --
--- TOC entry 8285 (class 0 OID 0)
+-- TOC entry 8461 (class 0 OID 0)
 -- Dependencies: 409
 -- Name: colaborador_id_colaborador_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -5491,7 +6017,7 @@ CREATE SEQUENCE public.comissao_colaborador_id_comissao_seq
 ALTER SEQUENCE public.comissao_colaborador_id_comissao_seq OWNER TO postgres;
 
 --
--- TOC entry 8286 (class 0 OID 0)
+-- TOC entry 8462 (class 0 OID 0)
 -- Dependencies: 413
 -- Name: comissao_colaborador_id_comissao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -5516,7 +6042,7 @@ CREATE SEQUENCE public.comissao_id_comissao_seq
 ALTER SEQUENCE public.comissao_id_comissao_seq OWNER TO postgres;
 
 --
--- TOC entry 8287 (class 0 OID 0)
+-- TOC entry 8463 (class 0 OID 0)
 -- Dependencies: 323
 -- Name: comissao_id_comissao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -5566,7 +6092,7 @@ CREATE SEQUENCE public.conciliacao_bancaria_id_conciliacao_seq
 ALTER SEQUENCE public.conciliacao_bancaria_id_conciliacao_seq OWNER TO postgres;
 
 --
--- TOC entry 8288 (class 0 OID 0)
+-- TOC entry 8464 (class 0 OID 0)
 -- Dependencies: 313
 -- Name: conciliacao_bancaria_id_conciliacao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -5623,7 +6149,7 @@ CREATE SEQUENCE public.conector_integracao_id_conector_seq
 ALTER SEQUENCE public.conector_integracao_id_conector_seq OWNER TO postgres;
 
 --
--- TOC entry 8289 (class 0 OID 0)
+-- TOC entry 8465 (class 0 OID 0)
 -- Dependencies: 548
 -- Name: conector_integracao_id_conector_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -5670,7 +6196,7 @@ CREATE SEQUENCE public.configuracao_empresa_id_configuracao_seq
 ALTER SEQUENCE public.configuracao_empresa_id_configuracao_seq OWNER TO postgres;
 
 --
--- TOC entry 8290 (class 0 OID 0)
+-- TOC entry 8466 (class 0 OID 0)
 -- Dependencies: 486
 -- Name: configuracao_empresa_id_configuracao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -5720,7 +6246,7 @@ CREATE SEQUENCE public.conformidade_lgpd_id_lgpd_seq
 ALTER SEQUENCE public.conformidade_lgpd_id_lgpd_seq OWNER TO postgres;
 
 --
--- TOC entry 8291 (class 0 OID 0)
+-- TOC entry 8467 (class 0 OID 0)
 -- Dependencies: 543
 -- Name: conformidade_lgpd_id_lgpd_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -5774,7 +6300,7 @@ CREATE SEQUENCE public.conta_bancaria_id_conta_bancaria_seq
 ALTER SEQUENCE public.conta_bancaria_id_conta_bancaria_seq OWNER TO postgres;
 
 --
--- TOC entry 8292 (class 0 OID 0)
+-- TOC entry 8468 (class 0 OID 0)
 -- Dependencies: 304
 -- Name: conta_bancaria_id_conta_bancaria_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -5823,7 +6349,7 @@ CREATE SEQUENCE public.contato_cliente_id_contato_seq
 ALTER SEQUENCE public.contato_cliente_id_contato_seq OWNER TO postgres;
 
 --
--- TOC entry 8293 (class 0 OID 0)
+-- TOC entry 8469 (class 0 OID 0)
 -- Dependencies: 398
 -- Name: contato_cliente_id_contato_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -5871,7 +6397,7 @@ CREATE SEQUENCE public.contrato_id_contrato_seq
 ALTER SEQUENCE public.contrato_id_contrato_seq OWNER TO postgres;
 
 --
--- TOC entry 8294 (class 0 OID 0)
+-- TOC entry 8470 (class 0 OID 0)
 -- Dependencies: 460
 -- Name: contrato_id_contrato_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -5913,7 +6439,7 @@ CREATE SEQUENCE public.controle_vencimento_documento_id_controle_seq
 ALTER SEQUENCE public.controle_vencimento_documento_id_controle_seq OWNER TO postgres;
 
 --
--- TOC entry 8295 (class 0 OID 0)
+-- TOC entry 8471 (class 0 OID 0)
 -- Dependencies: 464
 -- Name: controle_vencimento_documento_id_controle_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -5963,7 +6489,7 @@ CREATE SEQUENCE public.custo_pacote_id_custo_seq
 ALTER SEQUENCE public.custo_pacote_id_custo_seq OWNER TO postgres;
 
 --
--- TOC entry 8296 (class 0 OID 0)
+-- TOC entry 8472 (class 0 OID 0)
 -- Dependencies: 390
 -- Name: custo_pacote_id_custo_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -6007,7 +6533,7 @@ CREATE SEQUENCE public.custo_projeto_id_custo_projeto_seq
 ALTER SEQUENCE public.custo_projeto_id_custo_projeto_seq OWNER TO postgres;
 
 --
--- TOC entry 8297 (class 0 OID 0)
+-- TOC entry 8473 (class 0 OID 0)
 -- Dependencies: 477
 -- Name: custo_projeto_id_custo_projeto_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -6059,7 +6585,7 @@ CREATE SEQUENCE public.das_id_das_seq
 ALTER SEQUENCE public.das_id_das_seq OWNER TO postgres;
 
 --
--- TOC entry 8298 (class 0 OID 0)
+-- TOC entry 8474 (class 0 OID 0)
 -- Dependencies: 335
 -- Name: das_id_das_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -6109,7 +6635,7 @@ CREATE SEQUENCE public.data_mart_execucao_id_execucao_seq
 ALTER SEQUENCE public.data_mart_execucao_id_execucao_seq OWNER TO postgres;
 
 --
--- TOC entry 8299 (class 0 OID 0)
+-- TOC entry 8475 (class 0 OID 0)
 -- Dependencies: 561
 -- Name: data_mart_execucao_id_execucao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -6160,7 +6686,7 @@ CREATE SEQUENCE public.declaracao_fiscal_id_declaracao_seq
 ALTER SEQUENCE public.declaracao_fiscal_id_declaracao_seq OWNER TO postgres;
 
 --
--- TOC entry 8300 (class 0 OID 0)
+-- TOC entry 8476 (class 0 OID 0)
 -- Dependencies: 343
 -- Name: declaracao_fiscal_id_declaracao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -6208,7 +6734,7 @@ CREATE SEQUENCE public.depreciacao_id_depreciacao_seq
 ALTER SEQUENCE public.depreciacao_id_depreciacao_seq OWNER TO postgres;
 
 --
--- TOC entry 8301 (class 0 OID 0)
+-- TOC entry 8477 (class 0 OID 0)
 -- Dependencies: 426
 -- Name: depreciacao_id_depreciacao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -6257,7 +6783,7 @@ CREATE SEQUENCE public.destino_id_destino_seq
 ALTER SEQUENCE public.destino_id_destino_seq OWNER TO postgres;
 
 --
--- TOC entry 8302 (class 0 OID 0)
+-- TOC entry 8478 (class 0 OID 0)
 -- Dependencies: 376
 -- Name: destino_id_destino_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -6301,7 +6827,7 @@ CREATE SEQUENCE public.dim_cliente_id_dim_cliente_seq
 ALTER SEQUENCE public.dim_cliente_id_dim_cliente_seq OWNER TO postgres;
 
 --
--- TOC entry 8303 (class 0 OID 0)
+-- TOC entry 8479 (class 0 OID 0)
 -- Dependencies: 570
 -- Name: dim_cliente_id_dim_cliente_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -6348,7 +6874,7 @@ CREATE SEQUENCE public.dim_data_id_data_seq
 ALTER SEQUENCE public.dim_data_id_data_seq OWNER TO postgres;
 
 --
--- TOC entry 8304 (class 0 OID 0)
+-- TOC entry 8480 (class 0 OID 0)
 -- Dependencies: 568
 -- Name: dim_data_id_data_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -6392,7 +6918,7 @@ CREATE SEQUENCE public.dim_destino_id_dim_destino_seq
 ALTER SEQUENCE public.dim_destino_id_dim_destino_seq OWNER TO postgres;
 
 --
--- TOC entry 8305 (class 0 OID 0)
+-- TOC entry 8481 (class 0 OID 0)
 -- Dependencies: 574
 -- Name: dim_destino_id_dim_destino_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -6437,7 +6963,7 @@ CREATE SEQUENCE public.dim_plano_contas_id_dim_plano_seq
 ALTER SEQUENCE public.dim_plano_contas_id_dim_plano_seq OWNER TO postgres;
 
 --
--- TOC entry 8306 (class 0 OID 0)
+-- TOC entry 8482 (class 0 OID 0)
 -- Dependencies: 576
 -- Name: dim_plano_contas_id_dim_plano_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -6480,7 +7006,7 @@ CREATE SEQUENCE public.dim_produto_turistico_id_dim_produto_seq
 ALTER SEQUENCE public.dim_produto_turistico_id_dim_produto_seq OWNER TO postgres;
 
 --
--- TOC entry 8307 (class 0 OID 0)
+-- TOC entry 8483 (class 0 OID 0)
 -- Dependencies: 572
 -- Name: dim_produto_turistico_id_dim_produto_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -6530,7 +7056,7 @@ CREATE SEQUENCE public.distribuicao_lucros_id_distribuicao_seq
 ALTER SEQUENCE public.distribuicao_lucros_id_distribuicao_seq OWNER TO postgres;
 
 --
--- TOC entry 8308 (class 0 OID 0)
+-- TOC entry 8484 (class 0 OID 0)
 -- Dependencies: 339
 -- Name: distribuicao_lucros_id_distribuicao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -6582,7 +7108,7 @@ CREATE SEQUENCE public.documento_id_documento_seq
 ALTER SEQUENCE public.documento_id_documento_seq OWNER TO postgres;
 
 --
--- TOC entry 8309 (class 0 OID 0)
+-- TOC entry 8485 (class 0 OID 0)
 -- Dependencies: 456
 -- Name: documento_id_documento_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -6626,7 +7152,7 @@ CREATE SEQUENCE public.email_sistema_id_email_seq
 ALTER SEQUENCE public.email_sistema_id_email_seq OWNER TO postgres;
 
 --
--- TOC entry 8310 (class 0 OID 0)
+-- TOC entry 8486 (class 0 OID 0)
 -- Dependencies: 492
 -- Name: email_sistema_id_email_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -6670,7 +7196,7 @@ CREATE TABLE public.empresa (
 ALTER TABLE public.empresa OWNER TO postgres;
 
 --
--- TOC entry 8311 (class 0 OID 0)
+-- TOC entry 8487 (class 0 OID 0)
 -- Dependencies: 281
 -- Name: TABLE empresa; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -6695,7 +7221,7 @@ CREATE SEQUENCE public.empresa_id_empresa_seq
 ALTER SEQUENCE public.empresa_id_empresa_seq OWNER TO postgres;
 
 --
--- TOC entry 8312 (class 0 OID 0)
+-- TOC entry 8488 (class 0 OID 0)
 -- Dependencies: 280
 -- Name: empresa_id_empresa_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -6737,7 +7263,7 @@ CREATE SEQUENCE public.estoque_id_estoque_seq
 ALTER SEQUENCE public.estoque_id_estoque_seq OWNER TO postgres;
 
 --
--- TOC entry 8313 (class 0 OID 0)
+-- TOC entry 8489 (class 0 OID 0)
 -- Dependencies: 445
 -- Name: estoque_id_estoque_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -6782,7 +7308,7 @@ CREATE SEQUENCE public.etapa_projeto_id_etapa_seq
 ALTER SEQUENCE public.etapa_projeto_id_etapa_seq OWNER TO postgres;
 
 --
--- TOC entry 8314 (class 0 OID 0)
+-- TOC entry 8490 (class 0 OID 0)
 -- Dependencies: 471
 -- Name: etapa_projeto_id_etapa_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -6837,7 +7363,7 @@ CREATE SEQUENCE public.fato_financeiro_id_fato_financeiro_seq
 ALTER SEQUENCE public.fato_financeiro_id_fato_financeiro_seq OWNER TO postgres;
 
 --
--- TOC entry 8315 (class 0 OID 0)
+-- TOC entry 8491 (class 0 OID 0)
 -- Dependencies: 565
 -- Name: fato_financeiro_id_fato_financeiro_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -6895,7 +7421,7 @@ CREATE SEQUENCE public.fato_vendas_id_fato_venda_seq
 ALTER SEQUENCE public.fato_vendas_id_fato_venda_seq OWNER TO postgres;
 
 --
--- TOC entry 8316 (class 0 OID 0)
+-- TOC entry 8492 (class 0 OID 0)
 -- Dependencies: 563
 -- Name: fato_vendas_id_fato_venda_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -6950,7 +7476,7 @@ CREATE SEQUENCE public.fila_integracao_id_fila_integracao_seq
 ALTER SEQUENCE public.fila_integracao_id_fila_integracao_seq OWNER TO postgres;
 
 --
--- TOC entry 8317 (class 0 OID 0)
+-- TOC entry 8493 (class 0 OID 0)
 -- Dependencies: 554
 -- Name: fila_integracao_id_fila_integracao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -6994,7 +7520,7 @@ CREATE SEQUENCE public.fila_processamento_id_fila_seq
 ALTER SEQUENCE public.fila_processamento_id_fila_seq OWNER TO postgres;
 
 --
--- TOC entry 8318 (class 0 OID 0)
+-- TOC entry 8494 (class 0 OID 0)
 -- Dependencies: 507
 -- Name: fila_processamento_id_fila_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -7043,7 +7569,7 @@ CREATE SEQUENCE public.forma_pagamento_id_forma_pagamento_seq
 ALTER SEQUENCE public.forma_pagamento_id_forma_pagamento_seq OWNER TO postgres;
 
 --
--- TOC entry 8319 (class 0 OID 0)
+-- TOC entry 8495 (class 0 OID 0)
 -- Dependencies: 306
 -- Name: forma_pagamento_id_forma_pagamento_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -7091,7 +7617,7 @@ CREATE SEQUENCE public.fornecedor_id_fornecedor_seq
 ALTER SEQUENCE public.fornecedor_id_fornecedor_seq OWNER TO postgres;
 
 --
--- TOC entry 8320 (class 0 OID 0)
+-- TOC entry 8496 (class 0 OID 0)
 -- Dependencies: 288
 -- Name: fornecedor_id_fornecedor_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -7140,7 +7666,7 @@ CREATE SEQUENCE public.fornecedor_turistico_id_fornecedor_turistico_seq
 ALTER SEQUENCE public.fornecedor_turistico_id_fornecedor_turistico_seq OWNER TO postgres;
 
 --
--- TOC entry 8321 (class 0 OID 0)
+-- TOC entry 8497 (class 0 OID 0)
 -- Dependencies: 380
 -- Name: fornecedor_turistico_id_fornecedor_turistico_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -7189,7 +7715,7 @@ CREATE SEQUENCE public.funil_vendas_id_funil_seq
 ALTER SEQUENCE public.funil_vendas_id_funil_seq OWNER TO postgres;
 
 --
--- TOC entry 8322 (class 0 OID 0)
+-- TOC entry 8498 (class 0 OID 0)
 -- Dependencies: 400
 -- Name: funil_vendas_id_funil_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -7237,7 +7763,7 @@ CREATE SEQUENCE public.gateway_pagamento_id_gateway_seq
 ALTER SEQUENCE public.gateway_pagamento_id_gateway_seq OWNER TO postgres;
 
 --
--- TOC entry 8323 (class 0 OID 0)
+-- TOC entry 8499 (class 0 OID 0)
 -- Dependencies: 362
 -- Name: gateway_pagamento_id_gateway_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -7285,7 +7811,7 @@ CREATE SEQUENCE public.grupo_conta_id_grupo_seq
 ALTER SEQUENCE public.grupo_conta_id_grupo_seq OWNER TO postgres;
 
 --
--- TOC entry 8324 (class 0 OID 0)
+-- TOC entry 8500 (class 0 OID 0)
 -- Dependencies: 294
 -- Name: grupo_conta_id_grupo_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -7335,7 +7861,7 @@ CREATE SEQUENCE public.guia_turistico_id_guia_seq
 ALTER SEQUENCE public.guia_turistico_id_guia_seq OWNER TO postgres;
 
 --
--- TOC entry 8325 (class 0 OID 0)
+-- TOC entry 8501 (class 0 OID 0)
 -- Dependencies: 386
 -- Name: guia_turistico_id_guia_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -7379,7 +7905,7 @@ CREATE SEQUENCE public.historico_alteracao_id_historico_seq
 ALTER SEQUENCE public.historico_alteracao_id_historico_seq OWNER TO postgres;
 
 --
--- TOC entry 8326 (class 0 OID 0)
+-- TOC entry 8502 (class 0 OID 0)
 -- Dependencies: 358
 -- Name: historico_alteracao_id_historico_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -7421,7 +7947,7 @@ CREATE SEQUENCE public.historico_documento_id_historico_seq
 ALTER SEQUENCE public.historico_documento_id_historico_seq OWNER TO postgres;
 
 --
--- TOC entry 8327 (class 0 OID 0)
+-- TOC entry 8503 (class 0 OID 0)
 -- Dependencies: 466
 -- Name: historico_documento_id_historico_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -7464,7 +7990,7 @@ CREATE SEQUENCE public.horas_atividade_id_hora_seq
 ALTER SEQUENCE public.horas_atividade_id_hora_seq OWNER TO postgres;
 
 --
--- TOC entry 8328 (class 0 OID 0)
+-- TOC entry 8504 (class 0 OID 0)
 -- Dependencies: 419
 -- Name: horas_atividade_id_hora_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -7514,7 +8040,7 @@ CREATE SEQUENCE public.hospedagem_id_hospedagem_seq
 ALTER SEQUENCE public.hospedagem_id_hospedagem_seq OWNER TO postgres;
 
 --
--- TOC entry 8329 (class 0 OID 0)
+-- TOC entry 8505 (class 0 OID 0)
 -- Dependencies: 382
 -- Name: hospedagem_id_hospedagem_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -7559,7 +8085,7 @@ CREATE SEQUENCE public.importacao_dados_id_importacao_seq
 ALTER SEQUENCE public.importacao_dados_id_importacao_seq OWNER TO postgres;
 
 --
--- TOC entry 8330 (class 0 OID 0)
+-- TOC entry 8506 (class 0 OID 0)
 -- Dependencies: 372
 -- Name: importacao_dados_id_importacao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -7607,7 +8133,7 @@ CREATE SEQUENCE public.imposto_id_imposto_seq
 ALTER SEQUENCE public.imposto_id_imposto_seq OWNER TO postgres;
 
 --
--- TOC entry 8331 (class 0 OID 0)
+-- TOC entry 8507 (class 0 OID 0)
 -- Dependencies: 331
 -- Name: imposto_id_imposto_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -7652,7 +8178,7 @@ CREATE SEQUENCE public.integracao_nfse_id_integracao_seq
 ALTER SEQUENCE public.integracao_nfse_id_integracao_seq OWNER TO postgres;
 
 --
--- TOC entry 8332 (class 0 OID 0)
+-- TOC entry 8508 (class 0 OID 0)
 -- Dependencies: 370
 -- Name: integracao_nfse_id_integracao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -7704,7 +8230,7 @@ CREATE SEQUENCE public.integracao_woocommerce_id_integracao_seq
 ALTER SEQUENCE public.integracao_woocommerce_id_integracao_seq OWNER TO postgres;
 
 --
--- TOC entry 8333 (class 0 OID 0)
+-- TOC entry 8509 (class 0 OID 0)
 -- Dependencies: 360
 -- Name: integracao_woocommerce_id_integracao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -7747,7 +8273,7 @@ CREATE SEQUENCE public.interacao_lead_id_interacao_seq
 ALTER SEQUENCE public.interacao_lead_id_interacao_seq OWNER TO postgres;
 
 --
--- TOC entry 8334 (class 0 OID 0)
+-- TOC entry 8510 (class 0 OID 0)
 -- Dependencies: 402
 -- Name: interacao_lead_id_interacao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -7789,7 +8315,7 @@ CREATE SEQUENCE public.inventario_id_inventario_seq
 ALTER SEQUENCE public.inventario_id_inventario_seq OWNER TO postgres;
 
 --
--- TOC entry 8335 (class 0 OID 0)
+-- TOC entry 8511 (class 0 OID 0)
 -- Dependencies: 449
 -- Name: inventario_id_inventario_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -7831,7 +8357,7 @@ CREATE SEQUENCE public.item_inventario_id_item_seq
 ALTER SEQUENCE public.item_inventario_id_item_seq OWNER TO postgres;
 
 --
--- TOC entry 8336 (class 0 OID 0)
+-- TOC entry 8512 (class 0 OID 0)
 -- Dependencies: 451
 -- Name: item_inventario_id_item_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -7874,7 +8400,7 @@ CREATE SEQUENCE public.item_pedido_compra_id_item_pedido_seq
 ALTER SEQUENCE public.item_pedido_compra_id_item_pedido_seq OWNER TO postgres;
 
 --
--- TOC entry 8337 (class 0 OID 0)
+-- TOC entry 8513 (class 0 OID 0)
 -- Dependencies: 443
 -- Name: item_pedido_compra_id_item_pedido_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -7916,7 +8442,7 @@ CREATE SEQUENCE public.item_requisicao_id_item_seq
 ALTER SEQUENCE public.item_requisicao_id_item_seq OWNER TO postgres;
 
 --
--- TOC entry 8338 (class 0 OID 0)
+-- TOC entry 8514 (class 0 OID 0)
 -- Dependencies: 439
 -- Name: item_requisicao_id_item_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -7965,7 +8491,7 @@ CREATE SEQUENCE public.item_venda_id_item_seq
 ALTER SEQUENCE public.item_venda_id_item_seq OWNER TO postgres;
 
 --
--- TOC entry 8339 (class 0 OID 0)
+-- TOC entry 8515 (class 0 OID 0)
 -- Dependencies: 327
 -- Name: item_venda_id_item_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -8017,7 +8543,7 @@ CREATE SEQUENCE public.kpi_turismo_id_kpi_seq
 ALTER SEQUENCE public.kpi_turismo_id_kpi_seq OWNER TO postgres;
 
 --
--- TOC entry 8340 (class 0 OID 0)
+-- TOC entry 8516 (class 0 OID 0)
 -- Dependencies: 578
 -- Name: kpi_turismo_id_kpi_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -8079,7 +8605,7 @@ CREATE SEQUENCE public.lancamento_financeiro_id_lancamento_seq
 ALTER SEQUENCE public.lancamento_financeiro_id_lancamento_seq OWNER TO postgres;
 
 --
--- TOC entry 8341 (class 0 OID 0)
+-- TOC entry 8517 (class 0 OID 0)
 -- Dependencies: 308
 -- Name: lancamento_financeiro_id_lancamento_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -8131,7 +8657,7 @@ CREATE SEQUENCE public.lancamento_parcela_id_parcela_seq
 ALTER SEQUENCE public.lancamento_parcela_id_parcela_seq OWNER TO postgres;
 
 --
--- TOC entry 8342 (class 0 OID 0)
+-- TOC entry 8518 (class 0 OID 0)
 -- Dependencies: 310
 -- Name: lancamento_parcela_id_parcela_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -8184,7 +8710,7 @@ CREATE SEQUENCE public.lead_id_lead_seq
 ALTER SEQUENCE public.lead_id_lead_seq OWNER TO postgres;
 
 --
--- TOC entry 8343 (class 0 OID 0)
+-- TOC entry 8519 (class 0 OID 0)
 -- Dependencies: 394
 -- Name: lead_id_lead_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -8260,7 +8786,7 @@ CREATE SEQUENCE public.localizacao_ativo_id_localizacao_seq
 ALTER SEQUENCE public.localizacao_ativo_id_localizacao_seq OWNER TO postgres;
 
 --
--- TOC entry 8344 (class 0 OID 0)
+-- TOC entry 8520 (class 0 OID 0)
 -- Dependencies: 430
 -- Name: localizacao_ativo_id_localizacao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -8305,7 +8831,7 @@ CREATE SEQUENCE public.log_api_id_log_seq
 ALTER SEQUENCE public.log_api_id_log_seq OWNER TO postgres;
 
 --
--- TOC entry 8345 (class 0 OID 0)
+-- TOC entry 8521 (class 0 OID 0)
 -- Dependencies: 509
 -- Name: log_api_id_log_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -8350,7 +8876,7 @@ CREATE SEQUENCE public.log_auditoria_id_log_seq
 ALTER SEQUENCE public.log_auditoria_id_log_seq OWNER TO postgres;
 
 --
--- TOC entry 8346 (class 0 OID 0)
+-- TOC entry 8522 (class 0 OID 0)
 -- Dependencies: 356
 -- Name: log_auditoria_id_log_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -8425,7 +8951,7 @@ CREATE SEQUENCE public.log_integracao_detalhado_id_log_integracao_seq
 ALTER SEQUENCE public.log_integracao_detalhado_id_log_integracao_seq OWNER TO postgres;
 
 --
--- TOC entry 8347 (class 0 OID 0)
+-- TOC entry 8523 (class 0 OID 0)
 -- Dependencies: 556
 -- Name: log_integracao_detalhado_id_log_integracao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -8450,7 +8976,7 @@ CREATE SEQUENCE public.log_integracao_id_log_seq
 ALTER SEQUENCE public.log_integracao_id_log_seq OWNER TO postgres;
 
 --
--- TOC entry 8348 (class 0 OID 0)
+-- TOC entry 8524 (class 0 OID 0)
 -- Dependencies: 374
 -- Name: log_integracao_id_log_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -8493,7 +9019,7 @@ CREATE SEQUENCE public.log_sistema_id_log_seq
 ALTER SEQUENCE public.log_sistema_id_log_seq OWNER TO postgres;
 
 --
--- TOC entry 8349 (class 0 OID 0)
+-- TOC entry 8525 (class 0 OID 0)
 -- Dependencies: 494
 -- Name: log_sistema_id_log_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -8543,7 +9069,7 @@ CREATE SEQUENCE public.manutencao_ativo_id_manutencao_seq
 ALTER SEQUENCE public.manutencao_ativo_id_manutencao_seq OWNER TO postgres;
 
 --
--- TOC entry 8350 (class 0 OID 0)
+-- TOC entry 8526 (class 0 OID 0)
 -- Dependencies: 428
 -- Name: manutencao_ativo_id_manutencao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -8596,7 +9122,7 @@ CREATE SEQUENCE public.mapeamento_campo_integracao_id_mapeamento_seq
 ALTER SEQUENCE public.mapeamento_campo_integracao_id_mapeamento_seq OWNER TO postgres;
 
 --
--- TOC entry 8351 (class 0 OID 0)
+-- TOC entry 8527 (class 0 OID 0)
 -- Dependencies: 550
 -- Name: mapeamento_campo_integracao_id_mapeamento_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -8646,7 +9172,7 @@ CREATE SEQUENCE public.modelo_ml_id_modelo_seq
 ALTER SEQUENCE public.modelo_ml_id_modelo_seq OWNER TO postgres;
 
 --
--- TOC entry 8352 (class 0 OID 0)
+-- TOC entry 8528 (class 0 OID 0)
 -- Dependencies: 535
 -- Name: modelo_ml_id_modelo_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -8690,7 +9216,7 @@ CREATE SEQUENCE public.movimentacao_ativo_id_movimentacao_seq
 ALTER SEQUENCE public.movimentacao_ativo_id_movimentacao_seq OWNER TO postgres;
 
 --
--- TOC entry 8353 (class 0 OID 0)
+-- TOC entry 8529 (class 0 OID 0)
 -- Dependencies: 432
 -- Name: movimentacao_ativo_id_movimentacao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -8735,7 +9261,7 @@ CREATE SEQUENCE public.movimento_estoque_id_movimento_seq
 ALTER SEQUENCE public.movimento_estoque_id_movimento_seq OWNER TO postgres;
 
 --
--- TOC entry 8354 (class 0 OID 0)
+-- TOC entry 8530 (class 0 OID 0)
 -- Dependencies: 447
 -- Name: movimento_estoque_id_movimento_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -8791,7 +9317,7 @@ CREATE SEQUENCE public.nota_fiscal_id_nota_fiscal_seq
 ALTER SEQUENCE public.nota_fiscal_id_nota_fiscal_seq OWNER TO postgres;
 
 --
--- TOC entry 8355 (class 0 OID 0)
+-- TOC entry 8531 (class 0 OID 0)
 -- Dependencies: 329
 -- Name: nota_fiscal_id_nota_fiscal_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -8835,7 +9361,7 @@ CREATE SEQUENCE public.notificacao_id_notificacao_seq
 ALTER SEQUENCE public.notificacao_id_notificacao_seq OWNER TO postgres;
 
 --
--- TOC entry 8356 (class 0 OID 0)
+-- TOC entry 8532 (class 0 OID 0)
 -- Dependencies: 490
 -- Name: notificacao_id_notificacao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -8884,7 +9410,7 @@ CREATE SEQUENCE public.openfinance_conexao_id_conexao_seq
 ALTER SEQUENCE public.openfinance_conexao_id_conexao_seq OWNER TO postgres;
 
 --
--- TOC entry 8357 (class 0 OID 0)
+-- TOC entry 8533 (class 0 OID 0)
 -- Dependencies: 366
 -- Name: openfinance_conexao_id_conexao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -8928,7 +9454,7 @@ CREATE SEQUENCE public.openfinance_movimento_id_movimento_seq
 ALTER SEQUENCE public.openfinance_movimento_id_movimento_seq OWNER TO postgres;
 
 --
--- TOC entry 8358 (class 0 OID 0)
+-- TOC entry 8534 (class 0 OID 0)
 -- Dependencies: 368
 -- Name: openfinance_movimento_id_movimento_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -8976,7 +9502,7 @@ CREATE SEQUENCE public.origem_lead_id_origem_seq
 ALTER SEQUENCE public.origem_lead_id_origem_seq OWNER TO postgres;
 
 --
--- TOC entry 8359 (class 0 OID 0)
+-- TOC entry 8535 (class 0 OID 0)
 -- Dependencies: 392
 -- Name: origem_lead_id_origem_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -9029,7 +9555,7 @@ CREATE SEQUENCE public.pacote_viagem_id_pacote_seq
 ALTER SEQUENCE public.pacote_viagem_id_pacote_seq OWNER TO postgres;
 
 --
--- TOC entry 8360 (class 0 OID 0)
+-- TOC entry 8536 (class 0 OID 0)
 -- Dependencies: 317
 -- Name: pacote_viagem_id_pacote_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -9079,7 +9605,7 @@ CREATE SEQUENCE public.pagamento_transacao_id_transacao_seq
 ALTER SEQUENCE public.pagamento_transacao_id_transacao_seq OWNER TO postgres;
 
 --
--- TOC entry 8361 (class 0 OID 0)
+-- TOC entry 8537 (class 0 OID 0)
 -- Dependencies: 364
 -- Name: pagamento_transacao_id_transacao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -9129,7 +9655,7 @@ CREATE SEQUENCE public.parametro_sistema_id_parametro_seq
 ALTER SEQUENCE public.parametro_sistema_id_parametro_seq OWNER TO postgres;
 
 --
--- TOC entry 8362 (class 0 OID 0)
+-- TOC entry 8538 (class 0 OID 0)
 -- Dependencies: 484
 -- Name: parametro_sistema_id_parametro_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -9179,7 +9705,7 @@ CREATE SEQUENCE public.parceiro_comercial_id_parceiro_seq
 ALTER SEQUENCE public.parceiro_comercial_id_parceiro_seq OWNER TO postgres;
 
 --
--- TOC entry 8363 (class 0 OID 0)
+-- TOC entry 8539 (class 0 OID 0)
 -- Dependencies: 411
 -- Name: parceiro_comercial_id_parceiro_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -9229,7 +9755,7 @@ CREATE SEQUENCE public.passageiro_id_passageiro_seq
 ALTER SEQUENCE public.passageiro_id_passageiro_seq OWNER TO postgres;
 
 --
--- TOC entry 8364 (class 0 OID 0)
+-- TOC entry 8540 (class 0 OID 0)
 -- Dependencies: 321
 -- Name: passageiro_id_passageiro_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -9278,7 +9804,7 @@ CREATE SEQUENCE public.pedido_compra_id_pedido_seq
 ALTER SEQUENCE public.pedido_compra_id_pedido_seq OWNER TO postgres;
 
 --
--- TOC entry 8365 (class 0 OID 0)
+-- TOC entry 8541 (class 0 OID 0)
 -- Dependencies: 441
 -- Name: pedido_compra_id_pedido_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -9325,7 +9851,7 @@ CREATE SEQUENCE public.perfil_acesso_id_perfil_seq
 ALTER SEQUENCE public.perfil_acesso_id_perfil_seq OWNER TO postgres;
 
 --
--- TOC entry 8366 (class 0 OID 0)
+-- TOC entry 8542 (class 0 OID 0)
 -- Dependencies: 351
 -- Name: perfil_acesso_id_perfil_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -9372,7 +9898,7 @@ CREATE SEQUENCE public.permissao_id_permissao_seq
 ALTER SEQUENCE public.permissao_id_permissao_seq OWNER TO postgres;
 
 --
--- TOC entry 8367 (class 0 OID 0)
+-- TOC entry 8543 (class 0 OID 0)
 -- Dependencies: 353
 -- Name: permissao_id_permissao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -9430,7 +9956,7 @@ CREATE SEQUENCE public.pessoa_id_pessoa_seq
 ALTER SEQUENCE public.pessoa_id_pessoa_seq OWNER TO postgres;
 
 --
--- TOC entry 8368 (class 0 OID 0)
+-- TOC entry 8544 (class 0 OID 0)
 -- Dependencies: 284
 -- Name: pessoa_id_pessoa_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -9480,7 +10006,7 @@ CREATE SEQUENCE public.plano_contas_id_conta_seq
 ALTER SEQUENCE public.plano_contas_id_conta_seq OWNER TO postgres;
 
 --
--- TOC entry 8369 (class 0 OID 0)
+-- TOC entry 8545 (class 0 OID 0)
 -- Dependencies: 292
 -- Name: plano_contas_id_conta_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -9530,7 +10056,7 @@ CREATE SEQUENCE public.politica_acesso_id_politica_seq
 ALTER SEQUENCE public.politica_acesso_id_politica_seq OWNER TO postgres;
 
 --
--- TOC entry 8370 (class 0 OID 0)
+-- TOC entry 8546 (class 0 OID 0)
 -- Dependencies: 539
 -- Name: politica_acesso_id_politica_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -9581,7 +10107,7 @@ CREATE SEQUENCE public.pro_labore_id_pro_labore_seq
 ALTER SEQUENCE public.pro_labore_id_pro_labore_seq OWNER TO postgres;
 
 --
--- TOC entry 8371 (class 0 OID 0)
+-- TOC entry 8547 (class 0 OID 0)
 -- Dependencies: 341
 -- Name: pro_labore_id_pro_labore_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -9631,7 +10157,7 @@ CREATE SEQUENCE public.produto_estoque_id_produto_estoque_seq
 ALTER SEQUENCE public.produto_estoque_id_produto_estoque_seq OWNER TO postgres;
 
 --
--- TOC entry 8372 (class 0 OID 0)
+-- TOC entry 8548 (class 0 OID 0)
 -- Dependencies: 435
 -- Name: produto_estoque_id_produto_estoque_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -9683,7 +10209,7 @@ CREATE SEQUENCE public.produto_turistico_id_produto_seq
 ALTER SEQUENCE public.produto_turistico_id_produto_seq OWNER TO postgres;
 
 --
--- TOC entry 8373 (class 0 OID 0)
+-- TOC entry 8549 (class 0 OID 0)
 -- Dependencies: 315
 -- Name: produto_turistico_id_produto_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -9737,7 +10263,7 @@ CREATE SEQUENCE public.projeto_id_projeto_seq
 ALTER SEQUENCE public.projeto_id_projeto_seq OWNER TO postgres;
 
 --
--- TOC entry 8374 (class 0 OID 0)
+-- TOC entry 8550 (class 0 OID 0)
 -- Dependencies: 469
 -- Name: projeto_id_projeto_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -9782,7 +10308,7 @@ CREATE SEQUENCE public.rastreabilidade_id_rastreabilidade_seq
 ALTER SEQUENCE public.rastreabilidade_id_rastreabilidade_seq OWNER TO postgres;
 
 --
--- TOC entry 8375 (class 0 OID 0)
+-- TOC entry 8551 (class 0 OID 0)
 -- Dependencies: 541
 -- Name: rastreabilidade_id_rastreabilidade_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -9823,7 +10349,7 @@ CREATE SEQUENCE public.rate_limit_api_id_rate_seq
 ALTER SEQUENCE public.rate_limit_api_id_rate_seq OWNER TO postgres;
 
 --
--- TOC entry 8376 (class 0 OID 0)
+-- TOC entry 8552 (class 0 OID 0)
 -- Dependencies: 511
 -- Name: rate_limit_api_id_rate_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -9877,7 +10403,7 @@ CREATE SEQUENCE public.rentabilidade_produto_id_rentabilidade_seq
 ALTER SEQUENCE public.rentabilidade_produto_id_rentabilidade_seq OWNER TO postgres;
 
 --
--- TOC entry 8377 (class 0 OID 0)
+-- TOC entry 8553 (class 0 OID 0)
 -- Dependencies: 581
 -- Name: rentabilidade_produto_id_rentabilidade_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -9926,7 +10452,7 @@ CREATE SEQUENCE public.requisicao_compra_id_requisicao_seq
 ALTER SEQUENCE public.requisicao_compra_id_requisicao_seq OWNER TO postgres;
 
 --
--- TOC entry 8378 (class 0 OID 0)
+-- TOC entry 8554 (class 0 OID 0)
 -- Dependencies: 437
 -- Name: requisicao_compra_id_requisicao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -9977,7 +10503,7 @@ CREATE SEQUENCE public.reserva_id_reserva_seq
 ALTER SEQUENCE public.reserva_id_reserva_seq OWNER TO postgres;
 
 --
--- TOC entry 8379 (class 0 OID 0)
+-- TOC entry 8555 (class 0 OID 0)
 -- Dependencies: 319
 -- Name: reserva_id_reserva_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -10018,7 +10544,7 @@ CREATE SEQUENCE public.responsavel_projeto_id_responsavel_seq
 ALTER SEQUENCE public.responsavel_projeto_id_responsavel_seq OWNER TO postgres;
 
 --
--- TOC entry 8380 (class 0 OID 0)
+-- TOC entry 8556 (class 0 OID 0)
 -- Dependencies: 475
 -- Name: responsavel_projeto_id_responsavel_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -10062,7 +10588,7 @@ CREATE SEQUENCE public.risco_projeto_id_risco_seq
 ALTER SEQUENCE public.risco_projeto_id_risco_seq OWNER TO postgres;
 
 --
--- TOC entry 8381 (class 0 OID 0)
+-- TOC entry 8557 (class 0 OID 0)
 -- Dependencies: 479
 -- Name: risco_projeto_id_risco_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -10113,7 +10639,7 @@ CREATE SEQUENCE public.roteiro_viagem_id_roteiro_seq
 ALTER SEQUENCE public.roteiro_viagem_id_roteiro_seq OWNER TO postgres;
 
 --
--- TOC entry 8382 (class 0 OID 0)
+-- TOC entry 8558 (class 0 OID 0)
 -- Dependencies: 378
 -- Name: roteiro_viagem_id_roteiro_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -10156,7 +10682,7 @@ CREATE SEQUENCE public.sequencia_documento_id_sequencia_seq
 ALTER SEQUENCE public.sequencia_documento_id_sequencia_seq OWNER TO postgres;
 
 --
--- TOC entry 8383 (class 0 OID 0)
+-- TOC entry 8559 (class 0 OID 0)
 -- Dependencies: 488
 -- Name: sequencia_documento_id_sequencia_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -10207,7 +10733,7 @@ CREATE SEQUENCE public.simples_nacional_id_simples_seq
 ALTER SEQUENCE public.simples_nacional_id_simples_seq OWNER TO postgres;
 
 --
--- TOC entry 8384 (class 0 OID 0)
+-- TOC entry 8560 (class 0 OID 0)
 -- Dependencies: 333
 -- Name: simples_nacional_id_simples_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -10261,7 +10787,7 @@ CREATE SEQUENCE public.sincronizacao_integracao_id_sincronizacao_seq
 ALTER SEQUENCE public.sincronizacao_integracao_id_sincronizacao_seq OWNER TO postgres;
 
 --
--- TOC entry 8385 (class 0 OID 0)
+-- TOC entry 8561 (class 0 OID 0)
 -- Dependencies: 552
 -- Name: sincronizacao_integracao_id_sincronizacao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -10314,7 +10840,7 @@ CREATE SEQUENCE public.sistema_externo_id_sistema_externo_seq
 ALTER SEQUENCE public.sistema_externo_id_sistema_externo_seq OWNER TO postgres;
 
 --
--- TOC entry 8386 (class 0 OID 0)
+-- TOC entry 8562 (class 0 OID 0)
 -- Dependencies: 546
 -- Name: sistema_externo_id_sistema_externo_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -10368,7 +10894,7 @@ CREATE SEQUENCE public.status_integracao_id_status_integracao_seq
 ALTER SEQUENCE public.status_integracao_id_status_integracao_seq OWNER TO postgres;
 
 --
--- TOC entry 8387 (class 0 OID 0)
+-- TOC entry 8563 (class 0 OID 0)
 -- Dependencies: 558
 -- Name: status_integracao_id_status_integracao_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -10444,7 +10970,7 @@ CREATE SEQUENCE public.subcategoria_conta_id_subcategoria_seq
 ALTER SEQUENCE public.subcategoria_conta_id_subcategoria_seq OWNER TO postgres;
 
 --
--- TOC entry 8388 (class 0 OID 0)
+-- TOC entry 8564 (class 0 OID 0)
 -- Dependencies: 298
 -- Name: subcategoria_conta_id_subcategoria_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -10494,7 +11020,7 @@ CREATE SEQUENCE public.tarefa_id_tarefa_seq
 ALTER SEQUENCE public.tarefa_id_tarefa_seq OWNER TO postgres;
 
 --
--- TOC entry 8389 (class 0 OID 0)
+-- TOC entry 8565 (class 0 OID 0)
 -- Dependencies: 417
 -- Name: tarefa_id_tarefa_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -10544,7 +11070,7 @@ CREATE SEQUENCE public.tarefa_projeto_id_tarefa_projeto_seq
 ALTER SEQUENCE public.tarefa_projeto_id_tarefa_projeto_seq OWNER TO postgres;
 
 --
--- TOC entry 8390 (class 0 OID 0)
+-- TOC entry 8566 (class 0 OID 0)
 -- Dependencies: 473
 -- Name: tarefa_projeto_id_tarefa_projeto_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -10593,7 +11119,7 @@ CREATE SEQUENCE public.tipo_documento_id_tipo_documento_seq
 ALTER SEQUENCE public.tipo_documento_id_tipo_documento_seq OWNER TO postgres;
 
 --
--- TOC entry 8391 (class 0 OID 0)
+-- TOC entry 8567 (class 0 OID 0)
 -- Dependencies: 454
 -- Name: tipo_documento_id_tipo_documento_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -10635,7 +11161,7 @@ CREATE SEQUENCE public.token_acesso_id_token_seq
 ALTER SEQUENCE public.token_acesso_id_token_seq OWNER TO postgres;
 
 --
--- TOC entry 8392 (class 0 OID 0)
+-- TOC entry 8568 (class 0 OID 0)
 -- Dependencies: 501
 -- Name: token_acesso_id_token_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -10685,7 +11211,7 @@ CREATE SEQUENCE public.transporte_id_transporte_seq
 ALTER SEQUENCE public.transporte_id_transporte_seq OWNER TO postgres;
 
 --
--- TOC entry 8393 (class 0 OID 0)
+-- TOC entry 8569 (class 0 OID 0)
 -- Dependencies: 384
 -- Name: transporte_id_transporte_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -10718,7 +11244,7 @@ CREATE TABLE public.usuario (
 ALTER TABLE public.usuario OWNER TO postgres;
 
 --
--- TOC entry 8394 (class 0 OID 0)
+-- TOC entry 8570 (class 0 OID 0)
 -- Dependencies: 283
 -- Name: TABLE usuario; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -10743,7 +11269,7 @@ CREATE SEQUENCE public.usuario_id_usuario_seq
 ALTER SEQUENCE public.usuario_id_usuario_seq OWNER TO postgres;
 
 --
--- TOC entry 8395 (class 0 OID 0)
+-- TOC entry 8571 (class 0 OID 0)
 -- Dependencies: 282
 -- Name: usuario_id_usuario_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -10809,7 +11335,7 @@ CREATE SEQUENCE public.venda_id_venda_seq
 ALTER SEQUENCE public.venda_id_venda_seq OWNER TO postgres;
 
 --
--- TOC entry 8396 (class 0 OID 0)
+-- TOC entry 8572 (class 0 OID 0)
 -- Dependencies: 325
 -- Name: venda_id_venda_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -11424,7 +11950,7 @@ CREATE SEQUENCE public.webhook_id_webhook_seq
 ALTER SEQUENCE public.webhook_id_webhook_seq OWNER TO postgres;
 
 --
--- TOC entry 8397 (class 0 OID 0)
+-- TOC entry 8573 (class 0 OID 0)
 -- Dependencies: 505
 -- Name: webhook_id_webhook_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -11457,7 +11983,7 @@ CREATE TABLE public.workflow (
 ALTER TABLE public.workflow OWNER TO postgres;
 
 --
--- TOC entry 8398 (class 0 OID 0)
+-- TOC entry 8574 (class 0 OID 0)
 -- Dependencies: 589
 -- Name: TABLE workflow; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -11466,7 +11992,7 @@ COMMENT ON TABLE public.workflow IS 'Cadastro dos fluxos de trabalho do ERP';
 
 
 --
--- TOC entry 8399 (class 0 OID 0)
+-- TOC entry 8575 (class 0 OID 0)
 -- Dependencies: 589
 -- Name: COLUMN workflow.codigo; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -11475,7 +12001,7 @@ COMMENT ON COLUMN public.workflow.codigo IS 'Código único do workflow';
 
 
 --
--- TOC entry 8400 (class 0 OID 0)
+-- TOC entry 8576 (class 0 OID 0)
 -- Dependencies: 589
 -- Name: COLUMN workflow.modulo; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -11500,7 +12026,7 @@ CREATE SEQUENCE public.workflow_id_workflow_seq
 ALTER SEQUENCE public.workflow_id_workflow_seq OWNER TO postgres;
 
 --
--- TOC entry 8401 (class 0 OID 0)
+-- TOC entry 8577 (class 0 OID 0)
 -- Dependencies: 588
 -- Name: workflow_id_workflow_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -11509,7 +12035,7 @@ ALTER SEQUENCE public.workflow_id_workflow_seq OWNED BY public.workflow.id_workf
 
 
 --
--- TOC entry 6680 (class 2604 OID 41856)
+-- TOC entry 6753 (class 2604 OID 41856)
 -- Name: core id_core; Type: DEFAULT; Schema: auditoria; Owner: postgres
 --
 
@@ -11517,7 +12043,7 @@ ALTER TABLE ONLY auditoria.core ALTER COLUMN id_core SET DEFAULT nextval('audito
 
 
 --
--- TOC entry 6673 (class 2604 OID 41827)
+-- TOC entry 6746 (class 2604 OID 41827)
 -- Name: executor id_executor; Type: DEFAULT; Schema: auditoria; Owner: postgres
 --
 
@@ -11525,7 +12051,7 @@ ALTER TABLE ONLY auditoria.executor ALTER COLUMN id_executor SET DEFAULT nextval
 
 
 --
--- TOC entry 6671 (class 2604 OID 41791)
+-- TOC entry 6744 (class 2604 OID 41791)
 -- Name: log_correcao id_log; Type: DEFAULT; Schema: auditoria; Owner: postgres
 --
 
@@ -11533,7 +12059,7 @@ ALTER TABLE ONLY auditoria.log_correcao ALTER COLUMN id_log SET DEFAULT nextval(
 
 
 --
--- TOC entry 6668 (class 2604 OID 41777)
+-- TOC entry 6741 (class 2604 OID 41777)
 -- Name: migracao id; Type: DEFAULT; Schema: config; Owner: postgres
 --
 
@@ -11541,7 +12067,7 @@ ALTER TABLE ONLY config.migracao ALTER COLUMN id SET DEFAULT nextval('config.mig
 
 
 --
--- TOC entry 6665 (class 2604 OID 41763)
+-- TOC entry 6738 (class 2604 OID 41763)
 -- Name: versao_banco id; Type: DEFAULT; Schema: config; Owner: postgres
 --
 
@@ -11549,7 +12075,7 @@ ALTER TABLE ONLY config.versao_banco ALTER COLUMN id SET DEFAULT nextval('config
 
 
 --
--- TOC entry 6493 (class 2604 OID 27224)
+-- TOC entry 6566 (class 2604 OID 27224)
 -- Name: dim_cliente id_cliente_dw; Type: DEFAULT; Schema: dw; Owner: postgres
 --
 
@@ -11557,7 +12083,7 @@ ALTER TABLE ONLY dw.dim_cliente ALTER COLUMN id_cliente_dw SET DEFAULT nextval('
 
 
 --
--- TOC entry 6495 (class 2604 OID 27242)
+-- TOC entry 6568 (class 2604 OID 27242)
 -- Name: dim_destino id_destino_dw; Type: DEFAULT; Schema: dw; Owner: postgres
 --
 
@@ -11565,7 +12091,7 @@ ALTER TABLE ONLY dw.dim_destino ALTER COLUMN id_destino_dw SET DEFAULT nextval('
 
 
 --
--- TOC entry 6496 (class 2604 OID 27250)
+-- TOC entry 6569 (class 2604 OID 27250)
 -- Name: dim_fornecedor id_fornecedor_dw; Type: DEFAULT; Schema: dw; Owner: postgres
 --
 
@@ -11573,7 +12099,7 @@ ALTER TABLE ONLY dw.dim_fornecedor ALTER COLUMN id_fornecedor_dw SET DEFAULT nex
 
 
 --
--- TOC entry 6497 (class 2604 OID 27258)
+-- TOC entry 6570 (class 2604 OID 27258)
 -- Name: dim_plano_conta id_conta_dw; Type: DEFAULT; Schema: dw; Owner: postgres
 --
 
@@ -11581,7 +12107,7 @@ ALTER TABLE ONLY dw.dim_plano_conta ALTER COLUMN id_conta_dw SET DEFAULT nextval
 
 
 --
--- TOC entry 6494 (class 2604 OID 27232)
+-- TOC entry 6567 (class 2604 OID 27232)
 -- Name: dim_produto_turistico id_produto_dw; Type: DEFAULT; Schema: dw; Owner: postgres
 --
 
@@ -11589,7 +12115,7 @@ ALTER TABLE ONLY dw.dim_produto_turistico ALTER COLUMN id_produto_dw SET DEFAULT
 
 
 --
--- TOC entry 6492 (class 2604 OID 27213)
+-- TOC entry 6565 (class 2604 OID 27213)
 -- Name: dim_tempo id_tempo; Type: DEFAULT; Schema: dw; Owner: postgres
 --
 
@@ -11597,7 +12123,7 @@ ALTER TABLE ONLY dw.dim_tempo ALTER COLUMN id_tempo SET DEFAULT nextval('dw.dim_
 
 
 --
--- TOC entry 6499 (class 2604 OID 27275)
+-- TOC entry 6572 (class 2604 OID 27275)
 -- Name: fato_financeiro id_financeiro_dw; Type: DEFAULT; Schema: dw; Owner: postgres
 --
 
@@ -11605,7 +12131,7 @@ ALTER TABLE ONLY dw.fato_financeiro ALTER COLUMN id_financeiro_dw SET DEFAULT ne
 
 
 --
--- TOC entry 6500 (class 2604 OID 27283)
+-- TOC entry 6573 (class 2604 OID 27283)
 -- Name: fato_marketing id_marketing_dw; Type: DEFAULT; Schema: dw; Owner: postgres
 --
 
@@ -11613,7 +12139,7 @@ ALTER TABLE ONLY dw.fato_marketing ALTER COLUMN id_marketing_dw SET DEFAULT next
 
 
 --
--- TOC entry 6498 (class 2604 OID 27267)
+-- TOC entry 6571 (class 2604 OID 27267)
 -- Name: fato_vendas id_venda_dw; Type: DEFAULT; Schema: dw; Owner: postgres
 --
 
@@ -11621,7 +12147,7 @@ ALTER TABLE ONLY dw.fato_vendas ALTER COLUMN id_venda_dw SET DEFAULT nextval('dw
 
 
 --
--- TOC entry 6501 (class 2604 OID 27291)
+-- TOC entry 6574 (class 2604 OID 27291)
 -- Name: log_etl id_execucao; Type: DEFAULT; Schema: dw; Owner: postgres
 --
 
@@ -11629,7 +12155,7 @@ ALTER TABLE ONLY dw.log_etl ALTER COLUMN id_execucao SET DEFAULT nextval('dw.log
 
 
 --
--- TOC entry 6128 (class 2604 OID 25027)
+-- TOC entry 6201 (class 2604 OID 25027)
 -- Name: anexo id_anexo; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11637,7 +12163,7 @@ ALTER TABLE ONLY financeiro.anexo ALTER COLUMN id_anexo SET DEFAULT nextval('fin
 
 
 --
--- TOC entry 6064 (class 2604 OID 24742)
+-- TOC entry 6137 (class 2604 OID 24742)
 -- Name: banco id_banco; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11645,7 +12171,7 @@ ALTER TABLE ONLY financeiro.banco ALTER COLUMN id_banco SET DEFAULT nextval('fin
 
 
 --
--- TOC entry 6038 (class 2604 OID 24677)
+-- TOC entry 6111 (class 2604 OID 24677)
 -- Name: categoria id_categoria; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11653,7 +12179,7 @@ ALTER TABLE ONLY financeiro.categoria ALTER COLUMN id_categoria SET DEFAULT next
 
 
 --
--- TOC entry 6062 (class 2604 OID 24730)
+-- TOC entry 6135 (class 2604 OID 24730)
 -- Name: centro_custo id_centro_custo; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11661,7 +12187,7 @@ ALTER TABLE ONLY financeiro.centro_custo ALTER COLUMN id_centro_custo SET DEFAUL
 
 
 --
--- TOC entry 6046 (class 2604 OID 24701)
+-- TOC entry 6119 (class 2604 OID 24701)
 -- Name: classificacao id_classificacao; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11669,7 +12195,7 @@ ALTER TABLE ONLY financeiro.classificacao ALTER COLUMN id_classificacao SET DEFA
 
 
 --
--- TOC entry 6069 (class 2604 OID 24763)
+-- TOC entry 6142 (class 2604 OID 24763)
 -- Name: cliente id_cliente; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11677,7 +12203,7 @@ ALTER TABLE ONLY financeiro.cliente ALTER COLUMN id_cliente SET DEFAULT nextval(
 
 
 --
--- TOC entry 6119 (class 2604 OID 24993)
+-- TOC entry 6192 (class 2604 OID 24993)
 -- Name: conciliacao_bancaria id_conciliacao; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11685,7 +12211,7 @@ ALTER TABLE ONLY financeiro.conciliacao_bancaria ALTER COLUMN id_conciliacao SET
 
 
 --
--- TOC entry 6075 (class 2604 OID 24793)
+-- TOC entry 6148 (class 2604 OID 24793)
 -- Name: configuracao id_configuracao; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11693,7 +12219,7 @@ ALTER TABLE ONLY financeiro.configuracao ALTER COLUMN id_configuracao SET DEFAUL
 
 
 --
--- TOC entry 6057 (class 2604 OID 24715)
+-- TOC entry 6130 (class 2604 OID 24715)
 -- Name: conta id_conta; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11701,7 +12227,7 @@ ALTER TABLE ONLY financeiro.conta ALTER COLUMN id_conta SET DEFAULT nextval('fin
 
 
 --
--- TOC entry 6066 (class 2604 OID 24752)
+-- TOC entry 6139 (class 2604 OID 24752)
 -- Name: conta_bancaria id_conta_bancaria; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11709,7 +12235,7 @@ ALTER TABLE ONLY financeiro.conta_bancaria ALTER COLUMN id_conta_bancaria SET DE
 
 
 --
--- TOC entry 6027 (class 2604 OID 24631)
+-- TOC entry 6100 (class 2604 OID 24631)
 -- Name: empresa id_empresa; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11717,7 +12243,7 @@ ALTER TABLE ONLY financeiro.empresa ALTER COLUMN id_empresa SET DEFAULT nextval(
 
 
 --
--- TOC entry 6073 (class 2604 OID 24783)
+-- TOC entry 6146 (class 2604 OID 24783)
 -- Name: forma_pagamento id_forma_pagamento; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11725,7 +12251,7 @@ ALTER TABLE ONLY financeiro.forma_pagamento ALTER COLUMN id_forma_pagamento SET 
 
 
 --
--- TOC entry 6071 (class 2604 OID 24773)
+-- TOC entry 6144 (class 2604 OID 24773)
 -- Name: fornecedor id_fornecedor; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11733,7 +12259,7 @@ ALTER TABLE ONLY financeiro.fornecedor ALTER COLUMN id_fornecedor SET DEFAULT ne
 
 
 --
--- TOC entry 6034 (class 2604 OID 24663)
+-- TOC entry 6107 (class 2604 OID 24663)
 -- Name: grupo id_grupo; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11741,7 +12267,7 @@ ALTER TABLE ONLY financeiro.grupo ALTER COLUMN id_grupo SET DEFAULT nextval('fin
 
 
 --
--- TOC entry 6124 (class 2604 OID 25015)
+-- TOC entry 6197 (class 2604 OID 25015)
 -- Name: historico_lancamento id_historico; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11749,7 +12275,7 @@ ALTER TABLE ONLY financeiro.historico_lancamento ALTER COLUMN id_historico SET D
 
 
 --
--- TOC entry 6095 (class 2604 OID 24917)
+-- TOC entry 6168 (class 2604 OID 24917)
 -- Name: lancamento id_lancamento; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11757,7 +12283,7 @@ ALTER TABLE ONLY financeiro.lancamento ALTER COLUMN id_lancamento SET DEFAULT ne
 
 
 --
--- TOC entry 6107 (class 2604 OID 24947)
+-- TOC entry 6180 (class 2604 OID 24947)
 -- Name: lancamento_parcela id_parcela; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11765,7 +12291,7 @@ ALTER TABLE ONLY financeiro.lancamento_parcela ALTER COLUMN id_parcela SET DEFAU
 
 
 --
--- TOC entry 6116 (class 2604 OID 24981)
+-- TOC entry 6189 (class 2604 OID 24981)
 -- Name: movimentacao_bancaria id_movimento; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11773,7 +12299,7 @@ ALTER TABLE ONLY financeiro.movimentacao_bancaria ALTER COLUMN id_movimento SET 
 
 
 --
--- TOC entry 6109 (class 2604 OID 24962)
+-- TOC entry 6182 (class 2604 OID 24962)
 -- Name: pagamento id_pagamento; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11781,7 +12307,7 @@ ALTER TABLE ONLY financeiro.pagamento ALTER COLUMN id_pagamento SET DEFAULT next
 
 
 --
--- TOC entry 6121 (class 2604 OID 25005)
+-- TOC entry 6194 (class 2604 OID 25005)
 -- Name: rateio_centro_custo id_rateio; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11789,7 +12315,7 @@ ALTER TABLE ONLY financeiro.rateio_centro_custo ALTER COLUMN id_rateio SET DEFAU
 
 
 --
--- TOC entry 6085 (class 2604 OID 24884)
+-- TOC entry 6158 (class 2604 OID 24884)
 -- Name: status_lancamento id_status; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11797,7 +12323,7 @@ ALTER TABLE ONLY financeiro.status_lancamento ALTER COLUMN id_status SET DEFAULT
 
 
 --
--- TOC entry 6042 (class 2604 OID 24689)
+-- TOC entry 6115 (class 2604 OID 24689)
 -- Name: subcategoria id_subcategoria; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11805,7 +12331,7 @@ ALTER TABLE ONLY financeiro.subcategoria ALTER COLUMN id_subcategoria SET DEFAUL
 
 
 --
--- TOC entry 6089 (class 2604 OID 24895)
+-- TOC entry 6162 (class 2604 OID 24895)
 -- Name: tipo_documento id_tipo_documento; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11813,7 +12339,7 @@ ALTER TABLE ONLY financeiro.tipo_documento ALTER COLUMN id_tipo_documento SET DE
 
 
 --
--- TOC entry 6081 (class 2604 OID 24870)
+-- TOC entry 6154 (class 2604 OID 24870)
 -- Name: tipo_lancamento id_tipo_lancamento; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11821,7 +12347,7 @@ ALTER TABLE ONLY financeiro.tipo_lancamento ALTER COLUMN id_tipo_lancamento SET 
 
 
 --
--- TOC entry 6091 (class 2604 OID 24906)
+-- TOC entry 6164 (class 2604 OID 24906)
 -- Name: tipo_movimentacao id_tipo_movimentacao; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11829,7 +12355,7 @@ ALTER TABLE ONLY financeiro.tipo_movimentacao ALTER COLUMN id_tipo_movimentacao 
 
 
 --
--- TOC entry 6030 (class 2604 OID 24645)
+-- TOC entry 6103 (class 2604 OID 24645)
 -- Name: usuario id_usuario; Type: DEFAULT; Schema: financeiro; Owner: postgres
 --
 
@@ -11837,7 +12363,7 @@ ALTER TABLE ONLY financeiro.usuario ALTER COLUMN id_usuario SET DEFAULT nextval(
 
 
 --
--- TOC entry 6351 (class 2604 OID 26386)
+-- TOC entry 6424 (class 2604 OID 26386)
 -- Name: agenda id_agenda; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -11845,7 +12371,7 @@ ALTER TABLE ONLY public.agenda ALTER COLUMN id_agenda SET DEFAULT nextval('publi
 
 
 --
--- TOC entry 6468 (class 2604 OID 27079)
+-- TOC entry 6541 (class 2604 OID 27079)
 -- Name: agendamento_rotina id_rotina; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -11853,7 +12379,7 @@ ALTER TABLE ONLY public.agendamento_rotina ALTER COLUMN id_rotina SET DEFAULT ne
 
 
 --
--- TOC entry 6447 (class 2604 OID 26968)
+-- TOC entry 6520 (class 2604 OID 26968)
 -- Name: anexo_projeto id_anexo; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -11861,7 +12387,7 @@ ALTER TABLE ONLY public.anexo_projeto ALTER COLUMN id_anexo SET DEFAULT nextval(
 
 
 --
--- TOC entry 6470 (class 2604 OID 27094)
+-- TOC entry 6543 (class 2604 OID 27094)
 -- Name: aplicacao_api id_aplicacao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -11869,7 +12395,7 @@ ALTER TABLE ONLY public.aplicacao_api ALTER COLUMN id_aplicacao SET DEFAULT next
 
 
 --
--- TOC entry 6235 (class 2604 OID 25698)
+-- TOC entry 6308 (class 2604 OID 25698)
 -- Name: aporte_capital id_aporte; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -11877,7 +12403,7 @@ ALTER TABLE ONLY public.aporte_capital ALTER COLUMN id_aporte SET DEFAULT nextva
 
 
 --
--- TOC entry 6506 (class 2604 OID 27331)
+-- TOC entry 6579 (class 2604 OID 27331)
 -- Name: aprovacao_processo id_aprovacao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -11885,7 +12411,7 @@ ALTER TABLE ONLY public.aprovacao_processo ALTER COLUMN id_aprovacao SET DEFAULT
 
 
 --
--- TOC entry 6418 (class 2604 OID 26772)
+-- TOC entry 6491 (class 2604 OID 26772)
 -- Name: arquivo_digital id_arquivo; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -11893,7 +12419,7 @@ ALTER TABLE ONLY public.arquivo_digital ALTER COLUMN id_arquivo SET DEFAULT next
 
 
 --
--- TOC entry 6423 (class 2604 OID 26806)
+-- TOC entry 6496 (class 2604 OID 26806)
 -- Name: assinatura_digital id_assinatura; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -11901,7 +12427,7 @@ ALTER TABLE ONLY public.assinatura_digital ALTER COLUMN id_assinatura SET DEFAUL
 
 
 --
--- TOC entry 6365 (class 2604 OID 26462)
+-- TOC entry 6438 (class 2604 OID 26462)
 -- Name: ativo_imobilizado id_ativo; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -11909,7 +12435,7 @@ ALTER TABLE ONLY public.ativo_imobilizado ALTER COLUMN id_ativo SET DEFAULT next
 
 
 --
--- TOC entry 6332 (class 2604 OID 26288)
+-- TOC entry 6405 (class 2604 OID 26288)
 -- Name: avaliacao_pos_viagem id_avaliacao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -11917,7 +12443,7 @@ ALTER TABLE ONLY public.avaliacao_pos_viagem ALTER COLUMN id_avaliacao SET DEFAU
 
 
 --
--- TOC entry 6148 (class 2604 OID 25167)
+-- TOC entry 6221 (class 2604 OID 25167)
 -- Name: banco id_banco; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -11925,7 +12451,7 @@ ALTER TABLE ONLY public.banco ALTER COLUMN id_banco SET DEFAULT nextval('public.
 
 
 --
--- TOC entry 6318 (class 2604 OID 26221)
+-- TOC entry 6391 (class 2604 OID 26221)
 -- Name: campanha id_campanha; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -11933,7 +12459,7 @@ ALTER TABLE ONLY public.campanha ALTER COLUMN id_campanha SET DEFAULT nextval('p
 
 
 --
--- TOC entry 6335 (class 2604 OID 26312)
+-- TOC entry 6408 (class 2604 OID 26312)
 -- Name: cargo id_cargo; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -11941,7 +12467,7 @@ ALTER TABLE ONLY public.cargo ALTER COLUMN id_cargo SET DEFAULT nextval('public.
 
 
 --
--- TOC entry 6361 (class 2604 OID 26446)
+-- TOC entry 6434 (class 2604 OID 26446)
 -- Name: categoria_ativo id_categoria_ativo; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -11949,7 +12475,7 @@ ALTER TABLE ONLY public.categoria_ativo ALTER COLUMN id_categoria_ativo SET DEFA
 
 
 --
--- TOC entry 6158 (class 2604 OID 25221)
+-- TOC entry 6231 (class 2604 OID 25221)
 -- Name: categoria_conta id_categoria; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -11957,7 +12483,7 @@ ALTER TABLE ONLY public.categoria_conta ALTER COLUMN id_categoria SET DEFAULT ne
 
 
 --
--- TOC entry 6164 (class 2604 OID 25262)
+-- TOC entry 6237 (class 2604 OID 25262)
 -- Name: centro_custo id_centro_custo; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -11965,7 +12491,7 @@ ALTER TABLE ONLY public.centro_custo ALTER COLUMN id_centro_custo SET DEFAULT ne
 
 
 --
--- TOC entry 6477 (class 2604 OID 27131)
+-- TOC entry 6550 (class 2604 OID 27131)
 -- Name: chave_api id_chave; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -11973,7 +12499,7 @@ ALTER TABLE ONLY public.chave_api ALTER COLUMN id_chave SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 6302 (class 2604 OID 26145)
+-- TOC entry 6375 (class 2604 OID 26145)
 -- Name: checklist_viagem id_checklist; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -11981,7 +12507,7 @@ ALTER TABLE ONLY public.checklist_viagem ALTER COLUMN id_checklist SET DEFAULT n
 
 
 --
--- TOC entry 6168 (class 2604 OID 25277)
+-- TOC entry 6241 (class 2604 OID 25277)
 -- Name: classificacao_dre id_classificacao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -11989,7 +12515,7 @@ ALTER TABLE ONLY public.classificacao_dre ALTER COLUMN id_classificacao SET DEFA
 
 
 --
--- TOC entry 6142 (class 2604 OID 25127)
+-- TOC entry 6215 (class 2604 OID 25127)
 -- Name: cliente id_cliente; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -11997,7 +12523,7 @@ ALTER TABLE ONLY public.cliente ALTER COLUMN id_cliente SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 6339 (class 2604 OID 26328)
+-- TOC entry 6412 (class 2604 OID 26328)
 -- Name: colaborador id_colaborador; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12005,7 +12531,7 @@ ALTER TABLE ONLY public.colaborador ALTER COLUMN id_colaborador SET DEFAULT next
 
 
 --
--- TOC entry 6210 (class 2604 OID 25521)
+-- TOC entry 6283 (class 2604 OID 25521)
 -- Name: comissao id_comissao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12013,7 +12539,7 @@ ALTER TABLE ONLY public.comissao ALTER COLUMN id_comissao SET DEFAULT nextval('p
 
 
 --
--- TOC entry 6347 (class 2604 OID 26364)
+-- TOC entry 6420 (class 2604 OID 26364)
 -- Name: comissao_colaborador id_comissao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12021,7 +12547,7 @@ ALTER TABLE ONLY public.comissao_colaborador ALTER COLUMN id_comissao SET DEFAUL
 
 
 --
--- TOC entry 6190 (class 2604 OID 25404)
+-- TOC entry 6263 (class 2604 OID 25404)
 -- Name: conciliacao_bancaria id_conciliacao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12029,7 +12555,7 @@ ALTER TABLE ONLY public.conciliacao_bancaria ALTER COLUMN id_conciliacao SET DEF
 
 
 --
--- TOC entry 6528 (class 2604 OID 27420)
+-- TOC entry 6601 (class 2604 OID 27420)
 -- Name: conector_integracao id_conector; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12037,7 +12563,7 @@ ALTER TABLE ONLY public.conector_integracao ALTER COLUMN id_conector SET DEFAULT
 
 
 --
--- TOC entry 6453 (class 2604 OID 27006)
+-- TOC entry 6526 (class 2604 OID 27006)
 -- Name: configuracao_empresa id_configuracao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12045,7 +12571,7 @@ ALTER TABLE ONLY public.configuracao_empresa ALTER COLUMN id_configuracao SET DE
 
 
 --
--- TOC entry 6519 (class 2604 OID 27377)
+-- TOC entry 6592 (class 2604 OID 27377)
 -- Name: conformidade_lgpd id_lgpd; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12053,7 +12579,7 @@ ALTER TABLE ONLY public.conformidade_lgpd ALTER COLUMN id_lgpd SET DEFAULT nextv
 
 
 --
--- TOC entry 6171 (class 2604 OID 25294)
+-- TOC entry 6244 (class 2604 OID 25294)
 -- Name: conta_bancaria id_conta_bancaria; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12061,7 +12587,7 @@ ALTER TABLE ONLY public.conta_bancaria ALTER COLUMN id_conta_bancaria SET DEFAUL
 
 
 --
--- TOC entry 6321 (class 2604 OID 26235)
+-- TOC entry 6394 (class 2604 OID 26235)
 -- Name: contato_cliente id_contato; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12069,7 +12595,7 @@ ALTER TABLE ONLY public.contato_cliente ALTER COLUMN id_contato SET DEFAULT next
 
 
 --
--- TOC entry 6421 (class 2604 OID 26790)
+-- TOC entry 6494 (class 2604 OID 26790)
 -- Name: contrato id_contrato; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12077,7 +12603,7 @@ ALTER TABLE ONLY public.contrato ALTER COLUMN id_contrato SET DEFAULT nextval('p
 
 
 --
--- TOC entry 6425 (class 2604 OID 26821)
+-- TOC entry 6498 (class 2604 OID 26821)
 -- Name: controle_vencimento_documento id_controle; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12085,7 +12611,7 @@ ALTER TABLE ONLY public.controle_vencimento_documento ALTER COLUMN id_controle S
 
 
 --
--- TOC entry 6306 (class 2604 OID 26165)
+-- TOC entry 6379 (class 2604 OID 26165)
 -- Name: custo_pacote id_custo; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12093,7 +12619,7 @@ ALTER TABLE ONLY public.custo_pacote ALTER COLUMN id_custo SET DEFAULT nextval('
 
 
 --
--- TOC entry 6443 (class 2604 OID 26936)
+-- TOC entry 6516 (class 2604 OID 26936)
 -- Name: custo_projeto id_custo_projeto; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12101,7 +12627,7 @@ ALTER TABLE ONLY public.custo_projeto ALTER COLUMN id_custo_projeto SET DEFAULT 
 
 
 --
--- TOC entry 6232 (class 2604 OID 25644)
+-- TOC entry 6305 (class 2604 OID 25644)
 -- Name: das id_das; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12109,7 +12635,7 @@ ALTER TABLE ONLY public.das ALTER COLUMN id_das SET DEFAULT nextval('public.das_
 
 
 --
--- TOC entry 6568 (class 2604 OID 27581)
+-- TOC entry 6641 (class 2604 OID 27581)
 -- Name: data_mart_execucao id_execucao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12117,7 +12643,7 @@ ALTER TABLE ONLY public.data_mart_execucao ALTER COLUMN id_execucao SET DEFAULT 
 
 
 --
--- TOC entry 6244 (class 2604 OID 25768)
+-- TOC entry 6317 (class 2604 OID 25768)
 -- Name: declaracao_fiscal id_declaracao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12125,7 +12651,7 @@ ALTER TABLE ONLY public.declaracao_fiscal ALTER COLUMN id_declaracao SET DEFAULT
 
 
 --
--- TOC entry 6370 (class 2604 OID 26486)
+-- TOC entry 6443 (class 2604 OID 26486)
 -- Name: depreciacao id_depreciacao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12133,7 +12659,7 @@ ALTER TABLE ONLY public.depreciacao ALTER COLUMN id_depreciacao SET DEFAULT next
 
 
 --
--- TOC entry 6283 (class 2604 OID 26034)
+-- TOC entry 6356 (class 2604 OID 26034)
 -- Name: destino id_destino; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12141,7 +12667,7 @@ ALTER TABLE ONLY public.destino ALTER COLUMN id_destino SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 6591 (class 2604 OID 27662)
+-- TOC entry 6664 (class 2604 OID 27662)
 -- Name: dim_cliente id_dim_cliente; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12149,7 +12675,7 @@ ALTER TABLE ONLY public.dim_cliente ALTER COLUMN id_dim_cliente SET DEFAULT next
 
 
 --
--- TOC entry 6588 (class 2604 OID 27647)
+-- TOC entry 6661 (class 2604 OID 27647)
 -- Name: dim_data id_data; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12157,7 +12683,7 @@ ALTER TABLE ONLY public.dim_data ALTER COLUMN id_data SET DEFAULT nextval('publi
 
 
 --
--- TOC entry 6597 (class 2604 OID 27684)
+-- TOC entry 6670 (class 2604 OID 27684)
 -- Name: dim_destino id_dim_destino; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12165,7 +12691,7 @@ ALTER TABLE ONLY public.dim_destino ALTER COLUMN id_dim_destino SET DEFAULT next
 
 
 --
--- TOC entry 6600 (class 2604 OID 27695)
+-- TOC entry 6673 (class 2604 OID 27695)
 -- Name: dim_plano_contas id_dim_plano; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12173,7 +12699,7 @@ ALTER TABLE ONLY public.dim_plano_contas ALTER COLUMN id_dim_plano SET DEFAULT n
 
 
 --
--- TOC entry 6594 (class 2604 OID 27673)
+-- TOC entry 6667 (class 2604 OID 27673)
 -- Name: dim_produto_turistico id_dim_produto; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12181,7 +12707,7 @@ ALTER TABLE ONLY public.dim_produto_turistico ALTER COLUMN id_dim_produto SET DE
 
 
 --
--- TOC entry 6238 (class 2604 OID 25716)
+-- TOC entry 6311 (class 2604 OID 25716)
 -- Name: distribuicao_lucros id_distribuicao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12189,7 +12715,7 @@ ALTER TABLE ONLY public.distribuicao_lucros ALTER COLUMN id_distribuicao SET DEF
 
 
 --
--- TOC entry 6414 (class 2604 OID 26753)
+-- TOC entry 6487 (class 2604 OID 26753)
 -- Name: documento id_documento; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12197,7 +12723,7 @@ ALTER TABLE ONLY public.documento ALTER COLUMN id_documento SET DEFAULT nextval(
 
 
 --
--- TOC entry 6463 (class 2604 OID 27054)
+-- TOC entry 6536 (class 2604 OID 27054)
 -- Name: email_sistema id_email; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12205,7 +12731,7 @@ ALTER TABLE ONLY public.email_sistema ALTER COLUMN id_email SET DEFAULT nextval(
 
 
 --
--- TOC entry 6132 (class 2604 OID 25077)
+-- TOC entry 6205 (class 2604 OID 25077)
 -- Name: empresa id_empresa; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12213,7 +12739,7 @@ ALTER TABLE ONLY public.empresa ALTER COLUMN id_empresa SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 6400 (class 2604 OID 26662)
+-- TOC entry 6473 (class 2604 OID 26662)
 -- Name: estoque id_estoque; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12221,7 +12747,7 @@ ALTER TABLE ONLY public.estoque ALTER COLUMN id_estoque SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 6435 (class 2604 OID 26878)
+-- TOC entry 6508 (class 2604 OID 26878)
 -- Name: etapa_projeto id_etapa; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12229,7 +12755,7 @@ ALTER TABLE ONLY public.etapa_projeto ALTER COLUMN id_etapa SET DEFAULT nextval(
 
 
 --
--- TOC entry 6584 (class 2604 OID 27622)
+-- TOC entry 6657 (class 2604 OID 27622)
 -- Name: fato_financeiro id_fato_financeiro; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12237,7 +12763,7 @@ ALTER TABLE ONLY public.fato_financeiro ALTER COLUMN id_fato_financeiro SET DEFA
 
 
 --
--- TOC entry 6574 (class 2604 OID 27598)
+-- TOC entry 6647 (class 2604 OID 27598)
 -- Name: fato_vendas id_fato_venda; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12245,7 +12771,7 @@ ALTER TABLE ONLY public.fato_vendas ALTER COLUMN id_fato_venda SET DEFAULT nextv
 
 
 --
--- TOC entry 6547 (class 2604 OID 27497)
+-- TOC entry 6620 (class 2604 OID 27497)
 -- Name: fila_integracao id_fila_integracao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12253,7 +12779,7 @@ ALTER TABLE ONLY public.fila_integracao ALTER COLUMN id_fila_integracao SET DEFA
 
 
 --
--- TOC entry 6483 (class 2604 OID 27162)
+-- TOC entry 6556 (class 2604 OID 27162)
 -- Name: fila_processamento id_fila; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12261,7 +12787,7 @@ ALTER TABLE ONLY public.fila_processamento ALTER COLUMN id_fila SET DEFAULT next
 
 
 --
--- TOC entry 6177 (class 2604 OID 25317)
+-- TOC entry 6250 (class 2604 OID 25317)
 -- Name: forma_pagamento id_forma_pagamento; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12269,7 +12795,7 @@ ALTER TABLE ONLY public.forma_pagamento ALTER COLUMN id_forma_pagamento SET DEFA
 
 
 --
--- TOC entry 6145 (class 2604 OID 25147)
+-- TOC entry 6218 (class 2604 OID 25147)
 -- Name: fornecedor id_fornecedor; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12277,7 +12803,7 @@ ALTER TABLE ONLY public.fornecedor ALTER COLUMN id_fornecedor SET DEFAULT nextva
 
 
 --
--- TOC entry 6290 (class 2604 OID 26078)
+-- TOC entry 6363 (class 2604 OID 26078)
 -- Name: fornecedor_turistico id_fornecedor_turistico; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12285,7 +12811,7 @@ ALTER TABLE ONLY public.fornecedor_turistico ALTER COLUMN id_fornecedor_turistic
 
 
 --
--- TOC entry 6325 (class 2604 OID 26253)
+-- TOC entry 6398 (class 2604 OID 26253)
 -- Name: funil_vendas id_funil; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12293,7 +12819,7 @@ ALTER TABLE ONLY public.funil_vendas ALTER COLUMN id_funil SET DEFAULT nextval('
 
 
 --
--- TOC entry 6264 (class 2604 OID 25926)
+-- TOC entry 6337 (class 2604 OID 25926)
 -- Name: gateway_pagamento id_gateway; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12301,7 +12827,7 @@ ALTER TABLE ONLY public.gateway_pagamento ALTER COLUMN id_gateway SET DEFAULT ne
 
 
 --
--- TOC entry 6155 (class 2604 OID 25204)
+-- TOC entry 6228 (class 2604 OID 25204)
 -- Name: grupo_conta id_grupo; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12309,7 +12835,7 @@ ALTER TABLE ONLY public.grupo_conta ALTER COLUMN id_grupo SET DEFAULT nextval('p
 
 
 --
--- TOC entry 6299 (class 2604 OID 26132)
+-- TOC entry 6372 (class 2604 OID 26132)
 -- Name: guia_turistico id_guia; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12317,7 +12843,7 @@ ALTER TABLE ONLY public.guia_turistico ALTER COLUMN id_guia SET DEFAULT nextval(
 
 
 --
--- TOC entry 6258 (class 2604 OID 25894)
+-- TOC entry 6331 (class 2604 OID 25894)
 -- Name: historico_alteracao id_historico; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12325,7 +12851,7 @@ ALTER TABLE ONLY public.historico_alteracao ALTER COLUMN id_historico SET DEFAUL
 
 
 --
--- TOC entry 6429 (class 2604 OID 26838)
+-- TOC entry 6502 (class 2604 OID 26838)
 -- Name: historico_documento id_historico; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12333,7 +12859,7 @@ ALTER TABLE ONLY public.historico_documento ALTER COLUMN id_historico SET DEFAUL
 
 
 --
--- TOC entry 6359 (class 2604 OID 26424)
+-- TOC entry 6432 (class 2604 OID 26424)
 -- Name: horas_atividade id_hora; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12341,7 +12867,7 @@ ALTER TABLE ONLY public.horas_atividade ALTER COLUMN id_hora SET DEFAULT nextval
 
 
 --
--- TOC entry 6293 (class 2604 OID 26097)
+-- TOC entry 6366 (class 2604 OID 26097)
 -- Name: hospedagem id_hospedagem; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12349,7 +12875,7 @@ ALTER TABLE ONLY public.hospedagem ALTER COLUMN id_hospedagem SET DEFAULT nextva
 
 
 --
--- TOC entry 6279 (class 2604 OID 26012)
+-- TOC entry 6352 (class 2604 OID 26012)
 -- Name: importacao_dados id_importacao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12357,7 +12883,7 @@ ALTER TABLE ONLY public.importacao_dados ALTER COLUMN id_importacao SET DEFAULT 
 
 
 --
--- TOC entry 6226 (class 2604 OID 25615)
+-- TOC entry 6299 (class 2604 OID 25615)
 -- Name: imposto id_imposto; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12365,7 +12891,7 @@ ALTER TABLE ONLY public.imposto ALTER COLUMN id_imposto SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 6277 (class 2604 OID 25995)
+-- TOC entry 6350 (class 2604 OID 25995)
 -- Name: integracao_nfse id_integracao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12373,7 +12899,7 @@ ALTER TABLE ONLY public.integracao_nfse ALTER COLUMN id_integracao SET DEFAULT n
 
 
 --
--- TOC entry 6260 (class 2604 OID 25906)
+-- TOC entry 6333 (class 2604 OID 25906)
 -- Name: integracao_woocommerce id_integracao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12381,7 +12907,7 @@ ALTER TABLE ONLY public.integracao_woocommerce ALTER COLUMN id_integracao SET DE
 
 
 --
--- TOC entry 6329 (class 2604 OID 26270)
+-- TOC entry 6402 (class 2604 OID 26270)
 -- Name: interacao_lead id_interacao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12389,7 +12915,7 @@ ALTER TABLE ONLY public.interacao_lead ALTER COLUMN id_interacao SET DEFAULT nex
 
 
 --
--- TOC entry 6406 (class 2604 OID 26698)
+-- TOC entry 6479 (class 2604 OID 26698)
 -- Name: inventario id_inventario; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12397,7 +12923,7 @@ ALTER TABLE ONLY public.inventario ALTER COLUMN id_inventario SET DEFAULT nextva
 
 
 --
--- TOC entry 6409 (class 2604 OID 26710)
+-- TOC entry 6482 (class 2604 OID 26710)
 -- Name: item_inventario id_item; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12405,7 +12931,7 @@ ALTER TABLE ONLY public.item_inventario ALTER COLUMN id_item SET DEFAULT nextval
 
 
 --
--- TOC entry 6398 (class 2604 OID 26641)
+-- TOC entry 6471 (class 2604 OID 26641)
 -- Name: item_pedido_compra id_item_pedido; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12413,7 +12939,7 @@ ALTER TABLE ONLY public.item_pedido_compra ALTER COLUMN id_item_pedido SET DEFAU
 
 
 --
--- TOC entry 6391 (class 2604 OID 26597)
+-- TOC entry 6464 (class 2604 OID 26597)
 -- Name: item_requisicao id_item; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12421,7 +12947,7 @@ ALTER TABLE ONLY public.item_requisicao ALTER COLUMN id_item SET DEFAULT nextval
 
 
 --
--- TOC entry 6218 (class 2604 OID 25566)
+-- TOC entry 6291 (class 2604 OID 25566)
 -- Name: item_venda id_item; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12429,7 +12955,7 @@ ALTER TABLE ONLY public.item_venda ALTER COLUMN id_item SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 6603 (class 2604 OID 27711)
+-- TOC entry 6676 (class 2604 OID 27711)
 -- Name: kpi_turismo id_kpi; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12437,7 +12963,7 @@ ALTER TABLE ONLY public.kpi_turismo ALTER COLUMN id_kpi SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 6182 (class 2604 OID 25333)
+-- TOC entry 6255 (class 2604 OID 25333)
 -- Name: lancamento_financeiro id_lancamento; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12445,7 +12971,7 @@ ALTER TABLE ONLY public.lancamento_financeiro ALTER COLUMN id_lancamento SET DEF
 
 
 --
--- TOC entry 6186 (class 2604 OID 25379)
+-- TOC entry 6259 (class 2604 OID 25379)
 -- Name: lancamento_parcela id_parcela; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12453,7 +12979,7 @@ ALTER TABLE ONLY public.lancamento_parcela ALTER COLUMN id_parcela SET DEFAULT n
 
 
 --
--- TOC entry 6313 (class 2604 OID 26200)
+-- TOC entry 6386 (class 2604 OID 26200)
 -- Name: lead id_lead; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12461,7 +12987,7 @@ ALTER TABLE ONLY public.lead ALTER COLUMN id_lead SET DEFAULT nextval('public.le
 
 
 --
--- TOC entry 6376 (class 2604 OID 26522)
+-- TOC entry 6449 (class 2604 OID 26522)
 -- Name: localizacao_ativo id_localizacao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12469,7 +12995,7 @@ ALTER TABLE ONLY public.localizacao_ativo ALTER COLUMN id_localizacao SET DEFAUL
 
 
 --
--- TOC entry 6488 (class 2604 OID 27176)
+-- TOC entry 6561 (class 2604 OID 27176)
 -- Name: log_api id_log; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12477,7 +13003,7 @@ ALTER TABLE ONLY public.log_api ALTER COLUMN id_log SET DEFAULT nextval('public.
 
 
 --
--- TOC entry 6256 (class 2604 OID 25880)
+-- TOC entry 6329 (class 2604 OID 25880)
 -- Name: log_auditoria id_log; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12485,7 +13011,7 @@ ALTER TABLE ONLY public.log_auditoria ALTER COLUMN id_log SET DEFAULT nextval('p
 
 
 --
--- TOC entry 6281 (class 2604 OID 26023)
+-- TOC entry 6354 (class 2604 OID 26023)
 -- Name: log_integracao id_log; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12493,7 +13019,7 @@ ALTER TABLE ONLY public.log_integracao ALTER COLUMN id_log SET DEFAULT nextval('
 
 
 --
--- TOC entry 6554 (class 2604 OID 27522)
+-- TOC entry 6627 (class 2604 OID 27522)
 -- Name: log_integracao_detalhado id_log_integracao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12501,7 +13027,7 @@ ALTER TABLE ONLY public.log_integracao_detalhado ALTER COLUMN id_log_integracao 
 
 
 --
--- TOC entry 6466 (class 2604 OID 27066)
+-- TOC entry 6539 (class 2604 OID 27066)
 -- Name: log_sistema id_log; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12509,7 +13035,7 @@ ALTER TABLE ONLY public.log_sistema ALTER COLUMN id_log SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 6373 (class 2604 OID 26503)
+-- TOC entry 6446 (class 2604 OID 26503)
 -- Name: manutencao_ativo id_manutencao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12517,7 +13043,7 @@ ALTER TABLE ONLY public.manutencao_ativo ALTER COLUMN id_manutencao SET DEFAULT 
 
 
 --
--- TOC entry 6534 (class 2604 OID 27447)
+-- TOC entry 6607 (class 2604 OID 27447)
 -- Name: mapeamento_campo_integracao id_mapeamento; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12525,7 +13051,7 @@ ALTER TABLE ONLY public.mapeamento_campo_integracao ALTER COLUMN id_mapeamento S
 
 
 --
--- TOC entry 6502 (class 2604 OID 27309)
+-- TOC entry 6575 (class 2604 OID 27309)
 -- Name: modelo_ml id_modelo; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12533,7 +13059,7 @@ ALTER TABLE ONLY public.modelo_ml ALTER COLUMN id_modelo SET DEFAULT nextval('pu
 
 
 --
--- TOC entry 6379 (class 2604 OID 26534)
+-- TOC entry 6452 (class 2604 OID 26534)
 -- Name: movimentacao_ativo id_movimentacao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12541,7 +13067,7 @@ ALTER TABLE ONLY public.movimentacao_ativo ALTER COLUMN id_movimentacao SET DEFA
 
 
 --
--- TOC entry 6403 (class 2604 OID 26679)
+-- TOC entry 6476 (class 2604 OID 26679)
 -- Name: movimento_estoque id_movimento; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12549,7 +13075,7 @@ ALTER TABLE ONLY public.movimento_estoque ALTER COLUMN id_movimento SET DEFAULT 
 
 
 --
--- TOC entry 6222 (class 2604 OID 25589)
+-- TOC entry 6295 (class 2604 OID 25589)
 -- Name: nota_fiscal id_nota_fiscal; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12557,7 +13083,7 @@ ALTER TABLE ONLY public.nota_fiscal ALTER COLUMN id_nota_fiscal SET DEFAULT next
 
 
 --
--- TOC entry 6459 (class 2604 OID 27036)
+-- TOC entry 6532 (class 2604 OID 27036)
 -- Name: notificacao id_notificacao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12565,7 +13091,7 @@ ALTER TABLE ONLY public.notificacao ALTER COLUMN id_notificacao SET DEFAULT next
 
 
 --
--- TOC entry 6271 (class 2604 OID 25961)
+-- TOC entry 6344 (class 2604 OID 25961)
 -- Name: openfinance_conexao id_conexao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12573,7 +13099,7 @@ ALTER TABLE ONLY public.openfinance_conexao ALTER COLUMN id_conexao SET DEFAULT 
 
 
 --
--- TOC entry 6274 (class 2604 OID 25979)
+-- TOC entry 6347 (class 2604 OID 25979)
 -- Name: openfinance_movimento id_movimento; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12581,7 +13107,7 @@ ALTER TABLE ONLY public.openfinance_movimento ALTER COLUMN id_movimento SET DEFA
 
 
 --
--- TOC entry 6309 (class 2604 OID 26184)
+-- TOC entry 6382 (class 2604 OID 26184)
 -- Name: origem_lead id_origem; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12589,7 +13115,7 @@ ALTER TABLE ONLY public.origem_lead ALTER COLUMN id_origem SET DEFAULT nextval('
 
 
 --
--- TOC entry 6198 (class 2604 OID 25454)
+-- TOC entry 6271 (class 2604 OID 25454)
 -- Name: pacote_viagem id_pacote; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12597,7 +13123,7 @@ ALTER TABLE ONLY public.pacote_viagem ALTER COLUMN id_pacote SET DEFAULT nextval
 
 
 --
--- TOC entry 6268 (class 2604 OID 25940)
+-- TOC entry 6341 (class 2604 OID 25940)
 -- Name: pagamento_transacao id_transacao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12605,7 +13131,7 @@ ALTER TABLE ONLY public.pagamento_transacao ALTER COLUMN id_transacao SET DEFAUL
 
 
 --
--- TOC entry 6449 (class 2604 OID 26989)
+-- TOC entry 6522 (class 2604 OID 26989)
 -- Name: parametro_sistema id_parametro; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12613,7 +13139,7 @@ ALTER TABLE ONLY public.parametro_sistema ALTER COLUMN id_parametro SET DEFAULT 
 
 
 --
--- TOC entry 6343 (class 2604 OID 26350)
+-- TOC entry 6416 (class 2604 OID 26350)
 -- Name: parceiro_comercial id_parceiro; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12621,7 +13147,7 @@ ALTER TABLE ONLY public.parceiro_comercial ALTER COLUMN id_parceiro SET DEFAULT 
 
 
 --
--- TOC entry 6207 (class 2604 OID 25502)
+-- TOC entry 6280 (class 2604 OID 25502)
 -- Name: passageiro id_passageiro; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12629,7 +13155,7 @@ ALTER TABLE ONLY public.passageiro ALTER COLUMN id_passageiro SET DEFAULT nextva
 
 
 --
--- TOC entry 6393 (class 2604 OID 26620)
+-- TOC entry 6466 (class 2604 OID 26620)
 -- Name: pedido_compra id_pedido; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12637,7 +13163,7 @@ ALTER TABLE ONLY public.pedido_compra ALTER COLUMN id_pedido SET DEFAULT nextval
 
 
 --
--- TOC entry 6248 (class 2604 OID 25830)
+-- TOC entry 6321 (class 2604 OID 25830)
 -- Name: perfil_acesso id_perfil; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12645,7 +13171,7 @@ ALTER TABLE ONLY public.perfil_acesso ALTER COLUMN id_perfil SET DEFAULT nextval
 
 
 --
--- TOC entry 6252 (class 2604 OID 25846)
+-- TOC entry 6325 (class 2604 OID 25846)
 -- Name: permissao id_permissao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12653,7 +13179,7 @@ ALTER TABLE ONLY public.permissao ALTER COLUMN id_permissao SET DEFAULT nextval(
 
 
 --
--- TOC entry 6139 (class 2604 OID 25111)
+-- TOC entry 6212 (class 2604 OID 25111)
 -- Name: pessoa id_pessoa; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12661,7 +13187,7 @@ ALTER TABLE ONLY public.pessoa ALTER COLUMN id_pessoa SET DEFAULT nextval('publi
 
 
 --
--- TOC entry 6152 (class 2604 OID 25181)
+-- TOC entry 6225 (class 2604 OID 25181)
 -- Name: plano_contas id_conta; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12669,7 +13195,7 @@ ALTER TABLE ONLY public.plano_contas ALTER COLUMN id_conta SET DEFAULT nextval('
 
 
 --
--- TOC entry 6511 (class 2604 OID 27346)
+-- TOC entry 6584 (class 2604 OID 27346)
 -- Name: politica_acesso id_politica; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12677,7 +13203,7 @@ ALTER TABLE ONLY public.politica_acesso ALTER COLUMN id_politica SET DEFAULT nex
 
 
 --
--- TOC entry 6241 (class 2604 OID 25734)
+-- TOC entry 6314 (class 2604 OID 25734)
 -- Name: pro_labore id_pro_labore; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12685,7 +13211,7 @@ ALTER TABLE ONLY public.pro_labore ALTER COLUMN id_pro_labore SET DEFAULT nextva
 
 
 --
--- TOC entry 6381 (class 2604 OID 26561)
+-- TOC entry 6454 (class 2604 OID 26561)
 -- Name: produto_estoque id_produto_estoque; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12693,7 +13219,7 @@ ALTER TABLE ONLY public.produto_estoque ALTER COLUMN id_produto_estoque SET DEFA
 
 
 --
--- TOC entry 6194 (class 2604 OID 25434)
+-- TOC entry 6267 (class 2604 OID 25434)
 -- Name: produto_turistico id_produto; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12701,7 +13227,7 @@ ALTER TABLE ONLY public.produto_turistico ALTER COLUMN id_produto SET DEFAULT ne
 
 
 --
--- TOC entry 6431 (class 2604 OID 26860)
+-- TOC entry 6504 (class 2604 OID 26860)
 -- Name: projeto id_projeto; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12709,7 +13235,7 @@ ALTER TABLE ONLY public.projeto ALTER COLUMN id_projeto SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 6515 (class 2604 OID 27363)
+-- TOC entry 6588 (class 2604 OID 27363)
 -- Name: rastreabilidade id_rastreabilidade; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12717,7 +13243,7 @@ ALTER TABLE ONLY public.rastreabilidade ALTER COLUMN id_rastreabilidade SET DEFA
 
 
 --
--- TOC entry 6490 (class 2604 OID 27193)
+-- TOC entry 6563 (class 2604 OID 27193)
 -- Name: rate_limit_api id_rate; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12725,7 +13251,7 @@ ALTER TABLE ONLY public.rate_limit_api ALTER COLUMN id_rate SET DEFAULT nextval(
 
 
 --
--- TOC entry 6607 (class 2604 OID 27733)
+-- TOC entry 6680 (class 2604 OID 27733)
 -- Name: rentabilidade_produto id_rentabilidade; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12733,7 +13259,7 @@ ALTER TABLE ONLY public.rentabilidade_produto ALTER COLUMN id_rentabilidade SET 
 
 
 --
--- TOC entry 6386 (class 2604 OID 26580)
+-- TOC entry 6459 (class 2604 OID 26580)
 -- Name: requisicao_compra id_requisicao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12741,7 +13267,7 @@ ALTER TABLE ONLY public.requisicao_compra ALTER COLUMN id_requisicao SET DEFAULT
 
 
 --
--- TOC entry 6202 (class 2604 OID 25474)
+-- TOC entry 6275 (class 2604 OID 25474)
 -- Name: reserva id_reserva; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12749,7 +13275,7 @@ ALTER TABLE ONLY public.reserva ALTER COLUMN id_reserva SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 6441 (class 2604 OID 26916)
+-- TOC entry 6514 (class 2604 OID 26916)
 -- Name: responsavel_projeto id_responsavel; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12757,7 +13283,7 @@ ALTER TABLE ONLY public.responsavel_projeto ALTER COLUMN id_responsavel SET DEFA
 
 
 --
--- TOC entry 6445 (class 2604 OID 26951)
+-- TOC entry 6518 (class 2604 OID 26951)
 -- Name: risco_projeto id_risco; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12765,7 +13291,7 @@ ALTER TABLE ONLY public.risco_projeto ALTER COLUMN id_risco SET DEFAULT nextval(
 
 
 --
--- TOC entry 6287 (class 2604 OID 26054)
+-- TOC entry 6360 (class 2604 OID 26054)
 -- Name: roteiro_viagem id_roteiro; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12773,7 +13299,7 @@ ALTER TABLE ONLY public.roteiro_viagem ALTER COLUMN id_roteiro SET DEFAULT nextv
 
 
 --
--- TOC entry 6456 (class 2604 OID 27024)
+-- TOC entry 6529 (class 2604 OID 27024)
 -- Name: sequencia_documento id_sequencia; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12781,7 +13307,7 @@ ALTER TABLE ONLY public.sequencia_documento ALTER COLUMN id_sequencia SET DEFAUL
 
 
 --
--- TOC entry 6229 (class 2604 OID 25627)
+-- TOC entry 6302 (class 2604 OID 25627)
 -- Name: simples_nacional id_simples; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12789,7 +13315,7 @@ ALTER TABLE ONLY public.simples_nacional ALTER COLUMN id_simples SET DEFAULT nex
 
 
 --
--- TOC entry 6539 (class 2604 OID 27471)
+-- TOC entry 6612 (class 2604 OID 27471)
 -- Name: sincronizacao_integracao id_sincronizacao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12797,7 +13323,7 @@ ALTER TABLE ONLY public.sincronizacao_integracao ALTER COLUMN id_sincronizacao S
 
 
 --
--- TOC entry 6523 (class 2604 OID 27400)
+-- TOC entry 6596 (class 2604 OID 27400)
 -- Name: sistema_externo id_sistema_externo; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12805,7 +13331,7 @@ ALTER TABLE ONLY public.sistema_externo ALTER COLUMN id_sistema_externo SET DEFA
 
 
 --
--- TOC entry 6559 (class 2604 OID 27550)
+-- TOC entry 6632 (class 2604 OID 27550)
 -- Name: status_integracao id_status_integracao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12813,7 +13339,7 @@ ALTER TABLE ONLY public.status_integracao ALTER COLUMN id_status_integracao SET 
 
 
 --
--- TOC entry 6161 (class 2604 OID 25241)
+-- TOC entry 6234 (class 2604 OID 25241)
 -- Name: subcategoria_conta id_subcategoria; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12821,7 +13347,7 @@ ALTER TABLE ONLY public.subcategoria_conta ALTER COLUMN id_subcategoria SET DEFA
 
 
 --
--- TOC entry 6355 (class 2604 OID 26405)
+-- TOC entry 6428 (class 2604 OID 26405)
 -- Name: tarefa id_tarefa; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12829,7 +13355,7 @@ ALTER TABLE ONLY public.tarefa ALTER COLUMN id_tarefa SET DEFAULT nextval('publi
 
 
 --
--- TOC entry 6437 (class 2604 OID 26895)
+-- TOC entry 6510 (class 2604 OID 26895)
 -- Name: tarefa_projeto id_tarefa_projeto; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12837,7 +13363,7 @@ ALTER TABLE ONLY public.tarefa_projeto ALTER COLUMN id_tarefa_projeto SET DEFAUL
 
 
 --
--- TOC entry 6410 (class 2604 OID 26734)
+-- TOC entry 6483 (class 2604 OID 26734)
 -- Name: tipo_documento id_tipo_documento; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12845,7 +13371,7 @@ ALTER TABLE ONLY public.tipo_documento ALTER COLUMN id_tipo_documento SET DEFAUL
 
 
 --
--- TOC entry 6474 (class 2604 OID 27112)
+-- TOC entry 6547 (class 2604 OID 27112)
 -- Name: token_acesso id_token; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12853,7 +13379,7 @@ ALTER TABLE ONLY public.token_acesso ALTER COLUMN id_token SET DEFAULT nextval('
 
 
 --
--- TOC entry 6296 (class 2604 OID 26115)
+-- TOC entry 6369 (class 2604 OID 26115)
 -- Name: transporte id_transporte; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12861,7 +13387,7 @@ ALTER TABLE ONLY public.transporte ALTER COLUMN id_transporte SET DEFAULT nextva
 
 
 --
--- TOC entry 6135 (class 2604 OID 25093)
+-- TOC entry 6208 (class 2604 OID 25093)
 -- Name: usuario id_usuario; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12869,7 +13395,7 @@ ALTER TABLE ONLY public.usuario ALTER COLUMN id_usuario SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 6214 (class 2604 OID 25543)
+-- TOC entry 6287 (class 2604 OID 25543)
 -- Name: venda id_venda; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12877,7 +13403,7 @@ ALTER TABLE ONLY public.venda ALTER COLUMN id_venda SET DEFAULT nextval('public.
 
 
 --
--- TOC entry 6480 (class 2604 OID 27150)
+-- TOC entry 6553 (class 2604 OID 27150)
 -- Name: webhook id_webhook; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12885,7 +13411,7 @@ ALTER TABLE ONLY public.webhook ALTER COLUMN id_webhook SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 6617 (class 2604 OID 33265)
+-- TOC entry 6690 (class 2604 OID 33265)
 -- Name: workflow id_workflow; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -12893,7 +13419,7 @@ ALTER TABLE ONLY public.workflow ALTER COLUMN id_workflow SET DEFAULT nextval('p
 
 
 --
--- TOC entry 8170 (class 0 OID 41747)
+-- TOC entry 8314 (class 0 OID 41747)
 -- Dependencies: 630
 -- Data for Name: catalogo_coluna; Type: TABLE DATA; Schema: auditoria; Owner: postgres
 --
@@ -12903,7 +13429,7 @@ COPY auditoria.catalogo_coluna (id_coluna, id_tabela, nome, tipo, tamanho, nulla
 
 
 --
--- TOC entry 8166 (class 0 OID 41725)
+-- TOC entry 8310 (class 0 OID 41725)
 -- Dependencies: 626
 -- Data for Name: catalogo_schema; Type: TABLE DATA; Schema: auditoria; Owner: postgres
 --
@@ -12913,7 +13439,7 @@ COPY auditoria.catalogo_schema (id_schema, schema_nome, owner_name, comentario, 
 
 
 --
--- TOC entry 8168 (class 0 OID 41737)
+-- TOC entry 8312 (class 0 OID 41737)
 -- Dependencies: 628
 -- Data for Name: catalogo_tabela; Type: TABLE DATA; Schema: auditoria; Owner: postgres
 --
@@ -12923,7 +13449,7 @@ COPY auditoria.catalogo_tabela (id_tabela, id_schema, nome, tipo, owner_name, co
 
 
 --
--- TOC entry 8148 (class 0 OID 41469)
+-- TOC entry 8292 (class 0 OID 41469)
 -- Dependencies: 598
 -- Data for Name: categoria; Type: TABLE DATA; Schema: auditoria; Owner: postgres
 --
@@ -12941,7 +13467,2742 @@ COPY auditoria.categoria (id_categoria, codigo, descricao, peso, ativo, created_
 
 
 --
--- TOC entry 8160 (class 0 OID 41615)
+-- TOC entry 8351 (class 0 OID 42870)
+-- Dependencies: 667
+-- Data for Name: colunas_identificadoras; Type: TABLE DATA; Schema: auditoria; Owner: postgres
+--
+
+COPY auditoria.colunas_identificadoras (id, schema_name, table_name, column_name, data_type, is_nullable, column_default, auditado_em) FROM stdin;
+1	financeiro	usuario	id_usuario	integer	NO	nextval('financeiro.usuario_id_usuario_seq'::regclass)	2026-08-10 18:33:58.123645-03
+2	financeiro	cliente	id_cliente	integer	NO	nextval('financeiro.cliente_id_cliente_seq'::regclass)	2026-08-10 18:33:58.123645-03
+3	financeiro	fornecedor	id_fornecedor	integer	NO	nextval('financeiro.fornecedor_id_fornecedor_seq'::regclass)	2026-08-10 18:33:58.123645-03
+4	financeiro	historico_lancamento	id_usuario	integer	YES	\N	2026-08-10 18:33:58.123645-03
+5	public	usuario	id_usuario	integer	NO	nextval('usuario_id_usuario_seq'::regclass)	2026-08-10 18:33:58.123645-03
+6	public	cliente	id_cliente	integer	NO	nextval('cliente_id_cliente_seq'::regclass)	2026-08-10 18:33:58.123645-03
+7	public	fornecedor	id_fornecedor	integer	NO	nextval('fornecedor_id_fornecedor_seq'::regclass)	2026-08-10 18:33:58.123645-03
+8	financeiro	lancamento	id_empresa	integer	NO	\N	2026-08-10 18:33:58.123645-03
+9	financeiro	lancamento	id_cliente	integer	YES	\N	2026-08-10 18:33:58.123645-03
+10	financeiro	lancamento	id_fornecedor	integer	YES	\N	2026-08-10 18:33:58.123645-03
+11	public	conta_bancaria	id_empresa	integer	NO	\N	2026-08-10 18:33:58.123645-03
+12	public	reserva	id_cliente	integer	NO	\N	2026-08-10 18:33:58.123645-03
+13	public	comissao	id_fornecedor	integer	YES	\N	2026-08-10 18:33:58.123645-03
+14	public	venda	id_cliente	integer	NO	\N	2026-08-10 18:33:58.123645-03
+15	public	nota_fiscal	id_empresa	integer	NO	\N	2026-08-10 18:33:58.123645-03
+16	public	nota_fiscal	id_cliente	integer	YES	\N	2026-08-10 18:33:58.123645-03
+17	public	simples_nacional	id_empresa	integer	NO	\N	2026-08-10 18:33:58.123645-03
+18	public	das	id_empresa	integer	NO	\N	2026-08-10 18:33:58.123645-03
+19	public	distribuicao_lucros	id_empresa	integer	NO	\N	2026-08-10 18:33:58.123645-03
+20	public	aporte_capital	id_empresa	integer	NO	\N	2026-08-10 18:33:58.123645-03
+21	public	pro_labore	id_empresa	integer	NO	\N	2026-08-10 18:33:58.123645-03
+22	public	declaracao_fiscal	id_empresa	integer	NO	\N	2026-08-10 18:33:58.123645-03
+23	public	lancamento_financeiro	id_empresa	integer	NO	\N	2026-08-10 18:33:58.123645-03
+24	public	usuario_perfil	id_usuario	integer	NO	\N	2026-08-10 18:33:58.123645-03
+25	public	integracao_woocommerce	id_empresa	integer	NO	\N	2026-08-10 18:33:58.123645-03
+26	public	openfinance_conexao	id_empresa	integer	NO	\N	2026-08-10 18:33:58.123645-03
+27	public	fornecedor_turistico	id_fornecedor	integer	NO	\N	2026-08-10 18:33:58.123645-03
+28	public	contato_cliente	id_cliente	integer	YES	\N	2026-08-10 18:33:58.123645-03
+29	public	colaborador	id_colaborador	integer	NO	nextval('colaborador_id_colaborador_seq'::regclass)	2026-08-10 18:33:58.123645-03
+30	public	comissao_colaborador	id_colaborador	integer	YES	\N	2026-08-10 18:33:58.123645-03
+31	public	agenda	id_colaborador	integer	YES	\N	2026-08-10 18:33:58.123645-03
+32	public	horas_atividade	id_colaborador	integer	NO	\N	2026-08-10 18:33:58.123645-03
+33	public	pedido_compra	id_fornecedor	integer	NO	\N	2026-08-10 18:33:58.123645-03
+34	public	responsavel_projeto	id_colaborador	integer	YES	\N	2026-08-10 18:33:58.123645-03
+35	public	configuracao_empresa	id_empresa	integer	NO	\N	2026-08-10 18:33:58.123645-03
+36	public	notificacao	id_usuario	integer	YES	\N	2026-08-10 18:33:58.123645-03
+37	dw	fato_vendas	id_cliente	integer	YES	\N	2026-08-10 18:33:58.123645-03
+38	public	empresa	id_empresa	integer	NO	nextval('empresa_id_empresa_seq'::regclass)	2026-08-10 18:33:58.123645-03
+39	financeiro	empresa	id_empresa	integer	NO	nextval('financeiro.empresa_id_empresa_seq'::regclass)	2026-08-10 18:33:58.123645-03
+40	config	migracao	id	bigint	NO	nextval('config.migracao_id_seq'::regclass)	2026-08-10 18:33:58.123645-03
+41	config	versao_banco	id	bigint	NO	nextval('config.versao_banco_id_seq'::regclass)	2026-08-10 18:33:58.123645-03
+42	public	fato_vendas	id_cliente	integer	YES	\N	2026-08-10 18:33:58.123645-03
+43	auditoria	tabelas_sem_pk	id	bigint	NO	\N	2026-08-10 18:33:58.123645-03
+44	auditoria	tabelas_sem_indices	id	bigint	NO	\N	2026-08-10 18:33:58.123645-03
+45	auditoria	colunas_sem_comentario	id	bigint	NO	\N	2026-08-10 18:33:58.123645-03
+46	auditoria	colunas_not_null_sem_default	id	bigint	NO	\N	2026-08-10 18:33:58.123645-03
+47	auditoria	fks_sem_indice	id	bigint	NO	\N	2026-08-10 18:33:58.123645-03
+48	auditoria	inventario_constraints	id	bigint	NO	\N	2026-08-10 18:33:58.123645-03
+49	auditoria	inventario_indices	id	bigint	NO	\N	2026-08-10 18:33:58.123645-03
+50	auditoria	indices_potencialmente_duplicados	id	bigint	NO	\N	2026-08-10 18:33:58.123645-03
+51	auditoria	inventario_sequences	id	bigint	NO	\N	2026-08-10 18:33:58.123645-03
+52	auditoria	inventario_identity	id	bigint	NO	\N	2026-08-10 18:33:58.123645-03
+53	auditoria	colunas_identificadoras	id	bigint	NO	\N	2026-08-10 18:33:58.123645-03
+\.
+
+
+--
+-- TOC entry 8337 (class 0 OID 42755)
+-- Dependencies: 653
+-- Data for Name: colunas_not_null_sem_default; Type: TABLE DATA; Schema: auditoria; Owner: postgres
+--
+
+COPY auditoria.colunas_not_null_sem_default (id, schema_name, table_name, column_name, data_type, detectado_em) FROM stdin;
+1	financeiro	centro_custo	descricao	character varying	2026-08-10 18:33:58.123645-03
+2	financeiro	usuario	nome	character varying	2026-08-10 18:33:58.123645-03
+3	financeiro	usuario	email	character varying	2026-08-10 18:33:58.123645-03
+4	financeiro	usuario	senha_hash	text	2026-08-10 18:33:58.123645-03
+5	financeiro	cliente	nome	character varying	2026-08-10 18:33:58.123645-03
+6	financeiro	cliente	id_pessoa	integer	2026-08-10 18:33:58.123645-03
+7	financeiro	banco	nome	character varying	2026-08-10 18:33:58.123645-03
+8	financeiro	fornecedor	nome	character varying	2026-08-10 18:33:58.123645-03
+9	financeiro	conta_bancaria	id_banco	integer	2026-08-10 18:33:58.123645-03
+10	financeiro	conciliacao_bancaria	id_movimento	bigint	2026-08-10 18:33:58.123645-03
+11	financeiro	historico_lancamento	id_lancamento	bigint	2026-08-10 18:33:58.123645-03
+12	financeiro	classificacao	id_subcategoria	integer	2026-08-10 18:33:58.123645-03
+13	financeiro	classificacao	codigo	character varying	2026-08-10 18:33:58.123645-03
+14	financeiro	classificacao	descricao	character varying	2026-08-10 18:33:58.123645-03
+15	public	usuario	nome	character varying	2026-08-10 18:33:58.123645-03
+16	public	usuario	email	character varying	2026-08-10 18:33:58.123645-03
+17	public	cliente	id_pessoa	integer	2026-08-10 18:33:58.123645-03
+18	public	fornecedor	id_pessoa	integer	2026-08-10 18:33:58.123645-03
+19	financeiro	lancamento	numero	character varying	2026-08-10 18:33:58.123645-03
+20	financeiro	lancamento	id_empresa	integer	2026-08-10 18:33:58.123645-03
+21	financeiro	lancamento	id_tipo_lancamento	smallint	2026-08-10 18:33:58.123645-03
+22	financeiro	lancamento	id_status	smallint	2026-08-10 18:33:58.123645-03
+23	financeiro	lancamento	id_conta	integer	2026-08-10 18:33:58.123645-03
+24	financeiro	lancamento	competencia	date	2026-08-10 18:33:58.123645-03
+25	financeiro	lancamento	emissao	date	2026-08-10 18:33:58.123645-03
+26	financeiro	lancamento	vencimento	date	2026-08-10 18:33:58.123645-03
+27	financeiro	lancamento	valor_bruto	numeric	2026-08-10 18:33:58.123645-03
+28	public	plano_contas	codigo	character varying	2026-08-10 18:33:58.123645-03
+29	public	plano_contas	nivel	integer	2026-08-10 18:33:58.123645-03
+30	public	plano_contas	descricao	character varying	2026-08-10 18:33:58.123645-03
+31	public	grupo_conta	codigo	character varying	2026-08-10 18:33:58.123645-03
+32	public	grupo_conta	descricao	character varying	2026-08-10 18:33:58.123645-03
+33	public	grupo_conta	natureza	character varying	2026-08-10 18:33:58.123645-03
+34	public	categoria_conta	id_grupo	integer	2026-08-10 18:33:58.123645-03
+35	public	categoria_conta	codigo	character varying	2026-08-10 18:33:58.123645-03
+36	public	categoria_conta	descricao	character varying	2026-08-10 18:33:58.123645-03
+37	public	subcategoria_conta	id_categoria	integer	2026-08-10 18:33:58.123645-03
+38	public	subcategoria_conta	codigo	character varying	2026-08-10 18:33:58.123645-03
+39	public	subcategoria_conta	descricao	character varying	2026-08-10 18:33:58.123645-03
+40	public	classificacao_dre	codigo	character varying	2026-08-10 18:33:58.123645-03
+41	public	classificacao_dre	descricao	character varying	2026-08-10 18:33:58.123645-03
+42	public	classificacao_dre	grupo_dre	character varying	2026-08-10 18:33:58.123645-03
+43	public	conta_bancaria	id_empresa	integer	2026-08-10 18:33:58.123645-03
+44	public	conta_bancaria	banco	character varying	2026-08-10 18:33:58.123645-03
+45	public	banco	nome_banco	character varying	2026-08-10 18:33:58.123645-03
+46	public	forma_pagamento	codigo	character varying	2026-08-10 18:33:58.123645-03
+47	public	forma_pagamento	descricao	character varying	2026-08-10 18:33:58.123645-03
+48	public	centro_custo	codigo	character varying	2026-08-10 18:33:58.123645-03
+49	public	centro_custo	descricao	character varying	2026-08-10 18:33:58.123645-03
+50	public	conciliacao_bancaria	id_conta_bancaria	integer	2026-08-10 18:33:58.123645-03
+51	public	conciliacao_bancaria	data_movimento	date	2026-08-10 18:33:58.123645-03
+52	public	lancamento_parcela	id_lancamento	integer	2026-08-10 18:33:58.123645-03
+53	public	lancamento_parcela	numero_parcela	integer	2026-08-10 18:33:58.123645-03
+54	public	lancamento_parcela	total_parcelas	integer	2026-08-10 18:33:58.123645-03
+55	public	lancamento_parcela	data_vencimento	date	2026-08-10 18:33:58.123645-03
+56	public	lancamento_parcela	valor_parcela	numeric	2026-08-10 18:33:58.123645-03
+57	public	produto_turistico	codigo	character varying	2026-08-10 18:33:58.123645-03
+58	public	produto_turistico	nome	character varying	2026-08-10 18:33:58.123645-03
+59	public	produto_turistico	tipo_produto	character varying	2026-08-10 18:33:58.123645-03
+60	public	pacote_viagem	id_produto	integer	2026-08-10 18:33:58.123645-03
+61	public	reserva	codigo_reserva	character varying	2026-08-10 18:33:58.123645-03
+62	public	reserva	id_cliente	integer	2026-08-10 18:33:58.123645-03
+63	public	reserva	id_pacote	integer	2026-08-10 18:33:58.123645-03
+64	public	reserva	data_reserva	date	2026-08-10 18:33:58.123645-03
+65	public	passageiro	id_reserva	integer	2026-08-10 18:33:58.123645-03
+66	public	passageiro	nome	character varying	2026-08-10 18:33:58.123645-03
+67	public	comissao	id_reserva	integer	2026-08-10 18:33:58.123645-03
+68	public	venda	numero_venda	character varying	2026-08-10 18:33:58.123645-03
+69	public	venda	id_cliente	integer	2026-08-10 18:33:58.123645-03
+70	public	venda	data_venda	date	2026-08-10 18:33:58.123645-03
+71	public	item_venda	id_venda	integer	2026-08-10 18:33:58.123645-03
+72	public	item_venda	id_produto	integer	2026-08-10 18:33:58.123645-03
+73	public	nota_fiscal	id_empresa	integer	2026-08-10 18:33:58.123645-03
+74	public	nota_fiscal	data_emissao	date	2026-08-10 18:33:58.123645-03
+75	public	nota_fiscal	competencia	date	2026-08-10 18:33:58.123645-03
+76	public	simples_nacional	id_empresa	integer	2026-08-10 18:33:58.123645-03
+77	public	simples_nacional	ano	integer	2026-08-10 18:33:58.123645-03
+78	public	das	id_empresa	integer	2026-08-10 18:33:58.123645-03
+79	public	das	competencia	date	2026-08-10 18:33:58.123645-03
+80	public	distribuicao_lucros	id_empresa	integer	2026-08-10 18:33:58.123645-03
+81	public	aporte_capital	id_empresa	integer	2026-08-10 18:33:58.123645-03
+82	public	pro_labore	id_empresa	integer	2026-08-10 18:33:58.123645-03
+83	public	declaracao_fiscal	id_empresa	integer	2026-08-10 18:33:58.123645-03
+84	public	declaracao_fiscal	tipo_declaracao	character varying	2026-08-10 18:33:58.123645-03
+85	public	lancamento_financeiro	id_empresa	integer	2026-08-10 18:33:58.123645-03
+86	public	lancamento_financeiro	tipo_lancamento	character varying	2026-08-10 18:33:58.123645-03
+87	public	lancamento_financeiro	descricao	character varying	2026-08-10 18:33:58.123645-03
+88	public	lancamento_financeiro	data_lancamento	date	2026-08-10 18:33:58.123645-03
+89	public	lancamento_financeiro	data_competencia	date	2026-08-10 18:33:58.123645-03
+90	public	lancamento_financeiro	valor	numeric	2026-08-10 18:33:58.123645-03
+91	public	perfil_acesso	codigo	character varying	2026-08-10 18:33:58.123645-03
+92	public	perfil_acesso	descricao	character varying	2026-08-10 18:33:58.123645-03
+93	public	usuario_perfil	id_usuario	integer	2026-08-10 18:33:58.123645-03
+94	public	usuario_perfil	id_perfil	integer	2026-08-10 18:33:58.123645-03
+95	public	log_auditoria	tabela_nome	character varying	2026-08-10 18:33:58.123645-03
+96	public	log_auditoria	acao	character varying	2026-08-10 18:33:58.123645-03
+97	public	integracao_woocommerce	id_empresa	integer	2026-08-10 18:33:58.123645-03
+98	public	pagamento_transacao	id_venda	integer	2026-08-10 18:33:58.123645-03
+99	public	gateway_pagamento	codigo	character varying	2026-08-10 18:33:58.123645-03
+100	public	openfinance_conexao	id_empresa	integer	2026-08-10 18:33:58.123645-03
+101	public	integracao_nfse	id_nota_fiscal	integer	2026-08-10 18:33:58.123645-03
+102	public	permissao	codigo	character varying	2026-08-10 18:33:58.123645-03
+103	public	permissao	descricao	character varying	2026-08-10 18:33:58.123645-03
+104	public	roteiro_viagem	id_pacote	integer	2026-08-10 18:33:58.123645-03
+105	public	roteiro_viagem	id_destino	integer	2026-08-10 18:33:58.123645-03
+106	public	guia_turistico	nome	character varying	2026-08-10 18:33:58.123645-03
+107	public	fornecedor_turistico	id_fornecedor	integer	2026-08-10 18:33:58.123645-03
+108	public	hospedagem	id_fornecedor_turistico	integer	2026-08-10 18:33:58.123645-03
+109	public	destino	codigo	character varying	2026-08-10 18:33:58.123645-03
+110	public	destino	nome	character varying	2026-08-10 18:33:58.123645-03
+111	public	destino	id_localidade	integer	2026-08-10 18:33:58.123645-03
+112	public	checklist_viagem	id_pacote	integer	2026-08-10 18:33:58.123645-03
+113	public	custo_pacote	id_pacote	integer	2026-08-10 18:33:58.123645-03
+114	public	origem_lead	codigo	character varying	2026-08-10 18:33:58.123645-03
+115	public	origem_lead	descricao	character varying	2026-08-10 18:33:58.123645-03
+116	public	lead	nome	character varying	2026-08-10 18:33:58.123645-03
+117	public	funil_vendas	id_lead	integer	2026-08-10 18:33:58.123645-03
+118	public	interacao_lead	id_lead	integer	2026-08-10 18:33:58.123645-03
+119	public	avaliacao_pos_viagem	id_reserva	integer	2026-08-10 18:33:58.123645-03
+120	public	colaborador	id_pessoa	integer	2026-08-10 18:33:58.123645-03
+121	public	cargo	codigo	character varying	2026-08-10 18:33:58.123645-03
+122	public	cargo	descricao	character varying	2026-08-10 18:33:58.123645-03
+123	public	comissao_colaborador	id_venda	integer	2026-08-10 18:33:58.123645-03
+124	public	tarefa	titulo	character varying	2026-08-10 18:33:58.123645-03
+125	public	horas_atividade	id_colaborador	integer	2026-08-10 18:33:58.123645-03
+126	public	categoria_ativo	codigo	character varying	2026-08-10 18:33:58.123645-03
+127	public	categoria_ativo	descricao	character varying	2026-08-10 18:33:58.123645-03
+128	public	ativo_imobilizado	codigo_patrimonio	character varying	2026-08-10 18:33:58.123645-03
+129	public	ativo_imobilizado	id_categoria_ativo	integer	2026-08-10 18:33:58.123645-03
+130	public	ativo_imobilizado	descricao	character varying	2026-08-10 18:33:58.123645-03
+131	public	depreciacao	id_ativo	integer	2026-08-10 18:33:58.123645-03
+132	public	depreciacao	competencia	date	2026-08-10 18:33:58.123645-03
+133	public	parceiro_comercial	nome	character varying	2026-08-10 18:33:58.123645-03
+134	public	manutencao_ativo	id_ativo	integer	2026-08-10 18:33:58.123645-03
+135	public	movimentacao_ativo	id_ativo	integer	2026-08-10 18:33:58.123645-03
+136	public	pedido_compra	id_fornecedor	integer	2026-08-10 18:33:58.123645-03
+137	public	item_requisicao	id_requisicao	integer	2026-08-10 18:33:58.123645-03
+138	public	item_requisicao	id_produto_estoque	integer	2026-08-10 18:33:58.123645-03
+139	public	produto_estoque	codigo	character varying	2026-08-10 18:33:58.123645-03
+140	public	produto_estoque	descricao	character varying	2026-08-10 18:33:58.123645-03
+141	public	item_pedido_compra	id_pedido	integer	2026-08-10 18:33:58.123645-03
+142	public	item_pedido_compra	id_produto_estoque	integer	2026-08-10 18:33:58.123645-03
+143	public	estoque	id_produto_estoque	integer	2026-08-10 18:33:58.123645-03
+144	public	movimento_estoque	id_produto_estoque	integer	2026-08-10 18:33:58.123645-03
+145	public	contrato	id_documento	integer	2026-08-10 18:33:58.123645-03
+146	public	item_inventario	id_inventario	integer	2026-08-10 18:33:58.123645-03
+147	public	item_inventario	id_produto_estoque	integer	2026-08-10 18:33:58.123645-03
+148	public	tipo_documento	codigo	character varying	2026-08-10 18:33:58.123645-03
+149	public	tipo_documento	descricao	character varying	2026-08-10 18:33:58.123645-03
+150	public	documento	id_tipo_documento	integer	2026-08-10 18:33:58.123645-03
+151	public	arquivo_digital	id_documento	integer	2026-08-10 18:33:58.123645-03
+152	public	assinatura_digital	id_documento	integer	2026-08-10 18:33:58.123645-03
+153	public	controle_vencimento_documento	id_documento	integer	2026-08-10 18:33:58.123645-03
+154	public	historico_documento	id_documento	integer	2026-08-10 18:33:58.123645-03
+155	public	projeto	codigo	character varying	2026-08-10 18:33:58.123645-03
+156	public	projeto	nome	character varying	2026-08-10 18:33:58.123645-03
+157	public	etapa_projeto	id_projeto	integer	2026-08-10 18:33:58.123645-03
+158	public	tarefa_projeto	id_etapa	integer	2026-08-10 18:33:58.123645-03
+159	public	responsavel_projeto	id_projeto	integer	2026-08-10 18:33:58.123645-03
+160	public	custo_projeto	id_projeto	integer	2026-08-10 18:33:58.123645-03
+161	public	risco_projeto	id_projeto	integer	2026-08-10 18:33:58.123645-03
+162	public	anexo_projeto	id_projeto	integer	2026-08-10 18:33:58.123645-03
+163	public	configuracao_empresa	id_empresa	integer	2026-08-10 18:33:58.123645-03
+164	public	aplicacao_api	codigo	character varying	2026-08-10 18:33:58.123645-03
+165	public	aplicacao_api	nome	character varying	2026-08-10 18:33:58.123645-03
+166	public	token_acesso	id_aplicacao	integer	2026-08-10 18:33:58.123645-03
+167	public	token_acesso	token_hash	text	2026-08-10 18:33:58.123645-03
+168	public	chave_api	id_aplicacao	integer	2026-08-10 18:33:58.123645-03
+169	public	chave_api	api_key_hash	text	2026-08-10 18:33:58.123645-03
+170	public	rate_limit_api	id_aplicacao	integer	2026-08-10 18:33:58.123645-03
+171	dw	dim_tempo	data	date	2026-08-10 18:33:58.123645-03
+172	public	sistema_externo	codigo	character varying	2026-08-10 18:33:58.123645-03
+173	public	sistema_externo	nome	character varying	2026-08-10 18:33:58.123645-03
+174	public	sistema_externo	tipo_sistema	character varying	2026-08-10 18:33:58.123645-03
+175	public	conector_integracao	id_sistema_externo	integer	2026-08-10 18:33:58.123645-03
+176	public	conector_integracao	codigo	character varying	2026-08-10 18:33:58.123645-03
+177	public	conector_integracao	nome	character varying	2026-08-10 18:33:58.123645-03
+266	financeiro	grupo	descricao	character varying	2026-08-10 18:33:58.123645-03
+178	public	conector_integracao	tipo_integracao	character varying	2026-08-10 18:33:58.123645-03
+179	public	modelo_ml	codigo	character varying	2026-08-10 18:33:58.123645-03
+180	public	modelo_ml	nome	character varying	2026-08-10 18:33:58.123645-03
+181	public	mapeamento_campo_integracao	id_conector	integer	2026-08-10 18:33:58.123645-03
+182	public	mapeamento_campo_integracao	entidade_interna	character varying	2026-08-10 18:33:58.123645-03
+183	public	mapeamento_campo_integracao	campo_interno	character varying	2026-08-10 18:33:58.123645-03
+184	public	mapeamento_campo_integracao	campo_externo	character varying	2026-08-10 18:33:58.123645-03
+185	public	sincronizacao_integracao	id_conector	integer	2026-08-10 18:33:58.123645-03
+186	public	sincronizacao_integracao	tipo_operacao	character varying	2026-08-10 18:33:58.123645-03
+187	public	fila_integracao	id_conector	integer	2026-08-10 18:33:58.123645-03
+188	public	fila_integracao	tipo_evento	character varying	2026-08-10 18:33:58.123645-03
+189	public	fila_integracao	payload	jsonb	2026-08-10 18:33:58.123645-03
+190	public	log_integracao_detalhado	id_conector	integer	2026-08-10 18:33:58.123645-03
+191	public	log_integracao_detalhado	tipo_operacao	character varying	2026-08-10 18:33:58.123645-03
+192	public	status_integracao	id_conector	integer	2026-08-10 18:33:58.123645-03
+193	public	fato_financeiro	data_movimento	date	2026-08-10 18:33:58.123645-03
+194	public	dim_data	data	date	2026-08-10 18:33:58.123645-03
+195	financeiro	forma_pagamento	descricao	character varying	2026-08-10 18:33:58.123645-03
+196	public	kpi_turismo	codigo	character varying	2026-08-10 18:33:58.123645-03
+197	public	kpi_turismo	nome	character varying	2026-08-10 18:33:58.123645-03
+198	public	rentabilidade_produto	periodo	date	2026-08-10 18:33:58.123645-03
+199	financeiro	lancamento_parcela	id_lancamento	bigint	2026-08-10 18:33:58.123645-03
+200	financeiro	lancamento_parcela	numero_parcela	integer	2026-08-10 18:33:58.123645-03
+201	financeiro	lancamento_parcela	vencimento	date	2026-08-10 18:33:58.123645-03
+202	financeiro	lancamento_parcela	valor	numeric	2026-08-10 18:33:58.123645-03
+203	public	pessoa	tipo_pessoa	character varying	2026-08-10 18:33:58.123645-03
+204	public	pessoa	nome_razao_social	character varying	2026-08-10 18:33:58.123645-03
+205	public	pessoa	id_localidade	integer	2026-08-10 18:33:58.123645-03
+206	public	localidade	id_localidade	integer	2026-08-10 18:33:58.123645-03
+207	public	localidade	cidade	character varying	2026-08-10 18:33:58.123645-03
+208	public	empresa	razao_social	character varying	2026-08-10 18:33:58.123645-03
+209	public	empresa	nome_fantasia	character varying	2026-08-10 18:33:58.123645-03
+210	public	empresa	id_localidade	integer	2026-08-10 18:33:58.123645-03
+211	financeiro	empresa	razao_social	character varying	2026-08-10 18:33:58.123645-03
+212	public	status_parcela	id_status_parcela	integer	2026-08-10 18:33:58.123645-03
+213	public	status_parcela	codigo	character varying	2026-08-10 18:33:58.123645-03
+214	public	status_parcela	descricao	character varying	2026-08-10 18:33:58.123645-03
+215	auditoria	execucao	id_execucao	bigint	2026-08-10 18:33:58.123645-03
+216	auditoria	execucao	versao_banco	character varying	2026-08-10 18:33:58.123645-03
+217	auditoria	execucao	versao_script	character varying	2026-08-10 18:33:58.123645-03
+218	auditoria	execucao	schema_auditado	character varying	2026-08-10 18:33:58.123645-03
+219	auditoria	execucao	usuario_execucao	character varying	2026-08-10 18:33:58.123645-03
+220	auditoria	categoria	id_categoria	smallint	2026-08-10 18:33:58.123645-03
+221	auditoria	categoria	codigo	character varying	2026-08-10 18:33:58.123645-03
+222	auditoria	categoria	descricao	character varying	2026-08-10 18:33:58.123645-03
+223	auditoria	categoria	peso	numeric	2026-08-10 18:33:58.123645-03
+224	auditoria	resultado	id_resultado	bigint	2026-08-10 18:33:58.123645-03
+225	auditoria	resultado	id_execucao	bigint	2026-08-10 18:33:58.123645-03
+226	auditoria	resultado	id_item	bigint	2026-08-10 18:33:58.123645-03
+227	auditoria	resultado	status	character varying	2026-08-10 18:33:58.123645-03
+228	auditoria	score	id_score	bigint	2026-08-10 18:33:58.123645-03
+229	auditoria	score	id_execucao	bigint	2026-08-10 18:33:58.123645-03
+230	auditoria	recomendacao	id_recomendacao	bigint	2026-08-10 18:33:58.123645-03
+231	auditoria	recomendacao	id_execucao	bigint	2026-08-10 18:33:58.123645-03
+232	auditoria	recomendacao	prioridade	character varying	2026-08-10 18:33:58.123645-03
+233	auditoria	recomendacao	descricao	text	2026-08-10 18:33:58.123645-03
+234	auditoria	log	id_log	bigint	2026-08-10 18:33:58.123645-03
+235	auditoria	configuracao	id_configuracao	smallint	2026-08-10 18:33:58.123645-03
+236	auditoria	configuracao	chave	character varying	2026-08-10 18:33:58.123645-03
+237	auditoria	item	id_item	bigint	2026-08-10 18:33:58.123645-03
+238	auditoria	item	id_categoria	smallint	2026-08-10 18:33:58.123645-03
+239	auditoria	item	codigo	character varying	2026-08-10 18:33:58.123645-03
+240	auditoria	item	descricao	character varying	2026-08-10 18:33:58.123645-03
+241	auditoria	item	criticidade	character varying	2026-08-10 18:33:58.123645-03
+242	auditoria	script	id_script	bigint	2026-08-10 18:33:58.123645-03
+243	auditoria	script	codigo	character varying	2026-08-10 18:33:58.123645-03
+244	auditoria	script	descricao	character varying	2026-08-10 18:33:58.123645-03
+245	auditoria	script	procedure_name	character varying	2026-08-10 18:33:58.123645-03
+246	auditoria	script	ordem_execucao	integer	2026-08-10 18:33:58.123645-03
+247	config	versao_banco	versao	character varying	2026-08-10 18:33:58.123645-03
+248	auditoria	catalogo_schema	id_schema	bigint	2026-08-10 18:33:58.123645-03
+249	auditoria	catalogo_tabela	id_tabela	bigint	2026-08-10 18:33:58.123645-03
+250	auditoria	catalogo_coluna	id_coluna	bigint	2026-08-10 18:33:58.123645-03
+251	config	parametro	chave	character varying	2026-08-10 18:33:58.123645-03
+252	auditoria	core	codigo	character varying	2026-08-10 18:33:58.123645-03
+253	auditoria	core	nome	character varying	2026-08-10 18:33:58.123645-03
+254	auditoria	executor	codigo	character varying	2026-08-10 18:33:58.123645-03
+255	auditoria	executor	nome	character varying	2026-08-10 18:33:58.123645-03
+256	auditoria	executor	procedure_execucao	character varying	2026-08-10 18:33:58.123645-03
+257	auditoria	regra	id_regra	bigint	2026-08-10 18:33:58.123645-03
+258	financeiro	anexo	id_lancamento	bigint	2026-08-10 18:33:58.123645-03
+259	financeiro	categoria	id_grupo	integer	2026-08-10 18:33:58.123645-03
+260	financeiro	categoria	codigo	character varying	2026-08-10 18:33:58.123645-03
+261	financeiro	categoria	descricao	character varying	2026-08-10 18:33:58.123645-03
+262	financeiro	conta	id_classificacao	integer	2026-08-10 18:33:58.123645-03
+263	financeiro	conta	codigo	character varying	2026-08-10 18:33:58.123645-03
+264	financeiro	conta	descricao	character varying	2026-08-10 18:33:58.123645-03
+265	financeiro	grupo	codigo	character varying	2026-08-10 18:33:58.123645-03
+267	financeiro	grupo	natureza	character	2026-08-10 18:33:58.123645-03
+268	financeiro	movimentacao_bancaria	id_conta_bancaria	integer	2026-08-10 18:33:58.123645-03
+269	financeiro	movimentacao_bancaria	id_tipo_movimentacao	smallint	2026-08-10 18:33:58.123645-03
+270	financeiro	pagamento	id_parcela	bigint	2026-08-10 18:33:58.123645-03
+271	financeiro	pagamento	id_conta_bancaria	integer	2026-08-10 18:33:58.123645-03
+272	financeiro	pagamento	id_forma_pagamento	integer	2026-08-10 18:33:58.123645-03
+273	financeiro	pagamento	data_pagamento	date	2026-08-10 18:33:58.123645-03
+274	financeiro	pagamento	valor	numeric	2026-08-10 18:33:58.123645-03
+275	financeiro	rateio_centro_custo	id_lancamento	bigint	2026-08-10 18:33:58.123645-03
+276	financeiro	rateio_centro_custo	id_centro_custo	integer	2026-08-10 18:33:58.123645-03
+277	financeiro	subcategoria	id_categoria	integer	2026-08-10 18:33:58.123645-03
+278	financeiro	subcategoria	codigo	character varying	2026-08-10 18:33:58.123645-03
+279	financeiro	subcategoria	descricao	character varying	2026-08-10 18:33:58.123645-03
+280	financeiro	tipo_lancamento	codigo	character varying	2026-08-10 18:33:58.123645-03
+281	financeiro	tipo_lancamento	descricao	character varying	2026-08-10 18:33:58.123645-03
+282	financeiro	tipo_lancamento	natureza	character	2026-08-10 18:33:58.123645-03
+283	public	parametro_sistema	codigo	character varying	2026-08-10 18:33:58.123645-03
+284	public	politica_acesso	codigo	character varying	2026-08-10 18:33:58.123645-03
+285	public	data_mart_execucao	processo	character varying	2026-08-10 18:33:58.123645-03
+286	public	fato_vendas	data_venda	date	2026-08-10 18:33:58.123645-03
+287	public	workflow	codigo	character varying	2026-08-10 18:33:58.123645-03
+288	public	workflow	nome	character varying	2026-08-10 18:33:58.123645-03
+289	public	workflow	modulo	character varying	2026-08-10 18:33:58.123645-03
+290	auditoria	execucao_correcao	id_execucao	bigint	2026-08-10 18:33:58.123645-03
+291	auditoria	execucao_correcao	script	character varying	2026-08-10 18:33:58.123645-03
+292	auditoria	execucao_correcao	etapa	character varying	2026-08-10 18:33:58.123645-03
+293	auditoria	inventario_tabelas	id_inventario	bigint	2026-08-10 18:33:58.123645-03
+294	auditoria	inventario_tabelas	schema_name	character varying	2026-08-10 18:33:58.123645-03
+295	auditoria	inventario_tabelas	table_name	character varying	2026-08-10 18:33:58.123645-03
+296	auditoria	tabelas_sem_pk	id	bigint	2026-08-10 18:33:58.123645-03
+297	auditoria	tabelas_sem_pk	schema_name	character varying	2026-08-10 18:33:58.123645-03
+298	auditoria	tabelas_sem_pk	table_name	character varying	2026-08-10 18:33:58.123645-03
+299	auditoria	tabelas_sem_indices	id	bigint	2026-08-10 18:33:58.123645-03
+300	auditoria	tabelas_sem_indices	schema_name	character varying	2026-08-10 18:33:58.123645-03
+301	auditoria	tabelas_sem_indices	table_name	character varying	2026-08-10 18:33:58.123645-03
+302	auditoria	colunas_sem_comentario	id	bigint	2026-08-10 18:33:58.123645-03
+303	auditoria	colunas_sem_comentario	schema_name	character varying	2026-08-10 18:33:58.123645-03
+304	auditoria	colunas_sem_comentario	table_name	character varying	2026-08-10 18:33:58.123645-03
+305	auditoria	colunas_sem_comentario	column_name	character varying	2026-08-10 18:33:58.123645-03
+306	auditoria	colunas_sem_comentario	data_type	character varying	2026-08-10 18:33:58.123645-03
+307	auditoria	colunas_not_null_sem_default	id	bigint	2026-08-10 18:33:58.123645-03
+308	auditoria	colunas_not_null_sem_default	schema_name	character varying	2026-08-10 18:33:58.123645-03
+309	auditoria	colunas_not_null_sem_default	table_name	character varying	2026-08-10 18:33:58.123645-03
+310	auditoria	colunas_not_null_sem_default	column_name	character varying	2026-08-10 18:33:58.123645-03
+311	auditoria	colunas_not_null_sem_default	data_type	character varying	2026-08-10 18:33:58.123645-03
+\.
+
+
+--
+-- TOC entry 8335 (class 0 OID 42738)
+-- Dependencies: 651
+-- Data for Name: colunas_sem_comentario; Type: TABLE DATA; Schema: auditoria; Owner: postgres
+--
+
+COPY auditoria.colunas_sem_comentario (id, schema_name, table_name, column_name, data_type, detectado_em) FROM stdin;
+1	financeiro	centro_custo	id_centro_custo	integer	2026-08-10 18:33:58.123645-03
+2	financeiro	centro_custo	codigo	character varying	2026-08-10 18:33:58.123645-03
+3	financeiro	centro_custo	descricao	character varying	2026-08-10 18:33:58.123645-03
+4	financeiro	centro_custo	ativo	boolean	2026-08-10 18:33:58.123645-03
+5	financeiro	usuario	id_usuario	integer	2026-08-10 18:33:58.123645-03
+6	financeiro	usuario	nome	character varying	2026-08-10 18:33:58.123645-03
+7	financeiro	usuario	email	character varying	2026-08-10 18:33:58.123645-03
+8	financeiro	usuario	senha_hash	text	2026-08-10 18:33:58.123645-03
+9	financeiro	usuario	administrador	boolean	2026-08-10 18:33:58.123645-03
+10	financeiro	usuario	ativo	boolean	2026-08-10 18:33:58.123645-03
+11	financeiro	usuario	data_cadastro	timestamp without time zone	2026-08-10 18:33:58.123645-03
+12	financeiro	usuario	ultimo_login	timestamp without time zone	2026-08-10 18:33:58.123645-03
+13	financeiro	cliente	id_cliente	integer	2026-08-10 18:33:58.123645-03
+14	financeiro	cliente	nome	character varying	2026-08-10 18:33:58.123645-03
+15	financeiro	cliente	cpf_cnpj	character varying	2026-08-10 18:33:58.123645-03
+16	financeiro	cliente	telefone	character varying	2026-08-10 18:33:58.123645-03
+17	financeiro	cliente	email	character varying	2026-08-10 18:33:58.123645-03
+18	financeiro	cliente	cidade	character varying	2026-08-10 18:33:58.123645-03
+19	financeiro	cliente	uf	character	2026-08-10 18:33:58.123645-03
+20	financeiro	cliente	ativo	boolean	2026-08-10 18:33:58.123645-03
+21	financeiro	cliente	id_pessoa	integer	2026-08-10 18:33:58.123645-03
+22	financeiro	banco	id_banco	integer	2026-08-10 18:33:58.123645-03
+23	financeiro	banco	codigo_banco	character varying	2026-08-10 18:33:58.123645-03
+24	financeiro	banco	nome	character varying	2026-08-10 18:33:58.123645-03
+25	financeiro	banco	ativo	boolean	2026-08-10 18:33:58.123645-03
+26	financeiro	fornecedor	id_fornecedor	integer	2026-08-10 18:33:58.123645-03
+27	financeiro	fornecedor	nome	character varying	2026-08-10 18:33:58.123645-03
+28	financeiro	fornecedor	cpf_cnpj	character varying	2026-08-10 18:33:58.123645-03
+29	financeiro	fornecedor	telefone	character varying	2026-08-10 18:33:58.123645-03
+30	financeiro	fornecedor	email	character varying	2026-08-10 18:33:58.123645-03
+31	financeiro	fornecedor	cidade	character varying	2026-08-10 18:33:58.123645-03
+32	financeiro	fornecedor	uf	character	2026-08-10 18:33:58.123645-03
+33	financeiro	fornecedor	ativo	boolean	2026-08-10 18:33:58.123645-03
+34	financeiro	conta_bancaria	id_conta_bancaria	integer	2026-08-10 18:33:58.123645-03
+35	financeiro	conta_bancaria	id_banco	integer	2026-08-10 18:33:58.123645-03
+36	financeiro	conta_bancaria	agencia	character varying	2026-08-10 18:33:58.123645-03
+37	financeiro	conta_bancaria	conta	character varying	2026-08-10 18:33:58.123645-03
+38	financeiro	conta_bancaria	digito	character varying	2026-08-10 18:33:58.123645-03
+39	financeiro	conta_bancaria	tipo	character varying	2026-08-10 18:33:58.123645-03
+40	financeiro	conta_bancaria	pix	character varying	2026-08-10 18:33:58.123645-03
+41	financeiro	conta_bancaria	saldo_inicial	numeric	2026-08-10 18:33:58.123645-03
+42	financeiro	conta_bancaria	ativo	boolean	2026-08-10 18:33:58.123645-03
+43	financeiro	tipo_documento	id_tipo_documento	smallint	2026-08-10 18:33:58.123645-03
+44	financeiro	tipo_documento	codigo	character varying	2026-08-10 18:33:58.123645-03
+45	financeiro	tipo_documento	descricao	character varying	2026-08-10 18:33:58.123645-03
+46	financeiro	tipo_documento	ativo	boolean	2026-08-10 18:33:58.123645-03
+47	financeiro	conciliacao_bancaria	id_conciliacao	bigint	2026-08-10 18:33:58.123645-03
+48	financeiro	conciliacao_bancaria	id_movimento	bigint	2026-08-10 18:33:58.123645-03
+49	financeiro	conciliacao_bancaria	data_conciliacao	date	2026-08-10 18:33:58.123645-03
+50	financeiro	conciliacao_bancaria	conciliado	boolean	2026-08-10 18:33:58.123645-03
+51	financeiro	conciliacao_bancaria	observacao	text	2026-08-10 18:33:58.123645-03
+52	financeiro	historico_lancamento	id_historico	bigint	2026-08-10 18:33:58.123645-03
+53	financeiro	historico_lancamento	id_lancamento	bigint	2026-08-10 18:33:58.123645-03
+54	financeiro	historico_lancamento	id_usuario	integer	2026-08-10 18:33:58.123645-03
+55	financeiro	historico_lancamento	operacao	character varying	2026-08-10 18:33:58.123645-03
+56	financeiro	historico_lancamento	antes	jsonb	2026-08-10 18:33:58.123645-03
+57	financeiro	historico_lancamento	depois	jsonb	2026-08-10 18:33:58.123645-03
+58	financeiro	historico_lancamento	data_hora	timestamp without time zone	2026-08-10 18:33:58.123645-03
+59	financeiro	historico_lancamento	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+60	financeiro	historico_lancamento	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+61	financeiro	historico_lancamento	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+62	financeiro	historico_lancamento	created_by	integer	2026-08-10 18:33:58.123645-03
+63	financeiro	historico_lancamento	updated_by	integer	2026-08-10 18:33:58.123645-03
+64	financeiro	historico_lancamento	deleted_by	integer	2026-08-10 18:33:58.123645-03
+65	financeiro	historico_lancamento	versao	integer	2026-08-10 18:33:58.123645-03
+66	financeiro	classificacao	id_classificacao	integer	2026-08-10 18:33:58.123645-03
+67	financeiro	classificacao	id_subcategoria	integer	2026-08-10 18:33:58.123645-03
+68	financeiro	classificacao	codigo	character varying	2026-08-10 18:33:58.123645-03
+69	financeiro	classificacao	descricao	character varying	2026-08-10 18:33:58.123645-03
+70	financeiro	classificacao	ativo	boolean	2026-08-10 18:33:58.123645-03
+71	financeiro	classificacao	deleted_by	integer	2026-08-10 18:33:58.123645-03
+72	financeiro	classificacao	versao	integer	2026-08-10 18:33:58.123645-03
+73	public	usuario	id_usuario	integer	2026-08-10 18:33:58.123645-03
+74	public	usuario	nome	character varying	2026-08-10 18:33:58.123645-03
+75	public	usuario	email	character varying	2026-08-10 18:33:58.123645-03
+76	public	usuario	senha_hash	character varying	2026-08-10 18:33:58.123645-03
+77	public	usuario	perfil	character varying	2026-08-10 18:33:58.123645-03
+78	public	usuario	ativo	boolean	2026-08-10 18:33:58.123645-03
+79	public	usuario	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+80	public	usuario	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+81	public	usuario	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+82	public	usuario	created_by	character varying	2026-08-10 18:33:58.123645-03
+83	public	usuario	updated_by	character varying	2026-08-10 18:33:58.123645-03
+84	public	usuario	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+85	public	usuario	versao	integer	2026-08-10 18:33:58.123645-03
+86	public	cliente	id_cliente	integer	2026-08-10 18:33:58.123645-03
+87	public	cliente	id_pessoa	integer	2026-08-10 18:33:58.123645-03
+88	public	cliente	codigo_cliente	character varying	2026-08-10 18:33:58.123645-03
+89	public	cliente	observacao	text	2026-08-10 18:33:58.123645-03
+90	public	cliente	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+91	public	cliente	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+92	public	cliente	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+93	public	cliente	created_by	character varying	2026-08-10 18:33:58.123645-03
+94	public	cliente	updated_by	character varying	2026-08-10 18:33:58.123645-03
+95	public	cliente	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+96	public	cliente	versao	integer	2026-08-10 18:33:58.123645-03
+97	public	fornecedor	id_fornecedor	integer	2026-08-10 18:33:58.123645-03
+98	public	fornecedor	id_pessoa	integer	2026-08-10 18:33:58.123645-03
+99	public	fornecedor	codigo_fornecedor	character varying	2026-08-10 18:33:58.123645-03
+100	public	fornecedor	tipo_fornecedor	character varying	2026-08-10 18:33:58.123645-03
+101	public	fornecedor	observacao	text	2026-08-10 18:33:58.123645-03
+102	public	fornecedor	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+103	public	fornecedor	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+104	public	fornecedor	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+105	public	fornecedor	created_by	character varying	2026-08-10 18:33:58.123645-03
+106	public	fornecedor	updated_by	character varying	2026-08-10 18:33:58.123645-03
+107	public	fornecedor	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+108	public	fornecedor	versao	integer	2026-08-10 18:33:58.123645-03
+109	financeiro	lancamento	id_lancamento	bigint	2026-08-10 18:33:58.123645-03
+110	financeiro	lancamento	numero	character varying	2026-08-10 18:33:58.123645-03
+111	financeiro	lancamento	id_empresa	integer	2026-08-10 18:33:58.123645-03
+112	financeiro	lancamento	id_tipo_lancamento	smallint	2026-08-10 18:33:58.123645-03
+113	financeiro	lancamento	id_status	smallint	2026-08-10 18:33:58.123645-03
+114	financeiro	lancamento	id_conta	integer	2026-08-10 18:33:58.123645-03
+115	financeiro	lancamento	id_cliente	integer	2026-08-10 18:33:58.123645-03
+116	financeiro	lancamento	id_fornecedor	integer	2026-08-10 18:33:58.123645-03
+117	financeiro	lancamento	id_conta_bancaria	integer	2026-08-10 18:33:58.123645-03
+118	financeiro	lancamento	id_forma_pagamento	integer	2026-08-10 18:33:58.123645-03
+119	financeiro	lancamento	id_tipo_documento	smallint	2026-08-10 18:33:58.123645-03
+120	financeiro	lancamento	competencia	date	2026-08-10 18:33:58.123645-03
+121	financeiro	lancamento	emissao	date	2026-08-10 18:33:58.123645-03
+122	financeiro	lancamento	vencimento	date	2026-08-10 18:33:58.123645-03
+123	financeiro	lancamento	pagamento	date	2026-08-10 18:33:58.123645-03
+124	financeiro	lancamento	documento	character varying	2026-08-10 18:33:58.123645-03
+125	financeiro	lancamento	descricao	character varying	2026-08-10 18:33:58.123645-03
+126	financeiro	lancamento	observacao	text	2026-08-10 18:33:58.123645-03
+127	financeiro	lancamento	valor_bruto	numeric	2026-08-10 18:33:58.123645-03
+128	financeiro	lancamento	desconto	numeric	2026-08-10 18:33:58.123645-03
+129	financeiro	lancamento	acrescimo	numeric	2026-08-10 18:33:58.123645-03
+130	financeiro	lancamento	juros	numeric	2026-08-10 18:33:58.123645-03
+131	financeiro	lancamento	multa	numeric	2026-08-10 18:33:58.123645-03
+132	financeiro	lancamento	valor_liquido	numeric	2026-08-10 18:33:58.123645-03
+133	financeiro	lancamento	valor_pago	numeric	2026-08-10 18:33:58.123645-03
+134	financeiro	lancamento	saldo	numeric	2026-08-10 18:33:58.123645-03
+135	financeiro	lancamento	ativo	boolean	2026-08-10 18:33:58.123645-03
+136	financeiro	lancamento	data_cadastro	timestamp without time zone	2026-08-10 18:33:58.123645-03
+137	financeiro	lancamento	data_alteracao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+138	financeiro	lancamento	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+139	financeiro	lancamento	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+140	financeiro	lancamento	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+141	financeiro	lancamento	created_by	integer	2026-08-10 18:33:58.123645-03
+142	financeiro	lancamento	updated_by	integer	2026-08-10 18:33:58.123645-03
+143	financeiro	lancamento	deleted_by	integer	2026-08-10 18:33:58.123645-03
+144	financeiro	lancamento	versao	integer	2026-08-10 18:33:58.123645-03
+145	public	plano_contas	id_conta	integer	2026-08-10 18:33:58.123645-03
+146	public	plano_contas	codigo	character varying	2026-08-10 18:33:58.123645-03
+147	public	plano_contas	nivel	integer	2026-08-10 18:33:58.123645-03
+148	public	plano_contas	descricao	character varying	2026-08-10 18:33:58.123645-03
+149	public	plano_contas	id_conta_pai	integer	2026-08-10 18:33:58.123645-03
+150	public	plano_contas	natureza	character varying	2026-08-10 18:33:58.123645-03
+151	public	plano_contas	tipo_conta	character varying	2026-08-10 18:33:58.123645-03
+152	public	plano_contas	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+153	public	plano_contas	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+154	public	plano_contas	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+155	public	plano_contas	created_by	character varying	2026-08-10 18:33:58.123645-03
+156	public	plano_contas	updated_by	character varying	2026-08-10 18:33:58.123645-03
+157	public	plano_contas	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+158	public	plano_contas	versao	integer	2026-08-10 18:33:58.123645-03
+159	public	grupo_conta	id_grupo	integer	2026-08-10 18:33:58.123645-03
+160	public	grupo_conta	codigo	character varying	2026-08-10 18:33:58.123645-03
+161	public	grupo_conta	descricao	character varying	2026-08-10 18:33:58.123645-03
+162	public	grupo_conta	natureza	character varying	2026-08-10 18:33:58.123645-03
+163	public	grupo_conta	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+164	public	grupo_conta	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+165	public	grupo_conta	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+166	public	grupo_conta	created_by	character varying	2026-08-10 18:33:58.123645-03
+167	public	grupo_conta	updated_by	character varying	2026-08-10 18:33:58.123645-03
+168	public	grupo_conta	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+169	public	grupo_conta	versao	integer	2026-08-10 18:33:58.123645-03
+170	public	categoria_conta	id_categoria	integer	2026-08-10 18:33:58.123645-03
+171	public	categoria_conta	id_grupo	integer	2026-08-10 18:33:58.123645-03
+172	public	categoria_conta	codigo	character varying	2026-08-10 18:33:58.123645-03
+173	public	categoria_conta	descricao	character varying	2026-08-10 18:33:58.123645-03
+174	public	categoria_conta	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+175	public	categoria_conta	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+176	public	categoria_conta	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+177	public	categoria_conta	created_by	character varying	2026-08-10 18:33:58.123645-03
+178	public	categoria_conta	updated_by	character varying	2026-08-10 18:33:58.123645-03
+179	public	categoria_conta	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+180	public	categoria_conta	versao	integer	2026-08-10 18:33:58.123645-03
+181	public	subcategoria_conta	id_subcategoria	integer	2026-08-10 18:33:58.123645-03
+182	public	subcategoria_conta	id_categoria	integer	2026-08-10 18:33:58.123645-03
+183	public	subcategoria_conta	codigo	character varying	2026-08-10 18:33:58.123645-03
+184	public	subcategoria_conta	descricao	character varying	2026-08-10 18:33:58.123645-03
+185	public	subcategoria_conta	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+186	public	subcategoria_conta	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+187	public	subcategoria_conta	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+188	public	subcategoria_conta	created_by	character varying	2026-08-10 18:33:58.123645-03
+189	public	subcategoria_conta	updated_by	character varying	2026-08-10 18:33:58.123645-03
+190	public	subcategoria_conta	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+191	public	subcategoria_conta	versao	integer	2026-08-10 18:33:58.123645-03
+192	public	classificacao_dre	id_classificacao	integer	2026-08-10 18:33:58.123645-03
+193	public	classificacao_dre	codigo	character varying	2026-08-10 18:33:58.123645-03
+194	public	classificacao_dre	descricao	character varying	2026-08-10 18:33:58.123645-03
+195	public	classificacao_dre	grupo_dre	character varying	2026-08-10 18:33:58.123645-03
+196	public	classificacao_dre	ordem_exibicao	integer	2026-08-10 18:33:58.123645-03
+197	public	classificacao_dre	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+198	public	classificacao_dre	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+199	public	classificacao_dre	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+200	public	classificacao_dre	created_by	character varying	2026-08-10 18:33:58.123645-03
+201	public	classificacao_dre	updated_by	character varying	2026-08-10 18:33:58.123645-03
+202	public	classificacao_dre	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+203	public	classificacao_dre	versao	integer	2026-08-10 18:33:58.123645-03
+204	public	conta_bancaria	id_conta_bancaria	integer	2026-08-10 18:33:58.123645-03
+205	public	conta_bancaria	id_empresa	integer	2026-08-10 18:33:58.123645-03
+206	public	conta_bancaria	banco	character varying	2026-08-10 18:33:58.123645-03
+207	public	conta_bancaria	codigo_banco	character varying	2026-08-10 18:33:58.123645-03
+208	public	conta_bancaria	agencia	character varying	2026-08-10 18:33:58.123645-03
+209	public	conta_bancaria	numero_conta	character varying	2026-08-10 18:33:58.123645-03
+210	public	conta_bancaria	tipo_conta	character varying	2026-08-10 18:33:58.123645-03
+211	public	conta_bancaria	saldo_inicial	numeric	2026-08-10 18:33:58.123645-03
+212	public	conta_bancaria	saldo_atual	numeric	2026-08-10 18:33:58.123645-03
+213	public	conta_bancaria	ativo	boolean	2026-08-10 18:33:58.123645-03
+214	public	conta_bancaria	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+215	public	conta_bancaria	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+216	public	conta_bancaria	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+217	public	conta_bancaria	created_by	character varying	2026-08-10 18:33:58.123645-03
+218	public	conta_bancaria	updated_by	character varying	2026-08-10 18:33:58.123645-03
+219	public	conta_bancaria	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+220	public	conta_bancaria	versao	integer	2026-08-10 18:33:58.123645-03
+221	public	conta_bancaria	id_banco	integer	2026-08-10 18:33:58.123645-03
+222	public	banco	id_banco	integer	2026-08-10 18:33:58.123645-03
+223	public	banco	codigo_banco	character varying	2026-08-10 18:33:58.123645-03
+224	public	banco	nome_banco	character varying	2026-08-10 18:33:58.123645-03
+225	public	banco	agencia	character varying	2026-08-10 18:33:58.123645-03
+226	public	banco	conta	character varying	2026-08-10 18:33:58.123645-03
+227	public	banco	tipo_conta	character varying	2026-08-10 18:33:58.123645-03
+228	public	banco	saldo_inicial	numeric	2026-08-10 18:33:58.123645-03
+229	public	banco	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+230	public	banco	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+231	public	banco	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+232	public	banco	created_by	character varying	2026-08-10 18:33:58.123645-03
+233	public	banco	updated_by	character varying	2026-08-10 18:33:58.123645-03
+234	public	banco	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+235	public	banco	versao	integer	2026-08-10 18:33:58.123645-03
+236	public	forma_pagamento	id_forma_pagamento	integer	2026-08-10 18:33:58.123645-03
+237	public	forma_pagamento	codigo	character varying	2026-08-10 18:33:58.123645-03
+238	public	forma_pagamento	descricao	character varying	2026-08-10 18:33:58.123645-03
+239	public	forma_pagamento	tipo	character varying	2026-08-10 18:33:58.123645-03
+240	public	forma_pagamento	prazo_dias	integer	2026-08-10 18:33:58.123645-03
+241	public	forma_pagamento	ativo	boolean	2026-08-10 18:33:58.123645-03
+242	public	forma_pagamento	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+243	public	forma_pagamento	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+244	public	forma_pagamento	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+245	public	forma_pagamento	created_by	character varying	2026-08-10 18:33:58.123645-03
+246	public	forma_pagamento	updated_by	character varying	2026-08-10 18:33:58.123645-03
+247	public	forma_pagamento	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+248	public	forma_pagamento	versao	integer	2026-08-10 18:33:58.123645-03
+249	public	centro_custo	id_centro_custo	integer	2026-08-10 18:33:58.123645-03
+250	public	centro_custo	codigo	character varying	2026-08-10 18:33:58.123645-03
+251	public	centro_custo	descricao	character varying	2026-08-10 18:33:58.123645-03
+252	public	centro_custo	tipo	character varying	2026-08-10 18:33:58.123645-03
+253	public	centro_custo	ativo	boolean	2026-08-10 18:33:58.123645-03
+254	public	centro_custo	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+255	public	centro_custo	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+256	public	centro_custo	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+257	public	centro_custo	created_by	character varying	2026-08-10 18:33:58.123645-03
+258	public	centro_custo	updated_by	character varying	2026-08-10 18:33:58.123645-03
+259	public	centro_custo	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+260	public	centro_custo	versao	integer	2026-08-10 18:33:58.123645-03
+261	public	conciliacao_bancaria	id_conciliacao	integer	2026-08-10 18:33:58.123645-03
+262	public	conciliacao_bancaria	id_conta_bancaria	integer	2026-08-10 18:33:58.123645-03
+263	public	conciliacao_bancaria	data_movimento	date	2026-08-10 18:33:58.123645-03
+264	public	conciliacao_bancaria	descricao_banco	character varying	2026-08-10 18:33:58.123645-03
+265	public	conciliacao_bancaria	valor	numeric	2026-08-10 18:33:58.123645-03
+266	public	conciliacao_bancaria	conciliado	boolean	2026-08-10 18:33:58.123645-03
+267	public	conciliacao_bancaria	id_lancamento	integer	2026-08-10 18:33:58.123645-03
+268	public	conciliacao_bancaria	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+269	public	conciliacao_bancaria	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+270	public	conciliacao_bancaria	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+271	public	conciliacao_bancaria	created_by	character varying	2026-08-10 18:33:58.123645-03
+272	public	conciliacao_bancaria	updated_by	character varying	2026-08-10 18:33:58.123645-03
+273	public	conciliacao_bancaria	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+274	public	conciliacao_bancaria	versao	integer	2026-08-10 18:33:58.123645-03
+275	public	lancamento_parcela	id_parcela	integer	2026-08-10 18:33:58.123645-03
+276	public	lancamento_parcela	id_lancamento	integer	2026-08-10 18:33:58.123645-03
+277	public	lancamento_parcela	numero_parcela	integer	2026-08-10 18:33:58.123645-03
+278	public	lancamento_parcela	total_parcelas	integer	2026-08-10 18:33:58.123645-03
+279	public	lancamento_parcela	data_vencimento	date	2026-08-10 18:33:58.123645-03
+280	public	lancamento_parcela	data_pagamento	date	2026-08-10 18:33:58.123645-03
+281	public	lancamento_parcela	valor_parcela	numeric	2026-08-10 18:33:58.123645-03
+282	public	lancamento_parcela	status	character varying	2026-08-10 18:33:58.123645-03
+283	public	lancamento_parcela	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+284	public	lancamento_parcela	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+285	public	lancamento_parcela	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+286	public	lancamento_parcela	created_by	character varying	2026-08-10 18:33:58.123645-03
+287	public	lancamento_parcela	updated_by	character varying	2026-08-10 18:33:58.123645-03
+288	public	lancamento_parcela	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+289	public	lancamento_parcela	versao	integer	2026-08-10 18:33:58.123645-03
+290	public	lancamento_parcela	id_status_parcela	integer	2026-08-10 18:33:58.123645-03
+291	public	produto_turistico	id_produto	integer	2026-08-10 18:33:58.123645-03
+292	public	produto_turistico	codigo	character varying	2026-08-10 18:33:58.123645-03
+293	public	produto_turistico	nome	character varying	2026-08-10 18:33:58.123645-03
+294	public	produto_turistico	tipo_produto	character varying	2026-08-10 18:33:58.123645-03
+295	public	produto_turistico	descricao	text	2026-08-10 18:33:58.123645-03
+296	public	produto_turistico	duracao_dias	integer	2026-08-10 18:33:58.123645-03
+297	public	produto_turistico	destino	character varying	2026-08-10 18:33:58.123645-03
+298	public	produto_turistico	ativo	boolean	2026-08-10 18:33:58.123645-03
+299	public	produto_turistico	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+300	public	produto_turistico	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+301	public	produto_turistico	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+302	public	produto_turistico	created_by	character varying	2026-08-10 18:33:58.123645-03
+303	public	produto_turistico	updated_by	character varying	2026-08-10 18:33:58.123645-03
+304	public	produto_turistico	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+305	public	produto_turistico	versao	integer	2026-08-10 18:33:58.123645-03
+306	public	pacote_viagem	id_pacote	integer	2026-08-10 18:33:58.123645-03
+307	public	pacote_viagem	id_produto	integer	2026-08-10 18:33:58.123645-03
+308	public	pacote_viagem	codigo_pacote	character varying	2026-08-10 18:33:58.123645-03
+309	public	pacote_viagem	data_inicio	date	2026-08-10 18:33:58.123645-03
+310	public	pacote_viagem	data_fim	date	2026-08-10 18:33:58.123645-03
+311	public	pacote_viagem	quantidade_vagas	integer	2026-08-10 18:33:58.123645-03
+312	public	pacote_viagem	valor_venda	numeric	2026-08-10 18:33:58.123645-03
+313	public	pacote_viagem	custo_estimado	numeric	2026-08-10 18:33:58.123645-03
+314	public	pacote_viagem	status	character varying	2026-08-10 18:33:58.123645-03
+315	public	pacote_viagem	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+316	public	pacote_viagem	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+317	public	pacote_viagem	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+318	public	pacote_viagem	created_by	character varying	2026-08-10 18:33:58.123645-03
+319	public	pacote_viagem	updated_by	character varying	2026-08-10 18:33:58.123645-03
+320	public	pacote_viagem	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+321	public	pacote_viagem	versao	integer	2026-08-10 18:33:58.123645-03
+322	public	reserva	id_reserva	integer	2026-08-10 18:33:58.123645-03
+323	public	reserva	codigo_reserva	character varying	2026-08-10 18:33:58.123645-03
+324	public	reserva	id_cliente	integer	2026-08-10 18:33:58.123645-03
+325	public	reserva	id_pacote	integer	2026-08-10 18:33:58.123645-03
+326	public	reserva	data_reserva	date	2026-08-10 18:33:58.123645-03
+327	public	reserva	quantidade_passageiros	integer	2026-08-10 18:33:58.123645-03
+328	public	reserva	valor_total	numeric	2026-08-10 18:33:58.123645-03
+329	public	reserva	status	character varying	2026-08-10 18:33:58.123645-03
+330	public	reserva	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+331	public	reserva	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+332	public	reserva	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+333	public	reserva	created_by	character varying	2026-08-10 18:33:58.123645-03
+334	public	reserva	updated_by	character varying	2026-08-10 18:33:58.123645-03
+335	public	reserva	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+336	public	reserva	versao	integer	2026-08-10 18:33:58.123645-03
+337	public	passageiro	id_passageiro	integer	2026-08-10 18:33:58.123645-03
+338	public	passageiro	id_reserva	integer	2026-08-10 18:33:58.123645-03
+339	public	passageiro	nome	character varying	2026-08-10 18:33:58.123645-03
+340	public	passageiro	cpf	character varying	2026-08-10 18:33:58.123645-03
+341	public	passageiro	data_nascimento	date	2026-08-10 18:33:58.123645-03
+342	public	passageiro	documento	character varying	2026-08-10 18:33:58.123645-03
+343	public	passageiro	observacao	text	2026-08-10 18:33:58.123645-03
+344	public	passageiro	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+345	public	passageiro	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+346	public	passageiro	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+347	public	passageiro	created_by	character varying	2026-08-10 18:33:58.123645-03
+348	public	passageiro	updated_by	character varying	2026-08-10 18:33:58.123645-03
+349	public	passageiro	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+350	public	passageiro	versao	integer	2026-08-10 18:33:58.123645-03
+351	public	comissao	id_comissao	integer	2026-08-10 18:33:58.123645-03
+352	public	comissao	id_reserva	integer	2026-08-10 18:33:58.123645-03
+353	public	comissao	id_fornecedor	integer	2026-08-10 18:33:58.123645-03
+354	public	comissao	percentual	numeric	2026-08-10 18:33:58.123645-03
+355	public	comissao	valor_comissao	numeric	2026-08-10 18:33:58.123645-03
+356	public	comissao	status	character varying	2026-08-10 18:33:58.123645-03
+357	public	comissao	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+358	public	comissao	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+359	public	comissao	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+360	public	comissao	created_by	character varying	2026-08-10 18:33:58.123645-03
+361	public	comissao	updated_by	character varying	2026-08-10 18:33:58.123645-03
+362	public	comissao	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+363	public	comissao	versao	integer	2026-08-10 18:33:58.123645-03
+364	public	venda	id_venda	integer	2026-08-10 18:33:58.123645-03
+365	public	venda	numero_venda	character varying	2026-08-10 18:33:58.123645-03
+366	public	venda	id_cliente	integer	2026-08-10 18:33:58.123645-03
+367	public	venda	data_venda	date	2026-08-10 18:33:58.123645-03
+368	public	venda	valor_bruto	numeric	2026-08-10 18:33:58.123645-03
+369	public	venda	desconto	numeric	2026-08-10 18:33:58.123645-03
+370	public	venda	valor_liquido	numeric	2026-08-10 18:33:58.123645-03
+371	public	venda	status	character varying	2026-08-10 18:33:58.123645-03
+372	public	venda	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+373	public	venda	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+374	public	venda	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+375	public	venda	created_by	character varying	2026-08-10 18:33:58.123645-03
+376	public	venda	updated_by	character varying	2026-08-10 18:33:58.123645-03
+377	public	venda	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+378	public	venda	versao	integer	2026-08-10 18:33:58.123645-03
+379	public	item_venda	id_item	integer	2026-08-10 18:33:58.123645-03
+380	public	item_venda	id_venda	integer	2026-08-10 18:33:58.123645-03
+381	public	item_venda	id_produto	integer	2026-08-10 18:33:58.123645-03
+382	public	item_venda	quantidade	integer	2026-08-10 18:33:58.123645-03
+383	public	item_venda	valor_unitario	numeric	2026-08-10 18:33:58.123645-03
+384	public	item_venda	valor_total	numeric	2026-08-10 18:33:58.123645-03
+385	public	item_venda	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+386	public	item_venda	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+387	public	item_venda	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+388	public	item_venda	created_by	character varying	2026-08-10 18:33:58.123645-03
+389	public	item_venda	updated_by	character varying	2026-08-10 18:33:58.123645-03
+390	public	item_venda	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+391	public	item_venda	versao	integer	2026-08-10 18:33:58.123645-03
+392	public	nota_fiscal	id_nota_fiscal	integer	2026-08-10 18:33:58.123645-03
+393	public	nota_fiscal	id_empresa	integer	2026-08-10 18:33:58.123645-03
+394	public	nota_fiscal	id_cliente	integer	2026-08-10 18:33:58.123645-03
+395	public	nota_fiscal	numero_nf	character varying	2026-08-10 18:33:58.123645-03
+396	public	nota_fiscal	serie	character varying	2026-08-10 18:33:58.123645-03
+397	public	nota_fiscal	tipo_documento	character varying	2026-08-10 18:33:58.123645-03
+398	public	nota_fiscal	data_emissao	date	2026-08-10 18:33:58.123645-03
+399	public	nota_fiscal	competencia	date	2026-08-10 18:33:58.123645-03
+400	public	nota_fiscal	valor_servico	numeric	2026-08-10 18:33:58.123645-03
+401	public	nota_fiscal	base_calculo	numeric	2026-08-10 18:33:58.123645-03
+402	public	nota_fiscal	valor_iss	numeric	2026-08-10 18:33:58.123645-03
+403	public	nota_fiscal	status	character varying	2026-08-10 18:33:58.123645-03
+404	public	nota_fiscal	chave_acesso	character varying	2026-08-10 18:33:58.123645-03
+405	public	nota_fiscal	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+406	public	nota_fiscal	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+407	public	nota_fiscal	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+408	public	nota_fiscal	created_by	character varying	2026-08-10 18:33:58.123645-03
+409	public	nota_fiscal	updated_by	character varying	2026-08-10 18:33:58.123645-03
+410	public	nota_fiscal	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+411	public	nota_fiscal	versao	integer	2026-08-10 18:33:58.123645-03
+412	public	simples_nacional	id_simples	integer	2026-08-10 18:33:58.123645-03
+413	public	simples_nacional	id_empresa	integer	2026-08-10 18:33:58.123645-03
+414	public	simples_nacional	ano	integer	2026-08-10 18:33:58.123645-03
+415	public	simples_nacional	anexo	character varying	2026-08-10 18:33:58.123645-03
+416	public	simples_nacional	aliquota_efetiva	numeric	2026-08-10 18:33:58.123645-03
+417	public	simples_nacional	faturamento_12_meses	numeric	2026-08-10 18:33:58.123645-03
+418	public	simples_nacional	faixa	integer	2026-08-10 18:33:58.123645-03
+419	public	simples_nacional	rbt12	numeric	2026-08-10 18:33:58.123645-03
+420	public	simples_nacional	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+421	public	simples_nacional	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+422	public	simples_nacional	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+423	public	simples_nacional	created_by	character varying	2026-08-10 18:33:58.123645-03
+424	public	simples_nacional	updated_by	character varying	2026-08-10 18:33:58.123645-03
+425	public	simples_nacional	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+426	public	simples_nacional	versao	integer	2026-08-10 18:33:58.123645-03
+427	public	das	id_das	integer	2026-08-10 18:33:58.123645-03
+428	public	das	id_empresa	integer	2026-08-10 18:33:58.123645-03
+429	public	das	competencia	date	2026-08-10 18:33:58.123645-03
+430	public	das	receita_bruta	numeric	2026-08-10 18:33:58.123645-03
+431	public	das	aliquota	numeric	2026-08-10 18:33:58.123645-03
+432	public	das	valor_das	numeric	2026-08-10 18:33:58.123645-03
+433	public	das	data_vencimento	date	2026-08-10 18:33:58.123645-03
+434	public	das	data_pagamento	date	2026-08-10 18:33:58.123645-03
+435	public	das	status	character varying	2026-08-10 18:33:58.123645-03
+436	public	das	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+437	public	das	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+438	public	das	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+439	public	das	created_by	character varying	2026-08-10 18:33:58.123645-03
+440	public	das	updated_by	character varying	2026-08-10 18:33:58.123645-03
+441	public	das	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+442	public	das	versao	integer	2026-08-10 18:33:58.123645-03
+443	public	distribuicao_lucros	id_distribuicao	integer	2026-08-10 18:33:58.123645-03
+444	public	distribuicao_lucros	id_empresa	integer	2026-08-10 18:33:58.123645-03
+445	public	distribuicao_lucros	data_distribuicao	date	2026-08-10 18:33:58.123645-03
+446	public	distribuicao_lucros	periodo	character varying	2026-08-10 18:33:58.123645-03
+447	public	distribuicao_lucros	valor	numeric	2026-08-10 18:33:58.123645-03
+448	public	distribuicao_lucros	socio	character varying	2026-08-10 18:33:58.123645-03
+449	public	distribuicao_lucros	observacao	text	2026-08-10 18:33:58.123645-03
+450	public	distribuicao_lucros	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+451	public	distribuicao_lucros	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+452	public	distribuicao_lucros	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+453	public	distribuicao_lucros	created_by	character varying	2026-08-10 18:33:58.123645-03
+454	public	distribuicao_lucros	updated_by	character varying	2026-08-10 18:33:58.123645-03
+455	public	distribuicao_lucros	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+456	public	distribuicao_lucros	versao	integer	2026-08-10 18:33:58.123645-03
+457	public	aporte_capital	id_aporte	integer	2026-08-10 18:33:58.123645-03
+458	public	aporte_capital	id_empresa	integer	2026-08-10 18:33:58.123645-03
+459	public	aporte_capital	data_aporte	date	2026-08-10 18:33:58.123645-03
+460	public	aporte_capital	valor	numeric	2026-08-10 18:33:58.123645-03
+461	public	aporte_capital	tipo	character varying	2026-08-10 18:33:58.123645-03
+462	public	aporte_capital	descricao	character varying	2026-08-10 18:33:58.123645-03
+463	public	aporte_capital	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+464	public	aporte_capital	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+465	public	aporte_capital	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+466	public	aporte_capital	created_by	character varying	2026-08-10 18:33:58.123645-03
+467	public	aporte_capital	updated_by	character varying	2026-08-10 18:33:58.123645-03
+468	public	aporte_capital	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+469	public	aporte_capital	versao	integer	2026-08-10 18:33:58.123645-03
+470	public	pro_labore	id_pro_labore	integer	2026-08-10 18:33:58.123645-03
+471	public	pro_labore	id_empresa	integer	2026-08-10 18:33:58.123645-03
+472	public	pro_labore	competencia	date	2026-08-10 18:33:58.123645-03
+473	public	pro_labore	socio	character varying	2026-08-10 18:33:58.123645-03
+474	public	pro_labore	valor_bruto	numeric	2026-08-10 18:33:58.123645-03
+475	public	pro_labore	inss	numeric	2026-08-10 18:33:58.123645-03
+476	public	pro_labore	irrf	numeric	2026-08-10 18:33:58.123645-03
+477	public	pro_labore	valor_liquido	numeric	2026-08-10 18:33:58.123645-03
+478	public	pro_labore	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+479	public	pro_labore	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+480	public	pro_labore	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+481	public	pro_labore	created_by	character varying	2026-08-10 18:33:58.123645-03
+482	public	pro_labore	updated_by	character varying	2026-08-10 18:33:58.123645-03
+483	public	pro_labore	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+484	public	pro_labore	versao	integer	2026-08-10 18:33:58.123645-03
+485	public	declaracao_fiscal	id_declaracao	integer	2026-08-10 18:33:58.123645-03
+486	public	declaracao_fiscal	id_empresa	integer	2026-08-10 18:33:58.123645-03
+487	public	declaracao_fiscal	tipo_declaracao	character varying	2026-08-10 18:33:58.123645-03
+488	public	declaracao_fiscal	ano	integer	2026-08-10 18:33:58.123645-03
+489	public	declaracao_fiscal	periodo	character varying	2026-08-10 18:33:58.123645-03
+490	public	declaracao_fiscal	data_entrega	date	2026-08-10 18:33:58.123645-03
+491	public	declaracao_fiscal	status	character varying	2026-08-10 18:33:58.123645-03
+492	public	declaracao_fiscal	observacao	text	2026-08-10 18:33:58.123645-03
+493	public	declaracao_fiscal	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+494	public	declaracao_fiscal	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+495	public	declaracao_fiscal	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+496	public	declaracao_fiscal	created_by	character varying	2026-08-10 18:33:58.123645-03
+497	public	declaracao_fiscal	updated_by	character varying	2026-08-10 18:33:58.123645-03
+498	public	declaracao_fiscal	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+499	public	declaracao_fiscal	versao	integer	2026-08-10 18:33:58.123645-03
+500	public	lancamento_financeiro	id_lancamento	integer	2026-08-10 18:33:58.123645-03
+501	public	lancamento_financeiro	id_empresa	integer	2026-08-10 18:33:58.123645-03
+502	public	lancamento_financeiro	tipo_lancamento	character varying	2026-08-10 18:33:58.123645-03
+503	public	lancamento_financeiro	descricao	character varying	2026-08-10 18:33:58.123645-03
+504	public	lancamento_financeiro	data_lancamento	date	2026-08-10 18:33:58.123645-03
+505	public	lancamento_financeiro	data_competencia	date	2026-08-10 18:33:58.123645-03
+506	public	lancamento_financeiro	data_pagamento	date	2026-08-10 18:33:58.123645-03
+507	public	lancamento_financeiro	valor	numeric	2026-08-10 18:33:58.123645-03
+508	public	lancamento_financeiro	status	character varying	2026-08-10 18:33:58.123645-03
+509	public	lancamento_financeiro	id_pessoa	integer	2026-08-10 18:33:58.123645-03
+510	public	lancamento_financeiro	id_conta_bancaria	integer	2026-08-10 18:33:58.123645-03
+511	public	lancamento_financeiro	id_forma_pagamento	integer	2026-08-10 18:33:58.123645-03
+512	public	lancamento_financeiro	id_centro_custo	integer	2026-08-10 18:33:58.123645-03
+513	public	lancamento_financeiro	id_subcategoria	integer	2026-08-10 18:33:58.123645-03
+514	public	lancamento_financeiro	observacao	text	2026-08-10 18:33:58.123645-03
+515	public	lancamento_financeiro	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+516	public	lancamento_financeiro	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+517	public	lancamento_financeiro	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+518	public	lancamento_financeiro	created_by	character varying	2026-08-10 18:33:58.123645-03
+519	public	lancamento_financeiro	updated_by	character varying	2026-08-10 18:33:58.123645-03
+520	public	lancamento_financeiro	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+521	public	lancamento_financeiro	versao	integer	2026-08-10 18:33:58.123645-03
+522	public	lancamento_financeiro	id_conta_plano	integer	2026-08-10 18:33:58.123645-03
+523	public	lancamento_financeiro	id_grupo	integer	2026-08-10 18:33:58.123645-03
+524	public	lancamento_financeiro	id_categoria	integer	2026-08-10 18:33:58.123645-03
+525	public	perfil_acesso	id_perfil	integer	2026-08-10 18:33:58.123645-03
+526	public	perfil_acesso	codigo	character varying	2026-08-10 18:33:58.123645-03
+527	public	perfil_acesso	descricao	character varying	2026-08-10 18:33:58.123645-03
+528	public	perfil_acesso	ativo	boolean	2026-08-10 18:33:58.123645-03
+529	public	perfil_acesso	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+530	public	perfil_acesso	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+531	public	perfil_acesso	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+532	public	perfil_acesso	created_by	character varying	2026-08-10 18:33:58.123645-03
+533	public	perfil_acesso	updated_by	character varying	2026-08-10 18:33:58.123645-03
+534	public	perfil_acesso	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+535	public	perfil_acesso	versao	integer	2026-08-10 18:33:58.123645-03
+536	public	imposto	id_imposto	integer	2026-08-10 18:33:58.123645-03
+537	public	imposto	codigo	character varying	2026-08-10 18:33:58.123645-03
+538	public	imposto	descricao	character varying	2026-08-10 18:33:58.123645-03
+539	public	imposto	tipo	character varying	2026-08-10 18:33:58.123645-03
+540	public	imposto	aliquota	numeric	2026-08-10 18:33:58.123645-03
+541	public	imposto	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+542	public	imposto	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+543	public	imposto	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+544	public	imposto	created_by	character varying	2026-08-10 18:33:58.123645-03
+545	public	imposto	updated_by	character varying	2026-08-10 18:33:58.123645-03
+546	public	imposto	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+547	public	imposto	versao	integer	2026-08-10 18:33:58.123645-03
+548	public	usuario_perfil	id_usuario	integer	2026-08-10 18:33:58.123645-03
+549	public	usuario_perfil	id_perfil	integer	2026-08-10 18:33:58.123645-03
+550	public	usuario_perfil	data_inicio	date	2026-08-10 18:33:58.123645-03
+551	public	usuario_perfil	data_fim	date	2026-08-10 18:33:58.123645-03
+552	public	log_auditoria	id_log	integer	2026-08-10 18:33:58.123645-03
+553	public	log_auditoria	tabela_nome	character varying	2026-08-10 18:33:58.123645-03
+554	public	log_auditoria	registro_id	integer	2026-08-10 18:33:58.123645-03
+555	public	log_auditoria	acao	character varying	2026-08-10 18:33:58.123645-03
+556	public	log_auditoria	usuario	character varying	2026-08-10 18:33:58.123645-03
+557	public	log_auditoria	data_evento	timestamp without time zone	2026-08-10 18:33:58.123645-03
+558	public	log_auditoria	dados_antigos	jsonb	2026-08-10 18:33:58.123645-03
+559	public	log_auditoria	dados_novos	jsonb	2026-08-10 18:33:58.123645-03
+560	public	historico_alteracao	id_historico	integer	2026-08-10 18:33:58.123645-03
+561	public	historico_alteracao	tabela_nome	character varying	2026-08-10 18:33:58.123645-03
+562	public	historico_alteracao	registro_id	integer	2026-08-10 18:33:58.123645-03
+563	public	historico_alteracao	campo_alterado	character varying	2026-08-10 18:33:58.123645-03
+564	public	historico_alteracao	valor_anterior	text	2026-08-10 18:33:58.123645-03
+565	public	historico_alteracao	valor_novo	text	2026-08-10 18:33:58.123645-03
+566	public	historico_alteracao	usuario	character varying	2026-08-10 18:33:58.123645-03
+567	public	historico_alteracao	data_alteracao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+568	public	integracao_woocommerce	id_integracao	integer	2026-08-10 18:33:58.123645-03
+569	public	integracao_woocommerce	id_empresa	integer	2026-08-10 18:33:58.123645-03
+570	public	integracao_woocommerce	id_pedido_externo	character varying	2026-08-10 18:33:58.123645-03
+571	public	integracao_woocommerce	tipo_evento	character varying	2026-08-10 18:33:58.123645-03
+572	public	integracao_woocommerce	data_evento	timestamp without time zone	2026-08-10 18:33:58.123645-03
+573	public	integracao_woocommerce	status	character varying	2026-08-10 18:33:58.123645-03
+574	public	integracao_woocommerce	json_dados	jsonb	2026-08-10 18:33:58.123645-03
+575	public	integracao_woocommerce	sincronizado	boolean	2026-08-10 18:33:58.123645-03
+576	public	integracao_woocommerce	data_sincronizacao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+577	public	integracao_woocommerce	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+578	public	integracao_woocommerce	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+579	public	integracao_woocommerce	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+580	public	integracao_woocommerce	created_by	character varying	2026-08-10 18:33:58.123645-03
+581	public	integracao_woocommerce	updated_by	character varying	2026-08-10 18:33:58.123645-03
+582	public	integracao_woocommerce	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+583	public	integracao_woocommerce	versao	integer	2026-08-10 18:33:58.123645-03
+584	public	pagamento_transacao	id_transacao	integer	2026-08-10 18:33:58.123645-03
+585	public	pagamento_transacao	id_venda	integer	2026-08-10 18:33:58.123645-03
+586	public	pagamento_transacao	id_gateway	integer	2026-08-10 18:33:58.123645-03
+587	public	pagamento_transacao	codigo_transacao	character varying	2026-08-10 18:33:58.123645-03
+588	public	pagamento_transacao	valor	numeric	2026-08-10 18:33:58.123645-03
+589	public	pagamento_transacao	status	character varying	2026-08-10 18:33:58.123645-03
+590	public	pagamento_transacao	data_pagamento	timestamp without time zone	2026-08-10 18:33:58.123645-03
+591	public	pagamento_transacao	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+592	public	pagamento_transacao	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+593	public	pagamento_transacao	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+594	public	pagamento_transacao	created_by	character varying	2026-08-10 18:33:58.123645-03
+595	public	pagamento_transacao	updated_by	character varying	2026-08-10 18:33:58.123645-03
+596	public	pagamento_transacao	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+597	public	pagamento_transacao	versao	integer	2026-08-10 18:33:58.123645-03
+598	public	gateway_pagamento	id_gateway	integer	2026-08-10 18:33:58.123645-03
+599	public	gateway_pagamento	codigo	character varying	2026-08-10 18:33:58.123645-03
+600	public	gateway_pagamento	descricao	character varying	2026-08-10 18:33:58.123645-03
+601	public	gateway_pagamento	tipo	character varying	2026-08-10 18:33:58.123645-03
+602	public	gateway_pagamento	ativo	boolean	2026-08-10 18:33:58.123645-03
+603	public	gateway_pagamento	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+604	public	gateway_pagamento	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+605	public	gateway_pagamento	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+606	public	gateway_pagamento	created_by	character varying	2026-08-10 18:33:58.123645-03
+607	public	gateway_pagamento	updated_by	character varying	2026-08-10 18:33:58.123645-03
+608	public	gateway_pagamento	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+609	public	gateway_pagamento	versao	integer	2026-08-10 18:33:58.123645-03
+610	public	openfinance_conexao	id_conexao	integer	2026-08-10 18:33:58.123645-03
+611	public	openfinance_conexao	id_empresa	integer	2026-08-10 18:33:58.123645-03
+612	public	openfinance_conexao	instituicao	character varying	2026-08-10 18:33:58.123645-03
+613	public	openfinance_conexao	token_api	text	2026-08-10 18:33:58.123645-03
+614	public	openfinance_conexao	data_expiracao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+615	public	openfinance_conexao	status	character varying	2026-08-10 18:33:58.123645-03
+616	public	openfinance_conexao	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+617	public	openfinance_conexao	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+618	public	openfinance_conexao	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+619	public	openfinance_conexao	created_by	character varying	2026-08-10 18:33:58.123645-03
+620	public	openfinance_conexao	updated_by	character varying	2026-08-10 18:33:58.123645-03
+621	public	openfinance_conexao	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+622	public	openfinance_conexao	versao	integer	2026-08-10 18:33:58.123645-03
+623	public	openfinance_movimento	id_movimento	integer	2026-08-10 18:33:58.123645-03
+624	public	openfinance_movimento	id_conexao	integer	2026-08-10 18:33:58.123645-03
+625	public	openfinance_movimento	data_movimento	date	2026-08-10 18:33:58.123645-03
+626	public	openfinance_movimento	descricao	character varying	2026-08-10 18:33:58.123645-03
+627	public	openfinance_movimento	valor	numeric	2026-08-10 18:33:58.123645-03
+628	public	openfinance_movimento	tipo	character varying	2026-08-10 18:33:58.123645-03
+629	public	openfinance_movimento	conciliado	boolean	2026-08-10 18:33:58.123645-03
+630	public	openfinance_movimento	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+631	public	integracao_nfse	id_integracao	integer	2026-08-10 18:33:58.123645-03
+632	public	integracao_nfse	id_nota_fiscal	integer	2026-08-10 18:33:58.123645-03
+633	public	integracao_nfse	provedor	character varying	2026-08-10 18:33:58.123645-03
+634	public	integracao_nfse	codigo_retorno	character varying	2026-08-10 18:33:58.123645-03
+635	public	integracao_nfse	mensagem	text	2026-08-10 18:33:58.123645-03
+636	public	integracao_nfse	xml_envio	text	2026-08-10 18:33:58.123645-03
+637	public	integracao_nfse	xml_retorno	text	2026-08-10 18:33:58.123645-03
+638	public	integracao_nfse	status	character varying	2026-08-10 18:33:58.123645-03
+639	public	integracao_nfse	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+640	public	permissao	id_permissao	integer	2026-08-10 18:33:58.123645-03
+641	public	permissao	codigo	character varying	2026-08-10 18:33:58.123645-03
+642	public	permissao	descricao	character varying	2026-08-10 18:33:58.123645-03
+643	public	permissao	modulo	character varying	2026-08-10 18:33:58.123645-03
+644	public	permissao	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+645	public	permissao	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+646	public	permissao	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+647	public	permissao	created_by	character varying	2026-08-10 18:33:58.123645-03
+648	public	permissao	updated_by	character varying	2026-08-10 18:33:58.123645-03
+649	public	permissao	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+650	public	permissao	versao	integer	2026-08-10 18:33:58.123645-03
+651	public	importacao_dados	id_importacao	integer	2026-08-10 18:33:58.123645-03
+652	public	importacao_dados	tipo_importacao	character varying	2026-08-10 18:33:58.123645-03
+653	public	importacao_dados	nome_arquivo	character varying	2026-08-10 18:33:58.123645-03
+654	public	importacao_dados	quantidade_registros	integer	2026-08-10 18:33:58.123645-03
+655	public	importacao_dados	registros_processados	integer	2026-08-10 18:33:58.123645-03
+656	public	importacao_dados	registros_erro	integer	2026-08-10 18:33:58.123645-03
+657	public	importacao_dados	status	character varying	2026-08-10 18:33:58.123645-03
+658	public	importacao_dados	mensagem	text	2026-08-10 18:33:58.123645-03
+659	public	importacao_dados	data_importacao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+660	public	log_integracao	id_log	integer	2026-08-10 18:33:58.123645-03
+661	public	log_integracao	sistema	character varying	2026-08-10 18:33:58.123645-03
+662	public	log_integracao	endpoint	character varying	2026-08-10 18:33:58.123645-03
+663	public	log_integracao	metodo	character varying	2026-08-10 18:33:58.123645-03
+664	public	log_integracao	request	jsonb	2026-08-10 18:33:58.123645-03
+665	public	log_integracao	response	jsonb	2026-08-10 18:33:58.123645-03
+666	public	log_integracao	status_http	integer	2026-08-10 18:33:58.123645-03
+667	public	log_integracao	data_execucao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+668	public	roteiro_viagem	id_roteiro	integer	2026-08-10 18:33:58.123645-03
+669	public	roteiro_viagem	id_pacote	integer	2026-08-10 18:33:58.123645-03
+670	public	roteiro_viagem	id_destino	integer	2026-08-10 18:33:58.123645-03
+671	public	roteiro_viagem	titulo	character varying	2026-08-10 18:33:58.123645-03
+672	public	roteiro_viagem	descricao	text	2026-08-10 18:33:58.123645-03
+673	public	roteiro_viagem	dia_inicio	date	2026-08-10 18:33:58.123645-03
+674	public	roteiro_viagem	dia_fim	date	2026-08-10 18:33:58.123645-03
+675	public	roteiro_viagem	observacao	text	2026-08-10 18:33:58.123645-03
+676	public	roteiro_viagem	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+677	public	roteiro_viagem	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+678	public	roteiro_viagem	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+679	public	roteiro_viagem	created_by	character varying	2026-08-10 18:33:58.123645-03
+680	public	roteiro_viagem	updated_by	character varying	2026-08-10 18:33:58.123645-03
+681	public	roteiro_viagem	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+682	public	roteiro_viagem	versao	integer	2026-08-10 18:33:58.123645-03
+683	public	guia_turistico	id_guia	integer	2026-08-10 18:33:58.123645-03
+684	public	guia_turistico	nome	character varying	2026-08-10 18:33:58.123645-03
+685	public	guia_turistico	cadastur	character varying	2026-08-10 18:33:58.123645-03
+686	public	guia_turistico	telefone	character varying	2026-08-10 18:33:58.123645-03
+687	public	guia_turistico	email	character varying	2026-08-10 18:33:58.123645-03
+688	public	guia_turistico	valor_diaria	numeric	2026-08-10 18:33:58.123645-03
+689	public	guia_turistico	observacao	text	2026-08-10 18:33:58.123645-03
+690	public	guia_turistico	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+691	public	guia_turistico	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+692	public	guia_turistico	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+693	public	guia_turistico	created_by	character varying	2026-08-10 18:33:58.123645-03
+694	public	guia_turistico	updated_by	character varying	2026-08-10 18:33:58.123645-03
+695	public	guia_turistico	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+696	public	guia_turistico	versao	integer	2026-08-10 18:33:58.123645-03
+697	public	fornecedor_turistico	id_fornecedor_turistico	integer	2026-08-10 18:33:58.123645-03
+698	public	fornecedor_turistico	id_fornecedor	integer	2026-08-10 18:33:58.123645-03
+699	public	fornecedor_turistico	tipo_fornecedor	character varying	2026-08-10 18:33:58.123645-03
+700	public	fornecedor_turistico	categoria	character varying	2026-08-10 18:33:58.123645-03
+701	public	fornecedor_turistico	registro_turismo	character varying	2026-08-10 18:33:58.123645-03
+702	public	fornecedor_turistico	observacao	text	2026-08-10 18:33:58.123645-03
+703	public	fornecedor_turistico	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+704	public	fornecedor_turistico	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+705	public	fornecedor_turistico	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+706	public	fornecedor_turistico	created_by	character varying	2026-08-10 18:33:58.123645-03
+707	public	fornecedor_turistico	updated_by	character varying	2026-08-10 18:33:58.123645-03
+708	public	fornecedor_turistico	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+709	public	fornecedor_turistico	versao	integer	2026-08-10 18:33:58.123645-03
+710	public	hospedagem	id_hospedagem	integer	2026-08-10 18:33:58.123645-03
+711	public	hospedagem	id_fornecedor_turistico	integer	2026-08-10 18:33:58.123645-03
+712	public	hospedagem	nome	character varying	2026-08-10 18:33:58.123645-03
+713	public	hospedagem	categoria	character varying	2026-08-10 18:33:58.123645-03
+714	public	hospedagem	tipo_acomodacao	character varying	2026-08-10 18:33:58.123645-03
+715	public	hospedagem	quantidade_quartos	integer	2026-08-10 18:33:58.123645-03
+716	public	hospedagem	valor_diaria	numeric	2026-08-10 18:33:58.123645-03
+717	public	hospedagem	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+718	public	hospedagem	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+719	public	hospedagem	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+720	public	hospedagem	created_by	character varying	2026-08-10 18:33:58.123645-03
+721	public	hospedagem	updated_by	character varying	2026-08-10 18:33:58.123645-03
+722	public	hospedagem	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+723	public	hospedagem	versao	integer	2026-08-10 18:33:58.123645-03
+724	public	transporte	id_transporte	integer	2026-08-10 18:33:58.123645-03
+725	public	transporte	id_fornecedor_turistico	integer	2026-08-10 18:33:58.123645-03
+726	public	transporte	tipo_transporte	character varying	2026-08-10 18:33:58.123645-03
+727	public	transporte	empresa	character varying	2026-08-10 18:33:58.123645-03
+728	public	transporte	placa	character varying	2026-08-10 18:33:58.123645-03
+729	public	transporte	capacidade	integer	2026-08-10 18:33:58.123645-03
+730	public	transporte	valor_contratado	numeric	2026-08-10 18:33:58.123645-03
+731	public	transporte	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+732	public	transporte	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+733	public	transporte	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+734	public	transporte	created_by	character varying	2026-08-10 18:33:58.123645-03
+735	public	transporte	updated_by	character varying	2026-08-10 18:33:58.123645-03
+736	public	transporte	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+737	public	transporte	versao	integer	2026-08-10 18:33:58.123645-03
+738	public	destino	id_destino	integer	2026-08-10 18:33:58.123645-03
+739	public	destino	codigo	character varying	2026-08-10 18:33:58.123645-03
+740	public	destino	nome	character varying	2026-08-10 18:33:58.123645-03
+741	public	destino	descricao	text	2026-08-10 18:33:58.123645-03
+742	public	destino	ativo	boolean	2026-08-10 18:33:58.123645-03
+743	public	destino	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+744	public	destino	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+745	public	destino	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+746	public	destino	created_by	character varying	2026-08-10 18:33:58.123645-03
+747	public	destino	updated_by	character varying	2026-08-10 18:33:58.123645-03
+748	public	destino	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+749	public	destino	versao	integer	2026-08-10 18:33:58.123645-03
+750	public	destino	id_localidade	integer	2026-08-10 18:33:58.123645-03
+751	public	checklist_viagem	id_checklist	integer	2026-08-10 18:33:58.123645-03
+752	public	checklist_viagem	id_pacote	integer	2026-08-10 18:33:58.123645-03
+753	public	checklist_viagem	item	character varying	2026-08-10 18:33:58.123645-03
+754	public	checklist_viagem	responsavel	character varying	2026-08-10 18:33:58.123645-03
+755	public	checklist_viagem	status	character varying	2026-08-10 18:33:58.123645-03
+756	public	checklist_viagem	data_execucao	date	2026-08-10 18:33:58.123645-03
+757	public	checklist_viagem	observacao	text	2026-08-10 18:33:58.123645-03
+758	public	checklist_viagem	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+759	public	checklist_viagem	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+760	public	checklist_viagem	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+761	public	checklist_viagem	created_by	character varying	2026-08-10 18:33:58.123645-03
+762	public	checklist_viagem	updated_by	character varying	2026-08-10 18:33:58.123645-03
+763	public	checklist_viagem	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+764	public	checklist_viagem	versao	integer	2026-08-10 18:33:58.123645-03
+765	public	custo_pacote	id_custo	integer	2026-08-10 18:33:58.123645-03
+766	public	custo_pacote	id_pacote	integer	2026-08-10 18:33:58.123645-03
+767	public	custo_pacote	tipo_custo	character varying	2026-08-10 18:33:58.123645-03
+768	public	custo_pacote	descricao	character varying	2026-08-10 18:33:58.123645-03
+769	public	custo_pacote	quantidade	numeric	2026-08-10 18:33:58.123645-03
+770	public	custo_pacote	valor_unitario	numeric	2026-08-10 18:33:58.123645-03
+771	public	custo_pacote	valor_total	numeric	2026-08-10 18:33:58.123645-03
+772	public	custo_pacote	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+773	public	custo_pacote	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+774	public	custo_pacote	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+775	public	custo_pacote	created_by	character varying	2026-08-10 18:33:58.123645-03
+776	public	custo_pacote	updated_by	character varying	2026-08-10 18:33:58.123645-03
+777	public	custo_pacote	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+778	public	custo_pacote	versao	integer	2026-08-10 18:33:58.123645-03
+779	public	origem_lead	id_origem	integer	2026-08-10 18:33:58.123645-03
+780	public	origem_lead	codigo	character varying	2026-08-10 18:33:58.123645-03
+781	public	origem_lead	descricao	character varying	2026-08-10 18:33:58.123645-03
+782	public	origem_lead	tipo	character varying	2026-08-10 18:33:58.123645-03
+783	public	origem_lead	ativo	boolean	2026-08-10 18:33:58.123645-03
+784	public	origem_lead	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+785	public	origem_lead	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+786	public	origem_lead	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+787	public	origem_lead	created_by	character varying	2026-08-10 18:33:58.123645-03
+788	public	origem_lead	updated_by	character varying	2026-08-10 18:33:58.123645-03
+789	public	origem_lead	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+790	public	origem_lead	versao	integer	2026-08-10 18:33:58.123645-03
+791	public	lead	id_lead	integer	2026-08-10 18:33:58.123645-03
+792	public	lead	id_origem	integer	2026-08-10 18:33:58.123645-03
+793	public	lead	nome	character varying	2026-08-10 18:33:58.123645-03
+794	public	lead	email	character varying	2026-08-10 18:33:58.123645-03
+795	public	lead	telefone	character varying	2026-08-10 18:33:58.123645-03
+796	public	lead	cidade	character varying	2026-08-10 18:33:58.123645-03
+797	public	lead	interesse	character varying	2026-08-10 18:33:58.123645-03
+798	public	lead	valor_estimado	numeric	2026-08-10 18:33:58.123645-03
+799	public	lead	status	character varying	2026-08-10 18:33:58.123645-03
+800	public	lead	data_cadastro	date	2026-08-10 18:33:58.123645-03
+801	public	lead	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+802	public	lead	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+803	public	lead	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+804	public	lead	created_by	character varying	2026-08-10 18:33:58.123645-03
+805	public	lead	updated_by	character varying	2026-08-10 18:33:58.123645-03
+806	public	lead	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+807	public	lead	versao	integer	2026-08-10 18:33:58.123645-03
+808	public	contato_cliente	id_contato	integer	2026-08-10 18:33:58.123645-03
+809	public	contato_cliente	id_cliente	integer	2026-08-10 18:33:58.123645-03
+810	public	contato_cliente	tipo_contato	character varying	2026-08-10 18:33:58.123645-03
+811	public	contato_cliente	descricao	text	2026-08-10 18:33:58.123645-03
+812	public	contato_cliente	data_contato	timestamp without time zone	2026-08-10 18:33:58.123645-03
+813	public	contato_cliente	usuario	character varying	2026-08-10 18:33:58.123645-03
+814	public	contato_cliente	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+815	public	contato_cliente	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+816	public	contato_cliente	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+817	public	contato_cliente	created_by	character varying	2026-08-10 18:33:58.123645-03
+818	public	contato_cliente	updated_by	character varying	2026-08-10 18:33:58.123645-03
+819	public	contato_cliente	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+820	public	contato_cliente	versao	integer	2026-08-10 18:33:58.123645-03
+821	public	funil_vendas	id_funil	integer	2026-08-10 18:33:58.123645-03
+822	public	funil_vendas	id_lead	integer	2026-08-10 18:33:58.123645-03
+823	public	funil_vendas	etapa	character varying	2026-08-10 18:33:58.123645-03
+824	public	funil_vendas	probabilidade	numeric	2026-08-10 18:33:58.123645-03
+825	public	funil_vendas	valor_negociacao	numeric	2026-08-10 18:33:58.123645-03
+826	public	funil_vendas	data_movimento	date	2026-08-10 18:33:58.123645-03
+827	public	funil_vendas	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+828	public	funil_vendas	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+829	public	funil_vendas	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+830	public	funil_vendas	created_by	character varying	2026-08-10 18:33:58.123645-03
+831	public	funil_vendas	updated_by	character varying	2026-08-10 18:33:58.123645-03
+832	public	funil_vendas	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+833	public	funil_vendas	versao	integer	2026-08-10 18:33:58.123645-03
+834	public	interacao_lead	id_interacao	integer	2026-08-10 18:33:58.123645-03
+835	public	interacao_lead	id_lead	integer	2026-08-10 18:33:58.123645-03
+836	public	interacao_lead	tipo	character varying	2026-08-10 18:33:58.123645-03
+837	public	interacao_lead	descricao	text	2026-08-10 18:33:58.123645-03
+838	public	interacao_lead	data_interacao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+839	public	interacao_lead	responsavel	character varying	2026-08-10 18:33:58.123645-03
+840	public	interacao_lead	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+841	public	avaliacao_pos_viagem	id_avaliacao	integer	2026-08-10 18:33:58.123645-03
+842	public	avaliacao_pos_viagem	id_reserva	integer	2026-08-10 18:33:58.123645-03
+843	public	avaliacao_pos_viagem	nota	integer	2026-08-10 18:33:58.123645-03
+844	public	avaliacao_pos_viagem	comentario	text	2026-08-10 18:33:58.123645-03
+845	public	avaliacao_pos_viagem	recomendaria	boolean	2026-08-10 18:33:58.123645-03
+846	public	avaliacao_pos_viagem	data_avaliacao	date	2026-08-10 18:33:58.123645-03
+847	public	avaliacao_pos_viagem	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+848	public	campanha	id_campanha	integer	2026-08-10 18:33:58.123645-03
+849	public	campanha	codigo	character varying	2026-08-10 18:33:58.123645-03
+850	public	campanha	nome	character varying	2026-08-10 18:33:58.123645-03
+851	public	campanha	canal	character varying	2026-08-10 18:33:58.123645-03
+852	public	campanha	data_inicio	date	2026-08-10 18:33:58.123645-03
+853	public	campanha	data_fim	date	2026-08-10 18:33:58.123645-03
+854	public	campanha	orcamento	numeric	2026-08-10 18:33:58.123645-03
+855	public	campanha	investimento_real	numeric	2026-08-10 18:33:58.123645-03
+856	public	campanha	status	character varying	2026-08-10 18:33:58.123645-03
+857	public	campanha	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+858	public	campanha	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+859	public	campanha	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+860	public	campanha	created_by	character varying	2026-08-10 18:33:58.123645-03
+861	public	campanha	updated_by	character varying	2026-08-10 18:33:58.123645-03
+862	public	campanha	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+863	public	campanha	versao	integer	2026-08-10 18:33:58.123645-03
+864	public	colaborador	id_colaborador	integer	2026-08-10 18:33:58.123645-03
+865	public	colaborador	id_pessoa	integer	2026-08-10 18:33:58.123645-03
+866	public	colaborador	id_cargo	integer	2026-08-10 18:33:58.123645-03
+867	public	colaborador	data_admissao	date	2026-08-10 18:33:58.123645-03
+868	public	colaborador	tipo_vinculo	character varying	2026-08-10 18:33:58.123645-03
+869	public	colaborador	valor_base	numeric	2026-08-10 18:33:58.123645-03
+870	public	colaborador	status	character varying	2026-08-10 18:33:58.123645-03
+871	public	colaborador	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+872	public	colaborador	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+873	public	colaborador	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+874	public	colaborador	created_by	character varying	2026-08-10 18:33:58.123645-03
+875	public	colaborador	updated_by	character varying	2026-08-10 18:33:58.123645-03
+876	public	colaborador	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+877	public	colaborador	versao	integer	2026-08-10 18:33:58.123645-03
+878	public	cargo	id_cargo	integer	2026-08-10 18:33:58.123645-03
+879	public	cargo	codigo	character varying	2026-08-10 18:33:58.123645-03
+880	public	cargo	descricao	character varying	2026-08-10 18:33:58.123645-03
+881	public	cargo	tipo	character varying	2026-08-10 18:33:58.123645-03
+882	public	cargo	ativo	boolean	2026-08-10 18:33:58.123645-03
+883	public	cargo	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+884	public	cargo	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+885	public	cargo	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+886	public	cargo	created_by	character varying	2026-08-10 18:33:58.123645-03
+887	public	cargo	updated_by	character varying	2026-08-10 18:33:58.123645-03
+888	public	cargo	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+889	public	cargo	versao	integer	2026-08-10 18:33:58.123645-03
+890	public	comissao_colaborador	id_comissao	integer	2026-08-10 18:33:58.123645-03
+891	public	comissao_colaborador	id_colaborador	integer	2026-08-10 18:33:58.123645-03
+892	public	comissao_colaborador	id_venda	integer	2026-08-10 18:33:58.123645-03
+893	public	comissao_colaborador	percentual	numeric	2026-08-10 18:33:58.123645-03
+894	public	comissao_colaborador	valor	numeric	2026-08-10 18:33:58.123645-03
+895	public	comissao_colaborador	status	character varying	2026-08-10 18:33:58.123645-03
+896	public	comissao_colaborador	data_pagamento	date	2026-08-10 18:33:58.123645-03
+897	public	comissao_colaborador	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+898	public	comissao_colaborador	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+899	public	comissao_colaborador	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+900	public	comissao_colaborador	created_by	character varying	2026-08-10 18:33:58.123645-03
+901	public	comissao_colaborador	updated_by	character varying	2026-08-10 18:33:58.123645-03
+902	public	comissao_colaborador	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+903	public	comissao_colaborador	versao	integer	2026-08-10 18:33:58.123645-03
+904	public	agenda	id_agenda	integer	2026-08-10 18:33:58.123645-03
+905	public	agenda	id_colaborador	integer	2026-08-10 18:33:58.123645-03
+906	public	agenda	titulo	character varying	2026-08-10 18:33:58.123645-03
+907	public	agenda	descricao	text	2026-08-10 18:33:58.123645-03
+908	public	agenda	tipo_evento	character varying	2026-08-10 18:33:58.123645-03
+909	public	agenda	data_inicio	timestamp without time zone	2026-08-10 18:33:58.123645-03
+910	public	agenda	data_fim	timestamp without time zone	2026-08-10 18:33:58.123645-03
+911	public	agenda	status	character varying	2026-08-10 18:33:58.123645-03
+912	public	agenda	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+913	public	agenda	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+914	public	agenda	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+915	public	agenda	created_by	character varying	2026-08-10 18:33:58.123645-03
+916	public	agenda	updated_by	character varying	2026-08-10 18:33:58.123645-03
+917	public	agenda	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+918	public	agenda	versao	integer	2026-08-10 18:33:58.123645-03
+919	public	tarefa	id_tarefa	integer	2026-08-10 18:33:58.123645-03
+920	public	tarefa	titulo	character varying	2026-08-10 18:33:58.123645-03
+921	public	tarefa	descricao	text	2026-08-10 18:33:58.123645-03
+922	public	tarefa	responsavel	integer	2026-08-10 18:33:58.123645-03
+923	public	tarefa	prioridade	character varying	2026-08-10 18:33:58.123645-03
+924	public	tarefa	status	character varying	2026-08-10 18:33:58.123645-03
+925	public	tarefa	data_limite	date	2026-08-10 18:33:58.123645-03
+926	public	tarefa	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+927	public	tarefa	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+928	public	tarefa	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+929	public	tarefa	created_by	character varying	2026-08-10 18:33:58.123645-03
+930	public	tarefa	updated_by	character varying	2026-08-10 18:33:58.123645-03
+931	public	tarefa	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+932	public	tarefa	versao	integer	2026-08-10 18:33:58.123645-03
+933	public	horas_atividade	id_hora	integer	2026-08-10 18:33:58.123645-03
+934	public	horas_atividade	id_colaborador	integer	2026-08-10 18:33:58.123645-03
+935	public	horas_atividade	data_atividade	date	2026-08-10 18:33:58.123645-03
+936	public	horas_atividade	atividade	character varying	2026-08-10 18:33:58.123645-03
+937	public	horas_atividade	quantidade_horas	numeric	2026-08-10 18:33:58.123645-03
+938	public	horas_atividade	observacao	text	2026-08-10 18:33:58.123645-03
+939	public	horas_atividade	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+940	public	categoria_ativo	id_categoria_ativo	integer	2026-08-10 18:33:58.123645-03
+941	public	categoria_ativo	codigo	character varying	2026-08-10 18:33:58.123645-03
+942	public	categoria_ativo	descricao	character varying	2026-08-10 18:33:58.123645-03
+943	public	categoria_ativo	vida_util_anos	integer	2026-08-10 18:33:58.123645-03
+944	public	categoria_ativo	taxa_depreciacao	numeric	2026-08-10 18:33:58.123645-03
+945	public	categoria_ativo	ativo	boolean	2026-08-10 18:33:58.123645-03
+946	public	categoria_ativo	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+947	public	categoria_ativo	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+948	public	categoria_ativo	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+949	public	categoria_ativo	created_by	character varying	2026-08-10 18:33:58.123645-03
+950	public	categoria_ativo	updated_by	character varying	2026-08-10 18:33:58.123645-03
+951	public	categoria_ativo	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+952	public	categoria_ativo	versao	integer	2026-08-10 18:33:58.123645-03
+953	public	ativo_imobilizado	id_ativo	integer	2026-08-10 18:33:58.123645-03
+954	public	ativo_imobilizado	codigo_patrimonio	character varying	2026-08-10 18:33:58.123645-03
+955	public	ativo_imobilizado	id_categoria_ativo	integer	2026-08-10 18:33:58.123645-03
+956	public	ativo_imobilizado	descricao	character varying	2026-08-10 18:33:58.123645-03
+957	public	ativo_imobilizado	marca	character varying	2026-08-10 18:33:58.123645-03
+958	public	ativo_imobilizado	modelo	character varying	2026-08-10 18:33:58.123645-03
+959	public	ativo_imobilizado	numero_serie	character varying	2026-08-10 18:33:58.123645-03
+960	public	ativo_imobilizado	data_aquisicao	date	2026-08-10 18:33:58.123645-03
+961	public	ativo_imobilizado	valor_aquisicao	numeric	2026-08-10 18:33:58.123645-03
+962	public	ativo_imobilizado	valor_residual	numeric	2026-08-10 18:33:58.123645-03
+963	public	ativo_imobilizado	status	character varying	2026-08-10 18:33:58.123645-03
+964	public	ativo_imobilizado	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+965	public	ativo_imobilizado	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+966	public	ativo_imobilizado	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+967	public	ativo_imobilizado	created_by	character varying	2026-08-10 18:33:58.123645-03
+968	public	ativo_imobilizado	updated_by	character varying	2026-08-10 18:33:58.123645-03
+969	public	ativo_imobilizado	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+970	public	ativo_imobilizado	versao	integer	2026-08-10 18:33:58.123645-03
+971	public	depreciacao	id_depreciacao	integer	2026-08-10 18:33:58.123645-03
+972	public	depreciacao	id_ativo	integer	2026-08-10 18:33:58.123645-03
+973	public	depreciacao	competencia	date	2026-08-10 18:33:58.123645-03
+974	public	depreciacao	valor_depreciacao	numeric	2026-08-10 18:33:58.123645-03
+975	public	depreciacao	valor_contabil	numeric	2026-08-10 18:33:58.123645-03
+976	public	depreciacao	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+977	public	depreciacao	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+978	public	depreciacao	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+979	public	depreciacao	created_by	character varying	2026-08-10 18:33:58.123645-03
+980	public	depreciacao	updated_by	character varying	2026-08-10 18:33:58.123645-03
+981	public	depreciacao	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+982	public	depreciacao	versao	integer	2026-08-10 18:33:58.123645-03
+983	public	parceiro_comercial	id_parceiro	integer	2026-08-10 18:33:58.123645-03
+984	public	parceiro_comercial	nome	character varying	2026-08-10 18:33:58.123645-03
+985	public	parceiro_comercial	documento	character varying	2026-08-10 18:33:58.123645-03
+986	public	parceiro_comercial	telefone	character varying	2026-08-10 18:33:58.123645-03
+987	public	parceiro_comercial	email	character varying	2026-08-10 18:33:58.123645-03
+988	public	parceiro_comercial	percentual_comissao	numeric	2026-08-10 18:33:58.123645-03
+989	public	parceiro_comercial	ativo	boolean	2026-08-10 18:33:58.123645-03
+990	public	parceiro_comercial	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+991	public	parceiro_comercial	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+992	public	parceiro_comercial	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+993	public	parceiro_comercial	created_by	character varying	2026-08-10 18:33:58.123645-03
+994	public	parceiro_comercial	updated_by	character varying	2026-08-10 18:33:58.123645-03
+995	public	parceiro_comercial	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+996	public	parceiro_comercial	versao	integer	2026-08-10 18:33:58.123645-03
+997	public	manutencao_ativo	id_manutencao	integer	2026-08-10 18:33:58.123645-03
+998	public	manutencao_ativo	id_ativo	integer	2026-08-10 18:33:58.123645-03
+999	public	manutencao_ativo	data_manutencao	date	2026-08-10 18:33:58.123645-03
+1000	public	manutencao_ativo	tipo	character varying	2026-08-10 18:33:58.123645-03
+1001	public	manutencao_ativo	descricao	text	2026-08-10 18:33:58.123645-03
+1002	public	manutencao_ativo	valor	numeric	2026-08-10 18:33:58.123645-03
+1003	public	manutencao_ativo	fornecedor	character varying	2026-08-10 18:33:58.123645-03
+1004	public	manutencao_ativo	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1005	public	manutencao_ativo	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1006	public	manutencao_ativo	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1007	public	manutencao_ativo	created_by	character varying	2026-08-10 18:33:58.123645-03
+1008	public	manutencao_ativo	updated_by	character varying	2026-08-10 18:33:58.123645-03
+1009	public	manutencao_ativo	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+1010	public	manutencao_ativo	versao	integer	2026-08-10 18:33:58.123645-03
+1011	public	movimentacao_ativo	id_movimentacao	integer	2026-08-10 18:33:58.123645-03
+1012	public	movimentacao_ativo	id_ativo	integer	2026-08-10 18:33:58.123645-03
+1013	public	movimentacao_ativo	id_localizacao	integer	2026-08-10 18:33:58.123645-03
+1014	public	movimentacao_ativo	tipo_movimento	character varying	2026-08-10 18:33:58.123645-03
+1015	public	movimentacao_ativo	data_movimento	date	2026-08-10 18:33:58.123645-03
+1016	public	movimentacao_ativo	responsavel	character varying	2026-08-10 18:33:58.123645-03
+1017	public	movimentacao_ativo	observacao	text	2026-08-10 18:33:58.123645-03
+1018	public	movimentacao_ativo	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1019	public	localizacao_ativo	id_localizacao	integer	2026-08-10 18:33:58.123645-03
+1020	public	localizacao_ativo	codigo	character varying	2026-08-10 18:33:58.123645-03
+1021	public	localizacao_ativo	descricao	character varying	2026-08-10 18:33:58.123645-03
+1022	public	localizacao_ativo	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1023	public	localizacao_ativo	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1024	public	localizacao_ativo	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1025	public	localizacao_ativo	created_by	character varying	2026-08-10 18:33:58.123645-03
+1026	public	localizacao_ativo	updated_by	character varying	2026-08-10 18:33:58.123645-03
+1027	public	localizacao_ativo	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+1028	public	localizacao_ativo	versao	integer	2026-08-10 18:33:58.123645-03
+1029	public	pedido_compra	id_pedido	integer	2026-08-10 18:33:58.123645-03
+1030	public	pedido_compra	numero_pedido	character varying	2026-08-10 18:33:58.123645-03
+1031	public	pedido_compra	id_fornecedor	integer	2026-08-10 18:33:58.123645-03
+1032	public	pedido_compra	data_pedido	date	2026-08-10 18:33:58.123645-03
+1033	public	pedido_compra	valor_total	numeric	2026-08-10 18:33:58.123645-03
+1034	public	pedido_compra	status	character varying	2026-08-10 18:33:58.123645-03
+1035	public	pedido_compra	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1036	public	pedido_compra	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1037	public	pedido_compra	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1038	public	pedido_compra	created_by	character varying	2026-08-10 18:33:58.123645-03
+1039	public	pedido_compra	updated_by	character varying	2026-08-10 18:33:58.123645-03
+1040	public	pedido_compra	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+1041	public	pedido_compra	versao	integer	2026-08-10 18:33:58.123645-03
+1042	public	requisicao_compra	id_requisicao	integer	2026-08-10 18:33:58.123645-03
+1043	public	requisicao_compra	numero_requisicao	character varying	2026-08-10 18:33:58.123645-03
+1044	public	requisicao_compra	data_solicitacao	date	2026-08-10 18:33:58.123645-03
+1045	public	requisicao_compra	solicitante	character varying	2026-08-10 18:33:58.123645-03
+1046	public	requisicao_compra	status	character varying	2026-08-10 18:33:58.123645-03
+1047	public	requisicao_compra	observacao	text	2026-08-10 18:33:58.123645-03
+1048	public	requisicao_compra	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1049	public	requisicao_compra	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1050	public	requisicao_compra	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1051	public	requisicao_compra	created_by	character varying	2026-08-10 18:33:58.123645-03
+1052	public	requisicao_compra	updated_by	character varying	2026-08-10 18:33:58.123645-03
+1053	public	requisicao_compra	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+1054	public	requisicao_compra	versao	integer	2026-08-10 18:33:58.123645-03
+1055	public	item_requisicao	id_item	integer	2026-08-10 18:33:58.123645-03
+1056	public	item_requisicao	id_requisicao	integer	2026-08-10 18:33:58.123645-03
+1057	public	item_requisicao	id_produto_estoque	integer	2026-08-10 18:33:58.123645-03
+1058	public	item_requisicao	quantidade	numeric	2026-08-10 18:33:58.123645-03
+1059	public	item_requisicao	observacao	text	2026-08-10 18:33:58.123645-03
+1060	public	item_requisicao	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1061	public	produto_estoque	id_produto_estoque	integer	2026-08-10 18:33:58.123645-03
+1062	public	produto_estoque	codigo	character varying	2026-08-10 18:33:58.123645-03
+1063	public	produto_estoque	descricao	character varying	2026-08-10 18:33:58.123645-03
+1064	public	produto_estoque	categoria	character varying	2026-08-10 18:33:58.123645-03
+1065	public	produto_estoque	unidade_medida	character varying	2026-08-10 18:33:58.123645-03
+1066	public	produto_estoque	estoque_minimo	numeric	2026-08-10 18:33:58.123645-03
+1067	public	produto_estoque	ativo	boolean	2026-08-10 18:33:58.123645-03
+1068	public	produto_estoque	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1069	public	produto_estoque	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1070	public	produto_estoque	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1071	public	produto_estoque	created_by	character varying	2026-08-10 18:33:58.123645-03
+1072	public	produto_estoque	updated_by	character varying	2026-08-10 18:33:58.123645-03
+1073	public	produto_estoque	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+1074	public	produto_estoque	versao	integer	2026-08-10 18:33:58.123645-03
+1075	public	item_pedido_compra	id_item_pedido	integer	2026-08-10 18:33:58.123645-03
+1076	public	item_pedido_compra	id_pedido	integer	2026-08-10 18:33:58.123645-03
+1077	public	item_pedido_compra	id_produto_estoque	integer	2026-08-10 18:33:58.123645-03
+1078	public	item_pedido_compra	quantidade	numeric	2026-08-10 18:33:58.123645-03
+1079	public	item_pedido_compra	valor_unitario	numeric	2026-08-10 18:33:58.123645-03
+1080	public	item_pedido_compra	valor_total	numeric	2026-08-10 18:33:58.123645-03
+1081	public	item_pedido_compra	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1082	public	estoque	id_estoque	integer	2026-08-10 18:33:58.123645-03
+1083	public	estoque	id_produto_estoque	integer	2026-08-10 18:33:58.123645-03
+1084	public	estoque	quantidade_atual	numeric	2026-08-10 18:33:58.123645-03
+1085	public	estoque	localizacao	character varying	2026-08-10 18:33:58.123645-03
+1086	public	estoque	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1087	public	estoque	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1088	public	movimento_estoque	id_movimento	integer	2026-08-10 18:33:58.123645-03
+1089	public	movimento_estoque	id_produto_estoque	integer	2026-08-10 18:33:58.123645-03
+1090	public	movimento_estoque	tipo_movimento	character varying	2026-08-10 18:33:58.123645-03
+1091	public	movimento_estoque	quantidade	numeric	2026-08-10 18:33:58.123645-03
+1092	public	movimento_estoque	origem	character varying	2026-08-10 18:33:58.123645-03
+1093	public	movimento_estoque	data_movimento	date	2026-08-10 18:33:58.123645-03
+1094	public	movimento_estoque	observacao	text	2026-08-10 18:33:58.123645-03
+1095	public	movimento_estoque	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1096	public	contrato	id_contrato	integer	2026-08-10 18:33:58.123645-03
+1097	public	contrato	id_documento	integer	2026-08-10 18:33:58.123645-03
+1098	public	contrato	parte_contratante	character varying	2026-08-10 18:33:58.123645-03
+1099	public	contrato	parte_contratada	character varying	2026-08-10 18:33:58.123645-03
+1100	public	contrato	data_inicio	date	2026-08-10 18:33:58.123645-03
+1101	public	contrato	data_fim	date	2026-08-10 18:33:58.123645-03
+1102	public	contrato	valor_contrato	numeric	2026-08-10 18:33:58.123645-03
+1103	public	contrato	tipo_contrato	character varying	2026-08-10 18:33:58.123645-03
+1104	public	contrato	status	character varying	2026-08-10 18:33:58.123645-03
+1105	public	contrato	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1106	public	contrato	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1107	public	contrato	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1108	public	inventario	id_inventario	integer	2026-08-10 18:33:58.123645-03
+1109	public	inventario	data_inventario	date	2026-08-10 18:33:58.123645-03
+1110	public	inventario	responsavel	character varying	2026-08-10 18:33:58.123645-03
+1111	public	inventario	status	character varying	2026-08-10 18:33:58.123645-03
+1112	public	inventario	observacao	text	2026-08-10 18:33:58.123645-03
+1113	public	inventario	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1114	public	item_inventario	id_item	integer	2026-08-10 18:33:58.123645-03
+1115	public	item_inventario	id_inventario	integer	2026-08-10 18:33:58.123645-03
+1116	public	item_inventario	id_produto_estoque	integer	2026-08-10 18:33:58.123645-03
+1117	public	item_inventario	quantidade_sistema	numeric	2026-08-10 18:33:58.123645-03
+1118	public	item_inventario	quantidade_contada	numeric	2026-08-10 18:33:58.123645-03
+1119	public	item_inventario	diferenca	numeric	2026-08-10 18:33:58.123645-03
+1120	public	tipo_documento	id_tipo_documento	integer	2026-08-10 18:33:58.123645-03
+1121	public	tipo_documento	codigo	character varying	2026-08-10 18:33:58.123645-03
+1122	public	tipo_documento	descricao	character varying	2026-08-10 18:33:58.123645-03
+1123	public	tipo_documento	categoria	character varying	2026-08-10 18:33:58.123645-03
+1124	public	tipo_documento	prazo_validade_dias	integer	2026-08-10 18:33:58.123645-03
+1125	public	tipo_documento	ativo	boolean	2026-08-10 18:33:58.123645-03
+1126	public	tipo_documento	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1127	public	tipo_documento	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1128	public	tipo_documento	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1129	public	tipo_documento	created_by	character varying	2026-08-10 18:33:58.123645-03
+1130	public	tipo_documento	updated_by	character varying	2026-08-10 18:33:58.123645-03
+1131	public	tipo_documento	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+1132	public	tipo_documento	versao	integer	2026-08-10 18:33:58.123645-03
+1133	public	documento	id_documento	integer	2026-08-10 18:33:58.123645-03
+1134	public	documento	id_tipo_documento	integer	2026-08-10 18:33:58.123645-03
+1135	public	documento	descricao	character varying	2026-08-10 18:33:58.123645-03
+1136	public	documento	entidade_tipo	character varying	2026-08-10 18:33:58.123645-03
+1137	public	documento	entidade_id	integer	2026-08-10 18:33:58.123645-03
+1138	public	documento	data_documento	date	2026-08-10 18:33:58.123645-03
+1139	public	documento	data_validade	date	2026-08-10 18:33:58.123645-03
+1140	public	documento	status	character varying	2026-08-10 18:33:58.123645-03
+1141	public	documento	observacao	text	2026-08-10 18:33:58.123645-03
+1142	public	documento	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1143	public	documento	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1144	public	documento	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1145	public	documento	created_by	character varying	2026-08-10 18:33:58.123645-03
+1146	public	documento	updated_by	character varying	2026-08-10 18:33:58.123645-03
+1147	public	documento	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+1148	public	documento	versao	integer	2026-08-10 18:33:58.123645-03
+1149	public	arquivo_digital	id_arquivo	integer	2026-08-10 18:33:58.123645-03
+1150	public	arquivo_digital	id_documento	integer	2026-08-10 18:33:58.123645-03
+1151	public	arquivo_digital	nome_arquivo	character varying	2026-08-10 18:33:58.123645-03
+1152	public	arquivo_digital	extensao	character varying	2026-08-10 18:33:58.123645-03
+1153	public	arquivo_digital	caminho_arquivo	text	2026-08-10 18:33:58.123645-03
+1154	public	arquivo_digital	tamanho_bytes	bigint	2026-08-10 18:33:58.123645-03
+1155	public	arquivo_digital	hash_arquivo	character varying	2026-08-10 18:33:58.123645-03
+1156	public	arquivo_digital	versao_arquivo	integer	2026-08-10 18:33:58.123645-03
+1157	public	arquivo_digital	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1158	public	assinatura_digital	id_assinatura	integer	2026-08-10 18:33:58.123645-03
+1159	public	assinatura_digital	id_documento	integer	2026-08-10 18:33:58.123645-03
+1160	public	assinatura_digital	assinante	character varying	2026-08-10 18:33:58.123645-03
+1161	public	assinatura_digital	email	character varying	2026-08-10 18:33:58.123645-03
+1162	public	assinatura_digital	data_solicitacao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1163	public	assinatura_digital	data_assinatura	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1164	public	assinatura_digital	status	character varying	2026-08-10 18:33:58.123645-03
+1165	public	assinatura_digital	codigo_externo	character varying	2026-08-10 18:33:58.123645-03
+1166	public	assinatura_digital	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1167	public	controle_vencimento_documento	id_controle	integer	2026-08-10 18:33:58.123645-03
+1168	public	controle_vencimento_documento	id_documento	integer	2026-08-10 18:33:58.123645-03
+1169	public	controle_vencimento_documento	dias_alerta	integer	2026-08-10 18:33:58.123645-03
+1170	public	controle_vencimento_documento	alerta_enviado	boolean	2026-08-10 18:33:58.123645-03
+1171	public	controle_vencimento_documento	data_alerta	date	2026-08-10 18:33:58.123645-03
+1172	public	controle_vencimento_documento	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1173	public	historico_documento	id_historico	integer	2026-08-10 18:33:58.123645-03
+1174	public	historico_documento	id_documento	integer	2026-08-10 18:33:58.123645-03
+1175	public	historico_documento	acao	character varying	2026-08-10 18:33:58.123645-03
+1176	public	historico_documento	descricao	text	2026-08-10 18:33:58.123645-03
+1177	public	historico_documento	usuario	character varying	2026-08-10 18:33:58.123645-03
+1178	public	historico_documento	data_evento	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1179	public	projeto	id_projeto	integer	2026-08-10 18:33:58.123645-03
+1180	public	projeto	codigo	character varying	2026-08-10 18:33:58.123645-03
+1181	public	projeto	nome	character varying	2026-08-10 18:33:58.123645-03
+1182	public	projeto	descricao	text	2026-08-10 18:33:58.123645-03
+1183	public	projeto	tipo_projeto	character varying	2026-08-10 18:33:58.123645-03
+1184	public	projeto	data_inicio	date	2026-08-10 18:33:58.123645-03
+1185	public	projeto	data_fim_prevista	date	2026-08-10 18:33:58.123645-03
+1186	public	projeto	data_fim_real	date	2026-08-10 18:33:58.123645-03
+1187	public	projeto	status	character varying	2026-08-10 18:33:58.123645-03
+1188	public	projeto	orcamento	numeric	2026-08-10 18:33:58.123645-03
+1189	public	projeto	responsavel	character varying	2026-08-10 18:33:58.123645-03
+1190	public	projeto	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1191	public	projeto	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1192	public	projeto	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1193	public	projeto	created_by	character varying	2026-08-10 18:33:58.123645-03
+1194	public	projeto	updated_by	character varying	2026-08-10 18:33:58.123645-03
+1195	public	projeto	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+1196	public	projeto	versao	integer	2026-08-10 18:33:58.123645-03
+1197	public	etapa_projeto	id_etapa	integer	2026-08-10 18:33:58.123645-03
+1198	public	etapa_projeto	id_projeto	integer	2026-08-10 18:33:58.123645-03
+1199	public	etapa_projeto	ordem	integer	2026-08-10 18:33:58.123645-03
+1200	public	etapa_projeto	nome	character varying	2026-08-10 18:33:58.123645-03
+1201	public	etapa_projeto	descricao	text	2026-08-10 18:33:58.123645-03
+1202	public	etapa_projeto	status	character varying	2026-08-10 18:33:58.123645-03
+1203	public	etapa_projeto	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1204	public	etapa_projeto	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1205	public	etapa_projeto	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1206	public	tarefa_projeto	id_tarefa_projeto	integer	2026-08-10 18:33:58.123645-03
+1207	public	tarefa_projeto	id_etapa	integer	2026-08-10 18:33:58.123645-03
+1208	public	tarefa_projeto	titulo	character varying	2026-08-10 18:33:58.123645-03
+1209	public	tarefa_projeto	descricao	text	2026-08-10 18:33:58.123645-03
+1210	public	tarefa_projeto	prioridade	character varying	2026-08-10 18:33:58.123645-03
+1211	public	tarefa_projeto	responsavel	character varying	2026-08-10 18:33:58.123645-03
+1212	public	tarefa_projeto	data_inicio	date	2026-08-10 18:33:58.123645-03
+1213	public	tarefa_projeto	data_limite	date	2026-08-10 18:33:58.123645-03
+1214	public	tarefa_projeto	percentual_conclusao	integer	2026-08-10 18:33:58.123645-03
+1215	public	tarefa_projeto	status	character varying	2026-08-10 18:33:58.123645-03
+1216	public	tarefa_projeto	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1217	public	tarefa_projeto	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1218	public	tarefa_projeto	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1219	public	responsavel_projeto	id_responsavel	integer	2026-08-10 18:33:58.123645-03
+1220	public	responsavel_projeto	id_projeto	integer	2026-08-10 18:33:58.123645-03
+1221	public	responsavel_projeto	id_colaborador	integer	2026-08-10 18:33:58.123645-03
+1222	public	responsavel_projeto	papel	character varying	2026-08-10 18:33:58.123645-03
+1223	public	responsavel_projeto	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1224	public	custo_projeto	id_custo_projeto	integer	2026-08-10 18:33:58.123645-03
+1225	public	custo_projeto	id_projeto	integer	2026-08-10 18:33:58.123645-03
+1226	public	custo_projeto	descricao	character varying	2026-08-10 18:33:58.123645-03
+1227	public	custo_projeto	categoria	character varying	2026-08-10 18:33:58.123645-03
+1228	public	custo_projeto	valor_previsto	numeric	2026-08-10 18:33:58.123645-03
+1229	public	custo_projeto	valor_real	numeric	2026-08-10 18:33:58.123645-03
+1230	public	custo_projeto	data_lancamento	date	2026-08-10 18:33:58.123645-03
+1231	public	custo_projeto	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1232	public	risco_projeto	id_risco	integer	2026-08-10 18:33:58.123645-03
+1233	public	risco_projeto	id_projeto	integer	2026-08-10 18:33:58.123645-03
+1234	public	risco_projeto	descricao	text	2026-08-10 18:33:58.123645-03
+1235	public	risco_projeto	probabilidade	character varying	2026-08-10 18:33:58.123645-03
+1236	public	risco_projeto	impacto	character varying	2026-08-10 18:33:58.123645-03
+1237	public	risco_projeto	acao_mitigacao	text	2026-08-10 18:33:58.123645-03
+1238	public	risco_projeto	status	character varying	2026-08-10 18:33:58.123645-03
+1239	public	risco_projeto	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1240	public	anexo_projeto	id_anexo	integer	2026-08-10 18:33:58.123645-03
+1241	public	anexo_projeto	id_projeto	integer	2026-08-10 18:33:58.123645-03
+1242	public	anexo_projeto	nome_arquivo	character varying	2026-08-10 18:33:58.123645-03
+1243	public	anexo_projeto	caminho	text	2026-08-10 18:33:58.123645-03
+1244	public	anexo_projeto	tipo	character varying	2026-08-10 18:33:58.123645-03
+1245	public	anexo_projeto	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1246	public	sequencia_documento	id_sequencia	integer	2026-08-10 18:33:58.123645-03
+1247	public	sequencia_documento	tipo_documento	character varying	2026-08-10 18:33:58.123645-03
+1248	public	sequencia_documento	ano	integer	2026-08-10 18:33:58.123645-03
+1249	public	sequencia_documento	proximo_numero	integer	2026-08-10 18:33:58.123645-03
+1250	public	sequencia_documento	prefixo	character varying	2026-08-10 18:33:58.123645-03
+1251	public	sequencia_documento	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1252	public	sequencia_documento	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1253	public	configuracao_empresa	id_configuracao	integer	2026-08-10 18:33:58.123645-03
+1254	public	configuracao_empresa	id_empresa	integer	2026-08-10 18:33:58.123645-03
+1255	public	configuracao_empresa	nome_sistema	character varying	2026-08-10 18:33:58.123645-03
+1256	public	configuracao_empresa	logo	text	2026-08-10 18:33:58.123645-03
+1257	public	configuracao_empresa	email_padrao	character varying	2026-08-10 18:33:58.123645-03
+1258	public	configuracao_empresa	telefone_padrao	character varying	2026-08-10 18:33:58.123645-03
+1259	public	configuracao_empresa	site	character varying	2026-08-10 18:33:58.123645-03
+1260	public	configuracao_empresa	timezone	character varying	2026-08-10 18:33:58.123645-03
+1261	public	configuracao_empresa	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1262	public	configuracao_empresa	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1263	public	configuracao_empresa	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1264	public	notificacao	id_notificacao	integer	2026-08-10 18:33:58.123645-03
+1265	public	notificacao	id_usuario	integer	2026-08-10 18:33:58.123645-03
+1266	public	notificacao	titulo	character varying	2026-08-10 18:33:58.123645-03
+1267	public	notificacao	mensagem	text	2026-08-10 18:33:58.123645-03
+1268	public	notificacao	tipo	character varying	2026-08-10 18:33:58.123645-03
+1269	public	notificacao	lida	boolean	2026-08-10 18:33:58.123645-03
+1270	public	notificacao	data_envio	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1271	public	notificacao	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1272	public	email_sistema	id_email	integer	2026-08-10 18:33:58.123645-03
+1273	public	email_sistema	servidor_smtp	character varying	2026-08-10 18:33:58.123645-03
+1274	public	email_sistema	porta	integer	2026-08-10 18:33:58.123645-03
+1275	public	email_sistema	usuario	character varying	2026-08-10 18:33:58.123645-03
+1276	public	email_sistema	senha_criptografada	text	2026-08-10 18:33:58.123645-03
+1277	public	email_sistema	email_remetente	character varying	2026-08-10 18:33:58.123645-03
+1278	public	email_sistema	ativo	boolean	2026-08-10 18:33:58.123645-03
+1279	public	email_sistema	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1280	public	log_sistema	id_log	integer	2026-08-10 18:33:58.123645-03
+1281	public	log_sistema	nivel	character varying	2026-08-10 18:33:58.123645-03
+1282	public	log_sistema	modulo	character varying	2026-08-10 18:33:58.123645-03
+1283	public	log_sistema	mensagem	text	2026-08-10 18:33:58.123645-03
+1284	public	log_sistema	stack_trace	text	2026-08-10 18:33:58.123645-03
+1285	public	log_sistema	usuario	character varying	2026-08-10 18:33:58.123645-03
+1286	public	log_sistema	data_evento	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1287	public	agendamento_rotina	id_rotina	integer	2026-08-10 18:33:58.123645-03
+1288	public	agendamento_rotina	codigo	character varying	2026-08-10 18:33:58.123645-03
+1289	public	agendamento_rotina	descricao	character varying	2026-08-10 18:33:58.123645-03
+1290	public	agendamento_rotina	expressao_cron	character varying	2026-08-10 18:33:58.123645-03
+1291	public	agendamento_rotina	ultima_execucao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1292	public	agendamento_rotina	proxima_execucao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1293	public	agendamento_rotina	status	character varying	2026-08-10 18:33:58.123645-03
+1294	public	agendamento_rotina	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1295	public	aplicacao_api	id_aplicacao	integer	2026-08-10 18:33:58.123645-03
+1296	public	aplicacao_api	codigo	character varying	2026-08-10 18:33:58.123645-03
+1297	public	aplicacao_api	nome	character varying	2026-08-10 18:33:58.123645-03
+1298	public	aplicacao_api	descricao	text	2026-08-10 18:33:58.123645-03
+1299	public	aplicacao_api	tipo	character varying	2026-08-10 18:33:58.123645-03
+1300	public	aplicacao_api	ativo	boolean	2026-08-10 18:33:58.123645-03
+1301	public	aplicacao_api	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1302	public	aplicacao_api	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1303	public	aplicacao_api	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1304	public	aplicacao_api	created_by	character varying	2026-08-10 18:33:58.123645-03
+1305	public	aplicacao_api	updated_by	character varying	2026-08-10 18:33:58.123645-03
+1306	public	aplicacao_api	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+1307	public	aplicacao_api	versao	integer	2026-08-10 18:33:58.123645-03
+1308	public	token_acesso	id_token	integer	2026-08-10 18:33:58.123645-03
+1309	public	token_acesso	id_aplicacao	integer	2026-08-10 18:33:58.123645-03
+1310	public	token_acesso	token_hash	text	2026-08-10 18:33:58.123645-03
+1311	public	token_acesso	data_criacao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1312	public	token_acesso	data_expiracao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1313	public	token_acesso	revogado	boolean	2026-08-10 18:33:58.123645-03
+1314	public	chave_api	id_chave	integer	2026-08-10 18:33:58.123645-03
+1315	public	chave_api	id_aplicacao	integer	2026-08-10 18:33:58.123645-03
+1316	public	chave_api	nome_chave	character varying	2026-08-10 18:33:58.123645-03
+1317	public	chave_api	api_key_hash	text	2026-08-10 18:33:58.123645-03
+1318	public	chave_api	permissoes	jsonb	2026-08-10 18:33:58.123645-03
+1319	public	chave_api	ativo	boolean	2026-08-10 18:33:58.123645-03
+1320	public	chave_api	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1321	public	webhook	id_webhook	integer	2026-08-10 18:33:58.123645-03
+1322	public	webhook	sistema_origem	character varying	2026-08-10 18:33:58.123645-03
+1323	public	webhook	evento	character varying	2026-08-10 18:33:58.123645-03
+1324	public	webhook	url_destino	text	2026-08-10 18:33:58.123645-03
+1325	public	webhook	ativo	boolean	2026-08-10 18:33:58.123645-03
+1326	public	webhook	ultimo_evento	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1327	public	webhook	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1328	public	fila_processamento	id_fila	integer	2026-08-10 18:33:58.123645-03
+1329	public	fila_processamento	tipo_processo	character varying	2026-08-10 18:33:58.123645-03
+1330	public	fila_processamento	dados	jsonb	2026-08-10 18:33:58.123645-03
+1331	public	fila_processamento	prioridade	integer	2026-08-10 18:33:58.123645-03
+1332	public	fila_processamento	status	character varying	2026-08-10 18:33:58.123645-03
+1333	public	fila_processamento	tentativas	integer	2026-08-10 18:33:58.123645-03
+1334	public	fila_processamento	data_criacao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1335	public	fila_processamento	data_processamento	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1336	public	log_api	id_log	integer	2026-08-10 18:33:58.123645-03
+1337	public	log_api	id_aplicacao	integer	2026-08-10 18:33:58.123645-03
+1338	public	log_api	endpoint	character varying	2026-08-10 18:33:58.123645-03
+1339	public	log_api	metodo	character varying	2026-08-10 18:33:58.123645-03
+1340	public	log_api	request	jsonb	2026-08-10 18:33:58.123645-03
+1341	public	log_api	response	jsonb	2026-08-10 18:33:58.123645-03
+1342	public	log_api	status_http	integer	2026-08-10 18:33:58.123645-03
+1343	public	log_api	tempo_execucao_ms	integer	2026-08-10 18:33:58.123645-03
+1344	public	log_api	data_execucao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1345	public	rate_limit_api	id_rate	integer	2026-08-10 18:33:58.123645-03
+1346	public	rate_limit_api	id_aplicacao	integer	2026-08-10 18:33:58.123645-03
+1347	public	rate_limit_api	limite_requisicoes	integer	2026-08-10 18:33:58.123645-03
+1348	public	rate_limit_api	periodo_segundos	integer	2026-08-10 18:33:58.123645-03
+1349	public	rate_limit_api	ativo	boolean	2026-08-10 18:33:58.123645-03
+1350	dw	dim_tempo	id_tempo	integer	2026-08-10 18:33:58.123645-03
+1351	dw	dim_tempo	data	date	2026-08-10 18:33:58.123645-03
+1352	dw	dim_tempo	ano	integer	2026-08-10 18:33:58.123645-03
+1353	dw	dim_tempo	mes	integer	2026-08-10 18:33:58.123645-03
+1354	dw	dim_tempo	nome_mes	character varying	2026-08-10 18:33:58.123645-03
+1355	dw	dim_tempo	trimestre	integer	2026-08-10 18:33:58.123645-03
+1356	dw	dim_tempo	semestre	integer	2026-08-10 18:33:58.123645-03
+1357	dw	dim_tempo	dia	integer	2026-08-10 18:33:58.123645-03
+1358	dw	dim_tempo	dia_semana	integer	2026-08-10 18:33:58.123645-03
+1359	dw	dim_tempo	nome_dia	character varying	2026-08-10 18:33:58.123645-03
+1360	dw	dim_cliente	id_cliente_dw	integer	2026-08-10 18:33:58.123645-03
+1361	dw	dim_cliente	id_cliente_origem	integer	2026-08-10 18:33:58.123645-03
+1362	dw	dim_cliente	nome	character varying	2026-08-10 18:33:58.123645-03
+1363	dw	dim_cliente	cidade	character varying	2026-08-10 18:33:58.123645-03
+1364	dw	dim_cliente	estado	character varying	2026-08-10 18:33:58.123645-03
+1365	dw	dim_cliente	data_cadastro	date	2026-08-10 18:33:58.123645-03
+1366	dw	dim_cliente	ativo	boolean	2026-08-10 18:33:58.123645-03
+1367	dw	dim_produto_turistico	id_produto_dw	integer	2026-08-10 18:33:58.123645-03
+1368	dw	dim_produto_turistico	id_produto_origem	integer	2026-08-10 18:33:58.123645-03
+1369	dw	dim_produto_turistico	nome	character varying	2026-08-10 18:33:58.123645-03
+1370	dw	dim_produto_turistico	categoria	character varying	2026-08-10 18:33:58.123645-03
+1371	dw	dim_produto_turistico	tipo	character varying	2026-08-10 18:33:58.123645-03
+1372	dw	dim_produto_turistico	ativo	boolean	2026-08-10 18:33:58.123645-03
+1373	dw	dim_destino	id_destino_dw	integer	2026-08-10 18:33:58.123645-03
+1374	dw	dim_destino	id_destino_origem	integer	2026-08-10 18:33:58.123645-03
+1375	dw	dim_destino	nome	character varying	2026-08-10 18:33:58.123645-03
+1376	dw	dim_destino	cidade	character varying	2026-08-10 18:33:58.123645-03
+1377	dw	dim_destino	estado	character varying	2026-08-10 18:33:58.123645-03
+1378	dw	dim_destino	pais	character varying	2026-08-10 18:33:58.123645-03
+1379	dw	dim_fornecedor	id_fornecedor_dw	integer	2026-08-10 18:33:58.123645-03
+1380	dw	dim_fornecedor	id_fornecedor_origem	integer	2026-08-10 18:33:58.123645-03
+1381	dw	dim_fornecedor	nome	character varying	2026-08-10 18:33:58.123645-03
+1382	dw	dim_fornecedor	categoria	character varying	2026-08-10 18:33:58.123645-03
+1383	dw	dim_plano_conta	id_conta_dw	integer	2026-08-10 18:33:58.123645-03
+1384	dw	dim_plano_conta	id_conta_origem	integer	2026-08-10 18:33:58.123645-03
+1385	dw	dim_plano_conta	grupo	character varying	2026-08-10 18:33:58.123645-03
+1386	dw	dim_plano_conta	categoria	character varying	2026-08-10 18:33:58.123645-03
+1387	dw	dim_plano_conta	subcategoria	character varying	2026-08-10 18:33:58.123645-03
+1388	dw	fato_vendas	id_venda_dw	integer	2026-08-10 18:33:58.123645-03
+1389	dw	fato_vendas	id_tempo	integer	2026-08-10 18:33:58.123645-03
+1390	dw	fato_vendas	id_cliente	integer	2026-08-10 18:33:58.123645-03
+1391	dw	fato_vendas	id_produto	integer	2026-08-10 18:33:58.123645-03
+1392	dw	fato_vendas	id_destino	integer	2026-08-10 18:33:58.123645-03
+1393	dw	fato_vendas	quantidade	integer	2026-08-10 18:33:58.123645-03
+1394	dw	fato_vendas	valor_venda	numeric	2026-08-10 18:33:58.123645-03
+1395	dw	fato_vendas	valor_custo	numeric	2026-08-10 18:33:58.123645-03
+1396	dw	fato_vendas	margem	numeric	2026-08-10 18:33:58.123645-03
+1397	dw	fato_financeiro	id_financeiro_dw	integer	2026-08-10 18:33:58.123645-03
+1398	dw	fato_financeiro	id_tempo	integer	2026-08-10 18:33:58.123645-03
+1399	dw	fato_financeiro	id_conta	integer	2026-08-10 18:33:58.123645-03
+1400	dw	fato_financeiro	tipo_movimento	character varying	2026-08-10 18:33:58.123645-03
+1401	dw	fato_financeiro	valor	numeric	2026-08-10 18:33:58.123645-03
+1402	dw	fato_marketing	id_marketing_dw	integer	2026-08-10 18:33:58.123645-03
+1403	dw	fato_marketing	id_tempo	integer	2026-08-10 18:33:58.123645-03
+1404	dw	fato_marketing	canal	character varying	2026-08-10 18:33:58.123645-03
+1405	dw	fato_marketing	investimento	numeric	2026-08-10 18:33:58.123645-03
+1406	dw	fato_marketing	leads	integer	2026-08-10 18:33:58.123645-03
+1407	dw	fato_marketing	vendas	integer	2026-08-10 18:33:58.123645-03
+1408	dw	fato_marketing	receita	numeric	2026-08-10 18:33:58.123645-03
+1409	dw	log_etl	id_execucao	integer	2026-08-10 18:33:58.123645-03
+1410	dw	log_etl	processo	character varying	2026-08-10 18:33:58.123645-03
+1411	dw	log_etl	inicio	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1412	dw	log_etl	fim	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1413	dw	log_etl	registros_processados	integer	2026-08-10 18:33:58.123645-03
+1414	dw	log_etl	status	character varying	2026-08-10 18:33:58.123645-03
+1415	dw	log_etl	mensagem	text	2026-08-10 18:33:58.123645-03
+1416	public	rastreabilidade	id_rastreabilidade	integer	2026-08-10 18:33:58.123645-03
+1417	public	rastreabilidade	origem	character varying	2026-08-10 18:33:58.123645-03
+1418	public	rastreabilidade	evento	character varying	2026-08-10 18:33:58.123645-03
+1419	public	rastreabilidade	referencia	character varying	2026-08-10 18:33:58.123645-03
+1420	public	rastreabilidade	descricao	text	2026-08-10 18:33:58.123645-03
+1421	public	rastreabilidade	usuario	character varying	2026-08-10 18:33:58.123645-03
+1422	public	rastreabilidade	data_evento	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1423	public	rastreabilidade	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1424	public	rastreabilidade	versao	integer	2026-08-10 18:33:58.123645-03
+1425	public	sistema_externo	id_sistema_externo	integer	2026-08-10 18:33:58.123645-03
+1426	public	sistema_externo	codigo	character varying	2026-08-10 18:33:58.123645-03
+1427	public	sistema_externo	nome	character varying	2026-08-10 18:33:58.123645-03
+1428	public	sistema_externo	tipo_sistema	character varying	2026-08-10 18:33:58.123645-03
+1429	public	sistema_externo	fornecedor	character varying	2026-08-10 18:33:58.123645-03
+1430	public	sistema_externo	url_api	text	2026-08-10 18:33:58.123645-03
+1431	public	sistema_externo	ambiente	character varying	2026-08-10 18:33:58.123645-03
+1432	public	sistema_externo	autenticacao	character varying	2026-08-10 18:33:58.123645-03
+1433	public	sistema_externo	ativo	boolean	2026-08-10 18:33:58.123645-03
+1434	public	sistema_externo	observacao	text	2026-08-10 18:33:58.123645-03
+1435	public	sistema_externo	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1436	public	sistema_externo	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1437	public	sistema_externo	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1438	public	sistema_externo	created_by	character varying	2026-08-10 18:33:58.123645-03
+1439	public	sistema_externo	updated_by	character varying	2026-08-10 18:33:58.123645-03
+1440	public	sistema_externo	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+1441	public	sistema_externo	versao	integer	2026-08-10 18:33:58.123645-03
+1442	public	conector_integracao	id_conector	integer	2026-08-10 18:33:58.123645-03
+1443	public	conector_integracao	id_sistema_externo	integer	2026-08-10 18:33:58.123645-03
+1444	public	conector_integracao	codigo	character varying	2026-08-10 18:33:58.123645-03
+1445	public	conector_integracao	nome	character varying	2026-08-10 18:33:58.123645-03
+1446	public	conector_integracao	tipo_integracao	character varying	2026-08-10 18:33:58.123645-03
+1447	public	conector_integracao	protocolo	character varying	2026-08-10 18:33:58.123645-03
+1448	public	conector_integracao	metodo_http	character varying	2026-08-10 18:33:58.123645-03
+1449	public	conector_integracao	endpoint	text	2026-08-10 18:33:58.123645-03
+1450	public	conector_integracao	timeout_segundos	integer	2026-08-10 18:33:58.123645-03
+1451	public	conector_integracao	limite_tentativas	integer	2026-08-10 18:33:58.123645-03
+1452	public	conector_integracao	autenticacao	character varying	2026-08-10 18:33:58.123645-03
+1453	public	conector_integracao	configuracao	jsonb	2026-08-10 18:33:58.123645-03
+1454	public	conector_integracao	ativo	boolean	2026-08-10 18:33:58.123645-03
+1455	public	conector_integracao	observacao	text	2026-08-10 18:33:58.123645-03
+1456	public	conector_integracao	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1457	public	conector_integracao	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1458	public	conector_integracao	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1459	public	conector_integracao	created_by	character varying	2026-08-10 18:33:58.123645-03
+1460	public	conector_integracao	updated_by	character varying	2026-08-10 18:33:58.123645-03
+1461	public	conector_integracao	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+1462	public	conector_integracao	versao	integer	2026-08-10 18:33:58.123645-03
+1463	public	modelo_ml	id_modelo	integer	2026-08-10 18:33:58.123645-03
+1464	public	modelo_ml	codigo	character varying	2026-08-10 18:33:58.123645-03
+1465	public	modelo_ml	nome	character varying	2026-08-10 18:33:58.123645-03
+1466	public	modelo_ml	tipo_modelo	character varying	2026-08-10 18:33:58.123645-03
+1467	public	modelo_ml	algoritmo	character varying	2026-08-10 18:33:58.123645-03
+1468	public	modelo_ml	versao_modelo	character varying	2026-08-10 18:33:58.123645-03
+1469	public	modelo_ml	status	character varying	2026-08-10 18:33:58.123645-03
+1470	public	modelo_ml	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1471	public	modelo_ml	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1472	public	modelo_ml	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1473	public	modelo_ml	created_by	character varying	2026-08-10 18:33:58.123645-03
+1474	public	modelo_ml	updated_by	character varying	2026-08-10 18:33:58.123645-03
+1475	public	modelo_ml	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+1476	public	modelo_ml	versao	integer	2026-08-10 18:33:58.123645-03
+1477	public	mapeamento_campo_integracao	id_mapeamento	integer	2026-08-10 18:33:58.123645-03
+1478	public	mapeamento_campo_integracao	id_conector	integer	2026-08-10 18:33:58.123645-03
+1479	public	mapeamento_campo_integracao	entidade_interna	character varying	2026-08-10 18:33:58.123645-03
+1480	public	mapeamento_campo_integracao	campo_interno	character varying	2026-08-10 18:33:58.123645-03
+1481	public	mapeamento_campo_integracao	entidade_externa	character varying	2026-08-10 18:33:58.123645-03
+1482	public	mapeamento_campo_integracao	campo_externo	character varying	2026-08-10 18:33:58.123645-03
+1483	public	mapeamento_campo_integracao	tipo_dado	character varying	2026-08-10 18:33:58.123645-03
+1484	public	mapeamento_campo_integracao	regra_transformacao	text	2026-08-10 18:33:58.123645-03
+1485	public	mapeamento_campo_integracao	obrigatorio	boolean	2026-08-10 18:33:58.123645-03
+1486	public	mapeamento_campo_integracao	ativo	boolean	2026-08-10 18:33:58.123645-03
+1487	public	mapeamento_campo_integracao	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1488	public	mapeamento_campo_integracao	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1489	public	mapeamento_campo_integracao	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1490	public	mapeamento_campo_integracao	created_by	character varying	2026-08-10 18:33:58.123645-03
+1491	public	mapeamento_campo_integracao	updated_by	character varying	2026-08-10 18:33:58.123645-03
+1492	public	mapeamento_campo_integracao	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+1493	public	mapeamento_campo_integracao	versao	integer	2026-08-10 18:33:58.123645-03
+1494	public	sincronizacao_integracao	id_sincronizacao	integer	2026-08-10 18:33:58.123645-03
+1495	public	sincronizacao_integracao	id_conector	integer	2026-08-10 18:33:58.123645-03
+1496	public	sincronizacao_integracao	tipo_operacao	character varying	2026-08-10 18:33:58.123645-03
+1497	public	sincronizacao_integracao	entidade	character varying	2026-08-10 18:33:58.123645-03
+1498	public	sincronizacao_integracao	data_inicio	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1499	public	sincronizacao_integracao	data_fim	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1500	public	sincronizacao_integracao	quantidade_processada	integer	2026-08-10 18:33:58.123645-03
+1501	public	sincronizacao_integracao	quantidade_sucesso	integer	2026-08-10 18:33:58.123645-03
+1502	public	sincronizacao_integracao	quantidade_erro	integer	2026-08-10 18:33:58.123645-03
+1503	public	sincronizacao_integracao	status	character varying	2026-08-10 18:33:58.123645-03
+1504	public	sincronizacao_integracao	mensagem_retorno	text	2026-08-10 18:33:58.123645-03
+1505	public	sincronizacao_integracao	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1506	public	sincronizacao_integracao	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1507	public	sincronizacao_integracao	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1508	public	sincronizacao_integracao	created_by	character varying	2026-08-10 18:33:58.123645-03
+1509	public	sincronizacao_integracao	updated_by	character varying	2026-08-10 18:33:58.123645-03
+1510	public	sincronizacao_integracao	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+1511	public	sincronizacao_integracao	versao	integer	2026-08-10 18:33:58.123645-03
+1512	public	fila_integracao	id_fila_integracao	integer	2026-08-10 18:33:58.123645-03
+1513	public	fila_integracao	id_conector	integer	2026-08-10 18:33:58.123645-03
+1514	public	fila_integracao	tipo_evento	character varying	2026-08-10 18:33:58.123645-03
+1515	public	fila_integracao	entidade	character varying	2026-08-10 18:33:58.123645-03
+1516	public	fila_integracao	chave_registro	character varying	2026-08-10 18:33:58.123645-03
+1517	public	fila_integracao	payload	jsonb	2026-08-10 18:33:58.123645-03
+1518	public	fila_integracao	prioridade	integer	2026-08-10 18:33:58.123645-03
+1519	public	fila_integracao	tentativas	integer	2026-08-10 18:33:58.123645-03
+1520	public	fila_integracao	limite_tentativas	integer	2026-08-10 18:33:58.123645-03
+1521	public	fila_integracao	status	character varying	2026-08-10 18:33:58.123645-03
+1522	public	fila_integracao	mensagem_erro	text	2026-08-10 18:33:58.123645-03
+1523	public	fila_integracao	data_processamento	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1524	public	fila_integracao	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1525	public	fila_integracao	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1526	public	fila_integracao	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1527	public	fila_integracao	created_by	character varying	2026-08-10 18:33:58.123645-03
+1528	public	fila_integracao	updated_by	character varying	2026-08-10 18:33:58.123645-03
+1529	public	fila_integracao	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+1530	public	fila_integracao	versao	integer	2026-08-10 18:33:58.123645-03
+1531	public	log_integracao_detalhado	id_log_integracao	integer	2026-08-10 18:33:58.123645-03
+1532	public	log_integracao_detalhado	id_conector	integer	2026-08-10 18:33:58.123645-03
+1533	public	log_integracao_detalhado	id_sincronizacao	integer	2026-08-10 18:33:58.123645-03
+1534	public	log_integracao_detalhado	tipo_operacao	character varying	2026-08-10 18:33:58.123645-03
+1535	public	log_integracao_detalhado	endpoint	text	2026-08-10 18:33:58.123645-03
+1536	public	log_integracao_detalhado	metodo_http	character varying	2026-08-10 18:33:58.123645-03
+1537	public	log_integracao_detalhado	requisicao	jsonb	2026-08-10 18:33:58.123645-03
+1538	public	log_integracao_detalhado	resposta	jsonb	2026-08-10 18:33:58.123645-03
+1539	public	log_integracao_detalhado	codigo_http	integer	2026-08-10 18:33:58.123645-03
+1540	public	log_integracao_detalhado	tempo_resposta_ms	integer	2026-08-10 18:33:58.123645-03
+1541	public	log_integracao_detalhado	status	character varying	2026-08-10 18:33:58.123645-03
+1542	public	log_integracao_detalhado	mensagem_erro	text	2026-08-10 18:33:58.123645-03
+1543	public	log_integracao_detalhado	data_execucao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1544	public	log_integracao_detalhado	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1545	public	log_integracao_detalhado	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1546	public	log_integracao_detalhado	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1547	public	log_integracao_detalhado	created_by	character varying	2026-08-10 18:33:58.123645-03
+1548	public	log_integracao_detalhado	updated_by	character varying	2026-08-10 18:33:58.123645-03
+1549	public	log_integracao_detalhado	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+1550	public	log_integracao_detalhado	versao	integer	2026-08-10 18:33:58.123645-03
+1551	public	status_integracao	id_status_integracao	integer	2026-08-10 18:33:58.123645-03
+1552	public	status_integracao	id_conector	integer	2026-08-10 18:33:58.123645-03
+1553	public	status_integracao	ultima_execucao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1554	public	status_integracao	ultima_situacao	character varying	2026-08-10 18:33:58.123645-03
+1555	public	status_integracao	total_execucoes	integer	2026-08-10 18:33:58.123645-03
+1556	public	status_integracao	total_sucesso	integer	2026-08-10 18:33:58.123645-03
+1557	public	status_integracao	total_erro	integer	2026-08-10 18:33:58.123645-03
+1558	public	status_integracao	percentual_sucesso	numeric	2026-08-10 18:33:58.123645-03
+1559	public	status_integracao	tempo_medio_resposta_ms	integer	2026-08-10 18:33:58.123645-03
+1560	public	status_integracao	disponivel	boolean	2026-08-10 18:33:58.123645-03
+1561	public	status_integracao	mensagem_status	text	2026-08-10 18:33:58.123645-03
+1562	public	status_integracao	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1563	public	status_integracao	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1564	public	status_integracao	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1565	public	status_integracao	created_by	character varying	2026-08-10 18:33:58.123645-03
+1566	public	status_integracao	updated_by	character varying	2026-08-10 18:33:58.123645-03
+1567	public	status_integracao	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+1568	public	status_integracao	versao	integer	2026-08-10 18:33:58.123645-03
+1569	public	fato_financeiro	id_fato_financeiro	integer	2026-08-10 18:33:58.123645-03
+1570	public	fato_financeiro	data_movimento	date	2026-08-10 18:33:58.123645-03
+1571	public	fato_financeiro	id_lancamento_origem	integer	2026-08-10 18:33:58.123645-03
+1572	public	fato_financeiro	id_plano_contas	integer	2026-08-10 18:33:58.123645-03
+1573	public	fato_financeiro	id_centro_custo	integer	2026-08-10 18:33:58.123645-03
+1574	public	fato_financeiro	tipo_movimento	character varying	2026-08-10 18:33:58.123645-03
+1575	public	fato_financeiro	natureza	character varying	2026-08-10 18:33:58.123645-03
+1576	public	fato_financeiro	grupo_financeiro	character varying	2026-08-10 18:33:58.123645-03
+1577	public	fato_financeiro	categoria_financeira	character varying	2026-08-10 18:33:58.123645-03
+1578	public	fato_financeiro	valor	numeric	2026-08-10 18:33:58.123645-03
+1579	public	fato_financeiro	competencia	date	2026-08-10 18:33:58.123645-03
+1580	public	fato_financeiro	status	character varying	2026-08-10 18:33:58.123645-03
+1581	public	fato_financeiro	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1582	public	fato_financeiro	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1583	public	fato_financeiro	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1584	public	fato_financeiro	created_by	character varying	2026-08-10 18:33:58.123645-03
+1585	public	fato_financeiro	updated_by	character varying	2026-08-10 18:33:58.123645-03
+1586	public	fato_financeiro	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+1587	public	fato_financeiro	versao	integer	2026-08-10 18:33:58.123645-03
+1588	public	dim_data	id_data	integer	2026-08-10 18:33:58.123645-03
+1589	public	dim_data	data	date	2026-08-10 18:33:58.123645-03
+1590	public	dim_data	ano	integer	2026-08-10 18:33:58.123645-03
+1591	public	dim_data	mes	integer	2026-08-10 18:33:58.123645-03
+1592	public	dim_data	nome_mes	character varying	2026-08-10 18:33:58.123645-03
+1593	public	dim_data	trimestre	integer	2026-08-10 18:33:58.123645-03
+1594	public	dim_data	semana	integer	2026-08-10 18:33:58.123645-03
+1595	public	dim_data	dia	integer	2026-08-10 18:33:58.123645-03
+1596	public	dim_data	dia_semana	character varying	2026-08-10 18:33:58.123645-03
+1597	public	dim_data	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1598	public	dim_data	versao	integer	2026-08-10 18:33:58.123645-03
+1599	public	dim_cliente	id_dim_cliente	integer	2026-08-10 18:33:58.123645-03
+1600	public	dim_cliente	id_cliente_origem	integer	2026-08-10 18:33:58.123645-03
+1601	public	dim_cliente	nome_cliente	character varying	2026-08-10 18:33:58.123645-03
+1602	public	dim_cliente	cidade	character varying	2026-08-10 18:33:58.123645-03
+1603	public	dim_cliente	estado	character varying	2026-08-10 18:33:58.123645-03
+1604	public	dim_cliente	segmento	character varying	2026-08-10 18:33:58.123645-03
+1605	public	dim_cliente	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1606	public	dim_cliente	versao	integer	2026-08-10 18:33:58.123645-03
+1607	public	dim_produto_turistico	id_dim_produto	integer	2026-08-10 18:33:58.123645-03
+1608	public	dim_produto_turistico	id_produto_origem	integer	2026-08-10 18:33:58.123645-03
+1609	public	dim_produto_turistico	nome_produto	character varying	2026-08-10 18:33:58.123645-03
+1610	public	dim_produto_turistico	categoria	character varying	2026-08-10 18:33:58.123645-03
+1611	public	dim_produto_turistico	tipo_produto	character varying	2026-08-10 18:33:58.123645-03
+1612	public	dim_produto_turistico	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1613	public	dim_produto_turistico	versao	integer	2026-08-10 18:33:58.123645-03
+1614	public	dim_destino	id_dim_destino	integer	2026-08-10 18:33:58.123645-03
+1615	public	dim_destino	id_destino_origem	integer	2026-08-10 18:33:58.123645-03
+1616	public	dim_destino	nome_destino	character varying	2026-08-10 18:33:58.123645-03
+1617	public	dim_destino	cidade	character varying	2026-08-10 18:33:58.123645-03
+1618	public	dim_destino	estado	character varying	2026-08-10 18:33:58.123645-03
+1619	public	dim_destino	pais	character varying	2026-08-10 18:33:58.123645-03
+1620	public	dim_destino	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1621	public	dim_destino	versao	integer	2026-08-10 18:33:58.123645-03
+1622	public	dim_plano_contas	id_dim_plano	integer	2026-08-10 18:33:58.123645-03
+1623	public	dim_plano_contas	id_plano_origem	integer	2026-08-10 18:33:58.123645-03
+1624	public	dim_plano_contas	codigo	character varying	2026-08-10 18:33:58.123645-03
+1625	public	dim_plano_contas	descricao	character varying	2026-08-10 18:33:58.123645-03
+1626	public	dim_plano_contas	grupo	character varying	2026-08-10 18:33:58.123645-03
+1627	public	dim_plano_contas	categoria	character varying	2026-08-10 18:33:58.123645-03
+1628	public	dim_plano_contas	natureza	character varying	2026-08-10 18:33:58.123645-03
+1629	public	dim_plano_contas	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1630	public	dim_plano_contas	versao	integer	2026-08-10 18:33:58.123645-03
+1631	financeiro	forma_pagamento	id_forma_pagamento	integer	2026-08-10 18:33:58.123645-03
+1632	financeiro	forma_pagamento	descricao	character varying	2026-08-10 18:33:58.123645-03
+1633	financeiro	forma_pagamento	ativo	boolean	2026-08-10 18:33:58.123645-03
+1634	public	kpi_turismo	id_kpi	integer	2026-08-10 18:33:58.123645-03
+1635	public	kpi_turismo	codigo	character varying	2026-08-10 18:33:58.123645-03
+1636	public	kpi_turismo	nome	character varying	2026-08-10 18:33:58.123645-03
+1637	public	kpi_turismo	descricao	text	2026-08-10 18:33:58.123645-03
+1638	public	kpi_turismo	unidade	character varying	2026-08-10 18:33:58.123645-03
+1639	public	kpi_turismo	categoria	character varying	2026-08-10 18:33:58.123645-03
+1640	public	kpi_turismo	valor	numeric	2026-08-10 18:33:58.123645-03
+1641	public	kpi_turismo	periodo	date	2026-08-10 18:33:58.123645-03
+1642	public	kpi_turismo	origem	character varying	2026-08-10 18:33:58.123645-03
+1643	public	kpi_turismo	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1644	public	kpi_turismo	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1645	public	kpi_turismo	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1646	public	kpi_turismo	created_by	character varying	2026-08-10 18:33:58.123645-03
+1647	public	kpi_turismo	updated_by	character varying	2026-08-10 18:33:58.123645-03
+1648	public	kpi_turismo	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+1649	public	kpi_turismo	versao	integer	2026-08-10 18:33:58.123645-03
+1650	public	rentabilidade_produto	id_rentabilidade	integer	2026-08-10 18:33:58.123645-03
+1651	public	rentabilidade_produto	periodo	date	2026-08-10 18:33:58.123645-03
+1652	public	rentabilidade_produto	id_produto_origem	integer	2026-08-10 18:33:58.123645-03
+1653	public	rentabilidade_produto	id_destino_origem	integer	2026-08-10 18:33:58.123645-03
+1654	public	rentabilidade_produto	receita_total	numeric	2026-08-10 18:33:58.123645-03
+1655	public	rentabilidade_produto	custo_total	numeric	2026-08-10 18:33:58.123645-03
+1656	public	rentabilidade_produto	comissao_total	numeric	2026-08-10 18:33:58.123645-03
+1657	public	rentabilidade_produto	lucro_bruto	numeric	2026-08-10 18:33:58.123645-03
+1658	public	rentabilidade_produto	margem_percentual	numeric	2026-08-10 18:33:58.123645-03
+1659	public	rentabilidade_produto	quantidade_vendida	integer	2026-08-10 18:33:58.123645-03
+1660	public	rentabilidade_produto	roi_percentual	numeric	2026-08-10 18:33:58.123645-03
+1661	public	rentabilidade_produto	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1662	public	rentabilidade_produto	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1663	public	rentabilidade_produto	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1664	public	rentabilidade_produto	created_by	character varying	2026-08-10 18:33:58.123645-03
+1665	public	rentabilidade_produto	updated_by	character varying	2026-08-10 18:33:58.123645-03
+1666	public	rentabilidade_produto	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+1667	public	rentabilidade_produto	versao	integer	2026-08-10 18:33:58.123645-03
+1668	financeiro	lancamento_parcela	id_parcela	bigint	2026-08-10 18:33:58.123645-03
+1669	financeiro	lancamento_parcela	id_lancamento	bigint	2026-08-10 18:33:58.123645-03
+1670	financeiro	lancamento_parcela	numero_parcela	integer	2026-08-10 18:33:58.123645-03
+1671	financeiro	lancamento_parcela	vencimento	date	2026-08-10 18:33:58.123645-03
+1672	financeiro	lancamento_parcela	valor	numeric	2026-08-10 18:33:58.123645-03
+1673	financeiro	lancamento_parcela	valor_pago	numeric	2026-08-10 18:33:58.123645-03
+1674	financeiro	lancamento_parcela	saldo	numeric	2026-08-10 18:33:58.123645-03
+1675	financeiro	lancamento_parcela	id_status	smallint	2026-08-10 18:33:58.123645-03
+1676	financeiro	lancamento_parcela	observacao	text	2026-08-10 18:33:58.123645-03
+1677	public	pessoa	id_pessoa	integer	2026-08-10 18:33:58.123645-03
+1678	public	pessoa	tipo_pessoa	character varying	2026-08-10 18:33:58.123645-03
+1679	public	pessoa	nome_razao_social	character varying	2026-08-10 18:33:58.123645-03
+1680	public	pessoa	nome_fantasia	character varying	2026-08-10 18:33:58.123645-03
+1681	public	pessoa	cpf_cnpj	character varying	2026-08-10 18:33:58.123645-03
+1682	public	pessoa	rg_ie	character varying	2026-08-10 18:33:58.123645-03
+1683	public	pessoa	data_nascimento	date	2026-08-10 18:33:58.123645-03
+1684	public	pessoa	telefone	character varying	2026-08-10 18:33:58.123645-03
+1685	public	pessoa	email	character varying	2026-08-10 18:33:58.123645-03
+1686	public	pessoa	logradouro	character varying	2026-08-10 18:33:58.123645-03
+1687	public	pessoa	numero	character varying	2026-08-10 18:33:58.123645-03
+1688	public	pessoa	bairro	character varying	2026-08-10 18:33:58.123645-03
+1689	public	pessoa	cep	character varying	2026-08-10 18:33:58.123645-03
+1690	public	pessoa	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1691	public	pessoa	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1692	public	pessoa	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1693	public	pessoa	created_by	character varying	2026-08-10 18:33:58.123645-03
+1694	public	pessoa	updated_by	character varying	2026-08-10 18:33:58.123645-03
+1695	public	pessoa	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+1696	public	pessoa	versao	integer	2026-08-10 18:33:58.123645-03
+1697	public	pessoa	id_localidade	integer	2026-08-10 18:33:58.123645-03
+1698	public	localidade	id_localidade	integer	2026-08-10 18:33:58.123645-03
+1699	public	localidade	cidade	character varying	2026-08-10 18:33:58.123645-03
+1700	public	localidade	uf	character	2026-08-10 18:33:58.123645-03
+1701	public	localidade	pais	character varying	2026-08-10 18:33:58.123645-03
+1702	public	empresa	id_empresa	integer	2026-08-10 18:33:58.123645-03
+1703	public	empresa	razao_social	character varying	2026-08-10 18:33:58.123645-03
+1704	public	empresa	nome_fantasia	character varying	2026-08-10 18:33:58.123645-03
+1705	public	empresa	cnpj	character varying	2026-08-10 18:33:58.123645-03
+1706	public	empresa	inscricao_municipal	character varying	2026-08-10 18:33:58.123645-03
+1707	public	empresa	regime_tributario	character varying	2026-08-10 18:33:58.123645-03
+1708	public	empresa	data_abertura	date	2026-08-10 18:33:58.123645-03
+1709	public	empresa	capital_social	numeric	2026-08-10 18:33:58.123645-03
+1710	public	empresa	telefone	character varying	2026-08-10 18:33:58.123645-03
+1711	public	empresa	email	character varying	2026-08-10 18:33:58.123645-03
+1712	public	empresa	site	character varying	2026-08-10 18:33:58.123645-03
+1713	public	empresa	logradouro	character varying	2026-08-10 18:33:58.123645-03
+1714	public	empresa	numero	character varying	2026-08-10 18:33:58.123645-03
+1715	public	empresa	complemento	character varying	2026-08-10 18:33:58.123645-03
+1716	public	empresa	bairro	character varying	2026-08-10 18:33:58.123645-03
+1717	public	empresa	cep	character varying	2026-08-10 18:33:58.123645-03
+1718	public	empresa	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1719	public	empresa	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1720	public	empresa	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1721	public	empresa	created_by	character varying	2026-08-10 18:33:58.123645-03
+1722	public	empresa	updated_by	character varying	2026-08-10 18:33:58.123645-03
+1723	public	empresa	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+1724	public	empresa	versao	integer	2026-08-10 18:33:58.123645-03
+1725	public	empresa	id_localidade	integer	2026-08-10 18:33:58.123645-03
+1726	financeiro	empresa	id_empresa	integer	2026-08-10 18:33:58.123645-03
+1727	financeiro	empresa	razao_social	character varying	2026-08-10 18:33:58.123645-03
+1728	financeiro	empresa	nome_fantasia	character varying	2026-08-10 18:33:58.123645-03
+1729	financeiro	empresa	cnpj	character	2026-08-10 18:33:58.123645-03
+1730	financeiro	empresa	inscricao_estadual	character varying	2026-08-10 18:33:58.123645-03
+1731	financeiro	empresa	inscricao_municipal	character varying	2026-08-10 18:33:58.123645-03
+1732	financeiro	empresa	telefone	character varying	2026-08-10 18:33:58.123645-03
+1733	financeiro	empresa	email	character varying	2026-08-10 18:33:58.123645-03
+1734	financeiro	empresa	site	character varying	2026-08-10 18:33:58.123645-03
+1735	financeiro	empresa	cep	character varying	2026-08-10 18:33:58.123645-03
+1736	financeiro	empresa	endereco	character varying	2026-08-10 18:33:58.123645-03
+1737	financeiro	empresa	numero	character varying	2026-08-10 18:33:58.123645-03
+1738	financeiro	empresa	complemento	character varying	2026-08-10 18:33:58.123645-03
+1739	financeiro	empresa	bairro	character varying	2026-08-10 18:33:58.123645-03
+1740	financeiro	empresa	cidade	character varying	2026-08-10 18:33:58.123645-03
+1741	financeiro	empresa	uf	character	2026-08-10 18:33:58.123645-03
+1742	financeiro	empresa	ativo	boolean	2026-08-10 18:33:58.123645-03
+1743	financeiro	empresa	data_cadastro	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1744	financeiro	empresa	data_alteracao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1745	financeiro	empresa	id_localidade	integer	2026-08-10 18:33:58.123645-03
+1746	public	status_parcela	id_status_parcela	integer	2026-08-10 18:33:58.123645-03
+1747	public	status_parcela	codigo	character varying	2026-08-10 18:33:58.123645-03
+1748	public	status_parcela	descricao	character varying	2026-08-10 18:33:58.123645-03
+1749	auditoria	execucao	id_execucao	bigint	2026-08-10 18:33:58.123645-03
+1750	auditoria	execucao	versao_banco	character varying	2026-08-10 18:33:58.123645-03
+1751	auditoria	execucao	versao_script	character varying	2026-08-10 18:33:58.123645-03
+1752	auditoria	execucao	schema_auditado	character varying	2026-08-10 18:33:58.123645-03
+1753	auditoria	execucao	usuario_execucao	character varying	2026-08-10 18:33:58.123645-03
+1754	auditoria	execucao	host_execucao	character varying	2026-08-10 18:33:58.123645-03
+1755	auditoria	execucao	banco	character varying	2026-08-10 18:33:58.123645-03
+1756	auditoria	execucao	data_inicio	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1757	auditoria	execucao	data_fim	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1758	auditoria	execucao	tempo_execucao_ms	bigint	2026-08-10 18:33:58.123645-03
+1759	auditoria	execucao	observacao	text	2026-08-10 18:33:58.123645-03
+1760	auditoria	execucao	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1761	auditoria	execucao	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1762	auditoria	execucao	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1763	auditoria	execucao	created_by	integer	2026-08-10 18:33:58.123645-03
+1764	auditoria	execucao	updated_by	integer	2026-08-10 18:33:58.123645-03
+1765	auditoria	execucao	deleted_by	integer	2026-08-10 18:33:58.123645-03
+1766	auditoria	execucao	versao	integer	2026-08-10 18:33:58.123645-03
+1767	auditoria	categoria	id_categoria	smallint	2026-08-10 18:33:58.123645-03
+1768	auditoria	categoria	codigo	character varying	2026-08-10 18:33:58.123645-03
+1769	auditoria	categoria	descricao	character varying	2026-08-10 18:33:58.123645-03
+1770	auditoria	categoria	peso	numeric	2026-08-10 18:33:58.123645-03
+1771	auditoria	categoria	ativo	boolean	2026-08-10 18:33:58.123645-03
+1772	auditoria	categoria	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1773	auditoria	categoria	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1774	auditoria	categoria	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1775	auditoria	categoria	created_by	integer	2026-08-10 18:33:58.123645-03
+1776	auditoria	categoria	updated_by	integer	2026-08-10 18:33:58.123645-03
+1777	auditoria	categoria	deleted_by	integer	2026-08-10 18:33:58.123645-03
+1778	auditoria	categoria	versao	integer	2026-08-10 18:33:58.123645-03
+1779	auditoria	resultado	id_resultado	bigint	2026-08-10 18:33:58.123645-03
+1780	auditoria	resultado	id_execucao	bigint	2026-08-10 18:33:58.123645-03
+1781	auditoria	resultado	id_item	bigint	2026-08-10 18:33:58.123645-03
+1782	auditoria	resultado	schema_nome	character varying	2026-08-10 18:33:58.123645-03
+1783	auditoria	resultado	tabela_nome	character varying	2026-08-10 18:33:58.123645-03
+1784	auditoria	resultado	coluna_nome	character varying	2026-08-10 18:33:58.123645-03
+1785	auditoria	resultado	objeto_nome	character varying	2026-08-10 18:33:58.123645-03
+1786	auditoria	resultado	status	character varying	2026-08-10 18:33:58.123645-03
+1787	auditoria	resultado	severidade	character varying	2026-08-10 18:33:58.123645-03
+1788	auditoria	resultado	valor_encontrado	text	2026-08-10 18:33:58.123645-03
+1789	auditoria	resultado	valor_esperado	text	2026-08-10 18:33:58.123645-03
+1790	auditoria	resultado	observacao	text	2026-08-10 18:33:58.123645-03
+1791	auditoria	resultado	sqlstate	character varying	2026-08-10 18:33:58.123645-03
+1792	auditoria	resultado	data_execucao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1793	auditoria	resultado	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1794	auditoria	resultado	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1795	auditoria	resultado	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1796	auditoria	resultado	created_by	integer	2026-08-10 18:33:58.123645-03
+1797	auditoria	resultado	updated_by	integer	2026-08-10 18:33:58.123645-03
+1798	auditoria	resultado	deleted_by	integer	2026-08-10 18:33:58.123645-03
+1799	auditoria	resultado	versao	integer	2026-08-10 18:33:58.123645-03
+1800	auditoria	score	id_score	bigint	2026-08-10 18:33:58.123645-03
+1801	auditoria	score	id_execucao	bigint	2026-08-10 18:33:58.123645-03
+1802	auditoria	score	estrutura	numeric	2026-08-10 18:33:58.123645-03
+1803	auditoria	score	integridade	numeric	2026-08-10 18:33:58.123645-03
+1804	auditoria	score	auditoria	numeric	2026-08-10 18:33:58.123645-03
+1805	auditoria	score	performance	numeric	2026-08-10 18:33:58.123645-03
+1806	auditoria	score	seguranca	numeric	2026-08-10 18:33:58.123645-03
+1807	auditoria	score	normalizacao	numeric	2026-08-10 18:33:58.123645-03
+1808	auditoria	score	padronizacao	numeric	2026-08-10 18:33:58.123645-03
+1809	auditoria	score	documentacao	numeric	2026-08-10 18:33:58.123645-03
+1810	auditoria	score	score_final	numeric	2026-08-10 18:33:58.123645-03
+1811	auditoria	score	classificacao	character varying	2026-08-10 18:33:58.123645-03
+1812	auditoria	score	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1813	auditoria	score	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1814	auditoria	score	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1815	auditoria	score	created_by	integer	2026-08-10 18:33:58.123645-03
+1816	auditoria	score	updated_by	integer	2026-08-10 18:33:58.123645-03
+1817	auditoria	score	deleted_by	integer	2026-08-10 18:33:58.123645-03
+1818	auditoria	score	versao	integer	2026-08-10 18:33:58.123645-03
+1819	auditoria	recomendacao	id_recomendacao	bigint	2026-08-10 18:33:58.123645-03
+1820	auditoria	recomendacao	id_execucao	bigint	2026-08-10 18:33:58.123645-03
+1821	auditoria	recomendacao	prioridade	character varying	2026-08-10 18:33:58.123645-03
+1822	auditoria	recomendacao	categoria	character varying	2026-08-10 18:33:58.123645-03
+1823	auditoria	recomendacao	tabela_nome	character varying	2026-08-10 18:33:58.123645-03
+1824	auditoria	recomendacao	coluna_nome	character varying	2026-08-10 18:33:58.123645-03
+1825	auditoria	recomendacao	descricao	text	2026-08-10 18:33:58.123645-03
+1826	auditoria	recomendacao	script_sugerido	character varying	2026-08-10 18:33:58.123645-03
+1827	auditoria	recomendacao	corrigido	boolean	2026-08-10 18:33:58.123645-03
+1828	auditoria	recomendacao	data_correcao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1829	auditoria	recomendacao	observacao	text	2026-08-10 18:33:58.123645-03
+1830	auditoria	recomendacao	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1831	auditoria	recomendacao	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1832	auditoria	recomendacao	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1833	auditoria	recomendacao	created_by	integer	2026-08-10 18:33:58.123645-03
+1834	auditoria	recomendacao	updated_by	integer	2026-08-10 18:33:58.123645-03
+1835	auditoria	recomendacao	deleted_by	integer	2026-08-10 18:33:58.123645-03
+1836	auditoria	recomendacao	versao	integer	2026-08-10 18:33:58.123645-03
+1837	auditoria	log	id_log	bigint	2026-08-10 18:33:58.123645-03
+1838	auditoria	log	id_execucao	bigint	2026-08-10 18:33:58.123645-03
+1839	auditoria	log	script	character varying	2026-08-10 18:33:58.123645-03
+1840	auditoria	log	etapa	character varying	2026-08-10 18:33:58.123645-03
+1841	auditoria	log	sqlstate	character varying	2026-08-10 18:33:58.123645-03
+1842	auditoria	log	mensagem	text	2026-08-10 18:33:58.123645-03
+1843	auditoria	log	detalhe	text	2026-08-10 18:33:58.123645-03
+1844	auditoria	log	hint	text	2026-08-10 18:33:58.123645-03
+1845	auditoria	log	contexto	text	2026-08-10 18:33:58.123645-03
+1846	auditoria	log	severidade	character varying	2026-08-10 18:33:58.123645-03
+1847	auditoria	log	data_log	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1848	auditoria	log	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1849	auditoria	log	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1850	auditoria	log	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1851	auditoria	log	created_by	integer	2026-08-10 18:33:58.123645-03
+1852	auditoria	log	updated_by	integer	2026-08-10 18:33:58.123645-03
+1853	auditoria	log	deleted_by	integer	2026-08-10 18:33:58.123645-03
+1854	auditoria	log	versao	integer	2026-08-10 18:33:58.123645-03
+1855	auditoria	configuracao	id_configuracao	smallint	2026-08-10 18:33:58.123645-03
+1856	auditoria	configuracao	chave	character varying	2026-08-10 18:33:58.123645-03
+1857	auditoria	configuracao	valor	character varying	2026-08-10 18:33:58.123645-03
+1858	auditoria	configuracao	descricao	text	2026-08-10 18:33:58.123645-03
+1859	auditoria	configuracao	ativo	boolean	2026-08-10 18:33:58.123645-03
+1860	auditoria	configuracao	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1861	auditoria	configuracao	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1862	auditoria	configuracao	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1863	auditoria	configuracao	created_by	integer	2026-08-10 18:33:58.123645-03
+1864	auditoria	configuracao	updated_by	integer	2026-08-10 18:33:58.123645-03
+1865	auditoria	configuracao	deleted_by	integer	2026-08-10 18:33:58.123645-03
+1866	auditoria	configuracao	versao	integer	2026-08-10 18:33:58.123645-03
+1867	config	migracao	id	bigint	2026-08-10 18:33:58.123645-03
+1868	config	migracao	script	character varying	2026-08-10 18:33:58.123645-03
+1869	config	migracao	descricao	character varying	2026-08-10 18:33:58.123645-03
+1870	config	migracao	executado_em	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1871	config	migracao	executado_por	character varying	2026-08-10 18:33:58.123645-03
+1872	config	migracao	sucesso	boolean	2026-08-10 18:33:58.123645-03
+1873	auditoria	item	id_item	bigint	2026-08-10 18:33:58.123645-03
+1874	auditoria	item	id_categoria	smallint	2026-08-10 18:33:58.123645-03
+1875	auditoria	item	codigo	character varying	2026-08-10 18:33:58.123645-03
+1876	auditoria	item	descricao	character varying	2026-08-10 18:33:58.123645-03
+1877	auditoria	item	criticidade	character varying	2026-08-10 18:33:58.123645-03
+1878	auditoria	item	peso	numeric	2026-08-10 18:33:58.123645-03
+1879	auditoria	item	ativo	boolean	2026-08-10 18:33:58.123645-03
+1880	auditoria	item	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1881	auditoria	item	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1882	auditoria	item	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1883	auditoria	item	created_by	integer	2026-08-10 18:33:58.123645-03
+1884	auditoria	item	updated_by	integer	2026-08-10 18:33:58.123645-03
+1885	auditoria	item	deleted_by	integer	2026-08-10 18:33:58.123645-03
+1886	auditoria	item	versao	integer	2026-08-10 18:33:58.123645-03
+1887	auditoria	item	tipo_verificacao	character varying	2026-08-10 18:33:58.123645-03
+1888	auditoria	item	objeto_alvo	character varying	2026-08-10 18:33:58.123645-03
+1889	auditoria	item	script_origem	character varying	2026-08-10 18:33:58.123645-03
+1890	auditoria	item	procedure_execucao	character varying	2026-08-10 18:33:58.123645-03
+1891	auditoria	item	habilitado	boolean	2026-08-10 18:33:58.123645-03
+1892	auditoria	item	ordem_execucao	integer	2026-08-10 18:33:58.123645-03
+1893	auditoria	item	versao_minima	character varying	2026-08-10 18:33:58.123645-03
+1894	auditoria	item	versao_maxima	character varying	2026-08-10 18:33:58.123645-03
+1895	auditoria	item	categoria_tecnica	character varying	2026-08-10 18:33:58.123645-03
+1896	auditoria	item	tempo_estimado_ms	integer	2026-08-10 18:33:58.123645-03
+1897	auditoria	item	observacao_tecnica	text	2026-08-10 18:33:58.123645-03
+1898	auditoria	script	id_script	bigint	2026-08-10 18:33:58.123645-03
+1899	auditoria	script	codigo	character varying	2026-08-10 18:33:58.123645-03
+1900	auditoria	script	descricao	character varying	2026-08-10 18:33:58.123645-03
+1901	auditoria	script	procedure_name	character varying	2026-08-10 18:33:58.123645-03
+1902	auditoria	script	ordem_execucao	integer	2026-08-10 18:33:58.123645-03
+1903	auditoria	script	categoria	character varying	2026-08-10 18:33:58.123645-03
+1904	auditoria	script	ativo	boolean	2026-08-10 18:33:58.123645-03
+1905	auditoria	script	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1906	auditoria	script	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1907	auditoria	script	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1908	auditoria	script	created_by	integer	2026-08-10 18:33:58.123645-03
+1909	auditoria	script	updated_by	integer	2026-08-10 18:33:58.123645-03
+1910	auditoria	script	deleted_by	integer	2026-08-10 18:33:58.123645-03
+1911	auditoria	script	versao	integer	2026-08-10 18:33:58.123645-03
+1912	config	versao_banco	id	bigint	2026-08-10 18:33:58.123645-03
+1913	config	versao_banco	versao	character varying	2026-08-10 18:33:58.123645-03
+1914	config	versao_banco	descricao	character varying	2026-08-10 18:33:58.123645-03
+1915	config	versao_banco	script	character varying	2026-08-10 18:33:58.123645-03
+1916	config	versao_banco	data_execucao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1917	config	versao_banco	usuario_execucao	character varying	2026-08-10 18:33:58.123645-03
+1918	auditoria	log_correcao	id_log	bigint	2026-08-10 18:33:58.123645-03
+1919	auditoria	log_correcao	data_execucao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1920	auditoria	log_correcao	schema_nome	character varying	2026-08-10 18:33:58.123645-03
+1921	auditoria	log_correcao	tabela_nome	character varying	2026-08-10 18:33:58.123645-03
+1922	auditoria	log_correcao	objeto	character varying	2026-08-10 18:33:58.123645-03
+1923	auditoria	log_correcao	tipo_correcao	character varying	2026-08-10 18:33:58.123645-03
+1924	auditoria	log_correcao	descricao	text	2026-08-10 18:33:58.123645-03
+1925	auditoria	log_correcao	sql_executado	text	2026-08-10 18:33:58.123645-03
+1926	auditoria	log_correcao	resultado	character varying	2026-08-10 18:33:58.123645-03
+1927	auditoria	log_correcao	erro	text	2026-08-10 18:33:58.123645-03
+1928	auditoria	catalogo_schema	id_schema	bigint	2026-08-10 18:33:58.123645-03
+1929	auditoria	catalogo_schema	schema_nome	character varying	2026-08-10 18:33:58.123645-03
+1930	auditoria	catalogo_schema	owner_name	character varying	2026-08-10 18:33:58.123645-03
+1931	auditoria	catalogo_schema	comentario	text	2026-08-10 18:33:58.123645-03
+1932	auditoria	catalogo_schema	ativo	boolean	2026-08-10 18:33:58.123645-03
+1933	auditoria	catalogo_schema	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1934	auditoria	catalogo_schema	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1935	auditoria	catalogo_schema	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1936	auditoria	catalogo_schema	created_by	integer	2026-08-10 18:33:58.123645-03
+1937	auditoria	catalogo_schema	updated_by	integer	2026-08-10 18:33:58.123645-03
+1938	auditoria	catalogo_schema	deleted_by	integer	2026-08-10 18:33:58.123645-03
+1939	auditoria	catalogo_schema	versao	integer	2026-08-10 18:33:58.123645-03
+1940	auditoria	catalogo_tabela	id_tabela	bigint	2026-08-10 18:33:58.123645-03
+1941	auditoria	catalogo_tabela	id_schema	bigint	2026-08-10 18:33:58.123645-03
+1942	auditoria	catalogo_tabela	nome	character varying	2026-08-10 18:33:58.123645-03
+1943	auditoria	catalogo_tabela	tipo	character varying	2026-08-10 18:33:58.123645-03
+1944	auditoria	catalogo_tabela	owner_name	character varying	2026-08-10 18:33:58.123645-03
+1945	auditoria	catalogo_tabela	comentario	text	2026-08-10 18:33:58.123645-03
+1946	auditoria	catalogo_tabela	possui_pk	boolean	2026-08-10 18:33:58.123645-03
+1947	auditoria	catalogo_tabela	possui_fk	boolean	2026-08-10 18:33:58.123645-03
+1948	auditoria	catalogo_tabela	possui_indice	boolean	2026-08-10 18:33:58.123645-03
+1949	auditoria	catalogo_tabela	possui_trigger	boolean	2026-08-10 18:33:58.123645-03
+1950	auditoria	catalogo_tabela	possui_auditoria	boolean	2026-08-10 18:33:58.123645-03
+1951	auditoria	catalogo_tabela	quantidade_colunas	integer	2026-08-10 18:33:58.123645-03
+1952	auditoria	catalogo_tabela	quantidade_registros	bigint	2026-08-10 18:33:58.123645-03
+1953	auditoria	catalogo_tabela	tamanho_mb	numeric	2026-08-10 18:33:58.123645-03
+1954	auditoria	catalogo_tabela	ultimo_vacuum	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1955	auditoria	catalogo_tabela	ultimo_analyze	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1956	auditoria	catalogo_tabela	ativo	boolean	2026-08-10 18:33:58.123645-03
+1957	auditoria	catalogo_tabela	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1958	auditoria	catalogo_tabela	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1959	auditoria	catalogo_tabela	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1960	auditoria	catalogo_tabela	created_by	integer	2026-08-10 18:33:58.123645-03
+1961	auditoria	catalogo_tabela	updated_by	integer	2026-08-10 18:33:58.123645-03
+1962	auditoria	catalogo_tabela	deleted_by	integer	2026-08-10 18:33:58.123645-03
+1963	auditoria	catalogo_tabela	versao	integer	2026-08-10 18:33:58.123645-03
+1964	auditoria	catalogo_coluna	id_coluna	bigint	2026-08-10 18:33:58.123645-03
+1965	auditoria	catalogo_coluna	id_tabela	bigint	2026-08-10 18:33:58.123645-03
+1966	auditoria	catalogo_coluna	nome	character varying	2026-08-10 18:33:58.123645-03
+1967	auditoria	catalogo_coluna	tipo	character varying	2026-08-10 18:33:58.123645-03
+1968	auditoria	catalogo_coluna	tamanho	integer	2026-08-10 18:33:58.123645-03
+1969	auditoria	catalogo_coluna	nullable	boolean	2026-08-10 18:33:58.123645-03
+1970	auditoria	catalogo_coluna	default_value	text	2026-08-10 18:33:58.123645-03
+1971	auditoria	catalogo_coluna	pk	boolean	2026-08-10 18:33:58.123645-03
+1972	auditoria	catalogo_coluna	fk	boolean	2026-08-10 18:33:58.123645-03
+1973	auditoria	catalogo_coluna	unique_key	boolean	2026-08-10 18:33:58.123645-03
+1974	auditoria	catalogo_coluna	indice	boolean	2026-08-10 18:33:58.123645-03
+1975	auditoria	catalogo_coluna	comentario	text	2026-08-10 18:33:58.123645-03
+1976	auditoria	catalogo_coluna	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1977	auditoria	catalogo_coluna	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1978	auditoria	catalogo_coluna	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1979	auditoria	catalogo_coluna	created_by	integer	2026-08-10 18:33:58.123645-03
+1980	auditoria	catalogo_coluna	updated_by	integer	2026-08-10 18:33:58.123645-03
+1981	auditoria	catalogo_coluna	deleted_by	integer	2026-08-10 18:33:58.123645-03
+1982	auditoria	catalogo_coluna	versao	integer	2026-08-10 18:33:58.123645-03
+1983	config	parametro	chave	character varying	2026-08-10 18:33:58.123645-03
+1984	config	parametro	valor	character varying	2026-08-10 18:33:58.123645-03
+1985	config	parametro	descricao	character varying	2026-08-10 18:33:58.123645-03
+1986	auditoria	core	id_core	bigint	2026-08-10 18:33:58.123645-03
+1987	auditoria	core	codigo	character varying	2026-08-10 18:33:58.123645-03
+1988	auditoria	core	nome	character varying	2026-08-10 18:33:58.123645-03
+1989	auditoria	core	descricao	text	2026-08-10 18:33:58.123645-03
+1990	auditoria	core	versao	character varying	2026-08-10 18:33:58.123645-03
+1991	auditoria	core	status	character varying	2026-08-10 18:33:58.123645-03
+1992	auditoria	core	ambiente	character varying	2026-08-10 18:33:58.123645-03
+1993	auditoria	core	ativo	boolean	2026-08-10 18:33:58.123645-03
+1994	auditoria	core	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1995	auditoria	core	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1996	auditoria	core	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+1997	auditoria	core	created_by	integer	2026-08-10 18:33:58.123645-03
+1998	auditoria	core	updated_by	integer	2026-08-10 18:33:58.123645-03
+1999	auditoria	core	deleted_by	integer	2026-08-10 18:33:58.123645-03
+2000	auditoria	core	revisao	integer	2026-08-10 18:33:58.123645-03
+2001	financeiro	configuracao	id_configuracao	integer	2026-08-10 18:33:58.123645-03
+2002	financeiro	configuracao	empresa_padrao	integer	2026-08-10 18:33:58.123645-03
+2003	financeiro	configuracao	moeda	character varying	2026-08-10 18:33:58.123645-03
+2004	financeiro	configuracao	idioma	character varying	2026-08-10 18:33:58.123645-03
+2005	financeiro	configuracao	tema	character varying	2026-08-10 18:33:58.123645-03
+2006	financeiro	configuracao	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2007	financeiro	configuracao	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2008	financeiro	configuracao	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2009	financeiro	configuracao	created_by	integer	2026-08-10 18:33:58.123645-03
+2010	financeiro	configuracao	updated_by	integer	2026-08-10 18:33:58.123645-03
+2011	financeiro	configuracao	deleted_by	integer	2026-08-10 18:33:58.123645-03
+2012	financeiro	configuracao	versao	integer	2026-08-10 18:33:58.123645-03
+2013	auditoria	executor	id_executor	bigint	2026-08-10 18:33:58.123645-03
+2014	auditoria	executor	codigo	character varying	2026-08-10 18:33:58.123645-03
+2015	auditoria	executor	nome	character varying	2026-08-10 18:33:58.123645-03
+2016	auditoria	executor	descricao	text	2026-08-10 18:33:58.123645-03
+2017	auditoria	executor	tipo_objeto	character varying	2026-08-10 18:33:58.123645-03
+2018	auditoria	executor	procedure_execucao	character varying	2026-08-10 18:33:58.123645-03
+2019	auditoria	executor	aceita_parametros	boolean	2026-08-10 18:33:58.123645-03
+2020	auditoria	executor	permite_correcao	boolean	2026-08-10 18:33:58.123645-03
+2021	auditoria	executor	ordem_execucao	integer	2026-08-10 18:33:58.123645-03
+2022	auditoria	executor	ativo	boolean	2026-08-10 18:33:58.123645-03
+2023	auditoria	executor	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2024	auditoria	executor	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2025	auditoria	executor	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2026	auditoria	executor	created_by	integer	2026-08-10 18:33:58.123645-03
+2027	auditoria	executor	updated_by	integer	2026-08-10 18:33:58.123645-03
+2028	auditoria	executor	deleted_by	integer	2026-08-10 18:33:58.123645-03
+2029	auditoria	executor	versao	integer	2026-08-10 18:33:58.123645-03
+2030	auditoria	regra	id_regra	bigint	2026-08-10 18:33:58.123645-03
+2031	auditoria	regra	codigo	character varying	2026-08-10 18:33:58.123645-03
+2032	auditoria	regra	descricao	character varying	2026-08-10 18:33:58.123645-03
+2033	auditoria	regra	categoria	character varying	2026-08-10 18:33:58.123645-03
+2034	auditoria	regra	objeto	character varying	2026-08-10 18:33:58.123645-03
+2035	auditoria	regra	consulta_sql	text	2026-08-10 18:33:58.123645-03
+2036	auditoria	regra	script_recomendado	text	2026-08-10 18:33:58.123645-03
+2037	auditoria	regra	peso	numeric	2026-08-10 18:33:58.123645-03
+2038	auditoria	regra	criticidade	character varying	2026-08-10 18:33:58.123645-03
+2039	auditoria	regra	habilitado	boolean	2026-08-10 18:33:58.123645-03
+2040	auditoria	regra	ordem	integer	2026-08-10 18:33:58.123645-03
+2041	auditoria	regra	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2042	auditoria	regra	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2043	auditoria	regra	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2044	auditoria	regra	created_by	integer	2026-08-10 18:33:58.123645-03
+2045	auditoria	regra	updated_by	integer	2026-08-10 18:33:58.123645-03
+2046	auditoria	regra	deleted_by	integer	2026-08-10 18:33:58.123645-03
+2047	auditoria	regra	versao	integer	2026-08-10 18:33:58.123645-03
+2048	auditoria	regra	tipo_objeto	character varying	2026-08-10 18:33:58.123645-03
+2049	auditoria	regra	objeto_alvo	character varying	2026-08-10 18:33:58.123645-03
+2050	auditoria	regra	ativo	boolean	2026-08-10 18:33:58.123645-03
+2051	auditoria	regra	prioridade	smallint	2026-08-10 18:33:58.123645-03
+2052	auditoria	regra	ordem_execucao	integer	2026-08-10 18:33:58.123645-03
+2053	auditoria	regra	tempo_estimado_ms	integer	2026-08-10 18:33:58.123645-03
+2054	auditoria	regra	versao_minima	character varying	2026-08-10 18:33:58.123645-03
+2055	auditoria	regra	versao_maxima	character varying	2026-08-10 18:33:58.123645-03
+2056	auditoria	regra	observacao	text	2026-08-10 18:33:58.123645-03
+2057	auditoria	regra	id_executor	bigint	2026-08-10 18:33:58.123645-03
+2058	financeiro	anexo	id_anexo	bigint	2026-08-10 18:33:58.123645-03
+2059	financeiro	anexo	id_lancamento	bigint	2026-08-10 18:33:58.123645-03
+2060	financeiro	anexo	nome_original	character varying	2026-08-10 18:33:58.123645-03
+2061	financeiro	anexo	nome_servidor	character varying	2026-08-10 18:33:58.123645-03
+2062	financeiro	anexo	extensao	character varying	2026-08-10 18:33:58.123645-03
+2063	financeiro	anexo	tamanho	bigint	2026-08-10 18:33:58.123645-03
+2064	financeiro	anexo	mime_type	character varying	2026-08-10 18:33:58.123645-03
+2065	financeiro	anexo	caminho	text	2026-08-10 18:33:58.123645-03
+2066	financeiro	anexo	data_upload	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2067	financeiro	anexo	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2068	financeiro	anexo	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2069	financeiro	anexo	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2070	financeiro	anexo	created_by	integer	2026-08-10 18:33:58.123645-03
+2071	financeiro	anexo	updated_by	integer	2026-08-10 18:33:58.123645-03
+2072	financeiro	anexo	deleted_by	integer	2026-08-10 18:33:58.123645-03
+2073	financeiro	anexo	versao	integer	2026-08-10 18:33:58.123645-03
+2074	financeiro	categoria	id_categoria	integer	2026-08-10 18:33:58.123645-03
+2075	financeiro	categoria	id_grupo	integer	2026-08-10 18:33:58.123645-03
+2076	financeiro	categoria	codigo	character varying	2026-08-10 18:33:58.123645-03
+2077	financeiro	categoria	descricao	character varying	2026-08-10 18:33:58.123645-03
+2078	financeiro	categoria	ativo	boolean	2026-08-10 18:33:58.123645-03
+2079	financeiro	categoria	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2080	financeiro	categoria	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2081	financeiro	categoria	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2082	financeiro	categoria	created_by	integer	2026-08-10 18:33:58.123645-03
+2083	financeiro	categoria	updated_by	integer	2026-08-10 18:33:58.123645-03
+2084	financeiro	categoria	deleted_by	integer	2026-08-10 18:33:58.123645-03
+2085	financeiro	categoria	versao	integer	2026-08-10 18:33:58.123645-03
+2086	financeiro	conta	id_conta	integer	2026-08-10 18:33:58.123645-03
+2087	financeiro	conta	id_classificacao	integer	2026-08-10 18:33:58.123645-03
+2088	financeiro	conta	codigo	character varying	2026-08-10 18:33:58.123645-03
+2089	financeiro	conta	descricao	character varying	2026-08-10 18:33:58.123645-03
+2090	financeiro	conta	aceita_lancamento	boolean	2026-08-10 18:33:58.123645-03
+2091	financeiro	conta	ativo	boolean	2026-08-10 18:33:58.123645-03
+2092	financeiro	conta	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2093	financeiro	conta	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2094	financeiro	conta	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2095	financeiro	conta	created_by	integer	2026-08-10 18:33:58.123645-03
+2096	financeiro	conta	updated_by	integer	2026-08-10 18:33:58.123645-03
+2097	financeiro	conta	deleted_by	integer	2026-08-10 18:33:58.123645-03
+2098	financeiro	conta	versao	integer	2026-08-10 18:33:58.123645-03
+2099	financeiro	grupo	id_grupo	integer	2026-08-10 18:33:58.123645-03
+2100	financeiro	grupo	codigo	character varying	2026-08-10 18:33:58.123645-03
+2101	financeiro	grupo	descricao	character varying	2026-08-10 18:33:58.123645-03
+2102	financeiro	grupo	natureza	character	2026-08-10 18:33:58.123645-03
+2103	financeiro	grupo	ativo	boolean	2026-08-10 18:33:58.123645-03
+2104	financeiro	grupo	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2105	financeiro	grupo	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2106	financeiro	grupo	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2107	financeiro	grupo	created_by	integer	2026-08-10 18:33:58.123645-03
+2108	financeiro	grupo	updated_by	integer	2026-08-10 18:33:58.123645-03
+2109	financeiro	grupo	deleted_by	integer	2026-08-10 18:33:58.123645-03
+2110	financeiro	grupo	versao	integer	2026-08-10 18:33:58.123645-03
+2111	financeiro	movimentacao_bancaria	id_movimento	bigint	2026-08-10 18:33:58.123645-03
+2112	financeiro	movimentacao_bancaria	id_conta_bancaria	integer	2026-08-10 18:33:58.123645-03
+2113	financeiro	movimentacao_bancaria	id_pagamento	bigint	2026-08-10 18:33:58.123645-03
+2114	financeiro	movimentacao_bancaria	id_tipo_movimentacao	smallint	2026-08-10 18:33:58.123645-03
+2115	financeiro	movimentacao_bancaria	data_movimento	date	2026-08-10 18:33:58.123645-03
+2116	financeiro	movimentacao_bancaria	valor	numeric	2026-08-10 18:33:58.123645-03
+2117	financeiro	movimentacao_bancaria	saldo_anterior	numeric	2026-08-10 18:33:58.123645-03
+2118	financeiro	movimentacao_bancaria	saldo_atual	numeric	2026-08-10 18:33:58.123645-03
+2119	financeiro	movimentacao_bancaria	historico	text	2026-08-10 18:33:58.123645-03
+2120	financeiro	movimentacao_bancaria	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2121	financeiro	movimentacao_bancaria	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2122	financeiro	movimentacao_bancaria	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2123	financeiro	movimentacao_bancaria	created_by	integer	2026-08-10 18:33:58.123645-03
+2124	financeiro	movimentacao_bancaria	updated_by	integer	2026-08-10 18:33:58.123645-03
+2125	financeiro	movimentacao_bancaria	deleted_by	integer	2026-08-10 18:33:58.123645-03
+2126	financeiro	movimentacao_bancaria	versao	integer	2026-08-10 18:33:58.123645-03
+2127	financeiro	pagamento	id_pagamento	bigint	2026-08-10 18:33:58.123645-03
+2128	financeiro	pagamento	id_parcela	bigint	2026-08-10 18:33:58.123645-03
+2129	financeiro	pagamento	id_conta_bancaria	integer	2026-08-10 18:33:58.123645-03
+2130	financeiro	pagamento	id_forma_pagamento	integer	2026-08-10 18:33:58.123645-03
+2131	financeiro	pagamento	data_pagamento	date	2026-08-10 18:33:58.123645-03
+2132	financeiro	pagamento	valor	numeric	2026-08-10 18:33:58.123645-03
+2133	financeiro	pagamento	juros	numeric	2026-08-10 18:33:58.123645-03
+2134	financeiro	pagamento	desconto	numeric	2026-08-10 18:33:58.123645-03
+2135	financeiro	pagamento	multa	numeric	2026-08-10 18:33:58.123645-03
+2136	financeiro	pagamento	documento	character varying	2026-08-10 18:33:58.123645-03
+2137	financeiro	pagamento	observacao	text	2026-08-10 18:33:58.123645-03
+2138	financeiro	pagamento	data_cadastro	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2139	financeiro	pagamento	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2140	financeiro	pagamento	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2141	financeiro	pagamento	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2142	financeiro	pagamento	created_by	integer	2026-08-10 18:33:58.123645-03
+2143	financeiro	pagamento	updated_by	integer	2026-08-10 18:33:58.123645-03
+2144	financeiro	pagamento	deleted_by	integer	2026-08-10 18:33:58.123645-03
+2145	financeiro	pagamento	versao	integer	2026-08-10 18:33:58.123645-03
+2146	financeiro	rateio_centro_custo	id_rateio	bigint	2026-08-10 18:33:58.123645-03
+2147	financeiro	rateio_centro_custo	id_lancamento	bigint	2026-08-10 18:33:58.123645-03
+2148	financeiro	rateio_centro_custo	id_centro_custo	integer	2026-08-10 18:33:58.123645-03
+2149	financeiro	rateio_centro_custo	percentual	numeric	2026-08-10 18:33:58.123645-03
+2150	financeiro	rateio_centro_custo	valor	numeric	2026-08-10 18:33:58.123645-03
+2151	financeiro	rateio_centro_custo	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2152	financeiro	rateio_centro_custo	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2153	financeiro	rateio_centro_custo	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2154	financeiro	rateio_centro_custo	created_by	integer	2026-08-10 18:33:58.123645-03
+2155	financeiro	rateio_centro_custo	updated_by	integer	2026-08-10 18:33:58.123645-03
+2156	financeiro	rateio_centro_custo	deleted_by	integer	2026-08-10 18:33:58.123645-03
+2157	financeiro	rateio_centro_custo	versao	integer	2026-08-10 18:33:58.123645-03
+2158	financeiro	status_lancamento	id_status	smallint	2026-08-10 18:33:58.123645-03
+2159	financeiro	status_lancamento	codigo	character varying	2026-08-10 18:33:58.123645-03
+2160	financeiro	status_lancamento	descricao	character varying	2026-08-10 18:33:58.123645-03
+2161	financeiro	status_lancamento	ativo	boolean	2026-08-10 18:33:58.123645-03
+2162	financeiro	status_lancamento	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2163	financeiro	status_lancamento	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2164	financeiro	status_lancamento	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2165	financeiro	status_lancamento	created_by	integer	2026-08-10 18:33:58.123645-03
+2166	financeiro	status_lancamento	updated_by	integer	2026-08-10 18:33:58.123645-03
+2167	financeiro	status_lancamento	deleted_by	integer	2026-08-10 18:33:58.123645-03
+2168	financeiro	status_lancamento	versao	integer	2026-08-10 18:33:58.123645-03
+2169	financeiro	subcategoria	id_subcategoria	integer	2026-08-10 18:33:58.123645-03
+2170	financeiro	subcategoria	id_categoria	integer	2026-08-10 18:33:58.123645-03
+2171	financeiro	subcategoria	codigo	character varying	2026-08-10 18:33:58.123645-03
+2172	financeiro	subcategoria	descricao	character varying	2026-08-10 18:33:58.123645-03
+2173	financeiro	subcategoria	ativo	boolean	2026-08-10 18:33:58.123645-03
+2174	financeiro	subcategoria	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2175	financeiro	subcategoria	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2176	financeiro	subcategoria	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2177	financeiro	subcategoria	created_by	integer	2026-08-10 18:33:58.123645-03
+2178	financeiro	subcategoria	updated_by	integer	2026-08-10 18:33:58.123645-03
+2179	financeiro	subcategoria	deleted_by	integer	2026-08-10 18:33:58.123645-03
+2180	financeiro	subcategoria	versao	integer	2026-08-10 18:33:58.123645-03
+2181	financeiro	tipo_lancamento	id_tipo_lancamento	smallint	2026-08-10 18:33:58.123645-03
+2182	financeiro	tipo_lancamento	codigo	character varying	2026-08-10 18:33:58.123645-03
+2183	financeiro	tipo_lancamento	descricao	character varying	2026-08-10 18:33:58.123645-03
+2184	financeiro	tipo_lancamento	natureza	character	2026-08-10 18:33:58.123645-03
+2185	financeiro	tipo_lancamento	ativo	boolean	2026-08-10 18:33:58.123645-03
+2186	financeiro	tipo_lancamento	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2187	financeiro	tipo_lancamento	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2188	financeiro	tipo_lancamento	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2189	financeiro	tipo_lancamento	created_by	integer	2026-08-10 18:33:58.123645-03
+2190	financeiro	tipo_lancamento	updated_by	integer	2026-08-10 18:33:58.123645-03
+2191	financeiro	tipo_lancamento	deleted_by	integer	2026-08-10 18:33:58.123645-03
+2192	financeiro	tipo_lancamento	versao	integer	2026-08-10 18:33:58.123645-03
+2193	financeiro	tipo_movimentacao	id_tipo_movimentacao	smallint	2026-08-10 18:33:58.123645-03
+2194	financeiro	tipo_movimentacao	codigo	character varying	2026-08-10 18:33:58.123645-03
+2195	financeiro	tipo_movimentacao	descricao	character varying	2026-08-10 18:33:58.123645-03
+2196	financeiro	tipo_movimentacao	entrada_saida	character	2026-08-10 18:33:58.123645-03
+2197	financeiro	tipo_movimentacao	ativo	boolean	2026-08-10 18:33:58.123645-03
+2198	financeiro	tipo_movimentacao	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2199	financeiro	tipo_movimentacao	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2200	financeiro	tipo_movimentacao	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2201	financeiro	tipo_movimentacao	created_by	integer	2026-08-10 18:33:58.123645-03
+2202	financeiro	tipo_movimentacao	updated_by	integer	2026-08-10 18:33:58.123645-03
+2203	financeiro	tipo_movimentacao	deleted_by	integer	2026-08-10 18:33:58.123645-03
+2204	financeiro	tipo_movimentacao	versao	integer	2026-08-10 18:33:58.123645-03
+2205	public	parametro_sistema	id_parametro	integer	2026-08-10 18:33:58.123645-03
+2206	public	parametro_sistema	codigo	character varying	2026-08-10 18:33:58.123645-03
+2207	public	parametro_sistema	descricao	character varying	2026-08-10 18:33:58.123645-03
+2208	public	parametro_sistema	valor	character varying	2026-08-10 18:33:58.123645-03
+2209	public	parametro_sistema	tipo	character varying	2026-08-10 18:33:58.123645-03
+2210	public	parametro_sistema	grupo	character varying	2026-08-10 18:33:58.123645-03
+2211	public	parametro_sistema	ativo	boolean	2026-08-10 18:33:58.123645-03
+2212	public	parametro_sistema	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2213	public	parametro_sistema	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2214	public	parametro_sistema	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2215	public	parametro_sistema	created_by	character varying	2026-08-10 18:33:58.123645-03
+2216	public	parametro_sistema	updated_by	character varying	2026-08-10 18:33:58.123645-03
+2217	public	parametro_sistema	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+2218	public	parametro_sistema	versao	integer	2026-08-10 18:33:58.123645-03
+2219	public	aprovacao_processo	id_aprovacao	integer	2026-08-10 18:33:58.123645-03
+2220	public	aprovacao_processo	tipo_processo	character varying	2026-08-10 18:33:58.123645-03
+2221	public	aprovacao_processo	registro_id	integer	2026-08-10 18:33:58.123645-03
+2222	public	aprovacao_processo	solicitante	character varying	2026-08-10 18:33:58.123645-03
+2223	public	aprovacao_processo	aprovador	character varying	2026-08-10 18:33:58.123645-03
+2224	public	aprovacao_processo	status	character varying	2026-08-10 18:33:58.123645-03
+2225	public	aprovacao_processo	data_solicitacao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2226	public	aprovacao_processo	data_aprovacao	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2227	public	aprovacao_processo	observacao	text	2026-08-10 18:33:58.123645-03
+2228	public	aprovacao_processo	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2229	public	aprovacao_processo	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2230	public	aprovacao_processo	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2231	public	aprovacao_processo	created_by	character varying	2026-08-10 18:33:58.123645-03
+2232	public	aprovacao_processo	updated_by	character varying	2026-08-10 18:33:58.123645-03
+2233	public	aprovacao_processo	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+2234	public	aprovacao_processo	versao	integer	2026-08-10 18:33:58.123645-03
+2235	public	politica_acesso	id_politica	integer	2026-08-10 18:33:58.123645-03
+2236	public	politica_acesso	codigo	character varying	2026-08-10 18:33:58.123645-03
+2237	public	politica_acesso	descricao	character varying	2026-08-10 18:33:58.123645-03
+2238	public	politica_acesso	modulo	character varying	2026-08-10 18:33:58.123645-03
+2239	public	politica_acesso	acao	character varying	2026-08-10 18:33:58.123645-03
+2240	public	politica_acesso	nivel	character varying	2026-08-10 18:33:58.123645-03
+2241	public	politica_acesso	ativo	boolean	2026-08-10 18:33:58.123645-03
+2242	public	politica_acesso	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2243	public	politica_acesso	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2244	public	politica_acesso	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2245	public	politica_acesso	created_by	character varying	2026-08-10 18:33:58.123645-03
+2246	public	politica_acesso	updated_by	character varying	2026-08-10 18:33:58.123645-03
+2247	public	politica_acesso	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+2248	public	politica_acesso	versao	integer	2026-08-10 18:33:58.123645-03
+2249	public	conformidade_lgpd	id_lgpd	integer	2026-08-10 18:33:58.123645-03
+2250	public	conformidade_lgpd	tipo_dado	character varying	2026-08-10 18:33:58.123645-03
+2251	public	conformidade_lgpd	finalidade	character varying	2026-08-10 18:33:58.123645-03
+2252	public	conformidade_lgpd	base_legal	character varying	2026-08-10 18:33:58.123645-03
+2253	public	conformidade_lgpd	retencao_dias	integer	2026-08-10 18:33:58.123645-03
+2254	public	conformidade_lgpd	responsavel	character varying	2026-08-10 18:33:58.123645-03
+2255	public	conformidade_lgpd	ativo	boolean	2026-08-10 18:33:58.123645-03
+2256	public	conformidade_lgpd	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2257	public	conformidade_lgpd	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2258	public	conformidade_lgpd	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2259	public	conformidade_lgpd	created_by	character varying	2026-08-10 18:33:58.123645-03
+2260	public	conformidade_lgpd	updated_by	character varying	2026-08-10 18:33:58.123645-03
+2261	public	conformidade_lgpd	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+2262	public	conformidade_lgpd	versao	integer	2026-08-10 18:33:58.123645-03
+2263	public	data_mart_execucao	id_execucao	integer	2026-08-10 18:33:58.123645-03
+2264	public	data_mart_execucao	processo	character varying	2026-08-10 18:33:58.123645-03
+2265	public	data_mart_execucao	data_inicio	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2266	public	data_mart_execucao	data_fim	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2267	public	data_mart_execucao	registros_processados	integer	2026-08-10 18:33:58.123645-03
+2268	public	data_mart_execucao	status	character varying	2026-08-10 18:33:58.123645-03
+2269	public	data_mart_execucao	mensagem	text	2026-08-10 18:33:58.123645-03
+2270	public	data_mart_execucao	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2271	public	data_mart_execucao	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2272	public	data_mart_execucao	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2273	public	data_mart_execucao	created_by	character varying	2026-08-10 18:33:58.123645-03
+2274	public	data_mart_execucao	updated_by	character varying	2026-08-10 18:33:58.123645-03
+2275	public	data_mart_execucao	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+2276	public	data_mart_execucao	versao	integer	2026-08-10 18:33:58.123645-03
+2277	public	fato_vendas	id_fato_venda	integer	2026-08-10 18:33:58.123645-03
+2278	public	fato_vendas	data_venda	date	2026-08-10 18:33:58.123645-03
+2279	public	fato_vendas	id_venda_origem	integer	2026-08-10 18:33:58.123645-03
+2280	public	fato_vendas	id_cliente	integer	2026-08-10 18:33:58.123645-03
+2281	public	fato_vendas	id_produto_turistico	integer	2026-08-10 18:33:58.123645-03
+2282	public	fato_vendas	id_destino	integer	2026-08-10 18:33:58.123645-03
+2283	public	fato_vendas	canal_venda	character varying	2026-08-10 18:33:58.123645-03
+2284	public	fato_vendas	quantidade	integer	2026-08-10 18:33:58.123645-03
+2285	public	fato_vendas	valor_bruto	numeric	2026-08-10 18:33:58.123645-03
+2286	public	fato_vendas	valor_desconto	numeric	2026-08-10 18:33:58.123645-03
+2287	public	fato_vendas	valor_liquido	numeric	2026-08-10 18:33:58.123645-03
+2288	public	fato_vendas	custo	numeric	2026-08-10 18:33:58.123645-03
+2289	public	fato_vendas	comissao	numeric	2026-08-10 18:33:58.123645-03
+2290	public	fato_vendas	margem	numeric	2026-08-10 18:33:58.123645-03
+2291	public	fato_vendas	status_venda	character varying	2026-08-10 18:33:58.123645-03
+2292	public	fato_vendas	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2293	public	fato_vendas	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2294	public	fato_vendas	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2295	public	fato_vendas	created_by	character varying	2026-08-10 18:33:58.123645-03
+2296	public	fato_vendas	updated_by	character varying	2026-08-10 18:33:58.123645-03
+2297	public	fato_vendas	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+2298	public	fato_vendas	versao	integer	2026-08-10 18:33:58.123645-03
+2299	public	workflow	id_workflow	integer	2026-08-10 18:33:58.123645-03
+2300	public	workflow	nome	character varying	2026-08-10 18:33:58.123645-03
+2301	public	workflow	descricao	text	2026-08-10 18:33:58.123645-03
+2302	public	workflow	ativo	boolean	2026-08-10 18:33:58.123645-03
+2303	public	workflow	created_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2304	public	workflow	updated_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2305	public	workflow	deleted_at	timestamp without time zone	2026-08-10 18:33:58.123645-03
+2306	public	workflow	created_by	character varying	2026-08-10 18:33:58.123645-03
+2307	public	workflow	updated_by	character varying	2026-08-10 18:33:58.123645-03
+2308	public	workflow	deleted_by	character varying	2026-08-10 18:33:58.123645-03
+2309	public	workflow	versao	integer	2026-08-10 18:33:58.123645-03
+2310	auditoria	execucao_correcao	id_execucao	bigint	2026-08-10 18:33:58.123645-03
+2311	auditoria	execucao_correcao	script	character varying	2026-08-10 18:33:58.123645-03
+2312	auditoria	execucao_correcao	etapa	character varying	2026-08-10 18:33:58.123645-03
+2313	auditoria	execucao_correcao	iniciado_em	timestamp with time zone	2026-08-10 18:33:58.123645-03
+2314	auditoria	execucao_correcao	finalizado_em	timestamp with time zone	2026-08-10 18:33:58.123645-03
+2315	auditoria	execucao_correcao	status	character varying	2026-08-10 18:33:58.123645-03
+2316	auditoria	execucao_correcao	observacao	text	2026-08-10 18:33:58.123645-03
+2317	auditoria	inventario_tabelas	id_inventario	bigint	2026-08-10 18:33:58.123645-03
+2318	auditoria	inventario_tabelas	schema_name	character varying	2026-08-10 18:33:58.123645-03
+2319	auditoria	inventario_tabelas	table_name	character varying	2026-08-10 18:33:58.123645-03
+2320	auditoria	inventario_tabelas	row_estimate	bigint	2026-08-10 18:33:58.123645-03
+2321	auditoria	inventario_tabelas	tamanho_bytes	bigint	2026-08-10 18:33:58.123645-03
+2322	auditoria	inventario_tabelas	tamanho_formatado	text	2026-08-10 18:33:58.123645-03
+2323	auditoria	inventario_tabelas	possui_pk	boolean	2026-08-10 18:33:58.123645-03
+2324	auditoria	inventario_tabelas	possui_fk	boolean	2026-08-10 18:33:58.123645-03
+2325	auditoria	inventario_tabelas	possui_indices	boolean	2026-08-10 18:33:58.123645-03
+2326	auditoria	inventario_tabelas	possui_comentario	boolean	2026-08-10 18:33:58.123645-03
+2327	auditoria	inventario_tabelas	auditado_em	timestamp with time zone	2026-08-10 18:33:58.123645-03
+2328	auditoria	tabelas_sem_pk	id	bigint	2026-08-10 18:33:58.123645-03
+2329	auditoria	tabelas_sem_pk	schema_name	character varying	2026-08-10 18:33:58.123645-03
+2330	auditoria	tabelas_sem_pk	table_name	character varying	2026-08-10 18:33:58.123645-03
+2331	auditoria	tabelas_sem_pk	detectado_em	timestamp with time zone	2026-08-10 18:33:58.123645-03
+2332	auditoria	tabelas_sem_indices	id	bigint	2026-08-10 18:33:58.123645-03
+2333	auditoria	tabelas_sem_indices	schema_name	character varying	2026-08-10 18:33:58.123645-03
+2334	auditoria	tabelas_sem_indices	table_name	character varying	2026-08-10 18:33:58.123645-03
+2335	auditoria	tabelas_sem_indices	detectado_em	timestamp with time zone	2026-08-10 18:33:58.123645-03
+2336	auditoria	colunas_sem_comentario	id	bigint	2026-08-10 18:33:58.123645-03
+2337	auditoria	colunas_sem_comentario	schema_name	character varying	2026-08-10 18:33:58.123645-03
+2338	auditoria	colunas_sem_comentario	table_name	character varying	2026-08-10 18:33:58.123645-03
+2339	auditoria	colunas_sem_comentario	column_name	character varying	2026-08-10 18:33:58.123645-03
+2340	auditoria	colunas_sem_comentario	data_type	character varying	2026-08-10 18:33:58.123645-03
+2341	auditoria	colunas_sem_comentario	detectado_em	timestamp with time zone	2026-08-10 18:33:58.123645-03
+\.
+
+
+--
+-- TOC entry 8304 (class 0 OID 41615)
 -- Dependencies: 610
 -- Data for Name: configuracao; Type: TABLE DATA; Schema: auditoria; Owner: postgres
 --
@@ -12960,7 +16221,7 @@ COPY auditoria.configuracao (id_configuracao, chave, valor, descricao, ativo, cr
 
 
 --
--- TOC entry 8181 (class 0 OID 41853)
+-- TOC entry 8325 (class 0 OID 41853)
 -- Dependencies: 641
 -- Data for Name: core; Type: TABLE DATA; Schema: auditoria; Owner: postgres
 --
@@ -12970,7 +16231,7 @@ COPY auditoria.core (id_core, codigo, nome, descricao, versao, status, ambiente,
 
 
 --
--- TOC entry 8146 (class 0 OID 41446)
+-- TOC entry 8290 (class 0 OID 41446)
 -- Dependencies: 596
 -- Data for Name: execucao; Type: TABLE DATA; Schema: auditoria; Owner: postgres
 --
@@ -12980,7 +16241,18 @@ COPY auditoria.execucao (id_execucao, versao_banco, versao_script, schema_audita
 
 
 --
--- TOC entry 8179 (class 0 OID 41824)
+-- TOC entry 8327 (class 0 OID 42667)
+-- Dependencies: 643
+-- Data for Name: execucao_correcao; Type: TABLE DATA; Schema: auditoria; Owner: postgres
+--
+
+COPY auditoria.execucao_correcao (id_execucao, script, etapa, iniciado_em, finalizado_em, status, observacao) FROM stdin;
+1	02_00_Correcao_Geral_Parte_02.sql	AUDITORIA_ESTRUTURAL	2026-08-10 18:33:58.123645-03	2026-08-10 18:33:58.123645-03	CONCLUIDO	Auditoria estrutural concluída sem alterações destrutivas.
+\.
+
+
+--
+-- TOC entry 8323 (class 0 OID 41824)
 -- Dependencies: 639
 -- Data for Name: executor; Type: TABLE DATA; Schema: auditoria; Owner: postgres
 --
@@ -12990,7 +16262,1897 @@ COPY auditoria.executor (id_executor, codigo, nome, descricao, tipo_objeto, proc
 
 
 --
--- TOC entry 8150 (class 0 OID 41489)
+-- TOC entry 8339 (class 0 OID 42772)
+-- Dependencies: 655
+-- Data for Name: fks_sem_indice; Type: TABLE DATA; Schema: auditoria; Owner: postgres
+--
+
+COPY auditoria.fks_sem_indice (id, schema_name, table_name, constraint_name, detectado_em) FROM stdin;
+\.
+
+
+--
+-- TOC entry 8345 (class 0 OID 42823)
+-- Dependencies: 661
+-- Data for Name: indices_potencialmente_duplicados; Type: TABLE DATA; Schema: auditoria; Owner: postgres
+--
+
+COPY auditoria.indices_potencialmente_duplicados (id, schema_name, table_name, index_1, index_2, definicao, detectado_em) FROM stdin;
+\.
+
+
+--
+-- TOC entry 8341 (class 0 OID 42788)
+-- Dependencies: 657
+-- Data for Name: inventario_constraints; Type: TABLE DATA; Schema: auditoria; Owner: postgres
+--
+
+COPY auditoria.inventario_constraints (id, schema_name, table_name, constraint_name, constraint_type, definition, auditado_em) FROM stdin;
+1	financeiro	empresa	empresa_id_empresa_not_null	n	NOT NULL id_empresa	2026-08-10 18:33:58.123645-03
+2	financeiro	empresa	empresa_razao_social_not_null	n	NOT NULL razao_social	2026-08-10 18:33:58.123645-03
+3	financeiro	empresa	empresa_pkey	PRIMARY KEY	PRIMARY KEY (id_empresa)	2026-08-10 18:33:58.123645-03
+4	financeiro	usuario	usuario_id_usuario_not_null	n	NOT NULL id_usuario	2026-08-10 18:33:58.123645-03
+5	financeiro	usuario	usuario_nome_not_null	n	NOT NULL nome	2026-08-10 18:33:58.123645-03
+6	financeiro	usuario	usuario_email_not_null	n	NOT NULL email	2026-08-10 18:33:58.123645-03
+7	financeiro	usuario	usuario_senha_hash_not_null	n	NOT NULL senha_hash	2026-08-10 18:33:58.123645-03
+8	financeiro	usuario	usuario_pkey	PRIMARY KEY	PRIMARY KEY (id_usuario)	2026-08-10 18:33:58.123645-03
+9	financeiro	usuario	usuario_email_key	UNIQUE	UNIQUE (email)	2026-08-10 18:33:58.123645-03
+10	financeiro	grupo	grupo_id_grupo_not_null	n	NOT NULL id_grupo	2026-08-10 18:33:58.123645-03
+11	financeiro	grupo	grupo_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+12	financeiro	grupo	grupo_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+13	financeiro	grupo	grupo_natureza_not_null	n	NOT NULL natureza	2026-08-10 18:33:58.123645-03
+14	financeiro	grupo	grupo_pkey	PRIMARY KEY	PRIMARY KEY (id_grupo)	2026-08-10 18:33:58.123645-03
+15	financeiro	grupo	grupo_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+16	financeiro	categoria	categoria_id_categoria_not_null	n	NOT NULL id_categoria	2026-08-10 18:33:58.123645-03
+17	financeiro	categoria	categoria_id_grupo_not_null	n	NOT NULL id_grupo	2026-08-10 18:33:58.123645-03
+18	financeiro	categoria	categoria_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+19	financeiro	categoria	categoria_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+20	financeiro	categoria	categoria_pkey	PRIMARY KEY	PRIMARY KEY (id_categoria)	2026-08-10 18:33:58.123645-03
+21	financeiro	subcategoria	subcategoria_id_subcategoria_not_null	n	NOT NULL id_subcategoria	2026-08-10 18:33:58.123645-03
+22	financeiro	subcategoria	subcategoria_id_categoria_not_null	n	NOT NULL id_categoria	2026-08-10 18:33:58.123645-03
+23	financeiro	subcategoria	subcategoria_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+24	financeiro	subcategoria	subcategoria_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+25	financeiro	subcategoria	subcategoria_pkey	PRIMARY KEY	PRIMARY KEY (id_subcategoria)	2026-08-10 18:33:58.123645-03
+26	financeiro	classificacao	classificacao_id_classificacao_not_null	n	NOT NULL id_classificacao	2026-08-10 18:33:58.123645-03
+27	financeiro	classificacao	classificacao_id_subcategoria_not_null	n	NOT NULL id_subcategoria	2026-08-10 18:33:58.123645-03
+28	financeiro	classificacao	classificacao_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+29	financeiro	classificacao	classificacao_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+30	financeiro	classificacao	classificacao_pkey	PRIMARY KEY	PRIMARY KEY (id_classificacao)	2026-08-10 18:33:58.123645-03
+31	financeiro	classificacao	classificacao_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+32	financeiro	conta	conta_id_conta_not_null	n	NOT NULL id_conta	2026-08-10 18:33:58.123645-03
+33	financeiro	conta	conta_id_classificacao_not_null	n	NOT NULL id_classificacao	2026-08-10 18:33:58.123645-03
+34	financeiro	conta	conta_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+35	financeiro	conta	conta_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+36	financeiro	conta	conta_pkey	PRIMARY KEY	PRIMARY KEY (id_conta)	2026-08-10 18:33:58.123645-03
+37	financeiro	conta	conta_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+38	financeiro	centro_custo	centro_custo_id_centro_custo_not_null	n	NOT NULL id_centro_custo	2026-08-10 18:33:58.123645-03
+39	financeiro	centro_custo	centro_custo_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+40	financeiro	centro_custo	centro_custo_pkey	PRIMARY KEY	PRIMARY KEY (id_centro_custo)	2026-08-10 18:33:58.123645-03
+41	financeiro	centro_custo	centro_custo_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+42	financeiro	banco	banco_id_banco_not_null	n	NOT NULL id_banco	2026-08-10 18:33:58.123645-03
+43	financeiro	banco	banco_nome_not_null	n	NOT NULL nome	2026-08-10 18:33:58.123645-03
+44	financeiro	banco	banco_pkey	PRIMARY KEY	PRIMARY KEY (id_banco)	2026-08-10 18:33:58.123645-03
+45	financeiro	conta_bancaria	conta_bancaria_id_conta_bancaria_not_null	n	NOT NULL id_conta_bancaria	2026-08-10 18:33:58.123645-03
+46	financeiro	conta_bancaria	conta_bancaria_id_banco_not_null	n	NOT NULL id_banco	2026-08-10 18:33:58.123645-03
+47	financeiro	conta_bancaria	conta_bancaria_pkey	PRIMARY KEY	PRIMARY KEY (id_conta_bancaria)	2026-08-10 18:33:58.123645-03
+48	financeiro	cliente	cliente_id_cliente_not_null	n	NOT NULL id_cliente	2026-08-10 18:33:58.123645-03
+49	financeiro	cliente	cliente_nome_not_null	n	NOT NULL nome	2026-08-10 18:33:58.123645-03
+50	financeiro	cliente	cliente_pkey	PRIMARY KEY	PRIMARY KEY (id_cliente)	2026-08-10 18:33:58.123645-03
+51	financeiro	fornecedor	fornecedor_id_fornecedor_not_null	n	NOT NULL id_fornecedor	2026-08-10 18:33:58.123645-03
+52	financeiro	fornecedor	fornecedor_nome_not_null	n	NOT NULL nome	2026-08-10 18:33:58.123645-03
+53	financeiro	fornecedor	fornecedor_pkey	PRIMARY KEY	PRIMARY KEY (id_fornecedor)	2026-08-10 18:33:58.123645-03
+54	financeiro	forma_pagamento	forma_pagamento_id_forma_pagamento_not_null	n	NOT NULL id_forma_pagamento	2026-08-10 18:33:58.123645-03
+55	financeiro	forma_pagamento	forma_pagamento_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+56	financeiro	forma_pagamento	forma_pagamento_pkey	PRIMARY KEY	PRIMARY KEY (id_forma_pagamento)	2026-08-10 18:33:58.123645-03
+57	financeiro	configuracao	configuracao_id_configuracao_not_null	n	NOT NULL id_configuracao	2026-08-10 18:33:58.123645-03
+58	financeiro	configuracao	configuracao_pkey	PRIMARY KEY	PRIMARY KEY (id_configuracao)	2026-08-10 18:33:58.123645-03
+59	financeiro	categoria	fk_categoria_grupo	FOREIGN KEY	FOREIGN KEY (id_grupo) REFERENCES financeiro.grupo(id_grupo) ON UPDATE CASCADE ON DELETE RESTRICT	2026-08-10 18:33:58.123645-03
+60	financeiro	subcategoria	fk_subcategoria_categoria	FOREIGN KEY	FOREIGN KEY (id_categoria) REFERENCES financeiro.categoria(id_categoria) ON UPDATE CASCADE ON DELETE RESTRICT	2026-08-10 18:33:58.123645-03
+61	financeiro	classificacao	fk_classificacao_subcategoria	FOREIGN KEY	FOREIGN KEY (id_subcategoria) REFERENCES financeiro.subcategoria(id_subcategoria) ON UPDATE CASCADE ON DELETE RESTRICT	2026-08-10 18:33:58.123645-03
+62	financeiro	conta	fk_conta_classificacao	FOREIGN KEY	FOREIGN KEY (id_classificacao) REFERENCES financeiro.classificacao(id_classificacao) ON UPDATE CASCADE ON DELETE RESTRICT	2026-08-10 18:33:58.123645-03
+63	financeiro	conta_bancaria	fk_conta_banco	FOREIGN KEY	FOREIGN KEY (id_banco) REFERENCES financeiro.banco(id_banco) ON UPDATE CASCADE ON DELETE RESTRICT	2026-08-10 18:33:58.123645-03
+64	financeiro	configuracao	fk_config_empresa	FOREIGN KEY	FOREIGN KEY (empresa_padrao) REFERENCES financeiro.empresa(id_empresa) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+65	financeiro	empresa	uk_empresa_cnpj	UNIQUE	UNIQUE (cnpj)	2026-08-10 18:33:58.123645-03
+66	financeiro	cliente	uk_cliente_documento	UNIQUE	UNIQUE (cpf_cnpj)	2026-08-10 18:33:58.123645-03
+67	financeiro	fornecedor	uk_fornecedor_documento	UNIQUE	UNIQUE (cpf_cnpj)	2026-08-10 18:33:58.123645-03
+68	financeiro	banco	uk_banco_codigo	UNIQUE	UNIQUE (codigo_banco)	2026-08-10 18:33:58.123645-03
+69	financeiro	conta_bancaria	chk_saldo	CHECK	CHECK ((saldo_inicial >= (0)::numeric))	2026-08-10 18:33:58.123645-03
+70	financeiro	conta	uk_codigo_conta	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+71	financeiro	classificacao	uk_codigo_classificacao	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+72	financeiro	subcategoria	uk_codigo_subcategoria	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+73	financeiro	categoria	uk_codigo_categoria	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+74	financeiro	grupo	uk_codigo_grupo	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+75	financeiro	tipo_lancamento	tipo_lancamento_id_tipo_lancamento_not_null	n	NOT NULL id_tipo_lancamento	2026-08-10 18:33:58.123645-03
+76	financeiro	tipo_lancamento	tipo_lancamento_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+77	financeiro	tipo_lancamento	tipo_lancamento_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+78	financeiro	tipo_lancamento	tipo_lancamento_natureza_not_null	n	NOT NULL natureza	2026-08-10 18:33:58.123645-03
+79	financeiro	tipo_lancamento	tipo_lancamento_pkey	PRIMARY KEY	PRIMARY KEY (id_tipo_lancamento)	2026-08-10 18:33:58.123645-03
+80	financeiro	tipo_lancamento	tipo_lancamento_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+81	financeiro	status_lancamento	status_lancamento_id_status_not_null	n	NOT NULL id_status	2026-08-10 18:33:58.123645-03
+82	financeiro	status_lancamento	status_lancamento_pkey	PRIMARY KEY	PRIMARY KEY (id_status)	2026-08-10 18:33:58.123645-03
+83	financeiro	status_lancamento	status_lancamento_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+84	financeiro	tipo_documento	tipo_documento_id_tipo_documento_not_null	n	NOT NULL id_tipo_documento	2026-08-10 18:33:58.123645-03
+85	financeiro	tipo_documento	tipo_documento_pkey	PRIMARY KEY	PRIMARY KEY (id_tipo_documento)	2026-08-10 18:33:58.123645-03
+86	financeiro	tipo_documento	tipo_documento_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+87	financeiro	tipo_movimentacao	tipo_movimentacao_id_tipo_movimentacao_not_null	n	NOT NULL id_tipo_movimentacao	2026-08-10 18:33:58.123645-03
+88	financeiro	tipo_movimentacao	tipo_movimentacao_pkey	PRIMARY KEY	PRIMARY KEY (id_tipo_movimentacao)	2026-08-10 18:33:58.123645-03
+89	financeiro	tipo_movimentacao	tipo_movimentacao_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+90	financeiro	lancamento	lancamento_id_lancamento_not_null	n	NOT NULL id_lancamento	2026-08-10 18:33:58.123645-03
+91	financeiro	lancamento	lancamento_numero_not_null	n	NOT NULL numero	2026-08-10 18:33:58.123645-03
+92	financeiro	lancamento	lancamento_id_empresa_not_null	n	NOT NULL id_empresa	2026-08-10 18:33:58.123645-03
+93	financeiro	lancamento	lancamento_id_tipo_lancamento_not_null	n	NOT NULL id_tipo_lancamento	2026-08-10 18:33:58.123645-03
+94	financeiro	lancamento	lancamento_id_status_not_null	n	NOT NULL id_status	2026-08-10 18:33:58.123645-03
+95	financeiro	lancamento	lancamento_id_conta_not_null	n	NOT NULL id_conta	2026-08-10 18:33:58.123645-03
+96	financeiro	lancamento	lancamento_competencia_not_null	n	NOT NULL competencia	2026-08-10 18:33:58.123645-03
+97	financeiro	lancamento	lancamento_emissao_not_null	n	NOT NULL emissao	2026-08-10 18:33:58.123645-03
+98	financeiro	lancamento	lancamento_vencimento_not_null	n	NOT NULL vencimento	2026-08-10 18:33:58.123645-03
+99	financeiro	lancamento	lancamento_valor_bruto_not_null	n	NOT NULL valor_bruto	2026-08-10 18:33:58.123645-03
+100	financeiro	lancamento	lancamento_pkey	PRIMARY KEY	PRIMARY KEY (id_lancamento)	2026-08-10 18:33:58.123645-03
+101	financeiro	lancamento	lancamento_numero_key	UNIQUE	UNIQUE (numero)	2026-08-10 18:33:58.123645-03
+102	financeiro	lancamento_parcela	lancamento_parcela_id_parcela_not_null	n	NOT NULL id_parcela	2026-08-10 18:33:58.123645-03
+103	financeiro	lancamento_parcela	lancamento_parcela_id_lancamento_not_null	n	NOT NULL id_lancamento	2026-08-10 18:33:58.123645-03
+104	financeiro	lancamento_parcela	lancamento_parcela_numero_parcela_not_null	n	NOT NULL numero_parcela	2026-08-10 18:33:58.123645-03
+105	financeiro	lancamento_parcela	lancamento_parcela_vencimento_not_null	n	NOT NULL vencimento	2026-08-10 18:33:58.123645-03
+106	financeiro	lancamento_parcela	lancamento_parcela_valor_not_null	n	NOT NULL valor	2026-08-10 18:33:58.123645-03
+107	financeiro	lancamento_parcela	lancamento_parcela_pkey	PRIMARY KEY	PRIMARY KEY (id_parcela)	2026-08-10 18:33:58.123645-03
+108	financeiro	pagamento	pagamento_id_pagamento_not_null	n	NOT NULL id_pagamento	2026-08-10 18:33:58.123645-03
+109	financeiro	pagamento	pagamento_id_parcela_not_null	n	NOT NULL id_parcela	2026-08-10 18:33:58.123645-03
+110	financeiro	pagamento	pagamento_id_conta_bancaria_not_null	n	NOT NULL id_conta_bancaria	2026-08-10 18:33:58.123645-03
+111	financeiro	pagamento	pagamento_id_forma_pagamento_not_null	n	NOT NULL id_forma_pagamento	2026-08-10 18:33:58.123645-03
+112	financeiro	pagamento	pagamento_data_pagamento_not_null	n	NOT NULL data_pagamento	2026-08-10 18:33:58.123645-03
+113	financeiro	pagamento	pagamento_valor_not_null	n	NOT NULL valor	2026-08-10 18:33:58.123645-03
+114	financeiro	pagamento	pagamento_pkey	PRIMARY KEY	PRIMARY KEY (id_pagamento)	2026-08-10 18:33:58.123645-03
+115	financeiro	movimentacao_bancaria	movimentacao_bancaria_id_movimento_not_null	n	NOT NULL id_movimento	2026-08-10 18:33:58.123645-03
+116	financeiro	movimentacao_bancaria	movimentacao_bancaria_id_conta_bancaria_not_null	n	NOT NULL id_conta_bancaria	2026-08-10 18:33:58.123645-03
+117	financeiro	movimentacao_bancaria	movimentacao_bancaria_id_tipo_movimentacao_not_null	n	NOT NULL id_tipo_movimentacao	2026-08-10 18:33:58.123645-03
+118	financeiro	movimentacao_bancaria	movimentacao_bancaria_pkey	PRIMARY KEY	PRIMARY KEY (id_movimento)	2026-08-10 18:33:58.123645-03
+119	financeiro	conciliacao_bancaria	conciliacao_bancaria_id_conciliacao_not_null	n	NOT NULL id_conciliacao	2026-08-10 18:33:58.123645-03
+120	financeiro	conciliacao_bancaria	conciliacao_bancaria_id_movimento_not_null	n	NOT NULL id_movimento	2026-08-10 18:33:58.123645-03
+121	financeiro	conciliacao_bancaria	conciliacao_bancaria_pkey	PRIMARY KEY	PRIMARY KEY (id_conciliacao)	2026-08-10 18:33:58.123645-03
+122	financeiro	rateio_centro_custo	rateio_centro_custo_id_rateio_not_null	n	NOT NULL id_rateio	2026-08-10 18:33:58.123645-03
+123	financeiro	rateio_centro_custo	rateio_centro_custo_id_lancamento_not_null	n	NOT NULL id_lancamento	2026-08-10 18:33:58.123645-03
+124	financeiro	rateio_centro_custo	rateio_centro_custo_id_centro_custo_not_null	n	NOT NULL id_centro_custo	2026-08-10 18:33:58.123645-03
+125	financeiro	rateio_centro_custo	rateio_centro_custo_pkey	PRIMARY KEY	PRIMARY KEY (id_rateio)	2026-08-10 18:33:58.123645-03
+126	financeiro	historico_lancamento	historico_lancamento_id_historico_not_null	n	NOT NULL id_historico	2026-08-10 18:33:58.123645-03
+127	financeiro	historico_lancamento	historico_lancamento_id_lancamento_not_null	n	NOT NULL id_lancamento	2026-08-10 18:33:58.123645-03
+128	financeiro	historico_lancamento	historico_lancamento_pkey	PRIMARY KEY	PRIMARY KEY (id_historico)	2026-08-10 18:33:58.123645-03
+129	financeiro	anexo	anexo_id_anexo_not_null	n	NOT NULL id_anexo	2026-08-10 18:33:58.123645-03
+130	financeiro	anexo	anexo_id_lancamento_not_null	n	NOT NULL id_lancamento	2026-08-10 18:33:58.123645-03
+131	financeiro	anexo	anexo_pkey	PRIMARY KEY	PRIMARY KEY (id_anexo)	2026-08-10 18:33:58.123645-03
+132	financeiro	lancamento	chk_lancamento_valor_bruto	CHECK	CHECK ((valor_bruto > (0)::numeric))	2026-08-10 18:33:58.123645-03
+133	financeiro	lancamento	chk_lancamento_desconto	CHECK	CHECK ((desconto >= (0)::numeric))	2026-08-10 18:33:58.123645-03
+134	financeiro	lancamento	chk_lancamento_acrescimo	CHECK	CHECK ((acrescimo >= (0)::numeric))	2026-08-10 18:33:58.123645-03
+135	financeiro	lancamento	chk_lancamento_juros	CHECK	CHECK ((juros >= (0)::numeric))	2026-08-10 18:33:58.123645-03
+136	financeiro	lancamento	chk_lancamento_multa	CHECK	CHECK ((multa >= (0)::numeric))	2026-08-10 18:33:58.123645-03
+137	financeiro	lancamento	chk_lancamento_valor_pago	CHECK	CHECK ((valor_pago >= (0)::numeric))	2026-08-10 18:33:58.123645-03
+138	financeiro	lancamento	chk_lancamento_datas	CHECK	CHECK ((competencia >= emissao))	2026-08-10 18:33:58.123645-03
+139	financeiro	lancamento	chk_lancamento_pagamento	CHECK	CHECK (((pagamento IS NULL) OR (pagamento >= emissao)))	2026-08-10 18:33:58.123645-03
+140	public	pessoa	pessoa_tipo_pessoa_not_null	n	NOT NULL tipo_pessoa	2026-08-10 18:33:58.123645-03
+141	financeiro	lancamento_parcela	chk_parcela_numero	CHECK	CHECK ((numero_parcela > 0))	2026-08-10 18:33:58.123645-03
+142	financeiro	lancamento_parcela	chk_parcela_valor	CHECK	CHECK ((valor > (0)::numeric))	2026-08-10 18:33:58.123645-03
+143	financeiro	lancamento_parcela	chk_parcela_valor_pago	CHECK	CHECK ((valor_pago >= (0)::numeric))	2026-08-10 18:33:58.123645-03
+144	financeiro	lancamento_parcela	chk_parcela_saldo	CHECK	CHECK ((saldo >= (0)::numeric))	2026-08-10 18:33:58.123645-03
+145	financeiro	pagamento	chk_pagamento_valor	CHECK	CHECK ((valor > (0)::numeric))	2026-08-10 18:33:58.123645-03
+146	financeiro	pagamento	chk_pagamento_desconto	CHECK	CHECK ((desconto >= (0)::numeric))	2026-08-10 18:33:58.123645-03
+147	financeiro	pagamento	chk_pagamento_juros	CHECK	CHECK ((juros >= (0)::numeric))	2026-08-10 18:33:58.123645-03
+148	financeiro	pagamento	chk_pagamento_multa	CHECK	CHECK ((multa >= (0)::numeric))	2026-08-10 18:33:58.123645-03
+149	financeiro	movimentacao_bancaria	chk_movimentacao_valor	CHECK	CHECK ((valor > (0)::numeric))	2026-08-10 18:33:58.123645-03
+150	financeiro	rateio_centro_custo	chk_rateio_percentual	CHECK	CHECK (((percentual > (0)::numeric) AND (percentual <= (100)::numeric)))	2026-08-10 18:33:58.123645-03
+151	financeiro	rateio_centro_custo	chk_rateio_valor	CHECK	CHECK ((valor >= (0)::numeric))	2026-08-10 18:33:58.123645-03
+152	financeiro	anexo	chk_anexo_tamanho	CHECK	CHECK ((tamanho >= 0))	2026-08-10 18:33:58.123645-03
+153	financeiro	tipo_lancamento	chk_tipo_natureza	CHECK	CHECK ((natureza = ANY (ARRAY['R'::bpchar, 'D'::bpchar, 'T'::bpchar, 'A'::bpchar, 'I'::bpchar, 'P'::bpchar, 'L'::bpchar])))	2026-08-10 18:33:58.123645-03
+154	financeiro	tipo_movimentacao	chk_tipo_movimentacao	CHECK	CHECK ((entrada_saida = ANY (ARRAY['E'::bpchar, 'S'::bpchar])))	2026-08-10 18:33:58.123645-03
+155	financeiro	lancamento	chk_numero_lancamento	CHECK	CHECK ((TRIM(BOTH FROM numero) <> ''::text))	2026-08-10 18:33:58.123645-03
+156	financeiro	pagamento	chk_documento	CHECK	CHECK (((documento IS NULL) OR (TRIM(BOTH FROM documento) <> ''::text)))	2026-08-10 18:33:58.123645-03
+157	public	empresa	empresa_id_empresa_not_null	n	NOT NULL id_empresa	2026-08-10 18:33:58.123645-03
+158	public	empresa	empresa_razao_social_not_null	n	NOT NULL razao_social	2026-08-10 18:33:58.123645-03
+159	public	empresa	empresa_nome_fantasia_not_null	n	NOT NULL nome_fantasia	2026-08-10 18:33:58.123645-03
+160	public	empresa	empresa_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+161	public	empresa	empresa_versao_not_null	n	NOT NULL versao	2026-08-10 18:33:58.123645-03
+162	public	empresa	empresa_pkey	PRIMARY KEY	PRIMARY KEY (id_empresa)	2026-08-10 18:33:58.123645-03
+163	public	usuario	usuario_id_usuario_not_null	n	NOT NULL id_usuario	2026-08-10 18:33:58.123645-03
+164	public	usuario	usuario_nome_not_null	n	NOT NULL nome	2026-08-10 18:33:58.123645-03
+165	public	usuario	usuario_email_not_null	n	NOT NULL email	2026-08-10 18:33:58.123645-03
+166	public	usuario	usuario_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+167	public	usuario	usuario_pkey	PRIMARY KEY	PRIMARY KEY (id_usuario)	2026-08-10 18:33:58.123645-03
+168	public	usuario	usuario_email_key	UNIQUE	UNIQUE (email)	2026-08-10 18:33:58.123645-03
+169	public	pessoa	pessoa_id_pessoa_not_null	n	NOT NULL id_pessoa	2026-08-10 18:33:58.123645-03
+170	public	pessoa	pessoa_nome_razao_social_not_null	n	NOT NULL nome_razao_social	2026-08-10 18:33:58.123645-03
+171	public	pessoa	pessoa_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+172	public	pessoa	pessoa_pkey	PRIMARY KEY	PRIMARY KEY (id_pessoa)	2026-08-10 18:33:58.123645-03
+173	public	pessoa	ck_tipo_pessoa	CHECK	CHECK (((tipo_pessoa)::text = ANY ((ARRAY['FISICA'::character varying, 'JURIDICA'::character varying])::text[])))	2026-08-10 18:33:58.123645-03
+174	public	cliente	cliente_id_cliente_not_null	n	NOT NULL id_cliente	2026-08-10 18:33:58.123645-03
+175	public	cliente	cliente_id_pessoa_not_null	n	NOT NULL id_pessoa	2026-08-10 18:33:58.123645-03
+176	public	cliente	cliente_pkey	PRIMARY KEY	PRIMARY KEY (id_cliente)	2026-08-10 18:33:58.123645-03
+177	public	cliente	cliente_codigo_cliente_key	UNIQUE	UNIQUE (codigo_cliente)	2026-08-10 18:33:58.123645-03
+178	public	cliente	fk_cliente_pessoa	FOREIGN KEY	FOREIGN KEY (id_pessoa) REFERENCES pessoa(id_pessoa)	2026-08-10 18:33:58.123645-03
+179	public	fornecedor	fornecedor_id_fornecedor_not_null	n	NOT NULL id_fornecedor	2026-08-10 18:33:58.123645-03
+180	public	fornecedor	fornecedor_id_pessoa_not_null	n	NOT NULL id_pessoa	2026-08-10 18:33:58.123645-03
+181	public	fornecedor	fornecedor_pkey	PRIMARY KEY	PRIMARY KEY (id_fornecedor)	2026-08-10 18:33:58.123645-03
+182	public	fornecedor	fornecedor_codigo_fornecedor_key	UNIQUE	UNIQUE (codigo_fornecedor)	2026-08-10 18:33:58.123645-03
+183	public	fornecedor	fk_fornecedor_pessoa	FOREIGN KEY	FOREIGN KEY (id_pessoa) REFERENCES pessoa(id_pessoa)	2026-08-10 18:33:58.123645-03
+184	public	banco	banco_id_banco_not_null	n	NOT NULL id_banco	2026-08-10 18:33:58.123645-03
+185	public	banco	banco_nome_banco_not_null	n	NOT NULL nome_banco	2026-08-10 18:33:58.123645-03
+186	public	banco	banco_pkey	PRIMARY KEY	PRIMARY KEY (id_banco)	2026-08-10 18:33:58.123645-03
+187	public	plano_contas	plano_contas_id_conta_not_null	n	NOT NULL id_conta	2026-08-10 18:33:58.123645-03
+188	public	plano_contas	plano_contas_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+189	public	plano_contas	plano_contas_nivel_not_null	n	NOT NULL nivel	2026-08-10 18:33:58.123645-03
+190	public	plano_contas	plano_contas_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+191	public	plano_contas	plano_contas_pkey	PRIMARY KEY	PRIMARY KEY (id_conta)	2026-08-10 18:33:58.123645-03
+192	public	plano_contas	plano_contas_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+193	public	plano_contas	fk_conta_pai	FOREIGN KEY	FOREIGN KEY (id_conta_pai) REFERENCES plano_contas(id_conta)	2026-08-10 18:33:58.123645-03
+194	public	grupo_conta	grupo_conta_id_grupo_not_null	n	NOT NULL id_grupo	2026-08-10 18:33:58.123645-03
+195	public	grupo_conta	grupo_conta_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+196	public	grupo_conta	grupo_conta_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+197	public	grupo_conta	grupo_conta_natureza_not_null	n	NOT NULL natureza	2026-08-10 18:33:58.123645-03
+198	public	grupo_conta	grupo_conta_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+199	public	grupo_conta	grupo_conta_pkey	PRIMARY KEY	PRIMARY KEY (id_grupo)	2026-08-10 18:33:58.123645-03
+200	public	grupo_conta	grupo_conta_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+201	public	grupo_conta	ck_grupo_natureza	CHECK	CHECK (((natureza)::text = ANY ((ARRAY['DEVEDORA'::character varying, 'CREDORA'::character varying])::text[])))	2026-08-10 18:33:58.123645-03
+202	public	categoria_conta	categoria_conta_id_categoria_not_null	n	NOT NULL id_categoria	2026-08-10 18:33:58.123645-03
+203	public	categoria_conta	categoria_conta_id_grupo_not_null	n	NOT NULL id_grupo	2026-08-10 18:33:58.123645-03
+204	public	categoria_conta	categoria_conta_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+205	public	categoria_conta	categoria_conta_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+206	public	categoria_conta	categoria_conta_pkey	PRIMARY KEY	PRIMARY KEY (id_categoria)	2026-08-10 18:33:58.123645-03
+207	public	categoria_conta	categoria_conta_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+208	public	categoria_conta	fk_categoria_grupo	FOREIGN KEY	FOREIGN KEY (id_grupo) REFERENCES grupo_conta(id_grupo)	2026-08-10 18:33:58.123645-03
+209	public	subcategoria_conta	subcategoria_conta_id_subcategoria_not_null	n	NOT NULL id_subcategoria	2026-08-10 18:33:58.123645-03
+210	public	subcategoria_conta	subcategoria_conta_id_categoria_not_null	n	NOT NULL id_categoria	2026-08-10 18:33:58.123645-03
+211	public	subcategoria_conta	subcategoria_conta_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+212	public	subcategoria_conta	subcategoria_conta_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+213	public	subcategoria_conta	subcategoria_conta_pkey	PRIMARY KEY	PRIMARY KEY (id_subcategoria)	2026-08-10 18:33:58.123645-03
+214	public	subcategoria_conta	subcategoria_conta_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+215	public	subcategoria_conta	fk_subcategoria_categoria	FOREIGN KEY	FOREIGN KEY (id_categoria) REFERENCES categoria_conta(id_categoria)	2026-08-10 18:33:58.123645-03
+216	public	centro_custo	centro_custo_id_centro_custo_not_null	n	NOT NULL id_centro_custo	2026-08-10 18:33:58.123645-03
+217	public	centro_custo	centro_custo_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+218	public	centro_custo	centro_custo_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+219	public	centro_custo	centro_custo_pkey	PRIMARY KEY	PRIMARY KEY (id_centro_custo)	2026-08-10 18:33:58.123645-03
+220	public	centro_custo	centro_custo_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+221	public	classificacao_dre	classificacao_dre_id_classificacao_not_null	n	NOT NULL id_classificacao	2026-08-10 18:33:58.123645-03
+222	public	classificacao_dre	classificacao_dre_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+223	public	classificacao_dre	classificacao_dre_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+224	public	classificacao_dre	classificacao_dre_grupo_dre_not_null	n	NOT NULL grupo_dre	2026-08-10 18:33:58.123645-03
+225	public	classificacao_dre	classificacao_dre_pkey	PRIMARY KEY	PRIMARY KEY (id_classificacao)	2026-08-10 18:33:58.123645-03
+226	public	classificacao_dre	classificacao_dre_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+227	public	conta_bancaria	conta_bancaria_id_conta_bancaria_not_null	n	NOT NULL id_conta_bancaria	2026-08-10 18:33:58.123645-03
+228	public	conta_bancaria	conta_bancaria_id_empresa_not_null	n	NOT NULL id_empresa	2026-08-10 18:33:58.123645-03
+229	public	conta_bancaria	conta_bancaria_banco_not_null	n	NOT NULL banco	2026-08-10 18:33:58.123645-03
+230	public	conta_bancaria	conta_bancaria_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+231	public	conta_bancaria	conta_bancaria_pkey	PRIMARY KEY	PRIMARY KEY (id_conta_bancaria)	2026-08-10 18:33:58.123645-03
+232	public	conta_bancaria	fk_conta_empresa	FOREIGN KEY	FOREIGN KEY (id_empresa) REFERENCES empresa(id_empresa)	2026-08-10 18:33:58.123645-03
+233	public	forma_pagamento	forma_pagamento_id_forma_pagamento_not_null	n	NOT NULL id_forma_pagamento	2026-08-10 18:33:58.123645-03
+234	public	forma_pagamento	forma_pagamento_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+235	public	forma_pagamento	forma_pagamento_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+236	public	forma_pagamento	forma_pagamento_pkey	PRIMARY KEY	PRIMARY KEY (id_forma_pagamento)	2026-08-10 18:33:58.123645-03
+237	public	forma_pagamento	forma_pagamento_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+238	public	lancamento_financeiro	ck_tipo_lancamento	CHECK	CHECK (((tipo_lancamento)::text = ANY ((ARRAY['RECEITA'::character varying, 'DESPESA'::character varying])::text[])))	2026-08-10 18:33:58.123645-03
+239	public	lancamento_financeiro	lancamento_financeiro_id_lancamento_not_null	n	NOT NULL id_lancamento	2026-08-10 18:33:58.123645-03
+240	public	lancamento_financeiro	lancamento_financeiro_id_empresa_not_null	n	NOT NULL id_empresa	2026-08-10 18:33:58.123645-03
+241	public	lancamento_financeiro	lancamento_financeiro_tipo_lancamento_not_null	n	NOT NULL tipo_lancamento	2026-08-10 18:33:58.123645-03
+242	public	lancamento_financeiro	lancamento_financeiro_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+243	public	lancamento_financeiro	lancamento_financeiro_data_lancamento_not_null	n	NOT NULL data_lancamento	2026-08-10 18:33:58.123645-03
+244	public	lancamento_financeiro	lancamento_financeiro_data_competencia_not_null	n	NOT NULL data_competencia	2026-08-10 18:33:58.123645-03
+245	public	lancamento_financeiro	lancamento_financeiro_valor_not_null	n	NOT NULL valor	2026-08-10 18:33:58.123645-03
+246	public	lancamento_financeiro	lancamento_financeiro_pkey	PRIMARY KEY	PRIMARY KEY (id_lancamento)	2026-08-10 18:33:58.123645-03
+247	public	lancamento_financeiro	fk_lanc_empresa	FOREIGN KEY	FOREIGN KEY (id_empresa) REFERENCES empresa(id_empresa)	2026-08-10 18:33:58.123645-03
+248	public	lancamento_financeiro	fk_lanc_pessoa	FOREIGN KEY	FOREIGN KEY (id_pessoa) REFERENCES pessoa(id_pessoa)	2026-08-10 18:33:58.123645-03
+249	public	lancamento_financeiro	fk_lanc_banco	FOREIGN KEY	FOREIGN KEY (id_conta_bancaria) REFERENCES conta_bancaria(id_conta_bancaria)	2026-08-10 18:33:58.123645-03
+250	public	lancamento_financeiro	fk_lanc_pagamento	FOREIGN KEY	FOREIGN KEY (id_forma_pagamento) REFERENCES forma_pagamento(id_forma_pagamento)	2026-08-10 18:33:58.123645-03
+251	public	lancamento_financeiro	fk_lanc_centro	FOREIGN KEY	FOREIGN KEY (id_centro_custo) REFERENCES centro_custo(id_centro_custo)	2026-08-10 18:33:58.123645-03
+252	public	lancamento_parcela	lancamento_parcela_id_parcela_not_null	n	NOT NULL id_parcela	2026-08-10 18:33:58.123645-03
+253	public	lancamento_parcela	lancamento_parcela_id_lancamento_not_null	n	NOT NULL id_lancamento	2026-08-10 18:33:58.123645-03
+254	public	lancamento_parcela	lancamento_parcela_numero_parcela_not_null	n	NOT NULL numero_parcela	2026-08-10 18:33:58.123645-03
+255	public	lancamento_parcela	lancamento_parcela_total_parcelas_not_null	n	NOT NULL total_parcelas	2026-08-10 18:33:58.123645-03
+256	public	lancamento_parcela	lancamento_parcela_data_vencimento_not_null	n	NOT NULL data_vencimento	2026-08-10 18:33:58.123645-03
+257	public	lancamento_parcela	lancamento_parcela_valor_parcela_not_null	n	NOT NULL valor_parcela	2026-08-10 18:33:58.123645-03
+258	public	lancamento_parcela	lancamento_parcela_pkey	PRIMARY KEY	PRIMARY KEY (id_parcela)	2026-08-10 18:33:58.123645-03
+259	public	lancamento_parcela	fk_parcela_lancamento	FOREIGN KEY	FOREIGN KEY (id_lancamento) REFERENCES lancamento_financeiro(id_lancamento)	2026-08-10 18:33:58.123645-03
+260	public	conciliacao_bancaria	conciliacao_bancaria_id_conciliacao_not_null	n	NOT NULL id_conciliacao	2026-08-10 18:33:58.123645-03
+261	public	conciliacao_bancaria	conciliacao_bancaria_id_conta_bancaria_not_null	n	NOT NULL id_conta_bancaria	2026-08-10 18:33:58.123645-03
+262	public	conciliacao_bancaria	conciliacao_bancaria_data_movimento_not_null	n	NOT NULL data_movimento	2026-08-10 18:33:58.123645-03
+263	public	conciliacao_bancaria	conciliacao_bancaria_pkey	PRIMARY KEY	PRIMARY KEY (id_conciliacao)	2026-08-10 18:33:58.123645-03
+264	public	conciliacao_bancaria	conciliacao_bancaria_id_conta_bancaria_fkey	FOREIGN KEY	FOREIGN KEY (id_conta_bancaria) REFERENCES conta_bancaria(id_conta_bancaria)	2026-08-10 18:33:58.123645-03
+265	public	conciliacao_bancaria	conciliacao_bancaria_id_lancamento_fkey	FOREIGN KEY	FOREIGN KEY (id_lancamento) REFERENCES lancamento_financeiro(id_lancamento)	2026-08-10 18:33:58.123645-03
+266	public	lancamento_financeiro	fk_lanc_plano_contas	FOREIGN KEY	FOREIGN KEY (id_conta_plano) REFERENCES plano_contas(id_conta)	2026-08-10 18:33:58.123645-03
+267	public	produto_turistico	produto_turistico_id_produto_not_null	n	NOT NULL id_produto	2026-08-10 18:33:58.123645-03
+268	public	produto_turistico	produto_turistico_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+269	public	produto_turistico	produto_turistico_nome_not_null	n	NOT NULL nome	2026-08-10 18:33:58.123645-03
+270	public	produto_turistico	produto_turistico_tipo_produto_not_null	n	NOT NULL tipo_produto	2026-08-10 18:33:58.123645-03
+271	public	produto_turistico	produto_turistico_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+272	public	produto_turistico	produto_turistico_pkey	PRIMARY KEY	PRIMARY KEY (id_produto)	2026-08-10 18:33:58.123645-03
+273	public	produto_turistico	produto_turistico_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+274	public	venda	venda_pkey	PRIMARY KEY	PRIMARY KEY (id_venda)	2026-08-10 18:33:58.123645-03
+275	public	venda	venda_numero_venda_key	UNIQUE	UNIQUE (numero_venda)	2026-08-10 18:33:58.123645-03
+276	public	venda	fk_venda_cliente	FOREIGN KEY	FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)	2026-08-10 18:33:58.123645-03
+277	public	item_venda	item_venda_id_item_not_null	n	NOT NULL id_item	2026-08-10 18:33:58.123645-03
+278	public	item_venda	item_venda_id_venda_not_null	n	NOT NULL id_venda	2026-08-10 18:33:58.123645-03
+279	public	item_venda	item_venda_id_produto_not_null	n	NOT NULL id_produto	2026-08-10 18:33:58.123645-03
+280	public	item_venda	item_venda_pkey	PRIMARY KEY	PRIMARY KEY (id_item)	2026-08-10 18:33:58.123645-03
+281	public	item_venda	fk_item_venda	FOREIGN KEY	FOREIGN KEY (id_venda) REFERENCES venda(id_venda)	2026-08-10 18:33:58.123645-03
+282	public	produto_turistico	ck_tipo_produto	CHECK	CHECK (((tipo_produto)::text = ANY ((ARRAY['PACOTE'::character varying, 'EXCURSAO'::character varying, 'CICLOTURISMO'::character varying, 'HOSPEDAGEM'::character varying, 'INGRESSO'::character varying, 'OUTRO'::character varying])::text[])))	2026-08-10 18:33:58.123645-03
+283	public	pacote_viagem	ck_periodo_pacote	CHECK	CHECK ((data_fim >= data_inicio))	2026-08-10 18:33:58.123645-03
+284	public	pacote_viagem	pacote_viagem_id_pacote_not_null	n	NOT NULL id_pacote	2026-08-10 18:33:58.123645-03
+285	public	pacote_viagem	pacote_viagem_id_produto_not_null	n	NOT NULL id_produto	2026-08-10 18:33:58.123645-03
+286	public	pacote_viagem	pacote_viagem_pkey	PRIMARY KEY	PRIMARY KEY (id_pacote)	2026-08-10 18:33:58.123645-03
+287	public	pacote_viagem	pacote_viagem_codigo_pacote_key	UNIQUE	UNIQUE (codigo_pacote)	2026-08-10 18:33:58.123645-03
+288	public	pacote_viagem	fk_pacote_produto	FOREIGN KEY	FOREIGN KEY (id_produto) REFERENCES produto_turistico(id_produto)	2026-08-10 18:33:58.123645-03
+289	public	reserva	reserva_id_reserva_not_null	n	NOT NULL id_reserva	2026-08-10 18:33:58.123645-03
+290	public	reserva	reserva_codigo_reserva_not_null	n	NOT NULL codigo_reserva	2026-08-10 18:33:58.123645-03
+291	public	reserva	reserva_id_cliente_not_null	n	NOT NULL id_cliente	2026-08-10 18:33:58.123645-03
+292	public	reserva	reserva_id_pacote_not_null	n	NOT NULL id_pacote	2026-08-10 18:33:58.123645-03
+293	public	reserva	reserva_data_reserva_not_null	n	NOT NULL data_reserva	2026-08-10 18:33:58.123645-03
+294	public	reserva	reserva_pkey	PRIMARY KEY	PRIMARY KEY (id_reserva)	2026-08-10 18:33:58.123645-03
+295	public	reserva	reserva_codigo_reserva_key	UNIQUE	UNIQUE (codigo_reserva)	2026-08-10 18:33:58.123645-03
+296	public	reserva	fk_reserva_cliente	FOREIGN KEY	FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)	2026-08-10 18:33:58.123645-03
+297	public	reserva	fk_reserva_pacote	FOREIGN KEY	FOREIGN KEY (id_pacote) REFERENCES pacote_viagem(id_pacote)	2026-08-10 18:33:58.123645-03
+298	public	passageiro	passageiro_id_passageiro_not_null	n	NOT NULL id_passageiro	2026-08-10 18:33:58.123645-03
+299	public	passageiro	passageiro_id_reserva_not_null	n	NOT NULL id_reserva	2026-08-10 18:33:58.123645-03
+300	public	passageiro	passageiro_nome_not_null	n	NOT NULL nome	2026-08-10 18:33:58.123645-03
+301	public	passageiro	passageiro_pkey	PRIMARY KEY	PRIMARY KEY (id_passageiro)	2026-08-10 18:33:58.123645-03
+302	public	passageiro	fk_passageiro_reserva	FOREIGN KEY	FOREIGN KEY (id_reserva) REFERENCES reserva(id_reserva)	2026-08-10 18:33:58.123645-03
+303	public	comissao	comissao_id_comissao_not_null	n	NOT NULL id_comissao	2026-08-10 18:33:58.123645-03
+304	public	comissao	comissao_id_reserva_not_null	n	NOT NULL id_reserva	2026-08-10 18:33:58.123645-03
+305	public	comissao	comissao_pkey	PRIMARY KEY	PRIMARY KEY (id_comissao)	2026-08-10 18:33:58.123645-03
+306	public	comissao	fk_comissao_reserva	FOREIGN KEY	FOREIGN KEY (id_reserva) REFERENCES reserva(id_reserva)	2026-08-10 18:33:58.123645-03
+307	public	comissao	fk_comissao_fornecedor	FOREIGN KEY	FOREIGN KEY (id_fornecedor) REFERENCES fornecedor(id_fornecedor)	2026-08-10 18:33:58.123645-03
+308	public	venda	venda_id_venda_not_null	n	NOT NULL id_venda	2026-08-10 18:33:58.123645-03
+309	public	venda	venda_numero_venda_not_null	n	NOT NULL numero_venda	2026-08-10 18:33:58.123645-03
+310	public	venda	venda_id_cliente_not_null	n	NOT NULL id_cliente	2026-08-10 18:33:58.123645-03
+311	public	venda	venda_data_venda_not_null	n	NOT NULL data_venda	2026-08-10 18:33:58.123645-03
+312	public	item_venda	fk_item_produto	FOREIGN KEY	FOREIGN KEY (id_produto) REFERENCES produto_turistico(id_produto)	2026-08-10 18:33:58.123645-03
+313	public	nota_fiscal	nota_fiscal_id_nota_fiscal_not_null	n	NOT NULL id_nota_fiscal	2026-08-10 18:33:58.123645-03
+314	public	nota_fiscal	nota_fiscal_id_empresa_not_null	n	NOT NULL id_empresa	2026-08-10 18:33:58.123645-03
+315	public	nota_fiscal	nota_fiscal_data_emissao_not_null	n	NOT NULL data_emissao	2026-08-10 18:33:58.123645-03
+316	public	nota_fiscal	nota_fiscal_competencia_not_null	n	NOT NULL competencia	2026-08-10 18:33:58.123645-03
+317	public	nota_fiscal	nota_fiscal_pkey	PRIMARY KEY	PRIMARY KEY (id_nota_fiscal)	2026-08-10 18:33:58.123645-03
+318	public	nota_fiscal	fk_nf_empresa	FOREIGN KEY	FOREIGN KEY (id_empresa) REFERENCES empresa(id_empresa)	2026-08-10 18:33:58.123645-03
+319	public	nota_fiscal	fk_nf_cliente	FOREIGN KEY	FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)	2026-08-10 18:33:58.123645-03
+320	public	imposto	imposto_id_imposto_not_null	n	NOT NULL id_imposto	2026-08-10 18:33:58.123645-03
+321	public	imposto	imposto_pkey	PRIMARY KEY	PRIMARY KEY (id_imposto)	2026-08-10 18:33:58.123645-03
+322	public	imposto	imposto_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+323	public	simples_nacional	simples_nacional_id_simples_not_null	n	NOT NULL id_simples	2026-08-10 18:33:58.123645-03
+324	public	simples_nacional	simples_nacional_id_empresa_not_null	n	NOT NULL id_empresa	2026-08-10 18:33:58.123645-03
+325	public	simples_nacional	simples_nacional_ano_not_null	n	NOT NULL ano	2026-08-10 18:33:58.123645-03
+326	public	simples_nacional	simples_nacional_pkey	PRIMARY KEY	PRIMARY KEY (id_simples)	2026-08-10 18:33:58.123645-03
+327	public	simples_nacional	fk_simples_empresa	FOREIGN KEY	FOREIGN KEY (id_empresa) REFERENCES empresa(id_empresa)	2026-08-10 18:33:58.123645-03
+328	public	das	das_id_das_not_null	n	NOT NULL id_das	2026-08-10 18:33:58.123645-03
+329	public	das	das_id_empresa_not_null	n	NOT NULL id_empresa	2026-08-10 18:33:58.123645-03
+330	public	das	das_competencia_not_null	n	NOT NULL competencia	2026-08-10 18:33:58.123645-03
+331	public	das	das_pkey	PRIMARY KEY	PRIMARY KEY (id_das)	2026-08-10 18:33:58.123645-03
+332	public	das	fk_das_empresa	FOREIGN KEY	FOREIGN KEY (id_empresa) REFERENCES empresa(id_empresa)	2026-08-10 18:33:58.123645-03
+333	auditoria	execucao_correcao	ck_execucao_correcao_status	CHECK	CHECK (((status)::text = ANY ((ARRAY['EM_EXECUCAO'::character varying, 'CONCLUIDO'::character varying, 'ATENCAO'::character varying, 'ERRO'::character varying])::text[])))	2026-08-10 18:33:58.123645-03
+334	public	aporte_capital	aporte_capital_id_aporte_not_null	n	NOT NULL id_aporte	2026-08-10 18:33:58.123645-03
+335	public	aporte_capital	aporte_capital_id_empresa_not_null	n	NOT NULL id_empresa	2026-08-10 18:33:58.123645-03
+336	public	aporte_capital	aporte_capital_pkey	PRIMARY KEY	PRIMARY KEY (id_aporte)	2026-08-10 18:33:58.123645-03
+337	public	aporte_capital	fk_aporte_empresa	FOREIGN KEY	FOREIGN KEY (id_empresa) REFERENCES empresa(id_empresa)	2026-08-10 18:33:58.123645-03
+338	public	distribuicao_lucros	distribuicao_lucros_id_distribuicao_not_null	n	NOT NULL id_distribuicao	2026-08-10 18:33:58.123645-03
+339	public	distribuicao_lucros	distribuicao_lucros_id_empresa_not_null	n	NOT NULL id_empresa	2026-08-10 18:33:58.123645-03
+340	public	distribuicao_lucros	distribuicao_lucros_pkey	PRIMARY KEY	PRIMARY KEY (id_distribuicao)	2026-08-10 18:33:58.123645-03
+341	public	distribuicao_lucros	fk_lucro_empresa	FOREIGN KEY	FOREIGN KEY (id_empresa) REFERENCES empresa(id_empresa)	2026-08-10 18:33:58.123645-03
+342	public	pro_labore	pro_labore_id_pro_labore_not_null	n	NOT NULL id_pro_labore	2026-08-10 18:33:58.123645-03
+343	public	pro_labore	pro_labore_id_empresa_not_null	n	NOT NULL id_empresa	2026-08-10 18:33:58.123645-03
+344	public	pro_labore	pro_labore_pkey	PRIMARY KEY	PRIMARY KEY (id_pro_labore)	2026-08-10 18:33:58.123645-03
+345	public	pro_labore	fk_prolabore_empresa	FOREIGN KEY	FOREIGN KEY (id_empresa) REFERENCES empresa(id_empresa)	2026-08-10 18:33:58.123645-03
+346	auditoria	execucao_correcao	execucao_correcao_id_execucao_not_null	n	NOT NULL id_execucao	2026-08-10 18:33:58.123645-03
+347	auditoria	execucao_correcao	execucao_correcao_script_not_null	n	NOT NULL script	2026-08-10 18:33:58.123645-03
+348	auditoria	execucao_correcao	execucao_correcao_etapa_not_null	n	NOT NULL etapa	2026-08-10 18:33:58.123645-03
+349	auditoria	execucao_correcao	execucao_correcao_iniciado_em_not_null	n	NOT NULL iniciado_em	2026-08-10 18:33:58.123645-03
+350	public	declaracao_fiscal	declaracao_fiscal_id_declaracao_not_null	n	NOT NULL id_declaracao	2026-08-10 18:33:58.123645-03
+351	public	declaracao_fiscal	declaracao_fiscal_id_empresa_not_null	n	NOT NULL id_empresa	2026-08-10 18:33:58.123645-03
+352	public	declaracao_fiscal	declaracao_fiscal_tipo_declaracao_not_null	n	NOT NULL tipo_declaracao	2026-08-10 18:33:58.123645-03
+353	public	declaracao_fiscal	declaracao_fiscal_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+354	public	declaracao_fiscal	declaracao_fiscal_versao_not_null	n	NOT NULL versao	2026-08-10 18:33:58.123645-03
+355	public	declaracao_fiscal	declaracao_fiscal_pkey	PRIMARY KEY	PRIMARY KEY (id_declaracao)	2026-08-10 18:33:58.123645-03
+356	public	declaracao_fiscal	fk_declaracao_empresa	FOREIGN KEY	FOREIGN KEY (id_empresa) REFERENCES empresa(id_empresa)	2026-08-10 18:33:58.123645-03
+357	public	lancamento_financeiro	fk_lanc_grupo	FOREIGN KEY	FOREIGN KEY (id_grupo) REFERENCES grupo_conta(id_grupo)	2026-08-10 18:33:58.123645-03
+358	public	lancamento_financeiro	fk_lanc_categoria	FOREIGN KEY	FOREIGN KEY (id_categoria) REFERENCES categoria_conta(id_categoria)	2026-08-10 18:33:58.123645-03
+359	public	perfil_acesso	perfil_acesso_id_perfil_not_null	n	NOT NULL id_perfil	2026-08-10 18:33:58.123645-03
+360	public	perfil_acesso	perfil_acesso_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+361	public	perfil_acesso	perfil_acesso_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+362	public	perfil_acesso	perfil_acesso_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+363	public	perfil_acesso	perfil_acesso_pkey	PRIMARY KEY	PRIMARY KEY (id_perfil)	2026-08-10 18:33:58.123645-03
+364	public	perfil_acesso	perfil_acesso_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+365	public	permissao	permissao_id_permissao_not_null	n	NOT NULL id_permissao	2026-08-10 18:33:58.123645-03
+366	public	permissao	permissao_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+367	public	permissao	permissao_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+368	public	permissao	permissao_pkey	PRIMARY KEY	PRIMARY KEY (id_permissao)	2026-08-10 18:33:58.123645-03
+369	public	permissao	permissao_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+370	public	usuario_perfil	usuario_perfil_id_usuario_not_null	n	NOT NULL id_usuario	2026-08-10 18:33:58.123645-03
+371	public	usuario_perfil	usuario_perfil_id_perfil_not_null	n	NOT NULL id_perfil	2026-08-10 18:33:58.123645-03
+372	public	usuario_perfil	usuario_perfil_pkey	PRIMARY KEY	PRIMARY KEY (id_usuario, id_perfil)	2026-08-10 18:33:58.123645-03
+373	public	usuario_perfil	fk_usuario_perfil_usuario	FOREIGN KEY	FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)	2026-08-10 18:33:58.123645-03
+374	public	usuario_perfil	fk_usuario_perfil_perfil	FOREIGN KEY	FOREIGN KEY (id_perfil) REFERENCES perfil_acesso(id_perfil)	2026-08-10 18:33:58.123645-03
+375	public	log_auditoria	log_auditoria_id_log_not_null	n	NOT NULL id_log	2026-08-10 18:33:58.123645-03
+376	public	log_auditoria	log_auditoria_tabela_nome_not_null	n	NOT NULL tabela_nome	2026-08-10 18:33:58.123645-03
+377	public	log_auditoria	log_auditoria_acao_not_null	n	NOT NULL acao	2026-08-10 18:33:58.123645-03
+378	public	log_auditoria	log_auditoria_pkey	PRIMARY KEY	PRIMARY KEY (id_log)	2026-08-10 18:33:58.123645-03
+379	public	log_auditoria	ck_log_acao	CHECK	CHECK (((acao)::text = ANY ((ARRAY['INSERT'::character varying, 'UPDATE'::character varying, 'DELETE'::character varying])::text[])))	2026-08-10 18:33:58.123645-03
+380	public	historico_alteracao	historico_alteracao_id_historico_not_null	n	NOT NULL id_historico	2026-08-10 18:33:58.123645-03
+381	public	historico_alteracao	historico_alteracao_pkey	PRIMARY KEY	PRIMARY KEY (id_historico)	2026-08-10 18:33:58.123645-03
+382	auditoria	execucao_correcao	execucao_correcao_status_not_null	n	NOT NULL status	2026-08-10 18:33:58.123645-03
+383	public	integracao_woocommerce	integracao_woocommerce_id_integracao_not_null	n	NOT NULL id_integracao	2026-08-10 18:33:58.123645-03
+384	public	integracao_woocommerce	integracao_woocommerce_id_empresa_not_null	n	NOT NULL id_empresa	2026-08-10 18:33:58.123645-03
+385	public	integracao_woocommerce	integracao_woocommerce_pkey	PRIMARY KEY	PRIMARY KEY (id_integracao)	2026-08-10 18:33:58.123645-03
+386	public	integracao_woocommerce	fk_wc_empresa	FOREIGN KEY	FOREIGN KEY (id_empresa) REFERENCES empresa(id_empresa)	2026-08-10 18:33:58.123645-03
+387	public	gateway_pagamento	gateway_pagamento_id_gateway_not_null	n	NOT NULL id_gateway	2026-08-10 18:33:58.123645-03
+388	public	gateway_pagamento	gateway_pagamento_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+389	public	gateway_pagamento	gateway_pagamento_pkey	PRIMARY KEY	PRIMARY KEY (id_gateway)	2026-08-10 18:33:58.123645-03
+390	public	gateway_pagamento	gateway_pagamento_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+391	public	pagamento_transacao	pagamento_transacao_id_transacao_not_null	n	NOT NULL id_transacao	2026-08-10 18:33:58.123645-03
+392	public	pagamento_transacao	pagamento_transacao_id_venda_not_null	n	NOT NULL id_venda	2026-08-10 18:33:58.123645-03
+393	public	pagamento_transacao	pagamento_transacao_pkey	PRIMARY KEY	PRIMARY KEY (id_transacao)	2026-08-10 18:33:58.123645-03
+394	public	pagamento_transacao	fk_pagamento_venda	FOREIGN KEY	FOREIGN KEY (id_venda) REFERENCES venda(id_venda)	2026-08-10 18:33:58.123645-03
+395	public	pagamento_transacao	fk_pagamento_gateway	FOREIGN KEY	FOREIGN KEY (id_gateway) REFERENCES gateway_pagamento(id_gateway)	2026-08-10 18:33:58.123645-03
+396	public	openfinance_conexao	openfinance_conexao_id_conexao_not_null	n	NOT NULL id_conexao	2026-08-10 18:33:58.123645-03
+397	public	openfinance_conexao	openfinance_conexao_id_empresa_not_null	n	NOT NULL id_empresa	2026-08-10 18:33:58.123645-03
+398	public	openfinance_conexao	openfinance_conexao_pkey	PRIMARY KEY	PRIMARY KEY (id_conexao)	2026-08-10 18:33:58.123645-03
+399	public	openfinance_conexao	fk_open_empresa	FOREIGN KEY	FOREIGN KEY (id_empresa) REFERENCES empresa(id_empresa)	2026-08-10 18:33:58.123645-03
+400	public	openfinance_movimento	openfinance_movimento_id_movimento_not_null	n	NOT NULL id_movimento	2026-08-10 18:33:58.123645-03
+401	public	openfinance_movimento	openfinance_movimento_pkey	PRIMARY KEY	PRIMARY KEY (id_movimento)	2026-08-10 18:33:58.123645-03
+402	public	openfinance_movimento	fk_open_movimento	FOREIGN KEY	FOREIGN KEY (id_conexao) REFERENCES openfinance_conexao(id_conexao)	2026-08-10 18:33:58.123645-03
+403	public	integracao_nfse	integracao_nfse_id_integracao_not_null	n	NOT NULL id_integracao	2026-08-10 18:33:58.123645-03
+404	public	integracao_nfse	integracao_nfse_id_nota_fiscal_not_null	n	NOT NULL id_nota_fiscal	2026-08-10 18:33:58.123645-03
+405	public	integracao_nfse	integracao_nfse_pkey	PRIMARY KEY	PRIMARY KEY (id_integracao)	2026-08-10 18:33:58.123645-03
+406	public	integracao_nfse	fk_integracao_nf	FOREIGN KEY	FOREIGN KEY (id_nota_fiscal) REFERENCES nota_fiscal(id_nota_fiscal)	2026-08-10 18:33:58.123645-03
+407	public	importacao_dados	importacao_dados_id_importacao_not_null	n	NOT NULL id_importacao	2026-08-10 18:33:58.123645-03
+408	public	importacao_dados	importacao_dados_pkey	PRIMARY KEY	PRIMARY KEY (id_importacao)	2026-08-10 18:33:58.123645-03
+409	public	log_integracao	log_integracao_id_log_not_null	n	NOT NULL id_log	2026-08-10 18:33:58.123645-03
+410	public	log_integracao	log_integracao_pkey	PRIMARY KEY	PRIMARY KEY (id_log)	2026-08-10 18:33:58.123645-03
+411	public	destino	destino_id_destino_not_null	n	NOT NULL id_destino	2026-08-10 18:33:58.123645-03
+412	public	destino	destino_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+413	public	destino	destino_nome_not_null	n	NOT NULL nome	2026-08-10 18:33:58.123645-03
+414	public	destino	destino_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+415	public	destino	destino_pkey	PRIMARY KEY	PRIMARY KEY (id_destino)	2026-08-10 18:33:58.123645-03
+416	public	destino	destino_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+417	public	roteiro_viagem	roteiro_viagem_id_roteiro_not_null	n	NOT NULL id_roteiro	2026-08-10 18:33:58.123645-03
+418	public	roteiro_viagem	roteiro_viagem_id_pacote_not_null	n	NOT NULL id_pacote	2026-08-10 18:33:58.123645-03
+419	public	roteiro_viagem	roteiro_viagem_id_destino_not_null	n	NOT NULL id_destino	2026-08-10 18:33:58.123645-03
+420	public	roteiro_viagem	roteiro_viagem_pkey	PRIMARY KEY	PRIMARY KEY (id_roteiro)	2026-08-10 18:33:58.123645-03
+421	public	roteiro_viagem	fk_roteiro_pacote	FOREIGN KEY	FOREIGN KEY (id_pacote) REFERENCES pacote_viagem(id_pacote)	2026-08-10 18:33:58.123645-03
+422	public	roteiro_viagem	fk_roteiro_destino	FOREIGN KEY	FOREIGN KEY (id_destino) REFERENCES destino(id_destino)	2026-08-10 18:33:58.123645-03
+423	public	fornecedor_turistico	fornecedor_turistico_id_fornecedor_turistico_not_null	n	NOT NULL id_fornecedor_turistico	2026-08-10 18:33:58.123645-03
+424	public	fornecedor_turistico	fornecedor_turistico_id_fornecedor_not_null	n	NOT NULL id_fornecedor	2026-08-10 18:33:58.123645-03
+425	public	fornecedor_turistico	fornecedor_turistico_pkey	PRIMARY KEY	PRIMARY KEY (id_fornecedor_turistico)	2026-08-10 18:33:58.123645-03
+426	public	fornecedor_turistico	fk_ft_fornecedor	FOREIGN KEY	FOREIGN KEY (id_fornecedor) REFERENCES fornecedor(id_fornecedor)	2026-08-10 18:33:58.123645-03
+427	public	hospedagem	hospedagem_id_hospedagem_not_null	n	NOT NULL id_hospedagem	2026-08-10 18:33:58.123645-03
+428	public	hospedagem	hospedagem_id_fornecedor_turistico_not_null	n	NOT NULL id_fornecedor_turistico	2026-08-10 18:33:58.123645-03
+429	public	hospedagem	hospedagem_pkey	PRIMARY KEY	PRIMARY KEY (id_hospedagem)	2026-08-10 18:33:58.123645-03
+430	public	hospedagem	fk_hospedagem_fornecedor	FOREIGN KEY	FOREIGN KEY (id_fornecedor_turistico) REFERENCES fornecedor_turistico(id_fornecedor_turistico)	2026-08-10 18:33:58.123645-03
+431	public	transporte	transporte_id_transporte_not_null	n	NOT NULL id_transporte	2026-08-10 18:33:58.123645-03
+432	public	transporte	transporte_pkey	PRIMARY KEY	PRIMARY KEY (id_transporte)	2026-08-10 18:33:58.123645-03
+433	public	transporte	fk_transporte_fornecedor	FOREIGN KEY	FOREIGN KEY (id_fornecedor_turistico) REFERENCES fornecedor_turistico(id_fornecedor_turistico)	2026-08-10 18:33:58.123645-03
+434	public	guia_turistico	guia_turistico_id_guia_not_null	n	NOT NULL id_guia	2026-08-10 18:33:58.123645-03
+435	public	guia_turistico	guia_turistico_nome_not_null	n	NOT NULL nome	2026-08-10 18:33:58.123645-03
+436	public	guia_turistico	guia_turistico_pkey	PRIMARY KEY	PRIMARY KEY (id_guia)	2026-08-10 18:33:58.123645-03
+437	public	checklist_viagem	checklist_viagem_id_checklist_not_null	n	NOT NULL id_checklist	2026-08-10 18:33:58.123645-03
+438	public	checklist_viagem	checklist_viagem_id_pacote_not_null	n	NOT NULL id_pacote	2026-08-10 18:33:58.123645-03
+439	public	checklist_viagem	checklist_viagem_pkey	PRIMARY KEY	PRIMARY KEY (id_checklist)	2026-08-10 18:33:58.123645-03
+440	public	checklist_viagem	fk_checklist_pacote	FOREIGN KEY	FOREIGN KEY (id_pacote) REFERENCES pacote_viagem(id_pacote)	2026-08-10 18:33:58.123645-03
+441	public	custo_pacote	custo_pacote_id_custo_not_null	n	NOT NULL id_custo	2026-08-10 18:33:58.123645-03
+442	public	custo_pacote	custo_pacote_id_pacote_not_null	n	NOT NULL id_pacote	2026-08-10 18:33:58.123645-03
+443	public	custo_pacote	custo_pacote_pkey	PRIMARY KEY	PRIMARY KEY (id_custo)	2026-08-10 18:33:58.123645-03
+444	public	custo_pacote	fk_custo_pacote	FOREIGN KEY	FOREIGN KEY (id_pacote) REFERENCES pacote_viagem(id_pacote)	2026-08-10 18:33:58.123645-03
+445	public	origem_lead	origem_lead_id_origem_not_null	n	NOT NULL id_origem	2026-08-10 18:33:58.123645-03
+446	public	origem_lead	origem_lead_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+447	public	origem_lead	origem_lead_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+448	public	origem_lead	origem_lead_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+449	public	origem_lead	origem_lead_pkey	PRIMARY KEY	PRIMARY KEY (id_origem)	2026-08-10 18:33:58.123645-03
+450	public	origem_lead	origem_lead_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+451	public	lead	lead_id_lead_not_null	n	NOT NULL id_lead	2026-08-10 18:33:58.123645-03
+452	public	lead	lead_nome_not_null	n	NOT NULL nome	2026-08-10 18:33:58.123645-03
+453	public	lead	lead_pkey	PRIMARY KEY	PRIMARY KEY (id_lead)	2026-08-10 18:33:58.123645-03
+454	public	lead	fk_lead_origem	FOREIGN KEY	FOREIGN KEY (id_origem) REFERENCES origem_lead(id_origem)	2026-08-10 18:33:58.123645-03
+455	public	campanha	campanha_id_campanha_not_null	n	NOT NULL id_campanha	2026-08-10 18:33:58.123645-03
+456	public	campanha	campanha_pkey	PRIMARY KEY	PRIMARY KEY (id_campanha)	2026-08-10 18:33:58.123645-03
+457	public	campanha	campanha_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+458	public	contato_cliente	contato_cliente_id_contato_not_null	n	NOT NULL id_contato	2026-08-10 18:33:58.123645-03
+459	public	contato_cliente	contato_cliente_pkey	PRIMARY KEY	PRIMARY KEY (id_contato)	2026-08-10 18:33:58.123645-03
+460	public	contato_cliente	fk_contato_cliente	FOREIGN KEY	FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)	2026-08-10 18:33:58.123645-03
+461	public	funil_vendas	funil_vendas_id_funil_not_null	n	NOT NULL id_funil	2026-08-10 18:33:58.123645-03
+462	public	funil_vendas	funil_vendas_id_lead_not_null	n	NOT NULL id_lead	2026-08-10 18:33:58.123645-03
+463	public	funil_vendas	funil_vendas_pkey	PRIMARY KEY	PRIMARY KEY (id_funil)	2026-08-10 18:33:58.123645-03
+464	public	funil_vendas	fk_funil_lead	FOREIGN KEY	FOREIGN KEY (id_lead) REFERENCES lead(id_lead)	2026-08-10 18:33:58.123645-03
+465	public	interacao_lead	interacao_lead_id_interacao_not_null	n	NOT NULL id_interacao	2026-08-10 18:33:58.123645-03
+466	public	interacao_lead	interacao_lead_id_lead_not_null	n	NOT NULL id_lead	2026-08-10 18:33:58.123645-03
+467	public	interacao_lead	interacao_lead_pkey	PRIMARY KEY	PRIMARY KEY (id_interacao)	2026-08-10 18:33:58.123645-03
+468	public	interacao_lead	fk_interacao_lead	FOREIGN KEY	FOREIGN KEY (id_lead) REFERENCES lead(id_lead)	2026-08-10 18:33:58.123645-03
+469	public	avaliacao_pos_viagem	ck_nota_avaliacao	CHECK	CHECK (((nota >= 1) AND (nota <= 5)))	2026-08-10 18:33:58.123645-03
+470	public	avaliacao_pos_viagem	avaliacao_pos_viagem_id_avaliacao_not_null	n	NOT NULL id_avaliacao	2026-08-10 18:33:58.123645-03
+471	public	avaliacao_pos_viagem	avaliacao_pos_viagem_id_reserva_not_null	n	NOT NULL id_reserva	2026-08-10 18:33:58.123645-03
+472	public	avaliacao_pos_viagem	avaliacao_pos_viagem_pkey	PRIMARY KEY	PRIMARY KEY (id_avaliacao)	2026-08-10 18:33:58.123645-03
+473	public	avaliacao_pos_viagem	fk_avaliacao_reserva	FOREIGN KEY	FOREIGN KEY (id_reserva) REFERENCES reserva(id_reserva)	2026-08-10 18:33:58.123645-03
+474	public	cargo	cargo_id_cargo_not_null	n	NOT NULL id_cargo	2026-08-10 18:33:58.123645-03
+475	public	cargo	cargo_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+476	public	cargo	cargo_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+477	public	cargo	cargo_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+478	public	cargo	cargo_pkey	PRIMARY KEY	PRIMARY KEY (id_cargo)	2026-08-10 18:33:58.123645-03
+479	public	cargo	cargo_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+480	public	colaborador	colaborador_id_colaborador_not_null	n	NOT NULL id_colaborador	2026-08-10 18:33:58.123645-03
+481	public	colaborador	colaborador_id_pessoa_not_null	n	NOT NULL id_pessoa	2026-08-10 18:33:58.123645-03
+482	public	colaborador	colaborador_pkey	PRIMARY KEY	PRIMARY KEY (id_colaborador)	2026-08-10 18:33:58.123645-03
+483	public	colaborador	fk_colaborador_pessoa	FOREIGN KEY	FOREIGN KEY (id_pessoa) REFERENCES pessoa(id_pessoa)	2026-08-10 18:33:58.123645-03
+484	public	colaborador	fk_colaborador_cargo	FOREIGN KEY	FOREIGN KEY (id_cargo) REFERENCES cargo(id_cargo)	2026-08-10 18:33:58.123645-03
+485	public	parceiro_comercial	parceiro_comercial_id_parceiro_not_null	n	NOT NULL id_parceiro	2026-08-10 18:33:58.123645-03
+486	public	parceiro_comercial	parceiro_comercial_nome_not_null	n	NOT NULL nome	2026-08-10 18:33:58.123645-03
+487	public	parceiro_comercial	parceiro_comercial_pkey	PRIMARY KEY	PRIMARY KEY (id_parceiro)	2026-08-10 18:33:58.123645-03
+488	public	comissao_colaborador	comissao_colaborador_id_comissao_not_null	n	NOT NULL id_comissao	2026-08-10 18:33:58.123645-03
+489	public	comissao_colaborador	comissao_colaborador_id_venda_not_null	n	NOT NULL id_venda	2026-08-10 18:33:58.123645-03
+490	public	comissao_colaborador	comissao_colaborador_pkey	PRIMARY KEY	PRIMARY KEY (id_comissao)	2026-08-10 18:33:58.123645-03
+491	public	comissao_colaborador	fk_comissao_colaborador	FOREIGN KEY	FOREIGN KEY (id_colaborador) REFERENCES colaborador(id_colaborador)	2026-08-10 18:33:58.123645-03
+492	public	comissao_colaborador	fk_comissao_venda	FOREIGN KEY	FOREIGN KEY (id_venda) REFERENCES venda(id_venda)	2026-08-10 18:33:58.123645-03
+493	public	agenda	agenda_id_agenda_not_null	n	NOT NULL id_agenda	2026-08-10 18:33:58.123645-03
+494	public	agenda	agenda_pkey	PRIMARY KEY	PRIMARY KEY (id_agenda)	2026-08-10 18:33:58.123645-03
+495	public	agenda	fk_agenda_colaborador	FOREIGN KEY	FOREIGN KEY (id_colaborador) REFERENCES colaborador(id_colaborador)	2026-08-10 18:33:58.123645-03
+496	public	tarefa	tarefa_id_tarefa_not_null	n	NOT NULL id_tarefa	2026-08-10 18:33:58.123645-03
+497	public	tarefa	tarefa_titulo_not_null	n	NOT NULL titulo	2026-08-10 18:33:58.123645-03
+498	public	tarefa	tarefa_pkey	PRIMARY KEY	PRIMARY KEY (id_tarefa)	2026-08-10 18:33:58.123645-03
+499	public	tarefa	fk_tarefa_responsavel	FOREIGN KEY	FOREIGN KEY (responsavel) REFERENCES colaborador(id_colaborador)	2026-08-10 18:33:58.123645-03
+500	public	horas_atividade	horas_atividade_id_hora_not_null	n	NOT NULL id_hora	2026-08-10 18:33:58.123645-03
+501	public	horas_atividade	horas_atividade_id_colaborador_not_null	n	NOT NULL id_colaborador	2026-08-10 18:33:58.123645-03
+502	public	horas_atividade	horas_atividade_pkey	PRIMARY KEY	PRIMARY KEY (id_hora)	2026-08-10 18:33:58.123645-03
+503	public	horas_atividade	fk_horas_colaborador	FOREIGN KEY	FOREIGN KEY (id_colaborador) REFERENCES colaborador(id_colaborador)	2026-08-10 18:33:58.123645-03
+504	public	categoria_ativo	categoria_ativo_id_categoria_ativo_not_null	n	NOT NULL id_categoria_ativo	2026-08-10 18:33:58.123645-03
+505	public	categoria_ativo	categoria_ativo_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+506	public	categoria_ativo	categoria_ativo_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+507	public	categoria_ativo	categoria_ativo_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+508	public	categoria_ativo	categoria_ativo_pkey	PRIMARY KEY	PRIMARY KEY (id_categoria_ativo)	2026-08-10 18:33:58.123645-03
+509	public	categoria_ativo	categoria_ativo_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+510	public	ativo_imobilizado	ativo_imobilizado_id_ativo_not_null	n	NOT NULL id_ativo	2026-08-10 18:33:58.123645-03
+511	public	ativo_imobilizado	ativo_imobilizado_codigo_patrimonio_not_null	n	NOT NULL codigo_patrimonio	2026-08-10 18:33:58.123645-03
+512	public	ativo_imobilizado	ativo_imobilizado_id_categoria_ativo_not_null	n	NOT NULL id_categoria_ativo	2026-08-10 18:33:58.123645-03
+513	public	ativo_imobilizado	ativo_imobilizado_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+514	public	ativo_imobilizado	ativo_imobilizado_pkey	PRIMARY KEY	PRIMARY KEY (id_ativo)	2026-08-10 18:33:58.123645-03
+515	public	ativo_imobilizado	ativo_imobilizado_codigo_patrimonio_key	UNIQUE	UNIQUE (codigo_patrimonio)	2026-08-10 18:33:58.123645-03
+516	public	ativo_imobilizado	fk_ativo_categoria	FOREIGN KEY	FOREIGN KEY (id_categoria_ativo) REFERENCES categoria_ativo(id_categoria_ativo)	2026-08-10 18:33:58.123645-03
+517	public	depreciacao	depreciacao_id_depreciacao_not_null	n	NOT NULL id_depreciacao	2026-08-10 18:33:58.123645-03
+518	public	depreciacao	depreciacao_id_ativo_not_null	n	NOT NULL id_ativo	2026-08-10 18:33:58.123645-03
+519	public	depreciacao	depreciacao_competencia_not_null	n	NOT NULL competencia	2026-08-10 18:33:58.123645-03
+520	public	depreciacao	depreciacao_pkey	PRIMARY KEY	PRIMARY KEY (id_depreciacao)	2026-08-10 18:33:58.123645-03
+521	public	depreciacao	fk_depreciacao_ativo	FOREIGN KEY	FOREIGN KEY (id_ativo) REFERENCES ativo_imobilizado(id_ativo)	2026-08-10 18:33:58.123645-03
+522	public	manutencao_ativo	manutencao_ativo_id_manutencao_not_null	n	NOT NULL id_manutencao	2026-08-10 18:33:58.123645-03
+523	public	manutencao_ativo	manutencao_ativo_id_ativo_not_null	n	NOT NULL id_ativo	2026-08-10 18:33:58.123645-03
+524	public	manutencao_ativo	manutencao_ativo_pkey	PRIMARY KEY	PRIMARY KEY (id_manutencao)	2026-08-10 18:33:58.123645-03
+525	public	manutencao_ativo	fk_manutencao_ativo	FOREIGN KEY	FOREIGN KEY (id_ativo) REFERENCES ativo_imobilizado(id_ativo)	2026-08-10 18:33:58.123645-03
+526	public	localizacao_ativo	localizacao_ativo_id_localizacao_not_null	n	NOT NULL id_localizacao	2026-08-10 18:33:58.123645-03
+527	public	localizacao_ativo	localizacao_ativo_pkey	PRIMARY KEY	PRIMARY KEY (id_localizacao)	2026-08-10 18:33:58.123645-03
+528	public	localizacao_ativo	localizacao_ativo_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+529	public	movimentacao_ativo	movimentacao_ativo_id_movimentacao_not_null	n	NOT NULL id_movimentacao	2026-08-10 18:33:58.123645-03
+530	public	movimentacao_ativo	movimentacao_ativo_id_ativo_not_null	n	NOT NULL id_ativo	2026-08-10 18:33:58.123645-03
+531	public	movimentacao_ativo	movimentacao_ativo_pkey	PRIMARY KEY	PRIMARY KEY (id_movimentacao)	2026-08-10 18:33:58.123645-03
+532	public	movimentacao_ativo	fk_movimento_ativo	FOREIGN KEY	FOREIGN KEY (id_ativo) REFERENCES ativo_imobilizado(id_ativo)	2026-08-10 18:33:58.123645-03
+533	public	movimentacao_ativo	fk_movimento_localizacao	FOREIGN KEY	FOREIGN KEY (id_localizacao) REFERENCES localizacao_ativo(id_localizacao)	2026-08-10 18:33:58.123645-03
+534	public	produto_estoque	produto_estoque_id_produto_estoque_not_null	n	NOT NULL id_produto_estoque	2026-08-10 18:33:58.123645-03
+535	public	produto_estoque	produto_estoque_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+536	public	produto_estoque	produto_estoque_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+537	public	produto_estoque	produto_estoque_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+538	public	produto_estoque	produto_estoque_pkey	PRIMARY KEY	PRIMARY KEY (id_produto_estoque)	2026-08-10 18:33:58.123645-03
+539	public	produto_estoque	produto_estoque_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+540	public	requisicao_compra	requisicao_compra_id_requisicao_not_null	n	NOT NULL id_requisicao	2026-08-10 18:33:58.123645-03
+541	public	requisicao_compra	requisicao_compra_pkey	PRIMARY KEY	PRIMARY KEY (id_requisicao)	2026-08-10 18:33:58.123645-03
+542	public	requisicao_compra	requisicao_compra_numero_requisicao_key	UNIQUE	UNIQUE (numero_requisicao)	2026-08-10 18:33:58.123645-03
+543	public	item_requisicao	item_requisicao_id_item_not_null	n	NOT NULL id_item	2026-08-10 18:33:58.123645-03
+544	public	item_requisicao	item_requisicao_id_requisicao_not_null	n	NOT NULL id_requisicao	2026-08-10 18:33:58.123645-03
+545	public	item_requisicao	item_requisicao_id_produto_estoque_not_null	n	NOT NULL id_produto_estoque	2026-08-10 18:33:58.123645-03
+546	public	item_requisicao	item_requisicao_pkey	PRIMARY KEY	PRIMARY KEY (id_item)	2026-08-10 18:33:58.123645-03
+547	public	item_requisicao	fk_item_req	FOREIGN KEY	FOREIGN KEY (id_requisicao) REFERENCES requisicao_compra(id_requisicao)	2026-08-10 18:33:58.123645-03
+548	public	documento	documento_id_documento_not_null	n	NOT NULL id_documento	2026-08-10 18:33:58.123645-03
+549	public	item_requisicao	fk_item_produto_estoque	FOREIGN KEY	FOREIGN KEY (id_produto_estoque) REFERENCES produto_estoque(id_produto_estoque)	2026-08-10 18:33:58.123645-03
+550	public	pedido_compra	pedido_compra_id_pedido_not_null	n	NOT NULL id_pedido	2026-08-10 18:33:58.123645-03
+551	public	pedido_compra	pedido_compra_id_fornecedor_not_null	n	NOT NULL id_fornecedor	2026-08-10 18:33:58.123645-03
+552	public	pedido_compra	pedido_compra_pkey	PRIMARY KEY	PRIMARY KEY (id_pedido)	2026-08-10 18:33:58.123645-03
+553	public	pedido_compra	pedido_compra_numero_pedido_key	UNIQUE	UNIQUE (numero_pedido)	2026-08-10 18:33:58.123645-03
+554	public	pedido_compra	fk_pedido_fornecedor	FOREIGN KEY	FOREIGN KEY (id_fornecedor) REFERENCES fornecedor(id_fornecedor)	2026-08-10 18:33:58.123645-03
+555	public	item_pedido_compra	item_pedido_compra_id_item_pedido_not_null	n	NOT NULL id_item_pedido	2026-08-10 18:33:58.123645-03
+556	public	item_pedido_compra	item_pedido_compra_id_pedido_not_null	n	NOT NULL id_pedido	2026-08-10 18:33:58.123645-03
+557	public	item_pedido_compra	item_pedido_compra_id_produto_estoque_not_null	n	NOT NULL id_produto_estoque	2026-08-10 18:33:58.123645-03
+558	public	item_pedido_compra	item_pedido_compra_pkey	PRIMARY KEY	PRIMARY KEY (id_item_pedido)	2026-08-10 18:33:58.123645-03
+559	public	item_pedido_compra	fk_item_pedido	FOREIGN KEY	FOREIGN KEY (id_pedido) REFERENCES pedido_compra(id_pedido)	2026-08-10 18:33:58.123645-03
+560	public	item_pedido_compra	fk_item_pedido_produto	FOREIGN KEY	FOREIGN KEY (id_produto_estoque) REFERENCES produto_estoque(id_produto_estoque)	2026-08-10 18:33:58.123645-03
+561	public	estoque	estoque_id_estoque_not_null	n	NOT NULL id_estoque	2026-08-10 18:33:58.123645-03
+562	public	estoque	estoque_id_produto_estoque_not_null	n	NOT NULL id_produto_estoque	2026-08-10 18:33:58.123645-03
+563	public	estoque	estoque_pkey	PRIMARY KEY	PRIMARY KEY (id_estoque)	2026-08-10 18:33:58.123645-03
+564	public	estoque	fk_estoque_produto	FOREIGN KEY	FOREIGN KEY (id_produto_estoque) REFERENCES produto_estoque(id_produto_estoque)	2026-08-10 18:33:58.123645-03
+565	public	movimento_estoque	movimento_estoque_id_movimento_not_null	n	NOT NULL id_movimento	2026-08-10 18:33:58.123645-03
+566	public	movimento_estoque	movimento_estoque_id_produto_estoque_not_null	n	NOT NULL id_produto_estoque	2026-08-10 18:33:58.123645-03
+567	public	movimento_estoque	movimento_estoque_pkey	PRIMARY KEY	PRIMARY KEY (id_movimento)	2026-08-10 18:33:58.123645-03
+568	public	movimento_estoque	fk_movimento_produto	FOREIGN KEY	FOREIGN KEY (id_produto_estoque) REFERENCES produto_estoque(id_produto_estoque)	2026-08-10 18:33:58.123645-03
+569	public	movimento_estoque	ck_tipo_movimento	CHECK	CHECK (((tipo_movimento)::text = ANY ((ARRAY['ENTRADA'::character varying, 'SAIDA'::character varying, 'AJUSTE'::character varying])::text[])))	2026-08-10 18:33:58.123645-03
+570	public	inventario	inventario_id_inventario_not_null	n	NOT NULL id_inventario	2026-08-10 18:33:58.123645-03
+571	public	inventario	inventario_pkey	PRIMARY KEY	PRIMARY KEY (id_inventario)	2026-08-10 18:33:58.123645-03
+572	public	item_inventario	item_inventario_id_item_not_null	n	NOT NULL id_item	2026-08-10 18:33:58.123645-03
+573	public	item_inventario	item_inventario_id_inventario_not_null	n	NOT NULL id_inventario	2026-08-10 18:33:58.123645-03
+574	public	item_inventario	item_inventario_id_produto_estoque_not_null	n	NOT NULL id_produto_estoque	2026-08-10 18:33:58.123645-03
+575	public	item_inventario	item_inventario_pkey	PRIMARY KEY	PRIMARY KEY (id_item)	2026-08-10 18:33:58.123645-03
+576	public	item_inventario	fk_item_inventario	FOREIGN KEY	FOREIGN KEY (id_inventario) REFERENCES inventario(id_inventario)	2026-08-10 18:33:58.123645-03
+577	public	item_inventario	fk_item_inv_produto	FOREIGN KEY	FOREIGN KEY (id_produto_estoque) REFERENCES produto_estoque(id_produto_estoque)	2026-08-10 18:33:58.123645-03
+578	public	tipo_documento	tipo_documento_id_tipo_documento_not_null	n	NOT NULL id_tipo_documento	2026-08-10 18:33:58.123645-03
+579	public	tipo_documento	tipo_documento_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+580	public	tipo_documento	tipo_documento_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+581	public	tipo_documento	tipo_documento_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+582	public	tipo_documento	tipo_documento_pkey	PRIMARY KEY	PRIMARY KEY (id_tipo_documento)	2026-08-10 18:33:58.123645-03
+583	public	tipo_documento	tipo_documento_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+584	public	documento	documento_id_tipo_documento_not_null	n	NOT NULL id_tipo_documento	2026-08-10 18:33:58.123645-03
+585	public	documento	documento_pkey	PRIMARY KEY	PRIMARY KEY (id_documento)	2026-08-10 18:33:58.123645-03
+586	public	documento	fk_documento_tipo	FOREIGN KEY	FOREIGN KEY (id_tipo_documento) REFERENCES tipo_documento(id_tipo_documento)	2026-08-10 18:33:58.123645-03
+587	public	arquivo_digital	arquivo_digital_id_arquivo_not_null	n	NOT NULL id_arquivo	2026-08-10 18:33:58.123645-03
+588	public	arquivo_digital	arquivo_digital_id_documento_not_null	n	NOT NULL id_documento	2026-08-10 18:33:58.123645-03
+589	public	arquivo_digital	arquivo_digital_pkey	PRIMARY KEY	PRIMARY KEY (id_arquivo)	2026-08-10 18:33:58.123645-03
+590	public	arquivo_digital	fk_arquivo_documento	FOREIGN KEY	FOREIGN KEY (id_documento) REFERENCES documento(id_documento)	2026-08-10 18:33:58.123645-03
+591	public	contrato	contrato_id_contrato_not_null	n	NOT NULL id_contrato	2026-08-10 18:33:58.123645-03
+592	public	contrato	contrato_id_documento_not_null	n	NOT NULL id_documento	2026-08-10 18:33:58.123645-03
+593	public	contrato	contrato_pkey	PRIMARY KEY	PRIMARY KEY (id_contrato)	2026-08-10 18:33:58.123645-03
+594	public	contrato	fk_contrato_documento	FOREIGN KEY	FOREIGN KEY (id_documento) REFERENCES documento(id_documento)	2026-08-10 18:33:58.123645-03
+595	public	assinatura_digital	assinatura_digital_id_assinatura_not_null	n	NOT NULL id_assinatura	2026-08-10 18:33:58.123645-03
+596	public	assinatura_digital	assinatura_digital_id_documento_not_null	n	NOT NULL id_documento	2026-08-10 18:33:58.123645-03
+597	public	assinatura_digital	assinatura_digital_pkey	PRIMARY KEY	PRIMARY KEY (id_assinatura)	2026-08-10 18:33:58.123645-03
+598	public	assinatura_digital	fk_assinatura_documento	FOREIGN KEY	FOREIGN KEY (id_documento) REFERENCES documento(id_documento)	2026-08-10 18:33:58.123645-03
+599	public	controle_vencimento_documento	controle_vencimento_documento_id_controle_not_null	n	NOT NULL id_controle	2026-08-10 18:33:58.123645-03
+600	public	controle_vencimento_documento	controle_vencimento_documento_id_documento_not_null	n	NOT NULL id_documento	2026-08-10 18:33:58.123645-03
+601	public	controle_vencimento_documento	controle_vencimento_documento_pkey	PRIMARY KEY	PRIMARY KEY (id_controle)	2026-08-10 18:33:58.123645-03
+602	public	controle_vencimento_documento	fk_controle_documento	FOREIGN KEY	FOREIGN KEY (id_documento) REFERENCES documento(id_documento)	2026-08-10 18:33:58.123645-03
+603	public	historico_documento	historico_documento_id_historico_not_null	n	NOT NULL id_historico	2026-08-10 18:33:58.123645-03
+664	public	aplicacao_api	aplicacao_api_nome_not_null	n	NOT NULL nome	2026-08-10 18:33:58.123645-03
+604	public	historico_documento	historico_documento_id_documento_not_null	n	NOT NULL id_documento	2026-08-10 18:33:58.123645-03
+605	public	historico_documento	historico_documento_pkey	PRIMARY KEY	PRIMARY KEY (id_historico)	2026-08-10 18:33:58.123645-03
+606	public	historico_documento	fk_historico_documento	FOREIGN KEY	FOREIGN KEY (id_documento) REFERENCES documento(id_documento)	2026-08-10 18:33:58.123645-03
+607	public	projeto	projeto_id_projeto_not_null	n	NOT NULL id_projeto	2026-08-10 18:33:58.123645-03
+608	public	projeto	projeto_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+609	public	projeto	projeto_nome_not_null	n	NOT NULL nome	2026-08-10 18:33:58.123645-03
+610	public	projeto	projeto_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+611	public	projeto	projeto_pkey	PRIMARY KEY	PRIMARY KEY (id_projeto)	2026-08-10 18:33:58.123645-03
+612	public	projeto	projeto_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+613	public	etapa_projeto	etapa_projeto_id_etapa_not_null	n	NOT NULL id_etapa	2026-08-10 18:33:58.123645-03
+614	public	etapa_projeto	etapa_projeto_id_projeto_not_null	n	NOT NULL id_projeto	2026-08-10 18:33:58.123645-03
+615	public	etapa_projeto	etapa_projeto_pkey	PRIMARY KEY	PRIMARY KEY (id_etapa)	2026-08-10 18:33:58.123645-03
+616	public	etapa_projeto	fk_etapa_projeto	FOREIGN KEY	FOREIGN KEY (id_projeto) REFERENCES projeto(id_projeto)	2026-08-10 18:33:58.123645-03
+617	public	tarefa_projeto	ck_percentual	CHECK	CHECK (((percentual_conclusao >= 0) AND (percentual_conclusao <= 100)))	2026-08-10 18:33:58.123645-03
+618	public	tarefa_projeto	tarefa_projeto_id_tarefa_projeto_not_null	n	NOT NULL id_tarefa_projeto	2026-08-10 18:33:58.123645-03
+619	public	tarefa_projeto	tarefa_projeto_id_etapa_not_null	n	NOT NULL id_etapa	2026-08-10 18:33:58.123645-03
+620	public	tarefa_projeto	tarefa_projeto_pkey	PRIMARY KEY	PRIMARY KEY (id_tarefa_projeto)	2026-08-10 18:33:58.123645-03
+621	public	aplicacao_api	aplicacao_api_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+622	public	tarefa_projeto	fk_tarefa_etapa	FOREIGN KEY	FOREIGN KEY (id_etapa) REFERENCES etapa_projeto(id_etapa)	2026-08-10 18:33:58.123645-03
+623	public	responsavel_projeto	responsavel_projeto_id_responsavel_not_null	n	NOT NULL id_responsavel	2026-08-10 18:33:58.123645-03
+624	public	responsavel_projeto	responsavel_projeto_id_projeto_not_null	n	NOT NULL id_projeto	2026-08-10 18:33:58.123645-03
+625	public	responsavel_projeto	responsavel_projeto_pkey	PRIMARY KEY	PRIMARY KEY (id_responsavel)	2026-08-10 18:33:58.123645-03
+626	public	responsavel_projeto	fk_resp_projeto	FOREIGN KEY	FOREIGN KEY (id_projeto) REFERENCES projeto(id_projeto)	2026-08-10 18:33:58.123645-03
+627	public	responsavel_projeto	fk_resp_colaborador	FOREIGN KEY	FOREIGN KEY (id_colaborador) REFERENCES colaborador(id_colaborador)	2026-08-10 18:33:58.123645-03
+628	public	custo_projeto	custo_projeto_id_custo_projeto_not_null	n	NOT NULL id_custo_projeto	2026-08-10 18:33:58.123645-03
+629	public	custo_projeto	custo_projeto_id_projeto_not_null	n	NOT NULL id_projeto	2026-08-10 18:33:58.123645-03
+630	public	custo_projeto	custo_projeto_pkey	PRIMARY KEY	PRIMARY KEY (id_custo_projeto)	2026-08-10 18:33:58.123645-03
+631	public	custo_projeto	fk_custo_projeto	FOREIGN KEY	FOREIGN KEY (id_projeto) REFERENCES projeto(id_projeto)	2026-08-10 18:33:58.123645-03
+632	public	risco_projeto	risco_projeto_id_risco_not_null	n	NOT NULL id_risco	2026-08-10 18:33:58.123645-03
+633	public	risco_projeto	risco_projeto_id_projeto_not_null	n	NOT NULL id_projeto	2026-08-10 18:33:58.123645-03
+634	public	risco_projeto	risco_projeto_pkey	PRIMARY KEY	PRIMARY KEY (id_risco)	2026-08-10 18:33:58.123645-03
+635	public	risco_projeto	fk_risco_projeto	FOREIGN KEY	FOREIGN KEY (id_projeto) REFERENCES projeto(id_projeto)	2026-08-10 18:33:58.123645-03
+636	public	anexo_projeto	anexo_projeto_id_anexo_not_null	n	NOT NULL id_anexo	2026-08-10 18:33:58.123645-03
+637	public	anexo_projeto	anexo_projeto_id_projeto_not_null	n	NOT NULL id_projeto	2026-08-10 18:33:58.123645-03
+638	public	anexo_projeto	anexo_projeto_pkey	PRIMARY KEY	PRIMARY KEY (id_anexo)	2026-08-10 18:33:58.123645-03
+639	public	anexo_projeto	fk_anexo_projeto	FOREIGN KEY	FOREIGN KEY (id_projeto) REFERENCES projeto(id_projeto)	2026-08-10 18:33:58.123645-03
+640	public	parametro_sistema	parametro_sistema_id_parametro_not_null	n	NOT NULL id_parametro	2026-08-10 18:33:58.123645-03
+641	public	parametro_sistema	parametro_sistema_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+642	public	parametro_sistema	parametro_sistema_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+643	public	parametro_sistema	parametro_sistema_pkey	PRIMARY KEY	PRIMARY KEY (id_parametro)	2026-08-10 18:33:58.123645-03
+644	public	parametro_sistema	parametro_sistema_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+645	public	configuracao_empresa	configuracao_empresa_id_configuracao_not_null	n	NOT NULL id_configuracao	2026-08-10 18:33:58.123645-03
+646	public	configuracao_empresa	configuracao_empresa_id_empresa_not_null	n	NOT NULL id_empresa	2026-08-10 18:33:58.123645-03
+647	public	configuracao_empresa	configuracao_empresa_pkey	PRIMARY KEY	PRIMARY KEY (id_configuracao)	2026-08-10 18:33:58.123645-03
+648	public	configuracao_empresa	fk_config_empresa	FOREIGN KEY	FOREIGN KEY (id_empresa) REFERENCES empresa(id_empresa)	2026-08-10 18:33:58.123645-03
+649	public	sequencia_documento	sequencia_documento_id_sequencia_not_null	n	NOT NULL id_sequencia	2026-08-10 18:33:58.123645-03
+650	public	sequencia_documento	sequencia_documento_pkey	PRIMARY KEY	PRIMARY KEY (id_sequencia)	2026-08-10 18:33:58.123645-03
+651	public	sequencia_documento	sequencia_documento_tipo_documento_ano_key	UNIQUE	UNIQUE (tipo_documento, ano)	2026-08-10 18:33:58.123645-03
+652	public	notificacao	notificacao_id_notificacao_not_null	n	NOT NULL id_notificacao	2026-08-10 18:33:58.123645-03
+653	public	notificacao	notificacao_pkey	PRIMARY KEY	PRIMARY KEY (id_notificacao)	2026-08-10 18:33:58.123645-03
+654	public	notificacao	fk_notificacao_usuario	FOREIGN KEY	FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)	2026-08-10 18:33:58.123645-03
+655	public	email_sistema	email_sistema_id_email_not_null	n	NOT NULL id_email	2026-08-10 18:33:58.123645-03
+656	public	email_sistema	email_sistema_pkey	PRIMARY KEY	PRIMARY KEY (id_email)	2026-08-10 18:33:58.123645-03
+657	public	log_sistema	log_sistema_id_log_not_null	n	NOT NULL id_log	2026-08-10 18:33:58.123645-03
+658	public	log_sistema	log_sistema_pkey	PRIMARY KEY	PRIMARY KEY (id_log)	2026-08-10 18:33:58.123645-03
+659	public	agendamento_rotina	agendamento_rotina_id_rotina_not_null	n	NOT NULL id_rotina	2026-08-10 18:33:58.123645-03
+660	public	agendamento_rotina	agendamento_rotina_pkey	PRIMARY KEY	PRIMARY KEY (id_rotina)	2026-08-10 18:33:58.123645-03
+661	public	agendamento_rotina	agendamento_rotina_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+662	public	aplicacao_api	aplicacao_api_id_aplicacao_not_null	n	NOT NULL id_aplicacao	2026-08-10 18:33:58.123645-03
+663	public	aplicacao_api	aplicacao_api_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+972	auditoria	core	core_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+665	public	aplicacao_api	aplicacao_api_pkey	PRIMARY KEY	PRIMARY KEY (id_aplicacao)	2026-08-10 18:33:58.123645-03
+666	public	aplicacao_api	aplicacao_api_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+667	public	token_acesso	token_acesso_id_token_not_null	n	NOT NULL id_token	2026-08-10 18:33:58.123645-03
+668	public	token_acesso	token_acesso_id_aplicacao_not_null	n	NOT NULL id_aplicacao	2026-08-10 18:33:58.123645-03
+669	public	token_acesso	token_acesso_token_hash_not_null	n	NOT NULL token_hash	2026-08-10 18:33:58.123645-03
+670	public	token_acesso	token_acesso_pkey	PRIMARY KEY	PRIMARY KEY (id_token)	2026-08-10 18:33:58.123645-03
+671	public	token_acesso	fk_token_aplicacao	FOREIGN KEY	FOREIGN KEY (id_aplicacao) REFERENCES aplicacao_api(id_aplicacao)	2026-08-10 18:33:58.123645-03
+672	public	chave_api	chave_api_id_chave_not_null	n	NOT NULL id_chave	2026-08-10 18:33:58.123645-03
+673	public	chave_api	chave_api_id_aplicacao_not_null	n	NOT NULL id_aplicacao	2026-08-10 18:33:58.123645-03
+674	public	chave_api	chave_api_api_key_hash_not_null	n	NOT NULL api_key_hash	2026-08-10 18:33:58.123645-03
+675	public	chave_api	chave_api_pkey	PRIMARY KEY	PRIMARY KEY (id_chave)	2026-08-10 18:33:58.123645-03
+676	public	chave_api	fk_chave_aplicacao	FOREIGN KEY	FOREIGN KEY (id_aplicacao) REFERENCES aplicacao_api(id_aplicacao)	2026-08-10 18:33:58.123645-03
+677	public	webhook	webhook_id_webhook_not_null	n	NOT NULL id_webhook	2026-08-10 18:33:58.123645-03
+678	public	webhook	webhook_pkey	PRIMARY KEY	PRIMARY KEY (id_webhook)	2026-08-10 18:33:58.123645-03
+679	public	fila_processamento	fila_processamento_id_fila_not_null	n	NOT NULL id_fila	2026-08-10 18:33:58.123645-03
+680	public	fila_processamento	fila_processamento_pkey	PRIMARY KEY	PRIMARY KEY (id_fila)	2026-08-10 18:33:58.123645-03
+681	public	log_api	log_api_id_log_not_null	n	NOT NULL id_log	2026-08-10 18:33:58.123645-03
+682	public	log_api	log_api_pkey	PRIMARY KEY	PRIMARY KEY (id_log)	2026-08-10 18:33:58.123645-03
+683	public	log_api	fk_log_api_aplicacao	FOREIGN KEY	FOREIGN KEY (id_aplicacao) REFERENCES aplicacao_api(id_aplicacao)	2026-08-10 18:33:58.123645-03
+684	public	rate_limit_api	rate_limit_api_id_rate_not_null	n	NOT NULL id_rate	2026-08-10 18:33:58.123645-03
+685	public	rate_limit_api	rate_limit_api_id_aplicacao_not_null	n	NOT NULL id_aplicacao	2026-08-10 18:33:58.123645-03
+686	public	rate_limit_api	rate_limit_api_pkey	PRIMARY KEY	PRIMARY KEY (id_rate)	2026-08-10 18:33:58.123645-03
+687	public	rate_limit_api	fk_rate_aplicacao	FOREIGN KEY	FOREIGN KEY (id_aplicacao) REFERENCES aplicacao_api(id_aplicacao)	2026-08-10 18:33:58.123645-03
+688	dw	dim_tempo	dim_tempo_id_tempo_not_null	n	NOT NULL id_tempo	2026-08-10 18:33:58.123645-03
+689	dw	dim_tempo	dim_tempo_data_not_null	n	NOT NULL data	2026-08-10 18:33:58.123645-03
+690	dw	dim_tempo	dim_tempo_pkey	PRIMARY KEY	PRIMARY KEY (id_tempo)	2026-08-10 18:33:58.123645-03
+691	dw	dim_tempo	dim_tempo_data_key	UNIQUE	UNIQUE (data)	2026-08-10 18:33:58.123645-03
+692	dw	dim_cliente	dim_cliente_id_cliente_dw_not_null	n	NOT NULL id_cliente_dw	2026-08-10 18:33:58.123645-03
+693	dw	dim_cliente	dim_cliente_pkey	PRIMARY KEY	PRIMARY KEY (id_cliente_dw)	2026-08-10 18:33:58.123645-03
+694	dw	dim_produto_turistico	dim_produto_turistico_id_produto_dw_not_null	n	NOT NULL id_produto_dw	2026-08-10 18:33:58.123645-03
+695	dw	dim_produto_turistico	dim_produto_turistico_pkey	PRIMARY KEY	PRIMARY KEY (id_produto_dw)	2026-08-10 18:33:58.123645-03
+696	dw	dim_destino	dim_destino_id_destino_dw_not_null	n	NOT NULL id_destino_dw	2026-08-10 18:33:58.123645-03
+697	dw	dim_destino	dim_destino_pkey	PRIMARY KEY	PRIMARY KEY (id_destino_dw)	2026-08-10 18:33:58.123645-03
+698	dw	dim_fornecedor	dim_fornecedor_id_fornecedor_dw_not_null	n	NOT NULL id_fornecedor_dw	2026-08-10 18:33:58.123645-03
+699	dw	dim_fornecedor	dim_fornecedor_pkey	PRIMARY KEY	PRIMARY KEY (id_fornecedor_dw)	2026-08-10 18:33:58.123645-03
+700	dw	dim_plano_conta	dim_plano_conta_id_conta_dw_not_null	n	NOT NULL id_conta_dw	2026-08-10 18:33:58.123645-03
+701	dw	dim_plano_conta	dim_plano_conta_pkey	PRIMARY KEY	PRIMARY KEY (id_conta_dw)	2026-08-10 18:33:58.123645-03
+702	dw	fato_vendas	fato_vendas_id_venda_dw_not_null	n	NOT NULL id_venda_dw	2026-08-10 18:33:58.123645-03
+703	dw	fato_vendas	fato_vendas_pkey	PRIMARY KEY	PRIMARY KEY (id_venda_dw)	2026-08-10 18:33:58.123645-03
+704	dw	fato_financeiro	fato_financeiro_id_financeiro_dw_not_null	n	NOT NULL id_financeiro_dw	2026-08-10 18:33:58.123645-03
+705	dw	fato_financeiro	fato_financeiro_pkey	PRIMARY KEY	PRIMARY KEY (id_financeiro_dw)	2026-08-10 18:33:58.123645-03
+706	dw	fato_marketing	fato_marketing_id_marketing_dw_not_null	n	NOT NULL id_marketing_dw	2026-08-10 18:33:58.123645-03
+707	dw	fato_marketing	fato_marketing_pkey	PRIMARY KEY	PRIMARY KEY (id_marketing_dw)	2026-08-10 18:33:58.123645-03
+708	dw	log_etl	log_etl_id_execucao_not_null	n	NOT NULL id_execucao	2026-08-10 18:33:58.123645-03
+709	dw	log_etl	log_etl_pkey	PRIMARY KEY	PRIMARY KEY (id_execucao)	2026-08-10 18:33:58.123645-03
+710	public	modelo_ml	modelo_ml_id_modelo_not_null	n	NOT NULL id_modelo	2026-08-10 18:33:58.123645-03
+711	public	modelo_ml	modelo_ml_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+712	public	modelo_ml	modelo_ml_nome_not_null	n	NOT NULL nome	2026-08-10 18:33:58.123645-03
+713	public	modelo_ml	modelo_ml_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+714	public	modelo_ml	modelo_ml_pkey	PRIMARY KEY	PRIMARY KEY (id_modelo)	2026-08-10 18:33:58.123645-03
+715	public	modelo_ml	modelo_ml_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+716	public	aprovacao_processo	aprovacao_processo_id_aprovacao_not_null	n	NOT NULL id_aprovacao	2026-08-10 18:33:58.123645-03
+717	public	aprovacao_processo	aprovacao_processo_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+718	public	aprovacao_processo	aprovacao_processo_pkey	PRIMARY KEY	PRIMARY KEY (id_aprovacao)	2026-08-10 18:33:58.123645-03
+719	public	politica_acesso	politica_acesso_id_politica_not_null	n	NOT NULL id_politica	2026-08-10 18:33:58.123645-03
+720	public	politica_acesso	politica_acesso_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+721	public	politica_acesso	politica_acesso_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+722	public	politica_acesso	politica_acesso_pkey	PRIMARY KEY	PRIMARY KEY (id_politica)	2026-08-10 18:33:58.123645-03
+723	public	politica_acesso	politica_acesso_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+724	public	rastreabilidade	rastreabilidade_id_rastreabilidade_not_null	n	NOT NULL id_rastreabilidade	2026-08-10 18:33:58.123645-03
+725	public	rastreabilidade	rastreabilidade_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+726	public	rastreabilidade	rastreabilidade_pkey	PRIMARY KEY	PRIMARY KEY (id_rastreabilidade)	2026-08-10 18:33:58.123645-03
+727	public	conformidade_lgpd	conformidade_lgpd_id_lgpd_not_null	n	NOT NULL id_lgpd	2026-08-10 18:33:58.123645-03
+728	public	conformidade_lgpd	conformidade_lgpd_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+729	public	conformidade_lgpd	conformidade_lgpd_pkey	PRIMARY KEY	PRIMARY KEY (id_lgpd)	2026-08-10 18:33:58.123645-03
+730	public	sistema_externo	sistema_externo_id_sistema_externo_not_null	n	NOT NULL id_sistema_externo	2026-08-10 18:33:58.123645-03
+731	public	sistema_externo	sistema_externo_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+732	public	sistema_externo	sistema_externo_nome_not_null	n	NOT NULL nome	2026-08-10 18:33:58.123645-03
+733	public	sistema_externo	sistema_externo_tipo_sistema_not_null	n	NOT NULL tipo_sistema	2026-08-10 18:33:58.123645-03
+734	public	sistema_externo	sistema_externo_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+735	public	sistema_externo	sistema_externo_pkey	PRIMARY KEY	PRIMARY KEY (id_sistema_externo)	2026-08-10 18:33:58.123645-03
+736	public	sistema_externo	sistema_externo_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+737	public	conector_integracao	conector_integracao_id_conector_not_null	n	NOT NULL id_conector	2026-08-10 18:33:58.123645-03
+738	public	conector_integracao	conector_integracao_id_sistema_externo_not_null	n	NOT NULL id_sistema_externo	2026-08-10 18:33:58.123645-03
+739	public	conector_integracao	conector_integracao_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+740	public	conector_integracao	conector_integracao_nome_not_null	n	NOT NULL nome	2026-08-10 18:33:58.123645-03
+741	public	conector_integracao	conector_integracao_tipo_integracao_not_null	n	NOT NULL tipo_integracao	2026-08-10 18:33:58.123645-03
+742	public	conector_integracao	conector_integracao_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+743	public	conector_integracao	conector_integracao_pkey	PRIMARY KEY	PRIMARY KEY (id_conector)	2026-08-10 18:33:58.123645-03
+744	public	conector_integracao	conector_integracao_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+745	public	conector_integracao	fk_conector_sistema	FOREIGN KEY	FOREIGN KEY (id_sistema_externo) REFERENCES sistema_externo(id_sistema_externo)	2026-08-10 18:33:58.123645-03
+746	public	mapeamento_campo_integracao	mapeamento_campo_integracao_id_mapeamento_not_null	n	NOT NULL id_mapeamento	2026-08-10 18:33:58.123645-03
+747	public	mapeamento_campo_integracao	mapeamento_campo_integracao_id_conector_not_null	n	NOT NULL id_conector	2026-08-10 18:33:58.123645-03
+748	public	mapeamento_campo_integracao	mapeamento_campo_integracao_entidade_interna_not_null	n	NOT NULL entidade_interna	2026-08-10 18:33:58.123645-03
+749	public	mapeamento_campo_integracao	mapeamento_campo_integracao_campo_interno_not_null	n	NOT NULL campo_interno	2026-08-10 18:33:58.123645-03
+750	public	mapeamento_campo_integracao	mapeamento_campo_integracao_campo_externo_not_null	n	NOT NULL campo_externo	2026-08-10 18:33:58.123645-03
+751	public	mapeamento_campo_integracao	mapeamento_campo_integracao_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+752	public	mapeamento_campo_integracao	mapeamento_campo_integracao_pkey	PRIMARY KEY	PRIMARY KEY (id_mapeamento)	2026-08-10 18:33:58.123645-03
+753	public	mapeamento_campo_integracao	fk_mapeamento_conector	FOREIGN KEY	FOREIGN KEY (id_conector) REFERENCES conector_integracao(id_conector)	2026-08-10 18:33:58.123645-03
+754	public	sincronizacao_integracao	sincronizacao_integracao_id_sincronizacao_not_null	n	NOT NULL id_sincronizacao	2026-08-10 18:33:58.123645-03
+755	public	sincronizacao_integracao	sincronizacao_integracao_id_conector_not_null	n	NOT NULL id_conector	2026-08-10 18:33:58.123645-03
+756	public	sincronizacao_integracao	sincronizacao_integracao_tipo_operacao_not_null	n	NOT NULL tipo_operacao	2026-08-10 18:33:58.123645-03
+757	public	sincronizacao_integracao	sincronizacao_integracao_data_inicio_not_null	n	NOT NULL data_inicio	2026-08-10 18:33:58.123645-03
+758	public	sincronizacao_integracao	sincronizacao_integracao_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+759	public	sincronizacao_integracao	sincronizacao_integracao_pkey	PRIMARY KEY	PRIMARY KEY (id_sincronizacao)	2026-08-10 18:33:58.123645-03
+760	public	sincronizacao_integracao	fk_sincronizacao_conector	FOREIGN KEY	FOREIGN KEY (id_conector) REFERENCES conector_integracao(id_conector)	2026-08-10 18:33:58.123645-03
+761	public	fila_integracao	fila_integracao_id_fila_integracao_not_null	n	NOT NULL id_fila_integracao	2026-08-10 18:33:58.123645-03
+762	public	fila_integracao	fila_integracao_id_conector_not_null	n	NOT NULL id_conector	2026-08-10 18:33:58.123645-03
+763	public	fila_integracao	fila_integracao_tipo_evento_not_null	n	NOT NULL tipo_evento	2026-08-10 18:33:58.123645-03
+764	public	fila_integracao	fila_integracao_payload_not_null	n	NOT NULL payload	2026-08-10 18:33:58.123645-03
+765	public	fila_integracao	fila_integracao_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+766	public	fila_integracao	fila_integracao_pkey	PRIMARY KEY	PRIMARY KEY (id_fila_integracao)	2026-08-10 18:33:58.123645-03
+767	public	fila_integracao	fk_fila_integracao_conector	FOREIGN KEY	FOREIGN KEY (id_conector) REFERENCES conector_integracao(id_conector)	2026-08-10 18:33:58.123645-03
+768	public	log_integracao_detalhado	log_integracao_detalhado_id_log_integracao_not_null	n	NOT NULL id_log_integracao	2026-08-10 18:33:58.123645-03
+769	public	log_integracao_detalhado	log_integracao_detalhado_id_conector_not_null	n	NOT NULL id_conector	2026-08-10 18:33:58.123645-03
+770	public	log_integracao_detalhado	log_integracao_detalhado_tipo_operacao_not_null	n	NOT NULL tipo_operacao	2026-08-10 18:33:58.123645-03
+771	public	log_integracao_detalhado	log_integracao_detalhado_data_execucao_not_null	n	NOT NULL data_execucao	2026-08-10 18:33:58.123645-03
+772	public	log_integracao_detalhado	log_integracao_detalhado_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+773	public	log_integracao_detalhado	log_integracao_detalhado_pkey	PRIMARY KEY	PRIMARY KEY (id_log_integracao)	2026-08-10 18:33:58.123645-03
+774	public	log_integracao_detalhado	fk_log_integracao_conector	FOREIGN KEY	FOREIGN KEY (id_conector) REFERENCES conector_integracao(id_conector)	2026-08-10 18:33:58.123645-03
+775	public	log_integracao_detalhado	fk_log_integracao_sincronizacao	FOREIGN KEY	FOREIGN KEY (id_sincronizacao) REFERENCES sincronizacao_integracao(id_sincronizacao)	2026-08-10 18:33:58.123645-03
+776	public	status_integracao	status_integracao_id_status_integracao_not_null	n	NOT NULL id_status_integracao	2026-08-10 18:33:58.123645-03
+777	public	status_integracao	status_integracao_id_conector_not_null	n	NOT NULL id_conector	2026-08-10 18:33:58.123645-03
+778	public	status_integracao	status_integracao_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+779	public	status_integracao	status_integracao_pkey	PRIMARY KEY	PRIMARY KEY (id_status_integracao)	2026-08-10 18:33:58.123645-03
+780	public	status_integracao	fk_status_integracao_conector	FOREIGN KEY	FOREIGN KEY (id_conector) REFERENCES conector_integracao(id_conector)	2026-08-10 18:33:58.123645-03
+781	public	data_mart_execucao	data_mart_execucao_id_execucao_not_null	n	NOT NULL id_execucao	2026-08-10 18:33:58.123645-03
+782	public	data_mart_execucao	data_mart_execucao_processo_not_null	n	NOT NULL processo	2026-08-10 18:33:58.123645-03
+783	public	data_mart_execucao	data_mart_execucao_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+784	public	data_mart_execucao	data_mart_execucao_pkey	PRIMARY KEY	PRIMARY KEY (id_execucao)	2026-08-10 18:33:58.123645-03
+785	public	fato_vendas	fato_vendas_id_fato_venda_not_null	n	NOT NULL id_fato_venda	2026-08-10 18:33:58.123645-03
+786	public	fato_vendas	fato_vendas_data_venda_not_null	n	NOT NULL data_venda	2026-08-10 18:33:58.123645-03
+787	public	fato_vendas	fato_vendas_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+788	public	fato_vendas	fato_vendas_pkey	PRIMARY KEY	PRIMARY KEY (id_fato_venda)	2026-08-10 18:33:58.123645-03
+789	public	fato_financeiro	fato_financeiro_id_fato_financeiro_not_null	n	NOT NULL id_fato_financeiro	2026-08-10 18:33:58.123645-03
+790	public	fato_financeiro	fato_financeiro_data_movimento_not_null	n	NOT NULL data_movimento	2026-08-10 18:33:58.123645-03
+791	public	fato_financeiro	fato_financeiro_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+792	public	fato_financeiro	fato_financeiro_pkey	PRIMARY KEY	PRIMARY KEY (id_fato_financeiro)	2026-08-10 18:33:58.123645-03
+793	public	dim_data	dim_data_id_data_not_null	n	NOT NULL id_data	2026-08-10 18:33:58.123645-03
+794	public	dim_data	dim_data_data_not_null	n	NOT NULL data	2026-08-10 18:33:58.123645-03
+795	public	dim_data	dim_data_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+796	public	dim_data	dim_data_pkey	PRIMARY KEY	PRIMARY KEY (id_data)	2026-08-10 18:33:58.123645-03
+797	public	dim_data	dim_data_data_key	UNIQUE	UNIQUE (data)	2026-08-10 18:33:58.123645-03
+798	public	dim_cliente	dim_cliente_id_dim_cliente_not_null	n	NOT NULL id_dim_cliente	2026-08-10 18:33:58.123645-03
+799	public	dim_cliente	dim_cliente_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+800	public	dim_cliente	dim_cliente_pkey	PRIMARY KEY	PRIMARY KEY (id_dim_cliente)	2026-08-10 18:33:58.123645-03
+801	public	dim_produto_turistico	dim_produto_turistico_id_dim_produto_not_null	n	NOT NULL id_dim_produto	2026-08-10 18:33:58.123645-03
+802	public	dim_produto_turistico	dim_produto_turistico_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+803	public	dim_produto_turistico	dim_produto_turistico_pkey	PRIMARY KEY	PRIMARY KEY (id_dim_produto)	2026-08-10 18:33:58.123645-03
+804	public	dim_destino	dim_destino_id_dim_destino_not_null	n	NOT NULL id_dim_destino	2026-08-10 18:33:58.123645-03
+805	public	dim_destino	dim_destino_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+806	public	dim_destino	dim_destino_pkey	PRIMARY KEY	PRIMARY KEY (id_dim_destino)	2026-08-10 18:33:58.123645-03
+807	public	dim_plano_contas	dim_plano_contas_id_dim_plano_not_null	n	NOT NULL id_dim_plano	2026-08-10 18:33:58.123645-03
+808	public	dim_plano_contas	dim_plano_contas_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+809	public	dim_plano_contas	dim_plano_contas_pkey	PRIMARY KEY	PRIMARY KEY (id_dim_plano)	2026-08-10 18:33:58.123645-03
+810	public	kpi_turismo	kpi_turismo_id_kpi_not_null	n	NOT NULL id_kpi	2026-08-10 18:33:58.123645-03
+811	public	kpi_turismo	kpi_turismo_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+812	public	kpi_turismo	kpi_turismo_nome_not_null	n	NOT NULL nome	2026-08-10 18:33:58.123645-03
+813	public	kpi_turismo	kpi_turismo_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+814	public	kpi_turismo	kpi_turismo_pkey	PRIMARY KEY	PRIMARY KEY (id_kpi)	2026-08-10 18:33:58.123645-03
+815	public	kpi_turismo	kpi_turismo_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+816	public	rentabilidade_produto	rentabilidade_produto_id_rentabilidade_not_null	n	NOT NULL id_rentabilidade	2026-08-10 18:33:58.123645-03
+817	public	rentabilidade_produto	rentabilidade_produto_periodo_not_null	n	NOT NULL periodo	2026-08-10 18:33:58.123645-03
+818	public	rentabilidade_produto	rentabilidade_produto_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+819	public	rentabilidade_produto	rentabilidade_produto_pkey	PRIMARY KEY	PRIMARY KEY (id_rentabilidade)	2026-08-10 18:33:58.123645-03
+820	public	workflow	workflow_id_workflow_not_null	n	NOT NULL id_workflow	2026-08-10 18:33:58.123645-03
+821	public	workflow	workflow_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+822	public	workflow	workflow_nome_not_null	n	NOT NULL nome	2026-08-10 18:33:58.123645-03
+823	public	workflow	workflow_modulo_not_null	n	NOT NULL modulo	2026-08-10 18:33:58.123645-03
+824	public	workflow	workflow_ativo_not_null	n	NOT NULL ativo	2026-08-10 18:33:58.123645-03
+825	public	workflow	workflow_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+826	public	workflow	workflow_versao_not_null	n	NOT NULL versao	2026-08-10 18:33:58.123645-03
+827	public	workflow	workflow_pkey	PRIMARY KEY	PRIMARY KEY (id_workflow)	2026-08-10 18:33:58.123645-03
+828	public	workflow	workflow_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+829	financeiro	lancamento	fk_lancamento_empresa	FOREIGN KEY	FOREIGN KEY (id_empresa) REFERENCES financeiro.empresa(id_empresa)	2026-08-10 18:33:58.123645-03
+830	financeiro	lancamento	fk_lancamento_tipo	FOREIGN KEY	FOREIGN KEY (id_tipo_lancamento) REFERENCES financeiro.tipo_lancamento(id_tipo_lancamento)	2026-08-10 18:33:58.123645-03
+831	financeiro	lancamento	fk_lancamento_status	FOREIGN KEY	FOREIGN KEY (id_status) REFERENCES financeiro.status_lancamento(id_status)	2026-08-10 18:33:58.123645-03
+832	financeiro	lancamento	fk_lancamento_conta	FOREIGN KEY	FOREIGN KEY (id_conta) REFERENCES financeiro.conta(id_conta)	2026-08-10 18:33:58.123645-03
+833	financeiro	lancamento	fk_lancamento_cliente	FOREIGN KEY	FOREIGN KEY (id_cliente) REFERENCES financeiro.cliente(id_cliente)	2026-08-10 18:33:58.123645-03
+834	financeiro	lancamento	fk_lancamento_fornecedor	FOREIGN KEY	FOREIGN KEY (id_fornecedor) REFERENCES financeiro.fornecedor(id_fornecedor)	2026-08-10 18:33:58.123645-03
+835	financeiro	lancamento	fk_lancamento_conta_bancaria	FOREIGN KEY	FOREIGN KEY (id_conta_bancaria) REFERENCES financeiro.conta_bancaria(id_conta_bancaria)	2026-08-10 18:33:58.123645-03
+836	financeiro	lancamento	fk_lancamento_forma_pagamento	FOREIGN KEY	FOREIGN KEY (id_forma_pagamento) REFERENCES financeiro.forma_pagamento(id_forma_pagamento)	2026-08-10 18:33:58.123645-03
+837	financeiro	lancamento	fk_lancamento_tipo_documento	FOREIGN KEY	FOREIGN KEY (id_tipo_documento) REFERENCES financeiro.tipo_documento(id_tipo_documento)	2026-08-10 18:33:58.123645-03
+838	financeiro	lancamento_parcela	fk_parcela_lancamento	FOREIGN KEY	FOREIGN KEY (id_lancamento) REFERENCES financeiro.lancamento(id_lancamento)	2026-08-10 18:33:58.123645-03
+839	financeiro	pagamento	fk_pagamento_parcela	FOREIGN KEY	FOREIGN KEY (id_parcela) REFERENCES financeiro.lancamento_parcela(id_parcela)	2026-08-10 18:33:58.123645-03
+840	auditoria	categoria	categoria_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+841	financeiro	pagamento	fk_pagamento_conta_bancaria	FOREIGN KEY	FOREIGN KEY (id_conta_bancaria) REFERENCES financeiro.conta_bancaria(id_conta_bancaria)	2026-08-10 18:33:58.123645-03
+842	financeiro	pagamento	fk_pagamento_forma_pagamento	FOREIGN KEY	FOREIGN KEY (id_forma_pagamento) REFERENCES financeiro.forma_pagamento(id_forma_pagamento)	2026-08-10 18:33:58.123645-03
+843	financeiro	movimentacao_bancaria	fk_movimentacao_conta_bancaria	FOREIGN KEY	FOREIGN KEY (id_conta_bancaria) REFERENCES financeiro.conta_bancaria(id_conta_bancaria)	2026-08-10 18:33:58.123645-03
+844	financeiro	movimentacao_bancaria	fk_movimentacao_pagamento	FOREIGN KEY	FOREIGN KEY (id_pagamento) REFERENCES financeiro.pagamento(id_pagamento)	2026-08-10 18:33:58.123645-03
+845	financeiro	movimentacao_bancaria	fk_movimentacao_tipo	FOREIGN KEY	FOREIGN KEY (id_tipo_movimentacao) REFERENCES financeiro.tipo_movimentacao(id_tipo_movimentacao)	2026-08-10 18:33:58.123645-03
+846	financeiro	rateio_centro_custo	fk_rateio_lancamento	FOREIGN KEY	FOREIGN KEY (id_lancamento) REFERENCES financeiro.lancamento(id_lancamento)	2026-08-10 18:33:58.123645-03
+847	financeiro	rateio_centro_custo	fk_rateio_centro_custo	FOREIGN KEY	FOREIGN KEY (id_centro_custo) REFERENCES financeiro.centro_custo(id_centro_custo)	2026-08-10 18:33:58.123645-03
+848	financeiro	historico_lancamento	fk_historico_lancamento	FOREIGN KEY	FOREIGN KEY (id_lancamento) REFERENCES financeiro.lancamento(id_lancamento)	2026-08-10 18:33:58.123645-03
+849	financeiro	historico_lancamento	fk_historico_usuario	FOREIGN KEY	FOREIGN KEY (id_usuario) REFERENCES financeiro.usuario(id_usuario)	2026-08-10 18:33:58.123645-03
+850	financeiro	anexo	fk_anexo_lancamento	FOREIGN KEY	FOREIGN KEY (id_lancamento) REFERENCES financeiro.lancamento(id_lancamento)	2026-08-10 18:33:58.123645-03
+851	public	localidade	localidade_id_localidade_not_null	n	NOT NULL id_localidade	2026-08-10 18:33:58.123645-03
+852	public	localidade	localidade_cidade_not_null	n	NOT NULL cidade	2026-08-10 18:33:58.123645-03
+853	public	localidade	localidade_pais_not_null	n	NOT NULL pais	2026-08-10 18:33:58.123645-03
+854	public	localidade	localidade_pkey	PRIMARY KEY	PRIMARY KEY (id_localidade)	2026-08-10 18:33:58.123645-03
+855	public	localidade	localidade_cidade_uf_pais_key	UNIQUE	UNIQUE (cidade, uf, pais)	2026-08-10 18:33:58.123645-03
+856	public	pessoa	fk_pessoa_localidade	FOREIGN KEY	FOREIGN KEY (id_localidade) REFERENCES localidade(id_localidade)	2026-08-10 18:33:58.123645-03
+857	public	empresa	fk_empresa_localidade	FOREIGN KEY	FOREIGN KEY (id_localidade) REFERENCES localidade(id_localidade)	2026-08-10 18:33:58.123645-03
+858	financeiro	empresa	fk_empresa_fin_localidade	FOREIGN KEY	FOREIGN KEY (id_localidade) REFERENCES localidade(id_localidade)	2026-08-10 18:33:58.123645-03
+859	public	destino	fk_destino_localidade	FOREIGN KEY	FOREIGN KEY (id_localidade) REFERENCES localidade(id_localidade)	2026-08-10 18:33:58.123645-03
+860	public	conta_bancaria	fk_conta_bancaria_banco	FOREIGN KEY	FOREIGN KEY (id_banco) REFERENCES banco(id_banco)	2026-08-10 18:33:58.123645-03
+861	financeiro	cliente	cliente_id_pessoa_not_null	n	NOT NULL id_pessoa	2026-08-10 18:33:58.123645-03
+862	financeiro	cliente	fk_cliente_pessoa	FOREIGN KEY	FOREIGN KEY (id_pessoa) REFERENCES pessoa(id_pessoa)	2026-08-10 18:33:58.123645-03
+863	public	status_parcela	status_parcela_id_status_parcela_not_null	n	NOT NULL id_status_parcela	2026-08-10 18:33:58.123645-03
+864	public	status_parcela	status_parcela_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+865	public	status_parcela	status_parcela_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+866	public	status_parcela	status_parcela_pkey	PRIMARY KEY	PRIMARY KEY (id_status_parcela)	2026-08-10 18:33:58.123645-03
+867	public	status_parcela	status_parcela_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+868	public	lancamento_parcela	fk_parcela_status	FOREIGN KEY	FOREIGN KEY (id_status_parcela) REFERENCES status_parcela(id_status_parcela)	2026-08-10 18:33:58.123645-03
+869	auditoria	execucao	execucao_id_execucao_not_null	n	NOT NULL id_execucao	2026-08-10 18:33:58.123645-03
+870	auditoria	execucao	execucao_versao_banco_not_null	n	NOT NULL versao_banco	2026-08-10 18:33:58.123645-03
+871	auditoria	execucao	execucao_versao_script_not_null	n	NOT NULL versao_script	2026-08-10 18:33:58.123645-03
+872	auditoria	execucao	execucao_schema_auditado_not_null	n	NOT NULL schema_auditado	2026-08-10 18:33:58.123645-03
+873	auditoria	execucao	execucao_usuario_execucao_not_null	n	NOT NULL usuario_execucao	2026-08-10 18:33:58.123645-03
+874	auditoria	execucao	execucao_data_inicio_not_null	n	NOT NULL data_inicio	2026-08-10 18:33:58.123645-03
+875	auditoria	execucao	execucao_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+876	auditoria	execucao	execucao_versao_not_null	n	NOT NULL versao	2026-08-10 18:33:58.123645-03
+877	auditoria	execucao	pk_execucao	PRIMARY KEY	PRIMARY KEY (id_execucao)	2026-08-10 18:33:58.123645-03
+878	auditoria	categoria	categoria_id_categoria_not_null	n	NOT NULL id_categoria	2026-08-10 18:33:58.123645-03
+879	auditoria	categoria	categoria_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+880	auditoria	categoria	categoria_peso_not_null	n	NOT NULL peso	2026-08-10 18:33:58.123645-03
+881	auditoria	categoria	categoria_ativo_not_null	n	NOT NULL ativo	2026-08-10 18:33:58.123645-03
+882	auditoria	categoria	categoria_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+883	auditoria	categoria	categoria_versao_not_null	n	NOT NULL versao	2026-08-10 18:33:58.123645-03
+884	auditoria	categoria	pk_categoria	PRIMARY KEY	PRIMARY KEY (id_categoria)	2026-08-10 18:33:58.123645-03
+885	auditoria	categoria	uk_categoria_codigo	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+886	auditoria	item	item_id_item_not_null	n	NOT NULL id_item	2026-08-10 18:33:58.123645-03
+887	auditoria	item	item_id_categoria_not_null	n	NOT NULL id_categoria	2026-08-10 18:33:58.123645-03
+888	auditoria	item	item_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+889	auditoria	item	item_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+890	auditoria	item	item_criticidade_not_null	n	NOT NULL criticidade	2026-08-10 18:33:58.123645-03
+891	auditoria	item	item_peso_not_null	n	NOT NULL peso	2026-08-10 18:33:58.123645-03
+892	auditoria	item	item_ativo_not_null	n	NOT NULL ativo	2026-08-10 18:33:58.123645-03
+893	auditoria	item	item_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+894	auditoria	item	item_versao_not_null	n	NOT NULL versao	2026-08-10 18:33:58.123645-03
+895	auditoria	item	pk_item	PRIMARY KEY	PRIMARY KEY (id_item)	2026-08-10 18:33:58.123645-03
+896	auditoria	item	uk_item_codigo	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+897	auditoria	item	fk_item_categoria	FOREIGN KEY	FOREIGN KEY (id_categoria) REFERENCES auditoria.categoria(id_categoria) ON UPDATE CASCADE ON DELETE RESTRICT	2026-08-10 18:33:58.123645-03
+898	auditoria	resultado	resultado_id_resultado_not_null	n	NOT NULL id_resultado	2026-08-10 18:33:58.123645-03
+899	auditoria	resultado	resultado_id_execucao_not_null	n	NOT NULL id_execucao	2026-08-10 18:33:58.123645-03
+900	auditoria	resultado	resultado_id_item_not_null	n	NOT NULL id_item	2026-08-10 18:33:58.123645-03
+901	auditoria	resultado	resultado_status_not_null	n	NOT NULL status	2026-08-10 18:33:58.123645-03
+902	auditoria	resultado	resultado_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+903	auditoria	resultado	resultado_versao_not_null	n	NOT NULL versao	2026-08-10 18:33:58.123645-03
+904	auditoria	resultado	pk_resultado	PRIMARY KEY	PRIMARY KEY (id_resultado)	2026-08-10 18:33:58.123645-03
+905	auditoria	resultado	fk_resultado_execucao	FOREIGN KEY	FOREIGN KEY (id_execucao) REFERENCES auditoria.execucao(id_execucao) ON UPDATE CASCADE ON DELETE CASCADE	2026-08-10 18:33:58.123645-03
+906	auditoria	resultado	fk_resultado_item	FOREIGN KEY	FOREIGN KEY (id_item) REFERENCES auditoria.item(id_item) ON UPDATE CASCADE ON DELETE RESTRICT	2026-08-10 18:33:58.123645-03
+907	auditoria	score	score_id_score_not_null	n	NOT NULL id_score	2026-08-10 18:33:58.123645-03
+908	auditoria	score	score_id_execucao_not_null	n	NOT NULL id_execucao	2026-08-10 18:33:58.123645-03
+909	auditoria	score	score_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+910	auditoria	score	pk_score	PRIMARY KEY	PRIMARY KEY (id_score)	2026-08-10 18:33:58.123645-03
+911	auditoria	score	fk_score_execucao	FOREIGN KEY	FOREIGN KEY (id_execucao) REFERENCES auditoria.execucao(id_execucao) ON UPDATE CASCADE ON DELETE CASCADE	2026-08-10 18:33:58.123645-03
+912	auditoria	recomendacao	recomendacao_id_recomendacao_not_null	n	NOT NULL id_recomendacao	2026-08-10 18:33:58.123645-03
+913	auditoria	recomendacao	recomendacao_id_execucao_not_null	n	NOT NULL id_execucao	2026-08-10 18:33:58.123645-03
+914	auditoria	recomendacao	recomendacao_prioridade_not_null	n	NOT NULL prioridade	2026-08-10 18:33:58.123645-03
+915	auditoria	recomendacao	recomendacao_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+916	auditoria	recomendacao	recomendacao_corrigido_not_null	n	NOT NULL corrigido	2026-08-10 18:33:58.123645-03
+917	auditoria	recomendacao	recomendacao_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+918	auditoria	recomendacao	recomendacao_versao_not_null	n	NOT NULL versao	2026-08-10 18:33:58.123645-03
+919	auditoria	recomendacao	pk_recomendacao	PRIMARY KEY	PRIMARY KEY (id_recomendacao)	2026-08-10 18:33:58.123645-03
+920	auditoria	recomendacao	fk_recomendacao_execucao	FOREIGN KEY	FOREIGN KEY (id_execucao) REFERENCES auditoria.execucao(id_execucao) ON UPDATE CASCADE ON DELETE CASCADE	2026-08-10 18:33:58.123645-03
+921	auditoria	log	log_id_log_not_null	n	NOT NULL id_log	2026-08-10 18:33:58.123645-03
+922	auditoria	log	log_data_log_not_null	n	NOT NULL data_log	2026-08-10 18:33:58.123645-03
+923	auditoria	log	log_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+924	auditoria	log	log_versao_not_null	n	NOT NULL versao	2026-08-10 18:33:58.123645-03
+925	auditoria	log	pk_log	PRIMARY KEY	PRIMARY KEY (id_log)	2026-08-10 18:33:58.123645-03
+926	auditoria	log	fk_log_execucao	FOREIGN KEY	FOREIGN KEY (id_execucao) REFERENCES auditoria.execucao(id_execucao) ON UPDATE CASCADE ON DELETE CASCADE	2026-08-10 18:33:58.123645-03
+927	auditoria	configuracao	configuracao_id_configuracao_not_null	n	NOT NULL id_configuracao	2026-08-10 18:33:58.123645-03
+928	auditoria	configuracao	configuracao_chave_not_null	n	NOT NULL chave	2026-08-10 18:33:58.123645-03
+929	auditoria	configuracao	configuracao_ativo_not_null	n	NOT NULL ativo	2026-08-10 18:33:58.123645-03
+930	auditoria	configuracao	configuracao_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+931	auditoria	configuracao	configuracao_versao_not_null	n	NOT NULL versao	2026-08-10 18:33:58.123645-03
+932	auditoria	configuracao	pk_configuracao	PRIMARY KEY	PRIMARY KEY (id_configuracao)	2026-08-10 18:33:58.123645-03
+933	auditoria	configuracao	uk_configuracao	UNIQUE	UNIQUE (chave)	2026-08-10 18:33:58.123645-03
+934	auditoria	item	item_habilitado_not_null	n	NOT NULL habilitado	2026-08-10 18:33:58.123645-03
+935	auditoria	script	script_id_script_not_null	n	NOT NULL id_script	2026-08-10 18:33:58.123645-03
+936	auditoria	script	script_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+937	auditoria	script	script_descricao_not_null	n	NOT NULL descricao	2026-08-10 18:33:58.123645-03
+938	auditoria	script	script_procedure_name_not_null	n	NOT NULL procedure_name	2026-08-10 18:33:58.123645-03
+939	auditoria	script	script_ordem_execucao_not_null	n	NOT NULL ordem_execucao	2026-08-10 18:33:58.123645-03
+940	auditoria	script	pk_script	PRIMARY KEY	PRIMARY KEY (id_script)	2026-08-10 18:33:58.123645-03
+941	auditoria	script	script_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+942	auditoria	regra	regra_id_regra_not_null	n	NOT NULL id_regra	2026-08-10 18:33:58.123645-03
+943	auditoria	regra	pk_regra	PRIMARY KEY	PRIMARY KEY (id_regra)	2026-08-10 18:33:58.123645-03
+944	auditoria	regra	regra_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+945	auditoria	catalogo_schema	catalogo_schema_id_schema_not_null	n	NOT NULL id_schema	2026-08-10 18:33:58.123645-03
+946	auditoria	catalogo_schema	catalogo_schema_pkey	PRIMARY KEY	PRIMARY KEY (id_schema)	2026-08-10 18:33:58.123645-03
+947	auditoria	catalogo_tabela	catalogo_tabela_id_tabela_not_null	n	NOT NULL id_tabela	2026-08-10 18:33:58.123645-03
+948	auditoria	catalogo_coluna	catalogo_coluna_id_coluna_not_null	n	NOT NULL id_coluna	2026-08-10 18:33:58.123645-03
+949	config	versao_banco	versao_banco_id_not_null	n	NOT NULL id	2026-08-10 18:33:58.123645-03
+950	config	versao_banco	versao_banco_versao_not_null	n	NOT NULL versao	2026-08-10 18:33:58.123645-03
+951	config	versao_banco	versao_banco_data_execucao_not_null	n	NOT NULL data_execucao	2026-08-10 18:33:58.123645-03
+952	config	versao_banco	versao_banco_pkey	PRIMARY KEY	PRIMARY KEY (id)	2026-08-10 18:33:58.123645-03
+953	config	migracao	migracao_id_not_null	n	NOT NULL id	2026-08-10 18:33:58.123645-03
+954	config	migracao	migracao_pkey	PRIMARY KEY	PRIMARY KEY (id)	2026-08-10 18:33:58.123645-03
+955	config	migracao	migracao_script_key	UNIQUE	UNIQUE (script)	2026-08-10 18:33:58.123645-03
+956	auditoria	log_correcao	log_correcao_id_log_not_null	n	NOT NULL id_log	2026-08-10 18:33:58.123645-03
+957	auditoria	log_correcao	log_correcao_data_execucao_not_null	n	NOT NULL data_execucao	2026-08-10 18:33:58.123645-03
+958	auditoria	log_correcao	log_correcao_pkey	PRIMARY KEY	PRIMARY KEY (id_log)	2026-08-10 18:33:58.123645-03
+959	config	parametro	parametro_chave_not_null	n	NOT NULL chave	2026-08-10 18:33:58.123645-03
+960	config	parametro	parametro_pkey	PRIMARY KEY	PRIMARY KEY (chave)	2026-08-10 18:33:58.123645-03
+961	auditoria	executor	executor_id_executor_not_null	n	NOT NULL id_executor	2026-08-10 18:33:58.123645-03
+962	auditoria	executor	executor_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+963	auditoria	executor	executor_nome_not_null	n	NOT NULL nome	2026-08-10 18:33:58.123645-03
+964	auditoria	executor	executor_procedure_execucao_not_null	n	NOT NULL procedure_execucao	2026-08-10 18:33:58.123645-03
+965	auditoria	executor	executor_pkey	PRIMARY KEY	PRIMARY KEY (id_executor)	2026-08-10 18:33:58.123645-03
+966	auditoria	executor	executor_codigo_key	UNIQUE	UNIQUE (codigo)	2026-08-10 18:33:58.123645-03
+967	auditoria	regra	fk_regra_executor	FOREIGN KEY	FOREIGN KEY (id_executor) REFERENCES auditoria.executor(id_executor)	2026-08-10 18:33:58.123645-03
+968	auditoria	core	core_id_core_not_null	n	NOT NULL id_core	2026-08-10 18:33:58.123645-03
+969	auditoria	core	core_codigo_not_null	n	NOT NULL codigo	2026-08-10 18:33:58.123645-03
+970	auditoria	core	core_nome_not_null	n	NOT NULL nome	2026-08-10 18:33:58.123645-03
+971	auditoria	core	core_pkey	PRIMARY KEY	PRIMARY KEY (id_core)	2026-08-10 18:33:58.123645-03
+973	public	pessoa	pessoa_id_localidade_not_null	n	NOT NULL id_localidade	2026-08-10 18:33:58.123645-03
+974	public	empresa	empresa_id_localidade_not_null	n	NOT NULL id_localidade	2026-08-10 18:33:58.123645-03
+975	public	destino	destino_id_localidade_not_null	n	NOT NULL id_localidade	2026-08-10 18:33:58.123645-03
+976	financeiro	anexo	anexo_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+977	financeiro	anexo	fk_anexo_created_by	FOREIGN KEY	FOREIGN KEY (created_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+978	financeiro	anexo	fk_anexo_updated_by	FOREIGN KEY	FOREIGN KEY (updated_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+979	financeiro	anexo	fk_anexo_deleted_by	FOREIGN KEY	FOREIGN KEY (deleted_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+980	financeiro	categoria	categoria_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+981	financeiro	categoria	fk_categoria_created_by	FOREIGN KEY	FOREIGN KEY (created_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+982	financeiro	categoria	fk_categoria_updated_by	FOREIGN KEY	FOREIGN KEY (updated_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+983	financeiro	categoria	fk_categoria_deleted_by	FOREIGN KEY	FOREIGN KEY (deleted_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+984	financeiro	classificacao	classificacao_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+985	financeiro	classificacao	fk_classificacao_created_by	FOREIGN KEY	FOREIGN KEY (created_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+986	financeiro	classificacao	fk_classificacao_updated_by	FOREIGN KEY	FOREIGN KEY (updated_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+987	financeiro	classificacao	fk_classificacao_deleted_by	FOREIGN KEY	FOREIGN KEY (deleted_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+988	financeiro	configuracao	configuracao_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+989	financeiro	configuracao	fk_configuracao_created_by	FOREIGN KEY	FOREIGN KEY (created_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+990	financeiro	configuracao	fk_configuracao_updated_by	FOREIGN KEY	FOREIGN KEY (updated_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+991	financeiro	configuracao	fk_configuracao_deleted_by	FOREIGN KEY	FOREIGN KEY (deleted_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+992	financeiro	conta	conta_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+993	financeiro	conta	fk_conta_created_by	FOREIGN KEY	FOREIGN KEY (created_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+994	financeiro	conta	fk_conta_updated_by	FOREIGN KEY	FOREIGN KEY (updated_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+995	financeiro	conta	fk_conta_deleted_by	FOREIGN KEY	FOREIGN KEY (deleted_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+996	financeiro	grupo	grupo_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+997	financeiro	grupo	fk_grupo_created_by	FOREIGN KEY	FOREIGN KEY (created_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+998	financeiro	grupo	fk_grupo_updated_by	FOREIGN KEY	FOREIGN KEY (updated_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+999	financeiro	grupo	fk_grupo_deleted_by	FOREIGN KEY	FOREIGN KEY (deleted_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1000	financeiro	historico_lancamento	historico_lancamento_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+1001	financeiro	historico_lancamento	fk_historico_lancamento_created_by	FOREIGN KEY	FOREIGN KEY (created_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1002	financeiro	historico_lancamento	fk_historico_lancamento_updated_by	FOREIGN KEY	FOREIGN KEY (updated_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1003	financeiro	historico_lancamento	fk_historico_lancamento_deleted_by	FOREIGN KEY	FOREIGN KEY (deleted_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1004	financeiro	lancamento	lancamento_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+1005	financeiro	lancamento	fk_lancamento_created_by	FOREIGN KEY	FOREIGN KEY (created_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1006	financeiro	lancamento	fk_lancamento_updated_by	FOREIGN KEY	FOREIGN KEY (updated_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1007	financeiro	lancamento	fk_lancamento_deleted_by	FOREIGN KEY	FOREIGN KEY (deleted_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1008	financeiro	movimentacao_bancaria	movimentacao_bancaria_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+1009	financeiro	movimentacao_bancaria	fk_movimentacao_bancaria_created_by	FOREIGN KEY	FOREIGN KEY (created_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1010	financeiro	movimentacao_bancaria	fk_movimentacao_bancaria_updated_by	FOREIGN KEY	FOREIGN KEY (updated_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1011	financeiro	movimentacao_bancaria	fk_movimentacao_bancaria_deleted_by	FOREIGN KEY	FOREIGN KEY (deleted_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1012	financeiro	pagamento	pagamento_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+1013	financeiro	pagamento	fk_pagamento_created_by	FOREIGN KEY	FOREIGN KEY (created_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1014	financeiro	pagamento	fk_pagamento_updated_by	FOREIGN KEY	FOREIGN KEY (updated_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1015	financeiro	pagamento	fk_pagamento_deleted_by	FOREIGN KEY	FOREIGN KEY (deleted_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1016	financeiro	rateio_centro_custo	rateio_centro_custo_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+1017	financeiro	rateio_centro_custo	fk_rateio_centro_custo_created_by	FOREIGN KEY	FOREIGN KEY (created_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1018	financeiro	rateio_centro_custo	fk_rateio_centro_custo_updated_by	FOREIGN KEY	FOREIGN KEY (updated_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1019	financeiro	rateio_centro_custo	fk_rateio_centro_custo_deleted_by	FOREIGN KEY	FOREIGN KEY (deleted_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1020	financeiro	status_lancamento	status_lancamento_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+1021	financeiro	status_lancamento	fk_status_lancamento_created_by	FOREIGN KEY	FOREIGN KEY (created_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1022	financeiro	status_lancamento	fk_status_lancamento_updated_by	FOREIGN KEY	FOREIGN KEY (updated_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1023	financeiro	status_lancamento	fk_status_lancamento_deleted_by	FOREIGN KEY	FOREIGN KEY (deleted_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1024	financeiro	subcategoria	subcategoria_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+1025	financeiro	subcategoria	fk_subcategoria_created_by	FOREIGN KEY	FOREIGN KEY (created_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1026	financeiro	subcategoria	fk_subcategoria_updated_by	FOREIGN KEY	FOREIGN KEY (updated_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1027	financeiro	subcategoria	fk_subcategoria_deleted_by	FOREIGN KEY	FOREIGN KEY (deleted_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1028	financeiro	tipo_lancamento	tipo_lancamento_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+1029	financeiro	tipo_lancamento	fk_tipo_lancamento_created_by	FOREIGN KEY	FOREIGN KEY (created_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1030	financeiro	tipo_lancamento	fk_tipo_lancamento_updated_by	FOREIGN KEY	FOREIGN KEY (updated_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1031	financeiro	tipo_lancamento	fk_tipo_lancamento_deleted_by	FOREIGN KEY	FOREIGN KEY (deleted_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1032	financeiro	tipo_movimentacao	tipo_movimentacao_created_at_not_null	n	NOT NULL created_at	2026-08-10 18:33:58.123645-03
+1033	financeiro	tipo_movimentacao	fk_tipo_movimentacao_created_by	FOREIGN KEY	FOREIGN KEY (created_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1034	financeiro	tipo_movimentacao	fk_tipo_movimentacao_updated_by	FOREIGN KEY	FOREIGN KEY (updated_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1035	financeiro	tipo_movimentacao	fk_tipo_movimentacao_deleted_by	FOREIGN KEY	FOREIGN KEY (deleted_by) REFERENCES financeiro.usuario(id_usuario) ON UPDATE CASCADE ON DELETE SET NULL	2026-08-10 18:33:58.123645-03
+1036	auditoria	catalogo_tabela	catalogo_tabela_pkey	PRIMARY KEY	PRIMARY KEY (id_tabela)	2026-08-10 18:33:58.123645-03
+1037	auditoria	catalogo_coluna	catalogo_coluna_pkey	PRIMARY KEY	PRIMARY KEY (id_coluna)	2026-08-10 18:33:58.123645-03
+1038	auditoria	execucao_correcao	execucao_correcao_pkey	PRIMARY KEY	PRIMARY KEY (id_execucao)	2026-08-10 18:33:58.123645-03
+1039	auditoria	inventario_tabelas	inventario_tabelas_id_inventario_not_null	n	NOT NULL id_inventario	2026-08-10 18:33:58.123645-03
+1040	auditoria	inventario_tabelas	inventario_tabelas_schema_name_not_null	n	NOT NULL schema_name	2026-08-10 18:33:58.123645-03
+1041	auditoria	inventario_tabelas	inventario_tabelas_table_name_not_null	n	NOT NULL table_name	2026-08-10 18:33:58.123645-03
+1042	auditoria	inventario_tabelas	inventario_tabelas_possui_pk_not_null	n	NOT NULL possui_pk	2026-08-10 18:33:58.123645-03
+1043	auditoria	inventario_tabelas	inventario_tabelas_possui_fk_not_null	n	NOT NULL possui_fk	2026-08-10 18:33:58.123645-03
+1044	auditoria	inventario_tabelas	inventario_tabelas_possui_indices_not_null	n	NOT NULL possui_indices	2026-08-10 18:33:58.123645-03
+1045	auditoria	inventario_tabelas	inventario_tabelas_possui_comentario_not_null	n	NOT NULL possui_comentario	2026-08-10 18:33:58.123645-03
+1046	auditoria	inventario_tabelas	inventario_tabelas_auditado_em_not_null	n	NOT NULL auditado_em	2026-08-10 18:33:58.123645-03
+1047	auditoria	inventario_tabelas	inventario_tabelas_pkey	PRIMARY KEY	PRIMARY KEY (id_inventario)	2026-08-10 18:33:58.123645-03
+1048	auditoria	inventario_tabelas	uq_inventario_tabela	UNIQUE	UNIQUE (schema_name, table_name)	2026-08-10 18:33:58.123645-03
+1049	auditoria	tabelas_sem_pk	tabelas_sem_pk_id_not_null	n	NOT NULL id	2026-08-10 18:33:58.123645-03
+1050	auditoria	tabelas_sem_pk	tabelas_sem_pk_schema_name_not_null	n	NOT NULL schema_name	2026-08-10 18:33:58.123645-03
+1051	auditoria	tabelas_sem_pk	tabelas_sem_pk_table_name_not_null	n	NOT NULL table_name	2026-08-10 18:33:58.123645-03
+1052	auditoria	tabelas_sem_pk	tabelas_sem_pk_detectado_em_not_null	n	NOT NULL detectado_em	2026-08-10 18:33:58.123645-03
+1053	auditoria	tabelas_sem_pk	tabelas_sem_pk_pkey	PRIMARY KEY	PRIMARY KEY (id)	2026-08-10 18:33:58.123645-03
+1054	auditoria	tabelas_sem_pk	uq_tabela_sem_pk	UNIQUE	UNIQUE (schema_name, table_name)	2026-08-10 18:33:58.123645-03
+1055	auditoria	tabelas_sem_indices	tabelas_sem_indices_id_not_null	n	NOT NULL id	2026-08-10 18:33:58.123645-03
+1056	auditoria	tabelas_sem_indices	tabelas_sem_indices_schema_name_not_null	n	NOT NULL schema_name	2026-08-10 18:33:58.123645-03
+1057	auditoria	tabelas_sem_indices	tabelas_sem_indices_table_name_not_null	n	NOT NULL table_name	2026-08-10 18:33:58.123645-03
+1058	auditoria	tabelas_sem_indices	tabelas_sem_indices_detectado_em_not_null	n	NOT NULL detectado_em	2026-08-10 18:33:58.123645-03
+1059	auditoria	tabelas_sem_indices	tabelas_sem_indices_pkey	PRIMARY KEY	PRIMARY KEY (id)	2026-08-10 18:33:58.123645-03
+1060	auditoria	tabelas_sem_indices	uq_tabela_sem_indices	UNIQUE	UNIQUE (schema_name, table_name)	2026-08-10 18:33:58.123645-03
+1061	auditoria	colunas_sem_comentario	colunas_sem_comentario_id_not_null	n	NOT NULL id	2026-08-10 18:33:58.123645-03
+1062	auditoria	colunas_sem_comentario	colunas_sem_comentario_schema_name_not_null	n	NOT NULL schema_name	2026-08-10 18:33:58.123645-03
+1063	auditoria	colunas_sem_comentario	colunas_sem_comentario_table_name_not_null	n	NOT NULL table_name	2026-08-10 18:33:58.123645-03
+1064	auditoria	colunas_sem_comentario	colunas_sem_comentario_column_name_not_null	n	NOT NULL column_name	2026-08-10 18:33:58.123645-03
+1065	auditoria	colunas_sem_comentario	colunas_sem_comentario_data_type_not_null	n	NOT NULL data_type	2026-08-10 18:33:58.123645-03
+1066	auditoria	colunas_sem_comentario	colunas_sem_comentario_detectado_em_not_null	n	NOT NULL detectado_em	2026-08-10 18:33:58.123645-03
+1067	auditoria	colunas_sem_comentario	colunas_sem_comentario_pkey	PRIMARY KEY	PRIMARY KEY (id)	2026-08-10 18:33:58.123645-03
+1068	auditoria	colunas_sem_comentario	uq_coluna_sem_comentario	UNIQUE	UNIQUE (schema_name, table_name, column_name)	2026-08-10 18:33:58.123645-03
+1069	auditoria	colunas_not_null_sem_default	colunas_not_null_sem_default_id_not_null	n	NOT NULL id	2026-08-10 18:33:58.123645-03
+1070	auditoria	colunas_not_null_sem_default	colunas_not_null_sem_default_schema_name_not_null	n	NOT NULL schema_name	2026-08-10 18:33:58.123645-03
+1071	auditoria	colunas_not_null_sem_default	colunas_not_null_sem_default_table_name_not_null	n	NOT NULL table_name	2026-08-10 18:33:58.123645-03
+1072	auditoria	colunas_not_null_sem_default	colunas_not_null_sem_default_column_name_not_null	n	NOT NULL column_name	2026-08-10 18:33:58.123645-03
+1073	auditoria	colunas_not_null_sem_default	colunas_not_null_sem_default_data_type_not_null	n	NOT NULL data_type	2026-08-10 18:33:58.123645-03
+1074	auditoria	colunas_not_null_sem_default	colunas_not_null_sem_default_detectado_em_not_null	n	NOT NULL detectado_em	2026-08-10 18:33:58.123645-03
+1075	auditoria	colunas_not_null_sem_default	colunas_not_null_sem_default_pkey	PRIMARY KEY	PRIMARY KEY (id)	2026-08-10 18:33:58.123645-03
+1076	auditoria	colunas_not_null_sem_default	uq_not_null_sem_default	UNIQUE	UNIQUE (schema_name, table_name, column_name)	2026-08-10 18:33:58.123645-03
+1077	auditoria	fks_sem_indice	fks_sem_indice_id_not_null	n	NOT NULL id	2026-08-10 18:33:58.123645-03
+1078	auditoria	fks_sem_indice	fks_sem_indice_schema_name_not_null	n	NOT NULL schema_name	2026-08-10 18:33:58.123645-03
+1079	auditoria	fks_sem_indice	fks_sem_indice_table_name_not_null	n	NOT NULL table_name	2026-08-10 18:33:58.123645-03
+1080	auditoria	fks_sem_indice	fks_sem_indice_constraint_name_not_null	n	NOT NULL constraint_name	2026-08-10 18:33:58.123645-03
+1081	auditoria	fks_sem_indice	fks_sem_indice_detectado_em_not_null	n	NOT NULL detectado_em	2026-08-10 18:33:58.123645-03
+1082	auditoria	fks_sem_indice	fks_sem_indice_pkey	PRIMARY KEY	PRIMARY KEY (id)	2026-08-10 18:33:58.123645-03
+1083	auditoria	fks_sem_indice	uq_fk_sem_indice	UNIQUE	UNIQUE (schema_name, table_name, constraint_name)	2026-08-10 18:33:58.123645-03
+1084	auditoria	inventario_constraints	inventario_constraints_id_not_null	n	NOT NULL id	2026-08-10 18:33:58.123645-03
+1085	auditoria	inventario_constraints	inventario_constraints_schema_name_not_null	n	NOT NULL schema_name	2026-08-10 18:33:58.123645-03
+1086	auditoria	inventario_constraints	inventario_constraints_table_name_not_null	n	NOT NULL table_name	2026-08-10 18:33:58.123645-03
+1087	auditoria	inventario_constraints	inventario_constraints_constraint_name_not_null	n	NOT NULL constraint_name	2026-08-10 18:33:58.123645-03
+1088	auditoria	inventario_constraints	inventario_constraints_constraint_type_not_null	n	NOT NULL constraint_type	2026-08-10 18:33:58.123645-03
+1089	auditoria	inventario_constraints	inventario_constraints_definition_not_null	n	NOT NULL definition	2026-08-10 18:33:58.123645-03
+1090	auditoria	inventario_constraints	inventario_constraints_auditado_em_not_null	n	NOT NULL auditado_em	2026-08-10 18:33:58.123645-03
+1091	auditoria	inventario_constraints	inventario_constraints_pkey	PRIMARY KEY	PRIMARY KEY (id)	2026-08-10 18:33:58.123645-03
+1092	auditoria	inventario_constraints	uq_inventario_constraint	UNIQUE	UNIQUE (schema_name, table_name, constraint_name)	2026-08-10 18:33:58.123645-03
+\.
+
+
+--
+-- TOC entry 8349 (class 0 OID 42854)
+-- Dependencies: 665
+-- Data for Name: inventario_identity; Type: TABLE DATA; Schema: auditoria; Owner: postgres
+--
+
+COPY auditoria.inventario_identity (id, schema_name, table_name, column_name, identity_generation, auditado_em) FROM stdin;
+1	public	localidade	id_localidade	ALWAYS	2026-08-10 18:33:58.123645-03
+2	public	status_parcela	id_status_parcela	ALWAYS	2026-08-10 18:33:58.123645-03
+3	auditoria	execucao	id_execucao	ALWAYS	2026-08-10 18:33:58.123645-03
+4	auditoria	categoria	id_categoria	ALWAYS	2026-08-10 18:33:58.123645-03
+5	auditoria	item	id_item	ALWAYS	2026-08-10 18:33:58.123645-03
+6	auditoria	resultado	id_resultado	ALWAYS	2026-08-10 18:33:58.123645-03
+7	auditoria	score	id_score	ALWAYS	2026-08-10 18:33:58.123645-03
+8	auditoria	recomendacao	id_recomendacao	ALWAYS	2026-08-10 18:33:58.123645-03
+9	auditoria	log	id_log	ALWAYS	2026-08-10 18:33:58.123645-03
+10	auditoria	configuracao	id_configuracao	ALWAYS	2026-08-10 18:33:58.123645-03
+11	auditoria	script	id_script	ALWAYS	2026-08-10 18:33:58.123645-03
+12	auditoria	regra	id_regra	ALWAYS	2026-08-10 18:33:58.123645-03
+13	auditoria	catalogo_schema	id_schema	ALWAYS	2026-08-10 18:33:58.123645-03
+14	auditoria	catalogo_tabela	id_tabela	ALWAYS	2026-08-10 18:33:58.123645-03
+15	auditoria	catalogo_coluna	id_coluna	ALWAYS	2026-08-10 18:33:58.123645-03
+16	auditoria	execucao_correcao	id_execucao	ALWAYS	2026-08-10 18:33:58.123645-03
+17	auditoria	inventario_tabelas	id_inventario	ALWAYS	2026-08-10 18:33:58.123645-03
+18	auditoria	tabelas_sem_pk	id	ALWAYS	2026-08-10 18:33:58.123645-03
+19	auditoria	tabelas_sem_indices	id	ALWAYS	2026-08-10 18:33:58.123645-03
+20	auditoria	colunas_sem_comentario	id	ALWAYS	2026-08-10 18:33:58.123645-03
+21	auditoria	colunas_not_null_sem_default	id	ALWAYS	2026-08-10 18:33:58.123645-03
+22	auditoria	fks_sem_indice	id	ALWAYS	2026-08-10 18:33:58.123645-03
+23	auditoria	inventario_constraints	id	ALWAYS	2026-08-10 18:33:58.123645-03
+24	auditoria	inventario_indices	id	ALWAYS	2026-08-10 18:33:58.123645-03
+25	auditoria	indices_potencialmente_duplicados	id	ALWAYS	2026-08-10 18:33:58.123645-03
+26	auditoria	inventario_sequences	id	ALWAYS	2026-08-10 18:33:58.123645-03
+27	auditoria	inventario_identity	id	ALWAYS	2026-08-10 18:33:58.123645-03
+\.
+
+
+--
+-- TOC entry 8343 (class 0 OID 42806)
+-- Dependencies: 659
+-- Data for Name: inventario_indices; Type: TABLE DATA; Schema: auditoria; Owner: postgres
+--
+
+COPY auditoria.inventario_indices (id, schema_name, table_name, index_name, index_definition, tamanho_bytes, tamanho_formatado, auditado_em) FROM stdin;
+1	financeiro	empresa	empresa_pkey	CREATE UNIQUE INDEX empresa_pkey ON financeiro.empresa USING btree (id_empresa)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+2	financeiro	usuario	usuario_pkey	CREATE UNIQUE INDEX usuario_pkey ON financeiro.usuario USING btree (id_usuario)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+3	financeiro	usuario	usuario_email_key	CREATE UNIQUE INDEX usuario_email_key ON financeiro.usuario USING btree (email)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+4	financeiro	grupo	grupo_pkey	CREATE UNIQUE INDEX grupo_pkey ON financeiro.grupo USING btree (id_grupo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+5	financeiro	grupo	grupo_codigo_key	CREATE UNIQUE INDEX grupo_codigo_key ON financeiro.grupo USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+6	financeiro	categoria	categoria_pkey	CREATE UNIQUE INDEX categoria_pkey ON financeiro.categoria USING btree (id_categoria)	16384	16 kB	2026-08-10 18:33:58.123645-03
+7	financeiro	subcategoria	subcategoria_pkey	CREATE UNIQUE INDEX subcategoria_pkey ON financeiro.subcategoria USING btree (id_subcategoria)	16384	16 kB	2026-08-10 18:33:58.123645-03
+8	financeiro	classificacao	classificacao_pkey	CREATE UNIQUE INDEX classificacao_pkey ON financeiro.classificacao USING btree (id_classificacao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+9	financeiro	classificacao	classificacao_codigo_key	CREATE UNIQUE INDEX classificacao_codigo_key ON financeiro.classificacao USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+10	financeiro	conta	conta_pkey	CREATE UNIQUE INDEX conta_pkey ON financeiro.conta USING btree (id_conta)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+11	financeiro	conta	conta_codigo_key	CREATE UNIQUE INDEX conta_codigo_key ON financeiro.conta USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+12	financeiro	centro_custo	centro_custo_pkey	CREATE UNIQUE INDEX centro_custo_pkey ON financeiro.centro_custo USING btree (id_centro_custo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+13	financeiro	centro_custo	centro_custo_codigo_key	CREATE UNIQUE INDEX centro_custo_codigo_key ON financeiro.centro_custo USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+14	financeiro	banco	banco_pkey	CREATE UNIQUE INDEX banco_pkey ON financeiro.banco USING btree (id_banco)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+15	financeiro	conta_bancaria	conta_bancaria_pkey	CREATE UNIQUE INDEX conta_bancaria_pkey ON financeiro.conta_bancaria USING btree (id_conta_bancaria)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+16	financeiro	cliente	cliente_pkey	CREATE UNIQUE INDEX cliente_pkey ON financeiro.cliente USING btree (id_cliente)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+17	financeiro	fornecedor	fornecedor_pkey	CREATE UNIQUE INDEX fornecedor_pkey ON financeiro.fornecedor USING btree (id_fornecedor)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+18	financeiro	forma_pagamento	forma_pagamento_pkey	CREATE UNIQUE INDEX forma_pagamento_pkey ON financeiro.forma_pagamento USING btree (id_forma_pagamento)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+19	financeiro	configuracao	configuracao_pkey	CREATE UNIQUE INDEX configuracao_pkey ON financeiro.configuracao USING btree (id_configuracao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+20	financeiro	grupo	idx_grupo_codigo	CREATE INDEX idx_grupo_codigo ON financeiro.grupo USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+21	financeiro	categoria	idx_categoria_grupo	CREATE INDEX idx_categoria_grupo ON financeiro.categoria USING btree (id_grupo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+22	financeiro	categoria	idx_categoria_codigo	CREATE INDEX idx_categoria_codigo ON financeiro.categoria USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+23	financeiro	subcategoria	idx_subcategoria_categoria	CREATE INDEX idx_subcategoria_categoria ON financeiro.subcategoria USING btree (id_categoria)	16384	16 kB	2026-08-10 18:33:58.123645-03
+24	financeiro	subcategoria	idx_subcategoria_codigo	CREATE INDEX idx_subcategoria_codigo ON financeiro.subcategoria USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+25	financeiro	classificacao	idx_classificacao_subcategoria	CREATE INDEX idx_classificacao_subcategoria ON financeiro.classificacao USING btree (id_subcategoria)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+26	financeiro	classificacao	idx_classificacao_codigo	CREATE INDEX idx_classificacao_codigo ON financeiro.classificacao USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+27	financeiro	conta	idx_conta_classificacao	CREATE INDEX idx_conta_classificacao ON financeiro.conta USING btree (id_classificacao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+28	financeiro	conta	idx_conta_codigo	CREATE INDEX idx_conta_codigo ON financeiro.conta USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+29	financeiro	cliente	idx_cliente_nome	CREATE INDEX idx_cliente_nome ON financeiro.cliente USING btree (nome)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+30	financeiro	cliente	idx_cliente_documento	CREATE INDEX idx_cliente_documento ON financeiro.cliente USING btree (cpf_cnpj)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+31	financeiro	fornecedor	idx_fornecedor_nome	CREATE INDEX idx_fornecedor_nome ON financeiro.fornecedor USING btree (nome)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+32	financeiro	fornecedor	idx_fornecedor_documento	CREATE INDEX idx_fornecedor_documento ON financeiro.fornecedor USING btree (cpf_cnpj)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+33	financeiro	banco	idx_banco_codigo	CREATE INDEX idx_banco_codigo ON financeiro.banco USING btree (codigo_banco)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+34	financeiro	conta_bancaria	idx_conta_bancaria_banco	CREATE INDEX idx_conta_bancaria_banco ON financeiro.conta_bancaria USING btree (id_banco)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+35	financeiro	empresa	idx_empresa_cnpj	CREATE INDEX idx_empresa_cnpj ON financeiro.empresa USING btree (cnpj)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+36	financeiro	empresa	uk_empresa_cnpj	CREATE UNIQUE INDEX uk_empresa_cnpj ON financeiro.empresa USING btree (cnpj)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+37	financeiro	cliente	uk_cliente_documento	CREATE UNIQUE INDEX uk_cliente_documento ON financeiro.cliente USING btree (cpf_cnpj)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+38	financeiro	fornecedor	uk_fornecedor_documento	CREATE UNIQUE INDEX uk_fornecedor_documento ON financeiro.fornecedor USING btree (cpf_cnpj)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+39	financeiro	banco	uk_banco_codigo	CREATE UNIQUE INDEX uk_banco_codigo ON financeiro.banco USING btree (codigo_banco)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+40	financeiro	conta	uk_codigo_conta	CREATE UNIQUE INDEX uk_codigo_conta ON financeiro.conta USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+41	financeiro	classificacao	uk_codigo_classificacao	CREATE UNIQUE INDEX uk_codigo_classificacao ON financeiro.classificacao USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+42	financeiro	subcategoria	uk_codigo_subcategoria	CREATE UNIQUE INDEX uk_codigo_subcategoria ON financeiro.subcategoria USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+43	financeiro	categoria	uk_codigo_categoria	CREATE UNIQUE INDEX uk_codigo_categoria ON financeiro.categoria USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+44	financeiro	grupo	uk_codigo_grupo	CREATE UNIQUE INDEX uk_codigo_grupo ON financeiro.grupo USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+45	financeiro	tipo_lancamento	tipo_lancamento_pkey	CREATE UNIQUE INDEX tipo_lancamento_pkey ON financeiro.tipo_lancamento USING btree (id_tipo_lancamento)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+46	financeiro	tipo_lancamento	tipo_lancamento_codigo_key	CREATE UNIQUE INDEX tipo_lancamento_codigo_key ON financeiro.tipo_lancamento USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+47	financeiro	status_lancamento	status_lancamento_pkey	CREATE UNIQUE INDEX status_lancamento_pkey ON financeiro.status_lancamento USING btree (id_status)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+48	financeiro	status_lancamento	status_lancamento_codigo_key	CREATE UNIQUE INDEX status_lancamento_codigo_key ON financeiro.status_lancamento USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+49	financeiro	tipo_documento	tipo_documento_pkey	CREATE UNIQUE INDEX tipo_documento_pkey ON financeiro.tipo_documento USING btree (id_tipo_documento)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+50	financeiro	tipo_documento	tipo_documento_codigo_key	CREATE UNIQUE INDEX tipo_documento_codigo_key ON financeiro.tipo_documento USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+51	financeiro	tipo_movimentacao	tipo_movimentacao_pkey	CREATE UNIQUE INDEX tipo_movimentacao_pkey ON financeiro.tipo_movimentacao USING btree (id_tipo_movimentacao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+52	financeiro	tipo_movimentacao	tipo_movimentacao_codigo_key	CREATE UNIQUE INDEX tipo_movimentacao_codigo_key ON financeiro.tipo_movimentacao USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+53	financeiro	lancamento	lancamento_pkey	CREATE UNIQUE INDEX lancamento_pkey ON financeiro.lancamento USING btree (id_lancamento)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+54	financeiro	lancamento	lancamento_numero_key	CREATE UNIQUE INDEX lancamento_numero_key ON financeiro.lancamento USING btree (numero)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+55	financeiro	lancamento_parcela	lancamento_parcela_pkey	CREATE UNIQUE INDEX lancamento_parcela_pkey ON financeiro.lancamento_parcela USING btree (id_parcela)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+56	financeiro	pagamento	pagamento_pkey	CREATE UNIQUE INDEX pagamento_pkey ON financeiro.pagamento USING btree (id_pagamento)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+57	financeiro	movimentacao_bancaria	movimentacao_bancaria_pkey	CREATE UNIQUE INDEX movimentacao_bancaria_pkey ON financeiro.movimentacao_bancaria USING btree (id_movimento)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+58	financeiro	conciliacao_bancaria	conciliacao_bancaria_pkey	CREATE UNIQUE INDEX conciliacao_bancaria_pkey ON financeiro.conciliacao_bancaria USING btree (id_conciliacao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+59	financeiro	rateio_centro_custo	rateio_centro_custo_pkey	CREATE UNIQUE INDEX rateio_centro_custo_pkey ON financeiro.rateio_centro_custo USING btree (id_rateio)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+60	financeiro	historico_lancamento	historico_lancamento_pkey	CREATE UNIQUE INDEX historico_lancamento_pkey ON financeiro.historico_lancamento USING btree (id_historico)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+61	financeiro	anexo	anexo_pkey	CREATE UNIQUE INDEX anexo_pkey ON financeiro.anexo USING btree (id_anexo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+62	financeiro	classificacao	idx_classificacao_dre	CREATE INDEX idx_classificacao_dre ON financeiro.classificacao USING btree (id_tipo_dre)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+63	financeiro	classificacao	idx_classificacao_natureza	CREATE INDEX idx_classificacao_natureza ON financeiro.classificacao USING btree (id_natureza_financeira)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+64	financeiro	classificacao	idx_classificacao_ativo	CREATE INDEX idx_classificacao_ativo ON financeiro.classificacao USING btree (ativo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+65	financeiro	classificacao	idx_classificacao_deleted	CREATE INDEX idx_classificacao_deleted ON financeiro.classificacao USING btree (deleted_at)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+66	public	empresa	empresa_pkey	CREATE UNIQUE INDEX empresa_pkey ON public.empresa USING btree (id_empresa)	16384	16 kB	2026-08-10 18:33:58.123645-03
+67	public	usuario	usuario_pkey	CREATE UNIQUE INDEX usuario_pkey ON public.usuario USING btree (id_usuario)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+68	public	usuario	usuario_email_key	CREATE UNIQUE INDEX usuario_email_key ON public.usuario USING btree (email)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+69	public	pessoa	pessoa_pkey	CREATE UNIQUE INDEX pessoa_pkey ON public.pessoa USING btree (id_pessoa)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+70	public	cliente	cliente_pkey	CREATE UNIQUE INDEX cliente_pkey ON public.cliente USING btree (id_cliente)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+71	public	cliente	cliente_codigo_cliente_key	CREATE UNIQUE INDEX cliente_codigo_cliente_key ON public.cliente USING btree (codigo_cliente)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+72	public	fornecedor	fornecedor_pkey	CREATE UNIQUE INDEX fornecedor_pkey ON public.fornecedor USING btree (id_fornecedor)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+73	public	fornecedor	fornecedor_codigo_fornecedor_key	CREATE UNIQUE INDEX fornecedor_codigo_fornecedor_key ON public.fornecedor USING btree (codigo_fornecedor)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+74	public	banco	banco_pkey	CREATE UNIQUE INDEX banco_pkey ON public.banco USING btree (id_banco)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+75	public	plano_contas	plano_contas_pkey	CREATE UNIQUE INDEX plano_contas_pkey ON public.plano_contas USING btree (id_conta)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+76	public	plano_contas	plano_contas_codigo_key	CREATE UNIQUE INDEX plano_contas_codigo_key ON public.plano_contas USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+77	public	grupo_conta	grupo_conta_pkey	CREATE UNIQUE INDEX grupo_conta_pkey ON public.grupo_conta USING btree (id_grupo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+78	public	grupo_conta	grupo_conta_codigo_key	CREATE UNIQUE INDEX grupo_conta_codigo_key ON public.grupo_conta USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+79	public	categoria_conta	categoria_conta_pkey	CREATE UNIQUE INDEX categoria_conta_pkey ON public.categoria_conta USING btree (id_categoria)	16384	16 kB	2026-08-10 18:33:58.123645-03
+80	public	categoria_conta	categoria_conta_codigo_key	CREATE UNIQUE INDEX categoria_conta_codigo_key ON public.categoria_conta USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+81	public	subcategoria_conta	subcategoria_conta_pkey	CREATE UNIQUE INDEX subcategoria_conta_pkey ON public.subcategoria_conta USING btree (id_subcategoria)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+82	public	subcategoria_conta	subcategoria_conta_codigo_key	CREATE UNIQUE INDEX subcategoria_conta_codigo_key ON public.subcategoria_conta USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+83	public	centro_custo	centro_custo_pkey	CREATE UNIQUE INDEX centro_custo_pkey ON public.centro_custo USING btree (id_centro_custo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+84	public	centro_custo	centro_custo_codigo_key	CREATE UNIQUE INDEX centro_custo_codigo_key ON public.centro_custo USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+85	public	classificacao_dre	classificacao_dre_pkey	CREATE UNIQUE INDEX classificacao_dre_pkey ON public.classificacao_dre USING btree (id_classificacao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+86	public	classificacao_dre	classificacao_dre_codigo_key	CREATE UNIQUE INDEX classificacao_dre_codigo_key ON public.classificacao_dre USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+87	public	conta_bancaria	conta_bancaria_pkey	CREATE UNIQUE INDEX conta_bancaria_pkey ON public.conta_bancaria USING btree (id_conta_bancaria)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+88	public	forma_pagamento	forma_pagamento_pkey	CREATE UNIQUE INDEX forma_pagamento_pkey ON public.forma_pagamento USING btree (id_forma_pagamento)	16384	16 kB	2026-08-10 18:33:58.123645-03
+89	public	forma_pagamento	forma_pagamento_codigo_key	CREATE UNIQUE INDEX forma_pagamento_codigo_key ON public.forma_pagamento USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+90	public	lancamento_financeiro	lancamento_financeiro_pkey	CREATE UNIQUE INDEX lancamento_financeiro_pkey ON public.lancamento_financeiro USING btree (id_lancamento)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+91	public	lancamento_parcela	lancamento_parcela_pkey	CREATE UNIQUE INDEX lancamento_parcela_pkey ON public.lancamento_parcela USING btree (id_parcela)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+92	public	conciliacao_bancaria	conciliacao_bancaria_pkey	CREATE UNIQUE INDEX conciliacao_bancaria_pkey ON public.conciliacao_bancaria USING btree (id_conciliacao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+93	public	produto_turistico	produto_turistico_pkey	CREATE UNIQUE INDEX produto_turistico_pkey ON public.produto_turistico USING btree (id_produto)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+94	public	produto_turistico	produto_turistico_codigo_key	CREATE UNIQUE INDEX produto_turistico_codigo_key ON public.produto_turistico USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+95	public	pacote_viagem	pacote_viagem_pkey	CREATE UNIQUE INDEX pacote_viagem_pkey ON public.pacote_viagem USING btree (id_pacote)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+96	public	pacote_viagem	pacote_viagem_codigo_pacote_key	CREATE UNIQUE INDEX pacote_viagem_codigo_pacote_key ON public.pacote_viagem USING btree (codigo_pacote)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+97	public	reserva	reserva_pkey	CREATE UNIQUE INDEX reserva_pkey ON public.reserva USING btree (id_reserva)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+98	public	reserva	reserva_codigo_reserva_key	CREATE UNIQUE INDEX reserva_codigo_reserva_key ON public.reserva USING btree (codigo_reserva)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+99	public	passageiro	passageiro_pkey	CREATE UNIQUE INDEX passageiro_pkey ON public.passageiro USING btree (id_passageiro)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+100	public	comissao	comissao_pkey	CREATE UNIQUE INDEX comissao_pkey ON public.comissao USING btree (id_comissao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+101	public	venda	venda_pkey	CREATE UNIQUE INDEX venda_pkey ON public.venda USING btree (id_venda)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+102	public	venda	venda_numero_venda_key	CREATE UNIQUE INDEX venda_numero_venda_key ON public.venda USING btree (numero_venda)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+103	public	item_venda	item_venda_pkey	CREATE UNIQUE INDEX item_venda_pkey ON public.item_venda USING btree (id_item)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+104	public	nota_fiscal	nota_fiscal_pkey	CREATE UNIQUE INDEX nota_fiscal_pkey ON public.nota_fiscal USING btree (id_nota_fiscal)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+105	public	imposto	imposto_pkey	CREATE UNIQUE INDEX imposto_pkey ON public.imposto USING btree (id_imposto)	16384	16 kB	2026-08-10 18:33:58.123645-03
+106	public	imposto	imposto_codigo_key	CREATE UNIQUE INDEX imposto_codigo_key ON public.imposto USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+107	public	simples_nacional	simples_nacional_pkey	CREATE UNIQUE INDEX simples_nacional_pkey ON public.simples_nacional USING btree (id_simples)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+108	public	das	das_pkey	CREATE UNIQUE INDEX das_pkey ON public.das USING btree (id_das)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+109	public	aporte_capital	aporte_capital_pkey	CREATE UNIQUE INDEX aporte_capital_pkey ON public.aporte_capital USING btree (id_aporte)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+110	public	distribuicao_lucros	distribuicao_lucros_pkey	CREATE UNIQUE INDEX distribuicao_lucros_pkey ON public.distribuicao_lucros USING btree (id_distribuicao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+111	public	pro_labore	pro_labore_pkey	CREATE UNIQUE INDEX pro_labore_pkey ON public.pro_labore USING btree (id_pro_labore)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+112	public	declaracao_fiscal	declaracao_fiscal_pkey	CREATE UNIQUE INDEX declaracao_fiscal_pkey ON public.declaracao_fiscal USING btree (id_declaracao)	16384	16 kB	2026-08-10 18:33:58.123645-03
+113	public	perfil_acesso	perfil_acesso_pkey	CREATE UNIQUE INDEX perfil_acesso_pkey ON public.perfil_acesso USING btree (id_perfil)	16384	16 kB	2026-08-10 18:33:58.123645-03
+114	public	perfil_acesso	perfil_acesso_codigo_key	CREATE UNIQUE INDEX perfil_acesso_codigo_key ON public.perfil_acesso USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+115	public	permissao	permissao_pkey	CREATE UNIQUE INDEX permissao_pkey ON public.permissao USING btree (id_permissao)	16384	16 kB	2026-08-10 18:33:58.123645-03
+116	public	permissao	permissao_codigo_key	CREATE UNIQUE INDEX permissao_codigo_key ON public.permissao USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+117	public	usuario_perfil	usuario_perfil_pkey	CREATE UNIQUE INDEX usuario_perfil_pkey ON public.usuario_perfil USING btree (id_usuario, id_perfil)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+118	public	log_auditoria	log_auditoria_pkey	CREATE UNIQUE INDEX log_auditoria_pkey ON public.log_auditoria USING btree (id_log)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+119	public	historico_alteracao	historico_alteracao_pkey	CREATE UNIQUE INDEX historico_alteracao_pkey ON public.historico_alteracao USING btree (id_historico)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+120	public	integracao_woocommerce	integracao_woocommerce_pkey	CREATE UNIQUE INDEX integracao_woocommerce_pkey ON public.integracao_woocommerce USING btree (id_integracao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+121	public	gateway_pagamento	gateway_pagamento_pkey	CREATE UNIQUE INDEX gateway_pagamento_pkey ON public.gateway_pagamento USING btree (id_gateway)	16384	16 kB	2026-08-10 18:33:58.123645-03
+122	public	gateway_pagamento	gateway_pagamento_codigo_key	CREATE UNIQUE INDEX gateway_pagamento_codigo_key ON public.gateway_pagamento USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+123	public	pagamento_transacao	pagamento_transacao_pkey	CREATE UNIQUE INDEX pagamento_transacao_pkey ON public.pagamento_transacao USING btree (id_transacao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+124	public	openfinance_conexao	openfinance_conexao_pkey	CREATE UNIQUE INDEX openfinance_conexao_pkey ON public.openfinance_conexao USING btree (id_conexao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+125	public	openfinance_movimento	openfinance_movimento_pkey	CREATE UNIQUE INDEX openfinance_movimento_pkey ON public.openfinance_movimento USING btree (id_movimento)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+126	public	integracao_nfse	integracao_nfse_pkey	CREATE UNIQUE INDEX integracao_nfse_pkey ON public.integracao_nfse USING btree (id_integracao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+127	public	importacao_dados	importacao_dados_pkey	CREATE UNIQUE INDEX importacao_dados_pkey ON public.importacao_dados USING btree (id_importacao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+128	public	log_integracao	log_integracao_pkey	CREATE UNIQUE INDEX log_integracao_pkey ON public.log_integracao USING btree (id_log)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+129	public	destino	destino_pkey	CREATE UNIQUE INDEX destino_pkey ON public.destino USING btree (id_destino)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+130	public	destino	destino_codigo_key	CREATE UNIQUE INDEX destino_codigo_key ON public.destino USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+131	public	roteiro_viagem	roteiro_viagem_pkey	CREATE UNIQUE INDEX roteiro_viagem_pkey ON public.roteiro_viagem USING btree (id_roteiro)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+132	public	fornecedor_turistico	fornecedor_turistico_pkey	CREATE UNIQUE INDEX fornecedor_turistico_pkey ON public.fornecedor_turistico USING btree (id_fornecedor_turistico)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+133	public	hospedagem	hospedagem_pkey	CREATE UNIQUE INDEX hospedagem_pkey ON public.hospedagem USING btree (id_hospedagem)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+134	public	transporte	transporte_pkey	CREATE UNIQUE INDEX transporte_pkey ON public.transporte USING btree (id_transporte)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+135	public	guia_turistico	guia_turistico_pkey	CREATE UNIQUE INDEX guia_turistico_pkey ON public.guia_turistico USING btree (id_guia)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+136	public	checklist_viagem	checklist_viagem_pkey	CREATE UNIQUE INDEX checklist_viagem_pkey ON public.checklist_viagem USING btree (id_checklist)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+137	public	custo_pacote	custo_pacote_pkey	CREATE UNIQUE INDEX custo_pacote_pkey ON public.custo_pacote USING btree (id_custo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+138	public	origem_lead	origem_lead_pkey	CREATE UNIQUE INDEX origem_lead_pkey ON public.origem_lead USING btree (id_origem)	16384	16 kB	2026-08-10 18:33:58.123645-03
+139	public	origem_lead	origem_lead_codigo_key	CREATE UNIQUE INDEX origem_lead_codigo_key ON public.origem_lead USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+140	public	lead	lead_pkey	CREATE UNIQUE INDEX lead_pkey ON public.lead USING btree (id_lead)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+141	public	campanha	campanha_pkey	CREATE UNIQUE INDEX campanha_pkey ON public.campanha USING btree (id_campanha)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+142	public	campanha	campanha_codigo_key	CREATE UNIQUE INDEX campanha_codigo_key ON public.campanha USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+143	public	contato_cliente	contato_cliente_pkey	CREATE UNIQUE INDEX contato_cliente_pkey ON public.contato_cliente USING btree (id_contato)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+144	public	funil_vendas	funil_vendas_pkey	CREATE UNIQUE INDEX funil_vendas_pkey ON public.funil_vendas USING btree (id_funil)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+145	public	interacao_lead	interacao_lead_pkey	CREATE UNIQUE INDEX interacao_lead_pkey ON public.interacao_lead USING btree (id_interacao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+146	public	avaliacao_pos_viagem	avaliacao_pos_viagem_pkey	CREATE UNIQUE INDEX avaliacao_pos_viagem_pkey ON public.avaliacao_pos_viagem USING btree (id_avaliacao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+147	public	cargo	cargo_pkey	CREATE UNIQUE INDEX cargo_pkey ON public.cargo USING btree (id_cargo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+148	public	cargo	cargo_codigo_key	CREATE UNIQUE INDEX cargo_codigo_key ON public.cargo USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+149	public	colaborador	colaborador_pkey	CREATE UNIQUE INDEX colaborador_pkey ON public.colaborador USING btree (id_colaborador)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+150	public	parceiro_comercial	parceiro_comercial_pkey	CREATE UNIQUE INDEX parceiro_comercial_pkey ON public.parceiro_comercial USING btree (id_parceiro)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+151	public	comissao_colaborador	comissao_colaborador_pkey	CREATE UNIQUE INDEX comissao_colaborador_pkey ON public.comissao_colaborador USING btree (id_comissao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+152	public	agenda	agenda_pkey	CREATE UNIQUE INDEX agenda_pkey ON public.agenda USING btree (id_agenda)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+153	public	tarefa	tarefa_pkey	CREATE UNIQUE INDEX tarefa_pkey ON public.tarefa USING btree (id_tarefa)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+154	public	horas_atividade	horas_atividade_pkey	CREATE UNIQUE INDEX horas_atividade_pkey ON public.horas_atividade USING btree (id_hora)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+155	public	categoria_ativo	categoria_ativo_pkey	CREATE UNIQUE INDEX categoria_ativo_pkey ON public.categoria_ativo USING btree (id_categoria_ativo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+156	public	categoria_ativo	categoria_ativo_codigo_key	CREATE UNIQUE INDEX categoria_ativo_codigo_key ON public.categoria_ativo USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+157	public	ativo_imobilizado	ativo_imobilizado_pkey	CREATE UNIQUE INDEX ativo_imobilizado_pkey ON public.ativo_imobilizado USING btree (id_ativo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+158	public	ativo_imobilizado	ativo_imobilizado_codigo_patrimonio_key	CREATE UNIQUE INDEX ativo_imobilizado_codigo_patrimonio_key ON public.ativo_imobilizado USING btree (codigo_patrimonio)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+159	public	depreciacao	depreciacao_pkey	CREATE UNIQUE INDEX depreciacao_pkey ON public.depreciacao USING btree (id_depreciacao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+160	public	manutencao_ativo	manutencao_ativo_pkey	CREATE UNIQUE INDEX manutencao_ativo_pkey ON public.manutencao_ativo USING btree (id_manutencao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+161	public	localizacao_ativo	localizacao_ativo_pkey	CREATE UNIQUE INDEX localizacao_ativo_pkey ON public.localizacao_ativo USING btree (id_localizacao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+162	public	localizacao_ativo	localizacao_ativo_codigo_key	CREATE UNIQUE INDEX localizacao_ativo_codigo_key ON public.localizacao_ativo USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+163	public	movimentacao_ativo	movimentacao_ativo_pkey	CREATE UNIQUE INDEX movimentacao_ativo_pkey ON public.movimentacao_ativo USING btree (id_movimentacao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+164	public	produto_estoque	produto_estoque_pkey	CREATE UNIQUE INDEX produto_estoque_pkey ON public.produto_estoque USING btree (id_produto_estoque)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+165	public	produto_estoque	produto_estoque_codigo_key	CREATE UNIQUE INDEX produto_estoque_codigo_key ON public.produto_estoque USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+166	public	requisicao_compra	requisicao_compra_pkey	CREATE UNIQUE INDEX requisicao_compra_pkey ON public.requisicao_compra USING btree (id_requisicao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+167	public	requisicao_compra	requisicao_compra_numero_requisicao_key	CREATE UNIQUE INDEX requisicao_compra_numero_requisicao_key ON public.requisicao_compra USING btree (numero_requisicao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+168	public	item_requisicao	item_requisicao_pkey	CREATE UNIQUE INDEX item_requisicao_pkey ON public.item_requisicao USING btree (id_item)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+169	public	pedido_compra	pedido_compra_pkey	CREATE UNIQUE INDEX pedido_compra_pkey ON public.pedido_compra USING btree (id_pedido)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+170	public	pedido_compra	pedido_compra_numero_pedido_key	CREATE UNIQUE INDEX pedido_compra_numero_pedido_key ON public.pedido_compra USING btree (numero_pedido)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+171	public	item_pedido_compra	item_pedido_compra_pkey	CREATE UNIQUE INDEX item_pedido_compra_pkey ON public.item_pedido_compra USING btree (id_item_pedido)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+172	public	estoque	estoque_pkey	CREATE UNIQUE INDEX estoque_pkey ON public.estoque USING btree (id_estoque)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+173	public	movimento_estoque	movimento_estoque_pkey	CREATE UNIQUE INDEX movimento_estoque_pkey ON public.movimento_estoque USING btree (id_movimento)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+174	public	inventario	inventario_pkey	CREATE UNIQUE INDEX inventario_pkey ON public.inventario USING btree (id_inventario)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+175	public	item_inventario	item_inventario_pkey	CREATE UNIQUE INDEX item_inventario_pkey ON public.item_inventario USING btree (id_item)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+176	public	tipo_documento	tipo_documento_pkey	CREATE UNIQUE INDEX tipo_documento_pkey ON public.tipo_documento USING btree (id_tipo_documento)	16384	16 kB	2026-08-10 18:33:58.123645-03
+177	public	tipo_documento	tipo_documento_codigo_key	CREATE UNIQUE INDEX tipo_documento_codigo_key ON public.tipo_documento USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+178	public	documento	documento_pkey	CREATE UNIQUE INDEX documento_pkey ON public.documento USING btree (id_documento)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+179	public	arquivo_digital	arquivo_digital_pkey	CREATE UNIQUE INDEX arquivo_digital_pkey ON public.arquivo_digital USING btree (id_arquivo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+180	public	contrato	contrato_pkey	CREATE UNIQUE INDEX contrato_pkey ON public.contrato USING btree (id_contrato)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+181	public	assinatura_digital	assinatura_digital_pkey	CREATE UNIQUE INDEX assinatura_digital_pkey ON public.assinatura_digital USING btree (id_assinatura)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+182	public	controle_vencimento_documento	controle_vencimento_documento_pkey	CREATE UNIQUE INDEX controle_vencimento_documento_pkey ON public.controle_vencimento_documento USING btree (id_controle)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+183	public	historico_documento	historico_documento_pkey	CREATE UNIQUE INDEX historico_documento_pkey ON public.historico_documento USING btree (id_historico)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+184	public	projeto	projeto_pkey	CREATE UNIQUE INDEX projeto_pkey ON public.projeto USING btree (id_projeto)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+185	public	projeto	projeto_codigo_key	CREATE UNIQUE INDEX projeto_codigo_key ON public.projeto USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+186	public	etapa_projeto	etapa_projeto_pkey	CREATE UNIQUE INDEX etapa_projeto_pkey ON public.etapa_projeto USING btree (id_etapa)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+187	public	tarefa_projeto	tarefa_projeto_pkey	CREATE UNIQUE INDEX tarefa_projeto_pkey ON public.tarefa_projeto USING btree (id_tarefa_projeto)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+188	public	responsavel_projeto	responsavel_projeto_pkey	CREATE UNIQUE INDEX responsavel_projeto_pkey ON public.responsavel_projeto USING btree (id_responsavel)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+189	public	custo_projeto	custo_projeto_pkey	CREATE UNIQUE INDEX custo_projeto_pkey ON public.custo_projeto USING btree (id_custo_projeto)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+190	public	risco_projeto	risco_projeto_pkey	CREATE UNIQUE INDEX risco_projeto_pkey ON public.risco_projeto USING btree (id_risco)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+191	public	anexo_projeto	anexo_projeto_pkey	CREATE UNIQUE INDEX anexo_projeto_pkey ON public.anexo_projeto USING btree (id_anexo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+192	public	parametro_sistema	parametro_sistema_pkey	CREATE UNIQUE INDEX parametro_sistema_pkey ON public.parametro_sistema USING btree (id_parametro)	16384	16 kB	2026-08-10 18:33:58.123645-03
+193	public	parametro_sistema	parametro_sistema_codigo_key	CREATE UNIQUE INDEX parametro_sistema_codigo_key ON public.parametro_sistema USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+194	public	configuracao_empresa	configuracao_empresa_pkey	CREATE UNIQUE INDEX configuracao_empresa_pkey ON public.configuracao_empresa USING btree (id_configuracao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+195	public	sequencia_documento	sequencia_documento_pkey	CREATE UNIQUE INDEX sequencia_documento_pkey ON public.sequencia_documento USING btree (id_sequencia)	16384	16 kB	2026-08-10 18:33:58.123645-03
+196	public	sequencia_documento	sequencia_documento_tipo_documento_ano_key	CREATE UNIQUE INDEX sequencia_documento_tipo_documento_ano_key ON public.sequencia_documento USING btree (tipo_documento, ano)	16384	16 kB	2026-08-10 18:33:58.123645-03
+197	public	notificacao	notificacao_pkey	CREATE UNIQUE INDEX notificacao_pkey ON public.notificacao USING btree (id_notificacao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+198	public	email_sistema	email_sistema_pkey	CREATE UNIQUE INDEX email_sistema_pkey ON public.email_sistema USING btree (id_email)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+199	public	log_sistema	log_sistema_pkey	CREATE UNIQUE INDEX log_sistema_pkey ON public.log_sistema USING btree (id_log)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+200	public	agendamento_rotina	agendamento_rotina_pkey	CREATE UNIQUE INDEX agendamento_rotina_pkey ON public.agendamento_rotina USING btree (id_rotina)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+201	public	agendamento_rotina	agendamento_rotina_codigo_key	CREATE UNIQUE INDEX agendamento_rotina_codigo_key ON public.agendamento_rotina USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+202	public	aplicacao_api	aplicacao_api_pkey	CREATE UNIQUE INDEX aplicacao_api_pkey ON public.aplicacao_api USING btree (id_aplicacao)	16384	16 kB	2026-08-10 18:33:58.123645-03
+203	public	aplicacao_api	aplicacao_api_codigo_key	CREATE UNIQUE INDEX aplicacao_api_codigo_key ON public.aplicacao_api USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+204	public	token_acesso	token_acesso_pkey	CREATE UNIQUE INDEX token_acesso_pkey ON public.token_acesso USING btree (id_token)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+205	public	chave_api	chave_api_pkey	CREATE UNIQUE INDEX chave_api_pkey ON public.chave_api USING btree (id_chave)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+206	public	webhook	webhook_pkey	CREATE UNIQUE INDEX webhook_pkey ON public.webhook USING btree (id_webhook)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+207	public	fila_processamento	fila_processamento_pkey	CREATE UNIQUE INDEX fila_processamento_pkey ON public.fila_processamento USING btree (id_fila)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+208	public	log_api	log_api_pkey	CREATE UNIQUE INDEX log_api_pkey ON public.log_api USING btree (id_log)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+209	public	rate_limit_api	rate_limit_api_pkey	CREATE UNIQUE INDEX rate_limit_api_pkey ON public.rate_limit_api USING btree (id_rate)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+210	dw	dim_tempo	dim_tempo_pkey	CREATE UNIQUE INDEX dim_tempo_pkey ON dw.dim_tempo USING btree (id_tempo)	147456	144 kB	2026-08-10 18:33:58.123645-03
+211	dw	dim_tempo	dim_tempo_data_key	CREATE UNIQUE INDEX dim_tempo_data_key ON dw.dim_tempo USING btree (data)	147456	144 kB	2026-08-10 18:33:58.123645-03
+212	dw	dim_cliente	dim_cliente_pkey	CREATE UNIQUE INDEX dim_cliente_pkey ON dw.dim_cliente USING btree (id_cliente_dw)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+213	dw	dim_produto_turistico	dim_produto_turistico_pkey	CREATE UNIQUE INDEX dim_produto_turistico_pkey ON dw.dim_produto_turistico USING btree (id_produto_dw)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+214	dw	dim_destino	dim_destino_pkey	CREATE UNIQUE INDEX dim_destino_pkey ON dw.dim_destino USING btree (id_destino_dw)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+215	dw	dim_fornecedor	dim_fornecedor_pkey	CREATE UNIQUE INDEX dim_fornecedor_pkey ON dw.dim_fornecedor USING btree (id_fornecedor_dw)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+216	dw	dim_plano_conta	dim_plano_conta_pkey	CREATE UNIQUE INDEX dim_plano_conta_pkey ON dw.dim_plano_conta USING btree (id_conta_dw)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+217	dw	fato_vendas	fato_vendas_pkey	CREATE UNIQUE INDEX fato_vendas_pkey ON dw.fato_vendas USING btree (id_venda_dw)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+218	dw	fato_financeiro	fato_financeiro_pkey	CREATE UNIQUE INDEX fato_financeiro_pkey ON dw.fato_financeiro USING btree (id_financeiro_dw)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+219	dw	fato_marketing	fato_marketing_pkey	CREATE UNIQUE INDEX fato_marketing_pkey ON dw.fato_marketing USING btree (id_marketing_dw)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+220	dw	log_etl	log_etl_pkey	CREATE UNIQUE INDEX log_etl_pkey ON dw.log_etl USING btree (id_execucao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+221	public	modelo_ml	modelo_ml_pkey	CREATE UNIQUE INDEX modelo_ml_pkey ON public.modelo_ml USING btree (id_modelo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+222	public	modelo_ml	modelo_ml_codigo_key	CREATE UNIQUE INDEX modelo_ml_codigo_key ON public.modelo_ml USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+223	public	aprovacao_processo	aprovacao_processo_pkey	CREATE UNIQUE INDEX aprovacao_processo_pkey ON public.aprovacao_processo USING btree (id_aprovacao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+224	public	politica_acesso	politica_acesso_pkey	CREATE UNIQUE INDEX politica_acesso_pkey ON public.politica_acesso USING btree (id_politica)	16384	16 kB	2026-08-10 18:33:58.123645-03
+225	public	politica_acesso	politica_acesso_codigo_key	CREATE UNIQUE INDEX politica_acesso_codigo_key ON public.politica_acesso USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+226	public	rastreabilidade	rastreabilidade_pkey	CREATE UNIQUE INDEX rastreabilidade_pkey ON public.rastreabilidade USING btree (id_rastreabilidade)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+227	public	conformidade_lgpd	conformidade_lgpd_pkey	CREATE UNIQUE INDEX conformidade_lgpd_pkey ON public.conformidade_lgpd USING btree (id_lgpd)	16384	16 kB	2026-08-10 18:33:58.123645-03
+228	public	sistema_externo	sistema_externo_pkey	CREATE UNIQUE INDEX sistema_externo_pkey ON public.sistema_externo USING btree (id_sistema_externo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+229	public	sistema_externo	sistema_externo_codigo_key	CREATE UNIQUE INDEX sistema_externo_codigo_key ON public.sistema_externo USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+230	public	conector_integracao	conector_integracao_pkey	CREATE UNIQUE INDEX conector_integracao_pkey ON public.conector_integracao USING btree (id_conector)	16384	16 kB	2026-08-10 18:33:58.123645-03
+231	public	conector_integracao	conector_integracao_codigo_key	CREATE UNIQUE INDEX conector_integracao_codigo_key ON public.conector_integracao USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+232	public	mapeamento_campo_integracao	mapeamento_campo_integracao_pkey	CREATE UNIQUE INDEX mapeamento_campo_integracao_pkey ON public.mapeamento_campo_integracao USING btree (id_mapeamento)	16384	16 kB	2026-08-10 18:33:58.123645-03
+233	public	sincronizacao_integracao	sincronizacao_integracao_pkey	CREATE UNIQUE INDEX sincronizacao_integracao_pkey ON public.sincronizacao_integracao USING btree (id_sincronizacao)	16384	16 kB	2026-08-10 18:33:58.123645-03
+234	public	fila_integracao	fila_integracao_pkey	CREATE UNIQUE INDEX fila_integracao_pkey ON public.fila_integracao USING btree (id_fila_integracao)	16384	16 kB	2026-08-10 18:33:58.123645-03
+235	public	log_integracao_detalhado	log_integracao_detalhado_pkey	CREATE UNIQUE INDEX log_integracao_detalhado_pkey ON public.log_integracao_detalhado USING btree (id_log_integracao)	16384	16 kB	2026-08-10 18:33:58.123645-03
+236	public	status_integracao	status_integracao_pkey	CREATE UNIQUE INDEX status_integracao_pkey ON public.status_integracao USING btree (id_status_integracao)	16384	16 kB	2026-08-10 18:33:58.123645-03
+237	public	data_mart_execucao	data_mart_execucao_pkey	CREATE UNIQUE INDEX data_mart_execucao_pkey ON public.data_mart_execucao USING btree (id_execucao)	16384	16 kB	2026-08-10 18:33:58.123645-03
+238	public	fato_vendas	fato_vendas_pkey	CREATE UNIQUE INDEX fato_vendas_pkey ON public.fato_vendas USING btree (id_fato_venda)	16384	16 kB	2026-08-10 18:33:58.123645-03
+239	public	fato_vendas	idx_fato_vendas_data	CREATE INDEX idx_fato_vendas_data ON public.fato_vendas USING btree (data_venda)	16384	16 kB	2026-08-10 18:33:58.123645-03
+240	public	fato_vendas	idx_fato_vendas_cliente	CREATE INDEX idx_fato_vendas_cliente ON public.fato_vendas USING btree (id_cliente)	16384	16 kB	2026-08-10 18:33:58.123645-03
+241	public	fato_vendas	idx_fato_vendas_produto	CREATE INDEX idx_fato_vendas_produto ON public.fato_vendas USING btree (id_produto_turistico)	16384	16 kB	2026-08-10 18:33:58.123645-03
+242	public	fato_vendas	idx_fato_vendas_destino	CREATE INDEX idx_fato_vendas_destino ON public.fato_vendas USING btree (id_destino)	16384	16 kB	2026-08-10 18:33:58.123645-03
+243	public	fato_financeiro	fato_financeiro_pkey	CREATE UNIQUE INDEX fato_financeiro_pkey ON public.fato_financeiro USING btree (id_fato_financeiro)	16384	16 kB	2026-08-10 18:33:58.123645-03
+244	public	fato_financeiro	idx_fato_financeiro_data	CREATE INDEX idx_fato_financeiro_data ON public.fato_financeiro USING btree (data_movimento)	16384	16 kB	2026-08-10 18:33:58.123645-03
+245	public	fato_financeiro	idx_fato_financeiro_plano	CREATE INDEX idx_fato_financeiro_plano ON public.fato_financeiro USING btree (id_plano_contas)	16384	16 kB	2026-08-10 18:33:58.123645-03
+246	public	fato_financeiro	idx_fato_financeiro_centro	CREATE INDEX idx_fato_financeiro_centro ON public.fato_financeiro USING btree (id_centro_custo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+247	public	fato_financeiro	idx_fato_financeiro_natureza	CREATE INDEX idx_fato_financeiro_natureza ON public.fato_financeiro USING btree (natureza)	16384	16 kB	2026-08-10 18:33:58.123645-03
+248	public	dim_data	dim_data_pkey	CREATE UNIQUE INDEX dim_data_pkey ON public.dim_data USING btree (id_data)	106496	104 kB	2026-08-10 18:33:58.123645-03
+249	public	dim_data	dim_data_data_key	CREATE UNIQUE INDEX dim_data_data_key ON public.dim_data USING btree (data)	106496	104 kB	2026-08-10 18:33:58.123645-03
+250	public	dim_cliente	dim_cliente_pkey	CREATE UNIQUE INDEX dim_cliente_pkey ON public.dim_cliente USING btree (id_dim_cliente)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+251	public	dim_produto_turistico	dim_produto_turistico_pkey	CREATE UNIQUE INDEX dim_produto_turistico_pkey ON public.dim_produto_turistico USING btree (id_dim_produto)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+252	public	dim_destino	dim_destino_pkey	CREATE UNIQUE INDEX dim_destino_pkey ON public.dim_destino USING btree (id_dim_destino)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+253	public	dim_plano_contas	dim_plano_contas_pkey	CREATE UNIQUE INDEX dim_plano_contas_pkey ON public.dim_plano_contas USING btree (id_dim_plano)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+254	public	dim_data	idx_dim_data_data	CREATE INDEX idx_dim_data_data ON public.dim_data USING btree (data)	106496	104 kB	2026-08-10 18:33:58.123645-03
+255	public	dim_cliente	idx_dim_cliente_nome	CREATE INDEX idx_dim_cliente_nome ON public.dim_cliente USING btree (nome_cliente)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+256	public	dim_destino	idx_dim_destino_nome	CREATE INDEX idx_dim_destino_nome ON public.dim_destino USING btree (nome_destino)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+257	public	dim_plano_contas	idx_dim_plano_codigo	CREATE INDEX idx_dim_plano_codigo ON public.dim_plano_contas USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+258	public	kpi_turismo	kpi_turismo_pkey	CREATE UNIQUE INDEX kpi_turismo_pkey ON public.kpi_turismo USING btree (id_kpi)	16384	16 kB	2026-08-10 18:33:58.123645-03
+259	public	kpi_turismo	kpi_turismo_codigo_key	CREATE UNIQUE INDEX kpi_turismo_codigo_key ON public.kpi_turismo USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+260	public	rentabilidade_produto	rentabilidade_produto_pkey	CREATE UNIQUE INDEX rentabilidade_produto_pkey ON public.rentabilidade_produto USING btree (id_rentabilidade)	16384	16 kB	2026-08-10 18:33:58.123645-03
+261	public	workflow	workflow_pkey	CREATE UNIQUE INDEX workflow_pkey ON public.workflow USING btree (id_workflow)	16384	16 kB	2026-08-10 18:33:58.123645-03
+262	public	workflow	workflow_codigo_key	CREATE UNIQUE INDEX workflow_codigo_key ON public.workflow USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+263	public	localidade	localidade_pkey	CREATE UNIQUE INDEX localidade_pkey ON public.localidade USING btree (id_localidade)	16384	16 kB	2026-08-10 18:33:58.123645-03
+264	public	localidade	localidade_cidade_uf_pais_key	CREATE UNIQUE INDEX localidade_cidade_uf_pais_key ON public.localidade USING btree (cidade, uf, pais)	16384	16 kB	2026-08-10 18:33:58.123645-03
+265	public	status_parcela	status_parcela_pkey	CREATE UNIQUE INDEX status_parcela_pkey ON public.status_parcela USING btree (id_status_parcela)	16384	16 kB	2026-08-10 18:33:58.123645-03
+266	public	status_parcela	status_parcela_codigo_key	CREATE UNIQUE INDEX status_parcela_codigo_key ON public.status_parcela USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+267	auditoria	execucao	pk_execucao	CREATE UNIQUE INDEX pk_execucao ON auditoria.execucao USING btree (id_execucao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+268	auditoria	execucao	idx_execucao_data	CREATE INDEX idx_execucao_data ON auditoria.execucao USING btree (data_inicio)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+269	auditoria	execucao	idx_execucao_status	CREATE INDEX idx_execucao_status ON auditoria.execucao USING btree (status_execucao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+270	auditoria	execucao	idx_execucao_score	CREATE INDEX idx_execucao_score ON auditoria.execucao USING btree (score_final)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+271	auditoria	execucao	idx_execucao_usuario	CREATE INDEX idx_execucao_usuario ON auditoria.execucao USING btree (usuario_execucao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+272	auditoria	categoria	pk_categoria	CREATE UNIQUE INDEX pk_categoria ON auditoria.categoria USING btree (id_categoria)	16384	16 kB	2026-08-10 18:33:58.123645-03
+273	auditoria	categoria	uk_categoria_codigo	CREATE UNIQUE INDEX uk_categoria_codigo ON auditoria.categoria USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+274	auditoria	categoria	idx_categoria_codigo	CREATE INDEX idx_categoria_codigo ON auditoria.categoria USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+275	auditoria	categoria	idx_categoria_ativo	CREATE INDEX idx_categoria_ativo ON auditoria.categoria USING btree (ativo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+276	auditoria	item	pk_item	CREATE UNIQUE INDEX pk_item ON auditoria.item USING btree (id_item)	16384	16 kB	2026-08-10 18:33:58.123645-03
+277	auditoria	item	uk_item_codigo	CREATE UNIQUE INDEX uk_item_codigo ON auditoria.item USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+278	auditoria	item	idx_item_categoria	CREATE INDEX idx_item_categoria ON auditoria.item USING btree (id_categoria)	16384	16 kB	2026-08-10 18:33:58.123645-03
+279	auditoria	item	idx_item_codigo	CREATE INDEX idx_item_codigo ON auditoria.item USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+280	auditoria	item	idx_item_criticidade	CREATE INDEX idx_item_criticidade ON auditoria.item USING btree (criticidade)	16384	16 kB	2026-08-10 18:33:58.123645-03
+281	auditoria	resultado	pk_resultado	CREATE UNIQUE INDEX pk_resultado ON auditoria.resultado USING btree (id_resultado)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+282	auditoria	resultado	idx_resultado_execucao	CREATE INDEX idx_resultado_execucao ON auditoria.resultado USING btree (id_execucao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+283	auditoria	resultado	idx_resultado_item	CREATE INDEX idx_resultado_item ON auditoria.resultado USING btree (id_item)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+284	auditoria	resultado	idx_resultado_status	CREATE INDEX idx_resultado_status ON auditoria.resultado USING btree (status)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+285	auditoria	resultado	idx_resultado_tabela	CREATE INDEX idx_resultado_tabela ON auditoria.resultado USING btree (tabela_nome)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+286	auditoria	resultado	idx_resultado_severidade	CREATE INDEX idx_resultado_severidade ON auditoria.resultado USING btree (severidade)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+287	auditoria	score	pk_score	CREATE UNIQUE INDEX pk_score ON auditoria.score USING btree (id_score)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+288	auditoria	score	idx_score_execucao	CREATE INDEX idx_score_execucao ON auditoria.score USING btree (id_execucao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+289	auditoria	recomendacao	pk_recomendacao	CREATE UNIQUE INDEX pk_recomendacao ON auditoria.recomendacao USING btree (id_recomendacao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+290	auditoria	recomendacao	idx_recomendacao_execucao	CREATE INDEX idx_recomendacao_execucao ON auditoria.recomendacao USING btree (id_execucao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+291	auditoria	recomendacao	idx_recomendacao_prioridade	CREATE INDEX idx_recomendacao_prioridade ON auditoria.recomendacao USING btree (prioridade)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+292	auditoria	recomendacao	idx_recomendacao_corrigido	CREATE INDEX idx_recomendacao_corrigido ON auditoria.recomendacao USING btree (corrigido)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+293	auditoria	log	pk_log	CREATE UNIQUE INDEX pk_log ON auditoria.log USING btree (id_log)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+294	auditoria	configuracao	pk_configuracao	CREATE UNIQUE INDEX pk_configuracao ON auditoria.configuracao USING btree (id_configuracao)	16384	16 kB	2026-08-10 18:33:58.123645-03
+295	auditoria	configuracao	uk_configuracao	CREATE UNIQUE INDEX uk_configuracao ON auditoria.configuracao USING btree (chave)	16384	16 kB	2026-08-10 18:33:58.123645-03
+296	auditoria	script	pk_script	CREATE UNIQUE INDEX pk_script ON auditoria.script USING btree (id_script)	16384	16 kB	2026-08-10 18:33:58.123645-03
+297	auditoria	script	script_codigo_key	CREATE UNIQUE INDEX script_codigo_key ON auditoria.script USING btree (codigo)	16384	16 kB	2026-08-10 18:33:58.123645-03
+298	auditoria	regra	pk_regra	CREATE UNIQUE INDEX pk_regra ON auditoria.regra USING btree (id_regra)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+299	auditoria	regra	regra_codigo_key	CREATE UNIQUE INDEX regra_codigo_key ON auditoria.regra USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+300	auditoria	catalogo_schema	catalogo_schema_pkey	CREATE UNIQUE INDEX catalogo_schema_pkey ON auditoria.catalogo_schema USING btree (id_schema)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+301	config	versao_banco	versao_banco_pkey	CREATE UNIQUE INDEX versao_banco_pkey ON config.versao_banco USING btree (id)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+302	config	migracao	migracao_pkey	CREATE UNIQUE INDEX migracao_pkey ON config.migracao USING btree (id)	16384	16 kB	2026-08-10 18:33:58.123645-03
+303	config	migracao	migracao_script_key	CREATE UNIQUE INDEX migracao_script_key ON config.migracao USING btree (script)	16384	16 kB	2026-08-10 18:33:58.123645-03
+304	auditoria	log_correcao	log_correcao_pkey	CREATE UNIQUE INDEX log_correcao_pkey ON auditoria.log_correcao USING btree (id_log)	16384	16 kB	2026-08-10 18:33:58.123645-03
+305	config	parametro	parametro_pkey	CREATE UNIQUE INDEX parametro_pkey ON config.parametro USING btree (chave)	16384	16 kB	2026-08-10 18:33:58.123645-03
+306	auditoria	regra	idx_regra_ativo	CREATE INDEX idx_regra_ativo ON auditoria.regra USING btree (ativo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+307	auditoria	regra	idx_regra_objeto	CREATE INDEX idx_regra_objeto ON auditoria.regra USING btree (tipo_objeto)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+308	auditoria	regra	idx_regra_ordem	CREATE INDEX idx_regra_ordem ON auditoria.regra USING btree (ordem_execucao)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+309	auditoria	regra	idx_regra_prioridade	CREATE INDEX idx_regra_prioridade ON auditoria.regra USING btree (prioridade)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+310	auditoria	executor	executor_pkey	CREATE UNIQUE INDEX executor_pkey ON auditoria.executor USING btree (id_executor)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+311	auditoria	executor	executor_codigo_key	CREATE UNIQUE INDEX executor_codigo_key ON auditoria.executor USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+312	auditoria	executor	idx_executor_codigo	CREATE INDEX idx_executor_codigo ON auditoria.executor USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+313	auditoria	executor	idx_executor_ativo	CREATE INDEX idx_executor_ativo ON auditoria.executor USING btree (ativo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+314	auditoria	core	core_pkey	CREATE UNIQUE INDEX core_pkey ON auditoria.core USING btree (id_core)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+315	auditoria	core	core_codigo_key	CREATE UNIQUE INDEX core_codigo_key ON auditoria.core USING btree (codigo)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+316	auditoria	catalogo_tabela	catalogo_tabela_pkey	CREATE UNIQUE INDEX catalogo_tabela_pkey ON auditoria.catalogo_tabela USING btree (id_tabela)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+317	auditoria	catalogo_coluna	catalogo_coluna_pkey	CREATE UNIQUE INDEX catalogo_coluna_pkey ON auditoria.catalogo_coluna USING btree (id_coluna)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+318	auditoria	execucao_correcao	execucao_correcao_pkey	CREATE UNIQUE INDEX execucao_correcao_pkey ON auditoria.execucao_correcao USING btree (id_execucao)	16384	16 kB	2026-08-10 18:33:58.123645-03
+319	auditoria	execucao_correcao	idx_execucao_correcao_script	CREATE INDEX idx_execucao_correcao_script ON auditoria.execucao_correcao USING btree (script)	16384	16 kB	2026-08-10 18:33:58.123645-03
+320	auditoria	execucao_correcao	idx_execucao_correcao_status	CREATE INDEX idx_execucao_correcao_status ON auditoria.execucao_correcao USING btree (status)	16384	16 kB	2026-08-10 18:33:58.123645-03
+321	auditoria	inventario_tabelas	inventario_tabelas_pkey	CREATE UNIQUE INDEX inventario_tabelas_pkey ON auditoria.inventario_tabelas USING btree (id_inventario)	16384	16 kB	2026-08-10 18:33:58.123645-03
+322	auditoria	inventario_tabelas	uq_inventario_tabela	CREATE UNIQUE INDEX uq_inventario_tabela ON auditoria.inventario_tabelas USING btree (schema_name, table_name)	16384	16 kB	2026-08-10 18:33:58.123645-03
+323	auditoria	tabelas_sem_pk	tabelas_sem_pk_pkey	CREATE UNIQUE INDEX tabelas_sem_pk_pkey ON auditoria.tabelas_sem_pk USING btree (id)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+324	auditoria	tabelas_sem_pk	uq_tabela_sem_pk	CREATE UNIQUE INDEX uq_tabela_sem_pk ON auditoria.tabelas_sem_pk USING btree (schema_name, table_name)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+325	auditoria	tabelas_sem_indices	tabelas_sem_indices_pkey	CREATE UNIQUE INDEX tabelas_sem_indices_pkey ON auditoria.tabelas_sem_indices USING btree (id)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+326	auditoria	tabelas_sem_indices	uq_tabela_sem_indices	CREATE UNIQUE INDEX uq_tabela_sem_indices ON auditoria.tabelas_sem_indices USING btree (schema_name, table_name)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+327	auditoria	colunas_sem_comentario	colunas_sem_comentario_pkey	CREATE UNIQUE INDEX colunas_sem_comentario_pkey ON auditoria.colunas_sem_comentario USING btree (id)	73728	72 kB	2026-08-10 18:33:58.123645-03
+328	auditoria	colunas_sem_comentario	uq_coluna_sem_comentario	CREATE UNIQUE INDEX uq_coluna_sem_comentario ON auditoria.colunas_sem_comentario USING btree (schema_name, table_name, column_name)	204800	200 kB	2026-08-10 18:33:58.123645-03
+329	auditoria	colunas_not_null_sem_default	colunas_not_null_sem_default_pkey	CREATE UNIQUE INDEX colunas_not_null_sem_default_pkey ON auditoria.colunas_not_null_sem_default USING btree (id)	16384	16 kB	2026-08-10 18:33:58.123645-03
+330	auditoria	colunas_not_null_sem_default	uq_not_null_sem_default	CREATE UNIQUE INDEX uq_not_null_sem_default ON auditoria.colunas_not_null_sem_default USING btree (schema_name, table_name, column_name)	49152	48 kB	2026-08-10 18:33:58.123645-03
+331	auditoria	fks_sem_indice	fks_sem_indice_pkey	CREATE UNIQUE INDEX fks_sem_indice_pkey ON auditoria.fks_sem_indice USING btree (id)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+332	auditoria	fks_sem_indice	uq_fk_sem_indice	CREATE UNIQUE INDEX uq_fk_sem_indice ON auditoria.fks_sem_indice USING btree (schema_name, table_name, constraint_name)	8192	8192 bytes	2026-08-10 18:33:58.123645-03
+333	auditoria	inventario_constraints	inventario_constraints_pkey	CREATE UNIQUE INDEX inventario_constraints_pkey ON auditoria.inventario_constraints USING btree (id)	40960	40 kB	2026-08-10 18:33:58.123645-03
+334	auditoria	inventario_constraints	uq_inventario_constraint	CREATE UNIQUE INDEX uq_inventario_constraint ON auditoria.inventario_constraints USING btree (schema_name, table_name, constraint_name)	122880	120 kB	2026-08-10 18:33:58.123645-03
+335	auditoria	inventario_indices	inventario_indices_pkey	CREATE UNIQUE INDEX inventario_indices_pkey ON auditoria.inventario_indices USING btree (id)	16384	16 kB	2026-08-10 18:33:58.123645-03
+336	auditoria	inventario_indices	uq_inventario_indice	CREATE UNIQUE INDEX uq_inventario_indice ON auditoria.inventario_indices USING btree (schema_name, table_name, index_name)	57344	56 kB	2026-08-10 18:33:58.123645-03
+\.
+
+
+--
+-- TOC entry 8347 (class 0 OID 42839)
+-- Dependencies: 663
+-- Data for Name: inventario_sequences; Type: TABLE DATA; Schema: auditoria; Owner: postgres
+--
+
+COPY auditoria.inventario_sequences (id, sequence_schema, sequence_name, auditado_em) FROM stdin;
+1	financeiro	empresa_id_empresa_seq	2026-08-10 18:33:58.123645-03
+2	financeiro	usuario_id_usuario_seq	2026-08-10 18:33:58.123645-03
+3	financeiro	grupo_id_grupo_seq	2026-08-10 18:33:58.123645-03
+4	financeiro	categoria_id_categoria_seq	2026-08-10 18:33:58.123645-03
+5	financeiro	subcategoria_id_subcategoria_seq	2026-08-10 18:33:58.123645-03
+6	financeiro	classificacao_id_classificacao_seq	2026-08-10 18:33:58.123645-03
+7	financeiro	conta_id_conta_seq	2026-08-10 18:33:58.123645-03
+8	financeiro	centro_custo_id_centro_custo_seq	2026-08-10 18:33:58.123645-03
+9	financeiro	banco_id_banco_seq	2026-08-10 18:33:58.123645-03
+10	financeiro	conta_bancaria_id_conta_bancaria_seq	2026-08-10 18:33:58.123645-03
+11	financeiro	cliente_id_cliente_seq	2026-08-10 18:33:58.123645-03
+12	financeiro	fornecedor_id_fornecedor_seq	2026-08-10 18:33:58.123645-03
+13	financeiro	forma_pagamento_id_forma_pagamento_seq	2026-08-10 18:33:58.123645-03
+14	financeiro	configuracao_id_configuracao_seq	2026-08-10 18:33:58.123645-03
+15	financeiro	tipo_lancamento_id_tipo_lancamento_seq	2026-08-10 18:33:58.123645-03
+16	financeiro	anexo_id_anexo_seq	2026-08-10 18:33:58.123645-03
+17	financeiro	status_lancamento_id_status_seq	2026-08-10 18:33:58.123645-03
+18	financeiro	tipo_documento_id_tipo_documento_seq	2026-08-10 18:33:58.123645-03
+19	financeiro	tipo_movimentacao_id_tipo_movimentacao_seq	2026-08-10 18:33:58.123645-03
+20	financeiro	lancamento_id_lancamento_seq	2026-08-10 18:33:58.123645-03
+21	financeiro	lancamento_parcela_id_parcela_seq	2026-08-10 18:33:58.123645-03
+22	financeiro	pagamento_id_pagamento_seq	2026-08-10 18:33:58.123645-03
+23	financeiro	movimentacao_bancaria_id_movimento_seq	2026-08-10 18:33:58.123645-03
+24	financeiro	conciliacao_bancaria_id_conciliacao_seq	2026-08-10 18:33:58.123645-03
+25	financeiro	rateio_centro_custo_id_rateio_seq	2026-08-10 18:33:58.123645-03
+26	financeiro	historico_lancamento_id_historico_seq	2026-08-10 18:33:58.123645-03
+27	public	pessoa_id_pessoa_seq	2026-08-10 18:33:58.123645-03
+28	public	fornecedor_id_fornecedor_seq	2026-08-10 18:33:58.123645-03
+29	public	cliente_id_cliente_seq	2026-08-10 18:33:58.123645-03
+30	public	empresa_id_empresa_seq	2026-08-10 18:33:58.123645-03
+31	public	usuario_id_usuario_seq	2026-08-10 18:33:58.123645-03
+32	public	banco_id_banco_seq	2026-08-10 18:33:58.123645-03
+33	public	plano_contas_id_conta_seq	2026-08-10 18:33:58.123645-03
+34	public	grupo_conta_id_grupo_seq	2026-08-10 18:33:58.123645-03
+35	public	lancamento_financeiro_id_lancamento_seq	2026-08-10 18:33:58.123645-03
+36	public	categoria_conta_id_categoria_seq	2026-08-10 18:33:58.123645-03
+37	public	subcategoria_conta_id_subcategoria_seq	2026-08-10 18:33:58.123645-03
+38	public	centro_custo_id_centro_custo_seq	2026-08-10 18:33:58.123645-03
+39	public	classificacao_dre_id_classificacao_seq	2026-08-10 18:33:58.123645-03
+40	public	conta_bancaria_id_conta_bancaria_seq	2026-08-10 18:33:58.123645-03
+41	public	forma_pagamento_id_forma_pagamento_seq	2026-08-10 18:33:58.123645-03
+42	public	lancamento_parcela_id_parcela_seq	2026-08-10 18:33:58.123645-03
+43	public	conciliacao_bancaria_id_conciliacao_seq	2026-08-10 18:33:58.123645-03
+44	public	produto_turistico_id_produto_seq	2026-08-10 18:33:58.123645-03
+45	public	pacote_viagem_id_pacote_seq	2026-08-10 18:33:58.123645-03
+46	public	reserva_id_reserva_seq	2026-08-10 18:33:58.123645-03
+47	public	passageiro_id_passageiro_seq	2026-08-10 18:33:58.123645-03
+48	public	comissao_id_comissao_seq	2026-08-10 18:33:58.123645-03
+49	public	venda_id_venda_seq	2026-08-10 18:33:58.123645-03
+50	public	item_venda_id_item_seq	2026-08-10 18:33:58.123645-03
+51	public	nota_fiscal_id_nota_fiscal_seq	2026-08-10 18:33:58.123645-03
+52	public	imposto_id_imposto_seq	2026-08-10 18:33:58.123645-03
+53	public	simples_nacional_id_simples_seq	2026-08-10 18:33:58.123645-03
+54	public	das_id_das_seq	2026-08-10 18:33:58.123645-03
+55	public	pro_labore_id_pro_labore_seq	2026-08-10 18:33:58.123645-03
+56	public	aporte_capital_id_aporte_seq	2026-08-10 18:33:58.123645-03
+57	public	distribuicao_lucros_id_distribuicao_seq	2026-08-10 18:33:58.123645-03
+58	public	declaracao_fiscal_id_declaracao_seq	2026-08-10 18:33:58.123645-03
+59	public	perfil_acesso_id_perfil_seq	2026-08-10 18:33:58.123645-03
+60	public	permissao_id_permissao_seq	2026-08-10 18:33:58.123645-03
+61	public	log_auditoria_id_log_seq	2026-08-10 18:33:58.123645-03
+62	public	integracao_nfse_id_integracao_seq	2026-08-10 18:33:58.123645-03
+63	public	historico_alteracao_id_historico_seq	2026-08-10 18:33:58.123645-03
+64	public	integracao_woocommerce_id_integracao_seq	2026-08-10 18:33:58.123645-03
+65	public	gateway_pagamento_id_gateway_seq	2026-08-10 18:33:58.123645-03
+66	public	pagamento_transacao_id_transacao_seq	2026-08-10 18:33:58.123645-03
+67	public	openfinance_conexao_id_conexao_seq	2026-08-10 18:33:58.123645-03
+68	public	openfinance_movimento_id_movimento_seq	2026-08-10 18:33:58.123645-03
+69	public	importacao_dados_id_importacao_seq	2026-08-10 18:33:58.123645-03
+70	public	log_integracao_id_log_seq	2026-08-10 18:33:58.123645-03
+71	public	destino_id_destino_seq	2026-08-10 18:33:58.123645-03
+72	public	roteiro_viagem_id_roteiro_seq	2026-08-10 18:33:58.123645-03
+73	public	fornecedor_turistico_id_fornecedor_turistico_seq	2026-08-10 18:33:58.123645-03
+74	public	hospedagem_id_hospedagem_seq	2026-08-10 18:33:58.123645-03
+75	public	transporte_id_transporte_seq	2026-08-10 18:33:58.123645-03
+76	public	guia_turistico_id_guia_seq	2026-08-10 18:33:58.123645-03
+77	public	checklist_viagem_id_checklist_seq	2026-08-10 18:33:58.123645-03
+78	public	custo_pacote_id_custo_seq	2026-08-10 18:33:58.123645-03
+79	public	origem_lead_id_origem_seq	2026-08-10 18:33:58.123645-03
+80	public	lead_id_lead_seq	2026-08-10 18:33:58.123645-03
+81	public	campanha_id_campanha_seq	2026-08-10 18:33:58.123645-03
+82	public	contato_cliente_id_contato_seq	2026-08-10 18:33:58.123645-03
+83	public	funil_vendas_id_funil_seq	2026-08-10 18:33:58.123645-03
+84	public	interacao_lead_id_interacao_seq	2026-08-10 18:33:58.123645-03
+85	public	avaliacao_pos_viagem_id_avaliacao_seq	2026-08-10 18:33:58.123645-03
+86	public	cargo_id_cargo_seq	2026-08-10 18:33:58.123645-03
+87	public	colaborador_id_colaborador_seq	2026-08-10 18:33:58.123645-03
+88	public	parceiro_comercial_id_parceiro_seq	2026-08-10 18:33:58.123645-03
+89	public	comissao_colaborador_id_comissao_seq	2026-08-10 18:33:58.123645-03
+90	public	agenda_id_agenda_seq	2026-08-10 18:33:58.123645-03
+91	public	tarefa_id_tarefa_seq	2026-08-10 18:33:58.123645-03
+92	public	ativo_imobilizado_id_ativo_seq	2026-08-10 18:33:58.123645-03
+93	public	horas_atividade_id_hora_seq	2026-08-10 18:33:58.123645-03
+94	public	categoria_ativo_id_categoria_ativo_seq	2026-08-10 18:33:58.123645-03
+95	public	depreciacao_id_depreciacao_seq	2026-08-10 18:33:58.123645-03
+96	public	manutencao_ativo_id_manutencao_seq	2026-08-10 18:33:58.123645-03
+97	public	localizacao_ativo_id_localizacao_seq	2026-08-10 18:33:58.123645-03
+98	public	movimentacao_ativo_id_movimentacao_seq	2026-08-10 18:33:58.123645-03
+99	public	produto_estoque_id_produto_estoque_seq	2026-08-10 18:33:58.123645-03
+100	public	requisicao_compra_id_requisicao_seq	2026-08-10 18:33:58.123645-03
+101	public	item_requisicao_id_item_seq	2026-08-10 18:33:58.123645-03
+102	public	pedido_compra_id_pedido_seq	2026-08-10 18:33:58.123645-03
+103	public	item_pedido_compra_id_item_pedido_seq	2026-08-10 18:33:58.123645-03
+104	public	estoque_id_estoque_seq	2026-08-10 18:33:58.123645-03
+105	public	movimento_estoque_id_movimento_seq	2026-08-10 18:33:58.123645-03
+106	public	inventario_id_inventario_seq	2026-08-10 18:33:58.123645-03
+107	public	item_inventario_id_item_seq	2026-08-10 18:33:58.123645-03
+108	public	tipo_documento_id_tipo_documento_seq	2026-08-10 18:33:58.123645-03
+109	public	documento_id_documento_seq	2026-08-10 18:33:58.123645-03
+110	public	assinatura_digital_id_assinatura_seq	2026-08-10 18:33:58.123645-03
+111	public	arquivo_digital_id_arquivo_seq	2026-08-10 18:33:58.123645-03
+112	public	contrato_id_contrato_seq	2026-08-10 18:33:58.123645-03
+113	public	controle_vencimento_documento_id_controle_seq	2026-08-10 18:33:58.123645-03
+114	public	historico_documento_id_historico_seq	2026-08-10 18:33:58.123645-03
+115	public	projeto_id_projeto_seq	2026-08-10 18:33:58.123645-03
+116	public	etapa_projeto_id_etapa_seq	2026-08-10 18:33:58.123645-03
+117	public	tarefa_projeto_id_tarefa_projeto_seq	2026-08-10 18:33:58.123645-03
+118	public	parametro_sistema_id_parametro_seq	2026-08-10 18:33:58.123645-03
+119	public	responsavel_projeto_id_responsavel_seq	2026-08-10 18:33:58.123645-03
+120	public	custo_projeto_id_custo_projeto_seq	2026-08-10 18:33:58.123645-03
+121	public	risco_projeto_id_risco_seq	2026-08-10 18:33:58.123645-03
+122	public	anexo_projeto_id_anexo_seq	2026-08-10 18:33:58.123645-03
+123	public	configuracao_empresa_id_configuracao_seq	2026-08-10 18:33:58.123645-03
+124	public	sequencia_documento_id_sequencia_seq	2026-08-10 18:33:58.123645-03
+125	public	notificacao_id_notificacao_seq	2026-08-10 18:33:58.123645-03
+126	public	email_sistema_id_email_seq	2026-08-10 18:33:58.123645-03
+127	public	log_sistema_id_log_seq	2026-08-10 18:33:58.123645-03
+128	public	agendamento_rotina_id_rotina_seq	2026-08-10 18:33:58.123645-03
+129	public	aplicacao_api_id_aplicacao_seq	2026-08-10 18:33:58.123645-03
+130	public	token_acesso_id_token_seq	2026-08-10 18:33:58.123645-03
+131	public	chave_api_id_chave_seq	2026-08-10 18:33:58.123645-03
+132	public	webhook_id_webhook_seq	2026-08-10 18:33:58.123645-03
+133	public	fila_processamento_id_fila_seq	2026-08-10 18:33:58.123645-03
+134	public	log_api_id_log_seq	2026-08-10 18:33:58.123645-03
+135	dw	fato_marketing_id_marketing_dw_seq	2026-08-10 18:33:58.123645-03
+136	public	rate_limit_api_id_rate_seq	2026-08-10 18:33:58.123645-03
+137	dw	dim_tempo_id_tempo_seq	2026-08-10 18:33:58.123645-03
+138	dw	dim_cliente_id_cliente_dw_seq	2026-08-10 18:33:58.123645-03
+139	dw	dim_produto_turistico_id_produto_dw_seq	2026-08-10 18:33:58.123645-03
+140	dw	dim_destino_id_destino_dw_seq	2026-08-10 18:33:58.123645-03
+141	dw	dim_fornecedor_id_fornecedor_dw_seq	2026-08-10 18:33:58.123645-03
+142	dw	dim_plano_conta_id_conta_dw_seq	2026-08-10 18:33:58.123645-03
+143	dw	fato_vendas_id_venda_dw_seq	2026-08-10 18:33:58.123645-03
+144	dw	fato_financeiro_id_financeiro_dw_seq	2026-08-10 18:33:58.123645-03
+145	dw	log_etl_id_execucao_seq	2026-08-10 18:33:58.123645-03
+146	public	modelo_ml_id_modelo_seq	2026-08-10 18:33:58.123645-03
+147	public	aprovacao_processo_id_aprovacao_seq	2026-08-10 18:33:58.123645-03
+148	public	politica_acesso_id_politica_seq	2026-08-10 18:33:58.123645-03
+149	public	rastreabilidade_id_rastreabilidade_seq	2026-08-10 18:33:58.123645-03
+150	public	conformidade_lgpd_id_lgpd_seq	2026-08-10 18:33:58.123645-03
+151	public	sistema_externo_id_sistema_externo_seq	2026-08-10 18:33:58.123645-03
+152	public	mapeamento_campo_integracao_id_mapeamento_seq	2026-08-10 18:33:58.123645-03
+153	public	conector_integracao_id_conector_seq	2026-08-10 18:33:58.123645-03
+154	public	sincronizacao_integracao_id_sincronizacao_seq	2026-08-10 18:33:58.123645-03
+155	public	fila_integracao_id_fila_integracao_seq	2026-08-10 18:33:58.123645-03
+156	public	log_integracao_detalhado_id_log_integracao_seq	2026-08-10 18:33:58.123645-03
+157	public	status_integracao_id_status_integracao_seq	2026-08-10 18:33:58.123645-03
+158	public	data_mart_execucao_id_execucao_seq	2026-08-10 18:33:58.123645-03
+159	public	fato_vendas_id_fato_venda_seq	2026-08-10 18:33:58.123645-03
+160	public	fato_financeiro_id_fato_financeiro_seq	2026-08-10 18:33:58.123645-03
+161	public	dim_data_id_data_seq	2026-08-10 18:33:58.123645-03
+162	public	dim_cliente_id_dim_cliente_seq	2026-08-10 18:33:58.123645-03
+163	public	dim_produto_turistico_id_dim_produto_seq	2026-08-10 18:33:58.123645-03
+164	public	dim_destino_id_dim_destino_seq	2026-08-10 18:33:58.123645-03
+165	public	dim_plano_contas_id_dim_plano_seq	2026-08-10 18:33:58.123645-03
+166	public	kpi_turismo_id_kpi_seq	2026-08-10 18:33:58.123645-03
+167	public	rentabilidade_produto_id_rentabilidade_seq	2026-08-10 18:33:58.123645-03
+168	public	workflow_id_workflow_seq	2026-08-10 18:33:58.123645-03
+169	config	versao_banco_id_seq	2026-08-10 18:33:58.123645-03
+170	config	migracao_id_seq	2026-08-10 18:33:58.123645-03
+171	auditoria	log_correcao_id_log_seq	2026-08-10 18:33:58.123645-03
+172	auditoria	executor_id_executor_seq	2026-08-10 18:33:58.123645-03
+173	auditoria	core_id_core_seq	2026-08-10 18:33:58.123645-03
+\.
+
+
+--
+-- TOC entry 8329 (class 0 OID 42685)
+-- Dependencies: 645
+-- Data for Name: inventario_tabelas; Type: TABLE DATA; Schema: auditoria; Owner: postgres
+--
+
+COPY auditoria.inventario_tabelas (id_inventario, schema_name, table_name, row_estimate, tamanho_bytes, tamanho_formatado, possui_pk, possui_fk, possui_indices, possui_comentario, auditado_em) FROM stdin;
+1	financeiro	centro_custo	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+2	financeiro	usuario	-1	24576	24 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+3	financeiro	cliente	-1	32768	32 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+4	financeiro	banco	-1	24576	24 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+5	financeiro	fornecedor	-1	32768	32 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+6	financeiro	conta_bancaria	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+7	financeiro	tipo_documento	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+8	financeiro	conciliacao_bancaria	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+9	financeiro	historico_lancamento	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+10	financeiro	classificacao	-1	73728	72 kB	t	t	t	t	2026-08-10 18:33:58.123645-03
+11	public	usuario	-1	24576	24 kB	t	f	t	t	2026-08-10 18:33:58.123645-03
+12	public	cliente	-1	24576	24 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+13	public	fornecedor	-1	24576	24 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+14	financeiro	lancamento	-1	24576	24 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+15	public	plano_contas	-1	24576	24 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+16	public	grupo_conta	-1	40960	40 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+17	public	categoria_conta	-1	40960	40 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+18	public	subcategoria_conta	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+19	public	classificacao_dre	-1	24576	24 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+20	public	conta_bancaria	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+21	public	banco	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+22	public	forma_pagamento	-1	40960	40 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+23	public	centro_custo	-1	40960	40 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+24	public	conciliacao_bancaria	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+25	public	lancamento_parcela	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+26	public	produto_turistico	-1	24576	24 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+27	public	pacote_viagem	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+28	public	reserva	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+29	public	passageiro	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+30	public	comissao	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+31	public	venda	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+32	public	item_venda	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+33	public	nota_fiscal	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+34	public	simples_nacional	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+35	public	das	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+36	public	distribuicao_lucros	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+37	public	aporte_capital	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+38	public	pro_labore	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+39	public	declaracao_fiscal	-1	32768	32 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+40	public	lancamento_financeiro	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+41	public	perfil_acesso	-1	40960	40 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+42	public	imposto	-1	40960	40 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+43	public	usuario_perfil	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+44	public	log_auditoria	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+45	public	historico_alteracao	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+46	public	integracao_woocommerce	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+47	public	pagamento_transacao	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+48	public	gateway_pagamento	-1	40960	40 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+49	public	openfinance_conexao	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+50	public	openfinance_movimento	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+51	public	integracao_nfse	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+52	public	permissao	-1	49152	48 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+53	public	importacao_dados	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+54	public	log_integracao	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+55	public	roteiro_viagem	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+56	public	guia_turistico	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+57	public	fornecedor_turistico	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+58	public	hospedagem	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+59	public	transporte	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+60	public	destino	-1	24576	24 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+61	public	checklist_viagem	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+62	public	custo_pacote	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+63	public	origem_lead	-1	40960	40 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+64	public	lead	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+65	public	contato_cliente	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+66	public	funil_vendas	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+67	public	interacao_lead	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+68	public	avaliacao_pos_viagem	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+69	public	campanha	-1	24576	24 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+70	public	colaborador	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+71	public	cargo	-1	40960	40 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+72	public	comissao_colaborador	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+73	public	agenda	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+74	public	tarefa	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+75	public	horas_atividade	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+76	public	categoria_ativo	-1	40960	40 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+77	public	ativo_imobilizado	-1	24576	24 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+78	public	depreciacao	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+79	public	parceiro_comercial	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+80	public	manutencao_ativo	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+81	public	movimentacao_ativo	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+82	public	localizacao_ativo	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+83	public	pedido_compra	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+84	public	requisicao_compra	-1	24576	24 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+85	public	item_requisicao	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+86	public	produto_estoque	-1	24576	24 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+87	public	item_pedido_compra	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+88	public	estoque	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+89	public	movimento_estoque	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+90	public	contrato	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+91	public	inventario	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+92	public	item_inventario	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+93	public	tipo_documento	-1	49152	48 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+94	public	documento	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+95	public	arquivo_digital	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+96	public	assinatura_digital	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+97	public	controle_vencimento_documento	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+98	public	historico_documento	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+99	public	projeto	-1	24576	24 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+100	public	etapa_projeto	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+101	public	tarefa_projeto	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+102	public	responsavel_projeto	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+103	public	custo_projeto	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+104	public	risco_projeto	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+105	public	anexo_projeto	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+106	public	sequencia_documento	-1	40960	40 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+107	public	configuracao_empresa	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+108	public	notificacao	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+109	public	email_sistema	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+110	public	log_sistema	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+111	public	agendamento_rotina	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+112	public	aplicacao_api	-1	49152	48 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+113	public	token_acesso	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+114	public	chave_api	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+115	public	webhook	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+116	public	fila_processamento	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+117	public	log_api	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+118	public	rate_limit_api	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+119	dw	dim_tempo	5844	778240	760 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+120	dw	dim_cliente	-1	8192	8192 bytes	t	f	t	f	2026-08-10 18:33:58.123645-03
+121	dw	dim_produto_turistico	-1	8192	8192 bytes	t	f	t	f	2026-08-10 18:33:58.123645-03
+122	dw	dim_destino	-1	8192	8192 bytes	t	f	t	f	2026-08-10 18:33:58.123645-03
+123	dw	dim_fornecedor	-1	8192	8192 bytes	t	f	t	f	2026-08-10 18:33:58.123645-03
+124	dw	dim_plano_conta	-1	8192	8192 bytes	t	f	t	f	2026-08-10 18:33:58.123645-03
+125	dw	fato_vendas	-1	8192	8192 bytes	t	f	t	f	2026-08-10 18:33:58.123645-03
+126	dw	fato_financeiro	-1	8192	8192 bytes	t	f	t	f	2026-08-10 18:33:58.123645-03
+127	dw	fato_marketing	-1	8192	8192 bytes	t	f	t	f	2026-08-10 18:33:58.123645-03
+128	dw	log_etl	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+129	public	rastreabilidade	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+130	public	sistema_externo	-1	49152	48 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+131	public	conector_integracao	-1	49152	48 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+132	public	modelo_ml	-1	24576	24 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+133	public	mapeamento_campo_integracao	-1	32768	32 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+134	public	sincronizacao_integracao	-1	32768	32 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+135	public	fila_integracao	-1	32768	32 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+136	public	log_integracao_detalhado	-1	32768	32 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+137	public	status_integracao	-1	32768	32 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+138	public	fato_financeiro	-1	98304	96 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+139	public	dim_data	4017	745472	728 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+140	public	dim_cliente	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+141	public	dim_produto_turistico	-1	8192	8192 bytes	t	f	t	f	2026-08-10 18:33:58.123645-03
+142	public	dim_destino	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+143	public	dim_plano_contas	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+144	financeiro	forma_pagamento	-1	8192	8192 bytes	t	f	t	f	2026-08-10 18:33:58.123645-03
+145	public	kpi_turismo	-1	49152	48 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+146	public	rentabilidade_produto	-1	24576	24 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+147	financeiro	lancamento_parcela	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+148	public	pessoa	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+149	public	localidade	-1	40960	40 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+150	public	empresa	-1	32768	32 kB	t	t	t	t	2026-08-10 18:33:58.123645-03
+151	financeiro	empresa	-1	32768	32 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+152	public	status_parcela	-1	40960	40 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+153	auditoria	execucao	-1	49152	48 kB	t	f	t	t	2026-08-10 18:33:58.123645-03
+154	auditoria	categoria	-1	73728	72 kB	t	f	t	t	2026-08-10 18:33:58.123645-03
+155	auditoria	resultado	-1	57344	56 kB	t	t	t	t	2026-08-10 18:33:58.123645-03
+156	auditoria	score	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+157	auditoria	recomendacao	-1	40960	40 kB	t	t	t	t	2026-08-10 18:33:58.123645-03
+158	auditoria	log	-1	16384	16 kB	t	t	t	t	2026-08-10 18:33:58.123645-03
+159	auditoria	configuracao	-1	49152	48 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+160	config	migracao	-1	49152	48 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+161	auditoria	item	-1	98304	96 kB	t	t	t	t	2026-08-10 18:33:58.123645-03
+162	auditoria	script	-1	40960	40 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+163	config	versao_banco	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+164	auditoria	log_correcao	155	90112	88 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+165	auditoria	catalogo_schema	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+166	auditoria	catalogo_tabela	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+167	auditoria	catalogo_coluna	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+168	config	parametro	-1	32768	32 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+169	auditoria	core	-1	24576	24 kB	t	f	t	t	2026-08-10 18:33:58.123645-03
+170	financeiro	configuracao	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+171	auditoria	executor	-1	40960	40 kB	t	f	t	t	2026-08-10 18:33:58.123645-03
+172	auditoria	regra	-1	57344	56 kB	t	t	t	t	2026-08-10 18:33:58.123645-03
+173	financeiro	anexo	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+174	financeiro	categoria	-1	73728	72 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+175	financeiro	conta	-1	40960	40 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+176	financeiro	grupo	-1	73728	72 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+177	financeiro	movimentacao_bancaria	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+178	financeiro	pagamento	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+179	financeiro	rateio_centro_custo	-1	8192	8192 bytes	t	t	t	f	2026-08-10 18:33:58.123645-03
+180	financeiro	status_lancamento	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+181	financeiro	subcategoria	-1	73728	72 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+182	financeiro	tipo_lancamento	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+183	financeiro	tipo_movimentacao	-1	16384	16 kB	t	t	t	f	2026-08-10 18:33:58.123645-03
+184	public	parametro_sistema	-1	49152	48 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+185	public	aprovacao_processo	-1	16384	16 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+186	public	politica_acesso	-1	49152	48 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+187	public	conformidade_lgpd	-1	32768	32 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+188	public	data_mart_execucao	-1	32768	32 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+189	public	fato_vendas	-1	90112	88 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+190	public	workflow	-1	49152	48 kB	t	f	t	t	2026-08-10 18:33:58.123645-03
+191	auditoria	execucao_correcao	-1	65536	64 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+192	auditoria	inventario_tabelas	-1	90112	88 kB	t	f	t	f	2026-08-10 18:33:58.123645-03
+\.
+
+
+--
+-- TOC entry 8294 (class 0 OID 41489)
 -- Dependencies: 600
 -- Data for Name: item; Type: TABLE DATA; Schema: auditoria; Owner: postgres
 --
@@ -13003,7 +18165,7 @@ COPY auditoria.item (id_item, id_categoria, codigo, descricao, criticidade, peso
 
 
 --
--- TOC entry 8158 (class 0 OID 41595)
+-- TOC entry 8302 (class 0 OID 41595)
 -- Dependencies: 608
 -- Data for Name: log; Type: TABLE DATA; Schema: auditoria; Owner: postgres
 --
@@ -13013,7 +18175,7 @@ COPY auditoria.log (id_log, id_execucao, script, etapa, sqlstate, mensagem, deta
 
 
 --
--- TOC entry 8176 (class 0 OID 41788)
+-- TOC entry 8320 (class 0 OID 41788)
 -- Dependencies: 636
 -- Data for Name: log_correcao; Type: TABLE DATA; Schema: auditoria; Owner: postgres
 --
@@ -13178,7 +18340,7 @@ COPY auditoria.log_correcao (id_log, data_execucao, schema_nome, tabela_nome, ob
 
 
 --
--- TOC entry 8156 (class 0 OID 41569)
+-- TOC entry 8300 (class 0 OID 41569)
 -- Dependencies: 606
 -- Data for Name: recomendacao; Type: TABLE DATA; Schema: auditoria; Owner: postgres
 --
@@ -13188,7 +18350,7 @@ COPY auditoria.recomendacao (id_recomendacao, id_execucao, prioridade, categoria
 
 
 --
--- TOC entry 8164 (class 0 OID 41711)
+-- TOC entry 8308 (class 0 OID 41711)
 -- Dependencies: 624
 -- Data for Name: regra; Type: TABLE DATA; Schema: auditoria; Owner: postgres
 --
@@ -13198,7 +18360,7 @@ COPY auditoria.regra (id_regra, codigo, descricao, categoria, objeto, consulta_s
 
 
 --
--- TOC entry 8152 (class 0 OID 41520)
+-- TOC entry 8296 (class 0 OID 41520)
 -- Dependencies: 602
 -- Data for Name: resultado; Type: TABLE DATA; Schema: auditoria; Owner: postgres
 --
@@ -13208,7 +18370,7 @@ COPY auditoria.resultado (id_resultado, id_execucao, id_item, schema_nome, tabel
 
 
 --
--- TOC entry 8154 (class 0 OID 41552)
+-- TOC entry 8298 (class 0 OID 41552)
 -- Dependencies: 604
 -- Data for Name: score; Type: TABLE DATA; Schema: auditoria; Owner: postgres
 --
@@ -13218,7 +18380,7 @@ COPY auditoria.score (id_score, id_execucao, estrutura, integridade, auditoria, 
 
 
 --
--- TOC entry 8162 (class 0 OID 41695)
+-- TOC entry 8306 (class 0 OID 41695)
 -- Dependencies: 622
 -- Data for Name: script; Type: TABLE DATA; Schema: auditoria; Owner: postgres
 --
@@ -13238,7 +18400,27 @@ COPY auditoria.script (id_script, codigo, descricao, procedure_name, ordem_execu
 
 
 --
--- TOC entry 8174 (class 0 OID 41774)
+-- TOC entry 8333 (class 0 OID 42723)
+-- Dependencies: 649
+-- Data for Name: tabelas_sem_indices; Type: TABLE DATA; Schema: auditoria; Owner: postgres
+--
+
+COPY auditoria.tabelas_sem_indices (id, schema_name, table_name, detectado_em) FROM stdin;
+\.
+
+
+--
+-- TOC entry 8331 (class 0 OID 42708)
+-- Dependencies: 647
+-- Data for Name: tabelas_sem_pk; Type: TABLE DATA; Schema: auditoria; Owner: postgres
+--
+
+COPY auditoria.tabelas_sem_pk (id, schema_name, table_name, detectado_em) FROM stdin;
+\.
+
+
+--
+-- TOC entry 8318 (class 0 OID 41774)
 -- Dependencies: 634
 -- Data for Name: migracao; Type: TABLE DATA; Schema: config; Owner: postgres
 --
@@ -13249,7 +18431,7 @@ COPY config.migracao (id, script, descricao, executado_em, executado_por, sucess
 
 
 --
--- TOC entry 8177 (class 0 OID 41799)
+-- TOC entry 8321 (class 0 OID 41799)
 -- Dependencies: 637
 -- Data for Name: parametro; Type: TABLE DATA; Schema: config; Owner: postgres
 --
@@ -13264,7 +18446,7 @@ TIMEZONE	America/Sao_Paulo	Timezone
 
 
 --
--- TOC entry 8172 (class 0 OID 41760)
+-- TOC entry 8316 (class 0 OID 41760)
 -- Dependencies: 632
 -- Data for Name: versao_banco; Type: TABLE DATA; Schema: config; Owner: postgres
 --
@@ -13274,7 +18456,7 @@ COPY config.versao_banco (id, versao, descricao, script, data_execucao, usuario_
 
 
 --
--- TOC entry 8078 (class 0 OID 27221)
+-- TOC entry 8222 (class 0 OID 27221)
 -- Dependencies: 517
 -- Data for Name: dim_cliente; Type: TABLE DATA; Schema: dw; Owner: postgres
 --
@@ -13284,7 +18466,7 @@ COPY dw.dim_cliente (id_cliente_dw, id_cliente_origem, nome, cidade, estado, dat
 
 
 --
--- TOC entry 8082 (class 0 OID 27239)
+-- TOC entry 8226 (class 0 OID 27239)
 -- Dependencies: 521
 -- Data for Name: dim_destino; Type: TABLE DATA; Schema: dw; Owner: postgres
 --
@@ -13294,7 +18476,7 @@ COPY dw.dim_destino (id_destino_dw, id_destino_origem, nome, cidade, estado, pai
 
 
 --
--- TOC entry 8084 (class 0 OID 27247)
+-- TOC entry 8228 (class 0 OID 27247)
 -- Dependencies: 523
 -- Data for Name: dim_fornecedor; Type: TABLE DATA; Schema: dw; Owner: postgres
 --
@@ -13304,7 +18486,7 @@ COPY dw.dim_fornecedor (id_fornecedor_dw, id_fornecedor_origem, nome, categoria)
 
 
 --
--- TOC entry 8086 (class 0 OID 27255)
+-- TOC entry 8230 (class 0 OID 27255)
 -- Dependencies: 525
 -- Data for Name: dim_plano_conta; Type: TABLE DATA; Schema: dw; Owner: postgres
 --
@@ -13314,7 +18496,7 @@ COPY dw.dim_plano_conta (id_conta_dw, id_conta_origem, grupo, categoria, subcate
 
 
 --
--- TOC entry 8080 (class 0 OID 27229)
+-- TOC entry 8224 (class 0 OID 27229)
 -- Dependencies: 519
 -- Data for Name: dim_produto_turistico; Type: TABLE DATA; Schema: dw; Owner: postgres
 --
@@ -13324,7 +18506,7 @@ COPY dw.dim_produto_turistico (id_produto_dw, id_produto_origem, nome, categoria
 
 
 --
--- TOC entry 8076 (class 0 OID 27210)
+-- TOC entry 8220 (class 0 OID 27210)
 -- Dependencies: 515
 -- Data for Name: dim_tempo; Type: TABLE DATA; Schema: dw; Owner: postgres
 --
@@ -19178,7 +24360,7 @@ COPY dw.dim_tempo (id_tempo, data, ano, mes, nome_mes, trimestre, semestre, dia,
 
 
 --
--- TOC entry 8090 (class 0 OID 27272)
+-- TOC entry 8234 (class 0 OID 27272)
 -- Dependencies: 529
 -- Data for Name: fato_financeiro; Type: TABLE DATA; Schema: dw; Owner: postgres
 --
@@ -19188,7 +24370,7 @@ COPY dw.fato_financeiro (id_financeiro_dw, id_tempo, id_conta, tipo_movimento, v
 
 
 --
--- TOC entry 8092 (class 0 OID 27280)
+-- TOC entry 8236 (class 0 OID 27280)
 -- Dependencies: 531
 -- Data for Name: fato_marketing; Type: TABLE DATA; Schema: dw; Owner: postgres
 --
@@ -19198,7 +24380,7 @@ COPY dw.fato_marketing (id_marketing_dw, id_tempo, canal, investimento, leads, v
 
 
 --
--- TOC entry 8088 (class 0 OID 27264)
+-- TOC entry 8232 (class 0 OID 27264)
 -- Dependencies: 527
 -- Data for Name: fato_vendas; Type: TABLE DATA; Schema: dw; Owner: postgres
 --
@@ -19208,7 +24390,7 @@ COPY dw.fato_vendas (id_venda_dw, id_tempo, id_cliente, id_produto, id_destino, 
 
 
 --
--- TOC entry 8094 (class 0 OID 27288)
+-- TOC entry 8238 (class 0 OID 27288)
 -- Dependencies: 533
 -- Data for Name: log_etl; Type: TABLE DATA; Schema: dw; Owner: postgres
 --
@@ -19218,7 +24400,7 @@ COPY dw.log_etl (id_execucao, processo, inicio, fim, registros_processados, stat
 
 
 --
--- TOC entry 7855 (class 0 OID 25024)
+-- TOC entry 7999 (class 0 OID 25024)
 -- Dependencies: 279
 -- Data for Name: anexo; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19228,7 +24410,7 @@ COPY financeiro.anexo (id_anexo, id_lancamento, nome_original, nome_servidor, ex
 
 
 --
--- TOC entry 7821 (class 0 OID 24739)
+-- TOC entry 7965 (class 0 OID 24739)
 -- Dependencies: 245
 -- Data for Name: banco; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19238,7 +24420,7 @@ COPY financeiro.banco (id_banco, codigo_banco, nome, ativo) FROM stdin;
 
 
 --
--- TOC entry 7811 (class 0 OID 24674)
+-- TOC entry 7955 (class 0 OID 24674)
 -- Dependencies: 235
 -- Data for Name: categoria; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19261,7 +24443,7 @@ COPY financeiro.categoria (id_categoria, id_grupo, codigo, descricao, ativo, cre
 
 
 --
--- TOC entry 7819 (class 0 OID 24727)
+-- TOC entry 7963 (class 0 OID 24727)
 -- Dependencies: 243
 -- Data for Name: centro_custo; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19271,7 +24453,7 @@ COPY financeiro.centro_custo (id_centro_custo, codigo, descricao, ativo) FROM st
 
 
 --
--- TOC entry 7815 (class 0 OID 24698)
+-- TOC entry 7959 (class 0 OID 24698)
 -- Dependencies: 239
 -- Data for Name: classificacao; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19281,7 +24463,7 @@ COPY financeiro.classificacao (id_classificacao, id_subcategoria, codigo, descri
 
 
 --
--- TOC entry 7825 (class 0 OID 24760)
+-- TOC entry 7969 (class 0 OID 24760)
 -- Dependencies: 249
 -- Data for Name: cliente; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19291,7 +24473,7 @@ COPY financeiro.cliente (id_cliente, nome, cpf_cnpj, telefone, email, cidade, uf
 
 
 --
--- TOC entry 7849 (class 0 OID 24990)
+-- TOC entry 7993 (class 0 OID 24990)
 -- Dependencies: 273
 -- Data for Name: conciliacao_bancaria; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19301,7 +24483,7 @@ COPY financeiro.conciliacao_bancaria (id_conciliacao, id_movimento, data_concili
 
 
 --
--- TOC entry 7831 (class 0 OID 24790)
+-- TOC entry 7975 (class 0 OID 24790)
 -- Dependencies: 255
 -- Data for Name: configuracao; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19311,7 +24493,7 @@ COPY financeiro.configuracao (id_configuracao, empresa_padrao, moeda, idioma, te
 
 
 --
--- TOC entry 7817 (class 0 OID 24712)
+-- TOC entry 7961 (class 0 OID 24712)
 -- Dependencies: 241
 -- Data for Name: conta; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19321,7 +24503,7 @@ COPY financeiro.conta (id_conta, id_classificacao, codigo, descricao, aceita_lan
 
 
 --
--- TOC entry 7823 (class 0 OID 24749)
+-- TOC entry 7967 (class 0 OID 24749)
 -- Dependencies: 247
 -- Data for Name: conta_bancaria; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19331,7 +24513,7 @@ COPY financeiro.conta_bancaria (id_conta_bancaria, id_banco, agencia, conta, dig
 
 
 --
--- TOC entry 7805 (class 0 OID 24628)
+-- TOC entry 7949 (class 0 OID 24628)
 -- Dependencies: 229
 -- Data for Name: empresa; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19341,7 +24523,7 @@ COPY financeiro.empresa (id_empresa, razao_social, nome_fantasia, cnpj, inscrica
 
 
 --
--- TOC entry 7829 (class 0 OID 24780)
+-- TOC entry 7973 (class 0 OID 24780)
 -- Dependencies: 253
 -- Data for Name: forma_pagamento; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19351,7 +24533,7 @@ COPY financeiro.forma_pagamento (id_forma_pagamento, descricao, ativo) FROM stdi
 
 
 --
--- TOC entry 7827 (class 0 OID 24770)
+-- TOC entry 7971 (class 0 OID 24770)
 -- Dependencies: 251
 -- Data for Name: fornecedor; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19361,7 +24543,7 @@ COPY financeiro.fornecedor (id_fornecedor, nome, cpf_cnpj, telefone, email, cida
 
 
 --
--- TOC entry 7809 (class 0 OID 24660)
+-- TOC entry 7953 (class 0 OID 24660)
 -- Dependencies: 233
 -- Data for Name: grupo; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19376,7 +24558,7 @@ COPY financeiro.grupo (id_grupo, codigo, descricao, natureza, ativo, created_at,
 
 
 --
--- TOC entry 7853 (class 0 OID 25012)
+-- TOC entry 7997 (class 0 OID 25012)
 -- Dependencies: 277
 -- Data for Name: historico_lancamento; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19386,7 +24568,7 @@ COPY financeiro.historico_lancamento (id_historico, id_lancamento, id_usuario, o
 
 
 --
--- TOC entry 7841 (class 0 OID 24914)
+-- TOC entry 7985 (class 0 OID 24914)
 -- Dependencies: 265
 -- Data for Name: lancamento; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19396,7 +24578,7 @@ COPY financeiro.lancamento (id_lancamento, numero, id_empresa, id_tipo_lancament
 
 
 --
--- TOC entry 7843 (class 0 OID 24944)
+-- TOC entry 7987 (class 0 OID 24944)
 -- Dependencies: 267
 -- Data for Name: lancamento_parcela; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19406,7 +24588,7 @@ COPY financeiro.lancamento_parcela (id_parcela, id_lancamento, numero_parcela, v
 
 
 --
--- TOC entry 7847 (class 0 OID 24978)
+-- TOC entry 7991 (class 0 OID 24978)
 -- Dependencies: 271
 -- Data for Name: movimentacao_bancaria; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19416,7 +24598,7 @@ COPY financeiro.movimentacao_bancaria (id_movimento, id_conta_bancaria, id_pagam
 
 
 --
--- TOC entry 7845 (class 0 OID 24959)
+-- TOC entry 7989 (class 0 OID 24959)
 -- Dependencies: 269
 -- Data for Name: pagamento; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19426,7 +24608,7 @@ COPY financeiro.pagamento (id_pagamento, id_parcela, id_conta_bancaria, id_forma
 
 
 --
--- TOC entry 7851 (class 0 OID 25002)
+-- TOC entry 7995 (class 0 OID 25002)
 -- Dependencies: 275
 -- Data for Name: rateio_centro_custo; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19436,7 +24618,7 @@ COPY financeiro.rateio_centro_custo (id_rateio, id_lancamento, id_centro_custo, 
 
 
 --
--- TOC entry 7835 (class 0 OID 24881)
+-- TOC entry 7979 (class 0 OID 24881)
 -- Dependencies: 259
 -- Data for Name: status_lancamento; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19446,7 +24628,7 @@ COPY financeiro.status_lancamento (id_status, codigo, descricao, ativo, created_
 
 
 --
--- TOC entry 7813 (class 0 OID 24686)
+-- TOC entry 7957 (class 0 OID 24686)
 -- Dependencies: 237
 -- Data for Name: subcategoria; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19479,7 +24661,7 @@ COPY financeiro.subcategoria (id_subcategoria, id_categoria, codigo, descricao, 
 
 
 --
--- TOC entry 7837 (class 0 OID 24892)
+-- TOC entry 7981 (class 0 OID 24892)
 -- Dependencies: 261
 -- Data for Name: tipo_documento; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19489,7 +24671,7 @@ COPY financeiro.tipo_documento (id_tipo_documento, codigo, descricao, ativo) FRO
 
 
 --
--- TOC entry 7833 (class 0 OID 24867)
+-- TOC entry 7977 (class 0 OID 24867)
 -- Dependencies: 257
 -- Data for Name: tipo_lancamento; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19499,7 +24681,7 @@ COPY financeiro.tipo_lancamento (id_tipo_lancamento, codigo, descricao, natureza
 
 
 --
--- TOC entry 7839 (class 0 OID 24903)
+-- TOC entry 7983 (class 0 OID 24903)
 -- Dependencies: 263
 -- Data for Name: tipo_movimentacao; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19509,7 +24691,7 @@ COPY financeiro.tipo_movimentacao (id_tipo_movimentacao, codigo, descricao, entr
 
 
 --
--- TOC entry 7807 (class 0 OID 24642)
+-- TOC entry 7951 (class 0 OID 24642)
 -- Dependencies: 231
 -- Data for Name: usuario; Type: TABLE DATA; Schema: financeiro; Owner: postgres
 --
@@ -19519,7 +24701,7 @@ COPY financeiro.usuario (id_usuario, nome, email, senha_hash, administrador, ati
 
 
 --
--- TOC entry 7984 (class 0 OID 26383)
+-- TOC entry 8128 (class 0 OID 26383)
 -- Dependencies: 416
 -- Data for Name: agenda; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19529,7 +24711,7 @@ COPY public.agenda (id_agenda, id_colaborador, titulo, descricao, tipo_evento, d
 
 
 --
--- TOC entry 8060 (class 0 OID 27076)
+-- TOC entry 8204 (class 0 OID 27076)
 -- Dependencies: 497
 -- Data for Name: agendamento_rotina; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19539,7 +24721,7 @@ COPY public.agendamento_rotina (id_rotina, codigo, descricao, expressao_cron, ul
 
 
 --
--- TOC entry 8046 (class 0 OID 26965)
+-- TOC entry 8190 (class 0 OID 26965)
 -- Dependencies: 482
 -- Data for Name: anexo_projeto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19549,7 +24731,7 @@ COPY public.anexo_projeto (id_anexo, id_projeto, nome_arquivo, caminho, tipo, cr
 
 
 --
--- TOC entry 8062 (class 0 OID 27091)
+-- TOC entry 8206 (class 0 OID 27091)
 -- Dependencies: 500
 -- Data for Name: aplicacao_api; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19562,7 +24744,7 @@ COPY public.aplicacao_api (id_aplicacao, codigo, nome, descricao, tipo, ativo, c
 
 
 --
--- TOC entry 7913 (class 0 OID 25695)
+-- TOC entry 8057 (class 0 OID 25695)
 -- Dependencies: 338
 -- Data for Name: aporte_capital; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19572,7 +24754,7 @@ COPY public.aporte_capital (id_aporte, id_empresa, data_aporte, valor, tipo, des
 
 
 --
--- TOC entry 8098 (class 0 OID 27328)
+-- TOC entry 8242 (class 0 OID 27328)
 -- Dependencies: 538
 -- Data for Name: aprovacao_processo; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19582,7 +24764,7 @@ COPY public.aprovacao_processo (id_aprovacao, tipo_processo, registro_id, solici
 
 
 --
--- TOC entry 8024 (class 0 OID 26769)
+-- TOC entry 8168 (class 0 OID 26769)
 -- Dependencies: 459
 -- Data for Name: arquivo_digital; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19592,7 +24774,7 @@ COPY public.arquivo_digital (id_arquivo, id_documento, nome_arquivo, extensao, c
 
 
 --
--- TOC entry 8028 (class 0 OID 26803)
+-- TOC entry 8172 (class 0 OID 26803)
 -- Dependencies: 463
 -- Data for Name: assinatura_digital; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19602,7 +24784,7 @@ COPY public.assinatura_digital (id_assinatura, id_documento, assinante, email, d
 
 
 --
--- TOC entry 7992 (class 0 OID 26459)
+-- TOC entry 8136 (class 0 OID 26459)
 -- Dependencies: 425
 -- Data for Name: ativo_imobilizado; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19612,7 +24794,7 @@ COPY public.ativo_imobilizado (id_ativo, codigo_patrimonio, id_categoria_ativo, 
 
 
 --
--- TOC entry 7974 (class 0 OID 26285)
+-- TOC entry 8118 (class 0 OID 26285)
 -- Dependencies: 405
 -- Data for Name: avaliacao_pos_viagem; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19622,7 +24804,7 @@ COPY public.avaliacao_pos_viagem (id_avaliacao, id_reserva, nota, comentario, re
 
 
 --
--- TOC entry 7867 (class 0 OID 25164)
+-- TOC entry 8011 (class 0 OID 25164)
 -- Dependencies: 291
 -- Data for Name: banco; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19632,7 +24814,7 @@ COPY public.banco (id_banco, codigo_banco, nome_banco, agencia, conta, tipo_cont
 
 
 --
--- TOC entry 7966 (class 0 OID 26218)
+-- TOC entry 8110 (class 0 OID 26218)
 -- Dependencies: 397
 -- Data for Name: campanha; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19642,7 +24824,7 @@ COPY public.campanha (id_campanha, codigo, nome, canal, data_inicio, data_fim, o
 
 
 --
--- TOC entry 7976 (class 0 OID 26309)
+-- TOC entry 8120 (class 0 OID 26309)
 -- Dependencies: 408
 -- Data for Name: cargo; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19657,7 +24839,7 @@ COPY public.cargo (id_cargo, codigo, descricao, tipo, ativo, created_at, updated
 
 
 --
--- TOC entry 7990 (class 0 OID 26443)
+-- TOC entry 8134 (class 0 OID 26443)
 -- Dependencies: 423
 -- Data for Name: categoria_ativo; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19672,7 +24854,7 @@ COPY public.categoria_ativo (id_categoria_ativo, codigo, descricao, vida_util_an
 
 
 --
--- TOC entry 7873 (class 0 OID 25218)
+-- TOC entry 8017 (class 0 OID 25218)
 -- Dependencies: 297
 -- Data for Name: categoria_conta; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19686,7 +24868,7 @@ COPY public.categoria_conta (id_categoria, id_grupo, codigo, descricao, created_
 
 
 --
--- TOC entry 7877 (class 0 OID 25259)
+-- TOC entry 8021 (class 0 OID 25259)
 -- Dependencies: 301
 -- Data for Name: centro_custo; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19701,7 +24883,7 @@ COPY public.centro_custo (id_centro_custo, codigo, descricao, tipo, ativo, creat
 
 
 --
--- TOC entry 8066 (class 0 OID 27128)
+-- TOC entry 8210 (class 0 OID 27128)
 -- Dependencies: 504
 -- Data for Name: chave_api; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19711,7 +24893,7 @@ COPY public.chave_api (id_chave, id_aplicacao, nome_chave, api_key_hash, permiss
 
 
 --
--- TOC entry 7958 (class 0 OID 26142)
+-- TOC entry 8102 (class 0 OID 26142)
 -- Dependencies: 389
 -- Data for Name: checklist_viagem; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19721,7 +24903,7 @@ COPY public.checklist_viagem (id_checklist, id_pacote, item, responsavel, status
 
 
 --
--- TOC entry 7879 (class 0 OID 25274)
+-- TOC entry 8023 (class 0 OID 25274)
 -- Dependencies: 303
 -- Data for Name: classificacao_dre; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19731,7 +24913,7 @@ COPY public.classificacao_dre (id_classificacao, codigo, descricao, grupo_dre, o
 
 
 --
--- TOC entry 7863 (class 0 OID 25124)
+-- TOC entry 8007 (class 0 OID 25124)
 -- Dependencies: 287
 -- Data for Name: cliente; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19741,7 +24923,7 @@ COPY public.cliente (id_cliente, id_pessoa, codigo_cliente, observacao, created_
 
 
 --
--- TOC entry 7978 (class 0 OID 26325)
+-- TOC entry 8122 (class 0 OID 26325)
 -- Dependencies: 410
 -- Data for Name: colaborador; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19751,7 +24933,7 @@ COPY public.colaborador (id_colaborador, id_pessoa, id_cargo, data_admissao, tip
 
 
 --
--- TOC entry 7899 (class 0 OID 25518)
+-- TOC entry 8043 (class 0 OID 25518)
 -- Dependencies: 324
 -- Data for Name: comissao; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19761,7 +24943,7 @@ COPY public.comissao (id_comissao, id_reserva, id_fornecedor, percentual, valor_
 
 
 --
--- TOC entry 7982 (class 0 OID 26361)
+-- TOC entry 8126 (class 0 OID 26361)
 -- Dependencies: 414
 -- Data for Name: comissao_colaborador; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19771,7 +24953,7 @@ COPY public.comissao_colaborador (id_comissao, id_colaborador, id_venda, percent
 
 
 --
--- TOC entry 7889 (class 0 OID 25401)
+-- TOC entry 8033 (class 0 OID 25401)
 -- Dependencies: 314
 -- Data for Name: conciliacao_bancaria; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19781,7 +24963,7 @@ COPY public.conciliacao_bancaria (id_conciliacao, id_conta_bancaria, data_movime
 
 
 --
--- TOC entry 8108 (class 0 OID 27417)
+-- TOC entry 8252 (class 0 OID 27417)
 -- Dependencies: 549
 -- Data for Name: conector_integracao; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19794,7 +24976,7 @@ COPY public.conector_integracao (id_conector, id_sistema_externo, codigo, nome, 
 
 
 --
--- TOC entry 8050 (class 0 OID 27003)
+-- TOC entry 8194 (class 0 OID 27003)
 -- Dependencies: 487
 -- Data for Name: configuracao_empresa; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19804,7 +24986,7 @@ COPY public.configuracao_empresa (id_configuracao, id_empresa, nome_sistema, log
 
 
 --
--- TOC entry 8104 (class 0 OID 27374)
+-- TOC entry 8248 (class 0 OID 27374)
 -- Dependencies: 544
 -- Data for Name: conformidade_lgpd; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19816,7 +24998,7 @@ COPY public.conformidade_lgpd (id_lgpd, tipo_dado, finalidade, base_legal, reten
 
 
 --
--- TOC entry 7881 (class 0 OID 25291)
+-- TOC entry 8025 (class 0 OID 25291)
 -- Dependencies: 305
 -- Data for Name: conta_bancaria; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19826,7 +25008,7 @@ COPY public.conta_bancaria (id_conta_bancaria, id_empresa, banco, codigo_banco, 
 
 
 --
--- TOC entry 7968 (class 0 OID 26232)
+-- TOC entry 8112 (class 0 OID 26232)
 -- Dependencies: 399
 -- Data for Name: contato_cliente; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19836,7 +25018,7 @@ COPY public.contato_cliente (id_contato, id_cliente, tipo_contato, descricao, da
 
 
 --
--- TOC entry 8026 (class 0 OID 26787)
+-- TOC entry 8170 (class 0 OID 26787)
 -- Dependencies: 461
 -- Data for Name: contrato; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19846,7 +25028,7 @@ COPY public.contrato (id_contrato, id_documento, parte_contratante, parte_contra
 
 
 --
--- TOC entry 8030 (class 0 OID 26818)
+-- TOC entry 8174 (class 0 OID 26818)
 -- Dependencies: 465
 -- Data for Name: controle_vencimento_documento; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19856,7 +25038,7 @@ COPY public.controle_vencimento_documento (id_controle, id_documento, dias_alert
 
 
 --
--- TOC entry 7960 (class 0 OID 26162)
+-- TOC entry 8104 (class 0 OID 26162)
 -- Dependencies: 391
 -- Data for Name: custo_pacote; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19866,7 +25048,7 @@ COPY public.custo_pacote (id_custo, id_pacote, tipo_custo, descricao, quantidade
 
 
 --
--- TOC entry 8042 (class 0 OID 26933)
+-- TOC entry 8186 (class 0 OID 26933)
 -- Dependencies: 478
 -- Data for Name: custo_projeto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19876,7 +25058,7 @@ COPY public.custo_projeto (id_custo_projeto, id_projeto, descricao, categoria, v
 
 
 --
--- TOC entry 7911 (class 0 OID 25641)
+-- TOC entry 8055 (class 0 OID 25641)
 -- Dependencies: 336
 -- Data for Name: das; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19886,7 +25068,7 @@ COPY public.das (id_das, id_empresa, competencia, receita_bruta, aliquota, valor
 
 
 --
--- TOC entry 8120 (class 0 OID 27578)
+-- TOC entry 8264 (class 0 OID 27578)
 -- Dependencies: 562
 -- Data for Name: data_mart_execucao; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19897,7 +25079,7 @@ COPY public.data_mart_execucao (id_execucao, processo, data_inicio, data_fim, re
 
 
 --
--- TOC entry 7919 (class 0 OID 25765)
+-- TOC entry 8063 (class 0 OID 25765)
 -- Dependencies: 344
 -- Data for Name: declaracao_fiscal; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19912,7 +25094,7 @@ COPY public.declaracao_fiscal (id_declaracao, id_empresa, tipo_declaracao, ano, 
 
 
 --
--- TOC entry 7994 (class 0 OID 26483)
+-- TOC entry 8138 (class 0 OID 26483)
 -- Dependencies: 427
 -- Data for Name: depreciacao; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19922,7 +25104,7 @@ COPY public.depreciacao (id_depreciacao, id_ativo, competencia, valor_depreciaca
 
 
 --
--- TOC entry 7946 (class 0 OID 26031)
+-- TOC entry 8090 (class 0 OID 26031)
 -- Dependencies: 377
 -- Data for Name: destino; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19932,7 +25114,7 @@ COPY public.destino (id_destino, codigo, nome, descricao, ativo, created_at, upd
 
 
 --
--- TOC entry 8128 (class 0 OID 27659)
+-- TOC entry 8272 (class 0 OID 27659)
 -- Dependencies: 571
 -- Data for Name: dim_cliente; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -19942,7 +25124,7 @@ COPY public.dim_cliente (id_dim_cliente, id_cliente_origem, nome_cliente, cidade
 
 
 --
--- TOC entry 8126 (class 0 OID 27644)
+-- TOC entry 8270 (class 0 OID 27644)
 -- Dependencies: 569
 -- Data for Name: dim_data; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -23969,7 +29151,7 @@ COPY public.dim_data (id_data, data, ano, mes, nome_mes, trimestre, semana, dia,
 
 
 --
--- TOC entry 8132 (class 0 OID 27681)
+-- TOC entry 8276 (class 0 OID 27681)
 -- Dependencies: 575
 -- Data for Name: dim_destino; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -23979,7 +29161,7 @@ COPY public.dim_destino (id_dim_destino, id_destino_origem, nome_destino, cidade
 
 
 --
--- TOC entry 8134 (class 0 OID 27692)
+-- TOC entry 8278 (class 0 OID 27692)
 -- Dependencies: 577
 -- Data for Name: dim_plano_contas; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -23989,7 +29171,7 @@ COPY public.dim_plano_contas (id_dim_plano, id_plano_origem, codigo, descricao, 
 
 
 --
--- TOC entry 8130 (class 0 OID 27670)
+-- TOC entry 8274 (class 0 OID 27670)
 -- Dependencies: 573
 -- Data for Name: dim_produto_turistico; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -23999,7 +29181,7 @@ COPY public.dim_produto_turistico (id_dim_produto, id_produto_origem, nome_produ
 
 
 --
--- TOC entry 7915 (class 0 OID 25713)
+-- TOC entry 8059 (class 0 OID 25713)
 -- Dependencies: 340
 -- Data for Name: distribuicao_lucros; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24009,7 +29191,7 @@ COPY public.distribuicao_lucros (id_distribuicao, id_empresa, data_distribuicao,
 
 
 --
--- TOC entry 8022 (class 0 OID 26750)
+-- TOC entry 8166 (class 0 OID 26750)
 -- Dependencies: 457
 -- Data for Name: documento; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24019,7 +29201,7 @@ COPY public.documento (id_documento, id_tipo_documento, descricao, entidade_tipo
 
 
 --
--- TOC entry 8056 (class 0 OID 27051)
+-- TOC entry 8200 (class 0 OID 27051)
 -- Dependencies: 493
 -- Data for Name: email_sistema; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24029,7 +29211,7 @@ COPY public.email_sistema (id_email, servidor_smtp, porta, usuario, senha_cripto
 
 
 --
--- TOC entry 7857 (class 0 OID 25074)
+-- TOC entry 8001 (class 0 OID 25074)
 -- Dependencies: 281
 -- Data for Name: empresa; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24040,7 +29222,7 @@ COPY public.empresa (id_empresa, razao_social, nome_fantasia, cnpj, inscricao_mu
 
 
 --
--- TOC entry 8012 (class 0 OID 26659)
+-- TOC entry 8156 (class 0 OID 26659)
 -- Dependencies: 446
 -- Data for Name: estoque; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24050,7 +29232,7 @@ COPY public.estoque (id_estoque, id_produto_estoque, quantidade_atual, localizac
 
 
 --
--- TOC entry 8036 (class 0 OID 26875)
+-- TOC entry 8180 (class 0 OID 26875)
 -- Dependencies: 472
 -- Data for Name: etapa_projeto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24060,7 +29242,7 @@ COPY public.etapa_projeto (id_etapa, id_projeto, ordem, nome, descricao, status,
 
 
 --
--- TOC entry 8124 (class 0 OID 27619)
+-- TOC entry 8268 (class 0 OID 27619)
 -- Dependencies: 566
 -- Data for Name: fato_financeiro; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24072,7 +29254,7 @@ COPY public.fato_financeiro (id_fato_financeiro, data_movimento, id_lancamento_o
 
 
 --
--- TOC entry 8122 (class 0 OID 27595)
+-- TOC entry 8266 (class 0 OID 27595)
 -- Dependencies: 564
 -- Data for Name: fato_vendas; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24083,7 +29265,7 @@ COPY public.fato_vendas (id_fato_venda, data_venda, id_venda_origem, id_cliente,
 
 
 --
--- TOC entry 8114 (class 0 OID 27494)
+-- TOC entry 8258 (class 0 OID 27494)
 -- Dependencies: 555
 -- Data for Name: fila_integracao; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24094,7 +29276,7 @@ COPY public.fila_integracao (id_fila_integracao, id_conector, tipo_evento, entid
 
 
 --
--- TOC entry 8070 (class 0 OID 27159)
+-- TOC entry 8214 (class 0 OID 27159)
 -- Dependencies: 508
 -- Data for Name: fila_processamento; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24104,7 +29286,7 @@ COPY public.fila_processamento (id_fila, tipo_processo, dados, prioridade, statu
 
 
 --
--- TOC entry 7883 (class 0 OID 25314)
+-- TOC entry 8027 (class 0 OID 25314)
 -- Dependencies: 307
 -- Data for Name: forma_pagamento; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24120,7 +29302,7 @@ COPY public.forma_pagamento (id_forma_pagamento, codigo, descricao, tipo, prazo_
 
 
 --
--- TOC entry 7865 (class 0 OID 25144)
+-- TOC entry 8009 (class 0 OID 25144)
 -- Dependencies: 289
 -- Data for Name: fornecedor; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24130,7 +29312,7 @@ COPY public.fornecedor (id_fornecedor, id_pessoa, codigo_fornecedor, tipo_fornec
 
 
 --
--- TOC entry 7950 (class 0 OID 26075)
+-- TOC entry 8094 (class 0 OID 26075)
 -- Dependencies: 381
 -- Data for Name: fornecedor_turistico; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24140,7 +29322,7 @@ COPY public.fornecedor_turistico (id_fornecedor_turistico, id_fornecedor, tipo_f
 
 
 --
--- TOC entry 7970 (class 0 OID 26250)
+-- TOC entry 8114 (class 0 OID 26250)
 -- Dependencies: 401
 -- Data for Name: funil_vendas; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24150,7 +29332,7 @@ COPY public.funil_vendas (id_funil, id_lead, etapa, probabilidade, valor_negocia
 
 
 --
--- TOC entry 7932 (class 0 OID 25923)
+-- TOC entry 8076 (class 0 OID 25923)
 -- Dependencies: 363
 -- Data for Name: gateway_pagamento; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24163,7 +29345,7 @@ COPY public.gateway_pagamento (id_gateway, codigo, descricao, tipo, ativo, creat
 
 
 --
--- TOC entry 7871 (class 0 OID 25201)
+-- TOC entry 8015 (class 0 OID 25201)
 -- Dependencies: 295
 -- Data for Name: grupo_conta; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24180,7 +29362,7 @@ COPY public.grupo_conta (id_grupo, codigo, descricao, natureza, created_at, upda
 
 
 --
--- TOC entry 7956 (class 0 OID 26129)
+-- TOC entry 8100 (class 0 OID 26129)
 -- Dependencies: 387
 -- Data for Name: guia_turistico; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24190,7 +29372,7 @@ COPY public.guia_turistico (id_guia, nome, cadastur, telefone, email, valor_diar
 
 
 --
--- TOC entry 7928 (class 0 OID 25891)
+-- TOC entry 8072 (class 0 OID 25891)
 -- Dependencies: 359
 -- Data for Name: historico_alteracao; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24200,7 +29382,7 @@ COPY public.historico_alteracao (id_historico, tabela_nome, registro_id, campo_a
 
 
 --
--- TOC entry 8032 (class 0 OID 26835)
+-- TOC entry 8176 (class 0 OID 26835)
 -- Dependencies: 467
 -- Data for Name: historico_documento; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24210,7 +29392,7 @@ COPY public.historico_documento (id_historico, id_documento, acao, descricao, us
 
 
 --
--- TOC entry 7988 (class 0 OID 26421)
+-- TOC entry 8132 (class 0 OID 26421)
 -- Dependencies: 420
 -- Data for Name: horas_atividade; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24220,7 +29402,7 @@ COPY public.horas_atividade (id_hora, id_colaborador, data_atividade, atividade,
 
 
 --
--- TOC entry 7952 (class 0 OID 26094)
+-- TOC entry 8096 (class 0 OID 26094)
 -- Dependencies: 383
 -- Data for Name: hospedagem; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24230,7 +29412,7 @@ COPY public.hospedagem (id_hospedagem, id_fornecedor_turistico, nome, categoria,
 
 
 --
--- TOC entry 7942 (class 0 OID 26009)
+-- TOC entry 8086 (class 0 OID 26009)
 -- Dependencies: 373
 -- Data for Name: importacao_dados; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24240,7 +29422,7 @@ COPY public.importacao_dados (id_importacao, tipo_importacao, nome_arquivo, quan
 
 
 --
--- TOC entry 7907 (class 0 OID 25612)
+-- TOC entry 8051 (class 0 OID 25612)
 -- Dependencies: 332
 -- Data for Name: imposto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24255,7 +29437,7 @@ COPY public.imposto (id_imposto, codigo, descricao, tipo, aliquota, created_at, 
 
 
 --
--- TOC entry 7940 (class 0 OID 25992)
+-- TOC entry 8084 (class 0 OID 25992)
 -- Dependencies: 371
 -- Data for Name: integracao_nfse; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24265,7 +29447,7 @@ COPY public.integracao_nfse (id_integracao, id_nota_fiscal, provedor, codigo_ret
 
 
 --
--- TOC entry 7930 (class 0 OID 25903)
+-- TOC entry 8074 (class 0 OID 25903)
 -- Dependencies: 361
 -- Data for Name: integracao_woocommerce; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24275,7 +29457,7 @@ COPY public.integracao_woocommerce (id_integracao, id_empresa, id_pedido_externo
 
 
 --
--- TOC entry 7972 (class 0 OID 26267)
+-- TOC entry 8116 (class 0 OID 26267)
 -- Dependencies: 403
 -- Data for Name: interacao_lead; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24285,7 +29467,7 @@ COPY public.interacao_lead (id_interacao, id_lead, tipo, descricao, data_interac
 
 
 --
--- TOC entry 8016 (class 0 OID 26695)
+-- TOC entry 8160 (class 0 OID 26695)
 -- Dependencies: 450
 -- Data for Name: inventario; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24295,7 +29477,7 @@ COPY public.inventario (id_inventario, data_inventario, responsavel, status, obs
 
 
 --
--- TOC entry 8018 (class 0 OID 26707)
+-- TOC entry 8162 (class 0 OID 26707)
 -- Dependencies: 452
 -- Data for Name: item_inventario; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24305,7 +29487,7 @@ COPY public.item_inventario (id_item, id_inventario, id_produto_estoque, quantid
 
 
 --
--- TOC entry 8010 (class 0 OID 26638)
+-- TOC entry 8154 (class 0 OID 26638)
 -- Dependencies: 444
 -- Data for Name: item_pedido_compra; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24315,7 +29497,7 @@ COPY public.item_pedido_compra (id_item_pedido, id_pedido, id_produto_estoque, q
 
 
 --
--- TOC entry 8006 (class 0 OID 26594)
+-- TOC entry 8150 (class 0 OID 26594)
 -- Dependencies: 440
 -- Data for Name: item_requisicao; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24325,7 +29507,7 @@ COPY public.item_requisicao (id_item, id_requisicao, id_produto_estoque, quantid
 
 
 --
--- TOC entry 7903 (class 0 OID 25563)
+-- TOC entry 8047 (class 0 OID 25563)
 -- Dependencies: 328
 -- Data for Name: item_venda; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24335,7 +29517,7 @@ COPY public.item_venda (id_item, id_venda, id_produto, quantidade, valor_unitari
 
 
 --
--- TOC entry 8136 (class 0 OID 27708)
+-- TOC entry 8280 (class 0 OID 27708)
 -- Dependencies: 579
 -- Data for Name: kpi_turismo; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24348,7 +29530,7 @@ COPY public.kpi_turismo (id_kpi, codigo, nome, descricao, unidade, categoria, va
 
 
 --
--- TOC entry 7885 (class 0 OID 25330)
+-- TOC entry 8029 (class 0 OID 25330)
 -- Dependencies: 309
 -- Data for Name: lancamento_financeiro; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24358,7 +29540,7 @@ COPY public.lancamento_financeiro (id_lancamento, id_empresa, tipo_lancamento, d
 
 
 --
--- TOC entry 7887 (class 0 OID 25376)
+-- TOC entry 8031 (class 0 OID 25376)
 -- Dependencies: 311
 -- Data for Name: lancamento_parcela; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24368,7 +29550,7 @@ COPY public.lancamento_parcela (id_parcela, id_lancamento, numero_parcela, total
 
 
 --
--- TOC entry 7964 (class 0 OID 26197)
+-- TOC entry 8108 (class 0 OID 26197)
 -- Dependencies: 395
 -- Data for Name: lead; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24378,7 +29560,7 @@ COPY public.lead (id_lead, id_origem, nome, email, telefone, cidade, interesse, 
 
 
 --
--- TOC entry 8142 (class 0 OID 33391)
+-- TOC entry 8286 (class 0 OID 33391)
 -- Dependencies: 591
 -- Data for Name: localidade; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24389,7 +29571,7 @@ COPY public.localidade (id_localidade, cidade, uf, pais) FROM stdin;
 
 
 --
--- TOC entry 7998 (class 0 OID 26519)
+-- TOC entry 8142 (class 0 OID 26519)
 -- Dependencies: 431
 -- Data for Name: localizacao_ativo; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24399,7 +29581,7 @@ COPY public.localizacao_ativo (id_localizacao, codigo, descricao, created_at, up
 
 
 --
--- TOC entry 8072 (class 0 OID 27173)
+-- TOC entry 8216 (class 0 OID 27173)
 -- Dependencies: 510
 -- Data for Name: log_api; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24409,7 +29591,7 @@ COPY public.log_api (id_log, id_aplicacao, endpoint, metodo, request, response, 
 
 
 --
--- TOC entry 7926 (class 0 OID 25877)
+-- TOC entry 8070 (class 0 OID 25877)
 -- Dependencies: 357
 -- Data for Name: log_auditoria; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24419,7 +29601,7 @@ COPY public.log_auditoria (id_log, tabela_nome, registro_id, acao, usuario, data
 
 
 --
--- TOC entry 7944 (class 0 OID 26020)
+-- TOC entry 8088 (class 0 OID 26020)
 -- Dependencies: 375
 -- Data for Name: log_integracao; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24429,7 +29611,7 @@ COPY public.log_integracao (id_log, sistema, endpoint, metodo, request, response
 
 
 --
--- TOC entry 8116 (class 0 OID 27519)
+-- TOC entry 8260 (class 0 OID 27519)
 -- Dependencies: 557
 -- Data for Name: log_integracao_detalhado; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24440,7 +29622,7 @@ COPY public.log_integracao_detalhado (id_log_integracao, id_conector, id_sincron
 
 
 --
--- TOC entry 8058 (class 0 OID 27063)
+-- TOC entry 8202 (class 0 OID 27063)
 -- Dependencies: 495
 -- Data for Name: log_sistema; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24450,7 +29632,7 @@ COPY public.log_sistema (id_log, nivel, modulo, mensagem, stack_trace, usuario, 
 
 
 --
--- TOC entry 7996 (class 0 OID 26500)
+-- TOC entry 8140 (class 0 OID 26500)
 -- Dependencies: 429
 -- Data for Name: manutencao_ativo; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24460,7 +29642,7 @@ COPY public.manutencao_ativo (id_manutencao, id_ativo, data_manutencao, tipo, de
 
 
 --
--- TOC entry 8110 (class 0 OID 27444)
+-- TOC entry 8254 (class 0 OID 27444)
 -- Dependencies: 551
 -- Data for Name: mapeamento_campo_integracao; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24473,7 +29655,7 @@ COPY public.mapeamento_campo_integracao (id_mapeamento, id_conector, entidade_in
 
 
 --
--- TOC entry 8096 (class 0 OID 27306)
+-- TOC entry 8240 (class 0 OID 27306)
 -- Dependencies: 536
 -- Data for Name: modelo_ml; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24483,7 +29665,7 @@ COPY public.modelo_ml (id_modelo, codigo, nome, tipo_modelo, algoritmo, versao_m
 
 
 --
--- TOC entry 8000 (class 0 OID 26531)
+-- TOC entry 8144 (class 0 OID 26531)
 -- Dependencies: 433
 -- Data for Name: movimentacao_ativo; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24493,7 +29675,7 @@ COPY public.movimentacao_ativo (id_movimentacao, id_ativo, id_localizacao, tipo_
 
 
 --
--- TOC entry 8014 (class 0 OID 26676)
+-- TOC entry 8158 (class 0 OID 26676)
 -- Dependencies: 448
 -- Data for Name: movimento_estoque; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24503,7 +29685,7 @@ COPY public.movimento_estoque (id_movimento, id_produto_estoque, tipo_movimento,
 
 
 --
--- TOC entry 7905 (class 0 OID 25586)
+-- TOC entry 8049 (class 0 OID 25586)
 -- Dependencies: 330
 -- Data for Name: nota_fiscal; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24513,7 +29695,7 @@ COPY public.nota_fiscal (id_nota_fiscal, id_empresa, id_cliente, numero_nf, seri
 
 
 --
--- TOC entry 8054 (class 0 OID 27033)
+-- TOC entry 8198 (class 0 OID 27033)
 -- Dependencies: 491
 -- Data for Name: notificacao; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24523,7 +29705,7 @@ COPY public.notificacao (id_notificacao, id_usuario, titulo, mensagem, tipo, lid
 
 
 --
--- TOC entry 7936 (class 0 OID 25958)
+-- TOC entry 8080 (class 0 OID 25958)
 -- Dependencies: 367
 -- Data for Name: openfinance_conexao; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24533,7 +29715,7 @@ COPY public.openfinance_conexao (id_conexao, id_empresa, instituicao, token_api,
 
 
 --
--- TOC entry 7938 (class 0 OID 25976)
+-- TOC entry 8082 (class 0 OID 25976)
 -- Dependencies: 369
 -- Data for Name: openfinance_movimento; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24543,7 +29725,7 @@ COPY public.openfinance_movimento (id_movimento, id_conexao, data_movimento, des
 
 
 --
--- TOC entry 7962 (class 0 OID 26181)
+-- TOC entry 8106 (class 0 OID 26181)
 -- Dependencies: 393
 -- Data for Name: origem_lead; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24559,7 +29741,7 @@ COPY public.origem_lead (id_origem, codigo, descricao, tipo, ativo, created_at, 
 
 
 --
--- TOC entry 7893 (class 0 OID 25451)
+-- TOC entry 8037 (class 0 OID 25451)
 -- Dependencies: 318
 -- Data for Name: pacote_viagem; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24569,7 +29751,7 @@ COPY public.pacote_viagem (id_pacote, id_produto, codigo_pacote, data_inicio, da
 
 
 --
--- TOC entry 7934 (class 0 OID 25937)
+-- TOC entry 8078 (class 0 OID 25937)
 -- Dependencies: 365
 -- Data for Name: pagamento_transacao; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24579,7 +29761,7 @@ COPY public.pagamento_transacao (id_transacao, id_venda, id_gateway, codigo_tran
 
 
 --
--- TOC entry 8048 (class 0 OID 26986)
+-- TOC entry 8192 (class 0 OID 26986)
 -- Dependencies: 485
 -- Data for Name: parametro_sistema; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24592,7 +29774,7 @@ COPY public.parametro_sistema (id_parametro, codigo, descricao, valor, tipo, gru
 
 
 --
--- TOC entry 7980 (class 0 OID 26347)
+-- TOC entry 8124 (class 0 OID 26347)
 -- Dependencies: 412
 -- Data for Name: parceiro_comercial; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24602,7 +29784,7 @@ COPY public.parceiro_comercial (id_parceiro, nome, documento, telefone, email, p
 
 
 --
--- TOC entry 7897 (class 0 OID 25499)
+-- TOC entry 8041 (class 0 OID 25499)
 -- Dependencies: 322
 -- Data for Name: passageiro; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24612,7 +29794,7 @@ COPY public.passageiro (id_passageiro, id_reserva, nome, cpf, data_nascimento, d
 
 
 --
--- TOC entry 8008 (class 0 OID 26617)
+-- TOC entry 8152 (class 0 OID 26617)
 -- Dependencies: 442
 -- Data for Name: pedido_compra; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24622,7 +29804,7 @@ COPY public.pedido_compra (id_pedido, numero_pedido, id_fornecedor, data_pedido,
 
 
 --
--- TOC entry 7921 (class 0 OID 25827)
+-- TOC entry 8065 (class 0 OID 25827)
 -- Dependencies: 352
 -- Data for Name: perfil_acesso; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24637,7 +29819,7 @@ COPY public.perfil_acesso (id_perfil, codigo, descricao, ativo, created_at, upda
 
 
 --
--- TOC entry 7923 (class 0 OID 25843)
+-- TOC entry 8067 (class 0 OID 25843)
 -- Dependencies: 354
 -- Data for Name: permissao; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24652,7 +29834,7 @@ COPY public.permissao (id_permissao, codigo, descricao, modulo, created_at, upda
 
 
 --
--- TOC entry 7861 (class 0 OID 25108)
+-- TOC entry 8005 (class 0 OID 25108)
 -- Dependencies: 285
 -- Data for Name: pessoa; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24662,7 +29844,7 @@ COPY public.pessoa (id_pessoa, tipo_pessoa, nome_razao_social, nome_fantasia, cp
 
 
 --
--- TOC entry 7869 (class 0 OID 25178)
+-- TOC entry 8013 (class 0 OID 25178)
 -- Dependencies: 293
 -- Data for Name: plano_contas; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24672,7 +29854,7 @@ COPY public.plano_contas (id_conta, codigo, nivel, descricao, id_conta_pai, natu
 
 
 --
--- TOC entry 8100 (class 0 OID 27343)
+-- TOC entry 8244 (class 0 OID 27343)
 -- Dependencies: 540
 -- Data for Name: politica_acesso; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24685,7 +29867,7 @@ COPY public.politica_acesso (id_politica, codigo, descricao, modulo, acao, nivel
 
 
 --
--- TOC entry 7917 (class 0 OID 25731)
+-- TOC entry 8061 (class 0 OID 25731)
 -- Dependencies: 342
 -- Data for Name: pro_labore; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24695,7 +29877,7 @@ COPY public.pro_labore (id_pro_labore, id_empresa, competencia, socio, valor_bru
 
 
 --
--- TOC entry 8002 (class 0 OID 26558)
+-- TOC entry 8146 (class 0 OID 26558)
 -- Dependencies: 436
 -- Data for Name: produto_estoque; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24705,7 +29887,7 @@ COPY public.produto_estoque (id_produto_estoque, codigo, descricao, categoria, u
 
 
 --
--- TOC entry 7891 (class 0 OID 25431)
+-- TOC entry 8035 (class 0 OID 25431)
 -- Dependencies: 316
 -- Data for Name: produto_turistico; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24715,7 +29897,7 @@ COPY public.produto_turistico (id_produto, codigo, nome, tipo_produto, descricao
 
 
 --
--- TOC entry 8034 (class 0 OID 26857)
+-- TOC entry 8178 (class 0 OID 26857)
 -- Dependencies: 470
 -- Data for Name: projeto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24725,7 +29907,7 @@ COPY public.projeto (id_projeto, codigo, nome, descricao, tipo_projeto, data_ini
 
 
 --
--- TOC entry 8102 (class 0 OID 27360)
+-- TOC entry 8246 (class 0 OID 27360)
 -- Dependencies: 542
 -- Data for Name: rastreabilidade; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24735,7 +29917,7 @@ COPY public.rastreabilidade (id_rastreabilidade, origem, evento, referencia, des
 
 
 --
--- TOC entry 8074 (class 0 OID 27190)
+-- TOC entry 8218 (class 0 OID 27190)
 -- Dependencies: 512
 -- Data for Name: rate_limit_api; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24745,7 +29927,7 @@ COPY public.rate_limit_api (id_rate, id_aplicacao, limite_requisicoes, periodo_s
 
 
 --
--- TOC entry 8138 (class 0 OID 27730)
+-- TOC entry 8282 (class 0 OID 27730)
 -- Dependencies: 582
 -- Data for Name: rentabilidade_produto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24756,7 +29938,7 @@ COPY public.rentabilidade_produto (id_rentabilidade, periodo, id_produto_origem,
 
 
 --
--- TOC entry 8004 (class 0 OID 26577)
+-- TOC entry 8148 (class 0 OID 26577)
 -- Dependencies: 438
 -- Data for Name: requisicao_compra; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24766,7 +29948,7 @@ COPY public.requisicao_compra (id_requisicao, numero_requisicao, data_solicitaca
 
 
 --
--- TOC entry 7895 (class 0 OID 25471)
+-- TOC entry 8039 (class 0 OID 25471)
 -- Dependencies: 320
 -- Data for Name: reserva; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24776,7 +29958,7 @@ COPY public.reserva (id_reserva, codigo_reserva, id_cliente, id_pacote, data_res
 
 
 --
--- TOC entry 8040 (class 0 OID 26913)
+-- TOC entry 8184 (class 0 OID 26913)
 -- Dependencies: 476
 -- Data for Name: responsavel_projeto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24786,7 +29968,7 @@ COPY public.responsavel_projeto (id_responsavel, id_projeto, id_colaborador, pap
 
 
 --
--- TOC entry 8044 (class 0 OID 26948)
+-- TOC entry 8188 (class 0 OID 26948)
 -- Dependencies: 480
 -- Data for Name: risco_projeto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24796,7 +29978,7 @@ COPY public.risco_projeto (id_risco, id_projeto, descricao, probabilidade, impac
 
 
 --
--- TOC entry 7948 (class 0 OID 26051)
+-- TOC entry 8092 (class 0 OID 26051)
 -- Dependencies: 379
 -- Data for Name: roteiro_viagem; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24806,7 +29988,7 @@ COPY public.roteiro_viagem (id_roteiro, id_pacote, id_destino, titulo, descricao
 
 
 --
--- TOC entry 8052 (class 0 OID 27021)
+-- TOC entry 8196 (class 0 OID 27021)
 -- Dependencies: 489
 -- Data for Name: sequencia_documento; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24819,7 +30001,7 @@ COPY public.sequencia_documento (id_sequencia, tipo_documento, ano, proximo_nume
 
 
 --
--- TOC entry 7909 (class 0 OID 25624)
+-- TOC entry 8053 (class 0 OID 25624)
 -- Dependencies: 334
 -- Data for Name: simples_nacional; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24829,7 +30011,7 @@ COPY public.simples_nacional (id_simples, id_empresa, ano, anexo, aliquota_efeti
 
 
 --
--- TOC entry 8112 (class 0 OID 27468)
+-- TOC entry 8256 (class 0 OID 27468)
 -- Dependencies: 553
 -- Data for Name: sincronizacao_integracao; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24840,7 +30022,7 @@ COPY public.sincronizacao_integracao (id_sincronizacao, id_conector, tipo_operac
 
 
 --
--- TOC entry 8106 (class 0 OID 27397)
+-- TOC entry 8250 (class 0 OID 27397)
 -- Dependencies: 547
 -- Data for Name: sistema_externo; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24855,7 +30037,7 @@ COPY public.sistema_externo (id_sistema_externo, codigo, nome, tipo_sistema, for
 
 
 --
--- TOC entry 8118 (class 0 OID 27547)
+-- TOC entry 8262 (class 0 OID 27547)
 -- Dependencies: 559
 -- Data for Name: status_integracao; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24868,7 +30050,7 @@ COPY public.status_integracao (id_status_integracao, id_conector, ultima_execuca
 
 
 --
--- TOC entry 8144 (class 0 OID 33438)
+-- TOC entry 8288 (class 0 OID 33438)
 -- Dependencies: 594
 -- Data for Name: status_parcela; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24882,7 +30064,7 @@ COPY public.status_parcela (id_status_parcela, codigo, descricao) FROM stdin;
 
 
 --
--- TOC entry 7875 (class 0 OID 25238)
+-- TOC entry 8019 (class 0 OID 25238)
 -- Dependencies: 299
 -- Data for Name: subcategoria_conta; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24892,7 +30074,7 @@ COPY public.subcategoria_conta (id_subcategoria, id_categoria, codigo, descricao
 
 
 --
--- TOC entry 7986 (class 0 OID 26402)
+-- TOC entry 8130 (class 0 OID 26402)
 -- Dependencies: 418
 -- Data for Name: tarefa; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24902,7 +30084,7 @@ COPY public.tarefa (id_tarefa, titulo, descricao, responsavel, prioridade, statu
 
 
 --
--- TOC entry 8038 (class 0 OID 26892)
+-- TOC entry 8182 (class 0 OID 26892)
 -- Dependencies: 474
 -- Data for Name: tarefa_projeto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24912,7 +30094,7 @@ COPY public.tarefa_projeto (id_tarefa_projeto, id_etapa, titulo, descricao, prio
 
 
 --
--- TOC entry 8020 (class 0 OID 26731)
+-- TOC entry 8164 (class 0 OID 26731)
 -- Dependencies: 455
 -- Data for Name: tipo_documento; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24926,7 +30108,7 @@ COPY public.tipo_documento (id_tipo_documento, codigo, descricao, categoria, pra
 
 
 --
--- TOC entry 8064 (class 0 OID 27109)
+-- TOC entry 8208 (class 0 OID 27109)
 -- Dependencies: 502
 -- Data for Name: token_acesso; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24936,7 +30118,7 @@ COPY public.token_acesso (id_token, id_aplicacao, token_hash, data_criacao, data
 
 
 --
--- TOC entry 7954 (class 0 OID 26112)
+-- TOC entry 8098 (class 0 OID 26112)
 -- Dependencies: 385
 -- Data for Name: transporte; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24946,7 +30128,7 @@ COPY public.transporte (id_transporte, id_fornecedor_turistico, tipo_transporte,
 
 
 --
--- TOC entry 7859 (class 0 OID 25090)
+-- TOC entry 8003 (class 0 OID 25090)
 -- Dependencies: 283
 -- Data for Name: usuario; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24956,7 +30138,7 @@ COPY public.usuario (id_usuario, nome, email, senha_hash, perfil, ativo, created
 
 
 --
--- TOC entry 7924 (class 0 OID 25858)
+-- TOC entry 8068 (class 0 OID 25858)
 -- Dependencies: 355
 -- Data for Name: usuario_perfil; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24966,7 +30148,7 @@ COPY public.usuario_perfil (id_usuario, id_perfil, data_inicio, data_fim) FROM s
 
 
 --
--- TOC entry 7901 (class 0 OID 25540)
+-- TOC entry 8045 (class 0 OID 25540)
 -- Dependencies: 326
 -- Data for Name: venda; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24976,7 +30158,7 @@ COPY public.venda (id_venda, numero_venda, id_cliente, data_venda, valor_bruto, 
 
 
 --
--- TOC entry 8068 (class 0 OID 27147)
+-- TOC entry 8212 (class 0 OID 27147)
 -- Dependencies: 506
 -- Data for Name: webhook; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -24986,7 +30168,7 @@ COPY public.webhook (id_webhook, sistema_origem, evento, url_destino, ativo, ult
 
 
 --
--- TOC entry 8140 (class 0 OID 33262)
+-- TOC entry 8284 (class 0 OID 33262)
 -- Dependencies: 589
 -- Data for Name: workflow; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -25001,7 +30183,7 @@ COPY public.workflow (id_workflow, codigo, nome, descricao, modulo, ativo, creat
 
 
 --
--- TOC entry 8402 (class 0 OID 0)
+-- TOC entry 8578 (class 0 OID 0)
 -- Dependencies: 629
 -- Name: catalogo_coluna_id_coluna_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
 --
@@ -25010,7 +30192,7 @@ SELECT pg_catalog.setval('auditoria.catalogo_coluna_id_coluna_seq', 1, false);
 
 
 --
--- TOC entry 8403 (class 0 OID 0)
+-- TOC entry 8579 (class 0 OID 0)
 -- Dependencies: 625
 -- Name: catalogo_schema_id_schema_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
 --
@@ -25019,7 +30201,7 @@ SELECT pg_catalog.setval('auditoria.catalogo_schema_id_schema_seq', 1, false);
 
 
 --
--- TOC entry 8404 (class 0 OID 0)
+-- TOC entry 8580 (class 0 OID 0)
 -- Dependencies: 627
 -- Name: catalogo_tabela_id_tabela_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
 --
@@ -25028,7 +30210,7 @@ SELECT pg_catalog.setval('auditoria.catalogo_tabela_id_tabela_seq', 1, false);
 
 
 --
--- TOC entry 8405 (class 0 OID 0)
+-- TOC entry 8581 (class 0 OID 0)
 -- Dependencies: 597
 -- Name: categoria_id_categoria_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
 --
@@ -25037,7 +30219,34 @@ SELECT pg_catalog.setval('auditoria.categoria_id_categoria_seq', 8, true);
 
 
 --
--- TOC entry 8406 (class 0 OID 0)
+-- TOC entry 8582 (class 0 OID 0)
+-- Dependencies: 666
+-- Name: colunas_identificadoras_id_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
+--
+
+SELECT pg_catalog.setval('auditoria.colunas_identificadoras_id_seq', 53, true);
+
+
+--
+-- TOC entry 8583 (class 0 OID 0)
+-- Dependencies: 652
+-- Name: colunas_not_null_sem_default_id_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
+--
+
+SELECT pg_catalog.setval('auditoria.colunas_not_null_sem_default_id_seq', 311, true);
+
+
+--
+-- TOC entry 8584 (class 0 OID 0)
+-- Dependencies: 650
+-- Name: colunas_sem_comentario_id_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
+--
+
+SELECT pg_catalog.setval('auditoria.colunas_sem_comentario_id_seq', 2341, true);
+
+
+--
+-- TOC entry 8585 (class 0 OID 0)
 -- Dependencies: 609
 -- Name: configuracao_id_configuracao_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
 --
@@ -25046,7 +30255,7 @@ SELECT pg_catalog.setval('auditoria.configuracao_id_configuracao_seq', 9, true);
 
 
 --
--- TOC entry 8407 (class 0 OID 0)
+-- TOC entry 8586 (class 0 OID 0)
 -- Dependencies: 640
 -- Name: core_id_core_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
 --
@@ -25055,7 +30264,16 @@ SELECT pg_catalog.setval('auditoria.core_id_core_seq', 1, false);
 
 
 --
--- TOC entry 8408 (class 0 OID 0)
+-- TOC entry 8587 (class 0 OID 0)
+-- Dependencies: 642
+-- Name: execucao_correcao_id_execucao_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
+--
+
+SELECT pg_catalog.setval('auditoria.execucao_correcao_id_execucao_seq', 1, true);
+
+
+--
+-- TOC entry 8588 (class 0 OID 0)
 -- Dependencies: 595
 -- Name: execucao_id_execucao_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
 --
@@ -25064,7 +30282,7 @@ SELECT pg_catalog.setval('auditoria.execucao_id_execucao_seq', 1, false);
 
 
 --
--- TOC entry 8409 (class 0 OID 0)
+-- TOC entry 8589 (class 0 OID 0)
 -- Dependencies: 638
 -- Name: executor_id_executor_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
 --
@@ -25073,7 +30291,70 @@ SELECT pg_catalog.setval('auditoria.executor_id_executor_seq', 1, false);
 
 
 --
--- TOC entry 8410 (class 0 OID 0)
+-- TOC entry 8590 (class 0 OID 0)
+-- Dependencies: 654
+-- Name: fks_sem_indice_id_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
+--
+
+SELECT pg_catalog.setval('auditoria.fks_sem_indice_id_seq', 1, false);
+
+
+--
+-- TOC entry 8591 (class 0 OID 0)
+-- Dependencies: 660
+-- Name: indices_potencialmente_duplicados_id_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
+--
+
+SELECT pg_catalog.setval('auditoria.indices_potencialmente_duplicados_id_seq', 1, false);
+
+
+--
+-- TOC entry 8592 (class 0 OID 0)
+-- Dependencies: 656
+-- Name: inventario_constraints_id_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
+--
+
+SELECT pg_catalog.setval('auditoria.inventario_constraints_id_seq', 1092, true);
+
+
+--
+-- TOC entry 8593 (class 0 OID 0)
+-- Dependencies: 664
+-- Name: inventario_identity_id_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
+--
+
+SELECT pg_catalog.setval('auditoria.inventario_identity_id_seq', 27, true);
+
+
+--
+-- TOC entry 8594 (class 0 OID 0)
+-- Dependencies: 658
+-- Name: inventario_indices_id_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
+--
+
+SELECT pg_catalog.setval('auditoria.inventario_indices_id_seq', 336, true);
+
+
+--
+-- TOC entry 8595 (class 0 OID 0)
+-- Dependencies: 662
+-- Name: inventario_sequences_id_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
+--
+
+SELECT pg_catalog.setval('auditoria.inventario_sequences_id_seq', 173, true);
+
+
+--
+-- TOC entry 8596 (class 0 OID 0)
+-- Dependencies: 644
+-- Name: inventario_tabelas_id_inventario_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
+--
+
+SELECT pg_catalog.setval('auditoria.inventario_tabelas_id_inventario_seq', 192, true);
+
+
+--
+-- TOC entry 8597 (class 0 OID 0)
 -- Dependencies: 599
 -- Name: item_id_item_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
 --
@@ -25082,7 +30363,7 @@ SELECT pg_catalog.setval('auditoria.item_id_item_seq', 3, true);
 
 
 --
--- TOC entry 8411 (class 0 OID 0)
+-- TOC entry 8598 (class 0 OID 0)
 -- Dependencies: 635
 -- Name: log_correcao_id_log_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
 --
@@ -25091,7 +30372,7 @@ SELECT pg_catalog.setval('auditoria.log_correcao_id_log_seq', 243, true);
 
 
 --
--- TOC entry 8412 (class 0 OID 0)
+-- TOC entry 8599 (class 0 OID 0)
 -- Dependencies: 607
 -- Name: log_id_log_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
 --
@@ -25100,7 +30381,7 @@ SELECT pg_catalog.setval('auditoria.log_id_log_seq', 1, false);
 
 
 --
--- TOC entry 8413 (class 0 OID 0)
+-- TOC entry 8600 (class 0 OID 0)
 -- Dependencies: 605
 -- Name: recomendacao_id_recomendacao_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
 --
@@ -25109,7 +30390,7 @@ SELECT pg_catalog.setval('auditoria.recomendacao_id_recomendacao_seq', 1, false)
 
 
 --
--- TOC entry 8414 (class 0 OID 0)
+-- TOC entry 8601 (class 0 OID 0)
 -- Dependencies: 623
 -- Name: regra_id_regra_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
 --
@@ -25118,7 +30399,7 @@ SELECT pg_catalog.setval('auditoria.regra_id_regra_seq', 1, false);
 
 
 --
--- TOC entry 8415 (class 0 OID 0)
+-- TOC entry 8602 (class 0 OID 0)
 -- Dependencies: 601
 -- Name: resultado_id_resultado_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
 --
@@ -25127,7 +30408,7 @@ SELECT pg_catalog.setval('auditoria.resultado_id_resultado_seq', 1, false);
 
 
 --
--- TOC entry 8416 (class 0 OID 0)
+-- TOC entry 8603 (class 0 OID 0)
 -- Dependencies: 603
 -- Name: score_id_score_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
 --
@@ -25136,7 +30417,7 @@ SELECT pg_catalog.setval('auditoria.score_id_score_seq', 1, false);
 
 
 --
--- TOC entry 8417 (class 0 OID 0)
+-- TOC entry 8604 (class 0 OID 0)
 -- Dependencies: 621
 -- Name: script_id_script_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
 --
@@ -25145,7 +30426,25 @@ SELECT pg_catalog.setval('auditoria.script_id_script_seq', 10, true);
 
 
 --
--- TOC entry 8418 (class 0 OID 0)
+-- TOC entry 8605 (class 0 OID 0)
+-- Dependencies: 648
+-- Name: tabelas_sem_indices_id_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
+--
+
+SELECT pg_catalog.setval('auditoria.tabelas_sem_indices_id_seq', 1, false);
+
+
+--
+-- TOC entry 8606 (class 0 OID 0)
+-- Dependencies: 646
+-- Name: tabelas_sem_pk_id_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
+--
+
+SELECT pg_catalog.setval('auditoria.tabelas_sem_pk_id_seq', 1, false);
+
+
+--
+-- TOC entry 8607 (class 0 OID 0)
 -- Dependencies: 633
 -- Name: migracao_id_seq; Type: SEQUENCE SET; Schema: config; Owner: postgres
 --
@@ -25154,7 +30453,7 @@ SELECT pg_catalog.setval('config.migracao_id_seq', 1, true);
 
 
 --
--- TOC entry 8419 (class 0 OID 0)
+-- TOC entry 8608 (class 0 OID 0)
 -- Dependencies: 631
 -- Name: versao_banco_id_seq; Type: SEQUENCE SET; Schema: config; Owner: postgres
 --
@@ -25163,7 +30462,7 @@ SELECT pg_catalog.setval('config.versao_banco_id_seq', 1, false);
 
 
 --
--- TOC entry 8420 (class 0 OID 0)
+-- TOC entry 8609 (class 0 OID 0)
 -- Dependencies: 516
 -- Name: dim_cliente_id_cliente_dw_seq; Type: SEQUENCE SET; Schema: dw; Owner: postgres
 --
@@ -25172,7 +30471,7 @@ SELECT pg_catalog.setval('dw.dim_cliente_id_cliente_dw_seq', 1, false);
 
 
 --
--- TOC entry 8421 (class 0 OID 0)
+-- TOC entry 8610 (class 0 OID 0)
 -- Dependencies: 520
 -- Name: dim_destino_id_destino_dw_seq; Type: SEQUENCE SET; Schema: dw; Owner: postgres
 --
@@ -25181,7 +30480,7 @@ SELECT pg_catalog.setval('dw.dim_destino_id_destino_dw_seq', 1, false);
 
 
 --
--- TOC entry 8422 (class 0 OID 0)
+-- TOC entry 8611 (class 0 OID 0)
 -- Dependencies: 522
 -- Name: dim_fornecedor_id_fornecedor_dw_seq; Type: SEQUENCE SET; Schema: dw; Owner: postgres
 --
@@ -25190,7 +30489,7 @@ SELECT pg_catalog.setval('dw.dim_fornecedor_id_fornecedor_dw_seq', 1, false);
 
 
 --
--- TOC entry 8423 (class 0 OID 0)
+-- TOC entry 8612 (class 0 OID 0)
 -- Dependencies: 524
 -- Name: dim_plano_conta_id_conta_dw_seq; Type: SEQUENCE SET; Schema: dw; Owner: postgres
 --
@@ -25199,7 +30498,7 @@ SELECT pg_catalog.setval('dw.dim_plano_conta_id_conta_dw_seq', 1, false);
 
 
 --
--- TOC entry 8424 (class 0 OID 0)
+-- TOC entry 8613 (class 0 OID 0)
 -- Dependencies: 518
 -- Name: dim_produto_turistico_id_produto_dw_seq; Type: SEQUENCE SET; Schema: dw; Owner: postgres
 --
@@ -25208,7 +30507,7 @@ SELECT pg_catalog.setval('dw.dim_produto_turistico_id_produto_dw_seq', 1, false)
 
 
 --
--- TOC entry 8425 (class 0 OID 0)
+-- TOC entry 8614 (class 0 OID 0)
 -- Dependencies: 514
 -- Name: dim_tempo_id_tempo_seq; Type: SEQUENCE SET; Schema: dw; Owner: postgres
 --
@@ -25217,7 +30516,7 @@ SELECT pg_catalog.setval('dw.dim_tempo_id_tempo_seq', 5844, true);
 
 
 --
--- TOC entry 8426 (class 0 OID 0)
+-- TOC entry 8615 (class 0 OID 0)
 -- Dependencies: 528
 -- Name: fato_financeiro_id_financeiro_dw_seq; Type: SEQUENCE SET; Schema: dw; Owner: postgres
 --
@@ -25226,7 +30525,7 @@ SELECT pg_catalog.setval('dw.fato_financeiro_id_financeiro_dw_seq', 1, false);
 
 
 --
--- TOC entry 8427 (class 0 OID 0)
+-- TOC entry 8616 (class 0 OID 0)
 -- Dependencies: 530
 -- Name: fato_marketing_id_marketing_dw_seq; Type: SEQUENCE SET; Schema: dw; Owner: postgres
 --
@@ -25235,7 +30534,7 @@ SELECT pg_catalog.setval('dw.fato_marketing_id_marketing_dw_seq', 1, false);
 
 
 --
--- TOC entry 8428 (class 0 OID 0)
+-- TOC entry 8617 (class 0 OID 0)
 -- Dependencies: 526
 -- Name: fato_vendas_id_venda_dw_seq; Type: SEQUENCE SET; Schema: dw; Owner: postgres
 --
@@ -25244,7 +30543,7 @@ SELECT pg_catalog.setval('dw.fato_vendas_id_venda_dw_seq', 1, false);
 
 
 --
--- TOC entry 8429 (class 0 OID 0)
+-- TOC entry 8618 (class 0 OID 0)
 -- Dependencies: 532
 -- Name: log_etl_id_execucao_seq; Type: SEQUENCE SET; Schema: dw; Owner: postgres
 --
@@ -25253,7 +30552,7 @@ SELECT pg_catalog.setval('dw.log_etl_id_execucao_seq', 1, false);
 
 
 --
--- TOC entry 8430 (class 0 OID 0)
+-- TOC entry 8619 (class 0 OID 0)
 -- Dependencies: 278
 -- Name: anexo_id_anexo_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25262,7 +30561,7 @@ SELECT pg_catalog.setval('financeiro.anexo_id_anexo_seq', 1, false);
 
 
 --
--- TOC entry 8431 (class 0 OID 0)
+-- TOC entry 8620 (class 0 OID 0)
 -- Dependencies: 244
 -- Name: banco_id_banco_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25271,7 +30570,7 @@ SELECT pg_catalog.setval('financeiro.banco_id_banco_seq', 1, false);
 
 
 --
--- TOC entry 8432 (class 0 OID 0)
+-- TOC entry 8621 (class 0 OID 0)
 -- Dependencies: 234
 -- Name: categoria_id_categoria_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25280,7 +30579,7 @@ SELECT pg_catalog.setval('financeiro.categoria_id_categoria_seq', 66, true);
 
 
 --
--- TOC entry 8433 (class 0 OID 0)
+-- TOC entry 8622 (class 0 OID 0)
 -- Dependencies: 242
 -- Name: centro_custo_id_centro_custo_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25289,7 +30588,7 @@ SELECT pg_catalog.setval('financeiro.centro_custo_id_centro_custo_seq', 1, false
 
 
 --
--- TOC entry 8434 (class 0 OID 0)
+-- TOC entry 8623 (class 0 OID 0)
 -- Dependencies: 238
 -- Name: classificacao_id_classificacao_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25298,7 +30597,7 @@ SELECT pg_catalog.setval('financeiro.classificacao_id_classificacao_seq', 1, fal
 
 
 --
--- TOC entry 8435 (class 0 OID 0)
+-- TOC entry 8624 (class 0 OID 0)
 -- Dependencies: 248
 -- Name: cliente_id_cliente_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25307,7 +30606,7 @@ SELECT pg_catalog.setval('financeiro.cliente_id_cliente_seq', 1, false);
 
 
 --
--- TOC entry 8436 (class 0 OID 0)
+-- TOC entry 8625 (class 0 OID 0)
 -- Dependencies: 272
 -- Name: conciliacao_bancaria_id_conciliacao_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25316,7 +30615,7 @@ SELECT pg_catalog.setval('financeiro.conciliacao_bancaria_id_conciliacao_seq', 1
 
 
 --
--- TOC entry 8437 (class 0 OID 0)
+-- TOC entry 8626 (class 0 OID 0)
 -- Dependencies: 254
 -- Name: configuracao_id_configuracao_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25325,7 +30624,7 @@ SELECT pg_catalog.setval('financeiro.configuracao_id_configuracao_seq', 1, false
 
 
 --
--- TOC entry 8438 (class 0 OID 0)
+-- TOC entry 8627 (class 0 OID 0)
 -- Dependencies: 246
 -- Name: conta_bancaria_id_conta_bancaria_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25334,7 +30633,7 @@ SELECT pg_catalog.setval('financeiro.conta_bancaria_id_conta_bancaria_seq', 1, f
 
 
 --
--- TOC entry 8439 (class 0 OID 0)
+-- TOC entry 8628 (class 0 OID 0)
 -- Dependencies: 240
 -- Name: conta_id_conta_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25343,7 +30642,7 @@ SELECT pg_catalog.setval('financeiro.conta_id_conta_seq', 1, false);
 
 
 --
--- TOC entry 8440 (class 0 OID 0)
+-- TOC entry 8629 (class 0 OID 0)
 -- Dependencies: 228
 -- Name: empresa_id_empresa_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25352,7 +30651,7 @@ SELECT pg_catalog.setval('financeiro.empresa_id_empresa_seq', 1, false);
 
 
 --
--- TOC entry 8441 (class 0 OID 0)
+-- TOC entry 8630 (class 0 OID 0)
 -- Dependencies: 252
 -- Name: forma_pagamento_id_forma_pagamento_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25361,7 +30660,7 @@ SELECT pg_catalog.setval('financeiro.forma_pagamento_id_forma_pagamento_seq', 1,
 
 
 --
--- TOC entry 8442 (class 0 OID 0)
+-- TOC entry 8631 (class 0 OID 0)
 -- Dependencies: 250
 -- Name: fornecedor_id_fornecedor_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25370,7 +30669,7 @@ SELECT pg_catalog.setval('financeiro.fornecedor_id_fornecedor_seq', 1, false);
 
 
 --
--- TOC entry 8443 (class 0 OID 0)
+-- TOC entry 8632 (class 0 OID 0)
 -- Dependencies: 232
 -- Name: grupo_id_grupo_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25379,7 +30678,7 @@ SELECT pg_catalog.setval('financeiro.grupo_id_grupo_seq', 16, true);
 
 
 --
--- TOC entry 8444 (class 0 OID 0)
+-- TOC entry 8633 (class 0 OID 0)
 -- Dependencies: 276
 -- Name: historico_lancamento_id_historico_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25388,7 +30687,7 @@ SELECT pg_catalog.setval('financeiro.historico_lancamento_id_historico_seq', 1, 
 
 
 --
--- TOC entry 8445 (class 0 OID 0)
+-- TOC entry 8634 (class 0 OID 0)
 -- Dependencies: 264
 -- Name: lancamento_id_lancamento_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25397,7 +30696,7 @@ SELECT pg_catalog.setval('financeiro.lancamento_id_lancamento_seq', 1, false);
 
 
 --
--- TOC entry 8446 (class 0 OID 0)
+-- TOC entry 8635 (class 0 OID 0)
 -- Dependencies: 266
 -- Name: lancamento_parcela_id_parcela_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25406,7 +30705,7 @@ SELECT pg_catalog.setval('financeiro.lancamento_parcela_id_parcela_seq', 1, fals
 
 
 --
--- TOC entry 8447 (class 0 OID 0)
+-- TOC entry 8636 (class 0 OID 0)
 -- Dependencies: 270
 -- Name: movimentacao_bancaria_id_movimento_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25415,7 +30714,7 @@ SELECT pg_catalog.setval('financeiro.movimentacao_bancaria_id_movimento_seq', 1,
 
 
 --
--- TOC entry 8448 (class 0 OID 0)
+-- TOC entry 8637 (class 0 OID 0)
 -- Dependencies: 268
 -- Name: pagamento_id_pagamento_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25424,7 +30723,7 @@ SELECT pg_catalog.setval('financeiro.pagamento_id_pagamento_seq', 1, false);
 
 
 --
--- TOC entry 8449 (class 0 OID 0)
+-- TOC entry 8638 (class 0 OID 0)
 -- Dependencies: 274
 -- Name: rateio_centro_custo_id_rateio_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25433,7 +30732,7 @@ SELECT pg_catalog.setval('financeiro.rateio_centro_custo_id_rateio_seq', 1, fals
 
 
 --
--- TOC entry 8450 (class 0 OID 0)
+-- TOC entry 8639 (class 0 OID 0)
 -- Dependencies: 258
 -- Name: status_lancamento_id_status_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25442,7 +30741,7 @@ SELECT pg_catalog.setval('financeiro.status_lancamento_id_status_seq', 1, false)
 
 
 --
--- TOC entry 8451 (class 0 OID 0)
+-- TOC entry 8640 (class 0 OID 0)
 -- Dependencies: 236
 -- Name: subcategoria_id_subcategoria_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25451,7 +30750,7 @@ SELECT pg_catalog.setval('financeiro.subcategoria_id_subcategoria_seq', 23, true
 
 
 --
--- TOC entry 8452 (class 0 OID 0)
+-- TOC entry 8641 (class 0 OID 0)
 -- Dependencies: 260
 -- Name: tipo_documento_id_tipo_documento_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25460,7 +30759,7 @@ SELECT pg_catalog.setval('financeiro.tipo_documento_id_tipo_documento_seq', 1, f
 
 
 --
--- TOC entry 8453 (class 0 OID 0)
+-- TOC entry 8642 (class 0 OID 0)
 -- Dependencies: 256
 -- Name: tipo_lancamento_id_tipo_lancamento_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25469,7 +30768,7 @@ SELECT pg_catalog.setval('financeiro.tipo_lancamento_id_tipo_lancamento_seq', 1,
 
 
 --
--- TOC entry 8454 (class 0 OID 0)
+-- TOC entry 8643 (class 0 OID 0)
 -- Dependencies: 262
 -- Name: tipo_movimentacao_id_tipo_movimentacao_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25478,7 +30777,7 @@ SELECT pg_catalog.setval('financeiro.tipo_movimentacao_id_tipo_movimentacao_seq'
 
 
 --
--- TOC entry 8455 (class 0 OID 0)
+-- TOC entry 8644 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: usuario_id_usuario_seq; Type: SEQUENCE SET; Schema: financeiro; Owner: postgres
 --
@@ -25487,7 +30786,7 @@ SELECT pg_catalog.setval('financeiro.usuario_id_usuario_seq', 1, false);
 
 
 --
--- TOC entry 8456 (class 0 OID 0)
+-- TOC entry 8645 (class 0 OID 0)
 -- Dependencies: 415
 -- Name: agenda_id_agenda_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25496,7 +30795,7 @@ SELECT pg_catalog.setval('public.agenda_id_agenda_seq', 1, false);
 
 
 --
--- TOC entry 8457 (class 0 OID 0)
+-- TOC entry 8646 (class 0 OID 0)
 -- Dependencies: 496
 -- Name: agendamento_rotina_id_rotina_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25505,7 +30804,7 @@ SELECT pg_catalog.setval('public.agendamento_rotina_id_rotina_seq', 1, false);
 
 
 --
--- TOC entry 8458 (class 0 OID 0)
+-- TOC entry 8647 (class 0 OID 0)
 -- Dependencies: 481
 -- Name: anexo_projeto_id_anexo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25514,7 +30813,7 @@ SELECT pg_catalog.setval('public.anexo_projeto_id_anexo_seq', 1, false);
 
 
 --
--- TOC entry 8459 (class 0 OID 0)
+-- TOC entry 8648 (class 0 OID 0)
 -- Dependencies: 499
 -- Name: aplicacao_api_id_aplicacao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25523,7 +30822,7 @@ SELECT pg_catalog.setval('public.aplicacao_api_id_aplicacao_seq', 3, true);
 
 
 --
--- TOC entry 8460 (class 0 OID 0)
+-- TOC entry 8649 (class 0 OID 0)
 -- Dependencies: 337
 -- Name: aporte_capital_id_aporte_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25532,7 +30831,7 @@ SELECT pg_catalog.setval('public.aporte_capital_id_aporte_seq', 1, false);
 
 
 --
--- TOC entry 8461 (class 0 OID 0)
+-- TOC entry 8650 (class 0 OID 0)
 -- Dependencies: 537
 -- Name: aprovacao_processo_id_aprovacao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25541,7 +30840,7 @@ SELECT pg_catalog.setval('public.aprovacao_processo_id_aprovacao_seq', 1, false)
 
 
 --
--- TOC entry 8462 (class 0 OID 0)
+-- TOC entry 8651 (class 0 OID 0)
 -- Dependencies: 458
 -- Name: arquivo_digital_id_arquivo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25550,7 +30849,7 @@ SELECT pg_catalog.setval('public.arquivo_digital_id_arquivo_seq', 1, false);
 
 
 --
--- TOC entry 8463 (class 0 OID 0)
+-- TOC entry 8652 (class 0 OID 0)
 -- Dependencies: 462
 -- Name: assinatura_digital_id_assinatura_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25559,7 +30858,7 @@ SELECT pg_catalog.setval('public.assinatura_digital_id_assinatura_seq', 1, false
 
 
 --
--- TOC entry 8464 (class 0 OID 0)
+-- TOC entry 8653 (class 0 OID 0)
 -- Dependencies: 424
 -- Name: ativo_imobilizado_id_ativo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25568,7 +30867,7 @@ SELECT pg_catalog.setval('public.ativo_imobilizado_id_ativo_seq', 1, false);
 
 
 --
--- TOC entry 8465 (class 0 OID 0)
+-- TOC entry 8654 (class 0 OID 0)
 -- Dependencies: 404
 -- Name: avaliacao_pos_viagem_id_avaliacao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25577,7 +30876,7 @@ SELECT pg_catalog.setval('public.avaliacao_pos_viagem_id_avaliacao_seq', 1, fals
 
 
 --
--- TOC entry 8466 (class 0 OID 0)
+-- TOC entry 8655 (class 0 OID 0)
 -- Dependencies: 290
 -- Name: banco_id_banco_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25586,7 +30885,7 @@ SELECT pg_catalog.setval('public.banco_id_banco_seq', 1, false);
 
 
 --
--- TOC entry 8467 (class 0 OID 0)
+-- TOC entry 8656 (class 0 OID 0)
 -- Dependencies: 396
 -- Name: campanha_id_campanha_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25595,7 +30894,7 @@ SELECT pg_catalog.setval('public.campanha_id_campanha_seq', 1, false);
 
 
 --
--- TOC entry 8468 (class 0 OID 0)
+-- TOC entry 8657 (class 0 OID 0)
 -- Dependencies: 407
 -- Name: cargo_id_cargo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25604,7 +30903,7 @@ SELECT pg_catalog.setval('public.cargo_id_cargo_seq', 5, true);
 
 
 --
--- TOC entry 8469 (class 0 OID 0)
+-- TOC entry 8658 (class 0 OID 0)
 -- Dependencies: 422
 -- Name: categoria_ativo_id_categoria_ativo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25613,7 +30912,7 @@ SELECT pg_catalog.setval('public.categoria_ativo_id_categoria_ativo_seq', 5, tru
 
 
 --
--- TOC entry 8470 (class 0 OID 0)
+-- TOC entry 8659 (class 0 OID 0)
 -- Dependencies: 296
 -- Name: categoria_conta_id_categoria_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25622,7 +30921,7 @@ SELECT pg_catalog.setval('public.categoria_conta_id_categoria_seq', 4, true);
 
 
 --
--- TOC entry 8471 (class 0 OID 0)
+-- TOC entry 8660 (class 0 OID 0)
 -- Dependencies: 300
 -- Name: centro_custo_id_centro_custo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25631,7 +30930,7 @@ SELECT pg_catalog.setval('public.centro_custo_id_centro_custo_seq', 5, true);
 
 
 --
--- TOC entry 8472 (class 0 OID 0)
+-- TOC entry 8661 (class 0 OID 0)
 -- Dependencies: 503
 -- Name: chave_api_id_chave_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25640,7 +30939,7 @@ SELECT pg_catalog.setval('public.chave_api_id_chave_seq', 1, false);
 
 
 --
--- TOC entry 8473 (class 0 OID 0)
+-- TOC entry 8662 (class 0 OID 0)
 -- Dependencies: 388
 -- Name: checklist_viagem_id_checklist_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25649,7 +30948,7 @@ SELECT pg_catalog.setval('public.checklist_viagem_id_checklist_seq', 1, false);
 
 
 --
--- TOC entry 8474 (class 0 OID 0)
+-- TOC entry 8663 (class 0 OID 0)
 -- Dependencies: 302
 -- Name: classificacao_dre_id_classificacao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25658,7 +30957,7 @@ SELECT pg_catalog.setval('public.classificacao_dre_id_classificacao_seq', 1, fal
 
 
 --
--- TOC entry 8475 (class 0 OID 0)
+-- TOC entry 8664 (class 0 OID 0)
 -- Dependencies: 286
 -- Name: cliente_id_cliente_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25667,7 +30966,7 @@ SELECT pg_catalog.setval('public.cliente_id_cliente_seq', 1, false);
 
 
 --
--- TOC entry 8476 (class 0 OID 0)
+-- TOC entry 8665 (class 0 OID 0)
 -- Dependencies: 409
 -- Name: colaborador_id_colaborador_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25676,7 +30975,7 @@ SELECT pg_catalog.setval('public.colaborador_id_colaborador_seq', 1, false);
 
 
 --
--- TOC entry 8477 (class 0 OID 0)
+-- TOC entry 8666 (class 0 OID 0)
 -- Dependencies: 413
 -- Name: comissao_colaborador_id_comissao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25685,7 +30984,7 @@ SELECT pg_catalog.setval('public.comissao_colaborador_id_comissao_seq', 1, false
 
 
 --
--- TOC entry 8478 (class 0 OID 0)
+-- TOC entry 8667 (class 0 OID 0)
 -- Dependencies: 323
 -- Name: comissao_id_comissao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25694,7 +30993,7 @@ SELECT pg_catalog.setval('public.comissao_id_comissao_seq', 1, false);
 
 
 --
--- TOC entry 8479 (class 0 OID 0)
+-- TOC entry 8668 (class 0 OID 0)
 -- Dependencies: 313
 -- Name: conciliacao_bancaria_id_conciliacao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25703,7 +31002,7 @@ SELECT pg_catalog.setval('public.conciliacao_bancaria_id_conciliacao_seq', 1, fa
 
 
 --
--- TOC entry 8480 (class 0 OID 0)
+-- TOC entry 8669 (class 0 OID 0)
 -- Dependencies: 548
 -- Name: conector_integracao_id_conector_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25712,7 +31011,7 @@ SELECT pg_catalog.setval('public.conector_integracao_id_conector_seq', 4, true);
 
 
 --
--- TOC entry 8481 (class 0 OID 0)
+-- TOC entry 8670 (class 0 OID 0)
 -- Dependencies: 486
 -- Name: configuracao_empresa_id_configuracao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25721,7 +31020,7 @@ SELECT pg_catalog.setval('public.configuracao_empresa_id_configuracao_seq', 1, f
 
 
 --
--- TOC entry 8482 (class 0 OID 0)
+-- TOC entry 8671 (class 0 OID 0)
 -- Dependencies: 543
 -- Name: conformidade_lgpd_id_lgpd_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25730,7 +31029,7 @@ SELECT pg_catalog.setval('public.conformidade_lgpd_id_lgpd_seq', 2, true);
 
 
 --
--- TOC entry 8483 (class 0 OID 0)
+-- TOC entry 8672 (class 0 OID 0)
 -- Dependencies: 304
 -- Name: conta_bancaria_id_conta_bancaria_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25739,7 +31038,7 @@ SELECT pg_catalog.setval('public.conta_bancaria_id_conta_bancaria_seq', 1, false
 
 
 --
--- TOC entry 8484 (class 0 OID 0)
+-- TOC entry 8673 (class 0 OID 0)
 -- Dependencies: 398
 -- Name: contato_cliente_id_contato_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25748,7 +31047,7 @@ SELECT pg_catalog.setval('public.contato_cliente_id_contato_seq', 1, false);
 
 
 --
--- TOC entry 8485 (class 0 OID 0)
+-- TOC entry 8674 (class 0 OID 0)
 -- Dependencies: 460
 -- Name: contrato_id_contrato_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25757,7 +31056,7 @@ SELECT pg_catalog.setval('public.contrato_id_contrato_seq', 1, false);
 
 
 --
--- TOC entry 8486 (class 0 OID 0)
+-- TOC entry 8675 (class 0 OID 0)
 -- Dependencies: 464
 -- Name: controle_vencimento_documento_id_controle_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25766,7 +31065,7 @@ SELECT pg_catalog.setval('public.controle_vencimento_documento_id_controle_seq',
 
 
 --
--- TOC entry 8487 (class 0 OID 0)
+-- TOC entry 8676 (class 0 OID 0)
 -- Dependencies: 390
 -- Name: custo_pacote_id_custo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25775,7 +31074,7 @@ SELECT pg_catalog.setval('public.custo_pacote_id_custo_seq', 1, false);
 
 
 --
--- TOC entry 8488 (class 0 OID 0)
+-- TOC entry 8677 (class 0 OID 0)
 -- Dependencies: 477
 -- Name: custo_projeto_id_custo_projeto_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25784,7 +31083,7 @@ SELECT pg_catalog.setval('public.custo_projeto_id_custo_projeto_seq', 1, false);
 
 
 --
--- TOC entry 8489 (class 0 OID 0)
+-- TOC entry 8678 (class 0 OID 0)
 -- Dependencies: 335
 -- Name: das_id_das_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25793,7 +31092,7 @@ SELECT pg_catalog.setval('public.das_id_das_seq', 1, false);
 
 
 --
--- TOC entry 8490 (class 0 OID 0)
+-- TOC entry 8679 (class 0 OID 0)
 -- Dependencies: 561
 -- Name: data_mart_execucao_id_execucao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25802,7 +31101,7 @@ SELECT pg_catalog.setval('public.data_mart_execucao_id_execucao_seq', 1, true);
 
 
 --
--- TOC entry 8491 (class 0 OID 0)
+-- TOC entry 8680 (class 0 OID 0)
 -- Dependencies: 343
 -- Name: declaracao_fiscal_id_declaracao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25811,7 +31110,7 @@ SELECT pg_catalog.setval('public.declaracao_fiscal_id_declaracao_seq', 5, true);
 
 
 --
--- TOC entry 8492 (class 0 OID 0)
+-- TOC entry 8681 (class 0 OID 0)
 -- Dependencies: 426
 -- Name: depreciacao_id_depreciacao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25820,7 +31119,7 @@ SELECT pg_catalog.setval('public.depreciacao_id_depreciacao_seq', 1, false);
 
 
 --
--- TOC entry 8493 (class 0 OID 0)
+-- TOC entry 8682 (class 0 OID 0)
 -- Dependencies: 376
 -- Name: destino_id_destino_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25829,7 +31128,7 @@ SELECT pg_catalog.setval('public.destino_id_destino_seq', 1, false);
 
 
 --
--- TOC entry 8494 (class 0 OID 0)
+-- TOC entry 8683 (class 0 OID 0)
 -- Dependencies: 570
 -- Name: dim_cliente_id_dim_cliente_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25838,7 +31137,7 @@ SELECT pg_catalog.setval('public.dim_cliente_id_dim_cliente_seq', 1, false);
 
 
 --
--- TOC entry 8495 (class 0 OID 0)
+-- TOC entry 8684 (class 0 OID 0)
 -- Dependencies: 568
 -- Name: dim_data_id_data_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25847,7 +31146,7 @@ SELECT pg_catalog.setval('public.dim_data_id_data_seq', 4017, true);
 
 
 --
--- TOC entry 8496 (class 0 OID 0)
+-- TOC entry 8685 (class 0 OID 0)
 -- Dependencies: 574
 -- Name: dim_destino_id_dim_destino_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25856,7 +31155,7 @@ SELECT pg_catalog.setval('public.dim_destino_id_dim_destino_seq', 1, false);
 
 
 --
--- TOC entry 8497 (class 0 OID 0)
+-- TOC entry 8686 (class 0 OID 0)
 -- Dependencies: 576
 -- Name: dim_plano_contas_id_dim_plano_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25865,7 +31164,7 @@ SELECT pg_catalog.setval('public.dim_plano_contas_id_dim_plano_seq', 1, false);
 
 
 --
--- TOC entry 8498 (class 0 OID 0)
+-- TOC entry 8687 (class 0 OID 0)
 -- Dependencies: 572
 -- Name: dim_produto_turistico_id_dim_produto_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25874,7 +31173,7 @@ SELECT pg_catalog.setval('public.dim_produto_turistico_id_dim_produto_seq', 1, f
 
 
 --
--- TOC entry 8499 (class 0 OID 0)
+-- TOC entry 8688 (class 0 OID 0)
 -- Dependencies: 339
 -- Name: distribuicao_lucros_id_distribuicao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25883,7 +31182,7 @@ SELECT pg_catalog.setval('public.distribuicao_lucros_id_distribuicao_seq', 1, fa
 
 
 --
--- TOC entry 8500 (class 0 OID 0)
+-- TOC entry 8689 (class 0 OID 0)
 -- Dependencies: 456
 -- Name: documento_id_documento_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25892,7 +31191,7 @@ SELECT pg_catalog.setval('public.documento_id_documento_seq', 1, false);
 
 
 --
--- TOC entry 8501 (class 0 OID 0)
+-- TOC entry 8690 (class 0 OID 0)
 -- Dependencies: 492
 -- Name: email_sistema_id_email_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25901,7 +31200,7 @@ SELECT pg_catalog.setval('public.email_sistema_id_email_seq', 1, false);
 
 
 --
--- TOC entry 8502 (class 0 OID 0)
+-- TOC entry 8691 (class 0 OID 0)
 -- Dependencies: 280
 -- Name: empresa_id_empresa_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25910,7 +31209,7 @@ SELECT pg_catalog.setval('public.empresa_id_empresa_seq', 1, true);
 
 
 --
--- TOC entry 8503 (class 0 OID 0)
+-- TOC entry 8692 (class 0 OID 0)
 -- Dependencies: 445
 -- Name: estoque_id_estoque_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25919,7 +31218,7 @@ SELECT pg_catalog.setval('public.estoque_id_estoque_seq', 1, false);
 
 
 --
--- TOC entry 8504 (class 0 OID 0)
+-- TOC entry 8693 (class 0 OID 0)
 -- Dependencies: 471
 -- Name: etapa_projeto_id_etapa_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25928,7 +31227,7 @@ SELECT pg_catalog.setval('public.etapa_projeto_id_etapa_seq', 1, false);
 
 
 --
--- TOC entry 8505 (class 0 OID 0)
+-- TOC entry 8694 (class 0 OID 0)
 -- Dependencies: 565
 -- Name: fato_financeiro_id_fato_financeiro_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25937,7 +31236,7 @@ SELECT pg_catalog.setval('public.fato_financeiro_id_fato_financeiro_seq', 2, tru
 
 
 --
--- TOC entry 8506 (class 0 OID 0)
+-- TOC entry 8695 (class 0 OID 0)
 -- Dependencies: 563
 -- Name: fato_vendas_id_fato_venda_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25946,7 +31245,7 @@ SELECT pg_catalog.setval('public.fato_vendas_id_fato_venda_seq', 1, true);
 
 
 --
--- TOC entry 8507 (class 0 OID 0)
+-- TOC entry 8696 (class 0 OID 0)
 -- Dependencies: 554
 -- Name: fila_integracao_id_fila_integracao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25955,7 +31254,7 @@ SELECT pg_catalog.setval('public.fila_integracao_id_fila_integracao_seq', 1, tru
 
 
 --
--- TOC entry 8508 (class 0 OID 0)
+-- TOC entry 8697 (class 0 OID 0)
 -- Dependencies: 507
 -- Name: fila_processamento_id_fila_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25964,7 +31263,7 @@ SELECT pg_catalog.setval('public.fila_processamento_id_fila_seq', 1, false);
 
 
 --
--- TOC entry 8509 (class 0 OID 0)
+-- TOC entry 8698 (class 0 OID 0)
 -- Dependencies: 306
 -- Name: forma_pagamento_id_forma_pagamento_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25973,7 +31272,7 @@ SELECT pg_catalog.setval('public.forma_pagamento_id_forma_pagamento_seq', 6, tru
 
 
 --
--- TOC entry 8510 (class 0 OID 0)
+-- TOC entry 8699 (class 0 OID 0)
 -- Dependencies: 288
 -- Name: fornecedor_id_fornecedor_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25982,7 +31281,7 @@ SELECT pg_catalog.setval('public.fornecedor_id_fornecedor_seq', 1, false);
 
 
 --
--- TOC entry 8511 (class 0 OID 0)
+-- TOC entry 8700 (class 0 OID 0)
 -- Dependencies: 380
 -- Name: fornecedor_turistico_id_fornecedor_turistico_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -25991,7 +31290,7 @@ SELECT pg_catalog.setval('public.fornecedor_turistico_id_fornecedor_turistico_se
 
 
 --
--- TOC entry 8512 (class 0 OID 0)
+-- TOC entry 8701 (class 0 OID 0)
 -- Dependencies: 400
 -- Name: funil_vendas_id_funil_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26000,7 +31299,7 @@ SELECT pg_catalog.setval('public.funil_vendas_id_funil_seq', 1, false);
 
 
 --
--- TOC entry 8513 (class 0 OID 0)
+-- TOC entry 8702 (class 0 OID 0)
 -- Dependencies: 362
 -- Name: gateway_pagamento_id_gateway_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26009,7 +31308,7 @@ SELECT pg_catalog.setval('public.gateway_pagamento_id_gateway_seq', 3, true);
 
 
 --
--- TOC entry 8514 (class 0 OID 0)
+-- TOC entry 8703 (class 0 OID 0)
 -- Dependencies: 294
 -- Name: grupo_conta_id_grupo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26018,7 +31317,7 @@ SELECT pg_catalog.setval('public.grupo_conta_id_grupo_seq', 7, true);
 
 
 --
--- TOC entry 8515 (class 0 OID 0)
+-- TOC entry 8704 (class 0 OID 0)
 -- Dependencies: 386
 -- Name: guia_turistico_id_guia_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26027,7 +31326,7 @@ SELECT pg_catalog.setval('public.guia_turistico_id_guia_seq', 1, false);
 
 
 --
--- TOC entry 8516 (class 0 OID 0)
+-- TOC entry 8705 (class 0 OID 0)
 -- Dependencies: 358
 -- Name: historico_alteracao_id_historico_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26036,7 +31335,7 @@ SELECT pg_catalog.setval('public.historico_alteracao_id_historico_seq', 1, false
 
 
 --
--- TOC entry 8517 (class 0 OID 0)
+-- TOC entry 8706 (class 0 OID 0)
 -- Dependencies: 466
 -- Name: historico_documento_id_historico_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26045,7 +31344,7 @@ SELECT pg_catalog.setval('public.historico_documento_id_historico_seq', 1, false
 
 
 --
--- TOC entry 8518 (class 0 OID 0)
+-- TOC entry 8707 (class 0 OID 0)
 -- Dependencies: 419
 -- Name: horas_atividade_id_hora_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26054,7 +31353,7 @@ SELECT pg_catalog.setval('public.horas_atividade_id_hora_seq', 1, false);
 
 
 --
--- TOC entry 8519 (class 0 OID 0)
+-- TOC entry 8708 (class 0 OID 0)
 -- Dependencies: 382
 -- Name: hospedagem_id_hospedagem_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26063,7 +31362,7 @@ SELECT pg_catalog.setval('public.hospedagem_id_hospedagem_seq', 1, false);
 
 
 --
--- TOC entry 8520 (class 0 OID 0)
+-- TOC entry 8709 (class 0 OID 0)
 -- Dependencies: 372
 -- Name: importacao_dados_id_importacao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26072,7 +31371,7 @@ SELECT pg_catalog.setval('public.importacao_dados_id_importacao_seq', 1, false);
 
 
 --
--- TOC entry 8521 (class 0 OID 0)
+-- TOC entry 8710 (class 0 OID 0)
 -- Dependencies: 331
 -- Name: imposto_id_imposto_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26081,7 +31380,7 @@ SELECT pg_catalog.setval('public.imposto_id_imposto_seq', 5, true);
 
 
 --
--- TOC entry 8522 (class 0 OID 0)
+-- TOC entry 8711 (class 0 OID 0)
 -- Dependencies: 370
 -- Name: integracao_nfse_id_integracao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26090,7 +31389,7 @@ SELECT pg_catalog.setval('public.integracao_nfse_id_integracao_seq', 1, false);
 
 
 --
--- TOC entry 8523 (class 0 OID 0)
+-- TOC entry 8712 (class 0 OID 0)
 -- Dependencies: 360
 -- Name: integracao_woocommerce_id_integracao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26099,7 +31398,7 @@ SELECT pg_catalog.setval('public.integracao_woocommerce_id_integracao_seq', 1, f
 
 
 --
--- TOC entry 8524 (class 0 OID 0)
+-- TOC entry 8713 (class 0 OID 0)
 -- Dependencies: 402
 -- Name: interacao_lead_id_interacao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26108,7 +31407,7 @@ SELECT pg_catalog.setval('public.interacao_lead_id_interacao_seq', 1, false);
 
 
 --
--- TOC entry 8525 (class 0 OID 0)
+-- TOC entry 8714 (class 0 OID 0)
 -- Dependencies: 449
 -- Name: inventario_id_inventario_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26117,7 +31416,7 @@ SELECT pg_catalog.setval('public.inventario_id_inventario_seq', 1, false);
 
 
 --
--- TOC entry 8526 (class 0 OID 0)
+-- TOC entry 8715 (class 0 OID 0)
 -- Dependencies: 451
 -- Name: item_inventario_id_item_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26126,7 +31425,7 @@ SELECT pg_catalog.setval('public.item_inventario_id_item_seq', 1, false);
 
 
 --
--- TOC entry 8527 (class 0 OID 0)
+-- TOC entry 8716 (class 0 OID 0)
 -- Dependencies: 443
 -- Name: item_pedido_compra_id_item_pedido_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26135,7 +31434,7 @@ SELECT pg_catalog.setval('public.item_pedido_compra_id_item_pedido_seq', 1, fals
 
 
 --
--- TOC entry 8528 (class 0 OID 0)
+-- TOC entry 8717 (class 0 OID 0)
 -- Dependencies: 439
 -- Name: item_requisicao_id_item_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26144,7 +31443,7 @@ SELECT pg_catalog.setval('public.item_requisicao_id_item_seq', 1, false);
 
 
 --
--- TOC entry 8529 (class 0 OID 0)
+-- TOC entry 8718 (class 0 OID 0)
 -- Dependencies: 327
 -- Name: item_venda_id_item_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26153,7 +31452,7 @@ SELECT pg_catalog.setval('public.item_venda_id_item_seq', 1, false);
 
 
 --
--- TOC entry 8530 (class 0 OID 0)
+-- TOC entry 8719 (class 0 OID 0)
 -- Dependencies: 578
 -- Name: kpi_turismo_id_kpi_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26162,7 +31461,7 @@ SELECT pg_catalog.setval('public.kpi_turismo_id_kpi_seq', 3, true);
 
 
 --
--- TOC entry 8531 (class 0 OID 0)
+-- TOC entry 8720 (class 0 OID 0)
 -- Dependencies: 308
 -- Name: lancamento_financeiro_id_lancamento_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26171,7 +31470,7 @@ SELECT pg_catalog.setval('public.lancamento_financeiro_id_lancamento_seq', 1, fa
 
 
 --
--- TOC entry 8532 (class 0 OID 0)
+-- TOC entry 8721 (class 0 OID 0)
 -- Dependencies: 310
 -- Name: lancamento_parcela_id_parcela_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26180,7 +31479,7 @@ SELECT pg_catalog.setval('public.lancamento_parcela_id_parcela_seq', 1, false);
 
 
 --
--- TOC entry 8533 (class 0 OID 0)
+-- TOC entry 8722 (class 0 OID 0)
 -- Dependencies: 394
 -- Name: lead_id_lead_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26189,7 +31488,7 @@ SELECT pg_catalog.setval('public.lead_id_lead_seq', 1, false);
 
 
 --
--- TOC entry 8534 (class 0 OID 0)
+-- TOC entry 8723 (class 0 OID 0)
 -- Dependencies: 590
 -- Name: localidade_id_localidade_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26198,7 +31497,7 @@ SELECT pg_catalog.setval('public.localidade_id_localidade_seq', 1, true);
 
 
 --
--- TOC entry 8535 (class 0 OID 0)
+-- TOC entry 8724 (class 0 OID 0)
 -- Dependencies: 430
 -- Name: localizacao_ativo_id_localizacao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26207,7 +31506,7 @@ SELECT pg_catalog.setval('public.localizacao_ativo_id_localizacao_seq', 1, false
 
 
 --
--- TOC entry 8536 (class 0 OID 0)
+-- TOC entry 8725 (class 0 OID 0)
 -- Dependencies: 509
 -- Name: log_api_id_log_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26216,7 +31515,7 @@ SELECT pg_catalog.setval('public.log_api_id_log_seq', 1, false);
 
 
 --
--- TOC entry 8537 (class 0 OID 0)
+-- TOC entry 8726 (class 0 OID 0)
 -- Dependencies: 356
 -- Name: log_auditoria_id_log_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26225,7 +31524,7 @@ SELECT pg_catalog.setval('public.log_auditoria_id_log_seq', 1, false);
 
 
 --
--- TOC entry 8538 (class 0 OID 0)
+-- TOC entry 8727 (class 0 OID 0)
 -- Dependencies: 556
 -- Name: log_integracao_detalhado_id_log_integracao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26234,7 +31533,7 @@ SELECT pg_catalog.setval('public.log_integracao_detalhado_id_log_integracao_seq'
 
 
 --
--- TOC entry 8539 (class 0 OID 0)
+-- TOC entry 8728 (class 0 OID 0)
 -- Dependencies: 374
 -- Name: log_integracao_id_log_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26243,7 +31542,7 @@ SELECT pg_catalog.setval('public.log_integracao_id_log_seq', 1, false);
 
 
 --
--- TOC entry 8540 (class 0 OID 0)
+-- TOC entry 8729 (class 0 OID 0)
 -- Dependencies: 494
 -- Name: log_sistema_id_log_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26252,7 +31551,7 @@ SELECT pg_catalog.setval('public.log_sistema_id_log_seq', 1, false);
 
 
 --
--- TOC entry 8541 (class 0 OID 0)
+-- TOC entry 8730 (class 0 OID 0)
 -- Dependencies: 428
 -- Name: manutencao_ativo_id_manutencao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26261,7 +31560,7 @@ SELECT pg_catalog.setval('public.manutencao_ativo_id_manutencao_seq', 1, false);
 
 
 --
--- TOC entry 8542 (class 0 OID 0)
+-- TOC entry 8731 (class 0 OID 0)
 -- Dependencies: 550
 -- Name: mapeamento_campo_integracao_id_mapeamento_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26270,7 +31569,7 @@ SELECT pg_catalog.setval('public.mapeamento_campo_integracao_id_mapeamento_seq',
 
 
 --
--- TOC entry 8543 (class 0 OID 0)
+-- TOC entry 8732 (class 0 OID 0)
 -- Dependencies: 535
 -- Name: modelo_ml_id_modelo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26279,7 +31578,7 @@ SELECT pg_catalog.setval('public.modelo_ml_id_modelo_seq', 1, false);
 
 
 --
--- TOC entry 8544 (class 0 OID 0)
+-- TOC entry 8733 (class 0 OID 0)
 -- Dependencies: 432
 -- Name: movimentacao_ativo_id_movimentacao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26288,7 +31587,7 @@ SELECT pg_catalog.setval('public.movimentacao_ativo_id_movimentacao_seq', 1, fal
 
 
 --
--- TOC entry 8545 (class 0 OID 0)
+-- TOC entry 8734 (class 0 OID 0)
 -- Dependencies: 447
 -- Name: movimento_estoque_id_movimento_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26297,7 +31596,7 @@ SELECT pg_catalog.setval('public.movimento_estoque_id_movimento_seq', 1, false);
 
 
 --
--- TOC entry 8546 (class 0 OID 0)
+-- TOC entry 8735 (class 0 OID 0)
 -- Dependencies: 329
 -- Name: nota_fiscal_id_nota_fiscal_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26306,7 +31605,7 @@ SELECT pg_catalog.setval('public.nota_fiscal_id_nota_fiscal_seq', 1, false);
 
 
 --
--- TOC entry 8547 (class 0 OID 0)
+-- TOC entry 8736 (class 0 OID 0)
 -- Dependencies: 490
 -- Name: notificacao_id_notificacao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26315,7 +31614,7 @@ SELECT pg_catalog.setval('public.notificacao_id_notificacao_seq', 1, false);
 
 
 --
--- TOC entry 8548 (class 0 OID 0)
+-- TOC entry 8737 (class 0 OID 0)
 -- Dependencies: 366
 -- Name: openfinance_conexao_id_conexao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26324,7 +31623,7 @@ SELECT pg_catalog.setval('public.openfinance_conexao_id_conexao_seq', 1, false);
 
 
 --
--- TOC entry 8549 (class 0 OID 0)
+-- TOC entry 8738 (class 0 OID 0)
 -- Dependencies: 368
 -- Name: openfinance_movimento_id_movimento_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26333,7 +31632,7 @@ SELECT pg_catalog.setval('public.openfinance_movimento_id_movimento_seq', 1, fal
 
 
 --
--- TOC entry 8550 (class 0 OID 0)
+-- TOC entry 8739 (class 0 OID 0)
 -- Dependencies: 392
 -- Name: origem_lead_id_origem_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26342,7 +31641,7 @@ SELECT pg_catalog.setval('public.origem_lead_id_origem_seq', 6, true);
 
 
 --
--- TOC entry 8551 (class 0 OID 0)
+-- TOC entry 8740 (class 0 OID 0)
 -- Dependencies: 317
 -- Name: pacote_viagem_id_pacote_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26351,7 +31650,7 @@ SELECT pg_catalog.setval('public.pacote_viagem_id_pacote_seq', 1, false);
 
 
 --
--- TOC entry 8552 (class 0 OID 0)
+-- TOC entry 8741 (class 0 OID 0)
 -- Dependencies: 364
 -- Name: pagamento_transacao_id_transacao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26360,7 +31659,7 @@ SELECT pg_catalog.setval('public.pagamento_transacao_id_transacao_seq', 1, false
 
 
 --
--- TOC entry 8553 (class 0 OID 0)
+-- TOC entry 8742 (class 0 OID 0)
 -- Dependencies: 484
 -- Name: parametro_sistema_id_parametro_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26369,7 +31668,7 @@ SELECT pg_catalog.setval('public.parametro_sistema_id_parametro_seq', 3, true);
 
 
 --
--- TOC entry 8554 (class 0 OID 0)
+-- TOC entry 8743 (class 0 OID 0)
 -- Dependencies: 411
 -- Name: parceiro_comercial_id_parceiro_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26378,7 +31677,7 @@ SELECT pg_catalog.setval('public.parceiro_comercial_id_parceiro_seq', 1, false);
 
 
 --
--- TOC entry 8555 (class 0 OID 0)
+-- TOC entry 8744 (class 0 OID 0)
 -- Dependencies: 321
 -- Name: passageiro_id_passageiro_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26387,7 +31686,7 @@ SELECT pg_catalog.setval('public.passageiro_id_passageiro_seq', 1, false);
 
 
 --
--- TOC entry 8556 (class 0 OID 0)
+-- TOC entry 8745 (class 0 OID 0)
 -- Dependencies: 441
 -- Name: pedido_compra_id_pedido_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26396,7 +31695,7 @@ SELECT pg_catalog.setval('public.pedido_compra_id_pedido_seq', 1, false);
 
 
 --
--- TOC entry 8557 (class 0 OID 0)
+-- TOC entry 8746 (class 0 OID 0)
 -- Dependencies: 351
 -- Name: perfil_acesso_id_perfil_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26405,7 +31704,7 @@ SELECT pg_catalog.setval('public.perfil_acesso_id_perfil_seq', 5, true);
 
 
 --
--- TOC entry 8558 (class 0 OID 0)
+-- TOC entry 8747 (class 0 OID 0)
 -- Dependencies: 353
 -- Name: permissao_id_permissao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26414,7 +31713,7 @@ SELECT pg_catalog.setval('public.permissao_id_permissao_seq', 5, true);
 
 
 --
--- TOC entry 8559 (class 0 OID 0)
+-- TOC entry 8748 (class 0 OID 0)
 -- Dependencies: 284
 -- Name: pessoa_id_pessoa_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26423,7 +31722,7 @@ SELECT pg_catalog.setval('public.pessoa_id_pessoa_seq', 1, false);
 
 
 --
--- TOC entry 8560 (class 0 OID 0)
+-- TOC entry 8749 (class 0 OID 0)
 -- Dependencies: 292
 -- Name: plano_contas_id_conta_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26432,7 +31731,7 @@ SELECT pg_catalog.setval('public.plano_contas_id_conta_seq', 1, false);
 
 
 --
--- TOC entry 8561 (class 0 OID 0)
+-- TOC entry 8750 (class 0 OID 0)
 -- Dependencies: 539
 -- Name: politica_acesso_id_politica_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26441,7 +31740,7 @@ SELECT pg_catalog.setval('public.politica_acesso_id_politica_seq', 3, true);
 
 
 --
--- TOC entry 8562 (class 0 OID 0)
+-- TOC entry 8751 (class 0 OID 0)
 -- Dependencies: 341
 -- Name: pro_labore_id_pro_labore_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26450,7 +31749,7 @@ SELECT pg_catalog.setval('public.pro_labore_id_pro_labore_seq', 1, false);
 
 
 --
--- TOC entry 8563 (class 0 OID 0)
+-- TOC entry 8752 (class 0 OID 0)
 -- Dependencies: 435
 -- Name: produto_estoque_id_produto_estoque_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26459,7 +31758,7 @@ SELECT pg_catalog.setval('public.produto_estoque_id_produto_estoque_seq', 1, fal
 
 
 --
--- TOC entry 8564 (class 0 OID 0)
+-- TOC entry 8753 (class 0 OID 0)
 -- Dependencies: 315
 -- Name: produto_turistico_id_produto_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26468,7 +31767,7 @@ SELECT pg_catalog.setval('public.produto_turistico_id_produto_seq', 1, false);
 
 
 --
--- TOC entry 8565 (class 0 OID 0)
+-- TOC entry 8754 (class 0 OID 0)
 -- Dependencies: 469
 -- Name: projeto_id_projeto_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26477,7 +31776,7 @@ SELECT pg_catalog.setval('public.projeto_id_projeto_seq', 1, false);
 
 
 --
--- TOC entry 8566 (class 0 OID 0)
+-- TOC entry 8755 (class 0 OID 0)
 -- Dependencies: 541
 -- Name: rastreabilidade_id_rastreabilidade_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26486,7 +31785,7 @@ SELECT pg_catalog.setval('public.rastreabilidade_id_rastreabilidade_seq', 1, fal
 
 
 --
--- TOC entry 8567 (class 0 OID 0)
+-- TOC entry 8756 (class 0 OID 0)
 -- Dependencies: 511
 -- Name: rate_limit_api_id_rate_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26495,7 +31794,7 @@ SELECT pg_catalog.setval('public.rate_limit_api_id_rate_seq', 1, false);
 
 
 --
--- TOC entry 8568 (class 0 OID 0)
+-- TOC entry 8757 (class 0 OID 0)
 -- Dependencies: 581
 -- Name: rentabilidade_produto_id_rentabilidade_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26504,7 +31803,7 @@ SELECT pg_catalog.setval('public.rentabilidade_produto_id_rentabilidade_seq', 33
 
 
 --
--- TOC entry 8569 (class 0 OID 0)
+-- TOC entry 8758 (class 0 OID 0)
 -- Dependencies: 437
 -- Name: requisicao_compra_id_requisicao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26513,7 +31812,7 @@ SELECT pg_catalog.setval('public.requisicao_compra_id_requisicao_seq', 1, false)
 
 
 --
--- TOC entry 8570 (class 0 OID 0)
+-- TOC entry 8759 (class 0 OID 0)
 -- Dependencies: 319
 -- Name: reserva_id_reserva_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26522,7 +31821,7 @@ SELECT pg_catalog.setval('public.reserva_id_reserva_seq', 1, false);
 
 
 --
--- TOC entry 8571 (class 0 OID 0)
+-- TOC entry 8760 (class 0 OID 0)
 -- Dependencies: 475
 -- Name: responsavel_projeto_id_responsavel_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26531,7 +31830,7 @@ SELECT pg_catalog.setval('public.responsavel_projeto_id_responsavel_seq', 1, fal
 
 
 --
--- TOC entry 8572 (class 0 OID 0)
+-- TOC entry 8761 (class 0 OID 0)
 -- Dependencies: 479
 -- Name: risco_projeto_id_risco_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26540,7 +31839,7 @@ SELECT pg_catalog.setval('public.risco_projeto_id_risco_seq', 1, false);
 
 
 --
--- TOC entry 8573 (class 0 OID 0)
+-- TOC entry 8762 (class 0 OID 0)
 -- Dependencies: 378
 -- Name: roteiro_viagem_id_roteiro_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26549,7 +31848,7 @@ SELECT pg_catalog.setval('public.roteiro_viagem_id_roteiro_seq', 1, false);
 
 
 --
--- TOC entry 8574 (class 0 OID 0)
+-- TOC entry 8763 (class 0 OID 0)
 -- Dependencies: 488
 -- Name: sequencia_documento_id_sequencia_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26558,7 +31857,7 @@ SELECT pg_catalog.setval('public.sequencia_documento_id_sequencia_seq', 3, true)
 
 
 --
--- TOC entry 8575 (class 0 OID 0)
+-- TOC entry 8764 (class 0 OID 0)
 -- Dependencies: 333
 -- Name: simples_nacional_id_simples_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26567,7 +31866,7 @@ SELECT pg_catalog.setval('public.simples_nacional_id_simples_seq', 1, false);
 
 
 --
--- TOC entry 8576 (class 0 OID 0)
+-- TOC entry 8765 (class 0 OID 0)
 -- Dependencies: 552
 -- Name: sincronizacao_integracao_id_sincronizacao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26576,7 +31875,7 @@ SELECT pg_catalog.setval('public.sincronizacao_integracao_id_sincronizacao_seq',
 
 
 --
--- TOC entry 8577 (class 0 OID 0)
+-- TOC entry 8766 (class 0 OID 0)
 -- Dependencies: 546
 -- Name: sistema_externo_id_sistema_externo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26585,7 +31884,7 @@ SELECT pg_catalog.setval('public.sistema_externo_id_sistema_externo_seq', 5, tru
 
 
 --
--- TOC entry 8578 (class 0 OID 0)
+-- TOC entry 8767 (class 0 OID 0)
 -- Dependencies: 558
 -- Name: status_integracao_id_status_integracao_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26594,7 +31893,7 @@ SELECT pg_catalog.setval('public.status_integracao_id_status_integracao_seq', 3,
 
 
 --
--- TOC entry 8579 (class 0 OID 0)
+-- TOC entry 8768 (class 0 OID 0)
 -- Dependencies: 593
 -- Name: status_parcela_id_status_parcela_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26603,7 +31902,7 @@ SELECT pg_catalog.setval('public.status_parcela_id_status_parcela_seq', 4, true)
 
 
 --
--- TOC entry 8580 (class 0 OID 0)
+-- TOC entry 8769 (class 0 OID 0)
 -- Dependencies: 298
 -- Name: subcategoria_conta_id_subcategoria_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26612,7 +31911,7 @@ SELECT pg_catalog.setval('public.subcategoria_conta_id_subcategoria_seq', 1, fal
 
 
 --
--- TOC entry 8581 (class 0 OID 0)
+-- TOC entry 8770 (class 0 OID 0)
 -- Dependencies: 417
 -- Name: tarefa_id_tarefa_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26621,7 +31920,7 @@ SELECT pg_catalog.setval('public.tarefa_id_tarefa_seq', 1, false);
 
 
 --
--- TOC entry 8582 (class 0 OID 0)
+-- TOC entry 8771 (class 0 OID 0)
 -- Dependencies: 473
 -- Name: tarefa_projeto_id_tarefa_projeto_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26630,7 +31929,7 @@ SELECT pg_catalog.setval('public.tarefa_projeto_id_tarefa_projeto_seq', 1, false
 
 
 --
--- TOC entry 8583 (class 0 OID 0)
+-- TOC entry 8772 (class 0 OID 0)
 -- Dependencies: 454
 -- Name: tipo_documento_id_tipo_documento_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26639,7 +31938,7 @@ SELECT pg_catalog.setval('public.tipo_documento_id_tipo_documento_seq', 4, true)
 
 
 --
--- TOC entry 8584 (class 0 OID 0)
+-- TOC entry 8773 (class 0 OID 0)
 -- Dependencies: 501
 -- Name: token_acesso_id_token_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26648,7 +31947,7 @@ SELECT pg_catalog.setval('public.token_acesso_id_token_seq', 1, false);
 
 
 --
--- TOC entry 8585 (class 0 OID 0)
+-- TOC entry 8774 (class 0 OID 0)
 -- Dependencies: 384
 -- Name: transporte_id_transporte_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26657,7 +31956,7 @@ SELECT pg_catalog.setval('public.transporte_id_transporte_seq', 1, false);
 
 
 --
--- TOC entry 8586 (class 0 OID 0)
+-- TOC entry 8775 (class 0 OID 0)
 -- Dependencies: 282
 -- Name: usuario_id_usuario_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26666,7 +31965,7 @@ SELECT pg_catalog.setval('public.usuario_id_usuario_seq', 1, false);
 
 
 --
--- TOC entry 8587 (class 0 OID 0)
+-- TOC entry 8776 (class 0 OID 0)
 -- Dependencies: 325
 -- Name: venda_id_venda_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26675,7 +31974,7 @@ SELECT pg_catalog.setval('public.venda_id_venda_seq', 1, false);
 
 
 --
--- TOC entry 8588 (class 0 OID 0)
+-- TOC entry 8777 (class 0 OID 0)
 -- Dependencies: 505
 -- Name: webhook_id_webhook_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26684,7 +31983,7 @@ SELECT pg_catalog.setval('public.webhook_id_webhook_seq', 1, false);
 
 
 --
--- TOC entry 8589 (class 0 OID 0)
+-- TOC entry 8778 (class 0 OID 0)
 -- Dependencies: 588
 -- Name: workflow_id_workflow_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -26693,7 +31992,7 @@ SELECT pg_catalog.setval('public.workflow_id_workflow_seq', 6, true);
 
 
 --
--- TOC entry 7275 (class 2606 OID 42145)
+-- TOC entry 7367 (class 2606 OID 42145)
 -- Name: catalogo_coluna catalogo_coluna_pkey; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26702,7 +32001,7 @@ ALTER TABLE ONLY auditoria.catalogo_coluna
 
 
 --
--- TOC entry 7271 (class 2606 OID 41735)
+-- TOC entry 7363 (class 2606 OID 41735)
 -- Name: catalogo_schema catalogo_schema_pkey; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26711,7 +32010,7 @@ ALTER TABLE ONLY auditoria.catalogo_schema
 
 
 --
--- TOC entry 7273 (class 2606 OID 42143)
+-- TOC entry 7365 (class 2606 OID 42143)
 -- Name: catalogo_tabela catalogo_tabela_pkey; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26720,7 +32019,34 @@ ALTER TABLE ONLY auditoria.catalogo_tabela
 
 
 --
--- TOC entry 7293 (class 2606 OID 41868)
+-- TOC entry 7435 (class 2606 OID 42884)
+-- Name: colunas_identificadoras colunas_identificadoras_pkey; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.colunas_identificadoras
+    ADD CONSTRAINT colunas_identificadoras_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 7409 (class 2606 OID 42768)
+-- Name: colunas_not_null_sem_default colunas_not_null_sem_default_pkey; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.colunas_not_null_sem_default
+    ADD CONSTRAINT colunas_not_null_sem_default_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 7405 (class 2606 OID 42751)
+-- Name: colunas_sem_comentario colunas_sem_comentario_pkey; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.colunas_sem_comentario
+    ADD CONSTRAINT colunas_sem_comentario_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 7385 (class 2606 OID 41868)
 -- Name: core core_codigo_key; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26729,7 +32055,7 @@ ALTER TABLE ONLY auditoria.core
 
 
 --
--- TOC entry 7295 (class 2606 OID 41866)
+-- TOC entry 7387 (class 2606 OID 41866)
 -- Name: core core_pkey; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26738,7 +32064,16 @@ ALTER TABLE ONLY auditoria.core
 
 
 --
--- TOC entry 7287 (class 2606 OID 41843)
+-- TOC entry 7389 (class 2606 OID 42681)
+-- Name: execucao_correcao execucao_correcao_pkey; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.execucao_correcao
+    ADD CONSTRAINT execucao_correcao_pkey PRIMARY KEY (id_execucao);
+
+
+--
+-- TOC entry 7379 (class 2606 OID 41843)
 -- Name: executor executor_codigo_key; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26747,7 +32082,7 @@ ALTER TABLE ONLY auditoria.executor
 
 
 --
--- TOC entry 7289 (class 2606 OID 41841)
+-- TOC entry 7381 (class 2606 OID 41841)
 -- Name: executor executor_pkey; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26756,7 +32091,70 @@ ALTER TABLE ONLY auditoria.executor
 
 
 --
--- TOC entry 7283 (class 2606 OID 41798)
+-- TOC entry 7413 (class 2606 OID 42784)
+-- Name: fks_sem_indice fks_sem_indice_pkey; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.fks_sem_indice
+    ADD CONSTRAINT fks_sem_indice_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 7425 (class 2606 OID 42837)
+-- Name: indices_potencialmente_duplicados indices_potencialmente_duplicados_pkey; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.indices_potencialmente_duplicados
+    ADD CONSTRAINT indices_potencialmente_duplicados_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 7417 (class 2606 OID 42802)
+-- Name: inventario_constraints inventario_constraints_pkey; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.inventario_constraints
+    ADD CONSTRAINT inventario_constraints_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 7431 (class 2606 OID 42866)
+-- Name: inventario_identity inventario_identity_pkey; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.inventario_identity
+    ADD CONSTRAINT inventario_identity_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 7421 (class 2606 OID 42819)
+-- Name: inventario_indices inventario_indices_pkey; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.inventario_indices
+    ADD CONSTRAINT inventario_indices_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 7427 (class 2606 OID 42850)
+-- Name: inventario_sequences inventario_sequences_pkey; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.inventario_sequences
+    ADD CONSTRAINT inventario_sequences_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 7393 (class 2606 OID 42704)
+-- Name: inventario_tabelas inventario_tabelas_pkey; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.inventario_tabelas
+    ADD CONSTRAINT inventario_tabelas_pkey PRIMARY KEY (id_inventario);
+
+
+--
+-- TOC entry 7375 (class 2606 OID 41798)
 -- Name: log_correcao log_correcao_pkey; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26765,7 +32163,7 @@ ALTER TABLE ONLY auditoria.log_correcao
 
 
 --
--- TOC entry 7227 (class 2606 OID 41483)
+-- TOC entry 7319 (class 2606 OID 41483)
 -- Name: categoria pk_categoria; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26774,7 +32172,7 @@ ALTER TABLE ONLY auditoria.categoria
 
 
 --
--- TOC entry 7255 (class 2606 OID 41629)
+-- TOC entry 7347 (class 2606 OID 41629)
 -- Name: configuracao pk_configuracao; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26783,7 +32181,7 @@ ALTER TABLE ONLY auditoria.configuracao
 
 
 --
--- TOC entry 7223 (class 2606 OID 41463)
+-- TOC entry 7315 (class 2606 OID 41463)
 -- Name: execucao pk_execucao; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26792,7 +32190,7 @@ ALTER TABLE ONLY auditoria.execucao
 
 
 --
--- TOC entry 7234 (class 2606 OID 41508)
+-- TOC entry 7326 (class 2606 OID 41508)
 -- Name: item pk_item; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26801,7 +32199,7 @@ ALTER TABLE ONLY auditoria.item
 
 
 --
--- TOC entry 7253 (class 2606 OID 41608)
+-- TOC entry 7345 (class 2606 OID 41608)
 -- Name: log pk_log; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26810,7 +32208,7 @@ ALTER TABLE ONLY auditoria.log
 
 
 --
--- TOC entry 7251 (class 2606 OID 41585)
+-- TOC entry 7343 (class 2606 OID 41585)
 -- Name: recomendacao pk_recomendacao; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26819,7 +32217,7 @@ ALTER TABLE ONLY auditoria.recomendacao
 
 
 --
--- TOC entry 7267 (class 2606 OID 41721)
+-- TOC entry 7359 (class 2606 OID 41721)
 -- Name: regra pk_regra; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26828,7 +32226,7 @@ ALTER TABLE ONLY auditoria.regra
 
 
 --
--- TOC entry 7243 (class 2606 OID 41535)
+-- TOC entry 7335 (class 2606 OID 41535)
 -- Name: resultado pk_resultado; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26837,7 +32235,7 @@ ALTER TABLE ONLY auditoria.resultado
 
 
 --
--- TOC entry 7246 (class 2606 OID 41561)
+-- TOC entry 7338 (class 2606 OID 41561)
 -- Name: score pk_score; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26846,7 +32244,7 @@ ALTER TABLE ONLY auditoria.score
 
 
 --
--- TOC entry 7259 (class 2606 OID 41707)
+-- TOC entry 7351 (class 2606 OID 41707)
 -- Name: script pk_script; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26855,7 +32253,7 @@ ALTER TABLE ONLY auditoria.script
 
 
 --
--- TOC entry 7269 (class 2606 OID 41723)
+-- TOC entry 7361 (class 2606 OID 41723)
 -- Name: regra regra_codigo_key; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26864,7 +32262,7 @@ ALTER TABLE ONLY auditoria.regra
 
 
 --
--- TOC entry 7261 (class 2606 OID 41709)
+-- TOC entry 7353 (class 2606 OID 41709)
 -- Name: script script_codigo_key; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26873,7 +32271,25 @@ ALTER TABLE ONLY auditoria.script
 
 
 --
--- TOC entry 7229 (class 2606 OID 41485)
+-- TOC entry 7401 (class 2606 OID 42734)
+-- Name: tabelas_sem_indices tabelas_sem_indices_pkey; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.tabelas_sem_indices
+    ADD CONSTRAINT tabelas_sem_indices_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 7397 (class 2606 OID 42719)
+-- Name: tabelas_sem_pk tabelas_sem_pk_pkey; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.tabelas_sem_pk
+    ADD CONSTRAINT tabelas_sem_pk_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 7321 (class 2606 OID 41485)
 -- Name: categoria uk_categoria_codigo; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26882,7 +32298,7 @@ ALTER TABLE ONLY auditoria.categoria
 
 
 --
--- TOC entry 7257 (class 2606 OID 41631)
+-- TOC entry 7349 (class 2606 OID 41631)
 -- Name: configuracao uk_configuracao; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26891,7 +32307,7 @@ ALTER TABLE ONLY auditoria.configuracao
 
 
 --
--- TOC entry 7236 (class 2606 OID 41510)
+-- TOC entry 7328 (class 2606 OID 41510)
 -- Name: item uk_item_codigo; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -26900,7 +32316,106 @@ ALTER TABLE ONLY auditoria.item
 
 
 --
--- TOC entry 7279 (class 2606 OID 41784)
+-- TOC entry 7437 (class 2606 OID 42886)
+-- Name: colunas_identificadoras uq_coluna_identificadora; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.colunas_identificadoras
+    ADD CONSTRAINT uq_coluna_identificadora UNIQUE (schema_name, table_name, column_name);
+
+
+--
+-- TOC entry 7407 (class 2606 OID 42753)
+-- Name: colunas_sem_comentario uq_coluna_sem_comentario; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.colunas_sem_comentario
+    ADD CONSTRAINT uq_coluna_sem_comentario UNIQUE (schema_name, table_name, column_name);
+
+
+--
+-- TOC entry 7415 (class 2606 OID 42786)
+-- Name: fks_sem_indice uq_fk_sem_indice; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.fks_sem_indice
+    ADD CONSTRAINT uq_fk_sem_indice UNIQUE (schema_name, table_name, constraint_name);
+
+
+--
+-- TOC entry 7419 (class 2606 OID 42804)
+-- Name: inventario_constraints uq_inventario_constraint; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.inventario_constraints
+    ADD CONSTRAINT uq_inventario_constraint UNIQUE (schema_name, table_name, constraint_name);
+
+
+--
+-- TOC entry 7433 (class 2606 OID 42868)
+-- Name: inventario_identity uq_inventario_identity; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.inventario_identity
+    ADD CONSTRAINT uq_inventario_identity UNIQUE (schema_name, table_name, column_name);
+
+
+--
+-- TOC entry 7423 (class 2606 OID 42821)
+-- Name: inventario_indices uq_inventario_indice; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.inventario_indices
+    ADD CONSTRAINT uq_inventario_indice UNIQUE (schema_name, table_name, index_name);
+
+
+--
+-- TOC entry 7429 (class 2606 OID 42852)
+-- Name: inventario_sequences uq_inventario_sequence; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.inventario_sequences
+    ADD CONSTRAINT uq_inventario_sequence UNIQUE (sequence_schema, sequence_name);
+
+
+--
+-- TOC entry 7395 (class 2606 OID 42706)
+-- Name: inventario_tabelas uq_inventario_tabela; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.inventario_tabelas
+    ADD CONSTRAINT uq_inventario_tabela UNIQUE (schema_name, table_name);
+
+
+--
+-- TOC entry 7411 (class 2606 OID 42770)
+-- Name: colunas_not_null_sem_default uq_not_null_sem_default; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.colunas_not_null_sem_default
+    ADD CONSTRAINT uq_not_null_sem_default UNIQUE (schema_name, table_name, column_name);
+
+
+--
+-- TOC entry 7403 (class 2606 OID 42736)
+-- Name: tabelas_sem_indices uq_tabela_sem_indices; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.tabelas_sem_indices
+    ADD CONSTRAINT uq_tabela_sem_indices UNIQUE (schema_name, table_name);
+
+
+--
+-- TOC entry 7399 (class 2606 OID 42721)
+-- Name: tabelas_sem_pk uq_tabela_sem_pk; Type: CONSTRAINT; Schema: auditoria; Owner: postgres
+--
+
+ALTER TABLE ONLY auditoria.tabelas_sem_pk
+    ADD CONSTRAINT uq_tabela_sem_pk UNIQUE (schema_name, table_name);
+
+
+--
+-- TOC entry 7371 (class 2606 OID 41784)
 -- Name: migracao migracao_pkey; Type: CONSTRAINT; Schema: config; Owner: postgres
 --
 
@@ -26909,7 +32424,7 @@ ALTER TABLE ONLY config.migracao
 
 
 --
--- TOC entry 7281 (class 2606 OID 41786)
+-- TOC entry 7373 (class 2606 OID 41786)
 -- Name: migracao migracao_script_key; Type: CONSTRAINT; Schema: config; Owner: postgres
 --
 
@@ -26918,7 +32433,7 @@ ALTER TABLE ONLY config.migracao
 
 
 --
--- TOC entry 7285 (class 2606 OID 41806)
+-- TOC entry 7377 (class 2606 OID 41806)
 -- Name: parametro parametro_pkey; Type: CONSTRAINT; Schema: config; Owner: postgres
 --
 
@@ -26927,7 +32442,7 @@ ALTER TABLE ONLY config.parametro
 
 
 --
--- TOC entry 7277 (class 2606 OID 41772)
+-- TOC entry 7369 (class 2606 OID 41772)
 -- Name: versao_banco versao_banco_pkey; Type: CONSTRAINT; Schema: config; Owner: postgres
 --
 
@@ -26936,7 +32451,7 @@ ALTER TABLE ONLY config.versao_banco
 
 
 --
--- TOC entry 7121 (class 2606 OID 27227)
+-- TOC entry 7213 (class 2606 OID 27227)
 -- Name: dim_cliente dim_cliente_pkey; Type: CONSTRAINT; Schema: dw; Owner: postgres
 --
 
@@ -26945,7 +32460,7 @@ ALTER TABLE ONLY dw.dim_cliente
 
 
 --
--- TOC entry 7125 (class 2606 OID 27245)
+-- TOC entry 7217 (class 2606 OID 27245)
 -- Name: dim_destino dim_destino_pkey; Type: CONSTRAINT; Schema: dw; Owner: postgres
 --
 
@@ -26954,7 +32469,7 @@ ALTER TABLE ONLY dw.dim_destino
 
 
 --
--- TOC entry 7127 (class 2606 OID 27253)
+-- TOC entry 7219 (class 2606 OID 27253)
 -- Name: dim_fornecedor dim_fornecedor_pkey; Type: CONSTRAINT; Schema: dw; Owner: postgres
 --
 
@@ -26963,7 +32478,7 @@ ALTER TABLE ONLY dw.dim_fornecedor
 
 
 --
--- TOC entry 7129 (class 2606 OID 27261)
+-- TOC entry 7221 (class 2606 OID 27261)
 -- Name: dim_plano_conta dim_plano_conta_pkey; Type: CONSTRAINT; Schema: dw; Owner: postgres
 --
 
@@ -26972,7 +32487,7 @@ ALTER TABLE ONLY dw.dim_plano_conta
 
 
 --
--- TOC entry 7123 (class 2606 OID 27235)
+-- TOC entry 7215 (class 2606 OID 27235)
 -- Name: dim_produto_turistico dim_produto_turistico_pkey; Type: CONSTRAINT; Schema: dw; Owner: postgres
 --
 
@@ -26981,7 +32496,7 @@ ALTER TABLE ONLY dw.dim_produto_turistico
 
 
 --
--- TOC entry 7117 (class 2606 OID 27219)
+-- TOC entry 7209 (class 2606 OID 27219)
 -- Name: dim_tempo dim_tempo_data_key; Type: CONSTRAINT; Schema: dw; Owner: postgres
 --
 
@@ -26990,7 +32505,7 @@ ALTER TABLE ONLY dw.dim_tempo
 
 
 --
--- TOC entry 7119 (class 2606 OID 27217)
+-- TOC entry 7211 (class 2606 OID 27217)
 -- Name: dim_tempo dim_tempo_pkey; Type: CONSTRAINT; Schema: dw; Owner: postgres
 --
 
@@ -26999,7 +32514,7 @@ ALTER TABLE ONLY dw.dim_tempo
 
 
 --
--- TOC entry 7133 (class 2606 OID 27278)
+-- TOC entry 7225 (class 2606 OID 27278)
 -- Name: fato_financeiro fato_financeiro_pkey; Type: CONSTRAINT; Schema: dw; Owner: postgres
 --
 
@@ -27008,7 +32523,7 @@ ALTER TABLE ONLY dw.fato_financeiro
 
 
 --
--- TOC entry 7135 (class 2606 OID 27286)
+-- TOC entry 7227 (class 2606 OID 27286)
 -- Name: fato_marketing fato_marketing_pkey; Type: CONSTRAINT; Schema: dw; Owner: postgres
 --
 
@@ -27017,7 +32532,7 @@ ALTER TABLE ONLY dw.fato_marketing
 
 
 --
--- TOC entry 7131 (class 2606 OID 27270)
+-- TOC entry 7223 (class 2606 OID 27270)
 -- Name: fato_vendas fato_vendas_pkey; Type: CONSTRAINT; Schema: dw; Owner: postgres
 --
 
@@ -27026,7 +32541,7 @@ ALTER TABLE ONLY dw.fato_vendas
 
 
 --
--- TOC entry 7137 (class 2606 OID 27296)
+-- TOC entry 7229 (class 2606 OID 27296)
 -- Name: log_etl log_etl_pkey; Type: CONSTRAINT; Schema: dw; Owner: postgres
 --
 
@@ -27035,7 +32550,7 @@ ALTER TABLE ONLY dw.log_etl
 
 
 --
--- TOC entry 6827 (class 2606 OID 25034)
+-- TOC entry 6919 (class 2606 OID 25034)
 -- Name: anexo anexo_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27044,7 +32559,7 @@ ALTER TABLE ONLY financeiro.anexo
 
 
 --
--- TOC entry 6771 (class 2606 OID 24747)
+-- TOC entry 6863 (class 2606 OID 24747)
 -- Name: banco banco_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27053,7 +32568,7 @@ ALTER TABLE ONLY financeiro.banco
 
 
 --
--- TOC entry 6735 (class 2606 OID 24684)
+-- TOC entry 6827 (class 2606 OID 24684)
 -- Name: categoria categoria_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27062,7 +32577,7 @@ ALTER TABLE ONLY financeiro.categoria
 
 
 --
--- TOC entry 6767 (class 2606 OID 24737)
+-- TOC entry 6859 (class 2606 OID 24737)
 -- Name: centro_custo centro_custo_codigo_key; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27071,7 +32586,7 @@ ALTER TABLE ONLY financeiro.centro_custo
 
 
 --
--- TOC entry 6769 (class 2606 OID 24735)
+-- TOC entry 6861 (class 2606 OID 24735)
 -- Name: centro_custo centro_custo_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27080,7 +32595,7 @@ ALTER TABLE ONLY financeiro.centro_custo
 
 
 --
--- TOC entry 6747 (class 2606 OID 24710)
+-- TOC entry 6839 (class 2606 OID 24710)
 -- Name: classificacao classificacao_codigo_key; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27089,7 +32604,7 @@ ALTER TABLE ONLY financeiro.classificacao
 
 
 --
--- TOC entry 6749 (class 2606 OID 24708)
+-- TOC entry 6841 (class 2606 OID 24708)
 -- Name: classificacao classificacao_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27098,7 +32613,7 @@ ALTER TABLE ONLY financeiro.classificacao
 
 
 --
--- TOC entry 6779 (class 2606 OID 24768)
+-- TOC entry 6871 (class 2606 OID 24768)
 -- Name: cliente cliente_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27107,7 +32622,7 @@ ALTER TABLE ONLY financeiro.cliente
 
 
 --
--- TOC entry 6821 (class 2606 OID 25000)
+-- TOC entry 6913 (class 2606 OID 25000)
 -- Name: conciliacao_bancaria conciliacao_bancaria_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27116,7 +32631,7 @@ ALTER TABLE ONLY financeiro.conciliacao_bancaria
 
 
 --
--- TOC entry 6793 (class 2606 OID 24799)
+-- TOC entry 6885 (class 2606 OID 24799)
 -- Name: configuracao configuracao_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27125,7 +32640,7 @@ ALTER TABLE ONLY financeiro.configuracao
 
 
 --
--- TOC entry 6776 (class 2606 OID 24758)
+-- TOC entry 6868 (class 2606 OID 24758)
 -- Name: conta_bancaria conta_bancaria_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27134,7 +32649,7 @@ ALTER TABLE ONLY financeiro.conta_bancaria
 
 
 --
--- TOC entry 6759 (class 2606 OID 24725)
+-- TOC entry 6851 (class 2606 OID 24725)
 -- Name: conta conta_codigo_key; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27143,7 +32658,7 @@ ALTER TABLE ONLY financeiro.conta
 
 
 --
--- TOC entry 6761 (class 2606 OID 24723)
+-- TOC entry 6853 (class 2606 OID 24723)
 -- Name: conta conta_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27152,7 +32667,7 @@ ALTER TABLE ONLY financeiro.conta
 
 
 --
--- TOC entry 6719 (class 2606 OID 24639)
+-- TOC entry 6811 (class 2606 OID 24639)
 -- Name: empresa empresa_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27161,7 +32676,7 @@ ALTER TABLE ONLY financeiro.empresa
 
 
 --
--- TOC entry 6791 (class 2606 OID 24788)
+-- TOC entry 6883 (class 2606 OID 24788)
 -- Name: forma_pagamento forma_pagamento_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27170,7 +32685,7 @@ ALTER TABLE ONLY financeiro.forma_pagamento
 
 
 --
--- TOC entry 6785 (class 2606 OID 24778)
+-- TOC entry 6877 (class 2606 OID 24778)
 -- Name: fornecedor fornecedor_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27179,7 +32694,7 @@ ALTER TABLE ONLY financeiro.fornecedor
 
 
 --
--- TOC entry 6728 (class 2606 OID 24672)
+-- TOC entry 6820 (class 2606 OID 24672)
 -- Name: grupo grupo_codigo_key; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27188,7 +32703,7 @@ ALTER TABLE ONLY financeiro.grupo
 
 
 --
--- TOC entry 6730 (class 2606 OID 24670)
+-- TOC entry 6822 (class 2606 OID 24670)
 -- Name: grupo grupo_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27197,7 +32712,7 @@ ALTER TABLE ONLY financeiro.grupo
 
 
 --
--- TOC entry 6825 (class 2606 OID 25022)
+-- TOC entry 6917 (class 2606 OID 25022)
 -- Name: historico_lancamento historico_lancamento_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27206,7 +32721,7 @@ ALTER TABLE ONLY financeiro.historico_lancamento
 
 
 --
--- TOC entry 6811 (class 2606 OID 24942)
+-- TOC entry 6903 (class 2606 OID 24942)
 -- Name: lancamento lancamento_numero_key; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27215,7 +32730,7 @@ ALTER TABLE ONLY financeiro.lancamento
 
 
 --
--- TOC entry 6815 (class 2606 OID 24957)
+-- TOC entry 6907 (class 2606 OID 24957)
 -- Name: lancamento_parcela lancamento_parcela_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27224,7 +32739,7 @@ ALTER TABLE ONLY financeiro.lancamento_parcela
 
 
 --
--- TOC entry 6813 (class 2606 OID 24940)
+-- TOC entry 6905 (class 2606 OID 24940)
 -- Name: lancamento lancamento_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27233,7 +32748,7 @@ ALTER TABLE ONLY financeiro.lancamento
 
 
 --
--- TOC entry 6819 (class 2606 OID 24988)
+-- TOC entry 6911 (class 2606 OID 24988)
 -- Name: movimentacao_bancaria movimentacao_bancaria_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27242,7 +32757,7 @@ ALTER TABLE ONLY financeiro.movimentacao_bancaria
 
 
 --
--- TOC entry 6817 (class 2606 OID 24976)
+-- TOC entry 6909 (class 2606 OID 24976)
 -- Name: pagamento pagamento_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27251,7 +32766,7 @@ ALTER TABLE ONLY financeiro.pagamento
 
 
 --
--- TOC entry 6823 (class 2606 OID 25010)
+-- TOC entry 6915 (class 2606 OID 25010)
 -- Name: rateio_centro_custo rateio_centro_custo_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27260,7 +32775,7 @@ ALTER TABLE ONLY financeiro.rateio_centro_custo
 
 
 --
--- TOC entry 6799 (class 2606 OID 24890)
+-- TOC entry 6891 (class 2606 OID 24890)
 -- Name: status_lancamento status_lancamento_codigo_key; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27269,7 +32784,7 @@ ALTER TABLE ONLY financeiro.status_lancamento
 
 
 --
--- TOC entry 6801 (class 2606 OID 24888)
+-- TOC entry 6893 (class 2606 OID 24888)
 -- Name: status_lancamento status_lancamento_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27278,7 +32793,7 @@ ALTER TABLE ONLY financeiro.status_lancamento
 
 
 --
--- TOC entry 6743 (class 2606 OID 24696)
+-- TOC entry 6835 (class 2606 OID 24696)
 -- Name: subcategoria subcategoria_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27287,7 +32802,7 @@ ALTER TABLE ONLY financeiro.subcategoria
 
 
 --
--- TOC entry 6803 (class 2606 OID 24901)
+-- TOC entry 6895 (class 2606 OID 24901)
 -- Name: tipo_documento tipo_documento_codigo_key; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27296,7 +32811,7 @@ ALTER TABLE ONLY financeiro.tipo_documento
 
 
 --
--- TOC entry 6805 (class 2606 OID 24899)
+-- TOC entry 6897 (class 2606 OID 24899)
 -- Name: tipo_documento tipo_documento_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27305,7 +32820,7 @@ ALTER TABLE ONLY financeiro.tipo_documento
 
 
 --
--- TOC entry 6795 (class 2606 OID 24879)
+-- TOC entry 6887 (class 2606 OID 24879)
 -- Name: tipo_lancamento tipo_lancamento_codigo_key; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27314,7 +32829,7 @@ ALTER TABLE ONLY financeiro.tipo_lancamento
 
 
 --
--- TOC entry 6797 (class 2606 OID 24877)
+-- TOC entry 6889 (class 2606 OID 24877)
 -- Name: tipo_lancamento tipo_lancamento_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27323,7 +32838,7 @@ ALTER TABLE ONLY financeiro.tipo_lancamento
 
 
 --
--- TOC entry 6807 (class 2606 OID 24912)
+-- TOC entry 6899 (class 2606 OID 24912)
 -- Name: tipo_movimentacao tipo_movimentacao_codigo_key; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27332,7 +32847,7 @@ ALTER TABLE ONLY financeiro.tipo_movimentacao
 
 
 --
--- TOC entry 6809 (class 2606 OID 24910)
+-- TOC entry 6901 (class 2606 OID 24910)
 -- Name: tipo_movimentacao tipo_movimentacao_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27341,7 +32856,7 @@ ALTER TABLE ONLY financeiro.tipo_movimentacao
 
 
 --
--- TOC entry 6774 (class 2606 OID 24854)
+-- TOC entry 6866 (class 2606 OID 24854)
 -- Name: banco uk_banco_codigo; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27350,7 +32865,7 @@ ALTER TABLE ONLY financeiro.banco
 
 
 --
--- TOC entry 6783 (class 2606 OID 24850)
+-- TOC entry 6875 (class 2606 OID 24850)
 -- Name: cliente uk_cliente_documento; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27359,7 +32874,7 @@ ALTER TABLE ONLY financeiro.cliente
 
 
 --
--- TOC entry 6739 (class 2606 OID 24863)
+-- TOC entry 6831 (class 2606 OID 24863)
 -- Name: categoria uk_codigo_categoria; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27368,7 +32883,7 @@ ALTER TABLE ONLY financeiro.categoria
 
 
 --
--- TOC entry 6757 (class 2606 OID 24859)
+-- TOC entry 6849 (class 2606 OID 24859)
 -- Name: classificacao uk_codigo_classificacao; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27377,7 +32892,7 @@ ALTER TABLE ONLY financeiro.classificacao
 
 
 --
--- TOC entry 6765 (class 2606 OID 24857)
+-- TOC entry 6857 (class 2606 OID 24857)
 -- Name: conta uk_codigo_conta; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27386,7 +32901,7 @@ ALTER TABLE ONLY financeiro.conta
 
 
 --
--- TOC entry 6733 (class 2606 OID 24865)
+-- TOC entry 6825 (class 2606 OID 24865)
 -- Name: grupo uk_codigo_grupo; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27395,7 +32910,7 @@ ALTER TABLE ONLY financeiro.grupo
 
 
 --
--- TOC entry 6745 (class 2606 OID 24861)
+-- TOC entry 6837 (class 2606 OID 24861)
 -- Name: subcategoria uk_codigo_subcategoria; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27404,7 +32919,7 @@ ALTER TABLE ONLY financeiro.subcategoria
 
 
 --
--- TOC entry 6722 (class 2606 OID 24848)
+-- TOC entry 6814 (class 2606 OID 24848)
 -- Name: empresa uk_empresa_cnpj; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27413,7 +32928,7 @@ ALTER TABLE ONLY financeiro.empresa
 
 
 --
--- TOC entry 6789 (class 2606 OID 24852)
+-- TOC entry 6881 (class 2606 OID 24852)
 -- Name: fornecedor uk_fornecedor_documento; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27422,7 +32937,7 @@ ALTER TABLE ONLY financeiro.fornecedor
 
 
 --
--- TOC entry 6724 (class 2606 OID 24658)
+-- TOC entry 6816 (class 2606 OID 24658)
 -- Name: usuario usuario_email_key; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27431,7 +32946,7 @@ ALTER TABLE ONLY financeiro.usuario
 
 
 --
--- TOC entry 6726 (class 2606 OID 24656)
+-- TOC entry 6818 (class 2606 OID 24656)
 -- Name: usuario usuario_pkey; Type: CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -27440,7 +32955,7 @@ ALTER TABLE ONLY financeiro.usuario
 
 
 --
--- TOC entry 7001 (class 2606 OID 26394)
+-- TOC entry 7093 (class 2606 OID 26394)
 -- Name: agenda agenda_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27449,7 +32964,7 @@ ALTER TABLE ONLY public.agenda
 
 
 --
--- TOC entry 7097 (class 2606 OID 27085)
+-- TOC entry 7189 (class 2606 OID 27085)
 -- Name: agendamento_rotina agendamento_rotina_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27458,7 +32973,7 @@ ALTER TABLE ONLY public.agendamento_rotina
 
 
 --
--- TOC entry 7099 (class 2606 OID 27083)
+-- TOC entry 7191 (class 2606 OID 27083)
 -- Name: agendamento_rotina agendamento_rotina_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27467,7 +32982,7 @@ ALTER TABLE ONLY public.agendamento_rotina
 
 
 --
--- TOC entry 7079 (class 2606 OID 26975)
+-- TOC entry 7171 (class 2606 OID 26975)
 -- Name: anexo_projeto anexo_projeto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27476,7 +32991,7 @@ ALTER TABLE ONLY public.anexo_projeto
 
 
 --
--- TOC entry 7101 (class 2606 OID 27107)
+-- TOC entry 7193 (class 2606 OID 27107)
 -- Name: aplicacao_api aplicacao_api_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27485,7 +33000,7 @@ ALTER TABLE ONLY public.aplicacao_api
 
 
 --
--- TOC entry 7103 (class 2606 OID 27105)
+-- TOC entry 7195 (class 2606 OID 27105)
 -- Name: aplicacao_api aplicacao_api_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27494,7 +33009,7 @@ ALTER TABLE ONLY public.aplicacao_api
 
 
 --
--- TOC entry 6915 (class 2606 OID 25706)
+-- TOC entry 7007 (class 2606 OID 25706)
 -- Name: aporte_capital aporte_capital_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27503,7 +33018,7 @@ ALTER TABLE ONLY public.aporte_capital
 
 
 --
--- TOC entry 7143 (class 2606 OID 27341)
+-- TOC entry 7235 (class 2606 OID 27341)
 -- Name: aprovacao_processo aprovacao_processo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27512,7 +33027,7 @@ ALTER TABLE ONLY public.aprovacao_processo
 
 
 --
--- TOC entry 7055 (class 2606 OID 26780)
+-- TOC entry 7147 (class 2606 OID 26780)
 -- Name: arquivo_digital arquivo_digital_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27521,7 +33036,7 @@ ALTER TABLE ONLY public.arquivo_digital
 
 
 --
--- TOC entry 7059 (class 2606 OID 26811)
+-- TOC entry 7151 (class 2606 OID 26811)
 -- Name: assinatura_digital assinatura_digital_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27530,7 +33045,7 @@ ALTER TABLE ONLY public.assinatura_digital
 
 
 --
--- TOC entry 7011 (class 2606 OID 26476)
+-- TOC entry 7103 (class 2606 OID 26476)
 -- Name: ativo_imobilizado ativo_imobilizado_codigo_patrimonio_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27539,7 +33054,7 @@ ALTER TABLE ONLY public.ativo_imobilizado
 
 
 --
--- TOC entry 7013 (class 2606 OID 26474)
+-- TOC entry 7105 (class 2606 OID 26474)
 -- Name: ativo_imobilizado ativo_imobilizado_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27548,7 +33063,7 @@ ALTER TABLE ONLY public.ativo_imobilizado
 
 
 --
--- TOC entry 6989 (class 2606 OID 26297)
+-- TOC entry 7081 (class 2606 OID 26297)
 -- Name: avaliacao_pos_viagem avaliacao_pos_viagem_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27557,7 +33072,7 @@ ALTER TABLE ONLY public.avaliacao_pos_viagem
 
 
 --
--- TOC entry 6845 (class 2606 OID 25176)
+-- TOC entry 6937 (class 2606 OID 25176)
 -- Name: banco banco_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27566,7 +33081,7 @@ ALTER TABLE ONLY public.banco
 
 
 --
--- TOC entry 6979 (class 2606 OID 26230)
+-- TOC entry 7071 (class 2606 OID 26230)
 -- Name: campanha campanha_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27575,7 +33090,7 @@ ALTER TABLE ONLY public.campanha
 
 
 --
--- TOC entry 6981 (class 2606 OID 26228)
+-- TOC entry 7073 (class 2606 OID 26228)
 -- Name: campanha campanha_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27584,7 +33099,7 @@ ALTER TABLE ONLY public.campanha
 
 
 --
--- TOC entry 6991 (class 2606 OID 26323)
+-- TOC entry 7083 (class 2606 OID 26323)
 -- Name: cargo cargo_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27593,7 +33108,7 @@ ALTER TABLE ONLY public.cargo
 
 
 --
--- TOC entry 6993 (class 2606 OID 26321)
+-- TOC entry 7085 (class 2606 OID 26321)
 -- Name: cargo cargo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27602,7 +33117,7 @@ ALTER TABLE ONLY public.cargo
 
 
 --
--- TOC entry 7007 (class 2606 OID 26457)
+-- TOC entry 7099 (class 2606 OID 26457)
 -- Name: categoria_ativo categoria_ativo_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27611,7 +33126,7 @@ ALTER TABLE ONLY public.categoria_ativo
 
 
 --
--- TOC entry 7009 (class 2606 OID 26455)
+-- TOC entry 7101 (class 2606 OID 26455)
 -- Name: categoria_ativo categoria_ativo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27620,7 +33135,7 @@ ALTER TABLE ONLY public.categoria_ativo
 
 
 --
--- TOC entry 6855 (class 2606 OID 25231)
+-- TOC entry 6947 (class 2606 OID 25231)
 -- Name: categoria_conta categoria_conta_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27629,7 +33144,7 @@ ALTER TABLE ONLY public.categoria_conta
 
 
 --
--- TOC entry 6857 (class 2606 OID 25229)
+-- TOC entry 6949 (class 2606 OID 25229)
 -- Name: categoria_conta categoria_conta_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27638,7 +33153,7 @@ ALTER TABLE ONLY public.categoria_conta
 
 
 --
--- TOC entry 6863 (class 2606 OID 25272)
+-- TOC entry 6955 (class 2606 OID 25272)
 -- Name: centro_custo centro_custo_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27647,7 +33162,7 @@ ALTER TABLE ONLY public.centro_custo
 
 
 --
--- TOC entry 6865 (class 2606 OID 25270)
+-- TOC entry 6957 (class 2606 OID 25270)
 -- Name: centro_custo centro_custo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27656,7 +33171,7 @@ ALTER TABLE ONLY public.centro_custo
 
 
 --
--- TOC entry 7107 (class 2606 OID 27140)
+-- TOC entry 7199 (class 2606 OID 27140)
 -- Name: chave_api chave_api_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27665,7 +33180,7 @@ ALTER TABLE ONLY public.chave_api
 
 
 --
--- TOC entry 6969 (class 2606 OID 26154)
+-- TOC entry 7061 (class 2606 OID 26154)
 -- Name: checklist_viagem checklist_viagem_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27674,7 +33189,7 @@ ALTER TABLE ONLY public.checklist_viagem
 
 
 --
--- TOC entry 6867 (class 2606 OID 25289)
+-- TOC entry 6959 (class 2606 OID 25289)
 -- Name: classificacao_dre classificacao_dre_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27683,7 +33198,7 @@ ALTER TABLE ONLY public.classificacao_dre
 
 
 --
--- TOC entry 6869 (class 2606 OID 25287)
+-- TOC entry 6961 (class 2606 OID 25287)
 -- Name: classificacao_dre classificacao_dre_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27692,7 +33207,7 @@ ALTER TABLE ONLY public.classificacao_dre
 
 
 --
--- TOC entry 6837 (class 2606 OID 25137)
+-- TOC entry 6929 (class 2606 OID 25137)
 -- Name: cliente cliente_codigo_cliente_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27701,7 +33216,7 @@ ALTER TABLE ONLY public.cliente
 
 
 --
--- TOC entry 6839 (class 2606 OID 25135)
+-- TOC entry 6931 (class 2606 OID 25135)
 -- Name: cliente cliente_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27710,7 +33225,7 @@ ALTER TABLE ONLY public.cliente
 
 
 --
--- TOC entry 6995 (class 2606 OID 26335)
+-- TOC entry 7087 (class 2606 OID 26335)
 -- Name: colaborador colaborador_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27719,7 +33234,7 @@ ALTER TABLE ONLY public.colaborador
 
 
 --
--- TOC entry 6999 (class 2606 OID 26371)
+-- TOC entry 7091 (class 2606 OID 26371)
 -- Name: comissao_colaborador comissao_colaborador_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27728,7 +33243,7 @@ ALTER TABLE ONLY public.comissao_colaborador
 
 
 --
--- TOC entry 6897 (class 2606 OID 25528)
+-- TOC entry 6989 (class 2606 OID 25528)
 -- Name: comissao comissao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27737,7 +33252,7 @@ ALTER TABLE ONLY public.comissao
 
 
 --
--- TOC entry 6881 (class 2606 OID 25414)
+-- TOC entry 6973 (class 2606 OID 25414)
 -- Name: conciliacao_bancaria conciliacao_bancaria_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27746,7 +33261,7 @@ ALTER TABLE ONLY public.conciliacao_bancaria
 
 
 --
--- TOC entry 7157 (class 2606 OID 27437)
+-- TOC entry 7249 (class 2606 OID 27437)
 -- Name: conector_integracao conector_integracao_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27755,7 +33270,7 @@ ALTER TABLE ONLY public.conector_integracao
 
 
 --
--- TOC entry 7159 (class 2606 OID 27435)
+-- TOC entry 7251 (class 2606 OID 27435)
 -- Name: conector_integracao conector_integracao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27764,7 +33279,7 @@ ALTER TABLE ONLY public.conector_integracao
 
 
 --
--- TOC entry 7085 (class 2606 OID 27014)
+-- TOC entry 7177 (class 2606 OID 27014)
 -- Name: configuracao_empresa configuracao_empresa_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27773,7 +33288,7 @@ ALTER TABLE ONLY public.configuracao_empresa
 
 
 --
--- TOC entry 7151 (class 2606 OID 27386)
+-- TOC entry 7243 (class 2606 OID 27386)
 -- Name: conformidade_lgpd conformidade_lgpd_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27782,7 +33297,7 @@ ALTER TABLE ONLY public.conformidade_lgpd
 
 
 --
--- TOC entry 6871 (class 2606 OID 25307)
+-- TOC entry 6963 (class 2606 OID 25307)
 -- Name: conta_bancaria conta_bancaria_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27791,7 +33306,7 @@ ALTER TABLE ONLY public.conta_bancaria
 
 
 --
--- TOC entry 6983 (class 2606 OID 26243)
+-- TOC entry 7075 (class 2606 OID 26243)
 -- Name: contato_cliente contato_cliente_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27800,7 +33315,7 @@ ALTER TABLE ONLY public.contato_cliente
 
 
 --
--- TOC entry 7057 (class 2606 OID 26795)
+-- TOC entry 7149 (class 2606 OID 26795)
 -- Name: contrato contrato_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27809,7 +33324,7 @@ ALTER TABLE ONLY public.contrato
 
 
 --
--- TOC entry 7061 (class 2606 OID 26828)
+-- TOC entry 7153 (class 2606 OID 26828)
 -- Name: controle_vencimento_documento controle_vencimento_documento_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27818,7 +33333,7 @@ ALTER TABLE ONLY public.controle_vencimento_documento
 
 
 --
--- TOC entry 6971 (class 2606 OID 26173)
+-- TOC entry 7063 (class 2606 OID 26173)
 -- Name: custo_pacote custo_pacote_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27827,7 +33342,7 @@ ALTER TABLE ONLY public.custo_pacote
 
 
 --
--- TOC entry 7075 (class 2606 OID 26941)
+-- TOC entry 7167 (class 2606 OID 26941)
 -- Name: custo_projeto custo_projeto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27836,7 +33351,7 @@ ALTER TABLE ONLY public.custo_projeto
 
 
 --
--- TOC entry 6913 (class 2606 OID 25651)
+-- TOC entry 7005 (class 2606 OID 25651)
 -- Name: das das_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27845,7 +33360,7 @@ ALTER TABLE ONLY public.das
 
 
 --
--- TOC entry 7171 (class 2606 OID 27593)
+-- TOC entry 7263 (class 2606 OID 27593)
 -- Name: data_mart_execucao data_mart_execucao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27854,7 +33369,7 @@ ALTER TABLE ONLY public.data_mart_execucao
 
 
 --
--- TOC entry 6921 (class 2606 OID 25780)
+-- TOC entry 7013 (class 2606 OID 25780)
 -- Name: declaracao_fiscal declaracao_fiscal_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27863,7 +33378,7 @@ ALTER TABLE ONLY public.declaracao_fiscal
 
 
 --
--- TOC entry 7015 (class 2606 OID 26493)
+-- TOC entry 7107 (class 2606 OID 26493)
 -- Name: depreciacao depreciacao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27872,7 +33387,7 @@ ALTER TABLE ONLY public.depreciacao
 
 
 --
--- TOC entry 6955 (class 2606 OID 26048)
+-- TOC entry 7047 (class 2606 OID 26048)
 -- Name: destino destino_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27881,7 +33396,7 @@ ALTER TABLE ONLY public.destino
 
 
 --
--- TOC entry 6957 (class 2606 OID 26046)
+-- TOC entry 7049 (class 2606 OID 26046)
 -- Name: destino destino_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27890,7 +33405,7 @@ ALTER TABLE ONLY public.destino
 
 
 --
--- TOC entry 7190 (class 2606 OID 27668)
+-- TOC entry 7282 (class 2606 OID 27668)
 -- Name: dim_cliente dim_cliente_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27899,7 +33414,7 @@ ALTER TABLE ONLY public.dim_cliente
 
 
 --
--- TOC entry 7185 (class 2606 OID 27656)
+-- TOC entry 7277 (class 2606 OID 27656)
 -- Name: dim_data dim_data_data_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27908,7 +33423,7 @@ ALTER TABLE ONLY public.dim_data
 
 
 --
--- TOC entry 7187 (class 2606 OID 27654)
+-- TOC entry 7279 (class 2606 OID 27654)
 -- Name: dim_data dim_data_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27917,7 +33432,7 @@ ALTER TABLE ONLY public.dim_data
 
 
 --
--- TOC entry 7195 (class 2606 OID 27690)
+-- TOC entry 7287 (class 2606 OID 27690)
 -- Name: dim_destino dim_destino_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27926,7 +33441,7 @@ ALTER TABLE ONLY public.dim_destino
 
 
 --
--- TOC entry 7198 (class 2606 OID 27701)
+-- TOC entry 7290 (class 2606 OID 27701)
 -- Name: dim_plano_contas dim_plano_contas_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27935,7 +33450,7 @@ ALTER TABLE ONLY public.dim_plano_contas
 
 
 --
--- TOC entry 7193 (class 2606 OID 27679)
+-- TOC entry 7285 (class 2606 OID 27679)
 -- Name: dim_produto_turistico dim_produto_turistico_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27944,7 +33459,7 @@ ALTER TABLE ONLY public.dim_produto_turistico
 
 
 --
--- TOC entry 6917 (class 2606 OID 25724)
+-- TOC entry 7009 (class 2606 OID 25724)
 -- Name: distribuicao_lucros distribuicao_lucros_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27953,7 +33468,7 @@ ALTER TABLE ONLY public.distribuicao_lucros
 
 
 --
--- TOC entry 7053 (class 2606 OID 26762)
+-- TOC entry 7145 (class 2606 OID 26762)
 -- Name: documento documento_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27962,7 +33477,7 @@ ALTER TABLE ONLY public.documento
 
 
 --
--- TOC entry 7093 (class 2606 OID 27061)
+-- TOC entry 7185 (class 2606 OID 27061)
 -- Name: email_sistema email_sistema_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27971,7 +33486,7 @@ ALTER TABLE ONLY public.email_sistema
 
 
 --
--- TOC entry 6829 (class 2606 OID 25088)
+-- TOC entry 6921 (class 2606 OID 25088)
 -- Name: empresa empresa_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27980,7 +33495,7 @@ ALTER TABLE ONLY public.empresa
 
 
 --
--- TOC entry 7041 (class 2606 OID 26668)
+-- TOC entry 7133 (class 2606 OID 26668)
 -- Name: estoque estoque_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27989,7 +33504,7 @@ ALTER TABLE ONLY public.estoque
 
 
 --
--- TOC entry 7069 (class 2606 OID 26885)
+-- TOC entry 7161 (class 2606 OID 26885)
 -- Name: etapa_projeto etapa_projeto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -27998,7 +33513,7 @@ ALTER TABLE ONLY public.etapa_projeto
 
 
 --
--- TOC entry 7179 (class 2606 OID 27632)
+-- TOC entry 7271 (class 2606 OID 27632)
 -- Name: fato_financeiro fato_financeiro_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28007,7 +33522,7 @@ ALTER TABLE ONLY public.fato_financeiro
 
 
 --
--- TOC entry 7173 (class 2606 OID 27612)
+-- TOC entry 7265 (class 2606 OID 27612)
 -- Name: fato_vendas fato_vendas_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28016,7 +33531,7 @@ ALTER TABLE ONLY public.fato_vendas
 
 
 --
--- TOC entry 7165 (class 2606 OID 27512)
+-- TOC entry 7257 (class 2606 OID 27512)
 -- Name: fila_integracao fila_integracao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28025,7 +33540,7 @@ ALTER TABLE ONLY public.fila_integracao
 
 
 --
--- TOC entry 7111 (class 2606 OID 27171)
+-- TOC entry 7203 (class 2606 OID 27171)
 -- Name: fila_processamento fila_processamento_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28034,7 +33549,7 @@ ALTER TABLE ONLY public.fila_processamento
 
 
 --
--- TOC entry 6873 (class 2606 OID 25328)
+-- TOC entry 6965 (class 2606 OID 25328)
 -- Name: forma_pagamento forma_pagamento_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28043,7 +33558,7 @@ ALTER TABLE ONLY public.forma_pagamento
 
 
 --
--- TOC entry 6875 (class 2606 OID 25326)
+-- TOC entry 6967 (class 2606 OID 25326)
 -- Name: forma_pagamento forma_pagamento_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28052,7 +33567,7 @@ ALTER TABLE ONLY public.forma_pagamento
 
 
 --
--- TOC entry 6841 (class 2606 OID 25157)
+-- TOC entry 6933 (class 2606 OID 25157)
 -- Name: fornecedor fornecedor_codigo_fornecedor_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28061,7 +33576,7 @@ ALTER TABLE ONLY public.fornecedor
 
 
 --
--- TOC entry 6843 (class 2606 OID 25155)
+-- TOC entry 6935 (class 2606 OID 25155)
 -- Name: fornecedor fornecedor_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28070,7 +33585,7 @@ ALTER TABLE ONLY public.fornecedor
 
 
 --
--- TOC entry 6961 (class 2606 OID 26086)
+-- TOC entry 7053 (class 2606 OID 26086)
 -- Name: fornecedor_turistico fornecedor_turistico_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28079,7 +33594,7 @@ ALTER TABLE ONLY public.fornecedor_turistico
 
 
 --
--- TOC entry 6985 (class 2606 OID 26260)
+-- TOC entry 7077 (class 2606 OID 26260)
 -- Name: funil_vendas funil_vendas_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28088,7 +33603,7 @@ ALTER TABLE ONLY public.funil_vendas
 
 
 --
--- TOC entry 6939 (class 2606 OID 25935)
+-- TOC entry 7031 (class 2606 OID 25935)
 -- Name: gateway_pagamento gateway_pagamento_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28097,7 +33612,7 @@ ALTER TABLE ONLY public.gateway_pagamento
 
 
 --
--- TOC entry 6941 (class 2606 OID 25933)
+-- TOC entry 7033 (class 2606 OID 25933)
 -- Name: gateway_pagamento gateway_pagamento_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28106,7 +33621,7 @@ ALTER TABLE ONLY public.gateway_pagamento
 
 
 --
--- TOC entry 6851 (class 2606 OID 25215)
+-- TOC entry 6943 (class 2606 OID 25215)
 -- Name: grupo_conta grupo_conta_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28115,7 +33630,7 @@ ALTER TABLE ONLY public.grupo_conta
 
 
 --
--- TOC entry 6853 (class 2606 OID 25213)
+-- TOC entry 6945 (class 2606 OID 25213)
 -- Name: grupo_conta grupo_conta_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28124,7 +33639,7 @@ ALTER TABLE ONLY public.grupo_conta
 
 
 --
--- TOC entry 6967 (class 2606 OID 26140)
+-- TOC entry 7059 (class 2606 OID 26140)
 -- Name: guia_turistico guia_turistico_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28133,7 +33648,7 @@ ALTER TABLE ONLY public.guia_turistico
 
 
 --
--- TOC entry 6935 (class 2606 OID 25900)
+-- TOC entry 7027 (class 2606 OID 25900)
 -- Name: historico_alteracao historico_alteracao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28142,7 +33657,7 @@ ALTER TABLE ONLY public.historico_alteracao
 
 
 --
--- TOC entry 7063 (class 2606 OID 26845)
+-- TOC entry 7155 (class 2606 OID 26845)
 -- Name: historico_documento historico_documento_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28151,7 +33666,7 @@ ALTER TABLE ONLY public.historico_documento
 
 
 --
--- TOC entry 7005 (class 2606 OID 26431)
+-- TOC entry 7097 (class 2606 OID 26431)
 -- Name: horas_atividade horas_atividade_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28160,7 +33675,7 @@ ALTER TABLE ONLY public.horas_atividade
 
 
 --
--- TOC entry 6963 (class 2606 OID 26105)
+-- TOC entry 7055 (class 2606 OID 26105)
 -- Name: hospedagem hospedagem_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28169,7 +33684,7 @@ ALTER TABLE ONLY public.hospedagem
 
 
 --
--- TOC entry 6951 (class 2606 OID 26018)
+-- TOC entry 7043 (class 2606 OID 26018)
 -- Name: importacao_dados importacao_dados_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28178,7 +33693,7 @@ ALTER TABLE ONLY public.importacao_dados
 
 
 --
--- TOC entry 6907 (class 2606 OID 25622)
+-- TOC entry 6999 (class 2606 OID 25622)
 -- Name: imposto imposto_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28187,7 +33702,7 @@ ALTER TABLE ONLY public.imposto
 
 
 --
--- TOC entry 6909 (class 2606 OID 25620)
+-- TOC entry 7001 (class 2606 OID 25620)
 -- Name: imposto imposto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28196,7 +33711,7 @@ ALTER TABLE ONLY public.imposto
 
 
 --
--- TOC entry 6949 (class 2606 OID 26002)
+-- TOC entry 7041 (class 2606 OID 26002)
 -- Name: integracao_nfse integracao_nfse_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28205,7 +33720,7 @@ ALTER TABLE ONLY public.integracao_nfse
 
 
 --
--- TOC entry 6937 (class 2606 OID 25915)
+-- TOC entry 7029 (class 2606 OID 25915)
 -- Name: integracao_woocommerce integracao_woocommerce_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28214,7 +33729,7 @@ ALTER TABLE ONLY public.integracao_woocommerce
 
 
 --
--- TOC entry 6987 (class 2606 OID 26278)
+-- TOC entry 7079 (class 2606 OID 26278)
 -- Name: interacao_lead interacao_lead_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28223,7 +33738,7 @@ ALTER TABLE ONLY public.interacao_lead
 
 
 --
--- TOC entry 7045 (class 2606 OID 26705)
+-- TOC entry 7137 (class 2606 OID 26705)
 -- Name: inventario inventario_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28232,7 +33747,7 @@ ALTER TABLE ONLY public.inventario
 
 
 --
--- TOC entry 7047 (class 2606 OID 26715)
+-- TOC entry 7139 (class 2606 OID 26715)
 -- Name: item_inventario item_inventario_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28241,7 +33756,7 @@ ALTER TABLE ONLY public.item_inventario
 
 
 --
--- TOC entry 7039 (class 2606 OID 26647)
+-- TOC entry 7131 (class 2606 OID 26647)
 -- Name: item_pedido_compra item_pedido_compra_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28250,7 +33765,7 @@ ALTER TABLE ONLY public.item_pedido_compra
 
 
 --
--- TOC entry 7033 (class 2606 OID 26605)
+-- TOC entry 7125 (class 2606 OID 26605)
 -- Name: item_requisicao item_requisicao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28259,7 +33774,7 @@ ALTER TABLE ONLY public.item_requisicao
 
 
 --
--- TOC entry 6903 (class 2606 OID 25574)
+-- TOC entry 6995 (class 2606 OID 25574)
 -- Name: item_venda item_venda_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28268,7 +33783,7 @@ ALTER TABLE ONLY public.item_venda
 
 
 --
--- TOC entry 7201 (class 2606 OID 27724)
+-- TOC entry 7293 (class 2606 OID 27724)
 -- Name: kpi_turismo kpi_turismo_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28277,7 +33792,7 @@ ALTER TABLE ONLY public.kpi_turismo
 
 
 --
--- TOC entry 7203 (class 2606 OID 27722)
+-- TOC entry 7295 (class 2606 OID 27722)
 -- Name: kpi_turismo kpi_turismo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28286,7 +33801,7 @@ ALTER TABLE ONLY public.kpi_turismo
 
 
 --
--- TOC entry 6877 (class 2606 OID 25348)
+-- TOC entry 6969 (class 2606 OID 25348)
 -- Name: lancamento_financeiro lancamento_financeiro_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28295,7 +33810,7 @@ ALTER TABLE ONLY public.lancamento_financeiro
 
 
 --
--- TOC entry 6879 (class 2606 OID 25390)
+-- TOC entry 6971 (class 2606 OID 25390)
 -- Name: lancamento_parcela lancamento_parcela_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28304,7 +33819,7 @@ ALTER TABLE ONLY public.lancamento_parcela
 
 
 --
--- TOC entry 6977 (class 2606 OID 26210)
+-- TOC entry 7069 (class 2606 OID 26210)
 -- Name: lead lead_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28313,7 +33828,7 @@ ALTER TABLE ONLY public.lead
 
 
 --
--- TOC entry 7211 (class 2606 OID 33401)
+-- TOC entry 7303 (class 2606 OID 33401)
 -- Name: localidade localidade_cidade_uf_pais_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28322,7 +33837,7 @@ ALTER TABLE ONLY public.localidade
 
 
 --
--- TOC entry 7213 (class 2606 OID 33399)
+-- TOC entry 7305 (class 2606 OID 33399)
 -- Name: localidade localidade_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28331,7 +33846,7 @@ ALTER TABLE ONLY public.localidade
 
 
 --
--- TOC entry 7019 (class 2606 OID 26529)
+-- TOC entry 7111 (class 2606 OID 26529)
 -- Name: localizacao_ativo localizacao_ativo_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28340,7 +33855,7 @@ ALTER TABLE ONLY public.localizacao_ativo
 
 
 --
--- TOC entry 7021 (class 2606 OID 26527)
+-- TOC entry 7113 (class 2606 OID 26527)
 -- Name: localizacao_ativo localizacao_ativo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28349,7 +33864,7 @@ ALTER TABLE ONLY public.localizacao_ativo
 
 
 --
--- TOC entry 7113 (class 2606 OID 27182)
+-- TOC entry 7205 (class 2606 OID 27182)
 -- Name: log_api log_api_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28358,7 +33873,7 @@ ALTER TABLE ONLY public.log_api
 
 
 --
--- TOC entry 6933 (class 2606 OID 25888)
+-- TOC entry 7025 (class 2606 OID 25888)
 -- Name: log_auditoria log_auditoria_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28367,7 +33882,7 @@ ALTER TABLE ONLY public.log_auditoria
 
 
 --
--- TOC entry 7167 (class 2606 OID 27535)
+-- TOC entry 7259 (class 2606 OID 27535)
 -- Name: log_integracao_detalhado log_integracao_detalhado_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28376,7 +33891,7 @@ ALTER TABLE ONLY public.log_integracao_detalhado
 
 
 --
--- TOC entry 6953 (class 2606 OID 26029)
+-- TOC entry 7045 (class 2606 OID 26029)
 -- Name: log_integracao log_integracao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28385,7 +33900,7 @@ ALTER TABLE ONLY public.log_integracao
 
 
 --
--- TOC entry 7095 (class 2606 OID 27072)
+-- TOC entry 7187 (class 2606 OID 27072)
 -- Name: log_sistema log_sistema_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28394,7 +33909,7 @@ ALTER TABLE ONLY public.log_sistema
 
 
 --
--- TOC entry 7017 (class 2606 OID 26511)
+-- TOC entry 7109 (class 2606 OID 26511)
 -- Name: manutencao_ativo manutencao_ativo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28403,7 +33918,7 @@ ALTER TABLE ONLY public.manutencao_ativo
 
 
 --
--- TOC entry 7161 (class 2606 OID 27461)
+-- TOC entry 7253 (class 2606 OID 27461)
 -- Name: mapeamento_campo_integracao mapeamento_campo_integracao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28412,7 +33927,7 @@ ALTER TABLE ONLY public.mapeamento_campo_integracao
 
 
 --
--- TOC entry 7139 (class 2606 OID 27322)
+-- TOC entry 7231 (class 2606 OID 27322)
 -- Name: modelo_ml modelo_ml_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28421,7 +33936,7 @@ ALTER TABLE ONLY public.modelo_ml
 
 
 --
--- TOC entry 7141 (class 2606 OID 27320)
+-- TOC entry 7233 (class 2606 OID 27320)
 -- Name: modelo_ml modelo_ml_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28430,7 +33945,7 @@ ALTER TABLE ONLY public.modelo_ml
 
 
 --
--- TOC entry 7023 (class 2606 OID 26541)
+-- TOC entry 7115 (class 2606 OID 26541)
 -- Name: movimentacao_ativo movimentacao_ativo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28439,7 +33954,7 @@ ALTER TABLE ONLY public.movimentacao_ativo
 
 
 --
--- TOC entry 7043 (class 2606 OID 26687)
+-- TOC entry 7135 (class 2606 OID 26687)
 -- Name: movimento_estoque movimento_estoque_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28448,7 +33963,7 @@ ALTER TABLE ONLY public.movimento_estoque
 
 
 --
--- TOC entry 6905 (class 2606 OID 25600)
+-- TOC entry 6997 (class 2606 OID 25600)
 -- Name: nota_fiscal nota_fiscal_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28457,7 +33972,7 @@ ALTER TABLE ONLY public.nota_fiscal
 
 
 --
--- TOC entry 7091 (class 2606 OID 27044)
+-- TOC entry 7183 (class 2606 OID 27044)
 -- Name: notificacao notificacao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28466,7 +33981,7 @@ ALTER TABLE ONLY public.notificacao
 
 
 --
--- TOC entry 6945 (class 2606 OID 25969)
+-- TOC entry 7037 (class 2606 OID 25969)
 -- Name: openfinance_conexao openfinance_conexao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28475,7 +33990,7 @@ ALTER TABLE ONLY public.openfinance_conexao
 
 
 --
--- TOC entry 6947 (class 2606 OID 25984)
+-- TOC entry 7039 (class 2606 OID 25984)
 -- Name: openfinance_movimento openfinance_movimento_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28484,7 +33999,7 @@ ALTER TABLE ONLY public.openfinance_movimento
 
 
 --
--- TOC entry 6973 (class 2606 OID 26195)
+-- TOC entry 7065 (class 2606 OID 26195)
 -- Name: origem_lead origem_lead_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28493,7 +34008,7 @@ ALTER TABLE ONLY public.origem_lead
 
 
 --
--- TOC entry 6975 (class 2606 OID 26193)
+-- TOC entry 7067 (class 2606 OID 26193)
 -- Name: origem_lead origem_lead_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28502,7 +34017,7 @@ ALTER TABLE ONLY public.origem_lead
 
 
 --
--- TOC entry 6887 (class 2606 OID 25464)
+-- TOC entry 6979 (class 2606 OID 25464)
 -- Name: pacote_viagem pacote_viagem_codigo_pacote_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28511,7 +34026,7 @@ ALTER TABLE ONLY public.pacote_viagem
 
 
 --
--- TOC entry 6889 (class 2606 OID 25462)
+-- TOC entry 6981 (class 2606 OID 25462)
 -- Name: pacote_viagem pacote_viagem_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28520,7 +34035,7 @@ ALTER TABLE ONLY public.pacote_viagem
 
 
 --
--- TOC entry 6943 (class 2606 OID 25946)
+-- TOC entry 7035 (class 2606 OID 25946)
 -- Name: pagamento_transacao pagamento_transacao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28529,7 +34044,7 @@ ALTER TABLE ONLY public.pagamento_transacao
 
 
 --
--- TOC entry 7081 (class 2606 OID 27001)
+-- TOC entry 7173 (class 2606 OID 27001)
 -- Name: parametro_sistema parametro_sistema_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28538,7 +34053,7 @@ ALTER TABLE ONLY public.parametro_sistema
 
 
 --
--- TOC entry 7083 (class 2606 OID 26999)
+-- TOC entry 7175 (class 2606 OID 26999)
 -- Name: parametro_sistema parametro_sistema_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28547,7 +34062,7 @@ ALTER TABLE ONLY public.parametro_sistema
 
 
 --
--- TOC entry 6997 (class 2606 OID 26359)
+-- TOC entry 7089 (class 2606 OID 26359)
 -- Name: parceiro_comercial parceiro_comercial_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28556,7 +34071,7 @@ ALTER TABLE ONLY public.parceiro_comercial
 
 
 --
--- TOC entry 6895 (class 2606 OID 25511)
+-- TOC entry 6987 (class 2606 OID 25511)
 -- Name: passageiro passageiro_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28565,7 +34080,7 @@ ALTER TABLE ONLY public.passageiro
 
 
 --
--- TOC entry 7035 (class 2606 OID 26630)
+-- TOC entry 7127 (class 2606 OID 26630)
 -- Name: pedido_compra pedido_compra_numero_pedido_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28574,7 +34089,7 @@ ALTER TABLE ONLY public.pedido_compra
 
 
 --
--- TOC entry 7037 (class 2606 OID 26628)
+-- TOC entry 7129 (class 2606 OID 26628)
 -- Name: pedido_compra pedido_compra_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28583,7 +34098,7 @@ ALTER TABLE ONLY public.pedido_compra
 
 
 --
--- TOC entry 6923 (class 2606 OID 25841)
+-- TOC entry 7015 (class 2606 OID 25841)
 -- Name: perfil_acesso perfil_acesso_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28592,7 +34107,7 @@ ALTER TABLE ONLY public.perfil_acesso
 
 
 --
--- TOC entry 6925 (class 2606 OID 25839)
+-- TOC entry 7017 (class 2606 OID 25839)
 -- Name: perfil_acesso perfil_acesso_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28601,7 +34116,7 @@ ALTER TABLE ONLY public.perfil_acesso
 
 
 --
--- TOC entry 6927 (class 2606 OID 25857)
+-- TOC entry 7019 (class 2606 OID 25857)
 -- Name: permissao permissao_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28610,7 +34125,7 @@ ALTER TABLE ONLY public.permissao
 
 
 --
--- TOC entry 6929 (class 2606 OID 25855)
+-- TOC entry 7021 (class 2606 OID 25855)
 -- Name: permissao permissao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28619,7 +34134,7 @@ ALTER TABLE ONLY public.permissao
 
 
 --
--- TOC entry 6835 (class 2606 OID 25121)
+-- TOC entry 6927 (class 2606 OID 25121)
 -- Name: pessoa pessoa_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28628,7 +34143,7 @@ ALTER TABLE ONLY public.pessoa
 
 
 --
--- TOC entry 6847 (class 2606 OID 25193)
+-- TOC entry 6939 (class 2606 OID 25193)
 -- Name: plano_contas plano_contas_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28637,7 +34152,7 @@ ALTER TABLE ONLY public.plano_contas
 
 
 --
--- TOC entry 6849 (class 2606 OID 25191)
+-- TOC entry 6941 (class 2606 OID 25191)
 -- Name: plano_contas plano_contas_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28646,7 +34161,7 @@ ALTER TABLE ONLY public.plano_contas
 
 
 --
--- TOC entry 7145 (class 2606 OID 27358)
+-- TOC entry 7237 (class 2606 OID 27358)
 -- Name: politica_acesso politica_acesso_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28655,7 +34170,7 @@ ALTER TABLE ONLY public.politica_acesso
 
 
 --
--- TOC entry 7147 (class 2606 OID 27356)
+-- TOC entry 7239 (class 2606 OID 27356)
 -- Name: politica_acesso politica_acesso_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28664,7 +34179,7 @@ ALTER TABLE ONLY public.politica_acesso
 
 
 --
--- TOC entry 6919 (class 2606 OID 25740)
+-- TOC entry 7011 (class 2606 OID 25740)
 -- Name: pro_labore pro_labore_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28673,7 +34188,7 @@ ALTER TABLE ONLY public.pro_labore
 
 
 --
--- TOC entry 7025 (class 2606 OID 26575)
+-- TOC entry 7117 (class 2606 OID 26575)
 -- Name: produto_estoque produto_estoque_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28682,7 +34197,7 @@ ALTER TABLE ONLY public.produto_estoque
 
 
 --
--- TOC entry 7027 (class 2606 OID 26573)
+-- TOC entry 7119 (class 2606 OID 26573)
 -- Name: produto_estoque produto_estoque_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28691,7 +34206,7 @@ ALTER TABLE ONLY public.produto_estoque
 
 
 --
--- TOC entry 6883 (class 2606 OID 25448)
+-- TOC entry 6975 (class 2606 OID 25448)
 -- Name: produto_turistico produto_turistico_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28700,7 +34215,7 @@ ALTER TABLE ONLY public.produto_turistico
 
 
 --
--- TOC entry 6885 (class 2606 OID 25446)
+-- TOC entry 6977 (class 2606 OID 25446)
 -- Name: produto_turistico produto_turistico_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28709,7 +34224,7 @@ ALTER TABLE ONLY public.produto_turistico
 
 
 --
--- TOC entry 7065 (class 2606 OID 26873)
+-- TOC entry 7157 (class 2606 OID 26873)
 -- Name: projeto projeto_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28718,7 +34233,7 @@ ALTER TABLE ONLY public.projeto
 
 
 --
--- TOC entry 7067 (class 2606 OID 26871)
+-- TOC entry 7159 (class 2606 OID 26871)
 -- Name: projeto projeto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28727,7 +34242,7 @@ ALTER TABLE ONLY public.projeto
 
 
 --
--- TOC entry 7149 (class 2606 OID 27372)
+-- TOC entry 7241 (class 2606 OID 27372)
 -- Name: rastreabilidade rastreabilidade_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28736,7 +34251,7 @@ ALTER TABLE ONLY public.rastreabilidade
 
 
 --
--- TOC entry 7115 (class 2606 OID 27198)
+-- TOC entry 7207 (class 2606 OID 27198)
 -- Name: rate_limit_api rate_limit_api_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28745,7 +34260,7 @@ ALTER TABLE ONLY public.rate_limit_api
 
 
 --
--- TOC entry 7205 (class 2606 OID 27747)
+-- TOC entry 7297 (class 2606 OID 27747)
 -- Name: rentabilidade_produto rentabilidade_produto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28754,7 +34269,7 @@ ALTER TABLE ONLY public.rentabilidade_produto
 
 
 --
--- TOC entry 7029 (class 2606 OID 26591)
+-- TOC entry 7121 (class 2606 OID 26591)
 -- Name: requisicao_compra requisicao_compra_numero_requisicao_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28763,7 +34278,7 @@ ALTER TABLE ONLY public.requisicao_compra
 
 
 --
--- TOC entry 7031 (class 2606 OID 26589)
+-- TOC entry 7123 (class 2606 OID 26589)
 -- Name: requisicao_compra requisicao_compra_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28772,7 +34287,7 @@ ALTER TABLE ONLY public.requisicao_compra
 
 
 --
--- TOC entry 6891 (class 2606 OID 25487)
+-- TOC entry 6983 (class 2606 OID 25487)
 -- Name: reserva reserva_codigo_reserva_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28781,7 +34296,7 @@ ALTER TABLE ONLY public.reserva
 
 
 --
--- TOC entry 6893 (class 2606 OID 25485)
+-- TOC entry 6985 (class 2606 OID 25485)
 -- Name: reserva reserva_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28790,7 +34305,7 @@ ALTER TABLE ONLY public.reserva
 
 
 --
--- TOC entry 7073 (class 2606 OID 26921)
+-- TOC entry 7165 (class 2606 OID 26921)
 -- Name: responsavel_projeto responsavel_projeto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28799,7 +34314,7 @@ ALTER TABLE ONLY public.responsavel_projeto
 
 
 --
--- TOC entry 7077 (class 2606 OID 26958)
+-- TOC entry 7169 (class 2606 OID 26958)
 -- Name: risco_projeto risco_projeto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28808,7 +34323,7 @@ ALTER TABLE ONLY public.risco_projeto
 
 
 --
--- TOC entry 6959 (class 2606 OID 26063)
+-- TOC entry 7051 (class 2606 OID 26063)
 -- Name: roteiro_viagem roteiro_viagem_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28817,7 +34332,7 @@ ALTER TABLE ONLY public.roteiro_viagem
 
 
 --
--- TOC entry 7087 (class 2606 OID 27029)
+-- TOC entry 7179 (class 2606 OID 27029)
 -- Name: sequencia_documento sequencia_documento_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28826,7 +34341,7 @@ ALTER TABLE ONLY public.sequencia_documento
 
 
 --
--- TOC entry 7089 (class 2606 OID 27031)
+-- TOC entry 7181 (class 2606 OID 27031)
 -- Name: sequencia_documento sequencia_documento_tipo_documento_ano_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28835,7 +34350,7 @@ ALTER TABLE ONLY public.sequencia_documento
 
 
 --
--- TOC entry 6911 (class 2606 OID 25634)
+-- TOC entry 7003 (class 2606 OID 25634)
 -- Name: simples_nacional simples_nacional_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28844,7 +34359,7 @@ ALTER TABLE ONLY public.simples_nacional
 
 
 --
--- TOC entry 7163 (class 2606 OID 27487)
+-- TOC entry 7255 (class 2606 OID 27487)
 -- Name: sincronizacao_integracao sincronizacao_integracao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28853,7 +34368,7 @@ ALTER TABLE ONLY public.sincronizacao_integracao
 
 
 --
--- TOC entry 7153 (class 2606 OID 27415)
+-- TOC entry 7245 (class 2606 OID 27415)
 -- Name: sistema_externo sistema_externo_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28862,7 +34377,7 @@ ALTER TABLE ONLY public.sistema_externo
 
 
 --
--- TOC entry 7155 (class 2606 OID 27413)
+-- TOC entry 7247 (class 2606 OID 27413)
 -- Name: sistema_externo sistema_externo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28871,7 +34386,7 @@ ALTER TABLE ONLY public.sistema_externo
 
 
 --
--- TOC entry 7169 (class 2606 OID 27565)
+-- TOC entry 7261 (class 2606 OID 27565)
 -- Name: status_integracao status_integracao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28880,7 +34395,7 @@ ALTER TABLE ONLY public.status_integracao
 
 
 --
--- TOC entry 7215 (class 2606 OID 33447)
+-- TOC entry 7307 (class 2606 OID 33447)
 -- Name: status_parcela status_parcela_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28889,7 +34404,7 @@ ALTER TABLE ONLY public.status_parcela
 
 
 --
--- TOC entry 7217 (class 2606 OID 33445)
+-- TOC entry 7309 (class 2606 OID 33445)
 -- Name: status_parcela status_parcela_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28898,7 +34413,7 @@ ALTER TABLE ONLY public.status_parcela
 
 
 --
--- TOC entry 6859 (class 2606 OID 25251)
+-- TOC entry 6951 (class 2606 OID 25251)
 -- Name: subcategoria_conta subcategoria_conta_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28907,7 +34422,7 @@ ALTER TABLE ONLY public.subcategoria_conta
 
 
 --
--- TOC entry 6861 (class 2606 OID 25249)
+-- TOC entry 6953 (class 2606 OID 25249)
 -- Name: subcategoria_conta subcategoria_conta_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28916,7 +34431,7 @@ ALTER TABLE ONLY public.subcategoria_conta
 
 
 --
--- TOC entry 7003 (class 2606 OID 26414)
+-- TOC entry 7095 (class 2606 OID 26414)
 -- Name: tarefa tarefa_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28925,7 +34440,7 @@ ALTER TABLE ONLY public.tarefa
 
 
 --
--- TOC entry 7071 (class 2606 OID 26905)
+-- TOC entry 7163 (class 2606 OID 26905)
 -- Name: tarefa_projeto tarefa_projeto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28934,7 +34449,7 @@ ALTER TABLE ONLY public.tarefa_projeto
 
 
 --
--- TOC entry 7049 (class 2606 OID 26747)
+-- TOC entry 7141 (class 2606 OID 26747)
 -- Name: tipo_documento tipo_documento_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28943,7 +34458,7 @@ ALTER TABLE ONLY public.tipo_documento
 
 
 --
--- TOC entry 7051 (class 2606 OID 26745)
+-- TOC entry 7143 (class 2606 OID 26745)
 -- Name: tipo_documento tipo_documento_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28952,7 +34467,7 @@ ALTER TABLE ONLY public.tipo_documento
 
 
 --
--- TOC entry 7105 (class 2606 OID 27121)
+-- TOC entry 7197 (class 2606 OID 27121)
 -- Name: token_acesso token_acesso_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28961,7 +34476,7 @@ ALTER TABLE ONLY public.token_acesso
 
 
 --
--- TOC entry 6965 (class 2606 OID 26122)
+-- TOC entry 7057 (class 2606 OID 26122)
 -- Name: transporte transporte_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28970,7 +34485,7 @@ ALTER TABLE ONLY public.transporte
 
 
 --
--- TOC entry 6831 (class 2606 OID 25106)
+-- TOC entry 6923 (class 2606 OID 25106)
 -- Name: usuario usuario_email_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28979,7 +34494,7 @@ ALTER TABLE ONLY public.usuario
 
 
 --
--- TOC entry 6931 (class 2606 OID 25865)
+-- TOC entry 7023 (class 2606 OID 25865)
 -- Name: usuario_perfil usuario_perfil_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28988,7 +34503,7 @@ ALTER TABLE ONLY public.usuario_perfil
 
 
 --
--- TOC entry 6833 (class 2606 OID 25104)
+-- TOC entry 6925 (class 2606 OID 25104)
 -- Name: usuario usuario_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -28997,7 +34512,7 @@ ALTER TABLE ONLY public.usuario
 
 
 --
--- TOC entry 6899 (class 2606 OID 25554)
+-- TOC entry 6991 (class 2606 OID 25554)
 -- Name: venda venda_numero_venda_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -29006,7 +34521,7 @@ ALTER TABLE ONLY public.venda
 
 
 --
--- TOC entry 6901 (class 2606 OID 25552)
+-- TOC entry 6993 (class 2606 OID 25552)
 -- Name: venda venda_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -29015,7 +34530,7 @@ ALTER TABLE ONLY public.venda
 
 
 --
--- TOC entry 7109 (class 2606 OID 27157)
+-- TOC entry 7201 (class 2606 OID 27157)
 -- Name: webhook webhook_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -29024,7 +34539,7 @@ ALTER TABLE ONLY public.webhook
 
 
 --
--- TOC entry 7207 (class 2606 OID 33281)
+-- TOC entry 7299 (class 2606 OID 33281)
 -- Name: workflow workflow_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -29033,7 +34548,7 @@ ALTER TABLE ONLY public.workflow
 
 
 --
--- TOC entry 7209 (class 2606 OID 33279)
+-- TOC entry 7301 (class 2606 OID 33279)
 -- Name: workflow workflow_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -29042,7 +34557,7 @@ ALTER TABLE ONLY public.workflow
 
 
 --
--- TOC entry 7224 (class 1259 OID 41487)
+-- TOC entry 7316 (class 1259 OID 41487)
 -- Name: idx_categoria_ativo; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29050,7 +34565,7 @@ CREATE INDEX idx_categoria_ativo ON auditoria.categoria USING btree (ativo);
 
 
 --
--- TOC entry 7225 (class 1259 OID 41486)
+-- TOC entry 7317 (class 1259 OID 41486)
 -- Name: idx_categoria_codigo; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29058,7 +34573,23 @@ CREATE INDEX idx_categoria_codigo ON auditoria.categoria USING btree (codigo);
 
 
 --
--- TOC entry 7218 (class 1259 OID 41464)
+-- TOC entry 7390 (class 1259 OID 42682)
+-- Name: idx_execucao_correcao_script; Type: INDEX; Schema: auditoria; Owner: postgres
+--
+
+CREATE INDEX idx_execucao_correcao_script ON auditoria.execucao_correcao USING btree (script);
+
+
+--
+-- TOC entry 7391 (class 1259 OID 42683)
+-- Name: idx_execucao_correcao_status; Type: INDEX; Schema: auditoria; Owner: postgres
+--
+
+CREATE INDEX idx_execucao_correcao_status ON auditoria.execucao_correcao USING btree (status);
+
+
+--
+-- TOC entry 7310 (class 1259 OID 41464)
 -- Name: idx_execucao_data; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29066,7 +34597,7 @@ CREATE INDEX idx_execucao_data ON auditoria.execucao USING btree (data_inicio);
 
 
 --
--- TOC entry 7219 (class 1259 OID 41466)
+-- TOC entry 7311 (class 1259 OID 41466)
 -- Name: idx_execucao_score; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29074,7 +34605,7 @@ CREATE INDEX idx_execucao_score ON auditoria.execucao USING btree (score_final);
 
 
 --
--- TOC entry 7220 (class 1259 OID 41465)
+-- TOC entry 7312 (class 1259 OID 41465)
 -- Name: idx_execucao_status; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29082,7 +34613,7 @@ CREATE INDEX idx_execucao_status ON auditoria.execucao USING btree (status_execu
 
 
 --
--- TOC entry 7221 (class 1259 OID 41467)
+-- TOC entry 7313 (class 1259 OID 41467)
 -- Name: idx_execucao_usuario; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29090,7 +34621,7 @@ CREATE INDEX idx_execucao_usuario ON auditoria.execucao USING btree (usuario_exe
 
 
 --
--- TOC entry 7290 (class 1259 OID 41845)
+-- TOC entry 7382 (class 1259 OID 41845)
 -- Name: idx_executor_ativo; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29098,7 +34629,7 @@ CREATE INDEX idx_executor_ativo ON auditoria.executor USING btree (ativo);
 
 
 --
--- TOC entry 7291 (class 1259 OID 41844)
+-- TOC entry 7383 (class 1259 OID 41844)
 -- Name: idx_executor_codigo; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29106,7 +34637,7 @@ CREATE INDEX idx_executor_codigo ON auditoria.executor USING btree (codigo);
 
 
 --
--- TOC entry 7230 (class 1259 OID 41516)
+-- TOC entry 7322 (class 1259 OID 41516)
 -- Name: idx_item_categoria; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29114,7 +34645,7 @@ CREATE INDEX idx_item_categoria ON auditoria.item USING btree (id_categoria);
 
 
 --
--- TOC entry 7231 (class 1259 OID 41517)
+-- TOC entry 7323 (class 1259 OID 41517)
 -- Name: idx_item_codigo; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29122,7 +34653,7 @@ CREATE INDEX idx_item_codigo ON auditoria.item USING btree (codigo);
 
 
 --
--- TOC entry 7232 (class 1259 OID 41518)
+-- TOC entry 7324 (class 1259 OID 41518)
 -- Name: idx_item_criticidade; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29130,7 +34661,7 @@ CREATE INDEX idx_item_criticidade ON auditoria.item USING btree (criticidade);
 
 
 --
--- TOC entry 7247 (class 1259 OID 41593)
+-- TOC entry 7339 (class 1259 OID 41593)
 -- Name: idx_recomendacao_corrigido; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29138,7 +34669,7 @@ CREATE INDEX idx_recomendacao_corrigido ON auditoria.recomendacao USING btree (c
 
 
 --
--- TOC entry 7248 (class 1259 OID 41591)
+-- TOC entry 7340 (class 1259 OID 41591)
 -- Name: idx_recomendacao_execucao; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29146,7 +34677,7 @@ CREATE INDEX idx_recomendacao_execucao ON auditoria.recomendacao USING btree (id
 
 
 --
--- TOC entry 7249 (class 1259 OID 41592)
+-- TOC entry 7341 (class 1259 OID 41592)
 -- Name: idx_recomendacao_prioridade; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29154,7 +34685,7 @@ CREATE INDEX idx_recomendacao_prioridade ON auditoria.recomendacao USING btree (
 
 
 --
--- TOC entry 7262 (class 1259 OID 41817)
+-- TOC entry 7354 (class 1259 OID 41817)
 -- Name: idx_regra_ativo; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29162,7 +34693,7 @@ CREATE INDEX idx_regra_ativo ON auditoria.regra USING btree (ativo);
 
 
 --
--- TOC entry 7263 (class 1259 OID 41818)
+-- TOC entry 7355 (class 1259 OID 41818)
 -- Name: idx_regra_objeto; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29170,7 +34701,7 @@ CREATE INDEX idx_regra_objeto ON auditoria.regra USING btree (tipo_objeto);
 
 
 --
--- TOC entry 7264 (class 1259 OID 41819)
+-- TOC entry 7356 (class 1259 OID 41819)
 -- Name: idx_regra_ordem; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29178,7 +34709,7 @@ CREATE INDEX idx_regra_ordem ON auditoria.regra USING btree (ordem_execucao);
 
 
 --
--- TOC entry 7265 (class 1259 OID 41820)
+-- TOC entry 7357 (class 1259 OID 41820)
 -- Name: idx_regra_prioridade; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29186,7 +34717,7 @@ CREATE INDEX idx_regra_prioridade ON auditoria.regra USING btree (prioridade);
 
 
 --
--- TOC entry 7237 (class 1259 OID 41546)
+-- TOC entry 7329 (class 1259 OID 41546)
 -- Name: idx_resultado_execucao; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29194,7 +34725,7 @@ CREATE INDEX idx_resultado_execucao ON auditoria.resultado USING btree (id_execu
 
 
 --
--- TOC entry 7238 (class 1259 OID 41547)
+-- TOC entry 7330 (class 1259 OID 41547)
 -- Name: idx_resultado_item; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29202,7 +34733,7 @@ CREATE INDEX idx_resultado_item ON auditoria.resultado USING btree (id_item);
 
 
 --
--- TOC entry 7239 (class 1259 OID 41550)
+-- TOC entry 7331 (class 1259 OID 41550)
 -- Name: idx_resultado_severidade; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29210,7 +34741,7 @@ CREATE INDEX idx_resultado_severidade ON auditoria.resultado USING btree (severi
 
 
 --
--- TOC entry 7240 (class 1259 OID 41548)
+-- TOC entry 7332 (class 1259 OID 41548)
 -- Name: idx_resultado_status; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29218,7 +34749,7 @@ CREATE INDEX idx_resultado_status ON auditoria.resultado USING btree (status);
 
 
 --
--- TOC entry 7241 (class 1259 OID 41549)
+-- TOC entry 7333 (class 1259 OID 41549)
 -- Name: idx_resultado_tabela; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29226,7 +34757,7 @@ CREATE INDEX idx_resultado_tabela ON auditoria.resultado USING btree (tabela_nom
 
 
 --
--- TOC entry 7244 (class 1259 OID 41567)
+-- TOC entry 7336 (class 1259 OID 41567)
 -- Name: idx_score_execucao; Type: INDEX; Schema: auditoria; Owner: postgres
 --
 
@@ -29234,7 +34765,7 @@ CREATE INDEX idx_score_execucao ON auditoria.score USING btree (id_execucao);
 
 
 --
--- TOC entry 6772 (class 1259 OID 24844)
+-- TOC entry 6864 (class 1259 OID 24844)
 -- Name: idx_banco_codigo; Type: INDEX; Schema: financeiro; Owner: postgres
 --
 
@@ -29242,7 +34773,7 @@ CREATE INDEX idx_banco_codigo ON financeiro.banco USING btree (codigo_banco);
 
 
 --
--- TOC entry 6736 (class 1259 OID 24833)
+-- TOC entry 6828 (class 1259 OID 24833)
 -- Name: idx_categoria_codigo; Type: INDEX; Schema: financeiro; Owner: postgres
 --
 
@@ -29250,7 +34781,7 @@ CREATE INDEX idx_categoria_codigo ON financeiro.categoria USING btree (codigo);
 
 
 --
--- TOC entry 6737 (class 1259 OID 24832)
+-- TOC entry 6829 (class 1259 OID 24832)
 -- Name: idx_categoria_grupo; Type: INDEX; Schema: financeiro; Owner: postgres
 --
 
@@ -29258,7 +34789,7 @@ CREATE INDEX idx_categoria_grupo ON financeiro.categoria USING btree (id_grupo);
 
 
 --
--- TOC entry 6750 (class 1259 OID 25070)
+-- TOC entry 6842 (class 1259 OID 25070)
 -- Name: idx_classificacao_ativo; Type: INDEX; Schema: financeiro; Owner: postgres
 --
 
@@ -29266,7 +34797,7 @@ CREATE INDEX idx_classificacao_ativo ON financeiro.classificacao USING btree (at
 
 
 --
--- TOC entry 6751 (class 1259 OID 24837)
+-- TOC entry 6843 (class 1259 OID 24837)
 -- Name: idx_classificacao_codigo; Type: INDEX; Schema: financeiro; Owner: postgres
 --
 
@@ -29274,7 +34805,7 @@ CREATE INDEX idx_classificacao_codigo ON financeiro.classificacao USING btree (c
 
 
 --
--- TOC entry 6752 (class 1259 OID 25071)
+-- TOC entry 6844 (class 1259 OID 25071)
 -- Name: idx_classificacao_deleted; Type: INDEX; Schema: financeiro; Owner: postgres
 --
 
@@ -29282,7 +34813,7 @@ CREATE INDEX idx_classificacao_deleted ON financeiro.classificacao USING btree (
 
 
 --
--- TOC entry 6753 (class 1259 OID 25068)
+-- TOC entry 6845 (class 1259 OID 25068)
 -- Name: idx_classificacao_dre; Type: INDEX; Schema: financeiro; Owner: postgres
 --
 
@@ -29290,7 +34821,7 @@ CREATE INDEX idx_classificacao_dre ON financeiro.classificacao USING btree (id_t
 
 
 --
--- TOC entry 6754 (class 1259 OID 25069)
+-- TOC entry 6846 (class 1259 OID 25069)
 -- Name: idx_classificacao_natureza; Type: INDEX; Schema: financeiro; Owner: postgres
 --
 
@@ -29298,7 +34829,7 @@ CREATE INDEX idx_classificacao_natureza ON financeiro.classificacao USING btree 
 
 
 --
--- TOC entry 6755 (class 1259 OID 24836)
+-- TOC entry 6847 (class 1259 OID 24836)
 -- Name: idx_classificacao_subcategoria; Type: INDEX; Schema: financeiro; Owner: postgres
 --
 
@@ -29306,7 +34837,7 @@ CREATE INDEX idx_classificacao_subcategoria ON financeiro.classificacao USING bt
 
 
 --
--- TOC entry 6780 (class 1259 OID 24841)
+-- TOC entry 6872 (class 1259 OID 24841)
 -- Name: idx_cliente_documento; Type: INDEX; Schema: financeiro; Owner: postgres
 --
 
@@ -29314,7 +34845,7 @@ CREATE INDEX idx_cliente_documento ON financeiro.cliente USING btree (cpf_cnpj);
 
 
 --
--- TOC entry 6781 (class 1259 OID 24840)
+-- TOC entry 6873 (class 1259 OID 24840)
 -- Name: idx_cliente_nome; Type: INDEX; Schema: financeiro; Owner: postgres
 --
 
@@ -29322,7 +34853,7 @@ CREATE INDEX idx_cliente_nome ON financeiro.cliente USING btree (nome);
 
 
 --
--- TOC entry 6777 (class 1259 OID 24845)
+-- TOC entry 6869 (class 1259 OID 24845)
 -- Name: idx_conta_bancaria_banco; Type: INDEX; Schema: financeiro; Owner: postgres
 --
 
@@ -29330,7 +34861,7 @@ CREATE INDEX idx_conta_bancaria_banco ON financeiro.conta_bancaria USING btree (
 
 
 --
--- TOC entry 6762 (class 1259 OID 24838)
+-- TOC entry 6854 (class 1259 OID 24838)
 -- Name: idx_conta_classificacao; Type: INDEX; Schema: financeiro; Owner: postgres
 --
 
@@ -29338,7 +34869,7 @@ CREATE INDEX idx_conta_classificacao ON financeiro.conta USING btree (id_classif
 
 
 --
--- TOC entry 6763 (class 1259 OID 24839)
+-- TOC entry 6855 (class 1259 OID 24839)
 -- Name: idx_conta_codigo; Type: INDEX; Schema: financeiro; Owner: postgres
 --
 
@@ -29346,7 +34877,7 @@ CREATE INDEX idx_conta_codigo ON financeiro.conta USING btree (codigo);
 
 
 --
--- TOC entry 6720 (class 1259 OID 24846)
+-- TOC entry 6812 (class 1259 OID 24846)
 -- Name: idx_empresa_cnpj; Type: INDEX; Schema: financeiro; Owner: postgres
 --
 
@@ -29354,7 +34885,7 @@ CREATE INDEX idx_empresa_cnpj ON financeiro.empresa USING btree (cnpj);
 
 
 --
--- TOC entry 6786 (class 1259 OID 24843)
+-- TOC entry 6878 (class 1259 OID 24843)
 -- Name: idx_fornecedor_documento; Type: INDEX; Schema: financeiro; Owner: postgres
 --
 
@@ -29362,7 +34893,7 @@ CREATE INDEX idx_fornecedor_documento ON financeiro.fornecedor USING btree (cpf_
 
 
 --
--- TOC entry 6787 (class 1259 OID 24842)
+-- TOC entry 6879 (class 1259 OID 24842)
 -- Name: idx_fornecedor_nome; Type: INDEX; Schema: financeiro; Owner: postgres
 --
 
@@ -29370,7 +34901,7 @@ CREATE INDEX idx_fornecedor_nome ON financeiro.fornecedor USING btree (nome);
 
 
 --
--- TOC entry 6731 (class 1259 OID 24831)
+-- TOC entry 6823 (class 1259 OID 24831)
 -- Name: idx_grupo_codigo; Type: INDEX; Schema: financeiro; Owner: postgres
 --
 
@@ -29378,7 +34909,7 @@ CREATE INDEX idx_grupo_codigo ON financeiro.grupo USING btree (codigo);
 
 
 --
--- TOC entry 6740 (class 1259 OID 24834)
+-- TOC entry 6832 (class 1259 OID 24834)
 -- Name: idx_subcategoria_categoria; Type: INDEX; Schema: financeiro; Owner: postgres
 --
 
@@ -29386,7 +34917,7 @@ CREATE INDEX idx_subcategoria_categoria ON financeiro.subcategoria USING btree (
 
 
 --
--- TOC entry 6741 (class 1259 OID 24835)
+-- TOC entry 6833 (class 1259 OID 24835)
 -- Name: idx_subcategoria_codigo; Type: INDEX; Schema: financeiro; Owner: postgres
 --
 
@@ -29394,7 +34925,7 @@ CREATE INDEX idx_subcategoria_codigo ON financeiro.subcategoria USING btree (cod
 
 
 --
--- TOC entry 7191 (class 1259 OID 27703)
+-- TOC entry 7283 (class 1259 OID 27703)
 -- Name: idx_dim_cliente_nome; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -29402,7 +34933,7 @@ CREATE INDEX idx_dim_cliente_nome ON public.dim_cliente USING btree (nome_client
 
 
 --
--- TOC entry 7188 (class 1259 OID 27702)
+-- TOC entry 7280 (class 1259 OID 27702)
 -- Name: idx_dim_data_data; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -29410,7 +34941,7 @@ CREATE INDEX idx_dim_data_data ON public.dim_data USING btree (data);
 
 
 --
--- TOC entry 7196 (class 1259 OID 27704)
+-- TOC entry 7288 (class 1259 OID 27704)
 -- Name: idx_dim_destino_nome; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -29418,7 +34949,7 @@ CREATE INDEX idx_dim_destino_nome ON public.dim_destino USING btree (nome_destin
 
 
 --
--- TOC entry 7199 (class 1259 OID 27705)
+-- TOC entry 7291 (class 1259 OID 27705)
 -- Name: idx_dim_plano_codigo; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -29426,7 +34957,7 @@ CREATE INDEX idx_dim_plano_codigo ON public.dim_plano_contas USING btree (codigo
 
 
 --
--- TOC entry 7180 (class 1259 OID 27637)
+-- TOC entry 7272 (class 1259 OID 27637)
 -- Name: idx_fato_financeiro_centro; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -29434,7 +34965,7 @@ CREATE INDEX idx_fato_financeiro_centro ON public.fato_financeiro USING btree (i
 
 
 --
--- TOC entry 7181 (class 1259 OID 27635)
+-- TOC entry 7273 (class 1259 OID 27635)
 -- Name: idx_fato_financeiro_data; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -29442,7 +34973,7 @@ CREATE INDEX idx_fato_financeiro_data ON public.fato_financeiro USING btree (dat
 
 
 --
--- TOC entry 7182 (class 1259 OID 27638)
+-- TOC entry 7274 (class 1259 OID 27638)
 -- Name: idx_fato_financeiro_natureza; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -29450,7 +34981,7 @@ CREATE INDEX idx_fato_financeiro_natureza ON public.fato_financeiro USING btree 
 
 
 --
--- TOC entry 7183 (class 1259 OID 27636)
+-- TOC entry 7275 (class 1259 OID 27636)
 -- Name: idx_fato_financeiro_plano; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -29458,7 +34989,7 @@ CREATE INDEX idx_fato_financeiro_plano ON public.fato_financeiro USING btree (id
 
 
 --
--- TOC entry 7174 (class 1259 OID 27615)
+-- TOC entry 7266 (class 1259 OID 27615)
 -- Name: idx_fato_vendas_cliente; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -29466,7 +34997,7 @@ CREATE INDEX idx_fato_vendas_cliente ON public.fato_vendas USING btree (id_clien
 
 
 --
--- TOC entry 7175 (class 1259 OID 27614)
+-- TOC entry 7267 (class 1259 OID 27614)
 -- Name: idx_fato_vendas_data; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -29474,7 +35005,7 @@ CREATE INDEX idx_fato_vendas_data ON public.fato_vendas USING btree (data_venda)
 
 
 --
--- TOC entry 7176 (class 1259 OID 27617)
+-- TOC entry 7268 (class 1259 OID 27617)
 -- Name: idx_fato_vendas_destino; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -29482,7 +35013,7 @@ CREATE INDEX idx_fato_vendas_destino ON public.fato_vendas USING btree (id_desti
 
 
 --
--- TOC entry 7177 (class 1259 OID 27616)
+-- TOC entry 7269 (class 1259 OID 27616)
 -- Name: idx_fato_vendas_produto; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -29490,7 +35021,7 @@ CREATE INDEX idx_fato_vendas_produto ON public.fato_vendas USING btree (id_produ
 
 
 --
--- TOC entry 7618 (class 2620 OID 42332)
+-- TOC entry 7760 (class 2620 OID 42332)
 -- Name: catalogo_coluna trg_atualiza_updated_at; Type: TRIGGER; Schema: auditoria; Owner: postgres
 --
 
@@ -29498,7 +35029,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON auditoria.catalogo_colun
 
 
 --
--- TOC entry 7616 (class 2620 OID 42330)
+-- TOC entry 7758 (class 2620 OID 42330)
 -- Name: catalogo_schema trg_atualiza_updated_at; Type: TRIGGER; Schema: auditoria; Owner: postgres
 --
 
@@ -29506,7 +35037,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON auditoria.catalogo_schem
 
 
 --
--- TOC entry 7617 (class 2620 OID 42331)
+-- TOC entry 7759 (class 2620 OID 42331)
 -- Name: catalogo_tabela trg_atualiza_updated_at; Type: TRIGGER; Schema: auditoria; Owner: postgres
 --
 
@@ -29514,7 +35045,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON auditoria.catalogo_tabel
 
 
 --
--- TOC entry 7607 (class 2620 OID 42321)
+-- TOC entry 7749 (class 2620 OID 42321)
 -- Name: categoria trg_atualiza_updated_at; Type: TRIGGER; Schema: auditoria; Owner: postgres
 --
 
@@ -29522,7 +35053,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON auditoria.categoria FOR 
 
 
 --
--- TOC entry 7613 (class 2620 OID 42327)
+-- TOC entry 7755 (class 2620 OID 42327)
 -- Name: configuracao trg_atualiza_updated_at; Type: TRIGGER; Schema: auditoria; Owner: postgres
 --
 
@@ -29530,7 +35061,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON auditoria.configuracao F
 
 
 --
--- TOC entry 7620 (class 2620 OID 42334)
+-- TOC entry 7762 (class 2620 OID 42334)
 -- Name: core trg_atualiza_updated_at; Type: TRIGGER; Schema: auditoria; Owner: postgres
 --
 
@@ -29538,7 +35069,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON auditoria.core FOR EACH 
 
 
 --
--- TOC entry 7606 (class 2620 OID 42320)
+-- TOC entry 7748 (class 2620 OID 42320)
 -- Name: execucao trg_atualiza_updated_at; Type: TRIGGER; Schema: auditoria; Owner: postgres
 --
 
@@ -29546,7 +35077,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON auditoria.execucao FOR E
 
 
 --
--- TOC entry 7619 (class 2620 OID 42333)
+-- TOC entry 7761 (class 2620 OID 42333)
 -- Name: executor trg_atualiza_updated_at; Type: TRIGGER; Schema: auditoria; Owner: postgres
 --
 
@@ -29554,7 +35085,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON auditoria.executor FOR E
 
 
 --
--- TOC entry 7608 (class 2620 OID 42322)
+-- TOC entry 7750 (class 2620 OID 42322)
 -- Name: item trg_atualiza_updated_at; Type: TRIGGER; Schema: auditoria; Owner: postgres
 --
 
@@ -29562,7 +35093,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON auditoria.item FOR EACH 
 
 
 --
--- TOC entry 7612 (class 2620 OID 42326)
+-- TOC entry 7754 (class 2620 OID 42326)
 -- Name: log trg_atualiza_updated_at; Type: TRIGGER; Schema: auditoria; Owner: postgres
 --
 
@@ -29570,7 +35101,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON auditoria.log FOR EACH R
 
 
 --
--- TOC entry 7611 (class 2620 OID 42325)
+-- TOC entry 7753 (class 2620 OID 42325)
 -- Name: recomendacao trg_atualiza_updated_at; Type: TRIGGER; Schema: auditoria; Owner: postgres
 --
 
@@ -29578,7 +35109,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON auditoria.recomendacao F
 
 
 --
--- TOC entry 7615 (class 2620 OID 42329)
+-- TOC entry 7757 (class 2620 OID 42329)
 -- Name: regra trg_atualiza_updated_at; Type: TRIGGER; Schema: auditoria; Owner: postgres
 --
 
@@ -29586,7 +35117,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON auditoria.regra FOR EACH
 
 
 --
--- TOC entry 7609 (class 2620 OID 42323)
+-- TOC entry 7751 (class 2620 OID 42323)
 -- Name: resultado trg_atualiza_updated_at; Type: TRIGGER; Schema: auditoria; Owner: postgres
 --
 
@@ -29594,7 +35125,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON auditoria.resultado FOR 
 
 
 --
--- TOC entry 7610 (class 2620 OID 42324)
+-- TOC entry 7752 (class 2620 OID 42324)
 -- Name: score trg_atualiza_updated_at; Type: TRIGGER; Schema: auditoria; Owner: postgres
 --
 
@@ -29602,7 +35133,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON auditoria.score FOR EACH
 
 
 --
--- TOC entry 7614 (class 2620 OID 42328)
+-- TOC entry 7756 (class 2620 OID 42328)
 -- Name: script trg_atualiza_updated_at; Type: TRIGGER; Schema: auditoria; Owner: postgres
 --
 
@@ -29610,7 +35141,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON auditoria.script FOR EAC
 
 
 --
--- TOC entry 7511 (class 2620 OID 42335)
+-- TOC entry 7653 (class 2620 OID 42335)
 -- Name: anexo trg_atualiza_updated_at; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29618,7 +35149,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON financeiro.anexo FOR EAC
 
 
 --
--- TOC entry 7485 (class 2620 OID 42336)
+-- TOC entry 7627 (class 2620 OID 42336)
 -- Name: categoria trg_atualiza_updated_at; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29626,7 +35157,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON financeiro.categoria FOR
 
 
 --
--- TOC entry 7489 (class 2620 OID 42337)
+-- TOC entry 7631 (class 2620 OID 42337)
 -- Name: classificacao trg_atualiza_updated_at; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29634,7 +35165,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON financeiro.classificacao
 
 
 --
--- TOC entry 7493 (class 2620 OID 42338)
+-- TOC entry 7635 (class 2620 OID 42338)
 -- Name: configuracao trg_atualiza_updated_at; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29642,7 +35173,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON financeiro.configuracao 
 
 
 --
--- TOC entry 7491 (class 2620 OID 42339)
+-- TOC entry 7633 (class 2620 OID 42339)
 -- Name: conta trg_atualiza_updated_at; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29650,7 +35181,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON financeiro.conta FOR EAC
 
 
 --
--- TOC entry 7483 (class 2620 OID 42340)
+-- TOC entry 7625 (class 2620 OID 42340)
 -- Name: grupo trg_atualiza_updated_at; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29658,7 +35189,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON financeiro.grupo FOR EAC
 
 
 --
--- TOC entry 7509 (class 2620 OID 42341)
+-- TOC entry 7651 (class 2620 OID 42341)
 -- Name: historico_lancamento trg_atualiza_updated_at; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29666,7 +35197,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON financeiro.historico_lan
 
 
 --
--- TOC entry 7501 (class 2620 OID 42342)
+-- TOC entry 7643 (class 2620 OID 42342)
 -- Name: lancamento trg_atualiza_updated_at; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29674,7 +35205,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON financeiro.lancamento FO
 
 
 --
--- TOC entry 7505 (class 2620 OID 42343)
+-- TOC entry 7647 (class 2620 OID 42343)
 -- Name: movimentacao_bancaria trg_atualiza_updated_at; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29682,7 +35213,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON financeiro.movimentacao_
 
 
 --
--- TOC entry 7503 (class 2620 OID 42344)
+-- TOC entry 7645 (class 2620 OID 42344)
 -- Name: pagamento trg_atualiza_updated_at; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29690,7 +35221,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON financeiro.pagamento FOR
 
 
 --
--- TOC entry 7507 (class 2620 OID 42345)
+-- TOC entry 7649 (class 2620 OID 42345)
 -- Name: rateio_centro_custo trg_atualiza_updated_at; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29698,7 +35229,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON financeiro.rateio_centro
 
 
 --
--- TOC entry 7497 (class 2620 OID 42346)
+-- TOC entry 7639 (class 2620 OID 42346)
 -- Name: status_lancamento trg_atualiza_updated_at; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29706,7 +35237,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON financeiro.status_lancam
 
 
 --
--- TOC entry 7487 (class 2620 OID 42347)
+-- TOC entry 7629 (class 2620 OID 42347)
 -- Name: subcategoria trg_atualiza_updated_at; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29714,7 +35245,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON financeiro.subcategoria 
 
 
 --
--- TOC entry 7495 (class 2620 OID 42348)
+-- TOC entry 7637 (class 2620 OID 42348)
 -- Name: tipo_lancamento trg_atualiza_updated_at; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29722,7 +35253,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON financeiro.tipo_lancamen
 
 
 --
--- TOC entry 7499 (class 2620 OID 42349)
+-- TOC entry 7641 (class 2620 OID 42349)
 -- Name: tipo_movimentacao trg_atualiza_updated_at; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29730,7 +35261,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON financeiro.tipo_moviment
 
 
 --
--- TOC entry 7512 (class 2620 OID 42356)
+-- TOC entry 7654 (class 2620 OID 42356)
 -- Name: anexo trg_log_auditoria; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29738,7 +35269,7 @@ CREATE TRIGGER trg_log_auditoria AFTER INSERT OR DELETE OR UPDATE ON financeiro.
 
 
 --
--- TOC entry 7486 (class 2620 OID 42357)
+-- TOC entry 7628 (class 2620 OID 42357)
 -- Name: categoria trg_log_auditoria; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29746,7 +35277,7 @@ CREATE TRIGGER trg_log_auditoria AFTER INSERT OR DELETE OR UPDATE ON financeiro.
 
 
 --
--- TOC entry 7490 (class 2620 OID 42358)
+-- TOC entry 7632 (class 2620 OID 42358)
 -- Name: classificacao trg_log_auditoria; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29754,7 +35285,7 @@ CREATE TRIGGER trg_log_auditoria AFTER INSERT OR DELETE OR UPDATE ON financeiro.
 
 
 --
--- TOC entry 7494 (class 2620 OID 42359)
+-- TOC entry 7636 (class 2620 OID 42359)
 -- Name: configuracao trg_log_auditoria; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29762,7 +35293,7 @@ CREATE TRIGGER trg_log_auditoria AFTER INSERT OR DELETE OR UPDATE ON financeiro.
 
 
 --
--- TOC entry 7492 (class 2620 OID 42360)
+-- TOC entry 7634 (class 2620 OID 42360)
 -- Name: conta trg_log_auditoria; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29770,7 +35301,7 @@ CREATE TRIGGER trg_log_auditoria AFTER INSERT OR DELETE OR UPDATE ON financeiro.
 
 
 --
--- TOC entry 7484 (class 2620 OID 42361)
+-- TOC entry 7626 (class 2620 OID 42361)
 -- Name: grupo trg_log_auditoria; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29778,7 +35309,7 @@ CREATE TRIGGER trg_log_auditoria AFTER INSERT OR DELETE OR UPDATE ON financeiro.
 
 
 --
--- TOC entry 7510 (class 2620 OID 42362)
+-- TOC entry 7652 (class 2620 OID 42362)
 -- Name: historico_lancamento trg_log_auditoria; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29786,7 +35317,7 @@ CREATE TRIGGER trg_log_auditoria AFTER INSERT OR DELETE OR UPDATE ON financeiro.
 
 
 --
--- TOC entry 7502 (class 2620 OID 42363)
+-- TOC entry 7644 (class 2620 OID 42363)
 -- Name: lancamento trg_log_auditoria; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29794,7 +35325,7 @@ CREATE TRIGGER trg_log_auditoria AFTER INSERT OR DELETE OR UPDATE ON financeiro.
 
 
 --
--- TOC entry 7506 (class 2620 OID 42364)
+-- TOC entry 7648 (class 2620 OID 42364)
 -- Name: movimentacao_bancaria trg_log_auditoria; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29802,7 +35333,7 @@ CREATE TRIGGER trg_log_auditoria AFTER INSERT OR DELETE OR UPDATE ON financeiro.
 
 
 --
--- TOC entry 7504 (class 2620 OID 42365)
+-- TOC entry 7646 (class 2620 OID 42365)
 -- Name: pagamento trg_log_auditoria; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29810,7 +35341,7 @@ CREATE TRIGGER trg_log_auditoria AFTER INSERT OR DELETE OR UPDATE ON financeiro.
 
 
 --
--- TOC entry 7508 (class 2620 OID 42366)
+-- TOC entry 7650 (class 2620 OID 42366)
 -- Name: rateio_centro_custo trg_log_auditoria; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29818,7 +35349,7 @@ CREATE TRIGGER trg_log_auditoria AFTER INSERT OR DELETE OR UPDATE ON financeiro.
 
 
 --
--- TOC entry 7498 (class 2620 OID 42367)
+-- TOC entry 7640 (class 2620 OID 42367)
 -- Name: status_lancamento trg_log_auditoria; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29826,7 +35357,7 @@ CREATE TRIGGER trg_log_auditoria AFTER INSERT OR DELETE OR UPDATE ON financeiro.
 
 
 --
--- TOC entry 7488 (class 2620 OID 42368)
+-- TOC entry 7630 (class 2620 OID 42368)
 -- Name: subcategoria trg_log_auditoria; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29834,7 +35365,7 @@ CREATE TRIGGER trg_log_auditoria AFTER INSERT OR DELETE OR UPDATE ON financeiro.
 
 
 --
--- TOC entry 7496 (class 2620 OID 42369)
+-- TOC entry 7638 (class 2620 OID 42369)
 -- Name: tipo_lancamento trg_log_auditoria; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29842,7 +35373,7 @@ CREATE TRIGGER trg_log_auditoria AFTER INSERT OR DELETE OR UPDATE ON financeiro.
 
 
 --
--- TOC entry 7500 (class 2620 OID 42370)
+-- TOC entry 7642 (class 2620 OID 42370)
 -- Name: tipo_movimentacao trg_log_auditoria; Type: TRIGGER; Schema: financeiro; Owner: postgres
 --
 
@@ -29850,7 +35381,7 @@ CREATE TRIGGER trg_log_auditoria AFTER INSERT OR DELETE OR UPDATE ON financeiro.
 
 
 --
--- TOC entry 7574 (class 2620 OID 42288)
+-- TOC entry 7716 (class 2620 OID 42288)
 -- Name: agenda trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -29858,7 +35389,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.agenda FOR EACH R
 
 
 --
--- TOC entry 7588 (class 2620 OID 42303)
+-- TOC entry 7730 (class 2620 OID 42303)
 -- Name: aplicacao_api trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -29866,7 +35397,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.aplicacao_api FOR
 
 
 --
--- TOC entry 7546 (class 2620 OID 42263)
+-- TOC entry 7688 (class 2620 OID 42263)
 -- Name: aporte_capital trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -29874,7 +35405,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.aporte_capital FO
 
 
 --
--- TOC entry 7590 (class 2620 OID 42305)
+-- TOC entry 7732 (class 2620 OID 42305)
 -- Name: aprovacao_processo trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -29882,7 +35413,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.aprovacao_process
 
 
 --
--- TOC entry 7577 (class 2620 OID 42291)
+-- TOC entry 7719 (class 2620 OID 42291)
 -- Name: ativo_imobilizado trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -29890,7 +35421,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.ativo_imobilizado
 
 
 --
--- TOC entry 7521 (class 2620 OID 42239)
+-- TOC entry 7663 (class 2620 OID 42239)
 -- Name: banco trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -29898,7 +35429,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.banco FOR EACH RO
 
 
 --
--- TOC entry 7567 (class 2620 OID 42281)
+-- TOC entry 7709 (class 2620 OID 42281)
 -- Name: campanha trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -29906,7 +35437,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.campanha FOR EACH
 
 
 --
--- TOC entry 7570 (class 2620 OID 42284)
+-- TOC entry 7712 (class 2620 OID 42284)
 -- Name: cargo trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -29914,7 +35445,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.cargo FOR EACH RO
 
 
 --
--- TOC entry 7576 (class 2620 OID 42290)
+-- TOC entry 7718 (class 2620 OID 42290)
 -- Name: categoria_ativo trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -29922,7 +35453,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.categoria_ativo F
 
 
 --
--- TOC entry 7524 (class 2620 OID 42242)
+-- TOC entry 7666 (class 2620 OID 42242)
 -- Name: categoria_conta trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -29930,7 +35461,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.categoria_conta F
 
 
 --
--- TOC entry 7526 (class 2620 OID 42244)
+-- TOC entry 7668 (class 2620 OID 42244)
 -- Name: centro_custo trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -29938,7 +35469,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.centro_custo FOR 
 
 
 --
--- TOC entry 7563 (class 2620 OID 42277)
+-- TOC entry 7705 (class 2620 OID 42277)
 -- Name: checklist_viagem trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -29946,7 +35477,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.checklist_viagem 
 
 
 --
--- TOC entry 7527 (class 2620 OID 42245)
+-- TOC entry 7669 (class 2620 OID 42245)
 -- Name: classificacao_dre trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -29954,7 +35485,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.classificacao_dre
 
 
 --
--- TOC entry 7519 (class 2620 OID 42237)
+-- TOC entry 7661 (class 2620 OID 42237)
 -- Name: cliente trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -29962,7 +35493,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.cliente FOR EACH 
 
 
 --
--- TOC entry 7571 (class 2620 OID 42285)
+-- TOC entry 7713 (class 2620 OID 42285)
 -- Name: colaborador trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -29970,7 +35501,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.colaborador FOR E
 
 
 --
--- TOC entry 7537 (class 2620 OID 42256)
+-- TOC entry 7679 (class 2620 OID 42256)
 -- Name: comissao trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -29978,7 +35509,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.comissao FOR EACH
 
 
 --
--- TOC entry 7573 (class 2620 OID 42287)
+-- TOC entry 7715 (class 2620 OID 42287)
 -- Name: comissao_colaborador trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -29986,7 +35517,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.comissao_colabora
 
 
 --
--- TOC entry 7532 (class 2620 OID 42251)
+-- TOC entry 7674 (class 2620 OID 42251)
 -- Name: conciliacao_bancaria trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -29994,7 +35525,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.conciliacao_banca
 
 
 --
--- TOC entry 7594 (class 2620 OID 42309)
+-- TOC entry 7736 (class 2620 OID 42309)
 -- Name: conector_integracao trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30002,7 +35533,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.conector_integrac
 
 
 --
--- TOC entry 7592 (class 2620 OID 42307)
+-- TOC entry 7734 (class 2620 OID 42307)
 -- Name: conformidade_lgpd trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30010,7 +35541,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.conformidade_lgpd
 
 
 --
--- TOC entry 7528 (class 2620 OID 42246)
+-- TOC entry 7670 (class 2620 OID 42246)
 -- Name: conta_bancaria trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30018,7 +35549,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.conta_bancaria FO
 
 
 --
--- TOC entry 7568 (class 2620 OID 42282)
+-- TOC entry 7710 (class 2620 OID 42282)
 -- Name: contato_cliente trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30026,7 +35557,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.contato_cliente F
 
 
 --
--- TOC entry 7564 (class 2620 OID 42278)
+-- TOC entry 7706 (class 2620 OID 42278)
 -- Name: custo_pacote trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30034,7 +35565,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.custo_pacote FOR 
 
 
 --
--- TOC entry 7545 (class 2620 OID 42262)
+-- TOC entry 7687 (class 2620 OID 42262)
 -- Name: das trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30042,7 +35573,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.das FOR EACH ROW 
 
 
 --
--- TOC entry 7600 (class 2620 OID 42315)
+-- TOC entry 7742 (class 2620 OID 42315)
 -- Name: data_mart_execucao trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30050,7 +35581,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.data_mart_execuca
 
 
 --
--- TOC entry 7549 (class 2620 OID 42267)
+-- TOC entry 7691 (class 2620 OID 42267)
 -- Name: declaracao_fiscal trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30058,7 +35589,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.declaracao_fiscal
 
 
 --
--- TOC entry 7578 (class 2620 OID 42292)
+-- TOC entry 7720 (class 2620 OID 42292)
 -- Name: depreciacao trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30066,7 +35597,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.depreciacao FOR E
 
 
 --
--- TOC entry 7557 (class 2620 OID 42271)
+-- TOC entry 7699 (class 2620 OID 42271)
 -- Name: destino trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30074,7 +35605,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.destino FOR EACH 
 
 
 --
--- TOC entry 7547 (class 2620 OID 42264)
+-- TOC entry 7689 (class 2620 OID 42264)
 -- Name: distribuicao_lucros trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30082,7 +35613,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.distribuicao_lucr
 
 
 --
--- TOC entry 7585 (class 2620 OID 42299)
+-- TOC entry 7727 (class 2620 OID 42299)
 -- Name: documento trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30090,7 +35621,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.documento FOR EAC
 
 
 --
--- TOC entry 7513 (class 2620 OID 42233)
+-- TOC entry 7655 (class 2620 OID 42233)
 -- Name: empresa trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30098,7 +35629,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.empresa FOR EACH 
 
 
 --
--- TOC entry 7602 (class 2620 OID 42302)
+-- TOC entry 7744 (class 2620 OID 42302)
 -- Name: fato_financeiro trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30106,7 +35637,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.fato_financeiro F
 
 
 --
--- TOC entry 7601 (class 2620 OID 42316)
+-- TOC entry 7743 (class 2620 OID 42316)
 -- Name: fato_vendas trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30114,7 +35645,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.fato_vendas FOR E
 
 
 --
--- TOC entry 7597 (class 2620 OID 42312)
+-- TOC entry 7739 (class 2620 OID 42312)
 -- Name: fila_integracao trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30122,7 +35653,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.fila_integracao F
 
 
 --
--- TOC entry 7529 (class 2620 OID 42247)
+-- TOC entry 7671 (class 2620 OID 42247)
 -- Name: forma_pagamento trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30130,7 +35661,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.forma_pagamento F
 
 
 --
--- TOC entry 7520 (class 2620 OID 42238)
+-- TOC entry 7662 (class 2620 OID 42238)
 -- Name: fornecedor trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30138,7 +35669,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.fornecedor FOR EA
 
 
 --
--- TOC entry 7559 (class 2620 OID 42273)
+-- TOC entry 7701 (class 2620 OID 42273)
 -- Name: fornecedor_turistico trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30146,7 +35677,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.fornecedor_turist
 
 
 --
--- TOC entry 7569 (class 2620 OID 42283)
+-- TOC entry 7711 (class 2620 OID 42283)
 -- Name: funil_vendas trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30154,7 +35685,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.funil_vendas FOR 
 
 
 --
--- TOC entry 7554 (class 2620 OID 42268)
+-- TOC entry 7696 (class 2620 OID 42268)
 -- Name: gateway_pagamento trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30162,7 +35693,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.gateway_pagamento
 
 
 --
--- TOC entry 7523 (class 2620 OID 42241)
+-- TOC entry 7665 (class 2620 OID 42241)
 -- Name: grupo_conta trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30170,7 +35701,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.grupo_conta FOR E
 
 
 --
--- TOC entry 7562 (class 2620 OID 42276)
+-- TOC entry 7704 (class 2620 OID 42276)
 -- Name: guia_turistico trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30178,7 +35709,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.guia_turistico FO
 
 
 --
--- TOC entry 7560 (class 2620 OID 42274)
+-- TOC entry 7702 (class 2620 OID 42274)
 -- Name: hospedagem trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30186,7 +35717,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.hospedagem FOR EA
 
 
 --
--- TOC entry 7542 (class 2620 OID 42260)
+-- TOC entry 7684 (class 2620 OID 42260)
 -- Name: imposto trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30194,7 +35725,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.imposto FOR EACH 
 
 
 --
--- TOC entry 7553 (class 2620 OID 42266)
+-- TOC entry 7695 (class 2620 OID 42266)
 -- Name: integracao_woocommerce trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30202,7 +35733,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.integracao_woocom
 
 
 --
--- TOC entry 7539 (class 2620 OID 42258)
+-- TOC entry 7681 (class 2620 OID 42258)
 -- Name: item_venda trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30210,7 +35741,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.item_venda FOR EA
 
 
 --
--- TOC entry 7603 (class 2620 OID 42317)
+-- TOC entry 7745 (class 2620 OID 42317)
 -- Name: kpi_turismo trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30218,7 +35749,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.kpi_turismo FOR E
 
 
 --
--- TOC entry 7530 (class 2620 OID 42248)
+-- TOC entry 7672 (class 2620 OID 42248)
 -- Name: lancamento_financeiro trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30226,7 +35757,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.lancamento_financ
 
 
 --
--- TOC entry 7531 (class 2620 OID 42250)
+-- TOC entry 7673 (class 2620 OID 42250)
 -- Name: lancamento_parcela trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30234,7 +35765,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.lancamento_parcel
 
 
 --
--- TOC entry 7566 (class 2620 OID 42280)
+-- TOC entry 7708 (class 2620 OID 42280)
 -- Name: lead trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30242,7 +35773,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.lead FOR EACH ROW
 
 
 --
--- TOC entry 7580 (class 2620 OID 42294)
+-- TOC entry 7722 (class 2620 OID 42294)
 -- Name: localizacao_ativo trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30250,7 +35781,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.localizacao_ativo
 
 
 --
--- TOC entry 7598 (class 2620 OID 42313)
+-- TOC entry 7740 (class 2620 OID 42313)
 -- Name: log_integracao_detalhado trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30258,7 +35789,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.log_integracao_de
 
 
 --
--- TOC entry 7579 (class 2620 OID 42293)
+-- TOC entry 7721 (class 2620 OID 42293)
 -- Name: manutencao_ativo trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30266,7 +35797,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.manutencao_ativo 
 
 
 --
--- TOC entry 7595 (class 2620 OID 42310)
+-- TOC entry 7737 (class 2620 OID 42310)
 -- Name: mapeamento_campo_integracao trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30274,7 +35805,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.mapeamento_campo_
 
 
 --
--- TOC entry 7589 (class 2620 OID 42304)
+-- TOC entry 7731 (class 2620 OID 42304)
 -- Name: modelo_ml trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30282,7 +35813,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.modelo_ml FOR EAC
 
 
 --
--- TOC entry 7540 (class 2620 OID 42259)
+-- TOC entry 7682 (class 2620 OID 42259)
 -- Name: nota_fiscal trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30290,7 +35821,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.nota_fiscal FOR E
 
 
 --
--- TOC entry 7556 (class 2620 OID 42270)
+-- TOC entry 7698 (class 2620 OID 42270)
 -- Name: openfinance_conexao trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30298,7 +35829,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.openfinance_conex
 
 
 --
--- TOC entry 7565 (class 2620 OID 42279)
+-- TOC entry 7707 (class 2620 OID 42279)
 -- Name: origem_lead trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30306,7 +35837,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.origem_lead FOR E
 
 
 --
--- TOC entry 7534 (class 2620 OID 42253)
+-- TOC entry 7676 (class 2620 OID 42253)
 -- Name: pacote_viagem trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30314,7 +35845,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.pacote_viagem FOR
 
 
 --
--- TOC entry 7555 (class 2620 OID 42269)
+-- TOC entry 7697 (class 2620 OID 42269)
 -- Name: pagamento_transacao trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30322,7 +35853,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.pagamento_transac
 
 
 --
--- TOC entry 7587 (class 2620 OID 42301)
+-- TOC entry 7729 (class 2620 OID 42301)
 -- Name: parametro_sistema trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30330,7 +35861,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.parametro_sistema
 
 
 --
--- TOC entry 7572 (class 2620 OID 42286)
+-- TOC entry 7714 (class 2620 OID 42286)
 -- Name: parceiro_comercial trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30338,7 +35869,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.parceiro_comercia
 
 
 --
--- TOC entry 7536 (class 2620 OID 42255)
+-- TOC entry 7678 (class 2620 OID 42255)
 -- Name: passageiro trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30346,7 +35877,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.passageiro FOR EA
 
 
 --
--- TOC entry 7583 (class 2620 OID 42298)
+-- TOC entry 7725 (class 2620 OID 42298)
 -- Name: pedido_compra trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30354,7 +35885,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.pedido_compra FOR
 
 
 --
--- TOC entry 7551 (class 2620 OID 42236)
+-- TOC entry 7693 (class 2620 OID 42236)
 -- Name: perfil_acesso trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30362,7 +35893,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.perfil_acesso FOR
 
 
 --
--- TOC entry 7552 (class 2620 OID 42249)
+-- TOC entry 7694 (class 2620 OID 42249)
 -- Name: permissao trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30370,7 +35901,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.permissao FOR EAC
 
 
 --
--- TOC entry 7517 (class 2620 OID 42235)
+-- TOC entry 7659 (class 2620 OID 42235)
 -- Name: pessoa trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30378,7 +35909,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.pessoa FOR EACH R
 
 
 --
--- TOC entry 7522 (class 2620 OID 42240)
+-- TOC entry 7664 (class 2620 OID 42240)
 -- Name: plano_contas trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30386,7 +35917,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.plano_contas FOR 
 
 
 --
--- TOC entry 7591 (class 2620 OID 42306)
+-- TOC entry 7733 (class 2620 OID 42306)
 -- Name: politica_acesso trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30394,7 +35925,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.politica_acesso F
 
 
 --
--- TOC entry 7548 (class 2620 OID 42265)
+-- TOC entry 7690 (class 2620 OID 42265)
 -- Name: pro_labore trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30402,7 +35933,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.pro_labore FOR EA
 
 
 --
--- TOC entry 7581 (class 2620 OID 42296)
+-- TOC entry 7723 (class 2620 OID 42296)
 -- Name: produto_estoque trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30410,7 +35941,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.produto_estoque F
 
 
 --
--- TOC entry 7533 (class 2620 OID 42252)
+-- TOC entry 7675 (class 2620 OID 42252)
 -- Name: produto_turistico trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30418,7 +35949,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.produto_turistico
 
 
 --
--- TOC entry 7586 (class 2620 OID 42300)
+-- TOC entry 7728 (class 2620 OID 42300)
 -- Name: projeto trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30426,7 +35957,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.projeto FOR EACH 
 
 
 --
--- TOC entry 7604 (class 2620 OID 42318)
+-- TOC entry 7746 (class 2620 OID 42318)
 -- Name: rentabilidade_produto trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30434,7 +35965,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.rentabilidade_pro
 
 
 --
--- TOC entry 7582 (class 2620 OID 42297)
+-- TOC entry 7724 (class 2620 OID 42297)
 -- Name: requisicao_compra trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30442,7 +35973,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.requisicao_compra
 
 
 --
--- TOC entry 7535 (class 2620 OID 42254)
+-- TOC entry 7677 (class 2620 OID 42254)
 -- Name: reserva trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30450,7 +35981,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.reserva FOR EACH 
 
 
 --
--- TOC entry 7558 (class 2620 OID 42272)
+-- TOC entry 7700 (class 2620 OID 42272)
 -- Name: roteiro_viagem trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30458,7 +35989,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.roteiro_viagem FO
 
 
 --
--- TOC entry 7544 (class 2620 OID 42261)
+-- TOC entry 7686 (class 2620 OID 42261)
 -- Name: simples_nacional trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30466,7 +35997,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.simples_nacional 
 
 
 --
--- TOC entry 7596 (class 2620 OID 42311)
+-- TOC entry 7738 (class 2620 OID 42311)
 -- Name: sincronizacao_integracao trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30474,7 +36005,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.sincronizacao_int
 
 
 --
--- TOC entry 7593 (class 2620 OID 42308)
+-- TOC entry 7735 (class 2620 OID 42308)
 -- Name: sistema_externo trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30482,7 +36013,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.sistema_externo F
 
 
 --
--- TOC entry 7599 (class 2620 OID 42314)
+-- TOC entry 7741 (class 2620 OID 42314)
 -- Name: status_integracao trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30490,7 +36021,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.status_integracao
 
 
 --
--- TOC entry 7525 (class 2620 OID 42243)
+-- TOC entry 7667 (class 2620 OID 42243)
 -- Name: subcategoria_conta trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30498,7 +36029,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.subcategoria_cont
 
 
 --
--- TOC entry 7575 (class 2620 OID 42289)
+-- TOC entry 7717 (class 2620 OID 42289)
 -- Name: tarefa trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30506,7 +36037,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.tarefa FOR EACH R
 
 
 --
--- TOC entry 7584 (class 2620 OID 42295)
+-- TOC entry 7726 (class 2620 OID 42295)
 -- Name: tipo_documento trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30514,7 +36045,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.tipo_documento FO
 
 
 --
--- TOC entry 7561 (class 2620 OID 42275)
+-- TOC entry 7703 (class 2620 OID 42275)
 -- Name: transporte trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30522,7 +36053,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.transporte FOR EA
 
 
 --
--- TOC entry 7515 (class 2620 OID 42234)
+-- TOC entry 7657 (class 2620 OID 42234)
 -- Name: usuario trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30530,7 +36061,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.usuario FOR EACH 
 
 
 --
--- TOC entry 7538 (class 2620 OID 42257)
+-- TOC entry 7680 (class 2620 OID 42257)
 -- Name: venda trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30538,7 +36069,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.venda FOR EACH RO
 
 
 --
--- TOC entry 7605 (class 2620 OID 42319)
+-- TOC entry 7747 (class 2620 OID 42319)
 -- Name: workflow trg_atualiza_updated_at; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30546,7 +36077,7 @@ CREATE TRIGGER trg_atualiza_updated_at BEFORE UPDATE ON public.workflow FOR EACH
 
 
 --
--- TOC entry 7550 (class 2620 OID 42355)
+-- TOC entry 7692 (class 2620 OID 42355)
 -- Name: declaracao_fiscal trg_log_auditoria; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30554,7 +36085,7 @@ CREATE TRIGGER trg_log_auditoria AFTER INSERT OR DELETE OR UPDATE ON public.decl
 
 
 --
--- TOC entry 7514 (class 2620 OID 42351)
+-- TOC entry 7656 (class 2620 OID 42351)
 -- Name: empresa trg_log_auditoria; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30562,7 +36093,7 @@ CREATE TRIGGER trg_log_auditoria AFTER INSERT OR DELETE OR UPDATE ON public.empr
 
 
 --
--- TOC entry 7543 (class 2620 OID 42354)
+-- TOC entry 7685 (class 2620 OID 42354)
 -- Name: imposto trg_log_auditoria; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30570,7 +36101,7 @@ CREATE TRIGGER trg_log_auditoria AFTER INSERT OR DELETE OR UPDATE ON public.impo
 
 
 --
--- TOC entry 7541 (class 2620 OID 42353)
+-- TOC entry 7683 (class 2620 OID 42353)
 -- Name: nota_fiscal trg_log_auditoria; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30578,7 +36109,7 @@ CREATE TRIGGER trg_log_auditoria AFTER INSERT OR DELETE OR UPDATE ON public.nota
 
 
 --
--- TOC entry 7518 (class 2620 OID 42350)
+-- TOC entry 7660 (class 2620 OID 42350)
 -- Name: pessoa trg_log_auditoria; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30586,7 +36117,7 @@ CREATE TRIGGER trg_log_auditoria AFTER INSERT OR DELETE OR UPDATE ON public.pess
 
 
 --
--- TOC entry 7516 (class 2620 OID 42352)
+-- TOC entry 7658 (class 2620 OID 42352)
 -- Name: usuario trg_log_auditoria; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -30594,7 +36125,7 @@ CREATE TRIGGER trg_log_auditoria AFTER INSERT OR DELETE OR UPDATE ON public.usua
 
 
 --
--- TOC entry 7476 (class 2606 OID 41511)
+-- TOC entry 7618 (class 2606 OID 41511)
 -- Name: item fk_item_categoria; Type: FK CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -30603,7 +36134,7 @@ ALTER TABLE ONLY auditoria.item
 
 
 --
--- TOC entry 7481 (class 2606 OID 41609)
+-- TOC entry 7623 (class 2606 OID 41609)
 -- Name: log fk_log_execucao; Type: FK CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -30612,7 +36143,7 @@ ALTER TABLE ONLY auditoria.log
 
 
 --
--- TOC entry 7480 (class 2606 OID 41586)
+-- TOC entry 7622 (class 2606 OID 41586)
 -- Name: recomendacao fk_recomendacao_execucao; Type: FK CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -30621,7 +36152,7 @@ ALTER TABLE ONLY auditoria.recomendacao
 
 
 --
--- TOC entry 7482 (class 2606 OID 41847)
+-- TOC entry 7624 (class 2606 OID 41847)
 -- Name: regra fk_regra_executor; Type: FK CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -30630,7 +36161,7 @@ ALTER TABLE ONLY auditoria.regra
 
 
 --
--- TOC entry 7477 (class 2606 OID 41536)
+-- TOC entry 7619 (class 2606 OID 41536)
 -- Name: resultado fk_resultado_execucao; Type: FK CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -30639,7 +36170,7 @@ ALTER TABLE ONLY auditoria.resultado
 
 
 --
--- TOC entry 7478 (class 2606 OID 41541)
+-- TOC entry 7620 (class 2606 OID 41541)
 -- Name: resultado fk_resultado_item; Type: FK CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -30648,7 +36179,7 @@ ALTER TABLE ONLY auditoria.resultado
 
 
 --
--- TOC entry 7479 (class 2606 OID 41562)
+-- TOC entry 7621 (class 2606 OID 41562)
 -- Name: score fk_score_execucao; Type: FK CONSTRAINT; Schema: auditoria; Owner: postgres
 --
 
@@ -30657,7 +36188,7 @@ ALTER TABLE ONLY auditoria.score
 
 
 --
--- TOC entry 7366 (class 2606 OID 41876)
+-- TOC entry 7508 (class 2606 OID 41876)
 -- Name: anexo fk_anexo_created_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30666,7 +36197,7 @@ ALTER TABLE ONLY financeiro.anexo
 
 
 --
--- TOC entry 7367 (class 2606 OID 41886)
+-- TOC entry 7509 (class 2606 OID 41886)
 -- Name: anexo fk_anexo_deleted_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30675,7 +36206,7 @@ ALTER TABLE ONLY financeiro.anexo
 
 
 --
--- TOC entry 7368 (class 2606 OID 33385)
+-- TOC entry 7510 (class 2606 OID 33385)
 -- Name: anexo fk_anexo_lancamento; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30684,7 +36215,7 @@ ALTER TABLE ONLY financeiro.anexo
 
 
 --
--- TOC entry 7369 (class 2606 OID 41881)
+-- TOC entry 7511 (class 2606 OID 41881)
 -- Name: anexo fk_anexo_updated_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30693,7 +36224,7 @@ ALTER TABLE ONLY financeiro.anexo
 
 
 --
--- TOC entry 7300 (class 2606 OID 41894)
+-- TOC entry 7442 (class 2606 OID 41894)
 -- Name: categoria fk_categoria_created_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30702,7 +36233,7 @@ ALTER TABLE ONLY financeiro.categoria
 
 
 --
--- TOC entry 7301 (class 2606 OID 41904)
+-- TOC entry 7443 (class 2606 OID 41904)
 -- Name: categoria fk_categoria_deleted_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30711,7 +36242,7 @@ ALTER TABLE ONLY financeiro.categoria
 
 
 --
--- TOC entry 7302 (class 2606 OID 24801)
+-- TOC entry 7444 (class 2606 OID 24801)
 -- Name: categoria fk_categoria_grupo; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30720,7 +36251,7 @@ ALTER TABLE ONLY financeiro.categoria
 
 
 --
--- TOC entry 7303 (class 2606 OID 41899)
+-- TOC entry 7445 (class 2606 OID 41899)
 -- Name: categoria fk_categoria_updated_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30729,7 +36260,7 @@ ALTER TABLE ONLY financeiro.categoria
 
 
 --
--- TOC entry 7308 (class 2606 OID 41911)
+-- TOC entry 7450 (class 2606 OID 41911)
 -- Name: classificacao fk_classificacao_created_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30738,7 +36269,7 @@ ALTER TABLE ONLY financeiro.classificacao
 
 
 --
--- TOC entry 7309 (class 2606 OID 41921)
+-- TOC entry 7451 (class 2606 OID 41921)
 -- Name: classificacao fk_classificacao_deleted_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30747,7 +36278,7 @@ ALTER TABLE ONLY financeiro.classificacao
 
 
 --
--- TOC entry 7310 (class 2606 OID 24811)
+-- TOC entry 7452 (class 2606 OID 24811)
 -- Name: classificacao fk_classificacao_subcategoria; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30756,7 +36287,7 @@ ALTER TABLE ONLY financeiro.classificacao
 
 
 --
--- TOC entry 7311 (class 2606 OID 41916)
+-- TOC entry 7453 (class 2606 OID 41916)
 -- Name: classificacao fk_classificacao_updated_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30765,7 +36296,7 @@ ALTER TABLE ONLY financeiro.classificacao
 
 
 --
--- TOC entry 7317 (class 2606 OID 33432)
+-- TOC entry 7459 (class 2606 OID 33432)
 -- Name: cliente fk_cliente_pessoa; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30774,7 +36305,7 @@ ALTER TABLE ONLY financeiro.cliente
 
 
 --
--- TOC entry 7318 (class 2606 OID 24826)
+-- TOC entry 7460 (class 2606 OID 24826)
 -- Name: configuracao fk_config_empresa; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30783,7 +36314,7 @@ ALTER TABLE ONLY financeiro.configuracao
 
 
 --
--- TOC entry 7319 (class 2606 OID 41929)
+-- TOC entry 7461 (class 2606 OID 41929)
 -- Name: configuracao fk_configuracao_created_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30792,7 +36323,7 @@ ALTER TABLE ONLY financeiro.configuracao
 
 
 --
--- TOC entry 7320 (class 2606 OID 41939)
+-- TOC entry 7462 (class 2606 OID 41939)
 -- Name: configuracao fk_configuracao_deleted_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30801,7 +36332,7 @@ ALTER TABLE ONLY financeiro.configuracao
 
 
 --
--- TOC entry 7321 (class 2606 OID 41934)
+-- TOC entry 7463 (class 2606 OID 41934)
 -- Name: configuracao fk_configuracao_updated_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30810,7 +36341,7 @@ ALTER TABLE ONLY financeiro.configuracao
 
 
 --
--- TOC entry 7316 (class 2606 OID 24821)
+-- TOC entry 7458 (class 2606 OID 24821)
 -- Name: conta_bancaria fk_conta_banco; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30819,7 +36350,7 @@ ALTER TABLE ONLY financeiro.conta_bancaria
 
 
 --
--- TOC entry 7312 (class 2606 OID 24816)
+-- TOC entry 7454 (class 2606 OID 24816)
 -- Name: conta fk_conta_classificacao; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30828,7 +36359,7 @@ ALTER TABLE ONLY financeiro.conta
 
 
 --
--- TOC entry 7313 (class 2606 OID 41947)
+-- TOC entry 7455 (class 2606 OID 41947)
 -- Name: conta fk_conta_created_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30837,7 +36368,7 @@ ALTER TABLE ONLY financeiro.conta
 
 
 --
--- TOC entry 7314 (class 2606 OID 41957)
+-- TOC entry 7456 (class 2606 OID 41957)
 -- Name: conta fk_conta_deleted_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30846,7 +36377,7 @@ ALTER TABLE ONLY financeiro.conta
 
 
 --
--- TOC entry 7315 (class 2606 OID 41952)
+-- TOC entry 7457 (class 2606 OID 41952)
 -- Name: conta fk_conta_updated_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30855,7 +36386,7 @@ ALTER TABLE ONLY financeiro.conta
 
 
 --
--- TOC entry 7296 (class 2606 OID 33412)
+-- TOC entry 7438 (class 2606 OID 33412)
 -- Name: empresa fk_empresa_fin_localidade; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30864,7 +36395,7 @@ ALTER TABLE ONLY financeiro.empresa
 
 
 --
--- TOC entry 7297 (class 2606 OID 41965)
+-- TOC entry 7439 (class 2606 OID 41965)
 -- Name: grupo fk_grupo_created_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30873,7 +36404,7 @@ ALTER TABLE ONLY financeiro.grupo
 
 
 --
--- TOC entry 7298 (class 2606 OID 41975)
+-- TOC entry 7440 (class 2606 OID 41975)
 -- Name: grupo fk_grupo_deleted_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30882,7 +36413,7 @@ ALTER TABLE ONLY financeiro.grupo
 
 
 --
--- TOC entry 7299 (class 2606 OID 41970)
+-- TOC entry 7441 (class 2606 OID 41970)
 -- Name: grupo fk_grupo_updated_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30891,7 +36422,7 @@ ALTER TABLE ONLY financeiro.grupo
 
 
 --
--- TOC entry 7361 (class 2606 OID 33375)
+-- TOC entry 7503 (class 2606 OID 33375)
 -- Name: historico_lancamento fk_historico_lancamento; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30900,7 +36431,7 @@ ALTER TABLE ONLY financeiro.historico_lancamento
 
 
 --
--- TOC entry 7362 (class 2606 OID 41983)
+-- TOC entry 7504 (class 2606 OID 41983)
 -- Name: historico_lancamento fk_historico_lancamento_created_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30909,7 +36440,7 @@ ALTER TABLE ONLY financeiro.historico_lancamento
 
 
 --
--- TOC entry 7363 (class 2606 OID 41993)
+-- TOC entry 7505 (class 2606 OID 41993)
 -- Name: historico_lancamento fk_historico_lancamento_deleted_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30918,7 +36449,7 @@ ALTER TABLE ONLY financeiro.historico_lancamento
 
 
 --
--- TOC entry 7364 (class 2606 OID 41988)
+-- TOC entry 7506 (class 2606 OID 41988)
 -- Name: historico_lancamento fk_historico_lancamento_updated_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30927,7 +36458,7 @@ ALTER TABLE ONLY financeiro.historico_lancamento
 
 
 --
--- TOC entry 7365 (class 2606 OID 33380)
+-- TOC entry 7507 (class 2606 OID 33380)
 -- Name: historico_lancamento fk_historico_usuario; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30936,7 +36467,7 @@ ALTER TABLE ONLY financeiro.historico_lancamento
 
 
 --
--- TOC entry 7331 (class 2606 OID 33305)
+-- TOC entry 7473 (class 2606 OID 33305)
 -- Name: lancamento fk_lancamento_cliente; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30945,7 +36476,7 @@ ALTER TABLE ONLY financeiro.lancamento
 
 
 --
--- TOC entry 7332 (class 2606 OID 33300)
+-- TOC entry 7474 (class 2606 OID 33300)
 -- Name: lancamento fk_lancamento_conta; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30954,7 +36485,7 @@ ALTER TABLE ONLY financeiro.lancamento
 
 
 --
--- TOC entry 7333 (class 2606 OID 33315)
+-- TOC entry 7475 (class 2606 OID 33315)
 -- Name: lancamento fk_lancamento_conta_bancaria; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30963,7 +36494,7 @@ ALTER TABLE ONLY financeiro.lancamento
 
 
 --
--- TOC entry 7334 (class 2606 OID 42001)
+-- TOC entry 7476 (class 2606 OID 42001)
 -- Name: lancamento fk_lancamento_created_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30972,7 +36503,7 @@ ALTER TABLE ONLY financeiro.lancamento
 
 
 --
--- TOC entry 7335 (class 2606 OID 42011)
+-- TOC entry 7477 (class 2606 OID 42011)
 -- Name: lancamento fk_lancamento_deleted_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30981,7 +36512,7 @@ ALTER TABLE ONLY financeiro.lancamento
 
 
 --
--- TOC entry 7336 (class 2606 OID 33285)
+-- TOC entry 7478 (class 2606 OID 33285)
 -- Name: lancamento fk_lancamento_empresa; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30990,7 +36521,7 @@ ALTER TABLE ONLY financeiro.lancamento
 
 
 --
--- TOC entry 7337 (class 2606 OID 33320)
+-- TOC entry 7479 (class 2606 OID 33320)
 -- Name: lancamento fk_lancamento_forma_pagamento; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -30999,7 +36530,7 @@ ALTER TABLE ONLY financeiro.lancamento
 
 
 --
--- TOC entry 7338 (class 2606 OID 33310)
+-- TOC entry 7480 (class 2606 OID 33310)
 -- Name: lancamento fk_lancamento_fornecedor; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31008,7 +36539,7 @@ ALTER TABLE ONLY financeiro.lancamento
 
 
 --
--- TOC entry 7339 (class 2606 OID 33295)
+-- TOC entry 7481 (class 2606 OID 33295)
 -- Name: lancamento fk_lancamento_status; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31017,7 +36548,7 @@ ALTER TABLE ONLY financeiro.lancamento
 
 
 --
--- TOC entry 7340 (class 2606 OID 33290)
+-- TOC entry 7482 (class 2606 OID 33290)
 -- Name: lancamento fk_lancamento_tipo; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31026,7 +36557,7 @@ ALTER TABLE ONLY financeiro.lancamento
 
 
 --
--- TOC entry 7341 (class 2606 OID 33325)
+-- TOC entry 7483 (class 2606 OID 33325)
 -- Name: lancamento fk_lancamento_tipo_documento; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31035,7 +36566,7 @@ ALTER TABLE ONLY financeiro.lancamento
 
 
 --
--- TOC entry 7342 (class 2606 OID 42006)
+-- TOC entry 7484 (class 2606 OID 42006)
 -- Name: lancamento fk_lancamento_updated_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31044,7 +36575,7 @@ ALTER TABLE ONLY financeiro.lancamento
 
 
 --
--- TOC entry 7350 (class 2606 OID 42019)
+-- TOC entry 7492 (class 2606 OID 42019)
 -- Name: movimentacao_bancaria fk_movimentacao_bancaria_created_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31053,7 +36584,7 @@ ALTER TABLE ONLY financeiro.movimentacao_bancaria
 
 
 --
--- TOC entry 7351 (class 2606 OID 42029)
+-- TOC entry 7493 (class 2606 OID 42029)
 -- Name: movimentacao_bancaria fk_movimentacao_bancaria_deleted_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31062,7 +36593,7 @@ ALTER TABLE ONLY financeiro.movimentacao_bancaria
 
 
 --
--- TOC entry 7352 (class 2606 OID 42024)
+-- TOC entry 7494 (class 2606 OID 42024)
 -- Name: movimentacao_bancaria fk_movimentacao_bancaria_updated_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31071,7 +36602,7 @@ ALTER TABLE ONLY financeiro.movimentacao_bancaria
 
 
 --
--- TOC entry 7353 (class 2606 OID 33350)
+-- TOC entry 7495 (class 2606 OID 33350)
 -- Name: movimentacao_bancaria fk_movimentacao_conta_bancaria; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31080,7 +36611,7 @@ ALTER TABLE ONLY financeiro.movimentacao_bancaria
 
 
 --
--- TOC entry 7354 (class 2606 OID 33355)
+-- TOC entry 7496 (class 2606 OID 33355)
 -- Name: movimentacao_bancaria fk_movimentacao_pagamento; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31089,7 +36620,7 @@ ALTER TABLE ONLY financeiro.movimentacao_bancaria
 
 
 --
--- TOC entry 7355 (class 2606 OID 33360)
+-- TOC entry 7497 (class 2606 OID 33360)
 -- Name: movimentacao_bancaria fk_movimentacao_tipo; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31098,7 +36629,7 @@ ALTER TABLE ONLY financeiro.movimentacao_bancaria
 
 
 --
--- TOC entry 7344 (class 2606 OID 33340)
+-- TOC entry 7486 (class 2606 OID 33340)
 -- Name: pagamento fk_pagamento_conta_bancaria; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31107,7 +36638,7 @@ ALTER TABLE ONLY financeiro.pagamento
 
 
 --
--- TOC entry 7345 (class 2606 OID 42037)
+-- TOC entry 7487 (class 2606 OID 42037)
 -- Name: pagamento fk_pagamento_created_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31116,7 +36647,7 @@ ALTER TABLE ONLY financeiro.pagamento
 
 
 --
--- TOC entry 7346 (class 2606 OID 42047)
+-- TOC entry 7488 (class 2606 OID 42047)
 -- Name: pagamento fk_pagamento_deleted_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31125,7 +36656,7 @@ ALTER TABLE ONLY financeiro.pagamento
 
 
 --
--- TOC entry 7347 (class 2606 OID 33345)
+-- TOC entry 7489 (class 2606 OID 33345)
 -- Name: pagamento fk_pagamento_forma_pagamento; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31134,7 +36665,7 @@ ALTER TABLE ONLY financeiro.pagamento
 
 
 --
--- TOC entry 7348 (class 2606 OID 33335)
+-- TOC entry 7490 (class 2606 OID 33335)
 -- Name: pagamento fk_pagamento_parcela; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31143,7 +36674,7 @@ ALTER TABLE ONLY financeiro.pagamento
 
 
 --
--- TOC entry 7349 (class 2606 OID 42042)
+-- TOC entry 7491 (class 2606 OID 42042)
 -- Name: pagamento fk_pagamento_updated_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31152,7 +36683,7 @@ ALTER TABLE ONLY financeiro.pagamento
 
 
 --
--- TOC entry 7343 (class 2606 OID 33330)
+-- TOC entry 7485 (class 2606 OID 33330)
 -- Name: lancamento_parcela fk_parcela_lancamento; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31161,7 +36692,7 @@ ALTER TABLE ONLY financeiro.lancamento_parcela
 
 
 --
--- TOC entry 7356 (class 2606 OID 33370)
+-- TOC entry 7498 (class 2606 OID 33370)
 -- Name: rateio_centro_custo fk_rateio_centro_custo; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31170,7 +36701,7 @@ ALTER TABLE ONLY financeiro.rateio_centro_custo
 
 
 --
--- TOC entry 7357 (class 2606 OID 42055)
+-- TOC entry 7499 (class 2606 OID 42055)
 -- Name: rateio_centro_custo fk_rateio_centro_custo_created_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31179,7 +36710,7 @@ ALTER TABLE ONLY financeiro.rateio_centro_custo
 
 
 --
--- TOC entry 7358 (class 2606 OID 42065)
+-- TOC entry 7500 (class 2606 OID 42065)
 -- Name: rateio_centro_custo fk_rateio_centro_custo_deleted_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31188,7 +36719,7 @@ ALTER TABLE ONLY financeiro.rateio_centro_custo
 
 
 --
--- TOC entry 7359 (class 2606 OID 42060)
+-- TOC entry 7501 (class 2606 OID 42060)
 -- Name: rateio_centro_custo fk_rateio_centro_custo_updated_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31197,7 +36728,7 @@ ALTER TABLE ONLY financeiro.rateio_centro_custo
 
 
 --
--- TOC entry 7360 (class 2606 OID 33365)
+-- TOC entry 7502 (class 2606 OID 33365)
 -- Name: rateio_centro_custo fk_rateio_lancamento; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31206,7 +36737,7 @@ ALTER TABLE ONLY financeiro.rateio_centro_custo
 
 
 --
--- TOC entry 7325 (class 2606 OID 42073)
+-- TOC entry 7467 (class 2606 OID 42073)
 -- Name: status_lancamento fk_status_lancamento_created_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31215,7 +36746,7 @@ ALTER TABLE ONLY financeiro.status_lancamento
 
 
 --
--- TOC entry 7326 (class 2606 OID 42083)
+-- TOC entry 7468 (class 2606 OID 42083)
 -- Name: status_lancamento fk_status_lancamento_deleted_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31224,7 +36755,7 @@ ALTER TABLE ONLY financeiro.status_lancamento
 
 
 --
--- TOC entry 7327 (class 2606 OID 42078)
+-- TOC entry 7469 (class 2606 OID 42078)
 -- Name: status_lancamento fk_status_lancamento_updated_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31233,7 +36764,7 @@ ALTER TABLE ONLY financeiro.status_lancamento
 
 
 --
--- TOC entry 7304 (class 2606 OID 24806)
+-- TOC entry 7446 (class 2606 OID 24806)
 -- Name: subcategoria fk_subcategoria_categoria; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31242,7 +36773,7 @@ ALTER TABLE ONLY financeiro.subcategoria
 
 
 --
--- TOC entry 7305 (class 2606 OID 42091)
+-- TOC entry 7447 (class 2606 OID 42091)
 -- Name: subcategoria fk_subcategoria_created_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31251,7 +36782,7 @@ ALTER TABLE ONLY financeiro.subcategoria
 
 
 --
--- TOC entry 7306 (class 2606 OID 42101)
+-- TOC entry 7448 (class 2606 OID 42101)
 -- Name: subcategoria fk_subcategoria_deleted_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31260,7 +36791,7 @@ ALTER TABLE ONLY financeiro.subcategoria
 
 
 --
--- TOC entry 7307 (class 2606 OID 42096)
+-- TOC entry 7449 (class 2606 OID 42096)
 -- Name: subcategoria fk_subcategoria_updated_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31269,7 +36800,7 @@ ALTER TABLE ONLY financeiro.subcategoria
 
 
 --
--- TOC entry 7322 (class 2606 OID 42109)
+-- TOC entry 7464 (class 2606 OID 42109)
 -- Name: tipo_lancamento fk_tipo_lancamento_created_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31278,7 +36809,7 @@ ALTER TABLE ONLY financeiro.tipo_lancamento
 
 
 --
--- TOC entry 7323 (class 2606 OID 42119)
+-- TOC entry 7465 (class 2606 OID 42119)
 -- Name: tipo_lancamento fk_tipo_lancamento_deleted_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31287,7 +36818,7 @@ ALTER TABLE ONLY financeiro.tipo_lancamento
 
 
 --
--- TOC entry 7324 (class 2606 OID 42114)
+-- TOC entry 7466 (class 2606 OID 42114)
 -- Name: tipo_lancamento fk_tipo_lancamento_updated_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31296,7 +36827,7 @@ ALTER TABLE ONLY financeiro.tipo_lancamento
 
 
 --
--- TOC entry 7328 (class 2606 OID 42127)
+-- TOC entry 7470 (class 2606 OID 42127)
 -- Name: tipo_movimentacao fk_tipo_movimentacao_created_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31305,7 +36836,7 @@ ALTER TABLE ONLY financeiro.tipo_movimentacao
 
 
 --
--- TOC entry 7329 (class 2606 OID 42137)
+-- TOC entry 7471 (class 2606 OID 42137)
 -- Name: tipo_movimentacao fk_tipo_movimentacao_deleted_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31314,7 +36845,7 @@ ALTER TABLE ONLY financeiro.tipo_movimentacao
 
 
 --
--- TOC entry 7330 (class 2606 OID 42132)
+-- TOC entry 7472 (class 2606 OID 42132)
 -- Name: tipo_movimentacao fk_tipo_movimentacao_updated_by; Type: FK CONSTRAINT; Schema: financeiro; Owner: postgres
 --
 
@@ -31323,7 +36854,7 @@ ALTER TABLE ONLY financeiro.tipo_movimentacao
 
 
 --
--- TOC entry 7389 (class 2606 OID 25415)
+-- TOC entry 7531 (class 2606 OID 25415)
 -- Name: conciliacao_bancaria conciliacao_bancaria_id_conta_bancaria_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31332,7 +36863,7 @@ ALTER TABLE ONLY public.conciliacao_bancaria
 
 
 --
--- TOC entry 7390 (class 2606 OID 25420)
+-- TOC entry 7532 (class 2606 OID 25420)
 -- Name: conciliacao_bancaria conciliacao_bancaria_id_lancamento_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31341,7 +36872,7 @@ ALTER TABLE ONLY public.conciliacao_bancaria
 
 
 --
--- TOC entry 7433 (class 2606 OID 26395)
+-- TOC entry 7575 (class 2606 OID 26395)
 -- Name: agenda fk_agenda_colaborador; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31350,7 +36881,7 @@ ALTER TABLE ONLY public.agenda
 
 
 --
--- TOC entry 7462 (class 2606 OID 26976)
+-- TOC entry 7604 (class 2606 OID 26976)
 -- Name: anexo_projeto fk_anexo_projeto; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31359,7 +36890,7 @@ ALTER TABLE ONLY public.anexo_projeto
 
 
 --
--- TOC entry 7404 (class 2606 OID 25707)
+-- TOC entry 7546 (class 2606 OID 25707)
 -- Name: aporte_capital fk_aporte_empresa; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31368,7 +36899,7 @@ ALTER TABLE ONLY public.aporte_capital
 
 
 --
--- TOC entry 7451 (class 2606 OID 26781)
+-- TOC entry 7593 (class 2606 OID 26781)
 -- Name: arquivo_digital fk_arquivo_documento; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31377,7 +36908,7 @@ ALTER TABLE ONLY public.arquivo_digital
 
 
 --
--- TOC entry 7453 (class 2606 OID 26812)
+-- TOC entry 7595 (class 2606 OID 26812)
 -- Name: assinatura_digital fk_assinatura_documento; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31386,7 +36917,7 @@ ALTER TABLE ONLY public.assinatura_digital
 
 
 --
--- TOC entry 7436 (class 2606 OID 26477)
+-- TOC entry 7578 (class 2606 OID 26477)
 -- Name: ativo_imobilizado fk_ativo_categoria; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31395,7 +36926,7 @@ ALTER TABLE ONLY public.ativo_imobilizado
 
 
 --
--- TOC entry 7428 (class 2606 OID 26298)
+-- TOC entry 7570 (class 2606 OID 26298)
 -- Name: avaliacao_pos_viagem fk_avaliacao_reserva; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31404,7 +36935,7 @@ ALTER TABLE ONLY public.avaliacao_pos_viagem
 
 
 --
--- TOC entry 7375 (class 2606 OID 25232)
+-- TOC entry 7517 (class 2606 OID 25232)
 -- Name: categoria_conta fk_categoria_grupo; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31413,7 +36944,7 @@ ALTER TABLE ONLY public.categoria_conta
 
 
 --
--- TOC entry 7466 (class 2606 OID 27141)
+-- TOC entry 7608 (class 2606 OID 27141)
 -- Name: chave_api fk_chave_aplicacao; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31422,7 +36953,7 @@ ALTER TABLE ONLY public.chave_api
 
 
 --
--- TOC entry 7422 (class 2606 OID 26155)
+-- TOC entry 7564 (class 2606 OID 26155)
 -- Name: checklist_viagem fk_checklist_pacote; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31431,7 +36962,7 @@ ALTER TABLE ONLY public.checklist_viagem
 
 
 --
--- TOC entry 7372 (class 2606 OID 25138)
+-- TOC entry 7514 (class 2606 OID 25138)
 -- Name: cliente fk_cliente_pessoa; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31440,7 +36971,7 @@ ALTER TABLE ONLY public.cliente
 
 
 --
--- TOC entry 7429 (class 2606 OID 26341)
+-- TOC entry 7571 (class 2606 OID 26341)
 -- Name: colaborador fk_colaborador_cargo; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31449,7 +36980,7 @@ ALTER TABLE ONLY public.colaborador
 
 
 --
--- TOC entry 7430 (class 2606 OID 26336)
+-- TOC entry 7572 (class 2606 OID 26336)
 -- Name: colaborador fk_colaborador_pessoa; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31458,7 +36989,7 @@ ALTER TABLE ONLY public.colaborador
 
 
 --
--- TOC entry 7431 (class 2606 OID 26372)
+-- TOC entry 7573 (class 2606 OID 26372)
 -- Name: comissao_colaborador fk_comissao_colaborador; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31467,7 +36998,7 @@ ALTER TABLE ONLY public.comissao_colaborador
 
 
 --
--- TOC entry 7395 (class 2606 OID 25534)
+-- TOC entry 7537 (class 2606 OID 25534)
 -- Name: comissao fk_comissao_fornecedor; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31476,7 +37007,7 @@ ALTER TABLE ONLY public.comissao
 
 
 --
--- TOC entry 7396 (class 2606 OID 25529)
+-- TOC entry 7538 (class 2606 OID 25529)
 -- Name: comissao fk_comissao_reserva; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31485,7 +37016,7 @@ ALTER TABLE ONLY public.comissao
 
 
 --
--- TOC entry 7432 (class 2606 OID 26377)
+-- TOC entry 7574 (class 2606 OID 26377)
 -- Name: comissao_colaborador fk_comissao_venda; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31494,7 +37025,7 @@ ALTER TABLE ONLY public.comissao_colaborador
 
 
 --
--- TOC entry 7469 (class 2606 OID 27438)
+-- TOC entry 7611 (class 2606 OID 27438)
 -- Name: conector_integracao fk_conector_sistema; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31503,7 +37034,7 @@ ALTER TABLE ONLY public.conector_integracao
 
 
 --
--- TOC entry 7463 (class 2606 OID 27015)
+-- TOC entry 7605 (class 2606 OID 27015)
 -- Name: configuracao_empresa fk_config_empresa; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31512,7 +37043,7 @@ ALTER TABLE ONLY public.configuracao_empresa
 
 
 --
--- TOC entry 7377 (class 2606 OID 33426)
+-- TOC entry 7519 (class 2606 OID 33426)
 -- Name: conta_bancaria fk_conta_bancaria_banco; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31521,7 +37052,7 @@ ALTER TABLE ONLY public.conta_bancaria
 
 
 --
--- TOC entry 7378 (class 2606 OID 25308)
+-- TOC entry 7520 (class 2606 OID 25308)
 -- Name: conta_bancaria fk_conta_empresa; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31530,7 +37061,7 @@ ALTER TABLE ONLY public.conta_bancaria
 
 
 --
--- TOC entry 7374 (class 2606 OID 25194)
+-- TOC entry 7516 (class 2606 OID 25194)
 -- Name: plano_contas fk_conta_pai; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31539,7 +37070,7 @@ ALTER TABLE ONLY public.plano_contas
 
 
 --
--- TOC entry 7425 (class 2606 OID 26244)
+-- TOC entry 7567 (class 2606 OID 26244)
 -- Name: contato_cliente fk_contato_cliente; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31548,7 +37079,7 @@ ALTER TABLE ONLY public.contato_cliente
 
 
 --
--- TOC entry 7452 (class 2606 OID 26796)
+-- TOC entry 7594 (class 2606 OID 26796)
 -- Name: contrato fk_contrato_documento; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31557,7 +37088,7 @@ ALTER TABLE ONLY public.contrato
 
 
 --
--- TOC entry 7454 (class 2606 OID 26829)
+-- TOC entry 7596 (class 2606 OID 26829)
 -- Name: controle_vencimento_documento fk_controle_documento; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31566,7 +37097,7 @@ ALTER TABLE ONLY public.controle_vencimento_documento
 
 
 --
--- TOC entry 7423 (class 2606 OID 26174)
+-- TOC entry 7565 (class 2606 OID 26174)
 -- Name: custo_pacote fk_custo_pacote; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31575,7 +37106,7 @@ ALTER TABLE ONLY public.custo_pacote
 
 
 --
--- TOC entry 7460 (class 2606 OID 26942)
+-- TOC entry 7602 (class 2606 OID 26942)
 -- Name: custo_projeto fk_custo_projeto; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31584,7 +37115,7 @@ ALTER TABLE ONLY public.custo_projeto
 
 
 --
--- TOC entry 7403 (class 2606 OID 25652)
+-- TOC entry 7545 (class 2606 OID 25652)
 -- Name: das fk_das_empresa; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31593,7 +37124,7 @@ ALTER TABLE ONLY public.das
 
 
 --
--- TOC entry 7407 (class 2606 OID 25781)
+-- TOC entry 7549 (class 2606 OID 25781)
 -- Name: declaracao_fiscal fk_declaracao_empresa; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31602,7 +37133,7 @@ ALTER TABLE ONLY public.declaracao_fiscal
 
 
 --
--- TOC entry 7437 (class 2606 OID 26494)
+-- TOC entry 7579 (class 2606 OID 26494)
 -- Name: depreciacao fk_depreciacao_ativo; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31611,7 +37142,7 @@ ALTER TABLE ONLY public.depreciacao
 
 
 --
--- TOC entry 7416 (class 2606 OID 33417)
+-- TOC entry 7558 (class 2606 OID 33417)
 -- Name: destino fk_destino_localidade; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31620,7 +37151,7 @@ ALTER TABLE ONLY public.destino
 
 
 --
--- TOC entry 7450 (class 2606 OID 26763)
+-- TOC entry 7592 (class 2606 OID 26763)
 -- Name: documento fk_documento_tipo; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31629,7 +37160,7 @@ ALTER TABLE ONLY public.documento
 
 
 --
--- TOC entry 7370 (class 2606 OID 33407)
+-- TOC entry 7512 (class 2606 OID 33407)
 -- Name: empresa fk_empresa_localidade; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31638,7 +37169,7 @@ ALTER TABLE ONLY public.empresa
 
 
 --
--- TOC entry 7446 (class 2606 OID 26669)
+-- TOC entry 7588 (class 2606 OID 26669)
 -- Name: estoque fk_estoque_produto; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31647,7 +37178,7 @@ ALTER TABLE ONLY public.estoque
 
 
 --
--- TOC entry 7456 (class 2606 OID 26886)
+-- TOC entry 7598 (class 2606 OID 26886)
 -- Name: etapa_projeto fk_etapa_projeto; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31656,7 +37187,7 @@ ALTER TABLE ONLY public.etapa_projeto
 
 
 --
--- TOC entry 7472 (class 2606 OID 27513)
+-- TOC entry 7614 (class 2606 OID 27513)
 -- Name: fila_integracao fk_fila_integracao_conector; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31665,7 +37196,7 @@ ALTER TABLE ONLY public.fila_integracao
 
 
 --
--- TOC entry 7373 (class 2606 OID 25158)
+-- TOC entry 7515 (class 2606 OID 25158)
 -- Name: fornecedor fk_fornecedor_pessoa; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31674,7 +37205,7 @@ ALTER TABLE ONLY public.fornecedor
 
 
 --
--- TOC entry 7419 (class 2606 OID 26087)
+-- TOC entry 7561 (class 2606 OID 26087)
 -- Name: fornecedor_turistico fk_ft_fornecedor; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31683,7 +37214,7 @@ ALTER TABLE ONLY public.fornecedor_turistico
 
 
 --
--- TOC entry 7426 (class 2606 OID 26261)
+-- TOC entry 7568 (class 2606 OID 26261)
 -- Name: funil_vendas fk_funil_lead; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31692,7 +37223,7 @@ ALTER TABLE ONLY public.funil_vendas
 
 
 --
--- TOC entry 7455 (class 2606 OID 26846)
+-- TOC entry 7597 (class 2606 OID 26846)
 -- Name: historico_documento fk_historico_documento; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31701,7 +37232,7 @@ ALTER TABLE ONLY public.historico_documento
 
 
 --
--- TOC entry 7435 (class 2606 OID 26432)
+-- TOC entry 7577 (class 2606 OID 26432)
 -- Name: horas_atividade fk_horas_colaborador; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31710,7 +37241,7 @@ ALTER TABLE ONLY public.horas_atividade
 
 
 --
--- TOC entry 7420 (class 2606 OID 26106)
+-- TOC entry 7562 (class 2606 OID 26106)
 -- Name: hospedagem fk_hospedagem_fornecedor; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31719,7 +37250,7 @@ ALTER TABLE ONLY public.hospedagem
 
 
 --
--- TOC entry 7415 (class 2606 OID 26003)
+-- TOC entry 7557 (class 2606 OID 26003)
 -- Name: integracao_nfse fk_integracao_nf; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31728,7 +37259,7 @@ ALTER TABLE ONLY public.integracao_nfse
 
 
 --
--- TOC entry 7427 (class 2606 OID 26279)
+-- TOC entry 7569 (class 2606 OID 26279)
 -- Name: interacao_lead fk_interacao_lead; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31737,7 +37268,7 @@ ALTER TABLE ONLY public.interacao_lead
 
 
 --
--- TOC entry 7448 (class 2606 OID 26721)
+-- TOC entry 7590 (class 2606 OID 26721)
 -- Name: item_inventario fk_item_inv_produto; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31746,7 +37277,7 @@ ALTER TABLE ONLY public.item_inventario
 
 
 --
--- TOC entry 7449 (class 2606 OID 26716)
+-- TOC entry 7591 (class 2606 OID 26716)
 -- Name: item_inventario fk_item_inventario; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31755,7 +37286,7 @@ ALTER TABLE ONLY public.item_inventario
 
 
 --
--- TOC entry 7444 (class 2606 OID 26648)
+-- TOC entry 7586 (class 2606 OID 26648)
 -- Name: item_pedido_compra fk_item_pedido; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31764,7 +37295,7 @@ ALTER TABLE ONLY public.item_pedido_compra
 
 
 --
--- TOC entry 7445 (class 2606 OID 26653)
+-- TOC entry 7587 (class 2606 OID 26653)
 -- Name: item_pedido_compra fk_item_pedido_produto; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31773,7 +37304,7 @@ ALTER TABLE ONLY public.item_pedido_compra
 
 
 --
--- TOC entry 7398 (class 2606 OID 25580)
+-- TOC entry 7540 (class 2606 OID 25580)
 -- Name: item_venda fk_item_produto; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31782,7 +37313,7 @@ ALTER TABLE ONLY public.item_venda
 
 
 --
--- TOC entry 7441 (class 2606 OID 26611)
+-- TOC entry 7583 (class 2606 OID 26611)
 -- Name: item_requisicao fk_item_produto_estoque; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31791,7 +37322,7 @@ ALTER TABLE ONLY public.item_requisicao
 
 
 --
--- TOC entry 7442 (class 2606 OID 26606)
+-- TOC entry 7584 (class 2606 OID 26606)
 -- Name: item_requisicao fk_item_req; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31800,7 +37331,7 @@ ALTER TABLE ONLY public.item_requisicao
 
 
 --
--- TOC entry 7399 (class 2606 OID 25575)
+-- TOC entry 7541 (class 2606 OID 25575)
 -- Name: item_venda fk_item_venda; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31809,7 +37340,7 @@ ALTER TABLE ONLY public.item_venda
 
 
 --
--- TOC entry 7379 (class 2606 OID 25359)
+-- TOC entry 7521 (class 2606 OID 25359)
 -- Name: lancamento_financeiro fk_lanc_banco; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31818,7 +37349,7 @@ ALTER TABLE ONLY public.lancamento_financeiro
 
 
 --
--- TOC entry 7380 (class 2606 OID 25791)
+-- TOC entry 7522 (class 2606 OID 25791)
 -- Name: lancamento_financeiro fk_lanc_categoria; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31827,7 +37358,7 @@ ALTER TABLE ONLY public.lancamento_financeiro
 
 
 --
--- TOC entry 7381 (class 2606 OID 25369)
+-- TOC entry 7523 (class 2606 OID 25369)
 -- Name: lancamento_financeiro fk_lanc_centro; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31836,7 +37367,7 @@ ALTER TABLE ONLY public.lancamento_financeiro
 
 
 --
--- TOC entry 7382 (class 2606 OID 25349)
+-- TOC entry 7524 (class 2606 OID 25349)
 -- Name: lancamento_financeiro fk_lanc_empresa; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31845,7 +37376,7 @@ ALTER TABLE ONLY public.lancamento_financeiro
 
 
 --
--- TOC entry 7383 (class 2606 OID 25786)
+-- TOC entry 7525 (class 2606 OID 25786)
 -- Name: lancamento_financeiro fk_lanc_grupo; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31854,7 +37385,7 @@ ALTER TABLE ONLY public.lancamento_financeiro
 
 
 --
--- TOC entry 7384 (class 2606 OID 25364)
+-- TOC entry 7526 (class 2606 OID 25364)
 -- Name: lancamento_financeiro fk_lanc_pagamento; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31863,7 +37394,7 @@ ALTER TABLE ONLY public.lancamento_financeiro
 
 
 --
--- TOC entry 7385 (class 2606 OID 25354)
+-- TOC entry 7527 (class 2606 OID 25354)
 -- Name: lancamento_financeiro fk_lanc_pessoa; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31872,7 +37403,7 @@ ALTER TABLE ONLY public.lancamento_financeiro
 
 
 --
--- TOC entry 7386 (class 2606 OID 25425)
+-- TOC entry 7528 (class 2606 OID 25425)
 -- Name: lancamento_financeiro fk_lanc_plano_contas; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31881,7 +37412,7 @@ ALTER TABLE ONLY public.lancamento_financeiro
 
 
 --
--- TOC entry 7424 (class 2606 OID 26211)
+-- TOC entry 7566 (class 2606 OID 26211)
 -- Name: lead fk_lead_origem; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31890,7 +37421,7 @@ ALTER TABLE ONLY public.lead
 
 
 --
--- TOC entry 7467 (class 2606 OID 27183)
+-- TOC entry 7609 (class 2606 OID 27183)
 -- Name: log_api fk_log_api_aplicacao; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31899,7 +37430,7 @@ ALTER TABLE ONLY public.log_api
 
 
 --
--- TOC entry 7473 (class 2606 OID 27536)
+-- TOC entry 7615 (class 2606 OID 27536)
 -- Name: log_integracao_detalhado fk_log_integracao_conector; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31908,7 +37439,7 @@ ALTER TABLE ONLY public.log_integracao_detalhado
 
 
 --
--- TOC entry 7474 (class 2606 OID 27541)
+-- TOC entry 7616 (class 2606 OID 27541)
 -- Name: log_integracao_detalhado fk_log_integracao_sincronizacao; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31917,7 +37448,7 @@ ALTER TABLE ONLY public.log_integracao_detalhado
 
 
 --
--- TOC entry 7405 (class 2606 OID 25725)
+-- TOC entry 7547 (class 2606 OID 25725)
 -- Name: distribuicao_lucros fk_lucro_empresa; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31926,7 +37457,7 @@ ALTER TABLE ONLY public.distribuicao_lucros
 
 
 --
--- TOC entry 7438 (class 2606 OID 26512)
+-- TOC entry 7580 (class 2606 OID 26512)
 -- Name: manutencao_ativo fk_manutencao_ativo; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31935,7 +37466,7 @@ ALTER TABLE ONLY public.manutencao_ativo
 
 
 --
--- TOC entry 7470 (class 2606 OID 27462)
+-- TOC entry 7612 (class 2606 OID 27462)
 -- Name: mapeamento_campo_integracao fk_mapeamento_conector; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31944,7 +37475,7 @@ ALTER TABLE ONLY public.mapeamento_campo_integracao
 
 
 --
--- TOC entry 7439 (class 2606 OID 26542)
+-- TOC entry 7581 (class 2606 OID 26542)
 -- Name: movimentacao_ativo fk_movimento_ativo; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31953,7 +37484,7 @@ ALTER TABLE ONLY public.movimentacao_ativo
 
 
 --
--- TOC entry 7440 (class 2606 OID 26547)
+-- TOC entry 7582 (class 2606 OID 26547)
 -- Name: movimentacao_ativo fk_movimento_localizacao; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31962,7 +37493,7 @@ ALTER TABLE ONLY public.movimentacao_ativo
 
 
 --
--- TOC entry 7447 (class 2606 OID 26688)
+-- TOC entry 7589 (class 2606 OID 26688)
 -- Name: movimento_estoque fk_movimento_produto; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31971,7 +37502,7 @@ ALTER TABLE ONLY public.movimento_estoque
 
 
 --
--- TOC entry 7400 (class 2606 OID 25606)
+-- TOC entry 7542 (class 2606 OID 25606)
 -- Name: nota_fiscal fk_nf_cliente; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31980,7 +37511,7 @@ ALTER TABLE ONLY public.nota_fiscal
 
 
 --
--- TOC entry 7401 (class 2606 OID 25601)
+-- TOC entry 7543 (class 2606 OID 25601)
 -- Name: nota_fiscal fk_nf_empresa; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31989,7 +37520,7 @@ ALTER TABLE ONLY public.nota_fiscal
 
 
 --
--- TOC entry 7464 (class 2606 OID 27045)
+-- TOC entry 7606 (class 2606 OID 27045)
 -- Name: notificacao fk_notificacao_usuario; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -31998,7 +37529,7 @@ ALTER TABLE ONLY public.notificacao
 
 
 --
--- TOC entry 7413 (class 2606 OID 25970)
+-- TOC entry 7555 (class 2606 OID 25970)
 -- Name: openfinance_conexao fk_open_empresa; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32007,7 +37538,7 @@ ALTER TABLE ONLY public.openfinance_conexao
 
 
 --
--- TOC entry 7414 (class 2606 OID 25985)
+-- TOC entry 7556 (class 2606 OID 25985)
 -- Name: openfinance_movimento fk_open_movimento; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32016,7 +37547,7 @@ ALTER TABLE ONLY public.openfinance_movimento
 
 
 --
--- TOC entry 7391 (class 2606 OID 25465)
+-- TOC entry 7533 (class 2606 OID 25465)
 -- Name: pacote_viagem fk_pacote_produto; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32025,7 +37556,7 @@ ALTER TABLE ONLY public.pacote_viagem
 
 
 --
--- TOC entry 7411 (class 2606 OID 25952)
+-- TOC entry 7553 (class 2606 OID 25952)
 -- Name: pagamento_transacao fk_pagamento_gateway; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32034,7 +37565,7 @@ ALTER TABLE ONLY public.pagamento_transacao
 
 
 --
--- TOC entry 7412 (class 2606 OID 25947)
+-- TOC entry 7554 (class 2606 OID 25947)
 -- Name: pagamento_transacao fk_pagamento_venda; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32043,7 +37574,7 @@ ALTER TABLE ONLY public.pagamento_transacao
 
 
 --
--- TOC entry 7387 (class 2606 OID 25391)
+-- TOC entry 7529 (class 2606 OID 25391)
 -- Name: lancamento_parcela fk_parcela_lancamento; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32052,7 +37583,7 @@ ALTER TABLE ONLY public.lancamento_parcela
 
 
 --
--- TOC entry 7388 (class 2606 OID 33448)
+-- TOC entry 7530 (class 2606 OID 33448)
 -- Name: lancamento_parcela fk_parcela_status; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32061,7 +37592,7 @@ ALTER TABLE ONLY public.lancamento_parcela
 
 
 --
--- TOC entry 7394 (class 2606 OID 25512)
+-- TOC entry 7536 (class 2606 OID 25512)
 -- Name: passageiro fk_passageiro_reserva; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32070,7 +37601,7 @@ ALTER TABLE ONLY public.passageiro
 
 
 --
--- TOC entry 7443 (class 2606 OID 26631)
+-- TOC entry 7585 (class 2606 OID 26631)
 -- Name: pedido_compra fk_pedido_fornecedor; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32079,7 +37610,7 @@ ALTER TABLE ONLY public.pedido_compra
 
 
 --
--- TOC entry 7371 (class 2606 OID 33402)
+-- TOC entry 7513 (class 2606 OID 33402)
 -- Name: pessoa fk_pessoa_localidade; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32088,7 +37619,7 @@ ALTER TABLE ONLY public.pessoa
 
 
 --
--- TOC entry 7406 (class 2606 OID 25741)
+-- TOC entry 7548 (class 2606 OID 25741)
 -- Name: pro_labore fk_prolabore_empresa; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32097,7 +37628,7 @@ ALTER TABLE ONLY public.pro_labore
 
 
 --
--- TOC entry 7468 (class 2606 OID 27199)
+-- TOC entry 7610 (class 2606 OID 27199)
 -- Name: rate_limit_api fk_rate_aplicacao; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32106,7 +37637,7 @@ ALTER TABLE ONLY public.rate_limit_api
 
 
 --
--- TOC entry 7392 (class 2606 OID 25488)
+-- TOC entry 7534 (class 2606 OID 25488)
 -- Name: reserva fk_reserva_cliente; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32115,7 +37646,7 @@ ALTER TABLE ONLY public.reserva
 
 
 --
--- TOC entry 7393 (class 2606 OID 25493)
+-- TOC entry 7535 (class 2606 OID 25493)
 -- Name: reserva fk_reserva_pacote; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32124,7 +37655,7 @@ ALTER TABLE ONLY public.reserva
 
 
 --
--- TOC entry 7458 (class 2606 OID 26927)
+-- TOC entry 7600 (class 2606 OID 26927)
 -- Name: responsavel_projeto fk_resp_colaborador; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32133,7 +37664,7 @@ ALTER TABLE ONLY public.responsavel_projeto
 
 
 --
--- TOC entry 7459 (class 2606 OID 26922)
+-- TOC entry 7601 (class 2606 OID 26922)
 -- Name: responsavel_projeto fk_resp_projeto; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32142,7 +37673,7 @@ ALTER TABLE ONLY public.responsavel_projeto
 
 
 --
--- TOC entry 7461 (class 2606 OID 26959)
+-- TOC entry 7603 (class 2606 OID 26959)
 -- Name: risco_projeto fk_risco_projeto; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32151,7 +37682,7 @@ ALTER TABLE ONLY public.risco_projeto
 
 
 --
--- TOC entry 7417 (class 2606 OID 26069)
+-- TOC entry 7559 (class 2606 OID 26069)
 -- Name: roteiro_viagem fk_roteiro_destino; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32160,7 +37691,7 @@ ALTER TABLE ONLY public.roteiro_viagem
 
 
 --
--- TOC entry 7418 (class 2606 OID 26064)
+-- TOC entry 7560 (class 2606 OID 26064)
 -- Name: roteiro_viagem fk_roteiro_pacote; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32169,7 +37700,7 @@ ALTER TABLE ONLY public.roteiro_viagem
 
 
 --
--- TOC entry 7402 (class 2606 OID 25635)
+-- TOC entry 7544 (class 2606 OID 25635)
 -- Name: simples_nacional fk_simples_empresa; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32178,7 +37709,7 @@ ALTER TABLE ONLY public.simples_nacional
 
 
 --
--- TOC entry 7471 (class 2606 OID 27488)
+-- TOC entry 7613 (class 2606 OID 27488)
 -- Name: sincronizacao_integracao fk_sincronizacao_conector; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32187,7 +37718,7 @@ ALTER TABLE ONLY public.sincronizacao_integracao
 
 
 --
--- TOC entry 7475 (class 2606 OID 27566)
+-- TOC entry 7617 (class 2606 OID 27566)
 -- Name: status_integracao fk_status_integracao_conector; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32196,7 +37727,7 @@ ALTER TABLE ONLY public.status_integracao
 
 
 --
--- TOC entry 7376 (class 2606 OID 25252)
+-- TOC entry 7518 (class 2606 OID 25252)
 -- Name: subcategoria_conta fk_subcategoria_categoria; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32205,7 +37736,7 @@ ALTER TABLE ONLY public.subcategoria_conta
 
 
 --
--- TOC entry 7457 (class 2606 OID 26906)
+-- TOC entry 7599 (class 2606 OID 26906)
 -- Name: tarefa_projeto fk_tarefa_etapa; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32214,7 +37745,7 @@ ALTER TABLE ONLY public.tarefa_projeto
 
 
 --
--- TOC entry 7434 (class 2606 OID 26415)
+-- TOC entry 7576 (class 2606 OID 26415)
 -- Name: tarefa fk_tarefa_responsavel; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32223,7 +37754,7 @@ ALTER TABLE ONLY public.tarefa
 
 
 --
--- TOC entry 7465 (class 2606 OID 27122)
+-- TOC entry 7607 (class 2606 OID 27122)
 -- Name: token_acesso fk_token_aplicacao; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32232,7 +37763,7 @@ ALTER TABLE ONLY public.token_acesso
 
 
 --
--- TOC entry 7421 (class 2606 OID 26123)
+-- TOC entry 7563 (class 2606 OID 26123)
 -- Name: transporte fk_transporte_fornecedor; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32241,7 +37772,7 @@ ALTER TABLE ONLY public.transporte
 
 
 --
--- TOC entry 7408 (class 2606 OID 25871)
+-- TOC entry 7550 (class 2606 OID 25871)
 -- Name: usuario_perfil fk_usuario_perfil_perfil; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32250,7 +37781,7 @@ ALTER TABLE ONLY public.usuario_perfil
 
 
 --
--- TOC entry 7409 (class 2606 OID 25866)
+-- TOC entry 7551 (class 2606 OID 25866)
 -- Name: usuario_perfil fk_usuario_perfil_usuario; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32259,7 +37790,7 @@ ALTER TABLE ONLY public.usuario_perfil
 
 
 --
--- TOC entry 7397 (class 2606 OID 25555)
+-- TOC entry 7539 (class 2606 OID 25555)
 -- Name: venda fk_venda_cliente; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32268,7 +37799,7 @@ ALTER TABLE ONLY public.venda
 
 
 --
--- TOC entry 7410 (class 2606 OID 25916)
+-- TOC entry 7552 (class 2606 OID 25916)
 -- Name: integracao_woocommerce fk_wc_empresa; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -32276,11 +37807,11 @@ ALTER TABLE ONLY public.integracao_woocommerce
     ADD CONSTRAINT fk_wc_empresa FOREIGN KEY (id_empresa) REFERENCES public.empresa(id_empresa);
 
 
--- Completed on 2026-08-10 09:17:44
+-- Completed on 2026-08-10 19:05:26
 
 --
 -- PostgreSQL database dump complete
 --
 
-\unrestrict fab4e4WrjUUMn7pCC6frOjMDhgdeJ6fusLcfFWUaXrRDWmwDXbiampxUE4AOyKG
+\unrestrict JadDCQm73QcBfzRNknzx3lkqXa7IwYoFQ9NMMbfLaOUWu3rH65KPjVkPWReTlyG
 
