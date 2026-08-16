@@ -2,12 +2,12 @@
 -- PostgreSQL database dump
 --
 
-\restrict gdBvluHfCsEV5LIX783IjhpuBKcBzCqd1L8Uinj6kZqVuJmdS7kWfQDXLFligeB
+\restrict mMdh6E793qfsGl32PyFAu8LDFwXnaF5iiGuzdf7MdoHv5ajQ8KPR18r1d0mwoZM
 
 -- Dumped from database version 18.4
 -- Dumped by pg_dump version 18.4
 
--- Started on 2026-08-15 11:50:16
+-- Started on 2026-08-16 10:45:26
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -20100,6 +20100,7 @@ COPY auditoria.log_correcao (id_log, data_execucao, schema_nome, tabela_nome, ob
 241	2026-08-10 08:50:05.491619	financeiro	subcategoria	trg_log_auditoria	TRIGGER_INSTANCIADO	Trigger AFTER INSERT/UPDATE/DELETE criado usando fn_log_auditoria() (corrigida para PK dinâmica)	\N	SUCESSO	\N
 242	2026-08-10 08:50:05.491619	financeiro	tipo_lancamento	trg_log_auditoria	TRIGGER_INSTANCIADO	Trigger AFTER INSERT/UPDATE/DELETE criado usando fn_log_auditoria() (corrigida para PK dinâmica)	\N	SUCESSO	\N
 243	2026-08-10 08:50:05.491619	financeiro	tipo_movimentacao	trg_log_auditoria	TRIGGER_INSTANCIADO	Trigger AFTER INSERT/UPDATE/DELETE criado usando fn_log_auditoria() (corrigida para PK dinâmica)	\N	SUCESSO	\N
+244	2026-08-15 12:06:01.341085	public	log_auditoria	trg_log_auditoria / fn_log_auditoria / trg_atualiza_updated_at	VALIDACAO_FUNCIONAL	Teste funcional automatizado (INSERT/UPDATE/DELETE em financeiro.status_lancamento, registro_id=1) confirmou que o log de auditoria e o timestamp de atualizacao funcionam corretamente.	\N	SUCESSO	\N
 \.
 
 
@@ -32811,6 +32812,9 @@ COPY public.log_api (id_log, id_aplicacao, endpoint, metodo, request, response, 
 --
 
 COPY public.log_auditoria (id_log, tabela_nome, registro_id, acao, usuario, data_evento, dados_antigos, dados_novos) FROM stdin;
+1	financeiro.status_lancamento	1	INSERT	\N	2026-08-15 12:06:01.341085	\N	{"ativo": true, "codigo": "TESTE_VALIDACAO_AUD", "versao": 1, "descricao": "Registro temporario - validacao trg_log_auditoria", "id_status": 1, "created_at": "2026-08-15T12:06:01.341085", "created_by": null, "deleted_at": null, "deleted_by": null, "updated_at": null, "updated_by": null}
+2	financeiro.status_lancamento	1	UPDATE	\N	2026-08-15 12:06:01.341085	{"ativo": true, "codigo": "TESTE_VALIDACAO_AUD", "versao": 1, "descricao": "Registro temporario - validacao trg_log_auditoria", "id_status": 1, "created_at": "2026-08-15T12:06:01.341085", "created_by": null, "deleted_at": null, "deleted_by": null, "updated_at": null, "updated_by": null}	{"ativo": true, "codigo": "TESTE_VALIDACAO_AUD", "versao": 2, "descricao": "Atualizado pela validacao", "id_status": 1, "created_at": "2026-08-15T12:06:01.341085", "created_by": null, "deleted_at": null, "deleted_by": null, "updated_at": "2026-08-15T12:06:01.341085", "updated_by": null}
+3	financeiro.status_lancamento	1	DELETE	\N	2026-08-15 12:06:01.341085	{"ativo": true, "codigo": "TESTE_VALIDACAO_AUD", "versao": 2, "descricao": "Atualizado pela validacao", "id_status": 1, "created_at": "2026-08-15T12:06:01.341085", "created_by": null, "deleted_at": null, "deleted_by": null, "updated_at": "2026-08-15T12:06:01.341085", "updated_by": null}	\N
 \.
 
 
@@ -33620,7 +33624,7 @@ SELECT pg_catalog.setval('auditoria.item_id_item_seq', 3, true);
 -- Name: log_correcao_id_log_seq; Type: SEQUENCE SET; Schema: auditoria; Owner: postgres
 --
 
-SELECT pg_catalog.setval('auditoria.log_correcao_id_log_seq', 243, true);
+SELECT pg_catalog.setval('auditoria.log_correcao_id_log_seq', 244, true);
 
 
 --
@@ -34790,7 +34794,7 @@ SELECT pg_catalog.setval('public.log_api_id_log_seq', 1, false);
 -- Name: log_auditoria_id_log_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.log_auditoria_id_log_seq', 1, false);
+SELECT pg_catalog.setval('public.log_auditoria_id_log_seq', 3, true);
 
 
 --
@@ -42433,11 +42437,11 @@ ALTER TABLE ONLY public.integracao_woocommerce
     ADD CONSTRAINT fk_wc_empresa FOREIGN KEY (id_empresa) REFERENCES public.empresa(id_empresa);
 
 
--- Completed on 2026-08-15 11:50:20
+-- Completed on 2026-08-16 10:45:30
 
 --
 -- PostgreSQL database dump complete
 --
 
-\unrestrict gdBvluHfCsEV5LIX783IjhpuBKcBzCqd1L8Uinj6kZqVuJmdS7kWfQDXLFligeB
+\unrestrict mMdh6E793qfsGl32PyFAu8LDFwXnaF5iiGuzdf7MdoHv5ajQ8KPR18r1d0mwoZM
 
