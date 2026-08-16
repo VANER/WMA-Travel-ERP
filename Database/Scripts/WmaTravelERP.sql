@@ -2,12 +2,12 @@
 -- PostgreSQL database dump
 --
 
-\restrict mMdh6E793qfsGl32PyFAu8LDFwXnaF5iiGuzdf7MdoHv5ajQ8KPR18r1d0mwoZM
+\restrict cfZJQ6aQvp0HjPLNKSXEYK6tJbKaftuIou7HdHejBxzmOas5ddmDSjS7Se5eOan
 
 -- Dumped from database version 18.4
 -- Dumped by pg_dump version 18.4
 
--- Started on 2026-08-16 10:45:26
+-- Started on 2026-08-16 11:49:28
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -42437,11 +42437,11 @@ ALTER TABLE ONLY public.integracao_woocommerce
     ADD CONSTRAINT fk_wc_empresa FOREIGN KEY (id_empresa) REFERENCES public.empresa(id_empresa);
 
 
--- Completed on 2026-08-16 10:45:30
+-- Completed on 2026-08-16 11:49:29
 
 --
 -- PostgreSQL database dump complete
 --
 
-\unrestrict mMdh6E793qfsGl32PyFAu8LDFwXnaF5iiGuzdf7MdoHv5ajQ8KPR18r1d0mwoZM
+\unrestrict cfZJQ6aQvp0HjPLNKSXEYK6tJbKaftuIou7HdHejBxzmOas5ddmDSjS7Se5eOan
 
