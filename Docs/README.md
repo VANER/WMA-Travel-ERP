@@ -1,13 +1,13 @@
-﻿# WMA Travel ERP
+# WMA Travel ERP
 
 <!-- WMA_PHASE_1_CERTIFICATION -->
 
 ## Marco de Certificação da Fase 1
 
-**Status:** CONCLUÍDA E CERTIFICADA  
-**Data da certificação:** 17/08/2026  
-**PostgreSQL:** 18.4  
-**Baseline certificada:** `d63800e`  
+**Status:** CONCLUÍDA E CERTIFICADA
+**Data da certificação:** 17/08/2026
+**PostgreSQL:** 18.4
+**Baseline certificada:** `d63800e`
 **Próxima fase:** Fase 2 — Backend e API
 
 A Fase 1 do WMA Travel ERP foi formalmente concluída após a validação da
@@ -26,7 +26,6 @@ Documentos de referência:
 - `Database/certification/FASE_1_CERTIFICACAO_FINAL.md`
 - `Docs/PHASE_1_TO_PHASE_2_TRANSITION.md`
 
-
 > Plataforma Corporativa Integrada de Gestão Empresarial para Turismo, Serviços e Inteligência de Negócios.
 
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-blue)
@@ -42,6 +41,7 @@ Documentos de referência:
 ## 📚 Índice
 
 - [WMA Travel ERP](#wma-travel-erp)
+  - [Marco de Certificação da Fase 1](#marco-de-certificação-da-fase-1)
   - [📚 Índice](#-índice)
   - [📌 Visão Geral](#-visão-geral)
   - [🎯 Objetivos](#-objetivos)
@@ -473,7 +473,8 @@ O processo de certificação valida a qualidade estrutural e operacional do banc
 
 ## Objetivo
 
-Garantir que a base de dados esteja preparada para operação corporativa, mantendo confiabilidade, desempenho e segurança.
+Garantir que a base de dados esteja preparada para operação corporativa,
+mantendo confiabilidade, desempenho e segurança.
 
 ---
 

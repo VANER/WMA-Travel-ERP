@@ -1,4 +1,3 @@
-﻿<<<<<<< HEAD
 # Roadmap do WMA Travel ERP
 
 <!-- WMA_PHASE_1_ROADMAP_CLOSE -->
@@ -784,4 +783,3 @@ Construir um ERP corporativo completo para a **WMA Travel Ltda.**, com:
 **Copyright © 2026 WMA Travel Ltda.**
 
 **Todos os direitos reservados.**
->>>>>>> 7b373d9b72c35a24b78d2a56cbfbc4035c0422e4

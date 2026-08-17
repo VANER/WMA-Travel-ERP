@@ -20,7 +20,7 @@
 --   Procedures    : 11
 --   Triggers      : 138
 --
--- V7.2 no altera o banco.
+-- V7.2 não altera o banco.
 -- MODO: SOMENTE LEITURA
 -- =============================================================================
 
