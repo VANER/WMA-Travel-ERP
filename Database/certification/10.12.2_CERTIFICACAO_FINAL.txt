@@ -1,0 +1,100 @@
+﻿==============================================================================
+WMA TRAVEL ERP
+ETAPA 10.12.2
+CERTIFICACAO FINAL DO BASELINE
+==============================================================================
+
+STATUS: APROVADA
+
+Executado em ..............: 2026-08-17 11:31:45 -03:00
+Banco .....................: wma_travel
+Usuario ...................: postgres
+PostgreSQL ................: 18.4
+
+------------------------------------------------------------------------------
+BASELINE CANONICO
+------------------------------------------------------------------------------
+
+Schemas totais ............: 8
+Schemas com tabelas .......: 5
+
+Tabelas ...................: 209
+Colunas ...................: 2487
+
+NOT NULL ..................: 665
+Nullable ..................: 1822
+
+Constraints ...............: 1176
+Primary Keys ..............: 208
+Foreign Keys ..............: 187
+Unique Constraints ........: 79
+Check Constraints .........: 37
+
+Indexes ...................: 357
+Sequences .................: 206
+
+Views .....................: 38
+Materialized Views ........: 0
+
+Functions .................: 64
+Procedures ................: 11
+Triggers ..................: 138
+
+------------------------------------------------------------------------------
+EXCECOES ESTRUTURAIS CERTIFICADAS
+------------------------------------------------------------------------------
+
+PK composta ...............: public.usuario_perfil
+Tabela sem PK .............: public.v_total
+
+------------------------------------------------------------------------------
+REPRODUTIBILIDADE
+------------------------------------------------------------------------------
+
+Source of truth ...........: E:\WMA Travel ERP\Database\scripts\WmaTravelERP.sql
+Restore integral ..........: APROVADO
+Assinaturas producao ......: 4694
+Assinaturas rebuild .......: 4694
+Objetos comparados ........: 4694
+Somente producao ..........: 0
+Somente rebuild ...........: 0
+Divergencias semanticas ...: 0
+
+------------------------------------------------------------------------------
+HISTORICO DO BASELINE
+------------------------------------------------------------------------------
+
+Baseline de entrada .......: 2462
+Baseline canonico .........: 2487
+Evolucao certificada ......: +25
+Colunas historicas ausentes: 0
+
+------------------------------------------------------------------------------
+SOURCE OF TRUTH
+------------------------------------------------------------------------------
+
+Arquivo ...................: WmaTravelERP.sql
+Tamanho ...................: 2350556 bytes
+SHA256 ....................: 81849A2E50877EB1577A8C23E6C4D0B40624B748B3BF3E4AA34232A1B644A8D7
+
+------------------------------------------------------------------------------
+EVIDENCIAS
+------------------------------------------------------------------------------
+
+E:\WMA Travel ERP\Database\logs\10.12.2.3_V3_restore.log
+E:\WMA Travel ERP\Database\logs\10.12.2.3_V5_hashes_normalizados_resumo.csv
+E:\WMA Travel ERP\Database\logs\10.12.2.3_V5_hashes_normalizados_divergencias.csv
+
+------------------------------------------------------------------------------
+CONCLUSAO
+------------------------------------------------------------------------------
+
+ETAPA 10.12.2: APROVADA
+
+BASELINE CANONICO CERTIFICADO.
+REPRODUTIBILIDADE CERTIFICADA.
+IDENTIDADE NOMINAL E SEMANTICA CERTIFICADA.
+DIVERGENCIAS RESIDUAIS: 0.
+SOURCE OF TRUTH CERTIFICADO POR SHA256.
+
+==============================================================================
