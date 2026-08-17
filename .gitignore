@@ -1,0 +1,37 @@
+﻿# ============================================================
+# WMA Travel ERP - Git Ignore
+# ============================================================
+
+# Backups locais temporarios
+Database_backup_*/
+Database/**/backup*/
+Database/*.backup_*
+
+# Dumps/bancos temporarios gerados durante testes
+*.dump
+*.backup
+*.bak
+
+# Arquivos temporarios do Windows / PowerShell
+*.tmp
+*.temp
+*.log
+*.swp
+*.swo
+
+# IDE / editor
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Sistema operacional
+Thumbs.db
+.DS_Store
+
+# Arquivos de teste locais
+*.local
