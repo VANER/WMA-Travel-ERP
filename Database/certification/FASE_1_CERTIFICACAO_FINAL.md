@@ -1,48 +1,48 @@
-﻿# WMA Travel ERP â€” CertificaÃ§Ã£o Final da Fase 1
+﻿# WMA Travel ERP — Certificação Final da Fase 1
 
-## FundaÃ§Ã£o, Modelagem e CertificaÃ§Ã£o do Banco de Dados
+## Fundação, Modelagem e Certificação do Banco de Dados
 
-**Data da certificaÃ§Ã£o:** 17/08/2026  
-**Projeto:** WMA Travel ERP  
-**Fase:** 1 â€” FundaÃ§Ã£o e Banco de Dados  
-**SGBD:** PostgreSQL 18.4  
-**Banco de referÃªncia:** `wma_travel`  
-**Banco de reconstruÃ§Ã£o:** `wma_travel_rebuild_test`  
-**Commit baseline certificado:** `d63800e`  
+**Data da certificação:** 17/08/2026
+**Projeto:** WMA Travel ERP
+**Fase:** 1 — Fundação e Banco de Dados
+**SGBD:** PostgreSQL 18.4
+**Banco de referência:** `wma_travel`
+**Banco de reconstrução:** `wma_travel_rebuild_test`
+**Commit baseline certificado:** `d63800e`
 **Status:** APROVADA
 
 ---
 
 ## 1. Objetivo
 
-Este documento formaliza o encerramento tÃ©cnico da Fase 1 do WMA Travel ERP e
-consolida as evidÃªncias de modelagem, padronizaÃ§Ã£o, auditoria, reconstruÃ§Ã£o,
-reprodutibilidade e certificaÃ§Ã£o da baseline PostgreSQL.
+Este documento formaliza o encerramento técnico da Fase 1 do WMA Travel ERP e
+consolida as evidências de modelagem, padronização, auditoria, reconstrução,
+reprodutibilidade e certificação da baseline PostgreSQL.
 
 ## 2. Escopo certificado
 
-A Fase 1 contemplou a construÃ§Ã£o e validaÃ§Ã£o da fundaÃ§Ã£o de dados do sistema,
+A Fase 1 contemplou a construção e validação da fundação de dados do sistema,
 incluindo:
 
 - modelagem do banco de dados;
-- organizaÃ§Ã£o dos schemas;
+- organização dos schemas;
 - tabelas e relacionamentos;
 - constraints;
-- Ã­ndices;
+- índices;
 - sequences e identity;
 - triggers;
 - views;
 - functions;
 - procedures;
-- padronizaÃ§Ã£o de objetos;
+- padronização de objetos;
 - auditoria estrutural;
-- catÃ¡logo tÃ©cnico;
-- dicionÃ¡rio de dados;
+- catálogo técnico;
+- dicionário de dados;
 - baseline SQL;
-- processo de reconstruÃ§Ã£o;
-- validaÃ§Ã£o de reprodutibilidade;
-- comparaÃ§Ã£o baseline Ã— rebuild;
-- certificaÃ§Ã£o final.
+- processo de reconstrução;
+- validação de reprodutibilidade;
+- comparação baseline × rebuild;
+- certificação final.
 
 ## 3. Universo estrutural certificado
 
@@ -53,27 +53,27 @@ incluindo:
 | Views | 38 |
 | Sequences | 206 |
 | Constraints | 1176 |
-| Ãndices | 357 |
+| Índices | 357 |
 | Functions | 64 |
 | Procedures | 11 |
 | Triggers | 138 |
 
-## 4. CertificaÃ§Ãµes consolidadas
+## 4. Certificações consolidadas
 
-As etapas finais foram formalizadas atravÃ©s das seguintes certificaÃ§Ãµes:
+As etapas finais foram formalizadas através das seguintes certificações:
 
-- ETAPA 10.12.2 â€” certificaÃ§Ã£o definitiva da baseline;
-- ETAPA 10.12.3 â€” certificaÃ§Ã£o do processo de instalaÃ§Ã£o;
-- ETAPA 10.12.4 â€” certificaÃ§Ã£o de reprodutibilidade;
-- ETAPA 10.12.5 â€” certificaÃ§Ã£o de reconstruÃ§Ã£o em banco limpo;
-- ETAPA 10.12.6 â€” certificaÃ§Ã£o baseline Ã— rebuild.
+- ETAPA 10.12.2 — certificação definitiva da baseline;
+- ETAPA 10.12.3 — certificação do processo de instalação;
+- ETAPA 10.12.4 — certificação de reprodutibilidade;
+- ETAPA 10.12.5 — certificação de reconstrução em banco limpo;
+- ETAPA 10.12.6 — certificação baseline × rebuild.
 
-## 5. Integridade das certificaÃ§Ãµes finais
+## 5. Integridade das certificações finais
 
 Os documentos das ETAPAS 10.12.3 a 10.12.6 possuem os seguintes hashes
 SHA-256:
 
-| CertificaÃ§Ã£o | SHA-256 |
+| Certificação | SHA-256 |
 | --- | --- |
 | `10.12.3_CERTIFICACAO_INSTALACAO.md` | `F1C6128278C1D8230CDC688C9D2AFBA23FE31FCA842A73B7452901DB5A24A291` |
 | `10.12.4_CERTIFICACAO_REPRODUTIBILIDADE.md` | `965562E209931C4D736C05737E05975D22A843C060D62398F7E476A306930D64` |
@@ -85,62 +85,62 @@ fechamento formal da Fase 1.
 
 ## 6. Reprodutibilidade
 
-A baseline oficial foi submetida a processo de reconstruÃ§Ã£o utilizando banco
+A baseline oficial foi submetida a processo de reconstrução utilizando banco
 independente.
 
-Banco de referÃªncia:
+Banco de referência:
 
 `wma_travel`
 
-Banco reconstruÃ­do:
+Banco reconstruído:
 
 `wma_travel_rebuild_test`
 
-O ambiente reconstruÃ­do foi submetido a inventÃ¡rio, normalizaÃ§Ã£o, geraÃ§Ã£o de
-hashes e comparaÃ§Ã£o estrutural.
+O ambiente reconstruído foi submetido a inventário, normalização, geração de
+hashes e comparação estrutural.
 
-## 7. DivergÃªncias
+## 7. Divergências
 
-ApÃ³s normalizaÃ§Ã£o e validaÃ§Ã£o das evidÃªncias produzidas durante a certificaÃ§Ã£o,
-nÃ£o permaneceram divergÃªncias estruturais crÃ­ticas impeditivas para o
+Após normalização e validação das evidências produzidas durante a certificação,
+não permaneceram divergências estruturais críticas impeditivas para o
 encerramento da Fase 1.
 
-**DivergÃªncias estruturais crÃ­ticas: 0**
+**Divergências estruturais críticas: 0**
 
 ## 8. Baseline certificada
 
-O commit utilizado como marco da certificaÃ§Ã£o definitiva da ETAPA 10.12.2 Ã©:
+O commit utilizado como marco da certificação definitiva da ETAPA 10.12.2 é:
 
 `d63800e`
 
-Esse commit representa a baseline estrutural certificada antes da inclusÃ£o dos
+Esse commit representa a baseline estrutural certificada antes da inclusão dos
 documentos administrativos de fechamento global da Fase 1.
 
-O commit contendo este documento serÃ¡ registrado posteriormente pelo processo
+O commit contendo este documento será registrado posteriormente pelo processo
 normal de versionamento Git.
 
-## 9. GovernanÃ§a apÃ³s a Fase 1
+## 9. Governança após a Fase 1
 
-A partir deste marco, a baseline certificada nÃ£o deverÃ¡ receber alteraÃ§Ãµes
+A partir deste marco, a baseline certificada não deverá receber alterações
 estruturais diretas sem rastreabilidade.
 
-Toda evoluÃ§Ã£o persistente do banco de dados deverÃ¡ utilizar processo
-controlado contendo, quando aplicÃ¡vel:
+Toda evolução persistente do banco de dados deverá utilizar processo
+controlado contendo, quando aplicável:
 
 1. migration SQL versionada;
-2. identificaÃ§Ã£o da necessidade;
-3. validaÃ§Ã£o em ambiente de desenvolvimento;
-4. anÃ¡lise de impacto;
+2. identificação da necessidade;
+3. validação em ambiente de desenvolvimento;
+4. análise de impacto;
 5. auditoria;
-6. documentaÃ§Ã£o;
+6. documentação;
 7. commit Git;
-8. aplicaÃ§Ã£o controlada;
-9. validaÃ§Ã£o pÃ³s-aplicaÃ§Ã£o.
+8. aplicação controlada;
+9. validação pós-aplicação.
 
-A baseline certificada da Fase 1 passa a funcionar como referÃªncia histÃ³rica
+A baseline certificada da Fase 1 passa a funcionar como referência histórica
 do projeto.
 
-## 10. DecisÃ£o final
+## 10. Decisão final
 
 **FASE 1: APROVADA**
 
@@ -150,24 +150,24 @@ do projeto.
 
 **REPRODUTIBILIDADE: APROVADA**
 
-**DIVERGÃŠNCIAS ESTRUTURAIS CRÃTICAS: 0**
+**DIVERGÊNCIAS ESTRUTURAIS CRÍTICAS: 0**
 
-**RECONSTRUÃ‡ÃƒO CONTROLADA: APROVADA**
+**RECONSTRUÇÃO CONTROLADA: APROVADA**
 
-**TRANSIÃ‡ÃƒO PARA FASE 2: AUTORIZADA**
+**TRANSIÇÃO PARA FASE 2: AUTORIZADA**
 
 ---
 
 ## 11. Encerramento
 
-A Fase 1 do WMA Travel ERP encontra-se formalmente encerrada sob os critÃ©rios
-tÃ©cnicos estabelecidos pelo projeto.
+A Fase 1 do WMA Travel ERP encontra-se formalmente encerrada sob os critérios
+técnicos estabelecidos pelo projeto.
 
-A evoluÃ§Ã£o do sistema deverÃ¡ prosseguir atravÃ©s da Fase 2, preservando a
+A evolução do sistema deverá prosseguir através da Fase 2, preservando a
 rastreabilidade e a integridade da baseline certificada.
 
 ---
 
-**WMA Travel ERP**  
-**Fase 1 â€” ConcluÃ­da e Certificada**  
+**WMA Travel ERP**
+**Fase 1 — Concluída e Certificada**
 **17/08/2026**

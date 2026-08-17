@@ -1,37 +1,37 @@
-﻿# WMA Travel ERP â€” TransiÃ§Ã£o da Fase 1 para a Fase 2
+﻿# WMA Travel ERP — Transição da Fase 1 para a Fase 2
 
-## Marco Formal de GovernanÃ§a
+## Marco Formal de Governança
 
-**Data:** 17/08/2026  
-**Fase encerrada:** Fase 1 â€” FundaÃ§Ã£o e Banco de Dados  
-**PrÃ³xima fase:** Fase 2 â€” Backend e API  
-**PostgreSQL:** 18.4  
+**Data:** 17/08/2026
+**Fase encerrada:** Fase 1 — Fundação e Banco de Dados
+**Próxima fase:** Fase 2 — Backend e API
+**PostgreSQL:** 18.4
 **Baseline certificada:** `d63800e`
 
 ---
 
 ## 1. Objetivo
 
-Este documento estabelece o marco formal de transiÃ§Ã£o entre a Fase 1 e a
+Este documento estabelece o marco formal de transição entre a Fase 1 e a
 Fase 2 do WMA Travel ERP.
 
-A partir deste ponto, a fundaÃ§Ã£o do banco de dados deixa de ser tratada como
-estrutura em construÃ§Ã£o e passa a ser tratada como baseline certificada.
+A partir deste ponto, a fundação do banco de dados deixa de ser tratada como
+estrutura em construção e passa a ser tratada como baseline certificada.
 
-## 2. SituaÃ§Ã£o da Fase 1
+## 2. Situação da Fase 1
 
 A Fase 1 foi submetida aos processos de:
 
 - modelagem;
-- padronizaÃ§Ã£o;
+- padronização;
 - auditoria;
-- inventÃ¡rio;
-- reconstruÃ§Ã£o;
-- comparaÃ§Ã£o estrutural;
-- validaÃ§Ã£o de reprodutibilidade;
-- certificaÃ§Ã£o.
+- inventário;
+- reconstrução;
+- comparação estrutural;
+- validação de reprodutibilidade;
+- certificação.
 
-**Status da Fase 1: CONCLUÃDA E CERTIFICADA**
+**Status da Fase 1: CONCLUÍDA E CERTIFICADA**
 
 ## 3. Baseline
 
@@ -39,32 +39,32 @@ A baseline certificada encontra-se associada ao seguinte marco Git:
 
 `d63800e`
 
-As certificaÃ§Ãµes posteriores ao commit documentam formalmente o encerramento
-da fase sem redefinir silenciosamente a baseline tÃ©cnica jÃ¡ validada.
+As certificações posteriores ao commit documentam formalmente o encerramento
+da fase sem redefinir silenciosamente a baseline técnica já validada.
 
-## 4. Regra de governanÃ§a
+## 4. Regra de governança
 
-A partir da Fase 2, alteraÃ§Ãµes estruturais persistentes no banco de dados nÃ£o
-devem ser realizadas diretamente sobre a baseline histÃ³rica.
+A partir da Fase 2, alterações estruturais persistentes no banco de dados não
+devem ser realizadas diretamente sobre a baseline histórica.
 
-As alteraÃ§Ãµes deverÃ£o ser introduzidas atravÃ©s de migrations versionadas e
-rastreÃ¡veis.
+As alterações deverão ser introduzidas através de migrations versionadas e
+rastreáveis.
 
-## 5. Fluxo de alteraÃ§Ã£o estrutural
+## 5. Fluxo de alteração estrutural
 
-O fluxo padrÃ£o passa a ser:
+O fluxo padrão passa a ser:
 
 ``text
-Necessidade de alteraÃ§Ã£o
+Necessidade de alteração
         |
         v
 Migration SQL versionada
         |
         v
-ValidaÃ§Ã£o em desenvolvimento
+Validação em desenvolvimento
         |
         v
-AnÃ¡lise de impacto
+Análise de impacto
         |
         v
 Auditoria
@@ -73,87 +73,87 @@ Auditoria
 Commit Git
         |
         v
-AplicaÃ§Ã£o controlada
+Aplicação controlada
         |
         v
-ValidaÃ§Ã£o pÃ³s-aplicaÃ§Ã£o
+Validação pós-aplicação
 ``
 
-## 6. Requisitos mÃ­nimos de migration
+## 6. Requisitos mínimos de migration
 
-Cada migration deverÃ¡ possuir, quando aplicÃ¡vel:
+Cada migration deverá possuir, quando aplicável:
 
-- identificaÃ§Ã£o Ãºnica;
-- descriÃ§Ã£o da alteraÃ§Ã£o;
+- identificação única;
+- descrição da alteração;
 - justificativa;
 - objetos afetados;
 - SQL versionado;
-- validaÃ§Ã£o prÃ©via;
-- anÃ¡lise de dependÃªncias;
-- estratÃ©gia de rollback quando tecnicamente aplicÃ¡vel;
-- evidÃªncia de execuÃ§Ã£o;
-- validaÃ§Ã£o pÃ³s-aplicaÃ§Ã£o.
+- validação prévia;
+- análise de dependências;
+- estratégia de rollback quando tecnicamente aplicável;
+- evidência de execução;
+- validação pós-aplicação.
 
-## 7. ProteÃ§Ã£o da baseline
+## 7. Proteção da baseline
 
-A baseline certificada deverÃ¡ permanecer disponÃ­vel para:
+A baseline certificada deverá permanecer disponível para:
 
 - auditoria;
-- reconstruÃ§Ã£o;
-- comparaÃ§Ã£o;
-- investigaÃ§Ã£o de regressÃµes;
-- recuperaÃ§Ã£o histÃ³rica;
-- validaÃ§Ã£o de migrations;
+- reconstrução;
+- comparação;
+- investigação de regressões;
+- recuperação histórica;
+- validação de migrations;
 - rastreabilidade.
 
-NÃ£o deverÃ¡ haver alteraÃ§Ã£o silenciosa de arquivos utilizados como referÃªncia
-histÃ³rica da certificaÃ§Ã£o.
+Não deverá haver alteração silenciosa de arquivos utilizados como referência
+histórica da certificação.
 
 ## 8. Fase 2
 
-A Fase 2 poderÃ¡ utilizar a baseline certificada como fundaÃ§Ã£o para o
+A Fase 2 poderá utilizar a baseline certificada como fundação para o
 desenvolvimento das camadas superiores do sistema.
 
-O escopo inicial poderÃ¡ compreender:
+O escopo inicial poderá compreender:
 
 - arquitetura do backend;
-- configuraÃ§Ã£o da aplicaÃ§Ã£o;
-- conexÃ£o com PostgreSQL;
-- camada de persistÃªncia;
+- configuração da aplicação;
+- conexão com PostgreSQL;
+- camada de persistência;
 - models;
-- schemas de aplicaÃ§Ã£o;
+- schemas de aplicação;
 - services;
 - API;
-- autenticaÃ§Ã£o;
-- autorizaÃ§Ã£o;
-- validaÃ§Ãµes;
+- autenticação;
+- autorização;
+- validações;
 - testes;
-- documentaÃ§Ã£o tÃ©cnica da API.
+- documentação técnica da API.
 
-## 9. Gate de transiÃ§Ã£o
+## 9. Gate de transição
 
-Os seguintes critÃ©rios encontram-se estabelecidos para autorizaÃ§Ã£o da Fase 2:
+Os seguintes critérios encontram-se estabelecidos para autorização da Fase 2:
 
 - baseline certificada;
 - estrutura auditada;
-- reconstruÃ§Ã£o validada;
+- reconstrução validada;
 - reprodutibilidade aprovada;
-- divergÃªncias estruturais crÃ­ticas iguais a zero;
-- certificaÃ§Ãµes finais formalizadas;
-- governanÃ§a de migrations definida.
+- divergências estruturais críticas iguais a zero;
+- certificações finais formalizadas;
+- governança de migrations definida.
 
 **GATE FASE 1 -> FASE 2: APROVADO**
 
-## 10. DecisÃ£o
+## 10. Decisão
 
 A Fase 1 encontra-se formalmente encerrada.
 
-O projeto estÃ¡ autorizado a prosseguir para a Fase 2, mantendo a baseline
-certificada como referÃªncia histÃ³rica e utilizando migrations versionadas
-para futuras alteraÃ§Ãµes estruturais.
+O projeto está autorizado a prosseguir para a Fase 2, mantendo a baseline
+certificada como referência histórica e utilizando migrations versionadas
+para futuras alterações estruturais.
 
 ---
 
-**WMA Travel ERP**  
-**TransiÃ§Ã£o Fase 1 â†’ Fase 2**  
+**WMA Travel ERP**
+**Transição Fase 1 → Fase 2**
 **17/08/2026**
