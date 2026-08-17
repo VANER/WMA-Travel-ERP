@@ -1,5 +1,47 @@
-<<<<<<< HEAD
+﻿<<<<<<< HEAD
 # Changelog
+
+<!-- WMA_PHASE_1_CHANGELOG_CLOSE -->
+
+## [0.2.0] - 2026-08-17
+
+### Added
+
+- certificação definitiva da baseline PostgreSQL;
+- certificações das ETAPAS 10.12.3 a 10.12.6;
+- certificação global da Fase 1;
+- documento formal de transição da Fase 1 para a Fase 2;
+- validação de reconstrução independente;
+- comparação estrutural baseline × rebuild;
+- validação de reprodutibilidade;
+- hashes normalizados para certificação.
+
+### Changed
+
+- status da Fase 1 para concluída e certificada;
+- referência técnica do banco para PostgreSQL 18.4;
+- governança de alterações estruturais para migrations versionadas;
+- preparação formal para início da Fase 2.
+
+### Verified
+
+- 8 schemas;
+- 209 tabelas;
+- 38 views;
+- 206 sequences;
+- 1176 constraints;
+- 357 índices;
+- 64 functions;
+- 11 procedures;
+- 138 triggers;
+- 0 divergências estruturais críticas impeditivas.
+
+### Project
+
+- Fase 1 formalmente encerrada.
+- Baseline certificada: `d63800e`.
+- Transição para Fase 2 autorizada.
+
 
 Todas as alterações relevantes do projeto **WMA Travel ERP** serão documentadas neste arquivo.
 

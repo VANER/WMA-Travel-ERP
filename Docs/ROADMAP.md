@@ -1,5 +1,53 @@
-<<<<<<< HEAD
+﻿<<<<<<< HEAD
 # Roadmap do WMA Travel ERP
+
+<!-- WMA_PHASE_1_ROADMAP_CLOSE -->
+
+## Fase 1 — Fundação e Banco de Dados
+
+**Status:** CONCLUÍDA E CERTIFICADA  
+**Conclusão:** 17/08/2026  
+**PostgreSQL:** 18.4  
+**Baseline:** `d63800e`
+
+### Entregas certificadas
+
+- modelagem corporativa do banco;
+- padronização SQL;
+- schemas e tabelas;
+- constraints;
+- índices;
+- sequences e identity;
+- triggers;
+- views;
+- functions e procedures;
+- auditoria estrutural;
+- catálogo técnico;
+- dicionário de dados;
+- baseline SQL;
+- reconstrução independente;
+- validação de banco limpo;
+- validação de reprodutibilidade;
+- comparação baseline × rebuild;
+- hashes normalizados;
+- certificação final.
+
+### Gate de saída
+
+- Baseline certificada: APROVADA
+- Estrutura auditada: APROVADA
+- Rebuild: APROVADO
+- Reprodutibilidade: APROVADA
+- Divergências estruturais críticas: 0
+- Transição para Fase 2: AUTORIZADA
+
+## Fase 2 — Backend e API
+
+**Status:** PRÓXIMA FASE
+
+A Fase 2 utilizará a baseline certificada como fundação para o desenvolvimento
+das camadas de aplicação e integração.
+
 
 **Versão do Documento:** 1.0.0
 **Última Atualização:** 29/07/2026

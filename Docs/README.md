@@ -1,4 +1,31 @@
-# WMA Travel ERP
+﻿# WMA Travel ERP
+
+<!-- WMA_PHASE_1_CERTIFICATION -->
+
+## Marco de Certificação da Fase 1
+
+**Status:** CONCLUÍDA E CERTIFICADA  
+**Data da certificação:** 17/08/2026  
+**PostgreSQL:** 18.4  
+**Baseline certificada:** `d63800e`  
+**Próxima fase:** Fase 2 — Backend e API
+
+A Fase 1 do WMA Travel ERP foi formalmente concluída após a validação da
+fundação do banco de dados, incluindo auditoria estrutural, reconstrução
+independente, validação de reprodutibilidade e comparação da baseline com o
+ambiente reconstruído.
+
+A baseline PostgreSQL certificada passa a constituir a referência histórica
+para a evolução do projeto.
+
+Alterações estruturais posteriores deverão ser introduzidas através de
+migrations versionadas, documentadas e validadas.
+
+Documentos de referência:
+
+- `Database/certification/FASE_1_CERTIFICACAO_FINAL.md`
+- `Docs/PHASE_1_TO_PHASE_2_TRANSITION.md`
+
 
 > Plataforma Corporativa Integrada de Gestão Empresarial para Turismo, Serviços e Inteligência de Negócios.
 
