@@ -2,13 +2,17 @@
 
 ## Fundação, Modelagem e Certificação do Banco de Dados
 
-**Data da certificação:** 17/08/2026
+**Data da certificação da baseline:** 17/08/2026
+**Data do encerramento definitivo:** 18/08/2026
 **Projeto:** WMA Travel ERP
 **Fase:** 1 — Fundação e Banco de Dados
 **SGBD:** PostgreSQL 18.4
 **Banco de referência:** `wma_travel`
 **Banco de reconstrução:** `wma_travel_rebuild_test`
 **Commit baseline certificado:** `d63800e`
+**Commit da implementação financeira:** `33fe492`
+**Commit de consolidação anterior ao gate final:** `980af60`
+**Marco Git definitivo:** tag `phase-1-final-2026-08-18`
 **Status:** APROVADA
 
 ---
@@ -67,6 +71,7 @@ As etapas finais foram formalizadas através das seguintes certificações:
 - ETAPA 10.12.4 — certificação de reprodutibilidade;
 - ETAPA 10.12.5 — certificação de reconstrução em banco limpo;
 - ETAPA 10.12.6 — certificação baseline × rebuild.
+- F1-FIN.13 — certificação estrutural final do módulo Financeiro.
 
 ## 5. Integridade das certificações finais
 
@@ -110,17 +115,24 @@ encerramento da Fase 1.
 
 **Divergências estruturais críticas: 0**
 
-## 8. Baseline certificada
+## 8. Marcos Git certificados
 
 O commit utilizado como marco da certificação definitiva da ETAPA 10.12.2 é:
 
 `d63800e`
 
-Esse commit representa a baseline estrutural certificada antes da inclusão dos
-documentos administrativos de fechamento global da Fase 1.
+Esse commit representa a baseline estrutural 10.12.2, anterior à evolução
+financeira F1-FIN.
 
-O commit contendo este documento será registrado posteriormente pelo processo
-normal de versionamento Git.
+O commit `33fe492` introduziu e certificou a sequência F1-FIN.01 a F1-FIN.13. O
+commit `980af60` consolidou a organização, a documentação e a reprodutibilidade
+da Fase 1 antes do gate corretivo final.
+
+O encerramento definitivo é identificado pela tag anotada
+`phase-1-final-2026-08-18`, que deve apontar para o commit contendo a correção do
+gate de resíduos, a evidência final e esta atualização documental. Assim, a
+baseline histórica permanece imutável e o marco final incorpora toda a evolução
+financeira posterior.
 
 ## 9. Governança após a Fase 1
 

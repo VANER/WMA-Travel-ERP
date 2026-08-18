@@ -272,6 +272,7 @@ certificada.
 
 - `Database/certification/FASE_1_CERTIFICACAO_FINAL.md`;
 - `Database/certification/F1_FIN_CERTIFICACAO_REPRODUTIBILIDADE.md`;
+- `Database/certification/F1_FIN_13_CERTIFICACAO_FINAL.md`;
 - `Database/certification/10.12.2_CERTIFICACAO_FINAL.txt`;
 - `Database/certification/10.12.3_CERTIFICACAO_INSTALACAO.md`;
 - `Database/certification/10.12.4_CERTIFICACAO_REPRODUTIBILIDADE.md`;

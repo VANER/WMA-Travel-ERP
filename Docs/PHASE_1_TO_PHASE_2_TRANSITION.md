@@ -6,7 +6,10 @@
 **Fase encerrada:** Fase 1 — Fundação e Banco de Dados
 **Próxima fase:** Fase 2 — Backend e API
 **PostgreSQL:** 18.4
-**Baseline certificada:** `d63800e`
+**Baseline estrutural 10.12.2:** `d63800e`
+**Implementação financeira F1-FIN:** `33fe492`
+**Consolidação anterior ao gate final:** `980af60`
+**Marco definitivo da Fase 1:** tag `phase-1-final-2026-08-18`
 
 ---
 
@@ -33,7 +36,7 @@ A Fase 1 foi submetida aos processos de:
 
 **Status da Fase 1: CONCLUÍDA E CERTIFICADA**
 
-## 3. Baseline
+## 3. Marcos certificados
 
 A baseline certificada encontra-se associada ao seguinte marco Git:
 
@@ -41,6 +44,15 @@ A baseline certificada encontra-se associada ao seguinte marco Git:
 
 As certificações posteriores ao commit documentam formalmente o encerramento
 da fase sem redefinir silenciosamente a baseline técnica já validada.
+
+Após a baseline 10.12.2, o domínio Financeiro passou pela sequência controlada
+F1-FIN.01 a F1-FIN.13. A execução final da F1-FIN.13 confirmou zero critérios
+bloqueantes e zero resíduos de teste, conforme
+`Database/certification/F1_FIN_13_CERTIFICACAO_FINAL.md`.
+
+O encerramento completo da fase é identificado pela tag
+`phase-1-final-2026-08-18`. A tag distingue o marco final do projeto da baseline
+histórica `d63800e`, que permanece válida como referência da ETAPA 10.12.2.
 
 ## 4. Regra de governança
 
@@ -54,7 +66,7 @@ rastreáveis.
 
 O fluxo padrão passa a ser:
 
-``text
+```text
 Necessidade de alteração
         |
         v
@@ -77,7 +89,7 @@ Aplicação controlada
         |
         v
 Validação pós-aplicação
-``
+```
 
 ## 6. Requisitos mínimos de migration
 

@@ -1,6 +1,7 @@
 ﻿# WMA Travel ERP
-# ETAPA 10.12.2.4 — V7.2
-# CERTIFICAÇÃO DA RECONCILIAÇÃO QUANTITATIVA E ESTRUTURAL
+## ETAPA 10.12.2.4 — V7.2
+
+### Certificação da Reconciliação Quantitativa e Estrutural
 
 **Data:** 16/08/2026  
 **Banco:** `wma_travel_rebuild_test`  

@@ -1,3 +1,4 @@
+/******** QUERY *********/
 /* ============================================================================
    WMA TRAVEL ERP
    F1-FIN.13 — CERTIFICACAO ESTRUTURAL DO MODULO FINANCEIRO
@@ -44,30 +45,24 @@
 
    NENHUMA ALTERACAO DE DADOS OU ESTRUTURA E EXECUTADA.
    ============================================================================ */
-
-\set ON_ERROR_STOP on
-\pset pager off
-\pset null '(NULL)'
-\timing on
-
 BEGIN;
+/************************/
+
+BEGIN
+/******** QUERY *********/
 SET TRANSACTION READ ONLY;
+/************************/
+
+SET
+/******** QUERY *********/
 SET client_encoding = 'UTF8';
+/************************/
 
-\echo ''
-\echo '============================================================'
-\echo ' WMA TRAVEL ERP'
-\echo ' F1-FIN.13 - CERTIFICACAO ESTRUTURAL DO MODULO FINANCEIRO'
-\echo ' MODO: SOMENTE LEITURA'
-\echo '============================================================'
-
+SET
+/******** QUERY *********/
 /* ============================================================================
    1. AMBIENTE
    ============================================================================ */
-
-\echo ''
-\echo '=== 1 - AMBIENTE ==='
-
 SELECT
     current_database() AS banco,
     current_user AS usuario,
@@ -75,16 +70,17 @@ SELECT
     current_setting('server_encoding') AS server_encoding,
     current_setting('client_encoding') AS client_encoding,
     CURRENT_TIMESTAMP AS certificado_em;
+/************************/
 
+   banco    | usuario  | postgresql | server_encoding | client_encoding |        certificado_em
+------------+----------+------------+-----------------+-----------------+-------------------------------
+ wma_travel | postgres | 18.4       | UTF8            | UTF8            | 2026-08-18 14:07:16.251184-03
+(1 linha)
+
+/******** QUERY *********/
 /* ============================================================================
    2. UNIVERSO ESTRUTURAL
    ============================================================================ */
-
-\echo ''
-\echo '============================================================'
-\echo ' 2 - UNIVERSO ESTRUTURAL'
-\echo '============================================================'
-
 SELECT
     COUNT(*) FILTER (WHERE c.relkind IN ('r','p')) AS tabelas,
     COUNT(*) FILTER (WHERE c.relkind = 'S') AS sequences,
@@ -93,16 +89,17 @@ FROM pg_class c
 JOIN pg_namespace n
   ON n.oid = c.relnamespace
 WHERE n.nspname = 'financeiro';
+/************************/
 
+ tabelas | sequences | indices
+---------+-----------+---------
+      37 |        37 |      96
+(1 linha)
+
+/******** QUERY *********/
 /* ============================================================================
    3. TABELAS SEM PK
    ============================================================================ */
-
-\echo ''
-\echo '============================================================'
-\echo ' 3 - TABELAS SEM PK'
-\echo '============================================================'
-
 SELECT
     c.relname AS tabela
 FROM pg_class c
@@ -117,16 +114,16 @@ WHERE n.nspname = 'financeiro'
         AND con.contype = 'p'
   )
 ORDER BY c.relname;
+/************************/
 
+ tabela
+--------
+(0 linha)
+
+/******** QUERY *********/
 /* ============================================================================
    4. CONSTRAINTS NAO VALIDADAS
    ============================================================================ */
-
-\echo ''
-\echo '============================================================'
-\echo ' 4 - CONSTRAINTS NAO VALIDADAS'
-\echo '============================================================'
-
 SELECT
     c.relname AS tabela,
     con.conname AS constraint_name,
@@ -140,16 +137,16 @@ JOIN pg_namespace n
 WHERE n.nspname = 'financeiro'
   AND NOT con.convalidated
 ORDER BY c.relname, con.conname;
+/************************/
 
+ tabela | constraint_name | contype | definition
+--------+-----------------+---------+------------
+(0 linha)
+
+/******** QUERY *********/
 /* ============================================================================
    5. FKS FINANCEIRO -> PUBLIC
    ============================================================================ */
-
-\echo ''
-\echo '============================================================'
-\echo ' 5 - FKS FINANCEIRO -> PUBLIC'
-\echo '============================================================'
-
 SELECT
     source.relname AS tabela_origem,
     con.conname AS fk_name,
@@ -178,16 +175,107 @@ WHERE con.contype = 'f'
   AND source_ns.nspname = 'financeiro'
   AND target_ns.nspname = 'public'
 ORDER BY source.relname, target.relname;
+/************************/
 
+     tabela_origem     |               fk_name               | tabela_public  | classificacao
+-----------------------+-------------------------------------+----------------+----------------
+ afac                  | fk_afac_empresa                     | empresa        | OK_TRANSVERSAL
+ afac                  | fk_afac_updated_by                  | usuario        | OK_TRANSVERSAL
+ afac                  | fk_afac_deleted_by                  | usuario        | OK_TRANSVERSAL
+ afac                  | fk_afac_created_by                  | usuario        | OK_TRANSVERSAL
+ anexo                 | fk_anexo_created_by                 | usuario        | OK_TRANSVERSAL
+ anexo                 | fk_anexo_deleted_by                 | usuario        | OK_TRANSVERSAL
+ anexo                 | fk_anexo_updated_by                 | usuario        | OK_TRANSVERSAL
+ ativo_imobilizado     | fk_ativo_imobilizado_empresa        | empresa        | OK_TRANSVERSAL
+ ativo_imobilizado     | fk_ativo_imobilizado_created_by     | usuario        | OK_TRANSVERSAL
+ ativo_imobilizado     | fk_ativo_imobilizado_updated_by     | usuario        | OK_TRANSVERSAL
+ ativo_imobilizado     | fk_ativo_imobilizado_deleted_by     | usuario        | OK_TRANSVERSAL
+ caixa                 | fk_caixa_deleted_by                 | usuario        | OK_TRANSVERSAL
+ caixa                 | fk_caixa_updated_by                 | usuario        | OK_TRANSVERSAL
+ caixa                 | fk_caixa_created_by                 | usuario        | OK_TRANSVERSAL
+ capital_social        | fk_capital_social_empresa           | empresa        | OK_TRANSVERSAL
+ capital_social        | fk_capital_social_updated_by        | usuario        | OK_TRANSVERSAL
+ capital_social        | fk_capital_social_created_by        | usuario        | OK_TRANSVERSAL
+ capital_social        | fk_capital_social_deleted_by        | usuario        | OK_TRANSVERSAL
+ cartao                | fk_cartao_created_by                | usuario        | OK_TRANSVERSAL
+ cartao                | fk_cartao_deleted_by                | usuario        | OK_TRANSVERSAL
+ cartao                | fk_cartao_updated_by                | usuario        | OK_TRANSVERSAL
+ categoria             | fk_categoria_updated_by             | usuario        | OK_TRANSVERSAL
+ categoria             | fk_categoria_created_by             | usuario        | OK_TRANSVERSAL
+ categoria             | fk_categoria_deleted_by             | usuario        | OK_TRANSVERSAL
+ classificacao         | fk_classificacao_deleted_by         | usuario        | OK_TRANSVERSAL
+ classificacao         | fk_classificacao_created_by         | usuario        | OK_TRANSVERSAL
+ classificacao         | fk_classificacao_updated_by         | usuario        | OK_TRANSVERSAL
+ configuracao          | fk_config_empresa                   | empresa        | OK_TRANSVERSAL
+ configuracao          | fk_configuracao_updated_by          | usuario        | OK_TRANSVERSAL
+ configuracao          | fk_configuracao_created_by          | usuario        | OK_TRANSVERSAL
+ configuracao          | fk_configuracao_deleted_by          | usuario        | OK_TRANSVERSAL
+ conta                 | fk_conta_deleted_by                 | usuario        | OK_TRANSVERSAL
+ conta                 | fk_conta_created_by                 | usuario        | OK_TRANSVERSAL
+ conta                 | fk_conta_updated_by                 | usuario        | OK_TRANSVERSAL
+ distribuicao_lucro    | fk_distribuicao_lucro_empresa       | empresa        | OK_TRANSVERSAL
+ distribuicao_lucro    | fk_distribuicao_lucro_created_by    | usuario        | OK_TRANSVERSAL
+ distribuicao_lucro    | fk_distribuicao_lucro_deleted_by    | usuario        | OK_TRANSVERSAL
+ distribuicao_lucro    | fk_distribuicao_lucro_updated_by    | usuario        | OK_TRANSVERSAL
+ emprestimo            | fk_emprestimo_empresa               | empresa        | OK_TRANSVERSAL
+ emprestimo            | fk_emprestimo_updated_by            | usuario        | OK_TRANSVERSAL
+ emprestimo            | fk_emprestimo_deleted_by            | usuario        | OK_TRANSVERSAL
+ emprestimo            | fk_emprestimo_created_by            | usuario        | OK_TRANSVERSAL
+ fatura_cartao         | fk_fatura_cartao_deleted_by         | usuario        | OK_TRANSVERSAL
+ fatura_cartao         | fk_fatura_cartao_created_by         | usuario        | OK_TRANSVERSAL
+ fatura_cartao         | fk_fatura_cartao_updated_by         | usuario        | OK_TRANSVERSAL
+ grupo                 | fk_grupo_deleted_by                 | usuario        | OK_TRANSVERSAL
+ grupo                 | fk_grupo_created_by                 | usuario        | OK_TRANSVERSAL
+ grupo                 | fk_grupo_updated_by                 | usuario        | OK_TRANSVERSAL
+ historico_lancamento  | fk_historico_lancamento_updated_by  | usuario        | OK_TRANSVERSAL
+ historico_lancamento  | fk_historico_usuario                | usuario        | OK_TRANSVERSAL
+ historico_lancamento  | fk_historico_lancamento_deleted_by  | usuario        | OK_TRANSVERSAL
+ historico_lancamento  | fk_historico_lancamento_created_by  | usuario        | OK_TRANSVERSAL
+ lancamento            | fk_lancamento_cliente               | cliente        | OK_TRANSVERSAL
+ lancamento            | fk_lancamento_empresa               | empresa        | OK_TRANSVERSAL
+ lancamento            | fk_lancamento_fornecedor            | fornecedor     | OK_TRANSVERSAL
+ lancamento            | fk_lancamento_tipo_documento        | tipo_documento | OK_TRANSVERSAL
+ lancamento            | fk_lancamento_created_by            | usuario        | OK_TRANSVERSAL
+ lancamento            | fk_lancamento_deleted_by            | usuario        | OK_TRANSVERSAL
+ lancamento            | fk_lancamento_updated_by            | usuario        | OK_TRANSVERSAL
+ movimentacao_bancaria | fk_movimentacao_bancaria_updated_by | usuario        | OK_TRANSVERSAL
+ movimentacao_bancaria | fk_movimentacao_bancaria_created_by | usuario        | OK_TRANSVERSAL
+ movimentacao_bancaria | fk_movimentacao_bancaria_deleted_by | usuario        | OK_TRANSVERSAL
+ pagamento             | fk_pagamento_deleted_by             | usuario        | OK_TRANSVERSAL
+ pagamento             | fk_pagamento_created_by             | usuario        | OK_TRANSVERSAL
+ pagamento             | fk_pagamento_updated_by             | usuario        | OK_TRANSVERSAL
+ pro_labore            | fk_pro_labore_empresa               | empresa        | OK_TRANSVERSAL
+ pro_labore            | fk_pro_labore_created_by            | usuario        | OK_TRANSVERSAL
+ pro_labore            | fk_pro_labore_deleted_by            | usuario        | OK_TRANSVERSAL
+ pro_labore            | fk_pro_labore_updated_by            | usuario        | OK_TRANSVERSAL
+ rateio_centro_custo   | fk_rateio_centro_custo_updated_by   | usuario        | OK_TRANSVERSAL
+ rateio_centro_custo   | fk_rateio_centro_custo_deleted_by   | usuario        | OK_TRANSVERSAL
+ rateio_centro_custo   | fk_rateio_centro_custo_created_by   | usuario        | OK_TRANSVERSAL
+ status_lancamento     | fk_status_lancamento_updated_by     | usuario        | OK_TRANSVERSAL
+ status_lancamento     | fk_status_lancamento_deleted_by     | usuario        | OK_TRANSVERSAL
+ status_lancamento     | fk_status_lancamento_created_by     | usuario        | OK_TRANSVERSAL
+ subcategoria          | fk_subcategoria_updated_by          | usuario        | OK_TRANSVERSAL
+ subcategoria          | fk_subcategoria_deleted_by          | usuario        | OK_TRANSVERSAL
+ subcategoria          | fk_subcategoria_created_by          | usuario        | OK_TRANSVERSAL
+ tipo_lancamento       | fk_tipo_lancamento_deleted_by       | usuario        | OK_TRANSVERSAL
+ tipo_lancamento       | fk_tipo_lancamento_updated_by       | usuario        | OK_TRANSVERSAL
+ tipo_lancamento       | fk_tipo_lancamento_created_by       | usuario        | OK_TRANSVERSAL
+ tipo_movimentacao     | fk_tipo_movimentacao_created_by     | usuario        | OK_TRANSVERSAL
+ tipo_movimentacao     | fk_tipo_movimentacao_updated_by     | usuario        | OK_TRANSVERSAL
+ tipo_movimentacao     | fk_tipo_movimentacao_deleted_by     | usuario        | OK_TRANSVERSAL
+ transferencia         | fk_transferencia_deleted_by         | usuario        | OK_TRANSVERSAL
+ transferencia         | fk_transferencia_updated_by         | usuario        | OK_TRANSVERSAL
+ transferencia         | fk_transferencia_created_by         | usuario        | OK_TRANSVERSAL
+ tributo               | fk_tributo_empresa                  | empresa        | OK_TRANSVERSAL
+ tributo               | fk_tributo_updated_by               | usuario        | OK_TRANSVERSAL
+ tributo               | fk_tributo_deleted_by               | usuario        | OK_TRANSVERSAL
+ tributo               | fk_tributo_created_by               | usuario        | OK_TRANSVERSAL
+(91 linhas)
+
+/******** QUERY *********/
 /* ============================================================================
    6. ORFAOS DOS NUCLEOS CRITICOS
    ============================================================================ */
-
-\echo ''
-\echo '============================================================'
-\echo ' 6 - ORFAOS DOS NUCLEOS CRITICOS'
-\echo '============================================================'
-
 WITH metricas AS (
     SELECT
         (
@@ -197,7 +285,6 @@ WITH metricas AS (
               ON l.id_lancamento = p.id_lancamento
             WHERE l.id_lancamento IS NULL
         ) AS parcelas_orfas,
-
         (
             SELECT count(*)
             FROM financeiro.pagamento pg
@@ -205,7 +292,6 @@ WITH metricas AS (
               ON p.id_parcela = pg.id_parcela
             WHERE p.id_parcela IS NULL
         ) AS pagamentos_orfaos,
-
         (
             SELECT count(*)
             FROM financeiro.movimentacao_bancaria m
@@ -213,7 +299,6 @@ WITH metricas AS (
               ON cb.id_conta_bancaria = m.id_conta_bancaria
             WHERE cb.id_conta_bancaria IS NULL
         ) AS movimentos_orfaos,
-
         (
             SELECT count(*)
             FROM financeiro.conciliacao_bancaria c
@@ -221,7 +306,6 @@ WITH metricas AS (
               ON m.id_movimento = c.id_movimento
             WHERE m.id_movimento IS NULL
         ) AS conciliacoes_orfas,
-
         (
             SELECT count(*)
             FROM financeiro.rateio_centro_custo r
@@ -229,7 +313,6 @@ WITH metricas AS (
               ON l.id_lancamento = r.id_lancamento
             WHERE l.id_lancamento IS NULL
         ) AS rateios_sem_lancamento,
-
         (
             SELECT count(*)
             FROM financeiro.rateio_centro_custo r
@@ -240,16 +323,17 @@ WITH metricas AS (
 )
 SELECT *
 FROM metricas;
+/************************/
 
+ parcelas_orfas | pagamentos_orfaos | movimentos_orfaos | conciliacoes_orfas | rateios_sem_lancamento | rateios_sem_centro
+----------------+-------------------+-------------------+--------------------+------------------------+--------------------
+              0 |                 0 |                 0 |                  0 |                      0 |                  0
+(1 linha)
+
+/******** QUERY *********/
 /* ============================================================================
    7. PLANO DE CONTAS
    ============================================================================ */
-
-\echo ''
-\echo '============================================================'
-\echo ' 7 - PLANO DE CONTAS'
-\echo '============================================================'
-
 SELECT
     (SELECT count(*) FROM financeiro.grupo) AS grupos,
     (SELECT count(*) FROM financeiro.categoria) AS categorias,
@@ -267,65 +351,50 @@ SELECT
         WHERE gera_dre IS TRUE
           AND id_tipo_dre IS NULL
     ) AS dre_sem_tipo;
+/************************/
 
+ grupos | categorias | subcategorias | classificacoes | contas | classificacoes_sem_natureza | dre_sem_tipo
+--------+------------+---------------+----------------+--------+-----------------------------+--------------
+      5 |         13 |            23 |             23 |     23 |                           0 |            0
+(1 linha)
+
+/******** QUERY *********/
 /* ============================================================================
    8. RESIDUOS DE TESTE
    ============================================================================ */
-
-\echo ''
-\echo '============================================================'
-\echo ' 8 - RESIDUOS DE TESTE F1-FIN'
-\echo '============================================================'
-
 WITH residuos AS (
     SELECT 'lancamento' AS origem, count(*) AS quantidade
     FROM financeiro.lancamento
     WHERE numero ~* '^F1FIN'
-
     UNION ALL
-
     SELECT 'movimentacao_bancaria', count(*)
     FROM financeiro.movimentacao_bancaria
     WHERE historico ~* 'F1-FIN'
-
     UNION ALL
-
     SELECT 'transferencia', count(*)
     FROM financeiro.transferencia
     WHERE codigo ~* '^F1FIN'
-
     UNION ALL
-
     SELECT 'tributo', count(*)
     FROM financeiro.tributo
     WHERE codigo ~* '^F1FIN'
-
     UNION ALL
-
     SELECT 'emprestimo', count(*)
     FROM financeiro.emprestimo
     WHERE descricao ~* 'F1-FIN'
-
     UNION ALL
-
     SELECT 'ativo_imobilizado', count(*)
     FROM financeiro.ativo_imobilizado
     WHERE codigo ~* '^F1FIN'
-
     UNION ALL
-
     SELECT 'capital_social', count(*)
     FROM financeiro.capital_social
     WHERE descricao ~* 'F1-FIN'
-
     UNION ALL
-
     SELECT 'afac', count(*)
     FROM financeiro.afac
     WHERE descricao ~* 'F1-FIN'
-
     UNION ALL
-
     SELECT 'distribuicao_lucro', count(*)
     FROM financeiro.distribuicao_lucro
     WHERE descricao ~* 'F1-FIN'
@@ -333,16 +402,25 @@ WITH residuos AS (
 SELECT *
 FROM residuos
 ORDER BY origem;
+/************************/
 
+        origem         | quantidade
+-----------------------+------------
+ afac                  |          0
+ ativo_imobilizado     |          0
+ capital_social        |          0
+ distribuicao_lucro    |          0
+ emprestimo            |          0
+ lancamento            |          0
+ movimentacao_bancaria |          0
+ transferencia         |          0
+ tributo               |          0
+(9 linhas)
+
+/******** QUERY *********/
 /* ============================================================================
    9. LEGADOS CONTROLADOS PUBLIC
    ============================================================================ */
-
-\echo ''
-\echo '============================================================'
-\echo ' 9 - LEGADOS CONTROLADOS PUBLIC'
-\echo '============================================================'
-
 WITH legados AS (
     SELECT
         'public.centro_custo'::text AS objeto,
@@ -359,9 +437,7 @@ WITH legados AS (
               AND dst.relname = 'centro_custo'
         ) AS dependencias,
         'financeiro.centro_custo'::text AS autoridade
-
     UNION ALL
-
     SELECT
         'public.forma_pagamento',
         (SELECT count(*) FROM public.forma_pagamento),
@@ -377,9 +453,7 @@ WITH legados AS (
               AND dst.relname = 'forma_pagamento'
         ),
         'financeiro.forma_pagamento'
-
     UNION ALL
-
     SELECT
         'public.imposto',
         (SELECT count(*) FROM public.imposto),
@@ -412,16 +486,19 @@ SELECT
     END AS classificacao
 FROM legados
 ORDER BY objeto;
+/************************/
 
+         objeto         | registros | dependencias |         autoridade         |            classificacao
+------------------------+-----------+--------------+----------------------------+--------------------------------------
+ public.centro_custo    |         5 |            1 | financeiro.centro_custo    | LEGADO_COM_DEPENDENCIAS_REQUER_PLANO
+ public.forma_pagamento |         6 |            1 | financeiro.forma_pagamento | LEGADO_COM_DEPENDENCIAS_REQUER_PLANO
+ public.imposto         |         5 |            0 | financeiro.tributo         | CANDIDATO_MIGRACAO_REVISAR_DADOS
+(3 linhas)
+
+/******** QUERY *********/
 /* ============================================================================
    10. DOCUMENTACAO
    ============================================================================ */
-
-\echo ''
-\echo '============================================================'
-\echo ' 10 - DOCUMENTACAO DAS TABELAS'
-\echo '============================================================'
-
 SELECT
     COUNT(*) AS tabelas,
     COUNT(*) FILTER (
@@ -435,16 +512,17 @@ JOIN pg_namespace n
   ON n.oid = c.relnamespace
 WHERE n.nspname = 'financeiro'
   AND c.relkind IN ('r','p');
+/************************/
 
+ tabelas | documentadas | sem_comentario
+---------+--------------+----------------
+      37 |           37 |              0
+(1 linha)
+
+/******** QUERY *********/
 /* ============================================================================
    11. METRICAS BLOQUEANTES
    ============================================================================ */
-
-\echo ''
-\echo '============================================================'
-\echo ' 11 - METRICAS BLOQUEANTES'
-\echo '============================================================'
-
 WITH metricas AS (
     SELECT
         (
@@ -461,7 +539,6 @@ WITH metricas AS (
                     AND con.contype = 'p'
               )
         ) AS tabelas_sem_pk,
-
         (
             SELECT count(*)
             FROM pg_constraint con
@@ -472,7 +549,6 @@ WITH metricas AS (
             WHERE n.nspname = 'financeiro'
               AND NOT con.convalidated
         ) AS constraints_nao_validadas,
-
         (
             SELECT count(*)
             FROM pg_constraint con
@@ -495,7 +571,6 @@ WITH metricas AS (
                   'tipo_documento'
               )
         ) AS fks_public_nao_transversais,
-
         (
             SELECT count(*)
             FROM financeiro.lancamento_parcela p
@@ -503,7 +578,6 @@ WITH metricas AS (
               ON l.id_lancamento = p.id_lancamento
             WHERE l.id_lancamento IS NULL
         ) AS parcelas_orfas,
-
         (
             SELECT count(*)
             FROM financeiro.pagamento pg
@@ -511,7 +585,6 @@ WITH metricas AS (
               ON p.id_parcela = pg.id_parcela
             WHERE p.id_parcela IS NULL
         ) AS pagamentos_orfaos,
-
         (
             SELECT count(*)
             FROM financeiro.movimentacao_bancaria m
@@ -519,7 +592,6 @@ WITH metricas AS (
               ON cb.id_conta_bancaria = m.id_conta_bancaria
             WHERE cb.id_conta_bancaria IS NULL
         ) AS movimentos_orfaos,
-
         (
             SELECT count(*)
             FROM financeiro.conciliacao_bancaria c
@@ -527,7 +599,6 @@ WITH metricas AS (
               ON m.id_movimento = c.id_movimento
             WHERE m.id_movimento IS NULL
         ) AS conciliacoes_orfas,
-
         (
             SELECT count(*)
             FROM financeiro.rateio_centro_custo r
@@ -535,20 +606,17 @@ WITH metricas AS (
               ON l.id_lancamento = r.id_lancamento
             WHERE l.id_lancamento IS NULL
         ) AS rateios_orfaos,
-
         (
             SELECT count(*)
             FROM financeiro.classificacao
             WHERE id_natureza_financeira IS NULL
         ) AS classificacoes_sem_natureza,
-
         (
             SELECT count(*)
             FROM financeiro.classificacao
             WHERE gera_dre IS TRUE
               AND id_tipo_dre IS NULL
         ) AS dre_sem_tipo,
-
         (
             SELECT
                 (SELECT count(*) FROM financeiro.lancamento
@@ -573,16 +641,17 @@ WITH metricas AS (
 )
 SELECT *
 FROM metricas;
+/************************/
 
+ tabelas_sem_pk | constraints_nao_validadas | fks_public_nao_transversais | parcelas_orfas | pagamentos_orfaos | movimentos_orfaos | conciliacoes_orfas | rateios_orfaos | classificacoes_sem_natureza | dre_sem_tipo | residuos_teste
+----------------+---------------------------+-----------------------------+----------------+-------------------+-------------------+--------------------+----------------+-----------------------------+--------------+----------------
+              0 |                         0 |                           0 |              0 |                 0 |                 0 |                  0 |              0 |                           0 |            0 |              0
+(1 linha)
+
+/******** QUERY *********/
 /* ============================================================================
    12. CERTIFICACAO FINAL
    ============================================================================ */
-
-\echo ''
-\echo '============================================================'
-\echo ' 12 - CERTIFICACAO FINAL'
-\echo '============================================================'
-
 WITH metricas AS (
     SELECT
         (
@@ -599,7 +668,6 @@ WITH metricas AS (
                     AND con.contype = 'p'
               )
         ) AS tabelas_sem_pk,
-
         (
             SELECT count(*)
             FROM pg_constraint con
@@ -610,7 +678,6 @@ WITH metricas AS (
             WHERE n.nspname = 'financeiro'
               AND NOT con.convalidated
         ) AS constraints_nao_validadas,
-
         (
             SELECT count(*)
             FROM pg_constraint con
@@ -633,7 +700,6 @@ WITH metricas AS (
                   'tipo_documento'
               )
         ) AS fks_public_nao_transversais,
-
         (
             SELECT count(*)
             FROM financeiro.lancamento_parcela p
@@ -641,7 +707,6 @@ WITH metricas AS (
               ON l.id_lancamento = p.id_lancamento
             WHERE l.id_lancamento IS NULL
         ) AS parcelas_orfas,
-
         (
             SELECT count(*)
             FROM financeiro.pagamento pg
@@ -649,7 +714,6 @@ WITH metricas AS (
               ON p.id_parcela = pg.id_parcela
             WHERE p.id_parcela IS NULL
         ) AS pagamentos_orfaos,
-
         (
             SELECT count(*)
             FROM financeiro.movimentacao_bancaria m
@@ -657,7 +721,6 @@ WITH metricas AS (
               ON cb.id_conta_bancaria = m.id_conta_bancaria
             WHERE cb.id_conta_bancaria IS NULL
         ) AS movimentos_orfaos,
-
         (
             SELECT count(*)
             FROM financeiro.conciliacao_bancaria c
@@ -665,7 +728,6 @@ WITH metricas AS (
               ON m.id_movimento = c.id_movimento
             WHERE m.id_movimento IS NULL
         ) AS conciliacoes_orfas,
-
         (
             SELECT count(*)
             FROM financeiro.rateio_centro_custo r
@@ -673,20 +735,17 @@ WITH metricas AS (
               ON l.id_lancamento = r.id_lancamento
             WHERE l.id_lancamento IS NULL
         ) AS rateios_orfaos,
-
         (
             SELECT count(*)
             FROM financeiro.classificacao
             WHERE id_natureza_financeira IS NULL
         ) AS classificacoes_sem_natureza,
-
         (
             SELECT count(*)
             FROM financeiro.classificacao
             WHERE gera_dre IS TRUE
               AND id_tipo_dre IS NULL
         ) AS dre_sem_tipo,
-
         (
             SELECT
                 (SELECT count(*) FROM financeiro.lancamento
@@ -727,16 +786,17 @@ SELECT
         ELSE 'F1_FIN_13_REPROVADA'
     END AS status
 FROM metricas;
+/************************/
 
+ tabelas_sem_pk | constraints_nao_validadas | fks_public_nao_transversais | parcelas_orfas | pagamentos_orfaos | movimentos_orfaos | conciliacoes_orfas | rateios_orfaos | classificacoes_sem_natureza | dre_sem_tipo | residuos_teste |        status
+----------------+---------------------------+-----------------------------+----------------+-------------------+-------------------+--------------------+----------------+-----------------------------+--------------+----------------+-----------------------
+              0 |                         0 |                           0 |              0 |                 0 |                 0 |                  0 |              0 |                           0 |            0 |              0 | F1_FIN_13_CERTIFICADA
+(1 linha)
+
+/******** QUERY *********/
 /* ============================================================================
    13. VALIDACAO BLOQUEANTE DA CERTIFICACAO
    ============================================================================ */
-
-\echo ''
-\echo '============================================================'
-\echo ' 13 - VALIDACAO BLOQUEANTE'
-\echo '============================================================'
-
 DO $$
 DECLARE
     v_total bigint;
@@ -874,27 +934,14 @@ BEGIN
     END IF;
 END
 $$;
+/************************/
 
+DO
+/******** QUERY *********/
 /* ============================================================================
    ENCERRAMENTO
    ============================================================================ */
-
-\echo ''
-\echo '============================================================'
-\echo ' F1-FIN.13 - CERTIFICACAO ESTRUTURAL CONCLUIDA'
-\echo '============================================================'
-\echo ' MODULO FINANCEIRO ............... CERTIFICADO ESTRUTURALMENTE'
-\echo ' SCHEMA AUTORITATIVO ............. financeiro'
-\echo ' PUBLIC .......................... CORPORATIVO / TRANSVERSAL'
-\echo ' LEGADOS PUBLIC .................. CONTROLADOS / NAO BLOQUEANTES'
-\echo ' ALTERACOES EXECUTADAS ........... NENHUMA'
-\echo '============================================================'
-
 ROLLBACK;
+/************************/
 
-\echo ''
-\echo '============================================================'
-\echo ' ROLLBACK CONCLUIDO'
-\echo ' F1-FIN.13 FINALIZADA'
-\echo ' MODULO FINANCEIRO CERTIFICADO'
-\echo '============================================================'
+ROLLBACK
