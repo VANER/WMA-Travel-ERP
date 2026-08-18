@@ -27,6 +27,7 @@ Documentos de referência:
 - `Database/certification/F1_FIN_CERTIFICACAO_REPRODUTIBILIDADE.md`
 - `Docs/PHASE_1_TO_PHASE_2_TRANSITION.md`
 - `Docs/RELATORIO_FASE_1.md`
+- `Docs/PHASE_2_BACKEND_API.md`
 
 > Plataforma Corporativa Integrada de Gestão Empresarial para Turismo, Serviços e Inteligência de Negócios.
 

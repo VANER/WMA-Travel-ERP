@@ -4,10 +4,13 @@
 
 Estas instruções valem para todo o repositório.
 
-O projeto está na transição da Fase 1 (banco de dados certificado) para a Fase 2 (backend e API).
-Hoje, a árvore versionada contém principalmente `Database/` e `Docs/`. Backend FastAPI, frontend React e
-aplicativo Flutter são arquitetura planejada; não presuma que essas camadas, seus comandos ou dependências já
-existam. Antes de alterar qualquer área, confirme a estrutura real do repositório.
+O projeto está na Fase 2 — Backend e API. A Fase 1 foi encerrada pela tag imutável
+`phase-1-final-2026-08-18`. Hoje, a árvore versionada ainda contém principalmente `Database/` e `Docs/`; o
+backend FastAPI deve ser criado de forma incremental nesta fase. Frontend React e aplicativo Flutter continuam
+planejados e não devem ser antecipados sem escopo explícito.
+
+Nunca mova, recrie ou force a tag `phase-1-final-2026-08-18`. Não reescreva os dumps, scripts F1-FIN,
+certificações ou evidências pertencentes ao marco histórico. Correções futuras devem ser aditivas e rastreáveis.
 
 ## Fontes de verdade
 
@@ -38,10 +41,11 @@ recente. Registre inconsistências encontradas em vez de resolvê-las silenciosa
 
 ## Banco de dados e migrations
 
-- PostgreSQL é o banco oficial. A baseline certificada está associada ao commit `d63800e` e deve permanecer
-  reproduzível e auditável.
-- Não altere retroativamente o dump oficial ou migrations já aplicadas para introduzir mudanças estruturais.
-  Crie uma migration nova, versionada e rastreável em `Database/migrations/`.
+- PostgreSQL é o banco oficial. A baseline 10.12.2 está associada ao commit `d63800e`; o fechamento integral da
+  Fase 1 está associado à tag `phase-1-final-2026-08-18`. Ambos devem permanecer reproduzíveis e auditáveis.
+- Não altere retroativamente o dump oficial, scripts F1-FIN ou migrations já aplicadas para introduzir mudanças
+  estruturais. Toda evolução de banco da Fase 2 deve ser uma migration nova, versionada e rastreável em
+  `Database/migrations/`.
 - Não reaplique migrations históricas sobre um banco restaurado de `Database/scripts/WmaTravelERP.sql`: o dump
   completo já contém o estado exportado.
 - Cada migration deve declarar objetivo, objetos e dependências afetados, validações pré e pós-aplicação e,
@@ -82,15 +86,19 @@ Para documentação, respeite `.markdownlint.jsonc` e `.markdownlintignore`: por
 linhas de até 120 caracteres, linguagem nos blocos de código, listas cercadas por linhas em branco e uma única
 quebra de linha ao final do arquivo.
 
-## Camadas futuras
+## Desenvolvimento da Fase 2
 
-Quando uma camada for efetivamente criada, siga as decisões já documentadas sem inventar ferramentas ausentes:
+O desenvolvimento novo deve começar pelo Backend/API:
 
 - Backend: Python 3.12+, FastAPI, SQLAlchemy e Alembic; PEP 8, `snake_case`, classes `PascalCase`, type hints em
-  funções públicas e separação por domínio.
+  funções públicas, separação por domínio e testes automatizados.
+- API: contratos versionados, validação de entrada, autenticação/autorização, respostas de erro padronizadas e
+  documentação OpenAPI.
+- Banco: models e migrations Alembic devem refletir mudanças novas sem modificar a baseline da Fase 1.
 - Frontend: React, TypeScript e Material UI; componentes `PascalCase`, hooks prefixados com `use` e separação
-  entre apresentação e acesso a estado/API.
+  entre apresentação e acesso a estado/API. Não iniciar sem escopo da fase correspondente.
 - Mobile: Flutter; classes `PascalCase`, arquivos `snake_case` e separação entre dados, domínio e apresentação.
+  Não iniciar sem escopo da fase correspondente.
 
 Ao adicionar uma camada, inclua no mesmo conjunto de mudanças o manifesto de dependências, configuração mínima,
 comandos reais de lint/teste/execução e documentação. Não registre comandos ainda não verificáveis.
