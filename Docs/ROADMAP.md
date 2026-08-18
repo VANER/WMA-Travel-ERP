@@ -47,7 +47,11 @@
 
 ## Fase 2 — Backend e API
 
-**Status:** PRÓXIMA FASE
+**Status:** INICIADA EM 18/08/2026
+
+**Branch inicial:** `feature/fase-2-backend-api`
+
+**Fundação imutável:** tag `phase-1-final-2026-08-18`
 
 A Fase 2 utilizará a baseline certificada como fundação para o desenvolvimento
 das camadas de aplicação e integração.
