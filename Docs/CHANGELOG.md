@@ -2,6 +2,25 @@
 
 <!-- WMA_PHASE_1_CHANGELOG_CLOSE -->
 
+## [Não Publicado]
+
+### Corrigido
+
+- validação ausente referenciada pelo instalador;
+- falha silenciosa de `--with-validation`;
+- portabilidade segura dos scripts F1-FIN para bancos de rebuild;
+- hashes das certificações após normalização de encoding;
+- caminhos legados e bloco Markdown inválido nas certificações;
+- indicadores documentais desatualizados da Fase 1.
+
+### Verificado
+
+- reconstrução do dump histórico em banco descartável;
+- aplicação completa da evolução F1-FIN;
+- equivalência quantitativa de 220 tabelas, 1.433 constraints, 391 índices e 217 sequences;
+- certificação `F1_FIN_13_CERTIFICADA` no banco oficial e no rebuild;
+- zero constraints inválidas, triggers desabilitados ou tabelas não excepcionadas sem PK.
+
 ## [0.2.0] - 2026-08-17
 
 ### Added

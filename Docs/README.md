@@ -24,7 +24,9 @@ migrations versionadas, documentadas e validadas.
 Documentos de referência:
 
 - `Database/certification/FASE_1_CERTIFICACAO_FINAL.md`
+- `Database/certification/F1_FIN_CERTIFICACAO_REPRODUTIBILIDADE.md`
 - `Docs/PHASE_1_TO_PHASE_2_TRANSITION.md`
+- `Docs/RELATORIO_FASE_1.md`
 
 > Plataforma Corporativa Integrada de Gestão Empresarial para Turismo, Serviços e Inteligência de Negócios.
 
@@ -972,7 +974,7 @@ Responsável pela arquitetura, desenvolvimento e evolução da plataforma.
 | Projeto | Em desenvolvimento |
 | Versão | 1.0.0 |
 | Arquitetura | Estável |
-| Banco de Dados | Em certificação |
+| Banco de Dados | Fase 1 certificada — 220 tabelas após F1-FIN |
 | Auditoria | Implementada |
 | Governança | Implementada |
 | Documentação | Evolução contínua |

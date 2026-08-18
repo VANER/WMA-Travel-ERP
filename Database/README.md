@@ -6,42 +6,48 @@ Camada de dados do WMA Travel ERP (PostgreSQL, multi-schema: `public`, `financei
 ## Estrutura
 
 ```text
-database/
-├── install.sh          # instala/recria o banco a partir do dump mais recente
-├── migrations/          # histórico versionado de mudanças estruturais (não reaplicar sobre um dump restaurado)
-├── scripts/              # dumps completos (schema + dados) usados como base de instalação
-├── audit/                # scripts de validação funcional (seguros para rodar repetidamente)
-└── certification/        # scripts de certificação estrutural (nomenclatura, PK/índice/comentário)
+Database/
+├── install.sh           # restaura a baseline e aplica a evolução financeira certificada
+├── baseline/            # referências históricas preservadas
+├── certification/       # documentos e evidências de certificação
+├── logs/                # evidências consolidadas e logs locais ignorados
+├── migrations/          # histórico e regras para mudanças estruturais posteriores
+├── scripts/             # dump certificado e evolução F1-FIN
+└── audit/               # validações repetíveis e bloqueantes
 ```
 
 ## Uso rápido
 
 ```bash
 export PGPASSWORD=<senha>
-cd database
+cd Database
 ./install.sh --with-validation
 ```
 
-Veja `install.sh --help` para opções, e o `README.md` de cada subpasta para detalhes e pendências
-conhecidas.
+O instalador restaura `scripts/WmaTravelERP.sql`, aplica os scripts persistentes F1-FIN.04 a F1-FIN.11 e, com
+`--with-validation`, executa a validação estrutural e as certificações F1-FIN.12 e F1-FIN.13. Use
+`--skip-financial` apenas para reproduzir a baseline histórica anterior ao fechamento do módulo financeiro.
+
+Veja `install.sh --help` para todas as opções.
 
 ## Estado da Fase 1 (Fundação)
 
 | Item | Status |
 |---|---|
 | Normalização 3FN de endereços (Migração 01) | ✅ Concluído |
-| Consolidação `financeiro.*` → `public.*` (Migração 02) | ⏸ Deferido (depende da estabilização do módulo financeiro) |
-| Colunas de auditoria em `financeiro.*` (Migração 03) | ✅ Concluído — script original a recuperar |
-| PKs em `auditoria.*` (Migração 04) | ✅ Concluído — script original a recuperar |
-| Triggers de auditoria (Migração 05) | ✅ Concluído — script original a recuperar |
+| Consolidação `financeiro.*` → `public.*` (Migração 02) | Cancelada: `financeiro` é a autoridade do domínio |
+| Colunas de auditoria em `financeiro.*` (Migração 03) | ✅ Incorporado à baseline; original não preservado |
+| PKs em `auditoria.*` (Migração 04) | ✅ Incorporado à baseline; original não preservado |
+| Triggers de auditoria (Migração 05) | ✅ Incorporado à baseline; original não preservado |
 | Validação funcional do log de auditoria (06) | ✅ Concluído (2026-08-15) |
-| Certificação estrutural "Etapa 10.4.x" | ✅ Concluído — scripts originais a recuperar |
-| `DATA_DICTIONARY.md` (209/209 tabelas, estrutura real) | ✅ Concluído — descrições de negócio pendentes |
+| Certificação estrutural "Etapa 10.4.x" | ✅ Evidência preservada; scripts originais não preservados |
+| `DATA_DICTIONARY.md` da baseline histórica | ✅ 209/209 tabelas; descrições funcionais em evolução |
 | `VERSION` corrigido | ✅ Concluído |
-| Comentários de colunas (`COMMENT ON COLUMN`) | 🔴 Pendente — 2.341 colunas sem comentário |
-| Migração dos schemas `logs`/`seguranca`/`util` | ⏸ Deferido (acoplado à Migração 02) |
-| Duplicatas estruturais em `dw.*` | 🔴 Pendente — não endereçado por nenhuma migração |
-| Framework de score ICB (`auditoria.regra` etc.) | 🔴 Pendente — estrutura pronta, nunca populada/executada |
+| Módulo financeiro F1-FIN | ✅ Certificado e reproduzível após a baseline histórica |
+| Comentários de colunas fora do módulo financeiro | Aceito para evolução incremental na Fase 2 |
+| Schemas reservados `logs`/`seguranca`/`util` | Decisão arquitetural deferida e documentada |
+| Duplicatas controladas em `public`/`financeiro` e `dw` | Aceitas com autoridade documentada; revisar na Fase 2 |
+| Framework de score ICB | Estrutura disponível; automação operacional pertence à Fase 2 |
 
 ---
 

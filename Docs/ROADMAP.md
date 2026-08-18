@@ -30,6 +30,8 @@
 - comparação baseline × rebuild;
 - hashes normalizados;
 - certificação final.
+- evolução financeira F1-FIN reproduzida em banco limpo;
+- validação estrutural bloqueante integrada ao instalador.
 
 ### Gate de saída
 
@@ -38,6 +40,7 @@
 - Rebuild: APROVADO
 - Reprodutibilidade: APROVADA
 - Divergências estruturais críticas: 0
+- Certificação financeira F1-FIN: APROVADA
 - Transição para Fase 2: AUTORIZADA
 
 ## Fase 2 — Backend e API
@@ -49,8 +52,8 @@ das camadas de aplicação e integração.
 
 
 **Versão do Documento:** 1.0.0
-**Última Atualização:** 29/07/2026
-**Status:** Em Desenvolvimento
+**Última Atualização:** 18/08/2026
+**Status:** Fase 1 Encerrada; Fase 2 em Planejamento
 
 ---
 

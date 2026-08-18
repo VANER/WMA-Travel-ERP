@@ -1,8 +1,8 @@
 # Padrões de Banco de Dados - WMA Travel ERP
 
 **Versão do Documento:** 1.0.0
-**Última Atualização:** 06/08/2026
-**Status:** Em Desenvolvimento
+**Última Atualização:** 18/08/2026
+**Status:** Norma Aprovada para a Baseline Certificada
 
 ---
 

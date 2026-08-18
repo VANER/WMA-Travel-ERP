@@ -1,15 +1,18 @@
 # Dicionário de Dados - WMA Travel ERP
 
-**Versão do documento:** 0.2.0-dev
-**Base de referência:** dump `WmaTravelERP.sql` de 2026-08-15 (wma_staging)
+**Versão do documento:** 0.3.0
+**Base de referência:** dump histórico `WmaTravelERP.sql` mais evolução F1-FIN certificada em 18/08/2026
 **Gerado a partir de:** extração automática das definições reais do schema (`CREATE TABLE`, `COMMENT ON`, chaves
 primárias e estrangeiras)
-**Cobertura:** 209 de 209 tabelas reais do banco (100% estrutural)
+**Cobertura detalhada:** 209 tabelas da baseline histórica
+
+**Cobertura consolidada:** 220 tabelas, incluindo 11 tabelas adicionadas pela evolução F1-FIN
 
 > **Nota de integridade:** a versão anterior deste documento continha objetos que não existem
 > fisicamente no banco (funções, triggers, views e extensões do PostgreSQL documentadas como se
 > fossem tabelas). Esta versão foi reconstruída inteiramente a partir do dump real do banco de
-> dados e contém apenas tabelas que existem de fato em `wma_staging`.
+> dados e contém apenas tabelas que existem de fato na baseline histórica. A evolução financeira posterior está
+> registrada no complemento da seção 3.1 e em `Database/certification/F1_FIN_CERTIFICACAO_REPRODUTIBILIDADE.md`.
 
 ---
 
@@ -23,7 +26,7 @@ estrangeiras.
 Tabelas que ainda não possuem `COMMENT ON TABLE` no banco estão marcadas como
 **"Pendente de descrição funcional"** — a estrutura está correta e completa, mas o significado
 de negócio precisa ser escrito e aplicado via `COMMENT ON` na próxima rodada de documentação
-(ver item de backlog: 2.341 colunas sem comentário, `auditoria.colunas_sem_comentario`).
+(ver backlog de documentação incremental registrado para a Fase 2).
 
 ## 2. Convenções
 
@@ -37,10 +40,32 @@ de negócio precisa ser escrito e aplicado via `COMMENT ON` na próxima rodada d
 ## 3. Índice de Schemas
 
 - [public](#public) — 136 tabelas
-- [financeiro](#financeiro) — 26 tabelas
+- [financeiro](#financeiro) — 37 tabelas, sendo 26 detalhadas na baseline e 11 no complemento F1-FIN
 - [auditoria](#auditoria) — 34 tabelas
 - [config](#config) — 3 tabelas
 - [dw](#dw) — 10 tabelas
+
+### 3.1 Complemento F1-FIN
+
+As seguintes tabelas foram adicionadas após o dump histórico e validadas no banco de referência e em rebuild
+limpo. Todas possuem chave primária e `COMMENT ON TABLE`.
+
+| Tabela | Finalidade |
+| --- | --- |
+| `financeiro.afac` | Adiantamentos para futuro aumento de capital. |
+| `financeiro.ativo_imobilizado` | Ativos imobilizados sob controle financeiro. |
+| `financeiro.capital_social` | Eventos de integralização e ajuste do capital social. |
+| `financeiro.depreciacao_ativo` | Depreciações periódicas dos ativos. |
+| `financeiro.distribuicao_lucro` | Distribuições de lucros aos sócios ou titular. |
+| `financeiro.emprestimo` | Contratos de empréstimos e financiamentos. |
+| `financeiro.emprestimo_parcela` | Parcelas vinculadas aos empréstimos. |
+| `financeiro.natureza_financeira` | Domínio das naturezas do plano de contas. |
+| `financeiro.pro_labore` | Controle mensal de pró-labore. |
+| `financeiro.tipo_dre` | Domínio dos agrupamentos da DRE. |
+| `financeiro.tributo` | Obrigações tributárias do módulo financeiro. |
+
+O detalhamento de colunas permanece extraível diretamente do catálogo PostgreSQL. Sua incorporação integral a
+este documento fica registrada como melhoria documental da Fase 2 e não altera a certificação estrutural.
 
 ---
 

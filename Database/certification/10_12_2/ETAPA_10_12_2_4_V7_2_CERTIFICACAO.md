@@ -20,7 +20,7 @@ estabelecido para a ETAPA 10.12.2.
 A execução foi realizada diretamente através do PostgreSQL 18.4 utilizando
 `psql` e o script:
 
-`Database/database/scripts/10_12_2/ETAPA_10_12_2_4_V7_2_Reconciliacao.sql`
+`Database/scripts/10_12_2/ETAPA_10_12_2_4_V7_2_Reconciliacao.sql`
 
 A execução foi somente leitura e não realizou alterações no banco.
 

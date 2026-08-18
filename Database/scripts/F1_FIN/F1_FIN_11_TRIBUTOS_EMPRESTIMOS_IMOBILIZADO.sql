@@ -41,11 +41,17 @@
 \pset null '(NULL)'
 \timing on
 
+\if :{?expected_database}
+\else
+\set expected_database wma_travel
+\endif
+
 BEGIN;
 
 SET client_encoding = 'UTF8';
 SET lock_timeout = '10s';
 SET statement_timeout = '0';
+SELECT set_config('wma.expected_database', :'expected_database', false);
 
 \echo ''
 \echo '============================================================'
@@ -81,10 +87,11 @@ DO $$
 DECLARE
     v_count bigint;
 BEGIN
-    IF current_database() <> 'wma_travel' THEN
+    IF current_database() <> current_setting('wma.expected_database') THEN
         RAISE EXCEPTION
-            'F1-FIN.11 abortada: banco atual %, esperado wma_travel.',
-            current_database();
+            'F1-FIN.11 abortada: banco atual %, esperado %.',
+            current_database(),
+            current_setting('wma.expected_database');
     END IF;
 
     IF to_regclass('financeiro.lancamento') IS NULL THEN

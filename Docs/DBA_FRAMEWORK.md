@@ -1,8 +1,8 @@
 # Framework DBA — WMA Travel ERP
 
 **Versão do Documento:** 1.0.0
-**Última Atualização:** 09/08/2026
-**Status:** Rascunho Inicial
+**Última Atualização:** 18/08/2026
+**Status:** Estrutura Certificada; Automação Operacional Planejada para a Fase 2
 **Schema de Referência:** `auditoria`
 
 ---
@@ -55,7 +55,7 @@ regra não é atendida.
 
 ## 3. Modelo de Dados
 
-O schema `auditoria` possui 16 tabelas. Papel de cada uma no framework:
+O schema `auditoria` possui 34 tabelas no estado certificado. As tabelas centrais do framework incluem:
 
 | Tabela | Finalidade |
 | ------------------------- | ------------------------------------------------------------------ |
@@ -76,9 +76,8 @@ O schema `auditoria` possui 16 tabelas. Papel de cada uma no framework:
 | `catalogo_coluna` | Catálogo técnico das colunas do banco |
 | `script` | Registro de scripts de correção/migração vinculados ao framework |
 
-> **Observação:** `catalogo_tabela` e `catalogo_coluna` atualmente não possuem chave primária
-> definida (ver seção 12). O modelo lógico as prevê como entidades de primeira classe, mas a
-> implementação física ainda não reflete isso.
+> **Estado certificado:** as 34 tabelas do schema `auditoria` possuem chave primária. As tabelas de regras,
+> execuções, resultados e score estão estruturalmente disponíveis, mas ainda não possuem carga operacional.
 
 ---
 
@@ -181,19 +180,21 @@ O pipeline de CI/CD (ver `DEPLOYMENT.md`) deve, no mínimo:
 
 ## 12. Estado Atual da Auditoria (Achados Confirmados)
 
-Levantamento realizado diretamente sobre `WmaTravelERP.sql` em 09/08/2026:
+Levantamento revalidado diretamente no banco `wma_travel` em 18/08/2026:
 
 | Achado | Situação |
 | ---------------------------------------------------- | ------------------------------- |
-| Tabelas totais no banco | 190 (5 schemas não vazios) |
-| Statements `CREATE TRIGGER` instanciados | 0 |
-| Funções de trigger existentes sem uso (`fn_atualiza_updated_at`, `fn_log_auditoria`) | 2 |
-| Chaves primárias no schema `auditoria` (16 tabelas) | 0 |
-| Schemas vazios (`logs`, `seguranca`, `util`) | 3 |
-| Tabelas duplicadas entre `public` e `financeiro` | 11 pares |
+| Tabelas totais no banco | 220 |
+| Triggers de usuário instanciados | 138 |
+| Triggers de usuário desabilitados | 0 |
+| Funções obrigatórias de trigger | 2 de 2 presentes |
+| Chaves primárias no schema `auditoria` | 34 de 34 tabelas |
+| Constraints não validadas | 0 |
+| Schemas reservados vazios (`logs`, `seguranca`, `util`) | 3, por decisão arquitetural documentada |
+| Regras/execuções/resultados/scores ICB | 0, ativação operacional planejada para a Fase 2 |
 
-Estes achados devem ser tratados como prioridade imediata de correção — ver `ROADMAP.md` e o
-plano de fechamento da Fase 1.
+Os antigos bloqueantes estruturais foram corrigidos. A carga de regras e a execução contínua do ICB pertencem à
+automação operacional da Fase 2 e não devem ser apresentadas como certificação já executada.
 
 ---
 
