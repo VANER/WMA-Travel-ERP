@@ -1,4 +1,5 @@
-﻿# WMA Travel ERP
+# WMA Travel ERP
+
 ## ETAPA 10.12.2.4 — V7.2
 
 ### Certificação da Reconciliação Quantitativa e Estrutural
@@ -46,7 +47,7 @@ Versão:
 ## 3. Reconciliação quantitativa
 
 | Objeto | Baseline | Reconstruído | Status |
-|---|---:|---:|---|
+| --- | ---: | ---: | --- |
 | Schemas | 8 | 8 | OK |
 | Tabelas | 209 | 209 | OK |
 | Views | 38 | 38 | OK |
@@ -68,7 +69,7 @@ Não foram identificadas divergências quantitativas.
 ## 4. Distribuição das constraints
 
 | Tipo | Quantidade |
-|---|---:|
+| --- | ---: |
 | CHECK | 37 |
 | FOREIGN KEY | 187 |
 | NOT NULL | 665 |
@@ -107,7 +108,7 @@ Conclusão:
 ## 7. Distribuição dos triggers
 
 | Schema | Triggers |
-|---|---:|
+| --- | ---: |
 | auditoria | 15 |
 | financeiro | 30 |
 | public | 93 |
@@ -118,7 +119,7 @@ Conclusão:
 ## 8. Distribuição das views
 
 | Schema | Views |
-|---|---:|
+| --- | ---: |
 | auditoria | 12 |
 | dw | 1 |
 | public | 25 |
@@ -129,7 +130,7 @@ Conclusão:
 ## 9. Distribuição das sequences
 
 | Schema | Sequences |
-|---|---:|
+| --- | ---: |
 | auditoria | 34 |
 | config | 2 |
 | dw | 10 |
@@ -216,7 +217,7 @@ registro formal da respectiva etapa.
 ## 14. Critério de encerramento
 
 | Critério | Resultado |
-|---|---|
+| --- | --- |
 | Reconciliação de schemas | APROVADO |
 | Reconciliação de tabelas | APROVADO |
 | Reconciliação de views | APROVADO |

@@ -62,7 +62,7 @@ A Fase 2 seguirá os seguintes princípios:
 
 ---
 
-# 3. Cronograma Macro
+## 3. Cronograma Macro
 
 | Etapa | Módulo | Duração estimada | Dependência |
 | --- | --- | ---: | --- |
@@ -88,12 +88,12 @@ possuam dependência técnica direta.
 
 ---
 
-# 4. ETAPA 2.0 — Arquitetura e Fundação Backend
+## 4. ETAPA 2.0 — Arquitetura e Fundação Backend
 
 **Duração estimada:** 3 semanas  
 **Prioridade:** Crítica
 
-## 2.0.1 — Arquitetura tecnológica
+### 2.0.1 — Arquitetura tecnológica
 
 Definir:
 
@@ -121,7 +121,7 @@ Stack inicialmente recomendada:
 - HTTPX;
 - Uvicorn.
 
-## 2.0.2 — Estrutura do backend
+### 2.0.2 — Estrutura do backend
 
 Criar a estrutura oficial:
 
@@ -134,7 +134,7 @@ Backend/
 └── pyproject.toml
 ```
 
-## 2.0.3 — Configuração
+### 2.0.3 — Configuração
 
 Implementar:
 
@@ -145,7 +145,7 @@ Implementar:
 - connection pooling;
 - configuração de logging.
 
-## 2.0.4 — Banco e migrations
+### 2.0.4 — Banco e migrations
 
 Implementar:
 
@@ -156,7 +156,7 @@ Implementar:
 - migration inicial de referência;
 - validação de rollback.
 
-## 2.0.5 — API inicial
+### 2.0.5 — API inicial
 
 Criar:
 
@@ -165,7 +165,7 @@ GET /health
 GET /api/v1/health
 ```
 
-## 2.0.6 — Qualidade inicial
+### 2.0.6 — Qualidade inicial
 
 Configurar:
 
@@ -176,7 +176,7 @@ Configurar:
 - GitHub Actions;
 - validação de migrations.
 
-### Gate 2.0
+#### Gate 2.0
 
 - backend inicializa;
 - PostgreSQL conecta;
@@ -188,13 +188,13 @@ Configurar:
 
 ---
 
-# 5. ETAPA 2.1 — Core Corporativo
+## 5. ETAPA 2.1 — Core Corporativo
 
 **Duração:** 3 semanas.
 
 Implementar serviços corporativos compartilhados.
 
-## Escopo
+### Escopo
 
 - empresa;
 - usuários;
@@ -205,7 +205,7 @@ Implementar serviços corporativos compartilhados.
 - tipos corporativos;
 - serviços compartilhados.
 
-## Entregas
+### Entregas
 
 - models;
 - repositories;
@@ -215,17 +215,17 @@ Implementar serviços corporativos compartilhados.
 - validações;
 - testes.
 
-### Gate 2.1
+#### Gate 2.1
 
 **CORE CORPORATIVO: APROVADO**
 
 ---
 
-# 6. ETAPA 2.2 — Segurança e Controle de Acesso
+## 6. ETAPA 2.2 — Segurança e Controle de Acesso
 
 **Duração:** 3 semanas.
 
-## Escopo
+### Escopo
 
 - autenticação;
 - autorização;
@@ -256,7 +256,7 @@ Endpoint
 Auditoria
 ```
 
-### Gate 2.2
+#### Gate 2.2
 
 - autenticação validada;
 - autorização validada;
@@ -267,11 +267,11 @@ Auditoria
 
 ---
 
-# 7. ETAPA 2.3 — Comercial
+## 7. ETAPA 2.3 — Comercial
 
 **Duração:** 5 semanas.
 
-## Escopo
+### Escopo
 
 - leads;
 - CRM;
@@ -303,19 +303,19 @@ Venda
 Reserva/Contrato
 ```
 
-### Gate 2.3
+#### Gate 2.3
 
 **MÓDULO COMERCIAL: OPERACIONAL**
 
 ---
 
-# 8. ETAPA 2.4 — Financeiro
+## 8. ETAPA 2.4 — Financeiro
 
 **Duração:** 5 semanas.
 
 A estrutura F1-FIN certificada será utilizada como fundação.
 
-## Escopo
+### Escopo
 
 - plano de contas;
 - classificações;
@@ -354,17 +354,17 @@ Movimentação
 Conciliação
 ```
 
-### Gate 2.4
+#### Gate 2.4
 
 **MÓDULO FINANCEIRO: OPERACIONAL**
 
 ---
 
-# 9. ETAPA 2.5 — Turismo
+## 9. ETAPA 2.5 — Turismo
 
 **Duração:** 6 semanas.
 
-## Escopo
+### Escopo
 
 - produtos turísticos;
 - destinos;
@@ -397,17 +397,17 @@ Serviços
 Operação
 ```
 
-### Gate 2.5
+#### Gate 2.5
 
 **MÓDULO TURISMO: OPERACIONAL**
 
 ---
 
-# 10. ETAPA 2.6 — Bike Tour
+## 10. ETAPA 2.6 — Bike Tour
 
 **Duração:** 4 semanas.
 
-## Escopo
+### Escopo
 
 - eventos;
 - roteiros;
@@ -437,20 +437,20 @@ Operação
 Pontos de controle
 ```
 
-### Gate 2.6
+#### Gate 2.6
 
 **MÓDULO BIKE TOUR: OPERACIONAL**
 
 ---
 
-# 11. ETAPA 2.7 — Integração wmatravel.com.br
+## 11. ETAPA 2.7 — Integração wmatravel.com.br
 
 **Duração:** 5 semanas.
 
 O ERP será tratado como sistema corporativo central e o site como canal
 digital integrado.
 
-## 2.7.1 — Inventário
+### 2.7.1 — Inventário
 
 Mapear:
 
@@ -465,7 +465,7 @@ Mapear:
 - plugins;
 - campos personalizados.
 
-## 2.7.2 — Mapeamento
+### 2.7.2 — Mapeamento
 
 Definir:
 
@@ -480,11 +480,11 @@ Data de viagem   <-> Saída
 Passageiro       <-> Passageiro
 ```
 
-## 2.7.3 — API
+### 2.7.3 — API
 
 Implementar endpoints específicos para o canal digital.
 
-## 2.7.4 — Sincronização
+### 2.7.4 — Sincronização
 
 ERP → site:
 
@@ -505,7 +505,7 @@ Site → ERP:
 - passageiros;
 - pagamentos.
 
-## 2.7.5 — Webhooks
+### 2.7.5 — Webhooks
 
 Eventos previstos:
 
@@ -519,7 +519,7 @@ pagamento.aprovado
 pagamento.estornado
 ```
 
-## 2.7.6 — Segurança
+### 2.7.6 — Segurança
 
 Obrigatório:
 
@@ -535,17 +535,17 @@ Obrigatório:
 
 É proibido acesso direto do WordPress ao PostgreSQL do ERP.
 
-### Gate 2.7
+#### Gate 2.7
 
 **SITE ↔ ERP: INTEGRAÇÃO CERTIFICADA**
 
 ---
 
-# 12. ETAPA 2.8 — Fiscal
+## 12. ETAPA 2.8 — Fiscal
 
 **Duração:** 5 semanas.
 
-## Escopo
+### Escopo
 
 - documentos fiscais;
 - serviços;
@@ -572,13 +572,13 @@ Documento fiscal
 Tributos
 ```
 
-### Gate 2.8
+#### Gate 2.8
 
 **MÓDULO FISCAL: OPERACIONAL**
 
 ---
 
-# 13. ETAPA 2.9 — Integrações Externas
+## 13. ETAPA 2.9 — Integrações Externas
 
 **Duração:** 4 semanas.
 
@@ -610,11 +610,11 @@ Possíveis integrações:
 
 ---
 
-# 14. ETAPA 2.10 — BI/DW
+## 14. ETAPA 2.10 — BI/DW
 
 **Duração:** 4 semanas.
 
-## Escopo
+### Escopo
 
 - Comercial;
 - Financeiro;
@@ -635,17 +635,17 @@ Fiscal ───────┤
 Site ─────────┘
 ```
 
-### Gate 2.10
+#### Gate 2.10
 
 **CAMADA ANALÍTICA: OPERACIONAL**
 
 ---
 
-# 15. ETAPA 2.11 — Auditoria e Observabilidade
+## 15. ETAPA 2.11 — Auditoria e Observabilidade
 
 **Duração:** 3 semanas.
 
-## Escopo
+### Escopo
 
 - logs estruturados;
 - auditoria;
@@ -657,13 +657,13 @@ Site ─────────┘
 - alertas;
 - histórico de integrações.
 
-### Gate 2.11
+#### Gate 2.11
 
 **OBSERVABILIDADE: APROVADA**
 
 ---
 
-# 16. ETAPA 2.12 — Qualidade e Hardening
+## 16. ETAPA 2.12 — Qualidade e Hardening
 
 **Duração:** 4 semanas.
 
@@ -691,7 +691,7 @@ Nenhuma falha crítica poderá permanecer aberta.
 
 ---
 
-# 17. ETAPA 2.13 — Certificação Final
+## 17. ETAPA 2.13 — Certificação Final
 
 **Duração:** 2 semanas.
 
@@ -723,7 +723,7 @@ Resultado esperado:
 
 ---
 
-# 18. Marcos Oficiais
+## 18. Marcos Oficiais
 
 | Marco | Resultado esperado |
 | --- | --- |
@@ -744,7 +744,7 @@ Resultado esperado:
 
 ---
 
-# 19. Estratégia de Execução
+## 19. Estratégia de Execução
 
 A execução deverá seguir ciclos pequenos:
 
@@ -779,7 +779,7 @@ documentação estiverem consistentes.
 
 ---
 
-# 20. Política para Alterações no Banco
+## 20. Política para Alterações no Banco
 
 A baseline da Fase 1 não deverá ser modificada retroativamente.
 
@@ -819,7 +819,7 @@ Toda alteração persistente posterior à Fase 1 deve:
 
 ---
 
-# 21. Prioridade de Execução
+## 21. Prioridade de Execução
 
 A sequência oficial será:
 
@@ -859,7 +859,7 @@ FASE 2 CERTIFICADA
 
 ---
 
-# 22. Gate Inicial
+## 22. Gate Inicial
 
 - [x] Fase 1 certificada.
 - [x] Tag final publicada e conferida.
@@ -872,7 +872,7 @@ FASE 2 CERTIFICADA
 
 ---
 
-# 23. Próxima Ação Oficial
+## 23. Próxima Ação Oficial
 
 A próxima atividade do WMA Travel ERP será:
 
@@ -887,7 +887,7 @@ fundação arquitetural da Fase 2.
 
 ---
 
-## Status
+### Status
 
 **FASE 1:** CONCLUÍDA E CERTIFICADA  
 **FASE 2:** PLANEJADA E AUTORIZADA PARA INÍCIO  

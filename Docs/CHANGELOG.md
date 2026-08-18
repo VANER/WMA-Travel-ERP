@@ -64,7 +64,6 @@
 - Baseline certificada: `d63800e`.
 - Transição para Fase 2 autorizada.
 
-
 Todas as alterações relevantes do projeto **WMA Travel ERP** serão documentadas neste arquivo.
 
 Este changelog segue o padrão **Keep a Changelog 1.1.0**
@@ -109,7 +108,7 @@ Significado dos números:
 
 ---
 
-## [Não Publicado]
+## Planejamento registrado anteriormente
 
 Alterações planejadas para próximas versões.
 

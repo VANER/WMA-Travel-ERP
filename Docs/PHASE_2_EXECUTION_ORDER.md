@@ -1,0 +1,1322 @@
+# WMA Travel ERP — Ordem de Execução Oficial da Fase 2
+
+> Backend, API, módulos operacionais, integrações e certificação.
+
+**Documento:** Ordem de Execução da Fase 2
+
+**Versão:** 1.0
+
+**Data:** 18/08/2026
+
+**Status:** Oficial para execução
+
+**Fase anterior:** Fase 1 — Concluída e certificada
+
+**Marco da Fase 1:** `phase-1-final-2026-08-18`
+
+**Fase atual:** Fase 2 — Backend, API e Integrações
+
+**Arquitetura:** Monólito Modular
+
+**Banco:** PostgreSQL 18.x
+
+---
+
+## 1. Objetivo
+
+Este documento estabelece a ordem oficial de execução da Fase 2 do
+WMA Travel ERP.
+
+A Fase 2 transforma a fundação de dados certificada na Fase 1 em uma
+plataforma operacional composta por:
+
+- backend;
+- API REST;
+- autenticação e autorização;
+- regras de negócio;
+- módulo Comercial;
+- módulo Financeiro;
+- módulo Turismo;
+- módulo Bike Tour;
+- integração com `wmatravel.com.br`;
+- módulo Fiscal;
+- integrações externas;
+- BI/DW;
+- auditoria;
+- observabilidade;
+- testes;
+- segurança;
+- documentação;
+- certificação.
+
+---
+
+## 2. Regra Fundamental
+
+A baseline certificada da Fase 1 é considerada imutável.
+
+Nenhuma alteração estrutural futura deverá modificar retroativamente os
+artefatos certificados da Fase 1.
+
+O fluxo obrigatório para evolução do banco será:
+
+```text
+Requisito
+    ↓
+Análise da estrutura existente
+    ↓
+Alteração necessária?
+    ↓
+Migration versionada
+    ↓
+Validação
+    ↓
+Model
+    ↓
+Repository
+    ↓
+Service
+    ↓
+API
+    ↓
+Testes
+    ↓
+Documentação
+    ↓
+Commit
+```
+
+Não utilizar criação automática do schema como mecanismo de implantação.
+
+Alterações estruturais deverão ser realizadas exclusivamente por migrations
+controladas e versionadas.
+
+---
+
+## 3. Ordem Macro da Fase 2
+
+```text
+FASE 1 — CERTIFICADA
+        │
+        ▼
+2.0 — FUNDAÇÃO BACKEND/API
+        │
+        ▼
+2.1 — CORE CORPORATIVO
+        │
+        ▼
+2.2 — SEGURANÇA E ACESSO
+        │
+        ▼
+2.3 — COMERCIAL
+        │
+        ▼
+2.4 — FINANCEIRO
+        │
+        ▼
+2.5 — TURISMO
+        │
+        ▼
+2.6 — BIKE TOUR
+        │
+        ▼
+2.7 — WMA TRAVEL WEBSITE
+        │
+        ▼
+2.8 — FISCAL
+        │
+        ▼
+2.9 — INTEGRAÇÕES EXTERNAS
+        │
+        ▼
+2.10 — BI / DW
+        │
+        ▼
+2.11 — AUDITORIA E OBSERVABILIDADE
+        │
+        ▼
+2.12 — QUALIDADE E HARDENING
+        │
+        ▼
+2.13 — CERTIFICAÇÃO FINAL
+        │
+        ▼
+FASE 2 — CERTIFICADA
+```
+
+---
+
+## 4. ETAPA 2.0 — Fundação Backend/API
+
+**Prioridade:** Crítica
+
+**Dependência:** Fase 1 certificada
+
+A Etapa 2.0 deve ser concluída antes do desenvolvimento funcional dos
+módulos.
+
+---
+
+### 2.0.1 — Arquitetura Tecnológica
+
+#### 2.0.1.1 — ADR-001 — Monólito Modular
+
+Formalizar:
+
+- arquitetura Monólito Modular;
+- separação por domínio;
+- regras de dependência;
+- comunicação entre módulos;
+- política de componentes compartilhados;
+- critérios futuros para microserviços.
+
+**Status inicial:** Decisão aprovada.
+
+#### 2.0.1.2 — ADR-002 — Stack Tecnológica
+
+Definir e certificar:
+
+- Python;
+- FastAPI;
+- SQLAlchemy;
+- Pydantic;
+- Alembic;
+- psycopg;
+- PostgreSQL;
+- pytest;
+- HTTPX;
+- Uvicorn;
+- OpenAPI;
+- GitHub Actions.
+
+#### 2.0.1.3 — ADR-003 — Persistência
+
+Definir:
+
+- sessões;
+- transações;
+- repositories;
+- ORM;
+- SQL explícito quando necessário;
+- connection pooling;
+- tratamento de falhas;
+- política de acesso aos schemas.
+
+#### 2.0.1.4 — ADR-004 — Migrations
+
+Definir:
+
+- Alembic;
+- nomenclatura;
+- versionamento;
+- `upgrade`;
+- `downgrade`;
+- revisão;
+- testes;
+- evidências;
+- política de produção.
+
+#### 2.0.1.5 — ADR-005 — API
+
+Definir:
+
+- REST;
+- JSON;
+- `/api/v1`;
+- recursos;
+- verbos HTTP;
+- status HTTP;
+- paginação;
+- filtros;
+- ordenação;
+- erros;
+- OpenAPI.
+
+#### 2.0.1.6 — ADR-006 — Configuração e Secrets
+
+Definir:
+
+- `.env`;
+- `.env.example`;
+- variáveis de ambiente;
+- secrets;
+- ambientes;
+- desenvolvimento;
+- testes;
+- produção.
+
+O arquivo `.env` real nunca deverá ser versionado.
+
+#### 2.0.1.7 — ADR-007 — Testes
+
+Definir:
+
+- testes unitários;
+- integração;
+- API;
+- banco;
+- migrations;
+- segurança;
+- regressão.
+
+#### 2.0.1.8 — ADR-008 — Integrações
+
+Definir arquitetura para:
+
+- `wmatravel.com.br`;
+- pagamentos;
+- operadoras;
+- fiscal;
+- serviços externos;
+- webhooks.
+
+#### Gate 2.0.1
+
+**ARQUITETURA TECNOLÓGICA: APROVADA**
+
+---
+
+### 2.0.2 — Bootstrap do Backend
+
+Criar:
+
+```text
+Backend/
+├── app/
+├── migrations/
+├── tests/
+├── scripts/
+├── .env.example
+├── alembic.ini
+├── pyproject.toml
+└── README.md
+```
+
+Preparar ambiente Python e gerenciamento de dependências.
+
+#### Gate 2.0.2
+
+- ambiente executável;
+- dependências controladas;
+- aplicação inicia sem erro.
+
+---
+
+### 2.0.3 — Estrutura Modular
+
+Criar progressivamente:
+
+```text
+Backend/app/
+├── main.py
+├── api/
+├── core/
+├── modules/
+├── integrations/
+└── shared/
+```
+
+Estrutura funcional prevista:
+
+```text
+modules/
+├── comercial/
+├── financeiro/
+├── turismo/
+├── biketour/
+└── fiscal/
+```
+
+Não criar implementações vazias desnecessárias.
+
+#### Gate 2.0.3
+
+**ESTRUTURA MODULAR: APROVADA**
+
+---
+
+### 2.0.4 — Configuração
+
+Implementar:
+
+- settings;
+- ambientes;
+- secrets;
+- logging básico;
+- configuração central;
+- validação das variáveis obrigatórias.
+
+#### Gate 2.0.4
+
+**CONFIGURAÇÃO: APROVADA**
+
+---
+
+### 2.0.5 — PostgreSQL e SQLAlchemy
+
+Implementar:
+
+- driver PostgreSQL;
+- engine;
+- session factory;
+- transações;
+- pool;
+- health check do banco;
+- tratamento de indisponibilidade.
+
+Proibido usar `create_all()` como mecanismo de implantação da baseline.
+
+#### Gate 2.0.5
+
+**BACKEND ↔ POSTGRESQL: APROVADO**
+
+---
+
+### 2.0.6 — Alembic e Migrations
+
+Configurar:
+
+- Alembic;
+- diretório de migrations;
+- nomenclatura;
+- versionamento;
+- upgrade;
+- downgrade;
+- validação da baseline;
+- documentação.
+
+#### Gate 2.0.6
+
+**MIGRATIONS: APROVADAS**
+
+---
+
+### 2.0.7 — API Base
+
+Criar:
+
+```text
+GET /health
+GET /api/v1/health
+```
+
+Implementar:
+
+- aplicação FastAPI;
+- router principal;
+- versionamento;
+- respostas;
+- tratamento básico de exceções.
+
+#### Gate 2.0.7
+
+**API BASE: OPERACIONAL**
+
+---
+
+### 2.0.8 — OpenAPI
+
+Validar:
+
+- `/docs`;
+- `/redoc`;
+- `/openapi.json`;
+- metadata;
+- versionamento;
+- schemas.
+
+#### Gate 2.0.8
+
+**OPENAPI: APROVADA**
+
+---
+
+### 2.0.9 — Testes Iniciais
+
+Implementar testes para:
+
+- aplicação;
+- health;
+- PostgreSQL;
+- configuração;
+- API;
+- migrations.
+
+#### Gate 2.0.9
+
+**TESTES DA FUNDAÇÃO: APROVADOS**
+
+---
+
+### 2.0.10 — GitHub Actions
+
+Automatizar:
+
+- lint;
+- testes;
+- validações;
+- migrations;
+- qualidade básica.
+
+#### Gate 2.0.10
+
+**CI: OPERACIONAL**
+
+---
+
+### 2.0.11 — Certificação da Fundação
+
+Auditar:
+
+```text
+Arquitetura ............... OK
+Python .................... OK
+FastAPI ................... OK
+SQLAlchemy ................ OK
+PostgreSQL ................ OK
+Alembic ................... OK
+API v1 .................... OK
+Health .................... OK
+OpenAPI ................... OK
+Testes .................... OK
+CI ........................ OK
+Documentação .............. OK
+```
+
+#### Gate 2.0
+
+**FUNDAÇÃO BACKEND/API: CERTIFICADA**
+
+---
+
+## 5. ETAPA 2.1 — Core Corporativo
+
+**Dependência:** 2.0
+
+### 2.1.1 — Inventário
+
+Mapear estruturas existentes relacionadas a:
+
+- empresa;
+- usuários;
+- clientes;
+- fornecedores;
+- documentos;
+- configurações;
+- entidades transversais.
+
+### 2.1.2 — Models
+
+Mapear modelos existentes sem recriar a baseline.
+
+### 2.1.3 — Repositories
+
+Implementar persistência do Core.
+
+### 2.1.4 — Services
+
+Implementar regras corporativas.
+
+### 2.1.5 — Schemas
+
+Implementar contratos de entrada e saída.
+
+### 2.1.6 — API
+
+Criar endpoints necessários.
+
+### 2.1.7 — Testes
+
+Cobrir regras, banco e API.
+
+### 2.1.8 — Certificação
+
+#### Gate 2.1
+
+**CORE CORPORATIVO: CERTIFICADO**
+
+---
+
+## 6. ETAPA 2.2 — Segurança e Controle de Acesso
+
+**Dependência:** 2.0 e 2.1
+
+### Ordem
+
+1. modelo de identidade;
+2. autenticação;
+3. hash de credenciais;
+4. tokens/sessões;
+5. perfis;
+6. roles;
+7. permissions;
+8. autorização;
+9. proteção de endpoints;
+10. recuperação de acesso;
+11. auditoria;
+12. testes;
+13. certificação.
+
+Fluxo:
+
+```text
+Usuário
+   ↓
+Autenticação
+   ↓
+Identidade
+   ↓
+Perfil
+   ↓
+Permissão
+   ↓
+Endpoint
+   ↓
+Auditoria
+```
+
+#### Gate 2.2
+
+**SEGURANÇA E ACESSO: CERTIFICADOS**
+
+---
+
+## 7. ETAPA 2.3 — Comercial
+
+**Dependência:** 2.1 e 2.2
+
+### 2.3.1 — Inventário Comercial
+
+Auditar banco existente antes de qualquer migration.
+
+### 2.3.2 — Clientes
+
+Implementar serviços comerciais sobre cadastro corporativo.
+
+### 2.3.3 — Leads
+
+Implementar captação e acompanhamento.
+
+### 2.3.4 — CRM
+
+Implementar relacionamento e histórico.
+
+### 2.3.5 — Fornecedores e Operadoras
+
+Implementar regras comerciais.
+
+### 2.3.6 — Oportunidades
+
+Implementar pipeline comercial.
+
+### 2.3.7 — Propostas
+
+Implementar proposta e itens.
+
+### 2.3.8 — Condições Comerciais
+
+Implementar:
+
+- preços;
+- descontos;
+- condições;
+- comissões.
+
+### 2.3.9 — Vendas
+
+Implementar venda e itens.
+
+### 2.3.10 — Contratos
+
+Integrar contratos quando aplicável.
+
+### 2.3.11 — API Comercial
+
+Disponibilizar endpoints versionados.
+
+### 2.3.12 — Testes
+
+Executar testes funcionais e de integração.
+
+### 2.3.13 — Certificação
+
+Fluxo principal:
+
+```text
+Lead
+ ↓
+Oportunidade
+ ↓
+Cliente
+ ↓
+Proposta
+ ↓
+Venda
+ ↓
+Reserva/Contrato
+```
+
+#### Gate 2.3
+
+**MÓDULO COMERCIAL: CERTIFICADO**
+
+---
+
+## 8. ETAPA 2.4 — Financeiro
+
+**Dependência:** 2.1, 2.2 e integração Comercial
+
+A estrutura F1-FIN certificada será preservada.
+
+### Ordem
+
+1. inventário ORM;
+2. plano de contas;
+3. classificações;
+4. contas a pagar;
+5. contas a receber;
+6. parcelas;
+7. pagamentos;
+8. caixa;
+9. bancos;
+10. cartões;
+11. transferências;
+12. centros de custo;
+13. rateios;
+14. movimentações;
+15. conciliação;
+16. capital social;
+17. AFAC;
+18. pró-labore;
+19. distribuição de lucros;
+20. tributos;
+21. empréstimos;
+22. imobilizado;
+23. integração Comercial → Financeiro;
+24. API;
+25. testes;
+26. certificação.
+
+Fluxo:
+
+```text
+Venda
+  ↓
+Lançamento
+  ↓
+Parcelas
+  ↓
+Pagamento
+  ↓
+Movimentação
+  ↓
+Conciliação
+```
+
+#### Gate 2.4
+
+**MÓDULO FINANCEIRO: CERTIFICADO**
+
+---
+
+## 9. ETAPA 2.5 — Turismo
+
+**Dependência:** Comercial e Financeiro
+
+### Ordem
+
+1. inventário;
+2. destinos;
+3. produtos turísticos;
+4. pacotes;
+5. roteiros;
+6. serviços;
+7. fornecedores turísticos;
+8. saídas;
+9. disponibilidade;
+10. vagas;
+11. reservas;
+12. passageiros;
+13. serviços da reserva;
+14. operação;
+15. integração Comercial;
+16. integração Financeiro;
+17. API;
+18. testes;
+19. certificação.
+
+Fluxo:
+
+```text
+Produto
+ ↓
+Pacote
+ ↓
+Saída
+ ↓
+Reserva
+ ↓
+Passageiros
+ ↓
+Serviços
+ ↓
+Operação
+```
+
+#### Gate 2.5
+
+**MÓDULO TURISMO: CERTIFICADO**
+
+---
+
+## 10. ETAPA 2.6 — Bike Tour
+
+**Dependência:** Turismo
+
+### Ordem
+
+1. inventário;
+2. eventos;
+3. roteiros;
+4. inscrições;
+5. participantes;
+6. bicicletas;
+7. equipes;
+8. apoio;
+9. logística;
+10. pontos de controle;
+11. ocorrências;
+12. integração Turismo;
+13. integração Comercial;
+14. integração Financeiro;
+15. API;
+16. testes;
+17. certificação.
+
+#### Gate 2.6
+
+**MÓDULO BIKE TOUR: CERTIFICADO**
+
+---
+
+## 11. ETAPA 2.7 — Integração wmatravel.com.br
+
+**Dependência:** Comercial, Financeiro e Turismo
+
+O ERP será o núcleo corporativo e o site será um canal digital.
+
+### 2.7.1 — Inventário do Site
+
+Mapear:
+
+- WordPress;
+- WooCommerce;
+- plugins;
+- produtos;
+- categorias;
+- pedidos;
+- clientes;
+- pagamentos;
+- formulários;
+- campos personalizados.
+
+### 2.7.2 — Mapeamento Site ↔ ERP
+
+Definir correspondência entre entidades.
+
+### 2.7.3 — Segurança da Integração
+
+Implementar:
+
+- HTTPS;
+- autenticação;
+- tokens;
+- rate limiting;
+- idempotência;
+- validação;
+- auditoria.
+
+### 2.7.4 — Catálogo
+
+ERP → site:
+
+- produtos;
+- pacotes;
+- preços;
+- datas;
+- disponibilidade;
+- vagas.
+
+### 2.7.5 — Comercial
+
+Site → ERP:
+
+- lead;
+- cliente;
+- pedido;
+- reserva;
+- passageiros.
+
+### 2.7.6 — Financeiro
+
+Integrar:
+
+- cobrança;
+- pagamento;
+- confirmação;
+- cancelamento;
+- estorno.
+
+### 2.7.7 — Webhooks
+
+Implementar eventos necessários.
+
+### 2.7.8 — Reconciliação
+
+Garantir que site e ERP permaneçam consistentes.
+
+### 2.7.9 — Testes
+
+Testar fluxos ponta a ponta.
+
+### 2.7.10 — Certificação
+
+Arquitetura obrigatória:
+
+```text
+wmatravel.com.br
+       ↓
+      HTTPS
+       ↓
+   WMA ERP API
+       ↓
+    Services
+       ↓
+   PostgreSQL
+```
+
+É proibido acesso direto do WordPress ao PostgreSQL corporativo.
+
+#### Gate 2.7
+
+**WMATRAVEL.COM.BR ↔ ERP: CERTIFICADO**
+
+---
+
+## 12. ETAPA 2.8 — Fiscal
+
+**Dependência:** Comercial e Financeiro
+
+### Ordem
+
+1. inventário fiscal;
+2. serviços;
+3. documentos fiscais;
+4. regras tributárias;
+5. impostos;
+6. retenções;
+7. NFS-e;
+8. apuração;
+9. integração Comercial;
+10. integração Financeiro;
+11. integração contábil;
+12. API;
+13. testes;
+14. certificação.
+
+Fluxo:
+
+```text
+Venda/Serviço
+     ↓
+Financeiro
+     ↓
+Fiscal
+     ↓
+Documento fiscal
+     ↓
+Tributos
+```
+
+#### Gate 2.8
+
+**MÓDULO FISCAL: CERTIFICADO**
+
+---
+
+## 13. ETAPA 2.9 — Integrações Externas
+
+**Dependência:** Fundação e módulos correspondentes
+
+Estrutura prevista:
+
+```text
+integrations/
+├── website/
+├── payments/
+├── operators/
+├── fiscal/
+├── email/
+└── external/
+```
+
+### Ordem
+
+1. framework de integrações;
+2. contratos;
+3. autenticação externa;
+4. timeouts;
+5. retries;
+6. idempotência;
+7. webhooks;
+8. logs;
+9. tratamento de falhas;
+10. testes;
+11. certificação.
+
+#### Gate 2.9
+
+**INTEGRAÇÕES EXTERNAS: CERTIFICADAS**
+
+---
+
+## 14. ETAPA 2.10 — BI/DW
+
+**Dependência:** Dados operacionais dos módulos
+
+### Ordem
+
+1. revisar DW existente;
+2. mapear fontes;
+3. Comercial;
+4. Financeiro;
+5. Turismo;
+6. Bike Tour;
+7. Fiscal;
+8. Website;
+9. ETL/ELT;
+10. dimensões;
+11. fatos;
+12. indicadores;
+13. qualidade dos dados;
+14. testes;
+15. certificação.
+
+Fluxo:
+
+```text
+Comercial ────┐
+Financeiro ───┤
+Turismo ──────┤
+Bike Tour ────┼──> ETL/ELT ──> DW ──> BI
+Fiscal ───────┤
+Website ──────┘
+```
+
+#### Gate 2.10
+
+**BI/DW: CERTIFICADO**
+
+---
+
+## 15. ETAPA 2.11 — Auditoria e Observabilidade
+
+Esta etapa é transversal e deverá ser preparada desde a Fundação.
+
+### Ordem
+
+1. logs estruturados;
+2. correlation ID;
+3. auditoria de operações;
+4. métricas;
+5. health checks;
+6. erros;
+7. performance;
+8. integrações;
+9. alertas;
+10. rastreabilidade;
+11. testes;
+12. certificação.
+
+#### Gate 2.11
+
+**AUDITORIA E OBSERVABILIDADE: CERTIFICADAS**
+
+---
+
+## 16. ETAPA 2.12 — Qualidade e Hardening
+
+**Dependência:** Módulos concluídos
+
+### 2.12.1 — Testes Unitários
+
+Validar regras isoladas.
+
+### 2.12.2 — Testes de Integração
+
+Validar módulos e banco.
+
+### 2.12.3 — Testes de API
+
+Validar contratos REST.
+
+### 2.12.4 — Testes de Banco
+
+Validar integridade e transações.
+
+### 2.12.5 — Testes de Migrations
+
+Validar `upgrade` e `downgrade`.
+
+### 2.12.6 — Testes de Segurança
+
+Validar autenticação e autorização.
+
+### 2.12.7 — Testes de Integrações
+
+Validar sistemas externos.
+
+### 2.12.8 — Testes Website ↔ ERP
+
+Validar fluxos ponta a ponta.
+
+### 2.12.9 — Performance
+
+Avaliar endpoints críticos.
+
+### 2.12.10 — Regressão
+
+Garantir que funcionalidades existentes não foram quebradas.
+
+### 2.12.11 — Documentação
+
+Validar documentação técnica e operacional.
+
+### 2.12.12 — Gate de Qualidade
+
+Nenhuma falha crítica poderá permanecer aberta.
+
+#### Gate 2.12
+
+**QUALIDADE E HARDENING: APROVADOS**
+
+---
+
+## 17. ETAPA 2.13 — Certificação Final da Fase 2
+
+Executar auditoria completa.
+
+### 2.13.1 — Arquitetura
+
+Confirmar aderência às ADRs.
+
+### 2.13.2 — Backend
+
+Validar aplicação e dependências.
+
+### 2.13.3 — Banco
+
+Validar migrations e integridade.
+
+### 2.13.4 — Segurança
+
+Validar autenticação e autorização.
+
+### 2.13.5 — Módulos
+
+Certificar:
+
+- Core;
+- Comercial;
+- Financeiro;
+- Turismo;
+- Bike Tour;
+- Fiscal.
+
+### 2.13.6 — Website
+
+Certificar integração com `wmatravel.com.br`.
+
+### 2.13.7 — Integrações
+
+Certificar serviços externos.
+
+### 2.13.8 — BI/DW
+
+Certificar camada analítica.
+
+### 2.13.9 — Observabilidade
+
+Certificar logs, métricas e auditoria.
+
+### 2.13.10 — Qualidade
+
+Confirmar testes e gates.
+
+### 2.13.11 — Documentação
+
+Confirmar documentação final.
+
+### 2.13.12 — Git
+
+Validar:
+
+- working tree;
+- branch;
+- commits;
+- push;
+- tag;
+- ausência de conflitos;
+- ausência de arquivos temporários;
+- ausência de secrets.
+
+---
+
+## 18. Gate Final
+
+A Fase 2 somente poderá ser encerrada quando:
+
+```text
+Arquitetura ................. OK
+Backend ..................... OK
+API ......................... OK
+PostgreSQL .................. OK
+Migrations .................. OK
+Core ........................ OK
+Segurança ................... OK
+Comercial ................... OK
+Financeiro .................. OK
+Turismo ..................... OK
+Bike Tour ................... OK
+wmatravel.com.br ............ OK
+Fiscal ...................... OK
+Integrações ................. OK
+BI/DW ....................... OK
+Auditoria ................... OK
+Observabilidade ............. OK
+Testes ...................... OK
+Segurança final ............. OK
+Documentação ................ OK
+Git ......................... OK
+```
+
+Resultado esperado:
+
+**FASE 2 — CONCLUÍDA, CERTIFICADA E AUTORIZADA PARA PRODUÇÃO**
+
+---
+
+## 19. Regra de Conclusão por Etapa
+
+Nenhuma etapa será considerada concluída apenas porque o código foi escrito.
+
+Cada etapa deverá possuir:
+
+- requisito definido;
+- implementação;
+- migrations, quando necessárias;
+- testes;
+- evidências;
+- documentação;
+- revisão;
+- commit;
+- gate de certificação.
+
+---
+
+## 20. Política de Commits
+
+Utilizar commits pequenos e rastreáveis.
+
+Exemplos:
+
+```text
+docs(phase2): define backend architecture
+chore(backend): bootstrap FastAPI project
+feat(core): implement company service
+feat(auth): implement authentication
+feat(comercial): implement sales workflow
+feat(financeiro): expose accounts receivable API
+feat(turismo): implement reservations
+feat(website): integrate booking API
+feat(fiscal): implement fiscal document workflow
+test(phase2): add integration certification suite
+docs(phase2): certify phase 2
+```
+
+---
+
+## 21. Marcos Oficiais
+
+| Marco | Resultado |
+| --- | --- |
+| M2.0 | Fundação Backend/API certificada |
+| M2.1 | Core certificado |
+| M2.2 | Segurança certificada |
+| M2.3 | Comercial certificado |
+| M2.4 | Financeiro certificado |
+| M2.5 | Turismo certificado |
+| M2.6 | Bike Tour certificado |
+| M2.7 | Website integrado e certificado |
+| M2.8 | Fiscal certificado |
+| M2.9 | Integrações certificadas |
+| M2.10 | BI/DW certificado |
+| M2.11 | Observabilidade certificada |
+| M2.12 | Qualidade aprovada |
+| M2.13 | Fase 2 certificada |
+
+---
+
+## 22. Ordem Imediata de Trabalho
+
+A execução começa obrigatoriamente por:
+
+```text
+2.0.1.1 — ADR-001 — Monólito Modular
+               ↓
+2.0.1.2 — ADR-002 — Stack Tecnológica
+               ↓
+2.0.1.3 — ADR-003 — Persistência
+               ↓
+2.0.1.4 — ADR-004 — Migrations
+               ↓
+2.0.1.5 — ADR-005 — API
+               ↓
+2.0.1.6 — ADR-006 — Configuração e Secrets
+               ↓
+2.0.1.7 — ADR-007 — Testes
+               ↓
+2.0.1.8 — ADR-008 — Integrações
+               ↓
+CERTIFICAÇÃO 2.0.1
+               ↓
+BOOTSTRAP DO BACKEND
+```
+
+Não iniciar módulos funcionais antes da aprovação da fundação correspondente.
+
+---
+
+## 23. Status Inicial
+
+| Item | Status |
+| --- | --- |
+| Fase 1 | **CERTIFICADA** |
+| Baseline Fase 1 | **CONGELADA** |
+| Fase 2 | **INICIADA** |
+| ADR-001 | **APROVADA** |
+| Etapa atual | **2.0.1 — Arquitetura Tecnológica** |
+| Próxima execução | **ADR-002 — Stack Tecnológica** |
+
+---
+
+### Declaração de Início
+
+A Fase 2 do WMA Travel ERP está formalmente iniciada.
+
+O desenvolvimento deverá seguir a sequência, dependências, gates e regras
+estabelecidos neste documento.
+
+**Próxima ação oficial:**
+
+**ETAPA 2.0.1.2 — ADR-002 — Definição da Stack Tecnológica do Backend.**
