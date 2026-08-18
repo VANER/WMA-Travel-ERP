@@ -10,6 +10,8 @@
 **Status inicial:** Planejada  
 **Marco inicial:** `phase-1-final-2026-08-18`
 
+**Branch inicial:** `feature/fase-2-backend-api`
+
 ---
 
 ## 1. Objetivo
@@ -109,7 +111,7 @@ Definir:
 
 Stack inicialmente recomendada:
 
-- Python;
+- Python 3.12+;
 - FastAPI;
 - SQLAlchemy 2;
 - Alembic;
@@ -797,6 +799,24 @@ Cada migration deverá registrar, quando aplicável:
 - evidência;
 - commit.
 
+Toda alteração persistente posterior à Fase 1 deve:
+
+1. ser criada como migration nova em `Database/migrations/` ou pelo Alembic;
+2. possuir identificador e ordem inequívocos;
+3. declarar objetivo, dependências e objetos afetados;
+4. incluir validações pré e pós-aplicação;
+5. incluir rollback ou justificar sua impossibilidade;
+6. ser testada sobre uma reconstrução da Fase 1;
+7. preservar a tag `phase-1-final-2026-08-18` e todos os seus artefatos.
+
+É proibido editar retroativamente:
+
+- `Database/scripts/WmaTravelERP.sql`;
+- `Database/scripts/WMA_Travel_Schema.sql`;
+- `Database/scripts/F1_FIN/`;
+- `Database/baseline/`;
+- documentos e evidências de certificação da Fase 1.
+
 ---
 
 # 21. Prioridade de Execução
@@ -839,7 +859,20 @@ FASE 2 CERTIFICADA
 
 ---
 
-# 22. Próxima Ação Oficial
+# 22. Gate Inicial
+
+- [x] Fase 1 certificada.
+- [x] Tag final publicada e conferida.
+- [x] Repositório sem arquivos temporários versionados conhecidos.
+- [x] Diretório de migrations preparado.
+- [x] Branch da Fase 2 criada a partir do marco final.
+- [ ] Backend inicial criado.
+- [ ] Pipeline de testes do backend configurado.
+- [ ] Primeira migration da Fase 2 validada, quando necessária.
+
+---
+
+# 23. Próxima Ação Oficial
 
 A próxima atividade do WMA Travel ERP será:
 
