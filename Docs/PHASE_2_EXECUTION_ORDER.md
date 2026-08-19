@@ -1297,7 +1297,7 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 
 ---
 
-## 23. Status Inicial
+## 23. Status Atual
 
 | Item | Status |
 | --- | --- |
@@ -1305,18 +1305,19 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 | Baseline Fase 1 | **CONGELADA** |
 | Fase 2 | **INICIADA** |
 | ADR-001 | **APROVADA** |
-| Etapa atual | **2.0.1 — Arquitetura Tecnológica** |
-| Próxima execução | **ADR-002 — Stack Tecnológica** |
+| Etapa 2.0.1 | **CONCLUÍDA E CERTIFICADA** |
+| Etapa 2.0.2 | **CONCLUÍDA E CERTIFICADA** |
+| Próxima execução | **2.0.3 — Estrutura Modular** |
 
 ---
 
-### Declaração de Início
+### Declaração de Continuidade
 
-A Fase 2 do WMA Travel ERP está formalmente iniciada.
+A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0.1 e 2.0.2 foram concluídas.
 
 O desenvolvimento deverá seguir a sequência, dependências, gates e regras
 estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**ETAPA 2.0.1.2 — ADR-002 — Definição da Stack Tecnológica do Backend.**
+**ETAPA 2.0.3 — Estrutura Modular do Backend.**
