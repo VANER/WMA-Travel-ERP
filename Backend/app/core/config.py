@@ -13,13 +13,10 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", env_prefix="WMA_", extra="ignore")
 
     app_name: str = "WMA Travel ERP API"
-    app_version: str = "2.0.2"
+    app_version: str = "0.1.0-dev"
     environment: Literal["development", "test", "production"] = "development"
     log_level: Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"] = "INFO"
-    database_url: str = Field(
-        default="postgresql+psycopg://wma_app:senha_local@localhost:5432/wma_development",
-        repr=False,
-    )
+    database_url: str = Field(repr=False)
 
 
 @lru_cache

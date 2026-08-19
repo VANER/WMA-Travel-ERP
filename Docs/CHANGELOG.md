@@ -11,6 +11,11 @@
 - testes HTTP e configuração de lint, tipagem e cobertura para Python 3.13+;
 - pipeline de integração contínua do backend com lint, tipagem, testes e validação Alembic.
 
+### Corrigido na etapa 2.0.2
+
+- separação entre o identificador da etapa 2.0.2 e a versão SemVer do projeto;
+- obrigatoriedade de configuração explícita da conexão PostgreSQL, sem fallback embutido no código.
+
 ### Corrigido
 
 - inclusão de `residuos_teste` no gate bloqueante efetivo da F1-FIN.13;

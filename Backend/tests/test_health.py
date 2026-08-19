@@ -9,7 +9,7 @@ def test_root_health(client: TestClient) -> None:
     response = client.get("/health")
 
     assert response.status_code == 200
-    assert response.json() == {"status": "ok", "version": "2.0.2"}
+    assert response.json() == {"status": "ok", "version": "0.1.0-dev"}
     UUID(response.headers["X-Correlation-Id"])
 
 
@@ -18,7 +18,7 @@ def test_versioned_health_reuses_valid_correlation_id(client: TestClient) -> Non
     response = client.get("/api/v1/health", headers={"X-Correlation-Id": correlation_id})
 
     assert response.status_code == 200
-    assert response.json() == {"status": "ok", "version": "2.0.2"}
+    assert response.json() == {"status": "ok", "version": "0.1.0-dev"}
     assert response.headers["X-Correlation-Id"] == correlation_id
 
 

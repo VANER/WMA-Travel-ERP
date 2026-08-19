@@ -23,6 +23,8 @@ jobs:
   quality:
     name: Python 3.13
     runs-on: ubuntu-latest
+    env:
+      WMA_DATABASE_URL: postgresql+psycopg://wma_test@localhost:5432/wma_test
     defaults:
       run:
         working-directory: Backend
