@@ -120,7 +120,6 @@ Backend**, desde que a implementação respeite as ADRs vigentes.
 
 ## 9. Evidência e versionamento
 
-Após copiar estes documentos para o repositório local, eles deverão ser
-revisados pelo markdownlint/cSpell disponíveis no projeto, adicionados
-ao Git, commitados e enviados ao repositório remoto. O commit resultante
-deverá ser registrado como evidência do fechamento da ETAPA 2.0.1.
+O fechamento da etapa foi publicado e integrado pelo PR #2. O commit de
+merge `7f5317b` em `main` registra a arquitetura e esta certificação sem
+alterar a tag imutável `phase-1-final-2026-08-18`.

@@ -8,7 +8,7 @@
 
 **Etapa:** 2.0.1 — Arquitetura Tecnológica
 
-**Status:** Em execução
+**Status:** Concluída e certificada
 
 **Data de início:** 18/08/2026
 
@@ -606,9 +606,9 @@ Nessa etapa serão criados:
 
 ## 24. Status
 
-**ETAPA 2.0.1: EM EXECUÇÃO**
+**ETAPA 2.0.1: CONCLUÍDA E CERTIFICADA**
 
-**Próxima atividade:** ADR-002 — Stack Tecnológica.
+**Etapa subsequente autorizada:** 2.0.2 — Bootstrap do Backend.
 
 ---
 

@@ -4,6 +4,21 @@
 
 ## [Não Publicado]
 
+### Adicionado
+
+- bootstrap da etapa 2.0.2 em `Backend/` com FastAPI, SQLAlchemy 2, Alembic e psycopg 3;
+- configuração por ambiente, correlation ID e contrato inicial de health check;
+- testes HTTP e configuração de lint, tipagem e cobertura para Python 3.13+;
+- pipeline de integração contínua do backend com lint, tipagem, testes e validação Alembic.
+- lockfiles separados para Windows e Linux, com hashes e instalação reprodutível no CI;
+- certificação técnica da etapa 2.0.2 e atualização dos status oficiais das etapas 2.0.1 e 2.0.2.
+
+### Corrigido na etapa 2.0.2
+
+- separação entre o identificador da etapa 2.0.2 e a versão SemVer do projeto;
+- obrigatoriedade de configuração explícita da conexão PostgreSQL, sem fallback embutido no código.
+- indicadores documentais obsoletos que ainda apresentavam a etapa 2.0.1 como em execução.
+
 ### Corrigido
 
 - inclusão de `residuos_teste` no gate bloqueante efetivo da F1-FIN.13;
