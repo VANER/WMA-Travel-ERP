@@ -10,9 +10,11 @@
 
 ## 1. Objetivo
 
-Esta etapa certifica formalmente a verificação do banco reconstruído a partir do dump contra o baseline estrutural previamente certificado do WMA Travel ERP.
+Esta etapa certifica formalmente a verificação do banco reconstruído a partir do dump contra o baseline
+estrutural previamente certificado do WMA Travel ERP.
 
-O objetivo é assegurar que a reconstrução preserve quantitativamente a estrutura esperada do banco, sem divergências nos objetos estruturais considerados pelo baseline.
+O objetivo é assegurar que a reconstrução preserve quantitativamente a estrutura esperada do banco, sem
+divergências nos objetos estruturais considerados pelo baseline.
 
 ---
 
@@ -73,7 +75,8 @@ DIVERGÊNCIA QUANTITATIVA: NÃO IDENTIFICADA
 
 ## 5. Conclusão técnica
 
-Com base nas três fases executadas, conclui-se que o dump utilizado na reconstrução produziu uma estrutura quantitativamente compatível com o baseline estrutural certificado.
+Com base nas três fases executadas, conclui-se que o dump utilizado na reconstrução produziu uma estrutura
+quantitativamente compatível com o baseline estrutural certificado.
 
 Portanto:
 
@@ -93,7 +96,8 @@ fica formalmente registrado como:
 
 **REFERÊNCIA RECONSTRUÍDA VALIDADA**
 
-Este banco não deverá ser utilizado como ambiente de desenvolvimento ou receber alterações durante as etapas seguintes de empacotamento e certificação.
+Este banco não deverá ser utilizado como ambiente de desenvolvimento ou receber alterações durante as etapas
+seguintes de empacotamento e certificação.
 
 Qualquer teste que possa modificar a estrutura ou o conteúdo do banco deverá utilizar uma nova cópia ou banco de teste independente.
 
@@ -113,10 +117,10 @@ Também não está prevista alteração do banco `wma_travel_rebuild_test` como 
 
 As evidências técnicas desta etapa são constituídas pelos resultados obtidos nas seguintes fases:
 
-* Coleta estrutural;
-* Análise estrutural;
-* Reconciliação quantitativa;
-* Comparação contra o baseline certificado.
+- Coleta estrutural;
+- Análise estrutural;
+- Reconciliação quantitativa;
+- Comparação contra o baseline certificado.
 
 O resultado consolidado dessas verificações demonstrou ausência de divergência quantitativa.
 
@@ -124,13 +128,13 @@ O resultado consolidado dessas verificações demonstrou ausência de divergênc
 
 ## 9. Critério de aprovação
 
-* [x] A coleta estrutural foi concluída;
-* [x] A análise estrutural foi concluída;
-* [x] A reconciliação quantitativa foi concluída;
-* [x] O dump reconstruído foi comparado ao baseline;
-* [x] Não foram identificadas divergências quantitativas;
-* [x] O banco reconstruído foi preservado como referência validada;
-* [x] A V7.2 permanece inalterada e versionada.
+- [x] A coleta estrutural foi concluída;
+- [x] A análise estrutural foi concluída;
+- [x] A reconciliação quantitativa foi concluída;
+- [x] O dump reconstruído foi comparado ao baseline;
+- [x] Não foram identificadas divergências quantitativas;
+- [x] O banco reconstruído foi preservado como referência validada;
+- [x] A V7.2 permanece inalterada e versionada.
 
 ---
 

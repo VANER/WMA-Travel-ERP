@@ -33,7 +33,7 @@ Veja `install.sh --help` para todas as opções.
 ## Estado da Fase 1 (Fundação)
 
 | Item | Status |
-|---|---|
+| --- | --- |
 | Normalização 3FN de endereços (Migração 01) | ✅ Concluído |
 | Consolidação `financeiro.*` → `public.*` (Migração 02) | Cancelada: `financeiro` é a autoridade do domínio |
 | Colunas de auditoria em `financeiro.*` (Migração 03) | ✅ Incorporado à baseline; original não preservado |

@@ -1,4 +1,4 @@
-﻿# ETAPA 10.12.2.5 — CERTIFICAÇÃO DE RECONCILIAÇÃO E REBUILD
+# ETAPA 10.12.2.5 — CERTIFICAÇÃO DE RECONCILIAÇÃO E REBUILD
 
 **Projeto:** WMA Travel ERP
 **Etapa:** 10.12.2.5
@@ -9,7 +9,8 @@
 
 ## 1. Objetivo
 
-Validar a reconciliação entre a estrutura legada e a nova estrutura Database/, remover a estrutura legada após confirmação de integridade e comprovar que o dump mestre consegue reconstruir o banco de teste.
+Validar a reconciliação entre a estrutura legada e a nova estrutura `Database/`, remover a estrutura legada após
+confirmação de integridade e comprovar que o dump mestre consegue reconstruir o banco de teste.
 
 ## 2. Reconciliação da estrutura antiga x nova
 
@@ -70,7 +71,7 @@ Tamanho do banco após restore: 22 MB
 ## 6. Universo estrutural validado
 
 | Objeto | Quantidade |
-|---|---:|
+| --- | ---: |
 | TABLES | 209 |
 | SEQUENCES | 206 |
 | VIEWS | 38 |

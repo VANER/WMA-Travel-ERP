@@ -56,7 +56,6 @@
 A Fase 2 utilizará a baseline certificada como fundação para o desenvolvimento
 das camadas de aplicação e integração.
 
-
 **Versão do Documento:** 1.0.0
 **Última Atualização:** 18/08/2026
 **Status:** Fase 1 Encerrada; Fase 2 em Planejamento
