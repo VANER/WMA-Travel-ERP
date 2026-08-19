@@ -8,7 +8,8 @@
 
 - bootstrap da etapa 2.0.2 em `Backend/` com FastAPI, SQLAlchemy 2, Alembic e psycopg 3;
 - configuração por ambiente, correlation ID e contrato inicial de health check;
-- testes HTTP e configuração de lint, tipagem e cobertura para Python 3.13+.
+- testes HTTP e configuração de lint, tipagem e cobertura para Python 3.13+;
+- pipeline de integração contínua do backend com lint, tipagem, testes e validação Alembic.
 
 ### Corrigido
 

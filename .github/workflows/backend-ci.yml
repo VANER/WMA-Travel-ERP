@@ -1,0 +1,57 @@
+name: Backend CI
+
+on:
+  pull_request:
+    paths:
+      - "Backend/**"
+      - ".github/workflows/backend-ci.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "Backend/**"
+      - ".github/workflows/backend-ci.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: backend-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Python 3.13
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Backend
+
+    steps:
+      - name: Obter código
+        uses: actions/checkout@v7
+
+      - name: Configurar Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: Backend/pyproject.toml
+
+      - name: Instalar dependências
+        run: python -m pip install -e ".[dev]"
+
+      - name: Verificar dependências
+        run: python -m pip check
+
+      - name: Executar lint
+        run: ruff check .
+
+      - name: Verificar tipos
+        run: mypy app tests
+
+      - name: Executar testes
+        run: pytest -W error --cov=app --cov-report=term-missing
+
+      - name: Verificar árvore de migrations
+        run: alembic heads
