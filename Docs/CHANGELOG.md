@@ -6,6 +6,9 @@
 
 ### Adicionado
 
+- configuração central da etapa 2.0.4 com ambientes validados e proteção de valores sensíveis;
+- logging técnico em JSON com contexto HTTP, duração e correlation ID;
+- bloqueio de nível `DEBUG` em produção e validação do driver PostgreSQL oficial;
 - estrutura modular da etapa 2.0.3 com fronteiras para Comercial, Financeiro, Turismo, Bike Tour e Fiscal;
 - pacotes reservados a integrações e recursos compartilhados, com regras explícitas de uso;
 - gate automatizado que bloqueia imports diretos entre implementações internas de domínios;

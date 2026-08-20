@@ -1308,17 +1308,18 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 | Etapa 2.0.1 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.0.2 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.0.3 | **CONCLUÍDA E CERTIFICADA** |
-| Próxima execução | **2.0.4 — Configuração** |
+| Etapa 2.0.4 | **CONCLUÍDA** |
+| Próxima execução | **2.0.5 — PostgreSQL e SQLAlchemy** |
 
 ---
 
 ### Declaração de Continuidade
 
-A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0.1, 2.0.2 e 2.0.3 foram concluídas.
+A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0.1 a 2.0.4 foram concluídas.
 
 O desenvolvimento deverá seguir a sequência, dependências, gates e regras
 estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**ETAPA 2.0.4 — Configuração do Backend.**
+**ETAPA 2.0.5 — PostgreSQL e SQLAlchemy.**

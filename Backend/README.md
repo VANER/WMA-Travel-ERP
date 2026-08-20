@@ -20,6 +20,23 @@ com `pip 26.2.1` a partir do grupo `dev` definido no `pyproject.toml`.
 Edite o `WMA_DATABASE_URL` local sem versionar credenciais. A aplicação não cria tabelas por
 `Base.metadata.create_all()`; toda evolução estrutural deve usar uma nova revision Alembic.
 
+## Configuração
+
+As configurações usam o prefixo `WMA_` e são validadas na inicialização:
+
+| Variável | Valores | Regra |
+| --- | --- | --- |
+| `WMA_DATABASE_URL` | URL `postgresql+psycopg://` | Obrigatória e nunca exibida no `repr` ou em erros de validação. |
+| `WMA_ENVIRONMENT` | `development`, `test`, `production` | Padrão: `development`. |
+| `WMA_LOG_LEVEL` | `DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL` | `DEBUG` é proibido em produção. |
+
+O `.env` é destinado somente ao ambiente local e permanece ignorado pelo Git. Produção deve injetar variáveis
+por um mecanismo seguro de secrets compatível com a infraestrutura escolhida.
+
+Os logs técnicos são emitidos em JSON para `stderr`, com timestamp UTC, nível, logger, mensagem e correlation ID
+quando disponível. Requisições incluem método, caminho, status e duração, sem query string ou payload.
+O access log padrão do servidor é desativado para evitar duplicidade e exposição acidental de parâmetros.
+
 ## Execução
 
 ```powershell
@@ -41,7 +58,7 @@ usar interfaces, serviços ou contratos internos explícitos quando os casos de 
 
 ```powershell
 ruff check .
-mypy app
+mypy app tests
 pytest --cov=app --cov-report=term-missing
 alembic heads
 ```
