@@ -6,6 +6,9 @@
 
 ### Adicionado
 
+- configuração e política Alembic da etapa 2.0.6, com proteção da baseline no autogenerate;
+- convenções SQLAlchemy para nomes de constraints e índices;
+- testes da árvore de revisions e documentação de upgrade e downgrade;
 - integração PostgreSQL/SQLAlchemy da etapa 2.0.5 com pool explícito e pre-ping;
 - certificação da etapa 2.0.5 com validação real no PostgreSQL local do Windows;
 - limite transacional reutilizável com commit em sucesso e rollback em falha;

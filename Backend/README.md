@@ -92,8 +92,11 @@ sucesso integral. Falhas provocam rollback; repositories não devem realizar com
 Antes de executar qualquer migration, confirme que `WMA_DATABASE_URL` aponta para o ambiente correto.
 
 ```powershell
-alembic revision -m "descrição objetiva"
+alembic revision --rev-id YYYYMMDDHHMM_descricao_curta -m "descrição objetiva"
 alembic upgrade head
+alembic current
 ```
 
 A pasta `migrations/versions/` começa sem revisions porque o dump certificado da Fase 1 já contém a baseline.
+Não execute `stamp head` para ocultar migrations pendentes. O downgrade deve ser testado somente em banco local
+descartável. Consulte `Docs/MIGRATIONS.md` antes de criar ou aplicar uma revision.
