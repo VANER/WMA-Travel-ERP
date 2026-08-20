@@ -9,6 +9,7 @@
 - estrutura modular da etapa 2.0.3 com fronteiras para Comercial, Financeiro, Turismo, Bike Tour e Fiscal;
 - pacotes reservados a integrações e recursos compartilhados, com regras explícitas de uso;
 - gate automatizado que bloqueia imports diretos entre implementações internas de domínios;
+- certificação técnica da etapa 2.0.3 com validação equivalente em Windows e Linux;
 - bootstrap da etapa 2.0.2 em `Backend/` com FastAPI, SQLAlchemy 2, Alembic e psycopg 3;
 - configuração por ambiente, correlation ID e contrato inicial de health check;
 - testes HTTP e configuração de lint, tipagem e cobertura para Python 3.13+;

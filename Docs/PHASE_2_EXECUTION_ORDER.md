@@ -1307,7 +1307,7 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 | ADR-001 | **APROVADA** |
 | Etapa 2.0.1 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.0.2 | **CONCLUÍDA E CERTIFICADA** |
-| Etapa 2.0.3 | **CONCLUÍDA** |
+| Etapa 2.0.3 | **CONCLUÍDA E CERTIFICADA** |
 | Próxima execução | **2.0.4 — Configuração** |
 
 ---
