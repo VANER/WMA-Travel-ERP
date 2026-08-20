@@ -29,6 +29,11 @@ As configurações usam o prefixo `WMA_` e são validadas na inicialização:
 | `WMA_DATABASE_URL` | URL `postgresql+psycopg://` | Obrigatória e nunca exibida no `repr` ou em erros de validação. |
 | `WMA_ENVIRONMENT` | `development`, `test`, `production` | Padrão: `development`. |
 | `WMA_LOG_LEVEL` | `DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL` | `DEBUG` é proibido em produção. |
+| `WMA_DATABASE_POOL_SIZE` | 1 a 50 | Conexões persistentes por processo. Padrão: 5. |
+| `WMA_DATABASE_MAX_OVERFLOW` | 0 a 100 | Conexões temporárias adicionais. Padrão: 10. |
+| `WMA_DATABASE_POOL_TIMEOUT` | 1 a 120 segundos | Espera por uma conexão. Padrão: 30. |
+| `WMA_DATABASE_POOL_RECYCLE` | 60 a 86400 segundos | Renovação preventiva. Padrão: 1800. |
+| `WMA_DATABASE_CONNECT_TIMEOUT` | 1 a 30 segundos | Limite por tentativa de conexão. Padrão: 5. |
 
 O `.env` é destinado somente ao ambiente local e permanece ignorado pelo Git. Produção deve injetar variáveis
 por um mecanismo seguro de secrets compatível com a infraestrutura escolhida.
@@ -43,7 +48,8 @@ O access log padrão do servidor é desativado para evitar duplicidade e exposi�
 uvicorn app.main:app --reload
 ```
 
-A API expõe `GET /health`, `GET /api/v1/health`, `/docs`, `/redoc` e `/openapi.json`.
+A API expõe `GET /health`, `GET /api/v1/health`, `GET /api/v1/health/database`, `/docs`, `/redoc` e
+`/openapi.json`.
 
 ## Estrutura modular
 
@@ -74,8 +80,12 @@ docker run --rm --mount "type=bind,source=${PWD},target=/workspace" `
   python -m pip lock --only-deps '.[dev]' --output pylock.linux.toml"
 ```
 
-O health check inicial confirma somente o processo da API e não abre conexão com o banco. Testes de integração
-com PostgreSQL serão adicionados junto ao primeiro mapeamento de domínio, sempre em banco descartável.
+Os endpoints `/health` e `/api/v1/health` confirmam somente o processo da API. O endpoint
+`/api/v1/health/database` executa `SELECT 1` e retorna `503 DATABASE_UNAVAILABLE` sem detalhes internos quando o
+PostgreSQL não responde.
+
+Services orquestradores devem usar `transactional_session()` para confirmar a unidade de trabalho somente após
+sucesso integral. Falhas provocam rollback; repositories não devem realizar commits autônomos.
 
 ## Migrations
 

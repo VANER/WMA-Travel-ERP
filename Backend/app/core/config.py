@@ -21,6 +21,11 @@ class Settings(BaseSettings):
     environment: Literal["development", "test", "production"] = "development"
     log_level: Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"] = "INFO"
     database_url: str = Field(repr=False)
+    database_pool_size: int = Field(default=5, ge=1, le=50)
+    database_max_overflow: int = Field(default=10, ge=0, le=100)
+    database_pool_timeout: int = Field(default=30, ge=1, le=120)
+    database_pool_recycle: int = Field(default=1800, ge=60, le=86400)
+    database_connect_timeout: int = Field(default=5, ge=1, le=30)
 
     @field_validator("database_url")
     @classmethod

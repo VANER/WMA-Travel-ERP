@@ -370,7 +370,10 @@ Proibido usar `create_all()` como mecanismo de implantação da baseline.
 
 #### Gate 2.0.5
 
-**BACKEND ↔ POSTGRESQL: APROVADO**
+**BACKEND ↔ POSTGRESQL: APROVADO EM WINDOWS**
+
+Certificação: `Docs/certification/PHASE_2_0_5_POSTGRESQL_SQLALCHEMY_CERTIFICATION.md`.
+O gate Linux/CI permanece obrigatório antes do merge.
 
 ---
 
@@ -1301,27 +1304,28 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 
 ## 23. Status Atual
 
-| Item | Status |
-| --- | --- |
-| Fase 1 | **CERTIFICADA** |
-| Baseline Fase 1 | **CONGELADA** |
-| Fase 2 | **INICIADA** |
-| ADR-001 | **APROVADA** |
-| Etapa 2.0.1 | **CONCLUÍDA E CERTIFICADA** |
-| Etapa 2.0.2 | **CONCLUÍDA E CERTIFICADA** |
-| Etapa 2.0.3 | **CONCLUÍDA E CERTIFICADA** |
-| Etapa 2.0.4 | **CONCLUÍDA E CERTIFICADA** |
-| Próxima execução | **2.0.5 — PostgreSQL e SQLAlchemy** |
+| Item             | Status                           |
+| ---------------- | -------------------------------- |
+| Fase 1           | **CERTIFICADA**                  |
+| Baseline Fase 1  | **CONGELADA**                    |
+| Fase 2           | **INICIADA**                     |
+| ADR-001          | **APROVADA**                     |
+| Etapa 2.0.1      | **CONCLUÍDA E CERTIFICADA**      |
+| Etapa 2.0.2      | **CONCLUÍDA E CERTIFICADA**      |
+| Etapa 2.0.3      | **CONCLUÍDA E CERTIFICADA**      |
+| Etapa 2.0.4      | **CONCLUÍDA E CERTIFICADA**      |
+| Etapa 2.0.5      | **CONCLUÍDA**                    |
+| Próxima execução | **2.0.6 — Alembic e Migrations** |
 
 ---
 
 ### Declaração de Continuidade
 
-A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0.1 a 2.0.4 foram concluídas.
+A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0.1 a 2.0.5 foram concluídas.
 
 O desenvolvimento deverá seguir a sequência, dependências, gates e regras
 estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**ETAPA 2.0.5 — PostgreSQL e SQLAlchemy.**
+**ETAPA 2.0.6 — Alembic e Migrations.**

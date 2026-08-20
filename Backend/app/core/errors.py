@@ -9,6 +9,10 @@ from fastapi.responses import JSONResponse
 logger = logging.getLogger(__name__)
 
 
+class DatabaseUnavailableError(Exception):
+    """Indica indisponibilidade temporária da persistência oficial."""
+
+
 def _correlation_id(request: Request) -> str:
     return str(getattr(request.state, "correlation_id", "indisponivel"))
 
@@ -47,7 +51,25 @@ async def unexpected_error_handler(request: Request, exc: Exception) -> JSONResp
     )
 
 
+async def database_unavailable_handler(
+    request: Request, exc: Exception
+) -> JSONResponse:
+    correlation_id = _correlation_id(request)
+    logger.warning("Banco de dados indisponível")
+    return JSONResponse(
+        status_code=503,
+        content={
+            "success": False,
+            "message": "Banco de dados temporariamente indisponível.",
+            "code": "DATABASE_UNAVAILABLE",
+            "errors": [],
+            "correlation_id": correlation_id,
+        },
+    )
+
+
 def register_exception_handlers(app: FastAPI) -> None:
     """Registra os handlers globais da aplicação."""
     app.add_exception_handler(RequestValidationError, validation_error_handler)  # type: ignore[arg-type]
+    app.add_exception_handler(DatabaseUnavailableError, database_unavailable_handler)
     app.add_exception_handler(Exception, unexpected_error_handler)

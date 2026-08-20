@@ -1375,22 +1375,13 @@ Recursos:
 
 ## 64. Health Check
 
-Base URL
-
-```text
-/api/v1/health
-```
-
 Endpoints:
 
 | Endpoint | Descrição |
 | ---------- | ----------- |
-| /health | Status geral |
-| /database | Banco de Dados |
-| /api | API |
-| /storage | Armazenamento |
-| /cache | Cache |
-| /queue | Filas |
+| `/health` | Disponibilidade do processo sem acessar o banco |
+| `/api/v1/health` | Disponibilidade versionada do processo |
+| `/api/v1/health/database` | PostgreSQL; retorna 503 padronizado quando indisponível |
 
 ---
 

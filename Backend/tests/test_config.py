@@ -10,7 +10,9 @@ from app.core.config import Settings
 VALID_DATABASE_URL = "postgresql+psycopg://wma_test@localhost:5432/wma_test"
 
 
-def test_database_url_is_required(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+def test_database_url_is_required(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
     monkeypatch.delenv("WMA_DATABASE_URL", raising=False)
     monkeypatch.chdir(tmp_path)
 
@@ -52,7 +54,9 @@ def test_database_url_requires_host_and_database(database_url: str) -> None:
 
 def test_production_rejects_debug_logging() -> None:
     with pytest.raises(ValidationError) as error:
-        Settings(database_url=VALID_DATABASE_URL, environment="production", log_level="DEBUG")
+        Settings(
+            database_url=VALID_DATABASE_URL, environment="production", log_level="DEBUG"
+        )
 
     assert "DEBUG não é permitido" in str(error.value)
     assert VALID_DATABASE_URL not in str(error.value)
@@ -61,11 +65,13 @@ def test_production_rejects_debug_logging() -> None:
 def test_settings_load_environment_values(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setenv("WMA_ENVIRONMENT", "test")
     monkeypatch.setenv("WMA_LOG_LEVEL", "WARNING")
+    monkeypatch.setenv("WMA_DATABASE_POOL_SIZE", "9")
 
     settings = Settings(database_url=VALID_DATABASE_URL)
 
     assert settings.environment == "test"
     assert settings.log_level == "WARNING"
+    assert settings.database_pool_size == 9
 
 
 def test_settings_repr_does_not_expose_database_url() -> None:
