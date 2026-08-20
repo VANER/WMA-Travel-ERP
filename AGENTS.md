@@ -5,9 +5,9 @@
 Estas instruções valem para todo o repositório.
 
 O projeto está na Fase 2 — Backend e API. A Fase 1 foi encerrada pela tag imutável
-`phase-1-final-2026-08-18`. Hoje, a árvore versionada ainda contém principalmente `Database/` e `Docs/`; o
-backend FastAPI deve ser criado de forma incremental nesta fase. Frontend React e aplicativo Flutter continuam
-planejados e não devem ser antecipados sem escopo explícito.
+`phase-1-final-2026-08-18`. O backend FastAPI está sendo criado incrementalmente em `Backend/`; as etapas 2.0.1 a
+2.0.5 estão integradas e certificadas, e a próxima etapa é a 2.0.6 — Alembic e Migrations. Frontend React e
+aplicativo Flutter continuam planejados e não devem ser antecipados sem escopo explícito.
 
 Nunca mova, recrie ou force a tag `phase-1-final-2026-08-18`. Não reescreva os dumps, scripts F1-FIN,
 certificações ou evidências pertencentes ao marco histórico. Correções futuras devem ser aditivas e rastreáveis.
@@ -59,6 +59,24 @@ recente. Registre inconsistências encontradas em vez de resolvê-las silenciosa
 - Preserve a autoridade dos schemas e as decisões adiadas registradas na arquitetura. Não mova objetos entre
   `public`, `financeiro`, `auditoria`, `config`, `dw`, `logs`, `seguranca` ou `util` sem análise de dependências.
 
+## Configuração do agente de código
+
+Este `AGENTS.md` é a configuração compartilhada para Codex e demais agentes de código no repositório. O agente
+deve começar por `git status --short`, preservar alterações locais e trabalhar somente dentro do escopo solicitado.
+Para alterações no backend, a validação mínima verificável é executada em `Backend/`:
+
+```powershell
+python -m pip check
+python -m ruff check .
+python -m mypy app tests
+python -m pytest -W error --cov=app --cov-report=term-missing
+python -m alembic heads
+```
+
+O health check real requer PostgreSQL local descartável e `WMA_DATABASE_URL`; não inventar sucesso quando o banco,
+Docker ou o CI Linux não estiverem disponíveis. Não instalar dependências ou criar arquivos de configuração de
+agente alternativos sem necessidade comprovada.
+
 ## Validação
 
 Execute a menor validação suficiente para a mudança e informe exatamente o que foi ou não executado.
@@ -90,7 +108,7 @@ quebra de linha ao final do arquivo.
 
 O desenvolvimento novo deve começar pelo Backend/API:
 
-- Backend: Python 3.12+, FastAPI, SQLAlchemy e Alembic; PEP 8, `snake_case`, classes `PascalCase`, type hints em
+- Backend: Python 3.13+, FastAPI, SQLAlchemy e Alembic; PEP 8, `snake_case`, classes `PascalCase`, type hints em
   funções públicas, separação por domínio e testes automatizados.
 - API: contratos versionados, validação de entrada, autenticação/autorização, respostas de erro padronizadas e
   documentação OpenAPI.

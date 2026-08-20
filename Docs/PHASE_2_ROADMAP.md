@@ -90,7 +90,7 @@ possuam dependência técnica direta.
 
 ## 4. ETAPA 2.0 — Arquitetura e Fundação Backend
 
-**Duração estimada:** 3 semanas  
+**Duração estimada:** 3 semanas
 **Prioridade:** Crítica
 
 ### 2.0.1 — Arquitetura tecnológica
@@ -925,7 +925,7 @@ Próxima entrega:
 
 ### Status
 
-**FASE 1:** CONCLUÍDA E CERTIFICADA  
+**FASE 1:** CONCLUÍDA E CERTIFICADA
 **FASE 2:** EM EXECUÇÃO
 
 **ETAPAS 2.0.1 E 2.0.2:** CONCLUÍDAS E CERTIFICADAS
