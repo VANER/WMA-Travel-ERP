@@ -23,6 +23,7 @@ def test_json_formatter_includes_safe_context() -> None:
         exc_info=None,
     )
     record.environment = "test"
+    record.database_url = "postgresql+psycopg://usuario:senha@localhost/banco"
 
     token = bind_correlation_id("6c64c6a2-bb73-48a5-bec3-aeaf893e1a8e")
     try:
@@ -34,6 +35,7 @@ def test_json_formatter_includes_safe_context() -> None:
     assert event["environment"] == "test"
     assert event["correlation_id"] == "6c64c6a2-bb73-48a5-bec3-aeaf893e1a8e"
     assert "database_url" not in event
+    assert "senha" not in formatter.format(record)
 
 
 def test_json_formatter_omits_missing_correlation_id() -> None:

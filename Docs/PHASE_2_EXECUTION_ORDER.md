@@ -348,7 +348,9 @@ Implementar:
 
 #### Gate 2.0.4
 
-**CONFIGURAÇÃO: APROVADA**
+**CONFIGURAÇÃO: APROVADA E CERTIFICADA**
+
+Certificação: `Docs/certification/PHASE_2_0_4_CONFIGURATION_CERTIFICATION.md`.
 
 ---
 
@@ -1308,7 +1310,7 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 | Etapa 2.0.1 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.0.2 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.0.3 | **CONCLUÍDA E CERTIFICADA** |
-| Etapa 2.0.4 | **CONCLUÍDA** |
+| Etapa 2.0.4 | **CONCLUÍDA E CERTIFICADA** |
 | Próxima execução | **2.0.5 — PostgreSQL e SQLAlchemy** |
 
 ---
