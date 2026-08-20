@@ -5,6 +5,8 @@ from typing import Literal, Self
 
 from pydantic import Field, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from sqlalchemy.engine import make_url
+from sqlalchemy.exc import ArgumentError
 
 
 class Settings(BaseSettings):
@@ -24,8 +26,14 @@ class Settings(BaseSettings):
     @classmethod
     def validate_database_url(cls, value: str) -> str:
         """Aceita somente a URL síncrona oficial do PostgreSQL com psycopg."""
-        if not value.startswith("postgresql+psycopg://"):
+        try:
+            url = make_url(value)
+        except ArgumentError as exc:
+            raise ValueError("database_url inválida") from exc
+        if url.drivername != "postgresql+psycopg":
             raise ValueError("database_url deve usar postgresql+psycopg://")
+        if not url.host or not url.database:
+            raise ValueError("database_url deve informar host e banco")
         return value
 
     @model_validator(mode="after")

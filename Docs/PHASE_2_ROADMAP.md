@@ -932,7 +932,7 @@ Próxima entrega:
 
 **ETAPA 2.0.3:** CONCLUÍDA E CERTIFICADA
 
-**ETAPA 2.0.4:** CONCLUÍDA
+**ETAPA 2.0.4:** CONCLUÍDA E CERTIFICADA
 
 **PRÓXIMA ETAPA:** 2.0.5 — PostgreSQL e SQLAlchemy
 
