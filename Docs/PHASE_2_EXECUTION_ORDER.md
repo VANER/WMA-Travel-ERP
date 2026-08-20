@@ -370,10 +370,9 @@ Proibido usar `create_all()` como mecanismo de implantação da baseline.
 
 #### Gate 2.0.5
 
-**BACKEND ↔ POSTGRESQL: APROVADO EM WINDOWS**
+**BACKEND ↔ POSTGRESQL: APROVADO E CERTIFICADO**
 
 Certificação: `Docs/certification/PHASE_2_0_5_POSTGRESQL_SQLALCHEMY_CERTIFICATION.md`.
-O gate Linux/CI permanece obrigatório antes do merge.
 
 ---
 
@@ -1314,7 +1313,7 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 | Etapa 2.0.2      | **CONCLUÍDA E CERTIFICADA**      |
 | Etapa 2.0.3      | **CONCLUÍDA E CERTIFICADA**      |
 | Etapa 2.0.4      | **CONCLUÍDA E CERTIFICADA**      |
-| Etapa 2.0.5      | **CONCLUÍDA**                    |
+| Etapa 2.0.5      | **CONCLUÍDA E CERTIFICADA**      |
 | Próxima execução | **2.0.6 — Alembic e Migrations** |
 
 ---

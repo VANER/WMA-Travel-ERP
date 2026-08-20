@@ -10,7 +10,7 @@
 
 **Data:** 20/08/2026
 
-**Status:** APROVADA EM WINDOWS — LINUX/CI PENDENTE
+**Status:** APROVADA E CERTIFICADA
 
 ## 1. Objetivo
 
@@ -44,8 +44,8 @@ health check PostgreSQL real ............. OK (SELECT 1; True)
 O health check real conectou ao PostgreSQL local e executou `SELECT 1`. A suíte também cobre o cenário de falha,
 confirmando o retorno HTTP 503 padronizado.
 
-A validação Linux/CI não foi executada nesta sessão e permanece obrigatória antes do merge, conforme o workflow do
-backend.
+O workflow Linux do PR #7 foi aprovado na execução `32427637178`, confirmando dependências, lint, tipagem e testes
+da etapa em Python 3.13.
 
 ## 4. Segurança e governança
 
@@ -74,12 +74,11 @@ Testes automatizados ..................... OK (100%)
 Lint e tipagem ........................... OK
 Alembic sem alteração da baseline ........ OK
 Validação Windows ....................... OK
-Validação Linux/CI ....................... PENDENTE
+Validação Linux/CI ....................... OK
 ```
 
 ## 6. Resultado
 
-**ETAPA 2.0.5 — POSTGRESQL E SQLALCHEMY: APROVADA EM WINDOWS**
+**ETAPA 2.0.5 — POSTGRESQL E SQLALCHEMY: APROVADA E CERTIFICADA**
 
-A etapa está tecnicamente validada no ambiente Windows local e autorizada a avançar para a etapa 2.0.6. A
-certificação final do gate multiplataforma depende da execução bem-sucedida do CI Linux.
+A etapa está tecnicamente validada em Windows e Linux/CI e autorizada a avançar para a etapa 2.0.6.
