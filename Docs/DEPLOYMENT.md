@@ -107,10 +107,16 @@ disponibilidade durante a atualização, com verificação de saúde (`fn_health
 
 | Variável | Finalidade |
 | -------------------- | ----------------------------------------- |
-| `DATABASE_URL` | String de conexão com o PostgreSQL |
+| `WMA_DATABASE_URL` | String de conexão `postgresql+psycopg://` com o PostgreSQL |
+| `WMA_DATABASE_POOL_SIZE` | Quantidade de conexões persistentes por processo |
+| `WMA_DATABASE_MAX_OVERFLOW` | Limite de conexões temporárias adicionais |
+| `WMA_DATABASE_POOL_TIMEOUT` | Tempo máximo de espera por conexão disponível |
+| `WMA_DATABASE_POOL_RECYCLE` | Intervalo de renovação preventiva das conexões |
+| `WMA_DATABASE_CONNECT_TIMEOUT` | Tempo máximo por tentativa de conexão PostgreSQL |
 | `JWT_SECRET` | Chave de assinatura dos tokens JWT |
 | `JWT_REFRESH_SECRET` | Chave de assinatura dos refresh tokens |
-| `ENVIRONMENT` | Identifica o ambiente (dev/staging/prod) |
+| `WMA_ENVIRONMENT` | Identifica o ambiente (`development`, `test` ou `production`) |
+| `WMA_LOG_LEVEL` | Nível mínimo do logging técnico |
 
 > Nenhum valor real de segredo deve constar neste documento — ver `SECURITY.md`, seção 9.
 

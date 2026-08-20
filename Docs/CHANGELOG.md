@@ -6,6 +6,10 @@
 
 ### Adicionado
 
+- integração PostgreSQL/SQLAlchemy da etapa 2.0.5 com pool explícito e pre-ping;
+- certificação da etapa 2.0.5 com validação real no PostgreSQL local do Windows;
+- limite transacional reutilizável com commit em sucesso e rollback em falha;
+- health check `GET /api/v1/health/database` com resposta segura para indisponibilidade;
 - configuração central da etapa 2.0.4 com ambientes validados e proteção de valores sensíveis;
 - certificação da etapa 2.0.4 com testes de ambiente, secrets e logging seguro;
 - logging técnico em JSON com contexto HTTP, duração e correlation ID;
