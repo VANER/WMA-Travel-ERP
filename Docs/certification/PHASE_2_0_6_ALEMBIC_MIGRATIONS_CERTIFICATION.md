@@ -10,7 +10,7 @@
 
 **Data:** 20/08/2026
 
-**Status:** APROVADA EM WINDOWS — LINUX/CI PENDENTE
+**Status:** APROVADA E CERTIFICADA
 
 ## 1. Objetivo
 
@@ -48,6 +48,9 @@ markdownlint-cli2 ........................ OK
 git diff --check ......................... OK
 ```
 
+O workflow Linux do PR #9 foi aprovado na execução `32430685826`, confirmando dependências, lint, tipagem,
+testes e a árvore Alembic em Python 3.13.
+
 Upgrade e downgrade de uma revision estão classificados como **NÃO APLICÁVEIS** neste gate porque não existe
 delta estrutural aprovado. Criar uma migration vazia apenas para executar esses comandos violaria a proteção da
 baseline. O primeiro delta futuro deverá comprovar upgrade, downgrade quando seguro e retorno ao head.
@@ -67,12 +70,12 @@ Upgrade de revision ...................... N/A (nenhum delta aprovado)
 Downgrade de revision .................... N/A (nenhum delta aprovado)
 Testes e cobertura ....................... OK (100%)
 Validação Windows ........................ OK
-Validação Linux/CI ....................... PENDENTE
+Validação Linux/CI ....................... OK
 ```
 
 ## 6. Resultado
 
-**ETAPA 2.0.6 — ALEMBIC E MIGRATIONS: APROVADA EM WINDOWS**
+**ETAPA 2.0.6 — ALEMBIC E MIGRATIONS: APROVADA E CERTIFICADA**
 
-A infraestrutura está pronta para receber a primeira evolução estrutural real da Fase 2. A certificação final
-multiplataforma depende do CI Linux do pull request desta etapa.
+A infraestrutura está validada em Windows e Linux/CI e pronta para receber a primeira evolução estrutural real da
+Fase 2.
