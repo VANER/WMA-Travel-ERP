@@ -1,0 +1,1 @@
+"""Fronteira do domínio Fiscal."""

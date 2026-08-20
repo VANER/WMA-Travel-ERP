@@ -28,6 +28,15 @@ uvicorn app.main:app --reload
 
 A API expõe `GET /health`, `GET /api/v1/health`, `/docs`, `/redoc` e `/openapi.json`.
 
+## Estrutura modular
+
+O código funcional é organizado por domínio em `app/modules/`: `comercial`, `financeiro`, `turismo`, `biketour`
+e `fiscal`. Adaptadores externos pertencem a `app/integrations/`; somente recursos comprovadamente transversais
+pertencem a `app/shared/`.
+
+Um teste arquitetural impede imports diretos entre implementações internas dos domínios. A comunicação deverá
+usar interfaces, serviços ou contratos internos explícitos quando os casos de uso forem implementados.
+
 ## Validação
 
 ```powershell

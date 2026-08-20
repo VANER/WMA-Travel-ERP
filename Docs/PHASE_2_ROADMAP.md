@@ -7,7 +7,7 @@
 **Fase anterior:** Fase 1 — Fundação e Banco de Dados  
 **Status da Fase 1:** Concluída e certificada  
 **Fase atual:** Fase 2 — Backend, API e Integrações  
-**Status atual:** Em execução — etapas 2.0.1 e 2.0.2 certificadas
+**Status atual:** Em execução — etapas 2.0.1, 2.0.2 e 2.0.3 concluídas
 **Marco inicial:** `phase-1-final-2026-08-18`
 
 **Branch inicial:** `feature/fase-2-backend-api`
@@ -134,7 +134,16 @@ Backend/
 └── pyproject.toml
 ```
 
-### 2.0.3 — Configuração
+### 2.0.3 — Estrutura modular
+
+Criar progressivamente:
+
+- módulos Comercial, Financeiro, Turismo, Bike Tour e Fiscal;
+- área de integrações externas;
+- área de recursos genuinamente compartilhados;
+- gate automatizado para proteger as fronteiras entre domínios.
+
+### 2.0.4 — Configuração
 
 Implementar:
 
@@ -145,18 +154,27 @@ Implementar:
 - connection pooling;
 - configuração de logging.
 
-### 2.0.4 — Banco e migrations
+### 2.0.5 — PostgreSQL e SQLAlchemy
 
 Implementar:
 
 - SQLAlchemy;
-- Alembic;
 - conexão com a baseline;
-- política de migrations;
-- migration inicial de referência;
-- validação de rollback.
+- session factory;
+- transações e pool;
+- health check do banco;
+- tratamento de indisponibilidade.
 
-### 2.0.5 — API inicial
+### 2.0.6 — Alembic e migrations
+
+Configurar:
+
+- diretório e nomenclatura de migrations;
+- upgrade e downgrade;
+- validação da baseline;
+- documentação da política de migrations.
+
+### 2.0.7 — API inicial
 
 Criar:
 
@@ -165,16 +183,31 @@ GET /health
 GET /api/v1/health
 ```
 
-### 2.0.6 — Qualidade inicial
+### 2.0.8 — OpenAPI
+
+Validar:
+
+- `/docs`;
+- `/redoc`;
+- `/openapi.json`;
+- metadata, versionamento e schemas.
+
+### 2.0.9 — Testes iniciais
+
+Implementar testes para aplicação, configuração, API, PostgreSQL e migrations.
+
+### 2.0.10 — GitHub Actions
 
 Configurar:
 
 - lint;
-- formatter;
 - type checking;
 - testes;
-- GitHub Actions;
 - validação de migrations.
+
+### 2.0.11 — Certificação da fundação
+
+Auditar a arquitetura e todos os gates técnicos da etapa 2.0.
 
 #### Gate 2.0
 
@@ -897,7 +930,9 @@ Próxima entrega:
 
 **ETAPAS 2.0.1 E 2.0.2:** CONCLUÍDAS E CERTIFICADAS
 
-**PRÓXIMA ETAPA:** 2.0.3 — Estrutura Modular do Backend
+**ETAPA 2.0.3:** CONCLUÍDA
+
+**PRÓXIMA ETAPA:** 2.0.4 — Configuração do Backend
 
 ---
 
