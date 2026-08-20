@@ -7,7 +7,7 @@
 **Fase anterior:** Fase 1 — Fundação e Banco de Dados  
 **Status da Fase 1:** Concluída e certificada  
 **Fase atual:** Fase 2 — Backend, API e Integrações  
-**Status atual:** Em execução — etapas 2.0.1, 2.0.2 e 2.0.3 certificadas
+**Status atual:** Em execução — etapas 2.0.1 a 2.0.4 concluídas
 **Marco inicial:** `phase-1-final-2026-08-18`
 
 **Branch inicial:** `feature/fase-2-backend-api`
@@ -932,7 +932,9 @@ Próxima entrega:
 
 **ETAPA 2.0.3:** CONCLUÍDA E CERTIFICADA
 
-**PRÓXIMA ETAPA:** 2.0.4 — Configuração do Backend
+**ETAPA 2.0.4:** CONCLUÍDA
+
+**PRÓXIMA ETAPA:** 2.0.5 — PostgreSQL e SQLAlchemy
 
 ---
 

@@ -34,7 +34,7 @@ async def validation_error_handler(
 
 async def unexpected_error_handler(request: Request, exc: Exception) -> JSONResponse:
     correlation_id = _correlation_id(request)
-    logger.exception("Erro inesperado; correlation_id=%s", correlation_id, exc_info=exc)
+    logger.error("Erro inesperado", extra={"exception_type": type(exc).__name__})
     return JSONResponse(
         status_code=500,
         content={

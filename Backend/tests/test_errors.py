@@ -31,7 +31,7 @@ def test_validation_error_has_safe_contract() -> None:
 
 
 def test_unexpected_error_is_logged_without_exposing_details() -> None:
-    with patch("app.core.errors.logger.exception") as log_exception:
+    with patch("app.core.errors.logger.error") as log_error:
         response = asyncio.run(
             unexpected_error_handler(_request(), RuntimeError("detalhe interno"))
         )
@@ -40,7 +40,9 @@ def test_unexpected_error_is_logged_without_exposing_details() -> None:
     assert b'"code":"INTERNAL_ERROR"' in response.body
     assert b"detalhe interno" not in response.body
     assert b'"correlation_id":"indisponivel"' in response.body
-    log_exception.assert_called_once()
+    log_error.assert_called_once_with(
+        "Erro inesperado", extra={"exception_type": "RuntimeError"}
+    )
 
 
 def test_error_response_uses_independent_error_lists() -> None:
