@@ -1303,17 +1303,17 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 
 ## 23. Status Atual
 
-| Item             | Status                           |
-| ---------------- | -------------------------------- |
-| Fase 1           | **CERTIFICADA**                  |
-| Baseline Fase 1  | **CONGELADA**                    |
-| Fase 2           | **INICIADA**                     |
-| ADR-001          | **APROVADA**                     |
-| Etapa 2.0.1      | **CONCLUÍDA E CERTIFICADA**      |
-| Etapa 2.0.2      | **CONCLUÍDA E CERTIFICADA**      |
-| Etapa 2.0.3      | **CONCLUÍDA E CERTIFICADA**      |
-| Etapa 2.0.4      | **CONCLUÍDA E CERTIFICADA**      |
-| Etapa 2.0.5      | **CONCLUÍDA E CERTIFICADA**      |
+| Item | Status |
+| --- | --- |
+| Fase 1 | **CERTIFICADA** |
+| Baseline Fase 1 | **CONGELADA** |
+| Fase 2 | **INICIADA** |
+| ADR-001 | **APROVADA** |
+| Etapa 2.0.1 | **CONCLUÍDA E CERTIFICADA** |
+| Etapa 2.0.2 | **CONCLUÍDA E CERTIFICADA** |
+| Etapa 2.0.3 | **CONCLUÍDA E CERTIFICADA** |
+| Etapa 2.0.4 | **CONCLUÍDA E CERTIFICADA** |
+| Etapa 2.0.5 | **CONCLUÍDA E CERTIFICADA** |
 | Próxima execução | **2.0.6 — Alembic e Migrations** |
 
 ---

@@ -40,7 +40,9 @@ def test_json_formatter_includes_safe_context() -> None:
 
 def test_json_formatter_omits_missing_correlation_id() -> None:
     formatter = JsonFormatter()
-    record = logging.LogRecord("app.test", logging.INFO, __file__, 1, "evento", (), None)
+    record = logging.LogRecord(
+        "app.test", logging.INFO, __file__, 1, "evento", (), None
+    )
 
     event = json.loads(formatter.format(record))
 
