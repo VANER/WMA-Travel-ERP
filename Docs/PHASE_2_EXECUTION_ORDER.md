@@ -416,7 +416,7 @@ Implementar:
 
 #### Gate 2.0.7
 
-**API BASE: OPERACIONAL E CERTIFICADA EM WINDOWS**
+**API BASE: OPERACIONAL E CERTIFICADA**
 
 Certificação: `Docs/certification/PHASE_2_0_7_API_BASE_CERTIFICATION.md`.
 
@@ -1319,14 +1319,14 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 | Etapa 2.0.4 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.0.5 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.0.6 | **CONCLUÍDA E CERTIFICADA** |
-| Etapa 2.0.7 | **CONCLUÍDA EM WINDOWS** |
+| Etapa 2.0.7 | **CONCLUÍDA E CERTIFICADA** |
 | Próxima execução | **2.0.8 — OpenAPI** |
 
 ---
 
 ### Declaração de Continuidade
 
-A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0.1 a 2.0.7 foram concluídas em Windows.
+A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0.1 a 2.0.7 foram concluídas e certificadas.
 
 O desenvolvimento deverá seguir a sequência, dependências, gates e regras
 estabelecidos neste documento.

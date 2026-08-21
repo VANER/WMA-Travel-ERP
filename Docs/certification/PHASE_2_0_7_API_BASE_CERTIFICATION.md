@@ -10,7 +10,7 @@
 
 **Data:** 21/08/2026
 
-**Status:** APROVADA EM WINDOWS — LINUX/CI PENDENTE
+**Status:** APROVADA E CERTIFICADA
 
 ## 1. Objetivo
 
@@ -52,6 +52,9 @@ markdownlint-cli2 ........................ OK
 git diff --check ......................... OK
 ```
 
+O workflow Linux do PR #10 foi aprovado na execução `32535360753`, confirmando dependências, lint, tipagem,
+testes e árvore Alembic em Python 3.13.
+
 ## 5. Gate
 
 ```text
@@ -65,12 +68,12 @@ Validação, 500 e indisponibilidade DB ..... OK
 Correlation ID ............................ OK
 Testes automatizados ...................... OK (100%)
 Validação Windows ......................... OK
-Validação Linux/CI ........................ PENDENTE
+Validação Linux/CI ........................ OK
 ```
 
 ## 6. Resultado
 
-**ETAPA 2.0.7 — API BASE: APROVADA EM WINDOWS**
+**ETAPA 2.0.7 — API BASE: APROVADA E CERTIFICADA**
 
-A API base está operacional e pronta para a validação de metadata e schemas OpenAPI da etapa 2.0.8. A
-certificação final depende do CI Linux do pull request da etapa 2.0.7.
+A API base está validada em Windows e Linux/CI e pronta para a validação de metadata e schemas OpenAPI da etapa
+2.0.8.
