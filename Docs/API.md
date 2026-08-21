@@ -1383,6 +1383,9 @@ Endpoints:
 | `/api/v1/health` | Disponibilidade versionada do processo |
 | `/api/v1/health/database` | PostgreSQL; retorna 503 padronizado quando indisponível |
 
+Rotas inexistentes e métodos não permitidos seguem o contrato de erro padrão com os códigos `NOT_FOUND` e
+`METHOD_NOT_ALLOWED`, respectivamente. Todas as respostas de erro incluem um correlation ID.
+
 ---
 
 ## 65. Informações da API

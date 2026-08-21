@@ -6,6 +6,8 @@
 
 ### Adicionado
 
+- router principal versionado e tratamento padronizado de erros HTTP da etapa 2.0.7;
+- testes dos contratos `GET /health`, `GET /api/v1/health`, 404 e 405;
 - configuração e política Alembic da etapa 2.0.6, com proteção da baseline no autogenerate;
 - convenções SQLAlchemy para nomes de constraints e índices;
 - testes da árvore de revisions e documentação de upgrade e downgrade;

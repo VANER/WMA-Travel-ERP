@@ -1,12 +1,18 @@
 """Testes dos contratos e handlers centrais de erro."""
 
 import asyncio
+import json
 from unittest.mock import patch
 
 from fastapi import Request
 from fastapi.exceptions import RequestValidationError
+from starlette.exceptions import HTTPException
 
-from app.core.errors import unexpected_error_handler, validation_error_handler
+from app.core.errors import (
+    http_error_handler,
+    unexpected_error_handler,
+    validation_error_handler,
+)
 from app.core.schemas import ErrorResponse
 
 
@@ -40,9 +46,20 @@ def test_unexpected_error_is_logged_without_exposing_details() -> None:
     assert b'"code":"INTERNAL_ERROR"' in response.body
     assert b"detalhe interno" not in response.body
     assert b'"correlation_id":"indisponivel"' in response.body
-    log_error.assert_called_once_with(
-        "Erro inesperado", extra={"exception_type": "RuntimeError"}
-    )
+    log_error.assert_called_once_with("Erro inesperado", extra={"exception_type": "RuntimeError"})
+
+
+def test_generic_http_error_does_not_expose_detail() -> None:
+    error = HTTPException(status_code=418, detail="detalhe interno")
+
+    response = asyncio.run(http_error_handler(_request("correlation-id"), error))
+    body = json.loads(response.body)
+
+    assert response.status_code == 418
+    assert body["code"] == "HTTP_ERROR"
+    assert body["message"] == "Não foi possível processar a requisição."
+    assert b"detalhe interno" not in response.body
+    assert body["correlation_id"] == "correlation-id"
 
 
 def test_error_response_uses_independent_error_lists() -> None:
