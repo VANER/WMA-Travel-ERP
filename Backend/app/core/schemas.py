@@ -8,7 +8,7 @@ from pydantic import BaseModel, Field
 class HealthResponse(BaseModel):
     """Resposta do health check de processo."""
 
-    status: str
+    status: Literal["ok"] = "ok"
     version: str
 
 

@@ -51,6 +51,10 @@ uvicorn app.main:app --reload
 A API expõe `GET /health`, `GET /api/v1/health`, `GET /api/v1/health/database`, `/docs`, `/redoc` e
 `/openapi.json`.
 
+O router principal usa o prefixo `/api` e agrega routers versionados, começando por `/v1`. Rotas inexistentes,
+métodos não permitidos, validações, indisponibilidade do banco e falhas internas retornam o contrato de erro
+padronizado com correlation ID.
+
 ## Estrutura modular
 
 O código funcional é organizado por domínio em `app/modules/`: `comercial`, `financeiro`, `turismo`, `biketour`

@@ -7,7 +7,7 @@
 **Fase anterior:** Fase 1 — Fundação e Banco de Dados
 **Status da Fase 1:** Concluída e certificada
 **Fase atual:** Fase 2 — Backend, API e Integrações
-**Status atual:** Em execução — etapas 2.0.1 a 2.0.6 concluídas e certificadas
+**Status atual:** Em execução — etapas 2.0.1 a 2.0.7 concluídas e certificadas
 **Marco inicial:** `phase-1-final-2026-08-18`
 
 **Branch inicial:** `feature/fase-2-backend-api`
@@ -938,7 +938,9 @@ Próxima entrega:
 
 **ETAPA 2.0.6:** CONCLUÍDA E CERTIFICADA
 
-**PRÓXIMA ETAPA:** 2.0.7 — API Base
+**ETAPA 2.0.7:** CONCLUÍDA E CERTIFICADA
+
+**PRÓXIMA ETAPA:** 2.0.8 — OpenAPI
 
 ---
 

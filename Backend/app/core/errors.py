@@ -5,6 +5,7 @@ import logging
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
+from starlette.exceptions import HTTPException
 
 logger = logging.getLogger(__name__)
 
@@ -13,13 +14,17 @@ class DatabaseUnavailableError(Exception):
     """Indica indisponibilidade temporária da persistência oficial."""
 
 
+HTTP_ERROR_MESSAGES = {
+    404: ("Recurso não encontrado.", "NOT_FOUND"),
+    405: ("Método não permitido.", "METHOD_NOT_ALLOWED"),
+}
+
+
 def _correlation_id(request: Request) -> str:
     return str(getattr(request.state, "correlation_id", "indisponivel"))
 
 
-async def validation_error_handler(
-    request: Request, exc: RequestValidationError
-) -> JSONResponse:
+async def validation_error_handler(request: Request, exc: RequestValidationError) -> JSONResponse:
     errors = [
         {"field": ".".join(str(part) for part in error["loc"]), "message": error["msg"]}
         for error in exc.errors()
@@ -51,9 +56,25 @@ async def unexpected_error_handler(request: Request, exc: Exception) -> JSONResp
     )
 
 
-async def database_unavailable_handler(
-    request: Request, exc: Exception
-) -> JSONResponse:
+async def http_error_handler(request: Request, exc: HTTPException) -> JSONResponse:
+    """Padroniza erros HTTP sem expor detalhes internos."""
+    message, code = HTTP_ERROR_MESSAGES.get(
+        exc.status_code, ("Não foi possível processar a requisição.", "HTTP_ERROR")
+    )
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={
+            "success": False,
+            "message": message,
+            "code": code,
+            "errors": [],
+            "correlation_id": _correlation_id(request),
+        },
+        headers=exc.headers,
+    )
+
+
+async def database_unavailable_handler(request: Request, exc: Exception) -> JSONResponse:
     correlation_id = _correlation_id(request)
     logger.warning("Banco de dados indisponível")
     return JSONResponse(
@@ -71,5 +92,6 @@ async def database_unavailable_handler(
 def register_exception_handlers(app: FastAPI) -> None:
     """Registra os handlers globais da aplicação."""
     app.add_exception_handler(RequestValidationError, validation_error_handler)  # type: ignore[arg-type]
+    app.add_exception_handler(HTTPException, http_error_handler)  # type: ignore[arg-type]
     app.add_exception_handler(DatabaseUnavailableError, database_unavailable_handler)
     app.add_exception_handler(Exception, unexpected_error_handler)
