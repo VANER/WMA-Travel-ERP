@@ -53,7 +53,7 @@ def test_generic_http_error_does_not_expose_detail() -> None:
     error = HTTPException(status_code=418, detail="detalhe interno")
 
     response = asyncio.run(http_error_handler(_request("correlation-id"), error))
-    body = json.loads(response.body)
+    body = json.loads(bytes(response.body).decode("utf-8"))
 
     assert response.status_code == 418
     assert body["code"] == "HTTP_ERROR"
