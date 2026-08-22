@@ -10,7 +10,7 @@
 
 **Data:** 22/08/2026
 
-**Status:** APROVADA LOCALMENTE — VALIDAÇÃO CI PENDENTE
+**Status:** APROVADA E CERTIFICADA
 
 ## 1. Objetivo
 
@@ -62,11 +62,17 @@ OpenAPI .................................. OK
 Testes ................................... OK (100%)
 CI ....................................... OK (etapa 2.0.10)
 Documentação ............................. OK
-Validação do novo commit no CI ........... PENDENTE
+Validação do novo commit no CI ........... OK
 ```
 
-## 6. Resultado preliminar
+## 6. Evidência Linux
 
-**FUNDAÇÃO BACKEND/API: APROVADA LOCALMENTE**
+O workflow do PR #17 foi aprovado na execução `32578966232`, em Ubuntu, Python 3.13 e PostgreSQL 18, incluindo os
+49 testes, o health check integrado, cobertura mínima, lint, tipagem e validação Alembic.
 
-A certificação definitiva depende da aprovação do workflow Linux no pull request da etapa 2.0.11.
+## 7. Resultado
+
+**FUNDAÇÃO BACKEND/API: APROVADA E CERTIFICADA**
+
+Todos os gates técnicos da etapa 2.0 foram aprovados localmente e no GitHub Actions. O PR #17 está apto para
+integração após a auditoria final.
