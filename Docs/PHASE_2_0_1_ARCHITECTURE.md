@@ -582,7 +582,7 @@ BACKEND .......................... AUTORIZADO PARA BOOTSTRAP
 
 ---
 
-## 23. Próxima Etapa
+## 23. Continuidade da Etapa
 
 Após a certificação:
 
@@ -609,6 +609,9 @@ Nessa etapa serão criados:
 **ETAPA 2.0.1: CONCLUÍDA E CERTIFICADA**
 
 **Etapa subsequente autorizada:** 2.0.2 — Bootstrap do Backend.
+
+**Situação atual:** as etapas 2.0.2 a 2.0.8 também foram concluídas e certificadas. O status corrente e a próxima
+etapa oficial são mantidos em `PHASE_2_EXECUTION_ORDER.md`.
 
 ---
 

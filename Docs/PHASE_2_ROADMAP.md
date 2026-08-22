@@ -909,17 +909,10 @@ FASE 2 CERTIFICADA
 
 A próxima atividade do WMA Travel ERP será:
 
-**ETAPA 2.0 — ARQUITETURA E FUNDAÇÃO DO BACKEND**
+**ETAPA 2.0.9 — TESTES INICIAIS**
 
-Entregas concluídas e certificadas:
-
-**ETAPA 2.0.1 — Definição da Arquitetura Tecnológica**
-
-**ETAPA 2.0.2 — Estrutura do Backend**
-
-Próxima entrega:
-
-**ETAPA 2.0.3 — Estrutura Modular do Backend**
+As etapas 2.0.1 a 2.0.8 da arquitetura e fundação do backend estão concluídas, certificadas e integradas à
+`main`. A execução deve continuar na ordem definida neste roadmap, sem antecipar a etapa 2.0.10.
 
 ---
 
@@ -942,7 +935,7 @@ Próxima entrega:
 
 **ETAPA 2.0.8:** CONCLUÍDA E CERTIFICADA
 
-**PRÓXIMA AÇÃO:** integrar o PR #11 da etapa 2.0.8 antes de iniciar a 2.0.9
+**PRÓXIMA ETAPA:** 2.0.9 — Testes Iniciais
 
 ---
 

@@ -57,6 +57,10 @@ Este manual contempla:
 - documentação de APIs;
 - documentação de padronização.
 
+O estado oficial de execução está consolidado em `PHASE_2_EXECUTION_ORDER.md`. A Fase 1 está concluída e
+certificada; a Fase 2 está em execução, com as etapas 2.0.1 a 2.0.8 concluídas, certificadas e integradas. A
+próxima etapa autorizada é a 2.0.9 — Testes Iniciais.
+
 ---
 
 ## 3. Organização da Documentação
@@ -132,6 +136,9 @@ WMA_TRAVEL_ERP/
 | SECURITY.md | Política de segurança |
 | STYLE_GUIDE.md | Padrões de desenvolvimento |
 | DBA_FRAMEWORK.md | Framework DBA |
+| PHASE_2_ROADMAP.md | Planejamento oficial da Fase 2 |
+| PHASE_2_EXECUTION_ORDER.md | Ordem, gates e status das etapas da Fase 2 |
+| certification/ | Evidências das etapas certificadas da Fase 2 |
 
 ---
 

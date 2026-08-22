@@ -6,6 +6,7 @@
 
 ### Adicionado
 
+- matriz documental consolidada das fases e das etapas 2.0.1 a 2.0.8;
 - documentação OpenAPI 3.1 da etapa 2.0.8 em `/docs`, `/redoc` e `/openapi.json`;
 - metadata explícita, tags, contratos de sucesso e erros padronizados no schema OpenAPI;
 - testes automatizados de documentação, versionamento, schemas e unicidade de operation IDs;
@@ -41,6 +42,7 @@
 
 ### Corrigido
 
+- referências que ainda indicavam a Fase 2 como planejamento ou o PR #11 como pendente de integração;
 - inclusão de `residuos_teste` no gate bloqueante efetivo da F1-FIN.13;
 - remoção de duplicatas residuais concatenadas no changelog e no roadmap;
 - validação ausente referenciada pelo instalador;
