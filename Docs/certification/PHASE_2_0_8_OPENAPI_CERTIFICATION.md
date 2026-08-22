@@ -10,7 +10,7 @@
 
 **Data:** 21/08/2026
 
-**Status:** APROVADA EM VALIDAÇÃO LOCAL; CI PENDENTE
+**Status:** APROVADA E CERTIFICADA
 
 ## 1. Objetivo
 
@@ -57,8 +57,10 @@ mypy app tests ........................... OK (32 arquivos)
 ```
 
 O primeiro passe completo do Mypy recompilou 538 módulos de dependências no Windows. Após a correção da tipagem
-das respostas OpenAPI, a análise dos 32 arquivos de código e testes foi aprovada. A execução Linux/CI deve ser
-confirmada pelo workflow antes da certificação definitiva.
+das respostas OpenAPI, a análise dos 32 arquivos de código e testes foi aprovada.
+
+O workflow Linux do PR #11 foi aprovado na execução `32539196947`, confirmando dependências, lint, tipagem,
+testes, cobertura e árvore Alembic em Python 3.13.
 
 ## 5. Gate
 
@@ -74,12 +76,12 @@ Operation IDs únicos ...................... OK
 Ausência de segredos na especificação ..... OK
 Cobertura automatizada .................... OK (100%)
 Validação Windows completa ................ OK
-Validação Linux/CI ........................ PENDENTE
+Validação Linux/CI ........................ OK
 ```
 
 ## 6. Resultado
 
-**ETAPA 2.0.8 — OPENAPI: APROVADA EM VALIDAÇÃO LOCAL; CERTIFICAÇÃO DEFINITIVA PENDENTE**
+**ETAPA 2.0.8 — OPENAPI: APROVADA E CERTIFICADA**
 
-A implementação atende ao escopo funcional da etapa. O gate definitivo somente poderá ser encerrado após as
-validações obrigatórias restantes e o workflow Linux/CI do futuro pull request.
+A implementação atende ao escopo funcional e foi validada integralmente em Windows e Linux/CI. O PR #11 pode
+seguir para revisão e integração antes do início da etapa 2.0.9.
