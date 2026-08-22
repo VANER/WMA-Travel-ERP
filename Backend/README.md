@@ -55,6 +55,9 @@ O router principal usa o prefixo `/api` e agrega routers versionados, começando
 métodos não permitidos, validações, indisponibilidade do banco e falhas internas retornam o contrato de erro
 padronizado com correlation ID.
 
+O contrato OpenAPI 3.1 está disponível em `/openapi.json`, com interfaces Swagger UI em `/docs` e ReDoc em
+`/redoc`. Metadata, tags, schemas de sucesso e erro e respostas HTTP comuns são definidos explicitamente.
+
 ## Estrutura modular
 
 O código funcional é organizado por domínio em `app/modules/`: `comercial`, `financeiro`, `turismo`, `biketour`

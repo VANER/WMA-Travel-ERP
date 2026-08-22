@@ -435,7 +435,9 @@ Validar:
 
 #### Gate 2.0.8
 
-**OPENAPI: APROVADA**
+**OPENAPI: APROVADA E CERTIFICADA**
+
+Certificação: `Docs/certification/PHASE_2_0_8_OPENAPI_CERTIFICATION.md`.
 
 ---
 
@@ -1320,17 +1322,19 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 | Etapa 2.0.5 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.0.6 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.0.7 | **CONCLUÍDA E CERTIFICADA** |
-| Próxima execução | **2.0.8 — OpenAPI** |
+| Etapa 2.0.8 | **CONCLUÍDA E CERTIFICADA** |
+| Próxima execução | **Integrar o PR #11 da 2.0.8** |
 
 ---
 
 ### Declaração de Continuidade
 
 A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0.1 a 2.0.7 foram concluídas e certificadas.
+A etapa 2.0.8 foi concluída e certificada em Windows e Linux/CI no PR #11.
 
 O desenvolvimento deverá seguir a sequência, dependências, gates e regras
 estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**ETAPA 2.0.8 — OpenAPI.**
+**INTEGRAR O PR #11 DA ETAPA 2.0.8 — OPENAPI.**

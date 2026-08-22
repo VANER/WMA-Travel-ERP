@@ -13,7 +13,7 @@ from app.core.errors import (
     unexpected_error_handler,
     validation_error_handler,
 )
-from app.core.schemas import ErrorResponse
+from app.core.schemas import ErrorDetail, ErrorResponse
 
 
 def _request(correlation_id: str | None = None) -> Request:
@@ -66,6 +66,6 @@ def test_error_response_uses_independent_error_lists() -> None:
     first = ErrorResponse(message="erro", code="TEST", correlation_id="one")
     second = ErrorResponse(message="erro", code="TEST", correlation_id="two")
 
-    first.errors.append({"field": "nome", "message": "inválido"})
+    first.errors.append(ErrorDetail(field="nome", message="inválido"))
 
     assert second.errors == []

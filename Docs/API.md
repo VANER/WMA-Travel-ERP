@@ -1558,10 +1558,15 @@ A documentação seguirá o padrão **OpenAPI 3.1**.
 Recursos disponíveis:
 
 - documentação automática;
-- exemplos;
-- schemas;
-- autenticação;
-- testes online.
+- metadata da aplicação e agrupamento por tags;
+- schemas tipados para health checks e erros;
+- contratos de sucesso e erros HTTP padronizados;
+- testes interativos no Swagger UI.
+
+Na etapa 2.0.8, a especificação publicada inclui as rotas `/health`, `/api/v1/health` e
+`/api/v1/health/database`. Os modelos `HealthResponse`, `DatabaseHealthResponse`, `ErrorDetail` e
+`ErrorResponse` são expostos em `components.schemas`. Os erros documentados usam o mesmo envelope retornado pela
+aplicação e incluem `correlation_id`.
 
 ---
 
@@ -1570,14 +1575,23 @@ Recursos disponíveis:
 Ambiente de documentação:
 
 ```text
-https://api.wmatravel.com.br/docs
+/docs
 ```
 
 OpenAPI JSON:
 
 ```text
-https://api.wmatravel.com.br/openapi.json
+/openapi.json
 ```
+
+Documentação alternativa ReDoc:
+
+```text
+/redoc
+```
+
+Os caminhos são relativos ao host de cada ambiente. O domínio público de produção somente deve ser documentado
+quando a implantação correspondente existir.
 
 ---
 
