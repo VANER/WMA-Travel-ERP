@@ -194,6 +194,8 @@ Validar:
 
 ### 2.0.9 — Testes iniciais
 
+**Status:** EM EXECUÇÃO
+
 Implementar testes para aplicação, configuração, API, PostgreSQL e migrations.
 
 ### 2.0.10 — GitHub Actions
@@ -935,7 +937,9 @@ As etapas 2.0.1 a 2.0.8 da arquitetura e fundação do backend estão concluída
 
 **ETAPA 2.0.8:** CONCLUÍDA E CERTIFICADA
 
-**PRÓXIMA ETAPA:** 2.0.9 — Testes Iniciais
+**ETAPA 2.0.9:** CONCLUÍDA E CERTIFICADA
+
+**PRÓXIMA AÇÃO:** integrar o PR #13 da etapa 2.0.9
 
 ---
 

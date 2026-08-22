@@ -6,6 +6,9 @@
 
 ### Adicionado
 
+- teste de integração opt-in contra PostgreSQL local descartável para a etapa 2.0.9;
+- proteção que restringe a integração a hosts locais e bancos com sufixo `_test`;
+- certificação da etapa 2.0.9 com PostgreSQL 18 real descartável e validação Linux/CI;
 - matriz documental consolidada das fases e das etapas 2.0.1 a 2.0.8;
 - documentação OpenAPI 3.1 da etapa 2.0.8 em `/docs`, `/redoc` e `/openapi.json`;
 - metadata explícita, tags, contratos de sucesso e erros padronizados no schema OpenAPI;

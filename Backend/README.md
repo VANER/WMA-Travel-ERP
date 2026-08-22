@@ -76,6 +76,17 @@ pytest --cov=app --cov-report=term-missing
 alembic heads
 ```
 
+Os testes rápidos não acessam um banco real. A integração PostgreSQL é opt-in e aceita somente uma URL local cujo
+nome do banco termine em `_test`:
+
+```powershell
+$env:WMA_TEST_DATABASE_URL = "postgresql+psycopg://usuario:senha@localhost:5432/wma_phase2_test"
+python -m pytest -W error --run-postgresql tests/integration/test_postgresql.py
+```
+
+O teste executa apenas consultas de leitura e não cria, remove ou altera objetos. O banco descartável deve ser
+preparado previamente pelo operador.
+
 Para atualizar os locks após uma mudança intencional de dependências:
 
 ```powershell
