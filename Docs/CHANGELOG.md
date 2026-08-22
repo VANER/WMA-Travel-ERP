@@ -6,6 +6,9 @@
 
 ### Adicionado
 
+- documentação OpenAPI 3.1 da etapa 2.0.8 em `/docs`, `/redoc` e `/openapi.json`;
+- metadata explícita, tags, contratos de sucesso e erros padronizados no schema OpenAPI;
+- testes automatizados de documentação, versionamento, schemas e unicidade de operation IDs;
 - router principal versionado e tratamento padronizado de erros HTTP da etapa 2.0.7;
 - testes dos contratos `GET /health`, `GET /api/v1/health`, 404 e 405;
 - configuração e política Alembic da etapa 2.0.6, com proteção da baseline no autogenerate;
