@@ -464,7 +464,7 @@ Certificação: `Docs/certification/PHASE_2_0_9_INITIAL_TESTS_CERTIFICATION.md`.
 
 ### 2.0.10 — GitHub Actions
 
-**Status:** EM EXECUÇÃO
+**Status:** CONCLUÍDA E CERTIFICADA
 
 Automatizar:
 
@@ -476,9 +476,9 @@ Automatizar:
 
 #### Gate 2.0.10
 
-**CI: IMPLEMENTADA E APROVADA LOCALMENTE — VALIDAÇÃO CI PENDENTE**
+**CI: OPERACIONAL E CERTIFICADA**
 
-Certificação preliminar: `Docs/certification/PHASE_2_0_10_GITHUB_ACTIONS_CERTIFICATION.md`.
+Certificação: `Docs/certification/PHASE_2_0_10_GITHUB_ACTIONS_CERTIFICATION.md`.
 
 ---
 
@@ -1332,18 +1332,19 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 | Etapa 2.0.7 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.0.8 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.0.9 | **CONCLUÍDA E CERTIFICADA** |
-| Próxima execução | **2.0.10 — GitHub Actions** |
+| Etapa 2.0.10 | **CONCLUÍDA E CERTIFICADA** |
+| Próxima execução | **2.0.11 — Certificação da Fundação** |
 
 ---
 
 ### Declaração de Continuidade
 
 A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0.1 a 2.0.9 foram concluídas, certificadas e
-integradas à `main`. A etapa 2.0.9 foi integrada pelo PR #13 no commit `cceff97`.
+integradas à `main`. A etapa 2.0.10 foi concluída e certificada no PR #15 e aguarda integração.
 
 O desenvolvimento deverá seguir a sequência, dependências, gates e regras
 estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**ETAPA 2.0.10 — GITHUB ACTIONS.**
+**INTEGRAR O PR #15 E INICIAR A ETAPA 2.0.11 — CERTIFICAÇÃO DA FUNDAÇÃO.**

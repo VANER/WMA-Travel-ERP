@@ -10,7 +10,7 @@
 
 **Data:** 22/08/2026
 
-**Status:** APROVADA LOCALMENTE — VALIDAÇÃO CI PENDENTE
+**Status:** APROVADA E CERTIFICADA
 
 ## 1. Objetivo
 
@@ -54,11 +54,17 @@ Pytest e cobertura >= 95% ................ OK (100%)
 PostgreSQL real descartável .............. OK
 Alembic heads ............................ OK
 Segurança e limites do job ............... OK
-Validação Linux/GitHub Actions ........... PENDENTE
+Validação Linux/GitHub Actions ........... OK
 ```
 
-## 5. Resultado preliminar
+## 5. Evidência Linux
 
-**ETAPA 2.0.10 — GITHUB ACTIONS: APROVADA LOCALMENTE**
+O workflow do PR #15 foi aprovado na execução `32578044680`, em Ubuntu e Python 3.13, com o serviço PostgreSQL 18
+saudável e todos os gates obrigatórios concluídos.
 
-A certificação definitiva depende da execução bem-sucedida do workflow no pull request da etapa.
+## 6. Resultado
+
+**ETAPA 2.0.10 — GITHUB ACTIONS: APROVADA E CERTIFICADA**
+
+A automação da fundação do backend foi validada localmente e no GitHub Actions. O PR #15 está apto para
+integração após a auditoria final.
