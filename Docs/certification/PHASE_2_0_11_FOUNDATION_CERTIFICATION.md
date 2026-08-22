@@ -74,5 +74,5 @@ O workflow do PR #17 foi aprovado na execução `32578966232`, em Ubuntu, Python
 
 **FUNDAÇÃO BACKEND/API: APROVADA E CERTIFICADA**
 
-Todos os gates técnicos da etapa 2.0 foram aprovados localmente e no GitHub Actions. O PR #17 está apto para
-integração após a auditoria final.
+Todos os gates técnicos da etapa 2.0 foram aprovados localmente e no GitHub Actions. O PR #17 foi integrado à
+`main` no commit `a04a2da`.
