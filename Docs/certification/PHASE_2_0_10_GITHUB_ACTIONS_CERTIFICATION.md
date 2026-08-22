@@ -66,5 +66,5 @@ saudável e todos os gates obrigatórios concluídos.
 
 **ETAPA 2.0.10 — GITHUB ACTIONS: APROVADA E CERTIFICADA**
 
-A automação da fundação do backend foi validada localmente e no GitHub Actions. O PR #15 está apto para
-integração após a auditoria final.
+A automação da fundação do backend foi validada localmente e no GitHub Actions. O PR #15 foi integrado à `main`
+no commit `40cb9ac`.
