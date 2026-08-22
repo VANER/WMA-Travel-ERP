@@ -51,7 +51,7 @@
 
 **Progresso:** etapas 2.0.1 a 2.0.8 concluídas, certificadas e integradas
 
-**Próxima etapa:** 2.0.9 — Testes Iniciais
+**Etapa atual:** 2.0.9 — Testes Iniciais
 
 **Branch inicial:** `feature/fase-2-backend-api`
 

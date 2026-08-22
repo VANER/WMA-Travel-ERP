@@ -32,6 +32,9 @@ packages = ["app"]
 [tool.pytest.ini_options]
 addopts = "--strict-markers --strict-config --cov-fail-under=95 -ra"
 testpaths = ["tests"]
+markers = [
+    "postgresql: requer PostgreSQL local descartável e WMA_TEST_DATABASE_URL",
+]
 
 [tool.ruff]
 line-length = 100
