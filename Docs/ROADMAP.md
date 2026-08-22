@@ -49,9 +49,9 @@
 
 **Status:** INICIADA EM 18/08/2026
 
-**Progresso:** etapas 2.0.1 a 2.0.8 concluídas, certificadas e integradas
+**Progresso:** etapas 2.0.1 a 2.0.9 concluídas, certificadas e integradas
 
-**Etapa atual:** integrar a etapa 2.0.9 — Testes Iniciais
+**Próxima etapa:** 2.0.10 — GitHub Actions
 
 **Branch inicial:** `feature/fase-2-backend-api`
 

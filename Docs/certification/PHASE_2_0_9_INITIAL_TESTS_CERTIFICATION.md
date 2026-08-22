@@ -76,4 +76,4 @@ Validação Linux/CI ....................... OK
 **ETAPA 2.0.9 — TESTES INICIAIS: APROVADA E CERTIFICADA**
 
 Todos os contratos da etapa foram aprovados em Windows e Linux/CI, e a integração PostgreSQL real foi confirmada
-em ambiente local descartável. O PR #13 pode seguir para integração antes do início da etapa 2.0.10.
+em ambiente local descartável. O PR #13 foi integrado à `main` no commit `cceff97`.

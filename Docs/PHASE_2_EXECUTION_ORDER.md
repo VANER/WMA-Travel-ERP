@@ -1328,18 +1328,18 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 | Etapa 2.0.7 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.0.8 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.0.9 | **CONCLUÍDA E CERTIFICADA** |
-| Próxima execução | **Integrar o PR #13 da 2.0.9** |
+| Próxima execução | **2.0.10 — GitHub Actions** |
 
 ---
 
 ### Declaração de Continuidade
 
-A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0.1 a 2.0.8 foram concluídas, certificadas e
-integradas à `main`. A etapa 2.0.8 foi integrada pelo PR #11 no commit `fa132f0`.
+A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0.1 a 2.0.9 foram concluídas, certificadas e
+integradas à `main`. A etapa 2.0.9 foi integrada pelo PR #13 no commit `cceff97`.
 
 O desenvolvimento deverá seguir a sequência, dependências, gates e regras
 estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**INTEGRAR O PR #13 DA ETAPA 2.0.9 — TESTES INICIAIS.**
+**ETAPA 2.0.10 — GITHUB ACTIONS.**

@@ -7,7 +7,7 @@
 **Fase anterior:** Fase 1 — Fundação e Banco de Dados
 **Status da Fase 1:** Concluída e certificada
 **Fase atual:** Fase 2 — Backend, API e Integrações
-**Status atual:** Em execução — etapas 2.0.1 a 2.0.8 concluídas e certificadas
+**Status atual:** Em execução — etapas 2.0.1 a 2.0.9 concluídas e certificadas
 **Marco inicial:** `phase-1-final-2026-08-18`
 
 **Branch inicial:** `feature/fase-2-backend-api`
@@ -913,8 +913,8 @@ A próxima atividade do WMA Travel ERP será:
 
 **ETAPA 2.0.9 — TESTES INICIAIS**
 
-As etapas 2.0.1 a 2.0.8 da arquitetura e fundação do backend estão concluídas, certificadas e integradas à
-`main`. A execução deve continuar na ordem definida neste roadmap, sem antecipar a etapa 2.0.10.
+As etapas 2.0.1 a 2.0.9 da arquitetura e fundação do backend estão concluídas, certificadas e integradas à
+`main`. A execução deve continuar na ordem definida neste roadmap.
 
 ---
 
@@ -939,7 +939,7 @@ As etapas 2.0.1 a 2.0.8 da arquitetura e fundação do backend estão concluída
 
 **ETAPA 2.0.9:** CONCLUÍDA E CERTIFICADA
 
-**PRÓXIMA AÇÃO:** integrar o PR #13 da etapa 2.0.9
+**PRÓXIMA ETAPA:** 2.0.10 — GitHub Actions
 
 ---
 
