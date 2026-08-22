@@ -1345,12 +1345,12 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 
 ### Declaração de Continuidade
 
-A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0.1 a 2.0.10 foram concluídas, certificadas e
-integradas à `main`. A etapa 2.0.11 foi concluída e certificada no PR #17 e aguarda integração.
+A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0.1 a 2.0.11 foram concluídas, certificadas e
+integradas à `main`. A etapa 2.0.11 foi integrada pelo PR #17 no commit `a04a2da`.
 
 O desenvolvimento deverá seguir a sequência, dependências, gates e regras
 estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**INTEGRAR O PR #17 E INICIAR A ETAPA 2.1.1 — INVENTÁRIO DO CORE CORPORATIVO.**
+**ETAPA 2.1.1 — INVENTÁRIO DO CORE CORPORATIVO.**
