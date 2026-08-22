@@ -10,7 +10,7 @@
 
 **Data:** 22/08/2026
 
-**Status:** APROVADA EM WINDOWS E POSTGRESQL REAL; CI PENDENTE
+**Status:** APROVADA E CERTIFICADA
 
 ## 1. Objetivo
 
@@ -51,6 +51,9 @@ git diff --check ......................... OK
 A integração foi executada contra a imagem oficial `postgres:18`, em contêiner temporário sem volume, banco
 `wma_phase2_test` e porta local exclusiva. O contêiner foi removido após a validação.
 
+O workflow Linux do PR #13 foi aprovado na execução `32576223576`, confirmando dependências, lint, tipagem,
+suíte rápida, cobertura e árvore Alembic em Python 3.13.
+
 ## 5. Gate
 
 ```text
@@ -65,12 +68,12 @@ Alembic e migrations ..................... OK
 Arquitetura modular ...................... OK
 Cobertura automatizada ................... OK (100%)
 Validação Windows ........................ OK
-Validação Linux/CI ....................... PENDENTE
+Validação Linux/CI ....................... OK
 ```
 
 ## 6. Resultado
 
-**ETAPA 2.0.9 — TESTES INICIAIS: APROVADA LOCALMENTE; CERTIFICAÇÃO DEFINITIVA PENDENTE**
+**ETAPA 2.0.9 — TESTES INICIAIS: APROVADA E CERTIFICADA**
 
-Todos os contratos da etapa foram aprovados no ambiente Windows e a integração PostgreSQL real foi confirmada.
-O gate definitivo depende apenas do workflow Linux/CI do futuro pull request.
+Todos os contratos da etapa foram aprovados em Windows e Linux/CI, e a integração PostgreSQL real foi confirmada
+em ambiente local descartável. O PR #13 pode seguir para integração antes do início da etapa 2.0.10.

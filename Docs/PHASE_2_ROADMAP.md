@@ -937,9 +937,9 @@ As etapas 2.0.1 a 2.0.8 da arquitetura e fundação do backend estão concluída
 
 **ETAPA 2.0.8:** CONCLUÍDA E CERTIFICADA
 
-**ETAPA 2.0.9:** APROVADA LOCALMENTE; CI PENDENTE
+**ETAPA 2.0.9:** CONCLUÍDA E CERTIFICADA
 
-**PRÓXIMA AÇÃO:** concluir o gate da 2.0.9 no CI
+**PRÓXIMA AÇÃO:** integrar o PR #13 da etapa 2.0.9
 
 ---
 

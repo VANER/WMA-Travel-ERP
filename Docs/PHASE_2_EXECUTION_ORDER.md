@@ -456,7 +456,7 @@ Implementar testes para:
 
 #### Gate 2.0.9
 
-**TESTES DA FUNDAÇÃO: APROVADOS EM WINDOWS E POSTGRESQL REAL; CI PENDENTE**
+**TESTES DA FUNDAÇÃO: APROVADOS E CERTIFICADOS**
 
 Certificação: `Docs/certification/PHASE_2_0_9_INITIAL_TESTS_CERTIFICATION.md`.
 
@@ -1327,8 +1327,8 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 | Etapa 2.0.6 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.0.7 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.0.8 | **CONCLUÍDA E CERTIFICADA** |
-| Etapa 2.0.9 | **APROVADA LOCALMENTE; CI PENDENTE** |
-| Próxima execução | **Concluir o gate da 2.0.9 no CI** |
+| Etapa 2.0.9 | **CONCLUÍDA E CERTIFICADA** |
+| Próxima execução | **Integrar o PR #13 da 2.0.9** |
 
 ---
 
@@ -1342,4 +1342,4 @@ estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**CONCLUIR O GATE DA ETAPA 2.0.9 — TESTES INICIAIS.**
+**INTEGRAR O PR #13 DA ETAPA 2.0.9 — TESTES INICIAIS.**

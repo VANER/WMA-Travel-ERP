@@ -59,7 +59,7 @@ Este manual contempla:
 
 O estado oficial de execução está consolidado em `PHASE_2_EXECUTION_ORDER.md`. A Fase 1 está concluída e
 certificada; a Fase 2 está em execução, com as etapas 2.0.1 a 2.0.8 concluídas, certificadas e integradas. A
-etapa 2.0.9 — Testes Iniciais está em execução.
+etapa 2.0.9 — Testes Iniciais está concluída e certificada no PR #13, aguardando integração.
 
 ---
 
