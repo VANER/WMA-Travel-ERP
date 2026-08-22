@@ -214,7 +214,11 @@ Validação local e Linux aprovadas. Certificação:
 
 ### 2.0.11 — Certificação da fundação
 
+**Status:** CONCLUÍDA E CERTIFICADA
+
 Auditar a arquitetura e todos os gates técnicos da etapa 2.0.
+
+Certificação: `Docs/certification/PHASE_2_0_11_FOUNDATION_CERTIFICATION.md`.
 
 #### Gate 2.0
 
@@ -946,7 +950,11 @@ As etapas 2.0.1 a 2.0.10 da arquitetura e fundação do backend estão concluíd
 
 **ETAPA 2.0.10:** CONCLUÍDA E CERTIFICADA
 
-**PRÓXIMA ETAPA:** 2.0.11 — Certificação da Fundação
+**ETAPA 2.0.11:** CONCLUÍDA E CERTIFICADA
+
+**FUNDAÇÃO BACKEND/API:** CERTIFICADA
+
+**PRÓXIMA ETAPA:** 2.1.1 — Inventário do Core Corporativo
 
 ---
 

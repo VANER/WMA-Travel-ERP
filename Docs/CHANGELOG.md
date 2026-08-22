@@ -6,6 +6,8 @@
 
 ### Adicionado
 
+- health check HTTP validado contra PostgreSQL 18 real e descartável na certificação da fundação 2.0.11;
+- regressão automatizada para o limite de conexão das migrations;
 - serviço PostgreSQL 18 descartável e teste real no pipeline da etapa 2.0.10;
 - gates de formatação, limite de execução e regressão da configuração do GitHub Actions;
 - teste de integração opt-in contra PostgreSQL local descartável para a etapa 2.0.9;
@@ -18,6 +20,10 @@
 - router principal versionado e tratamento padronizado de erros HTTP da etapa 2.0.7;
 - testes dos contratos `GET /health`, `GET /api/v1/health`, 404 e 405;
 - configuração e política Alembic da etapa 2.0.6, com proteção da baseline no autogenerate;
+
+### Alterado
+
+- Alembic alinhado ao timeout de conexão configurado pela aplicação.
 - convenções SQLAlchemy para nomes de constraints e índices;
 - testes da árvore de revisions e documentação de upgrade e downgrade;
 - integração PostgreSQL/SQLAlchemy da etapa 2.0.5 com pool explícito e pre-ping;

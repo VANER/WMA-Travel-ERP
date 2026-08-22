@@ -76,6 +76,9 @@ pytest --cov=app --cov-report=term-missing
 alembic heads
 ```
 
+As conexões online do Alembic respeitam `WMA_DATABASE_CONNECT_TIMEOUT`, evitando espera indefinida em falhas de
+rede ou resolução de host.
+
 Os testes rápidos não acessam um banco real. A integração PostgreSQL é opt-in e aceita somente uma URL local cujo
 nome do banco termine em `_test`:
 
