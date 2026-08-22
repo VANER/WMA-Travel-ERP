@@ -48,6 +48,8 @@ A conclusão documental deste conjunto autoriza a certificação da ETAPA
 2.0.1. A criação do backend real pertence à ETAPA 2.0.2 e deverá seguir
 estas decisões.
 
-## Próxima etapa
+## Continuidade da execução
 
-**ETAPA 2.0.2 --- Bootstrap do Backend**
+A etapa 2.0.2 — Estrutura do Backend foi concluída e certificada após estas decisões. O status corrente da Fase 2
+é mantido em `../PHASE_2_EXECUTION_ORDER.md`; as etapas 2.0.1 a 2.0.8 estão concluídas e a próxima etapa é a
+2.0.9 — Testes Iniciais.

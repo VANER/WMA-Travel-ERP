@@ -49,6 +49,10 @@
 
 **Status:** INICIADA EM 18/08/2026
 
+**Progresso:** etapas 2.0.1 a 2.0.8 concluídas, certificadas e integradas
+
+**Próxima etapa:** 2.0.9 — Testes Iniciais
+
 **Branch inicial:** `feature/fase-2-backend-api`
 
 **Fundação imutável:** tag `phase-1-final-2026-08-18`
@@ -57,8 +61,8 @@ A Fase 2 utilizará a baseline certificada como fundação para o desenvolviment
 das camadas de aplicação e integração.
 
 **Versão do Documento:** 1.0.0
-**Última Atualização:** 18/08/2026
-**Status:** Fase 1 Encerrada; Fase 2 em Planejamento
+**Última Atualização:** 22/08/2026
+**Status:** Fase 1 encerrada; Fase 2 em execução
 
 ---
 

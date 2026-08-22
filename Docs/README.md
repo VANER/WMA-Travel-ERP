@@ -8,7 +8,11 @@
 **Data da certificação:** 17/08/2026
 **PostgreSQL:** 18.4
 **Baseline certificada:** `d63800e`
-**Próxima fase:** Fase 2 — Backend e API
+**Fase atual:** Fase 2 — Backend e API
+
+**Progresso da Fase 2:** etapas 2.0.1 a 2.0.8 concluídas, certificadas e integradas
+
+**Próxima etapa:** 2.0.9 — Testes Iniciais
 
 A Fase 1 do WMA Travel ERP foi formalmente concluída após a validação da
 fundação do banco de dados, incluindo auditoria estrutural, reconstrução
@@ -28,6 +32,28 @@ Documentos de referência:
 - `Docs/PHASE_1_TO_PHASE_2_TRANSITION.md`
 - `Docs/RELATORIO_FASE_1.md`
 - `Docs/PHASE_2_ROADMAP.md`
+- `Docs/PHASE_2_EXECUTION_ORDER.md`
+
+## Progresso das fases
+
+| Fase | Escopo | Status |
+| --- | --- | --- |
+| Fase 1 | Fundação e Banco de Dados | **CONCLUÍDA E CERTIFICADA** |
+| Fase 2 | Backend, API e Integrações | **EM EXECUÇÃO** |
+
+### Etapas concluídas da Fase 2
+
+| Etapa | Entrega | Status |
+| --- | --- | --- |
+| 2.0.1 | Definição da Arquitetura Tecnológica | **CONCLUÍDA E CERTIFICADA** |
+| 2.0.2 | Estrutura do Backend | **CONCLUÍDA E CERTIFICADA** |
+| 2.0.3 | Estrutura Modular do Backend | **CONCLUÍDA E CERTIFICADA** |
+| 2.0.4 | Configuração do Backend | **CONCLUÍDA E CERTIFICADA** |
+| 2.0.5 | PostgreSQL e SQLAlchemy | **CONCLUÍDA E CERTIFICADA** |
+| 2.0.6 | Alembic e Migrations | **CONCLUÍDA E CERTIFICADA** |
+| 2.0.7 | API Base | **CONCLUÍDA E CERTIFICADA** |
+| 2.0.8 | OpenAPI | **CONCLUÍDA E CERTIFICADA** |
+| 2.0.9 | Testes Iniciais | **PRÓXIMA ETAPA** |
 
 > Plataforma Corporativa Integrada de Gestão Empresarial para Turismo, Serviços e Inteligência de Negócios.
 
