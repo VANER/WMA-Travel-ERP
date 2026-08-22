@@ -464,6 +464,8 @@ Certificação: `Docs/certification/PHASE_2_0_9_INITIAL_TESTS_CERTIFICATION.md`.
 
 ### 2.0.10 — GitHub Actions
 
+**Status:** EM EXECUÇÃO
+
 Automatizar:
 
 - lint;
@@ -474,7 +476,9 @@ Automatizar:
 
 #### Gate 2.0.10
 
-**CI: OPERACIONAL**
+**CI: IMPLEMENTADA E APROVADA LOCALMENTE — VALIDAÇÃO CI PENDENTE**
+
+Certificação preliminar: `Docs/certification/PHASE_2_0_10_GITHUB_ACTIONS_CERTIFICATION.md`.
 
 ---
 

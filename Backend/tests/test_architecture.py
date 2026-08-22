@@ -24,9 +24,7 @@ def _imported_modules(node: ast.Import | ast.ImportFrom, package: str) -> set[st
 def _has_forbidden_domain_import(source: str, package: str, domain: str) -> bool:
     """Informa se o código importa diretamente a implementação de outro domínio."""
     forbidden_prefixes = {
-        f"app.modules.{other_domain}"
-        for other_domain in DOMAIN_NAMES
-        if other_domain != domain
+        f"app.modules.{other_domain}" for other_domain in DOMAIN_NAMES if other_domain != domain
     }
 
     for node in ast.walk(ast.parse(source)):

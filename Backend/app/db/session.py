@@ -58,8 +58,6 @@ def database_is_available(db_engine: Engine = engine) -> bool:
         with db_engine.connect() as connection:
             connection.execute(text("SELECT 1"))
     except SQLAlchemyError as exc:
-        logger.warning(
-            "PostgreSQL indisponível", extra={"exception_type": type(exc).__name__}
-        )
+        logger.warning("PostgreSQL indisponível", extra={"exception_type": type(exc).__name__})
         return False
     return True

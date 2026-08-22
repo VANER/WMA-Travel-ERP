@@ -87,6 +87,10 @@ python -m pytest -W error --run-postgresql tests/integration/test_postgresql.py
 O teste executa apenas consultas de leitura e não cria, remove ou altera objetos. O banco descartável deve ser
 preparado previamente pelo operador.
 
+No GitHub Actions, a suíte completa usa um serviço efêmero `postgres:18`, sem volume persistente. O workflow
+executa verificação de dependências, lint, formato, tipagem, testes rápidos e de integração, cobertura mínima e
+validação da árvore Alembic.
+
 Para atualizar os locks após uma mudança intencional de dependências:
 
 ```powershell

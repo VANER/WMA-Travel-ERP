@@ -200,12 +200,16 @@ Implementar testes para aplicação, configuração, API, PostgreSQL e migration
 
 ### 2.0.10 — GitHub Actions
 
+**Status:** EM EXECUÇÃO
+
 Configurar:
 
 - lint;
 - type checking;
 - testes;
 - validação de migrations.
+
+Validação local aprovada; certificação Linux pendente no pull request da etapa.
 
 ### 2.0.11 — Certificação da fundação
 

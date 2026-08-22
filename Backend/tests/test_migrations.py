@@ -37,9 +37,7 @@ def test_autogenerate_preserves_unmapped_baseline_tables() -> None:
 
 
 def test_revision_template_requires_upgrade_and_downgrade() -> None:
-    template = (BACKEND_ROOT / "migrations" / "script.py.mako").read_text(
-        encoding="utf-8"
-    )
+    template = (BACKEND_ROOT / "migrations" / "script.py.mako").read_text(encoding="utf-8")
 
     assert "def upgrade() -> None:" in template
     assert "def downgrade() -> None:" in template

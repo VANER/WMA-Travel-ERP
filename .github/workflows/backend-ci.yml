@@ -23,8 +23,24 @@ jobs:
   quality:
     name: Python 3.13
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     env:
-      WMA_DATABASE_URL: postgresql+psycopg://wma_test@localhost:5432/wma_test
+      WMA_DATABASE_URL: postgresql+psycopg://wma_test@localhost:5432/wma_phase2_test
+      WMA_TEST_DATABASE_URL: postgresql+psycopg://wma_test@localhost:5432/wma_phase2_test
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_DB: wma_phase2_test
+          POSTGRES_HOST_AUTH_METHOD: trust
+          POSTGRES_USER: wma_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U wma_test -d wma_phase2_test"
+          --health-interval 2s
+          --health-timeout 3s
+          --health-retries 20
     defaults:
       run:
         working-directory: Backend
@@ -53,11 +69,14 @@ jobs:
       - name: Executar lint
         run: ruff check .
 
+      - name: Verificar formatação
+        run: ruff format --check app tests
+
       - name: Verificar tipos
         run: mypy app tests
 
-      - name: Executar testes
-        run: pytest -W error --cov=app --cov-report=term-missing
+      - name: Executar testes rápidos e integração PostgreSQL
+        run: pytest -W error --run-postgresql --cov=app --cov-report=term-missing
 
       - name: Verificar árvore de migrations
         run: alembic heads
