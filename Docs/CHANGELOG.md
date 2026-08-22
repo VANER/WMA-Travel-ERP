@@ -6,6 +6,8 @@
 
 ### Adicionado
 
+- serviço PostgreSQL 18 descartável e teste real no pipeline da etapa 2.0.10;
+- gates de formatação, limite de execução e regressão da configuração do GitHub Actions;
 - teste de integração opt-in contra PostgreSQL local descartável para a etapa 2.0.9;
 - proteção que restringe a integração a hosts locais e bancos com sufixo `_test`;
 - certificação da etapa 2.0.9 com PostgreSQL 18 real descartável e validação Linux/CI;

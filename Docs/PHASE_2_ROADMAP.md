@@ -200,12 +200,17 @@ Implementar testes para aplicação, configuração, API, PostgreSQL e migration
 
 ### 2.0.10 — GitHub Actions
 
+**Status:** CONCLUÍDA E CERTIFICADA
+
 Configurar:
 
 - lint;
 - type checking;
 - testes;
 - validação de migrations.
+
+Validação local e Linux aprovadas. Certificação:
+`Docs/certification/PHASE_2_0_10_GITHUB_ACTIONS_CERTIFICATION.md`.
 
 ### 2.0.11 — Certificação da fundação
 
@@ -939,7 +944,9 @@ As etapas 2.0.1 a 2.0.9 da arquitetura e fundação do backend estão concluída
 
 **ETAPA 2.0.9:** CONCLUÍDA E CERTIFICADA
 
-**PRÓXIMA ETAPA:** 2.0.10 — GitHub Actions
+**ETAPA 2.0.10:** CONCLUÍDA E CERTIFICADA
+
+**PRÓXIMA ETAPA:** 2.0.11 — Certificação da Fundação
 
 ---
 
