@@ -42,3 +42,11 @@ def test_revision_template_requires_upgrade_and_downgrade() -> None:
     assert "def upgrade() -> None:" in template
     assert "def downgrade() -> None:" in template
     assert "down_revision: str | Sequence[str] | None" in template
+
+
+def test_online_migrations_use_the_configured_connection_timeout() -> None:
+    migration_environment = (BACKEND_ROOT / "migrations" / "env.py").read_text(encoding="utf-8")
+
+    assert 'connect_args={"connect_timeout": settings.database_connect_timeout}' in (
+        migration_environment
+    )

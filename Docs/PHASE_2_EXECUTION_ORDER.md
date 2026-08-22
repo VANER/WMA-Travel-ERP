@@ -484,6 +484,8 @@ Certificação: `Docs/certification/PHASE_2_0_10_GITHUB_ACTIONS_CERTIFICATION.md
 
 ### 2.0.11 — Certificação da Fundação
 
+**Status:** EM EXECUÇÃO
+
 Auditar:
 
 ```text
@@ -503,7 +505,9 @@ Documentação .............. OK
 
 #### Gate 2.0
 
-**FUNDAÇÃO BACKEND/API: CERTIFICADA**
+**FUNDAÇÃO BACKEND/API: APROVADA LOCALMENTE — VALIDAÇÃO CI PENDENTE**
+
+Certificação preliminar: `Docs/certification/PHASE_2_0_11_FOUNDATION_CERTIFICATION.md`.
 
 ---
 

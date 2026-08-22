@@ -214,6 +214,8 @@ Validação local e Linux aprovadas. Certificação:
 
 ### 2.0.11 — Certificação da fundação
 
+**Status:** EM EXECUÇÃO
+
 Auditar a arquitetura e todos os gates técnicos da etapa 2.0.
 
 #### Gate 2.0
