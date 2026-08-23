@@ -236,7 +236,13 @@ Certificação: `Docs/certification/PHASE_2_0_11_FOUNDATION_CERTIFICATION.md`.
 
 **Duração:** 3 semanas.
 
+**Status:** EM EXECUÇÃO — etapa 2.1.1 concluída e certificada
+
 Implementar serviços corporativos compartilhados.
+
+Inventário aprovado: `Docs/CORE_CORPORATE_INVENTORY.md`.
+
+Certificação: `Docs/certification/PHASE_2_1_1_CORE_INVENTORY_CERTIFICATION.md`.
 
 ### Escopo
 

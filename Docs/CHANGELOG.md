@@ -6,6 +6,7 @@
 
 ### Adicionado
 
+- inventário verificável das autoridades, dependências e fronteiras do Core Corporativo para a etapa 2.1.1;
 - health check HTTP validado contra PostgreSQL 18 real e descartável na certificação da fundação 2.0.11;
 - regressão automatizada para o limite de conexão das migrations;
 - serviço PostgreSQL 18 descartável e teste real no pipeline da etapa 2.0.10;
