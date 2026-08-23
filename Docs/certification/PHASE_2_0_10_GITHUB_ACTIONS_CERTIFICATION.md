@@ -63,6 +63,10 @@ O commit final do PR #15 foi aprovado na execução `32578163803`, e o merge na 
 `32578246572`, em Ubuntu e Python 3.13, com o serviço PostgreSQL 18 saudável e todos os gates obrigatórios
 concluídos.
 
+A auditoria corretiva do PR #19 ampliou o gate para formatar `migrations` e executar `alembic upgrade head` no
+PostgreSQL descartável. O PR passou na execução `32642028747` e o merge `e3c61ec` foi revalidado na `main` pela
+execução `32642096219`.
+
 ## 6. Resultado
 
 **ETAPA 2.0.10 — GITHUB ACTIONS: APROVADA E CERTIFICADA**
