@@ -71,6 +71,10 @@ O commit final do PR #17 foi aprovado na execução `32579081017`, e o merge na 
 `32579161344`, em Ubuntu, Python 3.13 e PostgreSQL 18, incluindo os 49 testes, o health check integrado, cobertura
 mínima, lint, tipagem e validação Alembic.
 
+A varredura final da fundação foi corrigida e integrada pelo PR #19 no commit `e3c61ec`. A execução pós-merge
+`32642096219` confirmou novamente todos os gates, incluindo a aplicação online da árvore Alembic no PostgreSQL 18
+descartável.
+
 ## 7. Resultado
 
 **FUNDAÇÃO BACKEND/API: APROVADA E CERTIFICADA**
