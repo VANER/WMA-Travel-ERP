@@ -83,5 +83,5 @@ Validação Linux/CI ........................ OK
 
 **ETAPA 2.0.8 — OPENAPI: APROVADA E CERTIFICADA**
 
-A implementação atende ao escopo funcional e foi validada integralmente em Windows e Linux/CI. O PR #11 pode
-seguir para revisão e integração antes do início da etapa 2.0.9.
+A implementação atende ao escopo funcional e foi validada integralmente em Windows e Linux/CI. O PR #11 foi
+integrado à `main` no commit `fa132f0` antes do início da etapa 2.0.9.

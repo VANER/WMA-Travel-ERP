@@ -24,9 +24,12 @@ def test_metadata_uses_database_naming_convention() -> None:
 def test_alembic_tree_is_linear_and_has_no_placeholder_revision() -> None:
     config = Config(BACKEND_ROOT / "alembic.ini")
     script = ScriptDirectory.from_config(config)
+    revisions = list(script.walk_revisions())
 
-    assert script.get_bases() == []
-    assert script.get_heads() == []
+    assert len(script.get_bases()) <= 1
+    assert len(script.get_heads()) <= 1
+    assert all(not isinstance(revision.down_revision, tuple) for revision in revisions)
+    assert all(len(revision.nextrev) <= 1 for revision in revisions)
 
 
 def test_autogenerate_preserves_unmapped_baseline_tables() -> None:

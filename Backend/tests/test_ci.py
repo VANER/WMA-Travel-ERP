@@ -33,10 +33,11 @@ def test_backend_workflow_runs_all_quality_gates() -> None:
     required_commands = {
         "python -m pip check",
         "ruff check .",
-        "ruff format --check app tests",
+        "ruff format --check app tests migrations",
         "mypy app tests",
         "pytest -W error --run-postgresql --cov=app --cov-report=term-missing",
         "alembic heads",
+        "alembic upgrade head",
     }
 
     for command in required_commands:

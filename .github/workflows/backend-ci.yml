@@ -70,7 +70,7 @@ jobs:
         run: ruff check .
 
       - name: Verificar formatação
-        run: ruff format --check app tests
+        run: ruff format --check app tests migrations
 
       - name: Verificar tipos
         run: mypy app tests
@@ -80,3 +80,6 @@ jobs:
 
       - name: Verificar árvore de migrations
         run: alembic heads
+
+      - name: Aplicar migrations no PostgreSQL descartável
+        run: alembic upgrade head

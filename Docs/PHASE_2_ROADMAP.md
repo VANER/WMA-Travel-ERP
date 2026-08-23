@@ -194,7 +194,7 @@ Validar:
 
 ### 2.0.9 — Testes iniciais
 
-**Status:** EM EXECUÇÃO
+**Status:** CONCLUÍDA E CERTIFICADA
 
 Implementar testes para aplicação, configuração, API, PostgreSQL e migrations.
 

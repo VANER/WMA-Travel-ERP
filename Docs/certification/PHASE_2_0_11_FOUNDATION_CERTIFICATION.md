@@ -67,8 +67,9 @@ Validação do novo commit no CI ........... OK
 
 ## 6. Evidência Linux
 
-O workflow do PR #17 foi aprovado na execução `32578966232`, em Ubuntu, Python 3.13 e PostgreSQL 18, incluindo os
-49 testes, o health check integrado, cobertura mínima, lint, tipagem e validação Alembic.
+O commit final do PR #17 foi aprovado na execução `32579081017`, e o merge na `main` foi revalidado na execução
+`32579161344`, em Ubuntu, Python 3.13 e PostgreSQL 18, incluindo os 49 testes, o health check integrado, cobertura
+mínima, lint, tipagem e validação Alembic.
 
 ## 7. Resultado
 
