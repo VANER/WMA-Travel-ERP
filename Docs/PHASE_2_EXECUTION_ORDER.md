@@ -517,7 +517,7 @@ Certificação: `Docs/certification/PHASE_2_0_11_FOUNDATION_CERTIFICATION.md`.
 
 ### 2.1.1 — Inventário
 
-**Status:** EM EXECUÇÃO
+**Status:** CONCLUÍDA E CERTIFICADA
 
 Mapear estruturas existentes relacionadas a:
 
@@ -531,7 +531,7 @@ Mapear estruturas existentes relacionadas a:
 
 Inventário: `Docs/CORE_CORPORATE_INVENTORY.md`.
 
-Certificação preliminar: `Docs/certification/PHASE_2_1_1_CORE_INVENTORY_CERTIFICATION.md`.
+Certificação: `Docs/certification/PHASE_2_1_1_CORE_INVENTORY_CERTIFICATION.md`.
 
 ### 2.1.2 — Models
 

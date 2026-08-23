@@ -10,7 +10,7 @@
 
 **Data:** 23/08/2026
 
-**Status:** APROVADA LOCALMENTE — VALIDAÇÃO CI PENDENTE
+**Status:** APROVADA E CERTIFICADA
 
 ## 1. Objetivo
 
@@ -58,11 +58,17 @@ Relações estruturais verificadas ......... OK
 Duplicatas e projeções classificadas ..... OK
 Segurança não antecipada ................. OK
 Fronteira funcional definida ............. OK
-Validação Linux/CI ....................... PENDENTE
+Validação Linux/CI ....................... OK
 ```
 
-## 6. Resultado preliminar
+## 6. Evidência Linux
 
-**ETAPA 2.1.1 — INVENTÁRIO DO CORE CORPORATIVO: APROVADA LOCALMENTE**
+O workflow do PR #21 foi aprovado na execução `32644026107`, em Ubuntu, Python 3.13 e PostgreSQL 18, incluindo os
+53 testes, cobertura, lint, tipagem e aplicação da árvore Alembic.
 
-A certificação definitiva depende da aprovação do workflow Linux no pull request da etapa.
+## 7. Resultado
+
+**ETAPA 2.1.1 — INVENTÁRIO DO CORE CORPORATIVO: APROVADA E CERTIFICADA**
+
+O inventário está apto para integração após a auditoria final do PR #21. A próxima etapa autorizada após o merge
+é a 2.1.2 — Models.

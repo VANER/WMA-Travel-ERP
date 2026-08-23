@@ -8,7 +8,7 @@
 
 **Data do levantamento:** 23/08/2026
 
-**Status:** APROVADO LOCALMENTE — VALIDAÇÃO CI PENDENTE
+**Status:** APROVADO E CERTIFICADO
 
 ## 2. Objetivo e limites
 
@@ -153,4 +153,4 @@ etapa 2.1.2.
 - [x] duplicatas financeiras e projeções analíticas diferenciadas;
 - [x] inconsistências da baseline registradas sem alteração estrutural;
 - [x] nome e fronteira física do módulo funcional aprovados;
-- [ ] inventário validado e certificado no fluxo de entrega.
+- [x] inventário validado e certificado no fluxo de entrega.
