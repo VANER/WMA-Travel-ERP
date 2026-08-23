@@ -1345,7 +1345,8 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 | Etapa 2.0.10 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.0.11 | **CONCLUÍDA E CERTIFICADA** |
 | Fundação Backend/API | **CERTIFICADA** |
-| Próxima execução | **2.1.1 — Inventário do Core Corporativo** |
+| Etapa 2.1.1 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| Próxima execução | **2.1.2 — Models do Core Corporativo** |
 
 ---
 
@@ -1359,4 +1360,4 @@ estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**ETAPA 2.1.1 — INVENTÁRIO DO CORE CORPORATIVO.**
+**ETAPA 2.1.2 — MODELS DO CORE CORPORATIVO.**

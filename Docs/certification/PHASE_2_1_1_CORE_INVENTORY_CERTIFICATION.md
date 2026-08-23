@@ -70,5 +70,5 @@ O workflow do PR #21 foi aprovado na execução `32644026107`, em Ubuntu, Python
 
 **ETAPA 2.1.1 — INVENTÁRIO DO CORE CORPORATIVO: APROVADA E CERTIFICADA**
 
-O inventário está apto para integração após a auditoria final do PR #21. A próxima etapa autorizada após o merge
-é a 2.1.2 — Models.
+O inventário foi integrado à `main` pelo PR #21 no commit `819f651`. A execução pós-merge `32644242835` confirmou
+novamente todos os gates. A próxima etapa autorizada é a 2.1.2 — Models.
