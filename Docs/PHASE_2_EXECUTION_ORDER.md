@@ -443,7 +443,7 @@ Certificação: `Docs/certification/PHASE_2_0_8_OPENAPI_CERTIFICATION.md`.
 
 ### 2.0.9 — Testes Iniciais
 
-**Status:** EM EXECUÇÃO
+**Status:** CONCLUÍDA E CERTIFICADA
 
 Implementar testes para:
 

@@ -79,4 +79,4 @@ O projeto está autorizado a avançar para a etapa 2.0.3 — Estrutura Modular d
 ## 7. Publicação
 
 Esta certificação, os lockfiles e as correções documentais compõem o fechamento publicado no PR #3. O merge
-somente deve ocorrer após a aprovação de todos os checks obrigatórios.
+foi concluído após a aprovação dos checks obrigatórios, no commit `ada8755` da `main`.

@@ -59,8 +59,9 @@ Validação Linux/GitHub Actions ........... OK
 
 ## 5. Evidência Linux
 
-O workflow do PR #15 foi aprovado na execução `32578044680`, em Ubuntu e Python 3.13, com o serviço PostgreSQL 18
-saudável e todos os gates obrigatórios concluídos.
+O commit final do PR #15 foi aprovado na execução `32578163803`, e o merge na `main` foi revalidado na execução
+`32578246572`, em Ubuntu e Python 3.13, com o serviço PostgreSQL 18 saudável e todos os gates obrigatórios
+concluídos.
 
 ## 6. Resultado
 

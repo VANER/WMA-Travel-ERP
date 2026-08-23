@@ -24,6 +24,9 @@
 ### Alterado
 
 - Alembic alinhado ao timeout de conexão configurado pela aplicação.
+- CI ampliado para formatar migrations e aplicar `alembic upgrade head` no PostgreSQL descartável.
+- gate da árvore Alembic preparado para futuras revisions lineares sem permitir branches ou merges.
+- status e evidências pós-merge das etapas 2.0.2, 2.0.8 a 2.0.11 reconciliados.
 - convenções SQLAlchemy para nomes de constraints e índices;
 - testes da árvore de revisions e documentação de upgrade e downgrade;
 - integração PostgreSQL/SQLAlchemy da etapa 2.0.5 com pool explícito e pre-ping;

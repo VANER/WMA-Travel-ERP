@@ -92,7 +92,7 @@ preparado previamente pelo operador.
 
 No GitHub Actions, a suíte completa usa um serviço efêmero `postgres:18`, sem volume persistente. O workflow
 executa verificação de dependências, lint, formato, tipagem, testes rápidos e de integração, cobertura mínima e
-validação da árvore Alembic.
+validação e aplicação da árvore Alembic no banco descartável.
 
 Para atualizar os locks após uma mudança intencional de dependências:
 
