@@ -6,6 +6,8 @@
 
 ### Adicionado
 
+- models SQLAlchemy das nove autoridades do Core Corporativo, com registro Alembic e testes de fidelidade;
+- validação de ausência de diferenças entre os models 2.1.2 e uma restauração descartável da baseline;
 - inventário verificável das autoridades, dependências e fronteiras do Core Corporativo para a etapa 2.1.1;
 - health check HTTP validado contra PostgreSQL 18 real e descartável na certificação da fundação 2.0.11;
 - regressão automatizada para o limite de conexão das migrations;

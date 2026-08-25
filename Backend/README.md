@@ -60,9 +60,12 @@ O contrato OpenAPI 3.1 está disponível em `/openapi.json`, com interfaces Swag
 
 ## Estrutura modular
 
-O código funcional é organizado por domínio em `app/modules/`: `comercial`, `financeiro`, `turismo`, `biketour`
-e `fiscal`. Adaptadores externos pertencem a `app/integrations/`; somente recursos comprovadamente transversais
-pertencem a `app/shared/`.
+O código funcional é organizado por domínio em `app/modules/`: `comercial`, `financeiro`, `turismo`, `biketour`,
+`fiscal` e `corporativo`. Adaptadores externos pertencem a `app/integrations/`; somente recursos comprovadamente
+transversais pertencem a `app/shared/`.
+
+Os models do Core Corporativo refletem a baseline em `app/modules/corporativo/models.py` e são registrados para o
+Alembic por `app/db/models.py`. Consulte `Docs/CORE_MODELS.md` antes de ampliar esse mapeamento.
 
 Um teste arquitetural impede imports diretos entre implementações internas dos domínios. A comunicação deverá
 usar interfaces, serviços ou contratos internos explícitos quando os casos de uso forem implementados.
