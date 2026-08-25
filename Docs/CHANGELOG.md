@@ -44,6 +44,7 @@
 
 ### Alterado
 
+- status documentais das etapas 2.1.1 a 2.1.8 uniformizados após integração na `main`;
 - referências correntes que ainda apontavam para etapas 2.0 já concluídas e versões mínimas anteriores da stack;
 - reconciliação documental da fundação 2.0 com o estado certificado e integrado da `main`;
 - Alembic alinhado ao timeout de conexão configurado pela aplicação.
