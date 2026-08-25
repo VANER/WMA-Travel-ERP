@@ -10,9 +10,9 @@
 **Baseline certificada:** `d63800e`
 **Fase atual:** Fase 2 — Backend e API
 
-**Progresso da Fase 2:** fundação 2.0 e etapa 2.1.1 concluídas, certificadas e integradas
+**Progresso da Fase 2:** fundação 2.0 e etapas 2.1.1 e 2.1.2 concluídas, certificadas e integradas
 
-**Próxima etapa:** 2.1.2 — Models do Core Corporativo
+**Próxima etapa:** 2.1.3 — Repositories do Core Corporativo
 
 A Fase 1 do WMA Travel ERP foi formalmente concluída após a validação da
 fundação do banco de dados, incluindo auditoria estrutural, reconstrução
@@ -57,12 +57,13 @@ Documentos de referência:
 | 2.0.10 | GitHub Actions | **CONCLUÍDA E CERTIFICADA** |
 | 2.0.11 | Certificação da Fundação | **CONCLUÍDA E CERTIFICADA** |
 | 2.1.1 | Inventário do Core Corporativo | **CONCLUÍDA E CERTIFICADA** |
+| 2.1.2 | Models do Core Corporativo | **CONCLUÍDA E CERTIFICADA** |
 
 > Plataforma Corporativa Integrada de Gestão Empresarial para Turismo, Serviços e Inteligência de Negócios.
 
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-blue)
 ![Version](https://img.shields.io/badge/version-1.0.0-green)
-![Database](https://img.shields.io/badge/database-PostgreSQL%2015+-blue)
+![Database](https://img.shields.io/badge/database-PostgreSQL%2018-blue)
 ![Backend](https://img.shields.io/badge/backend-FastAPI-orange)
 ![Frontend](https://img.shields.io/badge/frontend-React-blue)
 ![BI](https://img.shields.io/badge/BI-Power%20BI-yellow)
@@ -291,7 +292,7 @@ WMA Travel ERP
 
 Tecnologias utilizadas:
 
-- PostgreSQL 15+
+- PostgreSQL 18
 - PL/pgSQL
 - SQL
 - Modelagem Relacional
@@ -306,7 +307,7 @@ Tecnologias utilizadas:
 
 Tecnologias utilizadas:
 
-- Python 3.12+
+- Python 3.13+
 - FastAPI
 - SQLAlchemy
 - Alembic
@@ -630,8 +631,8 @@ Responsável pela administração geral do sistema.
 
 Antes de iniciar a instalação do **WMA Travel ERP**, certifique-se de possuir:
 
-- PostgreSQL 15 ou superior;
-- Python 3.12 ou superior;
+- PostgreSQL 18;
+- Python 3.13 ou superior;
 - Node.js;
 - Flutter SDK;
 - Git;

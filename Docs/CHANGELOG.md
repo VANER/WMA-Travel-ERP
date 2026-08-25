@@ -8,6 +8,7 @@
 
 - models SQLAlchemy das nove autoridades do Core Corporativo, com registro Alembic e testes de fidelidade;
 - validação de ausência de diferenças entre os models 2.1.2 e uma restauração descartável da baseline;
+- evidência aditiva da reauditoria completa da fundação 2.0;
 - inventário verificável das autoridades, dependências e fronteiras do Core Corporativo para a etapa 2.1.1;
 - health check HTTP validado contra PostgreSQL 18 real e descartável na certificação da fundação 2.0.11;
 - regressão automatizada para o limite de conexão das migrations;
@@ -26,6 +27,8 @@
 
 ### Alterado
 
+- referências correntes que ainda apontavam para etapas 2.0 já concluídas e versões mínimas anteriores da stack;
+- reconciliação documental da fundação 2.0 com o estado certificado e integrado da `main`;
 - Alembic alinhado ao timeout de conexão configurado pela aplicação.
 - CI ampliado para formatar migrations e aplicar `alembic upgrade head` no PostgreSQL descartável.
 - gate da árvore Alembic preparado para futuras revisions lineares sem permitir branches ou merges.

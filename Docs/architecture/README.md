@@ -50,6 +50,6 @@ estas decisões.
 
 ## Continuidade da execução
 
-A etapa 2.0.2 — Estrutura do Backend foi concluída e certificada após estas decisões. O status corrente da Fase 2
-é mantido em `../PHASE_2_EXECUTION_ORDER.md`; as etapas 2.0.1 a 2.0.8 estão concluídas e a próxima etapa é a
-2.0.9 — Testes Iniciais.
+A fundação 2.0 foi concluída e certificada após estas decisões. O status corrente da Fase 2 é mantido em
+`../PHASE_2_EXECUTION_ORDER.md`; as etapas 2.1.1 e 2.1.2 também estão concluídas e a próxima etapa é a 2.1.3 —
+Repositories do Core Corporativo.

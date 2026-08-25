@@ -509,6 +509,8 @@ Documentação .............. OK
 
 Certificação: `Docs/certification/PHASE_2_0_11_FOUNDATION_CERTIFICATION.md`.
 
+Reauditoria: `Docs/certification/PHASE_2_0_FOUNDATION_REAUDIT_2026_08_25.md`.
+
 ---
 
 ## 5. ETAPA 2.1 — Core Corporativo
