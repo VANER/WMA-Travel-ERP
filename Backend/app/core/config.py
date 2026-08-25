@@ -3,7 +3,7 @@
 from functools import lru_cache
 from typing import Literal, Self
 
-from pydantic import Field, field_validator, model_validator
+from pydantic import Field, SecretStr, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from sqlalchemy.engine import make_url
 from sqlalchemy.exc import ArgumentError
@@ -26,6 +26,11 @@ class Settings(BaseSettings):
     database_pool_timeout: int = Field(default=30, ge=1, le=120)
     database_pool_recycle: int = Field(default=1800, ge=60, le=86400)
     database_connect_timeout: int = Field(default=5, ge=1, le=30)
+    token_signing_key: SecretStr = Field(repr=False, min_length=32)
+    token_issuer: str = Field(default="wma-travel-erp", min_length=1, max_length=100)
+    token_audience: str = Field(default="wma-travel-erp-api", min_length=1, max_length=100)
+    access_token_ttl_minutes: int = Field(default=15, ge=5, le=30)
+    refresh_token_ttl_days: int = Field(default=30, ge=1, le=90)
 
     @field_validator("database_url")
     @classmethod

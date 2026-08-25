@@ -27,6 +27,7 @@ jobs:
     env:
       WMA_DATABASE_URL: postgresql+psycopg://wma_test@localhost:5432/wma_phase2_test
       WMA_TEST_DATABASE_URL: postgresql+psycopg://wma_test@localhost:5432/wma_phase2_test
+      WMA_TOKEN_SIGNING_KEY: ci-only-signing-key-with-at-least-32-bytes
     services:
       postgres:
         image: postgres:18
@@ -80,6 +81,11 @@ jobs:
 
       - name: Verificar árvore de migrations
         run: alembic heads
+
+      - name: Restaurar baseline certificada
+        run: |
+          createuser --host localhost --username wma_test postgres
+          psql postgresql://wma_test@localhost:5432/wma_phase2_test -v ON_ERROR_STOP=1 -f ../Database/scripts/WmaTravelERP.sql
 
       - name: Aplicar migrations no PostgreSQL descartável
         run: alembic upgrade head

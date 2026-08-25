@@ -181,13 +181,17 @@ EXPECTED_REGISTERED_MODELS = {
     "Localidade",
     "ParametroSistema",
     "Pessoa",
+    "SessaoUsuario",
     "TipoDocumento",
     "Usuario",
 }
 
 
 def test_core_models_register_only_the_inventory_authorities() -> None:
-    table_names = {table.name for table in Base.metadata.tables.values() if table.name != "usuario"}
+    security_tables = {"usuario", "sessao_usuario"}
+    table_names = {
+        table.name for table in Base.metadata.tables.values() if table.name not in security_tables
+    }
 
     assert table_names == set(EXPECTED_COLUMNS)
     assert all(table.schema is None for table in Base.metadata.tables.values())

@@ -80,7 +80,7 @@ A API utiliza **JWT** (JSON Web Token) para autenticação de sessão, com:
 - Revogação de sessão em caso de comprometimento suspeito.
 
 A política de hash das credenciais humanas é definida em `CREDENTIAL_HASHING.md`. Implementação de tokens e
-sessões permanece condicionada às etapas específicas da Fase 2.
+sessões humanas, incluindo rotação e revogação, é definida em `TOKENS_AND_SESSIONS.md`.
 
 ---
 

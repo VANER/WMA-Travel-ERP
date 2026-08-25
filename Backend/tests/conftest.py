@@ -11,6 +11,7 @@ os.environ.setdefault(
     "WMA_DATABASE_URL",
     "postgresql+psycopg://wma_test@localhost:5432/wma_test",
 )
+os.environ.setdefault("WMA_TOKEN_SIGNING_KEY", "wma-test-signing-key-with-at-least-32-bytes")
 
 
 def pytest_addoption(parser: pytest.Parser) -> None:
