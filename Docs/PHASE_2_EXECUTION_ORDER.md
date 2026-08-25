@@ -587,7 +587,13 @@ Certificação: `Docs/certification/PHASE_2_1_6_CORE_API_CERTIFICATION.md`.
 
 ### 2.1.7 — Testes
 
+**Status:** CONCLUÍDA E CERTIFICADA
+
 Cobrir regras, banco e API.
+
+Plano de testes: `Docs/CORE_TESTS.md`.
+
+Certificação: `Docs/certification/PHASE_2_1_7_CORE_TESTS_CERTIFICATION.md`.
 
 ### 2.1.8 — Certificação
 
@@ -1383,7 +1389,8 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 | Etapa 2.1.4 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.1.5 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.1.6 | **CONCLUÍDA E CERTIFICADA** |
-| Próxima execução | **2.1.7 — Testes do Core Corporativo** |
+| Etapa 2.1.7 | **CONCLUÍDA E CERTIFICADA** |
+| Próxima execução | **2.1.8 — Certificação do Core Corporativo** |
 
 ---
 
@@ -1397,4 +1404,4 @@ estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**ETAPA 2.1.7 — TESTES DO CORE CORPORATIVO.**
+**ETAPA 2.1.8 — CERTIFICAÇÃO DO CORE CORPORATIVO.**
