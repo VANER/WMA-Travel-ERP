@@ -46,6 +46,39 @@ url = "https://files.pythonhosted.org/packages/da/35/f2287558c17e29fafc8ef3daf81
 sha256 = "9f505dda5ac9f0c8309b5e8bd445a8c2bf7246f3ce950121e45ea15bc41d1494"
 
 [[packages]]
+name = "argon2-cffi"
+version = "25.1.0"
+
+[[packages.wheels]]
+name = "argon2_cffi-25.1.0-py3-none-any.whl"
+url = "https://files.pythonhosted.org/packages/4f/d3/a8b22fa575b297cd6e3e3b0155c7e25db170edf1c74783d6a31a2490b8d9/argon2_cffi-25.1.0-py3-none-any.whl"
+
+[packages.wheels.hashes]
+sha256 = "fdc8b074db390fccb6eb4a3604ae7231f219aa669a2652e0f20e16ba513d5741"
+
+[[packages]]
+name = "argon2-cffi-bindings"
+version = "26.1.0"
+
+[[packages.wheels]]
+name = "argon2_cffi_bindings-26.1.0-cp310-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl"
+url = "https://files.pythonhosted.org/packages/6f/86/5363df11b86d02cf3662208e7406496327649cc90eb365bf6f4e8a54a41f/argon2_cffi_bindings-26.1.0-cp310-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl"
+
+[packages.wheels.hashes]
+sha256 = "27f1821903e2ceadcb88ec2b45ef190897b7682449c772f4d9b53e42c520cf29"
+
+[[packages]]
+name = "cffi"
+version = "2.1.1"
+
+[[packages.wheels]]
+name = "cffi-2.1.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl"
+url = "https://files.pythonhosted.org/packages/95/95/86342356ff5953b3fb06f7ef7c5bee212d45e770abc7218d451b9148313c/cffi-2.1.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl"
+
+[packages.wheels.hashes]
+sha256 = "a931079504ecc49efed7744c476a5c343a92fabf66dec2db95edb1b2fdc770e2"
+
+[[packages]]
 name = "click"
 version = "8.4.2"
 
@@ -253,6 +286,17 @@ url = "https://files.pythonhosted.org/packages/e7/38/205d10bc1ad0df4a21c5c516591
 
 [packages.wheels.hashes]
 sha256 = "c677c4ad433cb7150c8cd304a0769ae3bcfbe5ea0676eb53faa7b1443b16d0d3"
+
+[[packages]]
+name = "pycparser"
+version = "3.0"
+
+[[packages.wheels]]
+name = "pycparser-3.0-py3-none-any.whl"
+url = "https://files.pythonhosted.org/packages/0c/c3/44f3fbbfa403ea2a7c779186dc20772604442dde72947e7d01069cbe98e3/pycparser-3.0-py3-none-any.whl"
+
+[packages.wheels.hashes]
+sha256 = "b727414169a36b7d524c1c3e31839a521725078d7b2ff038656844266160a992"
 
 [[packages]]
 name = "pydantic"

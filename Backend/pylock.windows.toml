@@ -46,6 +46,39 @@ url = "https://files.pythonhosted.org/packages/da/35/f2287558c17e29fafc8ef3daf81
 sha256 = "9f505dda5ac9f0c8309b5e8bd445a8c2bf7246f3ce950121e45ea15bc41d1494"
 
 [[packages]]
+name = "argon2-cffi"
+version = "25.1.0"
+
+[[packages.wheels]]
+name = "argon2_cffi-25.1.0-py3-none-any.whl"
+url = "https://files.pythonhosted.org/packages/4f/d3/a8b22fa575b297cd6e3e3b0155c7e25db170edf1c74783d6a31a2490b8d9/argon2_cffi-25.1.0-py3-none-any.whl"
+
+[packages.wheels.hashes]
+sha256 = "fdc8b074db390fccb6eb4a3604ae7231f219aa669a2652e0f20e16ba513d5741"
+
+[[packages]]
+name = "argon2-cffi-bindings"
+version = "26.1.0"
+
+[[packages.wheels]]
+name = "argon2_cffi_bindings-26.1.0-cp310-abi3-win_amd64.whl"
+url = "https://files.pythonhosted.org/packages/6d/3a/0cc14a05810e6add9bce5e87693334baa2222de5f647fa31781885b6573f/argon2_cffi_bindings-26.1.0-cp310-abi3-win_amd64.whl"
+
+[packages.wheels.hashes]
+sha256 = "2c36ff87b5dfaa477d0bd51e9d7f6abdae7c8955d2983c97419085d842154b3e"
+
+[[packages]]
+name = "cffi"
+version = "2.1.1"
+
+[[packages.wheels]]
+name = "cffi-2.1.1-cp313-cp313-win_amd64.whl"
+url = "https://files.pythonhosted.org/packages/60/a6/8b149b2c3f2e11aaa1618ef64500b45f50f22c57a977a4dff1aff1f91042/cffi-2.1.1-cp313-cp313-win_amd64.whl"
+
+[packages.wheels.hashes]
+sha256 = "1aa5645c30469b09530c4ebca77ebf8f17618293c58f8549cb1a543a50236e7d"
+
+[[packages]]
 name = "click"
 version = "8.4.2"
 
@@ -264,6 +297,17 @@ url = "https://files.pythonhosted.org/packages/bd/3b/218efbc9e645becd80cdf651acd
 
 [packages.wheels.hashes]
 sha256 = "dbfdb9b6cc79f31104a7b162a2b921b765fcc62af6c00540a167a8de47e4ed38"
+
+[[packages]]
+name = "pycparser"
+version = "3.0"
+
+[[packages.wheels]]
+name = "pycparser-3.0-py3-none-any.whl"
+url = "https://files.pythonhosted.org/packages/0c/c3/44f3fbbfa403ea2a7c779186dc20772604442dde72947e7d01069cbe98e3/pycparser-3.0-py3-none-any.whl"
+
+[packages.wheels.hashes]
+sha256 = "b727414169a36b7d524c1c3e31839a521725078d7b2ff038656844266160a992"
 
 [[packages]]
 name = "pydantic"

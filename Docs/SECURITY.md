@@ -59,7 +59,7 @@ React, aplicativo Flutter e pipelines de CI/CD.
 | Dados em repouso | AES-256 |
 | Dados em trânsito | TLS 1.3 |
 | Autenticação de banco | SCRAM-SHA-256 |
-| Senhas de usuário | Hash com salt (bcrypt/argon2) |
+| Senhas de usuário | Argon2id com salt aleatório |
 
 ---
 
@@ -78,6 +78,9 @@ A API utiliza **JWT** (JSON Web Token) para autenticação de sessão, com:
 - Token de acesso de curta duração;
 - Refresh Token de longa duração, armazenado de forma segura;
 - Revogação de sessão em caso de comprometimento suspeito.
+
+A política de hash das credenciais humanas é definida em `CREDENTIAL_HASHING.md`. Implementação de tokens e
+sessões permanece condicionada às etapas específicas da Fase 2.
 
 ---
 

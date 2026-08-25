@@ -6,6 +6,9 @@
 
 ### Adicionado
 
+- política Argon2id explícita para geração, verificação e detecção de rehash de credenciais;
+- verificação fictícia para identidades ausentes ou hashes inválidos e limite de entrada contra abuso;
+- contrato e testes da etapa 2.2.3, sem antecipar persistência, tokens, sessões ou migrations;
 - orquestração da autenticação humana com falha uniforme e identidade mínima;
 - porta de verificação que reserva algoritmo e parâmetros de hash para decisão explícita posterior;
 - model somente leitura e consulta normalizada da autoridade `public.usuario`, sem migration;

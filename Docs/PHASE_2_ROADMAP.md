@@ -7,7 +7,7 @@
 **Fase anterior:** Fase 1 — Fundação e Banco de Dados
 **Status da Fase 1:** Concluída e certificada
 **Fase atual:** Fase 2 — Backend, API e Integrações
-**Status atual:** Em execução — etapa 2.2.2 certificada; próxima etapa 2.2.3
+**Status atual:** Em execução — etapa 2.2.3 implementada; certificação pendente
 **Marco inicial:** `phase-1-final-2026-08-18`
 
 **Branch inicial:** `feature/fase-2-backend-api`
@@ -291,7 +291,7 @@ Certificação: `Docs/certification/PHASE_2_1_5_CORE_SCHEMAS_CERTIFICATION.md`.
 
 **Duração:** 3 semanas.
 
-**Status:** EM EXECUÇÃO — etapa 2.2.2 certificada; próxima etapa 2.2.3
+**Status:** EM EXECUÇÃO — etapa 2.2.3 implementada; certificação pendente
 
 ### 2.2.1 — Inventário e Modelo de Identidade
 
@@ -310,6 +310,12 @@ Contrato: `Docs/AUTHENTICATION.md`.
 **Status:** CONCLUÍDA E CERTIFICADA
 
 Certificação: `Docs/certification/PHASE_2_2_2_AUTHENTICATION_CERTIFICATION.md`.
+
+### 2.2.3 — Hash de Credenciais
+
+Política e limites: `Docs/CREDENTIAL_HASHING.md`.
+
+**Status:** IMPLEMENTADA; CERTIFICAÇÃO PENDENTE
 
 ### Escopo
 
@@ -1015,7 +1021,7 @@ Acesso.
 
 **CORE CORPORATIVO 2.1:** CERTIFICADO
 
-**PRÓXIMA ETAPA:** 2.2.3 — Hash de Credenciais
+**ETAPA ATUAL:** 2.2.3 — Hash de Credenciais implementada; certificação pendente
 
 ---
 
