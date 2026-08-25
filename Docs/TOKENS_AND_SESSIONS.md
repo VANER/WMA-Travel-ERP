@@ -8,7 +8,7 @@
 
 **Data:** 25/08/2026
 
-**Status:** IMPLEMENTADA; CERTIFICAÇÃO PENDENTE
+**Status:** CONCLUÍDA E CERTIFICADA
 
 ## 2. Objetivo
 
@@ -78,4 +78,5 @@ As seguintes validações foram executadas em 25 de agosto de 2026:
 - Markdownlint nos documentos alterados: aprovado;
 - `git diff --check`: aprovado.
 
-A certificação formal permanece pendente até a execução do pipeline completo da pull request.
+A certificação formal está registrada em
+`Docs/certification/PHASE_2_2_4_TOKENS_SESSIONS_CERTIFICATION.md`.

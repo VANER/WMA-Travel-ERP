@@ -49,9 +49,9 @@
 
 **Status:** INICIADA EM 18/08/2026
 
-**Progresso:** fundação 2.0, Core Corporativo 2.1 e etapas 2.2.1 a 2.2.3 certificadas
+**Progresso:** fundação 2.0, Core Corporativo 2.1 e etapas 2.2.1 a 2.2.4 certificadas
 
-**Etapa atual:** 2.2.4 — Tokens e Sessões implementada; certificação pendente
+**Próxima etapa:** 2.2.5 — Perfis
 
 **Branch inicial:** `feature/fase-2-backend-api`
 
