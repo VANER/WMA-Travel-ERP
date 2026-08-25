@@ -597,6 +597,10 @@ Certificação: `Docs/certification/PHASE_2_1_7_CORE_TESTS_CERTIFICATION.md`.
 
 ### 2.1.8 — Certificação
 
+**Status:** CONCLUÍDA E CERTIFICADA
+
+Certificação consolidada: `Docs/certification/PHASE_2_1_CORE_CORPORATE_CERTIFICATION.md`.
+
 #### Gate 2.1
 
 **CORE CORPORATIVO: CERTIFICADO**
@@ -1390,7 +1394,9 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 | Etapa 2.1.5 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.1.6 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.1.7 | **CONCLUÍDA E CERTIFICADA** |
-| Próxima execução | **2.1.8 — Certificação do Core Corporativo** |
+| Etapa 2.1.8 | **CONCLUÍDA E CERTIFICADA** |
+| Core Corporativo 2.1 | **CERTIFICADO** |
+| Próxima execução | **2.2 — Segurança e Controle de Acesso** |
 
 ---
 
@@ -1404,4 +1410,4 @@ estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**ETAPA 2.1.8 — CERTIFICAÇÃO DO CORE CORPORATIVO.**
+**ETAPA 2.2 — SEGURANÇA E CONTROLE DE ACESSO.**

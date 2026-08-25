@@ -10,9 +10,9 @@
 **Baseline certificada:** `d63800e`
 **Fase atual:** Fase 2 — Backend e API
 
-**Progresso da Fase 2:** fundação 2.0 e etapas 2.1.1 a 2.1.7 concluídas e certificadas
+**Progresso da Fase 2:** fundação 2.0 e Core Corporativo 2.1 concluídos e certificados
 
-**Próxima etapa:** 2.1.8 — Certificação do Core Corporativo
+**Próxima etapa:** 2.2 — Segurança e Controle de Acesso
 
 A Fase 1 do WMA Travel ERP foi formalmente concluída após a validação da
 fundação do banco de dados, incluindo auditoria estrutural, reconstrução
@@ -63,6 +63,7 @@ Documentos de referência:
 | 2.1.5 | Schemas do Core Corporativo | **CONCLUÍDA E CERTIFICADA** |
 | 2.1.6 | API do Core Corporativo | **CONCLUÍDA E CERTIFICADA** |
 | 2.1.7 | Testes do Core Corporativo | **CONCLUÍDA E CERTIFICADA** |
+| 2.1.8 | Certificação do Core Corporativo | **CONCLUÍDA E CERTIFICADA** |
 
 > Plataforma Corporativa Integrada de Gestão Empresarial para Turismo, Serviços e Inteligência de Negócios.
 
