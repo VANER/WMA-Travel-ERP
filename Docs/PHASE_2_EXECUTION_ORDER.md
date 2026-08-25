@@ -587,7 +587,11 @@ Certificação: `Docs/certification/PHASE_2_1_6_CORE_API_CERTIFICATION.md`.
 
 ### 2.1.7 — Testes
 
+**Status:** EM VALIDAÇÃO
+
 Cobrir regras, banco e API.
+
+Plano de testes: `Docs/CORE_TESTS.md`.
 
 ### 2.1.8 — Certificação
 
