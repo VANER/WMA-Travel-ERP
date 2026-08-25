@@ -6,6 +6,9 @@
 
 ### Adicionado
 
+- inventário verificável das identidades humanas, técnicas e legadas para a etapa 2.2.1;
+- modelo conceitual de identidade e registro das lacunas estruturais anteriores à autenticação;
+- certificação da etapa 2.2.1 com validação completa no CI Linux/PostgreSQL;
 - certificação consolidada e encerramento formal do Core Corporativo 2.1;
 - fluxo ponta a ponta do Core Corporativo contra PostgreSQL descartável para a etapa 2.1.7;
 - plano verificável de testes das regras, persistência e API corporativas;

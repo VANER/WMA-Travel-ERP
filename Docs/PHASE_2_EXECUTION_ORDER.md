@@ -611,6 +611,24 @@ Certificação consolidada: `Docs/certification/PHASE_2_1_CORE_CORPORATE_CERTIFI
 
 **Dependência:** 2.0 e 2.1
 
+**Status:** EM EXECUÇÃO — etapa 2.2.1 concluída; próxima etapa 2.2.2
+
+### 2.2.1 — Inventário e Modelo de Identidade
+
+**Status:** CONCLUÍDA E CERTIFICADA
+
+Identificar autoridades humanas e técnicas, relações certificadas, duplicidades e lacunas antes da autenticação.
+
+Inventário: `Docs/SECURITY_IDENTITY_INVENTORY.md`.
+
+Certificação: `Docs/certification/PHASE_2_2_1_IDENTITY_INVENTORY_CERTIFICATION.md`.
+
+### 2.2.2 — Autenticação
+
+**Status:** PRÓXIMA ETAPA
+
+Implementar autenticação sem antecipar tokens, sessões ou autorização.
+
 ### Ordem
 
 1. modelo de identidade;
