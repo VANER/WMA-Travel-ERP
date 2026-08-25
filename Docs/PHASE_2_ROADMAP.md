@@ -7,7 +7,7 @@
 **Fase anterior:** Fase 1 — Fundação e Banco de Dados
 **Status da Fase 1:** Concluída e certificada
 **Fase atual:** Fase 2 — Backend, API e Integrações
-**Status atual:** Em execução — fundação 2.0 concluída, certificada e integrada
+**Status atual:** Em execução — fundação 2.0 e Core Corporativo 2.1 certificados; etapa 2.2.1 em validação
 **Marco inicial:** `phase-1-final-2026-08-18`
 
 **Branch inicial:** `feature/fase-2-backend-api`
@@ -290,6 +290,14 @@ Certificação: `Docs/certification/PHASE_2_1_5_CORE_SCHEMAS_CERTIFICATION.md`.
 ## 6. ETAPA 2.2 — Segurança e Controle de Acesso
 
 **Duração:** 3 semanas.
+
+**Status:** EM EXECUÇÃO — etapa 2.2.1
+
+### 2.2.1 — Inventário e Modelo de Identidade
+
+Identificar autoridades humanas, identidades técnicas, duplicidades e lacunas anteriores à autenticação.
+
+Inventário: `Docs/SECURITY_IDENTITY_INVENTORY.md`.
 
 ### Escopo
 
@@ -995,7 +1003,7 @@ Acesso.
 
 **CORE CORPORATIVO 2.1:** CERTIFICADO
 
-**PRÓXIMA ETAPA:** 2.2 — Segurança e Controle de Acesso
+**ETAPA ATUAL:** 2.2.1 — Inventário e Modelo de Identidade
 
 ---
 

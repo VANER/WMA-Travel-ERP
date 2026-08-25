@@ -59,7 +59,7 @@ Este manual contempla:
 
 O estado oficial de execução está consolidado em `PHASE_2_EXECUTION_ORDER.md`. A Fase 1 está concluída e
 certificada; a Fase 2 está em execução, com a fundação 2.0 e o Core Corporativo 2.1 concluídos e certificados.
-A próxima etapa é a 2.2 — Segurança e Controle de Acesso.
+A etapa 2.2 — Segurança e Controle de Acesso está em execução pela 2.2.1 — Inventário e Modelo de Identidade.
 
 ---
 

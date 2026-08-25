@@ -611,6 +611,16 @@ Certificação consolidada: `Docs/certification/PHASE_2_1_CORE_CORPORATE_CERTIFI
 
 **Dependência:** 2.0 e 2.1
 
+**Status:** EM EXECUÇÃO — etapa 2.2.1
+
+### 2.2.1 — Inventário e Modelo de Identidade
+
+**Status:** EM VALIDAÇÃO
+
+Identificar autoridades humanas e técnicas, relações certificadas, duplicidades e lacunas antes da autenticação.
+
+Inventário: `Docs/SECURITY_IDENTITY_INVENTORY.md`.
+
 ### Ordem
 
 1. modelo de identidade;
