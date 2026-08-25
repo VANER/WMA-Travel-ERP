@@ -51,7 +51,7 @@
 
 **Progresso:** fundação 2.0 e Core Corporativo 2.1 concluídos e certificados
 
-**Próxima etapa:** 2.2.2 — Autenticação
+**Etapa atual:** 2.2.2 — Autenticação implementada; certificação pendente
 
 **Branch inicial:** `feature/fase-2-backend-api`
 

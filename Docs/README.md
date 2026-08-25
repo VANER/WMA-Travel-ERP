@@ -12,7 +12,7 @@
 
 **Progresso da Fase 2:** fundação 2.0 e Core Corporativo 2.1 concluídos e certificados
 
-**Próxima etapa:** 2.2.2 — Autenticação
+**Etapa atual:** 2.2.2 — Autenticação implementada; certificação pendente
 
 A Fase 1 do WMA Travel ERP foi formalmente concluída após a validação da
 fundação do banco de dados, incluindo auditoria estrutural, reconstrução
