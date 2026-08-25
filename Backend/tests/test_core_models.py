@@ -172,13 +172,26 @@ REQUIRED_COLUMNS = {
     "parametro_sistema": {"id_parametro", "codigo", "created_at"},
 }
 
+EXPECTED_REGISTERED_MODELS = {
+    "Cliente",
+    "ConfiguracaoEmpresa",
+    "Documento",
+    "Empresa",
+    "Fornecedor",
+    "Localidade",
+    "ParametroSistema",
+    "Pessoa",
+    "TipoDocumento",
+    "Usuario",
+}
+
 
 def test_core_models_register_only_the_inventory_authorities() -> None:
-    table_names = {table.name for table in Base.metadata.tables.values()}
+    table_names = {table.name for table in Base.metadata.tables.values() if table.name != "usuario"}
 
     assert table_names == set(EXPECTED_COLUMNS)
     assert all(table.schema is None for table in Base.metadata.tables.values())
-    assert len(registered_models.__all__) == len(EXPECTED_COLUMNS)
+    assert set(registered_models.__all__) == EXPECTED_REGISTERED_MODELS
 
 
 def test_core_model_columns_and_nullability_match_the_baseline() -> None:
@@ -210,11 +223,13 @@ def test_core_models_preserve_historical_constraint_names() -> None:
     foreign_keys = {
         constraint.name
         for table in Base.metadata.tables.values()
+        if table.name in EXPECTED_COLUMNS
         for constraint in table.foreign_key_constraints
     }
     unique_constraints = {
         constraint.name
         for table in Base.metadata.tables.values()
+        if table.name in EXPECTED_COLUMNS
         for constraint in table.constraints
         if isinstance(constraint, UniqueConstraint)
     }

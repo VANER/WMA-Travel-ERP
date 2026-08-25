@@ -611,7 +611,7 @@ Certificação consolidada: `Docs/certification/PHASE_2_1_CORE_CORPORATE_CERTIFI
 
 **Dependência:** 2.0 e 2.1
 
-**Status:** EM EXECUÇÃO — etapa 2.2.1 concluída; próxima etapa 2.2.2
+**Status:** EM EXECUÇÃO — etapa 2.2.2 certificada; próxima etapa 2.2.3
 
 ### 2.2.1 — Inventário e Modelo de Identidade
 
@@ -625,9 +625,16 @@ Certificação: `Docs/certification/PHASE_2_2_1_IDENTITY_INVENTORY_CERTIFICATION
 
 ### 2.2.2 — Autenticação
 
-**Status:** PRÓXIMA ETAPA
+**Status:** CONCLUÍDA E CERTIFICADA
 
 Implementar autenticação sem antecipar tokens, sessões ou autorização.
+
+Contrato: `Docs/AUTHENTICATION.md`.
+
+Certificação: `Docs/certification/PHASE_2_2_2_AUTHENTICATION_CERTIFICATION.md`.
+
+Hash de credenciais, adaptador concreto, tokens, sessões e migrations permanecem reservados às decisões explícitas
+das etapas seguintes.
 
 ### Ordem
 
