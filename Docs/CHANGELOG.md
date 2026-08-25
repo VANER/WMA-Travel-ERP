@@ -6,6 +6,10 @@
 
 ### Adicionado
 
+- API versionada das nove autoridades corporativas, com 27 operações de consulta e cadastro;
+- paginação validada, respostas de conflito seguras e contratos corporativos publicados no OpenAPI;
+- testes HTTP e documentação do contrato da etapa 2.1.6;
+- certificação da etapa 2.1.6 com validação completa no CI Linux/PostgreSQL;
 - schemas Pydantic de entrada e saída para as nove autoridades corporativas;
 - testes de limites, defaults, campos administrados pelo servidor e conversão ORM da etapa 2.1.5;
 - certificação da etapa 2.1.5 com validação completa no CI Linux/PostgreSQL;

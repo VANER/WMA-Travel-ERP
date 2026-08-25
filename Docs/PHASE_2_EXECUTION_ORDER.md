@@ -577,7 +577,13 @@ Certificação: `Docs/certification/PHASE_2_1_5_CORE_SCHEMAS_CERTIFICATION.md`.
 
 ### 2.1.6 — API
 
+**Status:** CONCLUÍDA E CERTIFICADA
+
 Criar endpoints necessários.
+
+Contrato: `Docs/CORE_API.md`.
+
+Certificação: `Docs/certification/PHASE_2_1_6_CORE_API_CERTIFICATION.md`.
 
 ### 2.1.7 — Testes
 
@@ -1376,7 +1382,8 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 | Etapa 2.1.3 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.1.4 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.1.5 | **CONCLUÍDA E CERTIFICADA** |
-| Próxima execução | **2.1.6 — API do Core Corporativo** |
+| Etapa 2.1.6 | **CONCLUÍDA E CERTIFICADA** |
+| Próxima execução | **2.1.7 — Testes do Core Corporativo** |
 
 ---
 
@@ -1390,4 +1397,4 @@ estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**ETAPA 2.1.6 — API DO CORE CORPORATIVO.**
+**ETAPA 2.1.7 — TESTES DO CORE CORPORATIVO.**

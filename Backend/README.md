@@ -76,6 +76,10 @@ de uso atômico. Consulte `Docs/CORE_SERVICES.md` antes de adicionar regras ou o
 Os contratos Pydantic de entrada e saída ficam em `app/modules/corporativo/schemas.py`. Consulte
 `Docs/CORE_SCHEMAS.md` para os campos expostos, defaults e validações da etapa 2.1.5.
 
+As rotas versionadas do Core Corporativo ficam em `app/modules/corporativo/router.py` e expõem consulta,
+listagem paginada e cadastro para as nove autoridades. Consulte `Docs/CORE_API.md` para o contrato da etapa
+2.1.6.
+
 Um teste arquitetural impede imports diretos entre implementações internas dos domínios. A comunicação deverá
 usar interfaces, serviços ou contratos internos explícitos quando os casos de uso forem implementados.
 
