@@ -59,8 +59,8 @@ Este manual contempla:
 
 O estado oficial de execução está consolidado em `PHASE_2_EXECUTION_ORDER.md`. A Fase 1 está concluída e
 certificada; a Fase 2 está em execução, com a fundação 2.0 e o Core Corporativo 2.1 concluídos e certificados.
-A etapa 2.2 — Segurança e Controle de Acesso está em execução; as etapas 2.2.1 e 2.2.2 estão certificadas e a
-2.2.3 — Hash de Credenciais está implementada, aguardando certificação.
+A etapa 2.2 — Segurança e Controle de Acesso está em execução; as etapas 2.2.1, 2.2.2 e 2.2.3 estão certificadas,
+e a próxima etapa é a 2.2.4 — Tokens e Sessões.
 
 ---
 

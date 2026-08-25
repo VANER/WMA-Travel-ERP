@@ -611,7 +611,7 @@ Certificação consolidada: `Docs/certification/PHASE_2_1_CORE_CORPORATE_CERTIFI
 
 **Dependência:** 2.0 e 2.1
 
-**Status:** EM EXECUÇÃO — etapa 2.2.3 implementada; certificação pendente
+**Status:** EM EXECUÇÃO — etapa 2.2.3 certificada; próxima etapa 2.2.4
 
 ### 2.2.1 — Inventário e Modelo de Identidade
 
@@ -638,9 +638,11 @@ das etapas seguintes.
 
 ### 2.2.3 — Hash de Credenciais
 
-**Status:** IMPLEMENTADA; CERTIFICAÇÃO PENDENTE
+**Status:** CONCLUÍDA E CERTIFICADA
 
 Política e limites: `Docs/CREDENTIAL_HASHING.md`.
+
+Certificação: `Docs/certification/PHASE_2_2_3_CREDENTIAL_HASHING_CERTIFICATION.md`.
 
 ### Ordem
 
