@@ -4,7 +4,9 @@
 
 **Etapa:** 2.1.3 — Repositories do Core Corporativo
 
-**Status:** EM EXECUÇÃO
+**Status:** CONCLUÍDA E CERTIFICADA
+
+Certificação: `Docs/certification/PHASE_2_1_3_CORE_REPOSITORIES_CERTIFICATION.md`.
 
 Esta etapa implementa a persistência mínima dos nove models certificados na 2.1.2. Não inclui regras de negócio,
 schemas HTTP, endpoints ou decisões de exclusão lógica.

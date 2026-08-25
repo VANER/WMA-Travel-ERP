@@ -547,11 +547,13 @@ Certificação: `Docs/certification/PHASE_2_1_2_CORE_MODELS_CERTIFICATION.md`.
 
 ### 2.1.3 — Repositories
 
-**Status:** EM EXECUÇÃO
+**Status:** CONCLUÍDA E CERTIFICADA
 
 Implementar persistência do Core.
 
 Contrato: `Docs/CORE_REPOSITORIES.md`.
+
+Certificação: `Docs/certification/PHASE_2_1_3_CORE_REPOSITORIES_CERTIFICATION.md`.
 
 ### 2.1.4 — Services
 
@@ -1359,7 +1361,8 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 | Fundação Backend/API | **CERTIFICADA** |
 | Etapa 2.1.1 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Etapa 2.1.2 | **CONCLUÍDA E CERTIFICADA** |
-| Próxima execução | **2.1.3 — Repositories do Core Corporativo** |
+| Etapa 2.1.3 | **CONCLUÍDA E CERTIFICADA** |
+| Próxima execução | **2.1.4 — Services do Core Corporativo** |
 
 ---
 
@@ -1373,4 +1376,4 @@ estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**ETAPA 2.1.3 — REPOSITORIES DO CORE CORPORATIVO.**
+**ETAPA 2.1.4 — SERVICES DO CORE CORPORATIVO.**
