@@ -6,8 +6,8 @@ Estas instruções valem para todo o repositório.
 
 O projeto está na Fase 2 — Backend e API. A Fase 1 foi encerrada pela tag imutável
 `phase-1-final-2026-08-18`. O backend FastAPI está sendo criado incrementalmente em `Backend/`; as etapas 2.0.1 a
-2.0.11 e a etapa 2.1.1 estão integradas e certificadas; a etapa 2.1.2 — Models do Core Corporativo está em
-execução. Frontend React e
+2.0.11 e as etapas 2.1.1 e 2.1.2 estão integradas e certificadas; a próxima etapa é a 2.1.3 — Repositories do
+Core Corporativo. Frontend React e
 aplicativo Flutter continuam planejados e não devem ser antecipados sem escopo explícito.
 
 Nunca mova, recrie ou force a tag `phase-1-final-2026-08-18`. Não reescreva os dumps, scripts F1-FIN,

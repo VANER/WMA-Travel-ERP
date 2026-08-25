@@ -4,7 +4,9 @@
 
 **Etapa:** 2.1.2 — Models do Core Corporativo
 
-**Status:** EM EXECUÇÃO
+**Status:** CONCLUÍDA E CERTIFICADA
+
+Certificação: `Docs/certification/PHASE_2_1_2_CORE_MODELS_CERTIFICATION.md`.
 
 Os models refletem as nove autoridades aprovadas em `Docs/CORE_CORPORATE_INVENTORY.md`. Esta etapa não cria
 tabelas, migration, repository, service, schema HTTP ou endpoint.

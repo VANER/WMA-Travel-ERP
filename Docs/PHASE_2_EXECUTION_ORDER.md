@@ -535,11 +535,13 @@ Certificação: `Docs/certification/PHASE_2_1_1_CORE_INVENTORY_CERTIFICATION.md`
 
 ### 2.1.2 — Models
 
-**Status:** EM EXECUÇÃO
+**Status:** CONCLUÍDA E CERTIFICADA
 
 Mapear modelos existentes sem recriar a baseline.
 
 Mapeamento: `Docs/CORE_MODELS.md`.
+
+Certificação: `Docs/certification/PHASE_2_1_2_CORE_MODELS_CERTIFICATION.md`.
 
 ### 2.1.3 — Repositories
 
@@ -1350,7 +1352,8 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 | Etapa 2.0.11 | **CONCLUÍDA E CERTIFICADA** |
 | Fundação Backend/API | **CERTIFICADA** |
 | Etapa 2.1.1 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
-| Próxima execução | **2.1.2 — Models do Core Corporativo** |
+| Etapa 2.1.2 | **CONCLUÍDA E CERTIFICADA** |
+| Próxima execução | **2.1.3 — Repositories do Core Corporativo** |
 
 ---
 
@@ -1364,4 +1367,4 @@ estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**ETAPA 2.1.2 — MODELS DO CORE CORPORATIVO.**
+**ETAPA 2.1.3 — REPOSITORIES DO CORE CORPORATIVO.**
