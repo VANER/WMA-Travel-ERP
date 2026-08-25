@@ -8,6 +8,7 @@
 
 - fluxo ponta a ponta do Core Corporativo contra PostgreSQL descartável para a etapa 2.1.7;
 - plano verificável de testes das regras, persistência e API corporativas;
+- certificação da etapa 2.1.7 com execução integral no CI Linux/PostgreSQL;
 - API versionada das nove autoridades corporativas, com 27 operações de consulta e cadastro;
 - paginação validada, respostas de conflito seguras e contratos corporativos publicados no OpenAPI;
 - testes HTTP e documentação do contrato da etapa 2.1.6;
