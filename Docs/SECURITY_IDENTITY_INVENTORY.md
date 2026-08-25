@@ -8,7 +8,7 @@
 
 **Data do levantamento:** 25/08/2026
 
-**Status:** EM VALIDAÇÃO
+**Status:** APROVADO E CERTIFICADO
 
 ## 2. Objetivo e limites
 
