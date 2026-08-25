@@ -49,9 +49,9 @@
 
 **Status:** INICIADA EM 18/08/2026
 
-**Progresso:** fundação 2.0 e etapas 2.1.1 a 2.1.7 concluídas e certificadas
+**Progresso:** fundação 2.0 e Core Corporativo 2.1 concluídos e certificados
 
-**Próxima etapa:** 2.1.8 — Certificação do Core Corporativo
+**Próxima etapa:** 2.2 — Segurança e Controle de Acesso
 
 **Branch inicial:** `feature/fase-2-backend-api`
 

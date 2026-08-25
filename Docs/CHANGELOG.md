@@ -6,6 +6,7 @@
 
 ### Adicionado
 
+- certificação consolidada e encerramento formal do Core Corporativo 2.1;
 - fluxo ponta a ponta do Core Corporativo contra PostgreSQL descartável para a etapa 2.1.7;
 - plano verificável de testes das regras, persistência e API corporativas;
 - certificação da etapa 2.1.7 com execução integral no CI Linux/PostgreSQL;
