@@ -7,7 +7,7 @@ from app.modules.seguranca.repositories import UsuarioRepository
 
 
 class VerificadorCredencial(Protocol):
-    """Porta para a politica de hash a ser aprovada em etapa propria."""
+    """Porta consumida pela autenticacao para verificar credenciais."""
 
     def verificar(self, credencial: str, credencial_armazenada: str | None) -> bool:
         """Compara a credencial apresentada sem expor detalhes do armazenamento."""
