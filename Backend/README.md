@@ -70,6 +70,9 @@ Alembic por `app/db/models.py`. Consulte `Docs/CORE_MODELS.md` antes de ampliar 
 Os repositories corporativos ficam em `app/modules/corporativo/repositories.py`, recebem uma sessão explícita e
 nunca confirmam a transação autonomamente. Consulte `Docs/CORE_REPOSITORIES.md` para o contrato da etapa 2.1.3.
 
+Os services cadastrais ficam em `app/modules/corporativo/services.py` e controlam commit e rollback de cada caso
+de uso atômico. Consulte `Docs/CORE_SERVICES.md` antes de adicionar regras ou orquestrações.
+
 Um teste arquitetural impede imports diretos entre implementações internas dos domínios. A comunicação deverá
 usar interfaces, serviços ou contratos internos explícitos quando os casos de uso forem implementados.
 

@@ -557,7 +557,11 @@ Certificação: `Docs/certification/PHASE_2_1_3_CORE_REPOSITORIES_CERTIFICATION.
 
 ### 2.1.4 — Services
 
+**Status:** EM EXECUÇÃO
+
 Implementar regras corporativas.
+
+Contrato: `Docs/CORE_SERVICES.md`.
 
 ### 2.1.5 — Schemas
 
