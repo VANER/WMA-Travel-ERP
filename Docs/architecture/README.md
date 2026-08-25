@@ -51,5 +51,5 @@ estas decisões.
 ## Continuidade da execução
 
 A fundação 2.0 foi concluída e certificada após estas decisões. O status corrente da Fase 2 é mantido em
-`../PHASE_2_EXECUTION_ORDER.md`; as etapas 2.1.1 a 2.1.5 também estão concluídas e a próxima etapa é a 2.1.6 —
-API do Core Corporativo.
+`../PHASE_2_EXECUTION_ORDER.md`; as etapas 2.1.1 a 2.1.6 também estão concluídas e a próxima etapa é a 2.1.7 —
+Testes do Core Corporativo.
