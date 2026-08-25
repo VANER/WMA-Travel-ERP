@@ -56,14 +56,14 @@ Documentos de referência:
 | 2.0.9 | Testes Iniciais | **CONCLUÍDA E CERTIFICADA** |
 | 2.0.10 | GitHub Actions | **CONCLUÍDA E CERTIFICADA** |
 | 2.0.11 | Certificação da Fundação | **CONCLUÍDA E CERTIFICADA** |
-| 2.1.1 | Inventário do Core Corporativo | **CONCLUÍDA E CERTIFICADA** |
-| 2.1.2 | Models do Core Corporativo | **CONCLUÍDA E CERTIFICADA** |
-| 2.1.3 | Repositories do Core Corporativo | **CONCLUÍDA E CERTIFICADA** |
-| 2.1.4 | Services do Core Corporativo | **CONCLUÍDA E CERTIFICADA** |
-| 2.1.5 | Schemas do Core Corporativo | **CONCLUÍDA E CERTIFICADA** |
-| 2.1.6 | API do Core Corporativo | **CONCLUÍDA E CERTIFICADA** |
-| 2.1.7 | Testes do Core Corporativo | **CONCLUÍDA E CERTIFICADA** |
-| 2.1.8 | Certificação do Core Corporativo | **CONCLUÍDA E CERTIFICADA** |
+| 2.1.1 | Inventário do Core Corporativo | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| 2.1.2 | Models do Core Corporativo | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| 2.1.3 | Repositories do Core Corporativo | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| 2.1.4 | Services do Core Corporativo | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| 2.1.5 | Schemas do Core Corporativo | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| 2.1.6 | API do Core Corporativo | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| 2.1.7 | Testes do Core Corporativo | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| 2.1.8 | Certificação do Core Corporativo | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 
 > Plataforma Corporativa Integrada de Gestão Empresarial para Turismo, Serviços e Inteligência de Negócios.
 

@@ -519,7 +519,7 @@ Reauditoria: `Docs/certification/PHASE_2_0_FOUNDATION_REAUDIT_2026_08_25.md`.
 
 ### 2.1.1 — Inventário
 
-**Status:** CONCLUÍDA E CERTIFICADA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 Mapear estruturas existentes relacionadas a:
 
@@ -537,7 +537,7 @@ Certificação: `Docs/certification/PHASE_2_1_1_CORE_INVENTORY_CERTIFICATION.md`
 
 ### 2.1.2 — Models
 
-**Status:** CONCLUÍDA E CERTIFICADA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 Mapear modelos existentes sem recriar a baseline.
 
@@ -547,7 +547,7 @@ Certificação: `Docs/certification/PHASE_2_1_2_CORE_MODELS_CERTIFICATION.md`.
 
 ### 2.1.3 — Repositories
 
-**Status:** CONCLUÍDA E CERTIFICADA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 Implementar persistência do Core.
 
@@ -557,7 +557,7 @@ Certificação: `Docs/certification/PHASE_2_1_3_CORE_REPOSITORIES_CERTIFICATION.
 
 ### 2.1.4 — Services
 
-**Status:** CONCLUÍDA E CERTIFICADA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 Implementar regras corporativas.
 
@@ -567,7 +567,7 @@ Certificação: `Docs/certification/PHASE_2_1_4_CORE_SERVICES_CERTIFICATION.md`.
 
 ### 2.1.5 — Schemas
 
-**Status:** CONCLUÍDA E CERTIFICADA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 Implementar contratos de entrada e saída.
 
@@ -577,7 +577,7 @@ Certificação: `Docs/certification/PHASE_2_1_5_CORE_SCHEMAS_CERTIFICATION.md`.
 
 ### 2.1.6 — API
 
-**Status:** CONCLUÍDA E CERTIFICADA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 Criar endpoints necessários.
 
@@ -587,7 +587,7 @@ Certificação: `Docs/certification/PHASE_2_1_6_CORE_API_CERTIFICATION.md`.
 
 ### 2.1.7 — Testes
 
-**Status:** CONCLUÍDA E CERTIFICADA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 Cobrir regras, banco e API.
 
@@ -597,7 +597,7 @@ Certificação: `Docs/certification/PHASE_2_1_7_CORE_TESTS_CERTIFICATION.md`.
 
 ### 2.1.8 — Certificação
 
-**Status:** CONCLUÍDA E CERTIFICADA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 Certificação consolidada: `Docs/certification/PHASE_2_1_CORE_CORPORATE_CERTIFICATION.md`.
 
@@ -1388,13 +1388,13 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 | Etapa 2.0.11 | **CONCLUÍDA E CERTIFICADA** |
 | Fundação Backend/API | **CERTIFICADA** |
 | Etapa 2.1.1 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
-| Etapa 2.1.2 | **CONCLUÍDA E CERTIFICADA** |
-| Etapa 2.1.3 | **CONCLUÍDA E CERTIFICADA** |
-| Etapa 2.1.4 | **CONCLUÍDA E CERTIFICADA** |
-| Etapa 2.1.5 | **CONCLUÍDA E CERTIFICADA** |
-| Etapa 2.1.6 | **CONCLUÍDA E CERTIFICADA** |
-| Etapa 2.1.7 | **CONCLUÍDA E CERTIFICADA** |
-| Etapa 2.1.8 | **CONCLUÍDA E CERTIFICADA** |
+| Etapa 2.1.2 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| Etapa 2.1.3 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| Etapa 2.1.4 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| Etapa 2.1.5 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| Etapa 2.1.6 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| Etapa 2.1.7 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| Etapa 2.1.8 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Core Corporativo 2.1 | **CERTIFICADO** |
 | Próxima execução | **2.2 — Segurança e Controle de Acesso** |
 
