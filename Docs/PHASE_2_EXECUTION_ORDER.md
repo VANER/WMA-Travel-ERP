@@ -535,7 +535,11 @@ Certificação: `Docs/certification/PHASE_2_1_1_CORE_INVENTORY_CERTIFICATION.md`
 
 ### 2.1.2 — Models
 
+**Status:** EM EXECUÇÃO
+
 Mapear modelos existentes sem recriar a baseline.
+
+Mapeamento: `Docs/CORE_MODELS.md`.
 
 ### 2.1.3 — Repositories
 

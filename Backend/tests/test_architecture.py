@@ -6,7 +6,7 @@ from pathlib import Path
 
 APP_ROOT = Path(__file__).parents[1] / "app"
 MODULES_ROOT = APP_ROOT / "modules"
-DOMAIN_NAMES = {"biketour", "comercial", "financeiro", "fiscal", "turismo"}
+DOMAIN_NAMES = {"biketour", "comercial", "corporativo", "financeiro", "fiscal", "turismo"}
 
 
 def _imported_modules(node: ast.Import | ast.ImportFrom, package: str) -> set[str]:
