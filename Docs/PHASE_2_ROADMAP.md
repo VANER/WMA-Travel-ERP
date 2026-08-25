@@ -236,7 +236,7 @@ Certificação: `Docs/certification/PHASE_2_0_11_FOUNDATION_CERTIFICATION.md`.
 
 **Duração:** 3 semanas.
 
-**Status:** EM EXECUÇÃO — etapa 2.1.2 concluída; próxima etapa 2.1.3
+**Status:** EM EXECUÇÃO — etapa 2.1.3
 
 Implementar serviços corporativos compartilhados.
 
@@ -247,6 +247,8 @@ Certificação: `Docs/certification/PHASE_2_1_1_CORE_INVENTORY_CERTIFICATION.md`
 Models certificados: `Docs/CORE_MODELS.md`.
 
 Certificação: `Docs/certification/PHASE_2_1_2_CORE_MODELS_CERTIFICATION.md`.
+
+Repositories em implementação: `Docs/CORE_REPOSITORIES.md`.
 
 ### Escopo
 

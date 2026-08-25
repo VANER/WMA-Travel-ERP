@@ -547,7 +547,11 @@ Certificação: `Docs/certification/PHASE_2_1_2_CORE_MODELS_CERTIFICATION.md`.
 
 ### 2.1.3 — Repositories
 
+**Status:** EM EXECUÇÃO
+
 Implementar persistência do Core.
+
+Contrato: `Docs/CORE_REPOSITORIES.md`.
 
 ### 2.1.4 — Services
 

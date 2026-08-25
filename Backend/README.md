@@ -67,6 +67,9 @@ transversais pertencem a `app/shared/`.
 Os models do Core Corporativo refletem a baseline em `app/modules/corporativo/models.py` e são registrados para o
 Alembic por `app/db/models.py`. Consulte `Docs/CORE_MODELS.md` antes de ampliar esse mapeamento.
 
+Os repositories corporativos ficam em `app/modules/corporativo/repositories.py`, recebem uma sessão explícita e
+nunca confirmam a transação autonomamente. Consulte `Docs/CORE_REPOSITORIES.md` para o contrato da etapa 2.1.3.
+
 Um teste arquitetural impede imports diretos entre implementações internas dos domínios. A comunicação deverá
 usar interfaces, serviços ou contratos internos explícitos quando os casos de uso forem implementados.
 
