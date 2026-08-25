@@ -4,7 +4,9 @@
 
 **Etapa:** 2.1.5 — Schemas do Core Corporativo
 
-**Status:** EM EXECUÇÃO
+**Status:** CONCLUÍDA E CERTIFICADA
+
+Certificação: `Docs/certification/PHASE_2_1_5_CORE_SCHEMAS_CERTIFICATION.md`.
 
 Esta etapa define contratos Pydantic de entrada e saída para as nove autoridades corporativas. As classes não
 criam endpoints e não alteram models, banco ou migrations.

@@ -567,11 +567,13 @@ Certificação: `Docs/certification/PHASE_2_1_4_CORE_SERVICES_CERTIFICATION.md`.
 
 ### 2.1.5 — Schemas
 
-**Status:** EM EXECUÇÃO
+**Status:** CONCLUÍDA E CERTIFICADA
 
 Implementar contratos de entrada e saída.
 
 Contrato: `Docs/CORE_SCHEMAS.md`.
+
+Certificação: `Docs/certification/PHASE_2_1_5_CORE_SCHEMAS_CERTIFICATION.md`.
 
 ### 2.1.6 — API
 
@@ -1373,7 +1375,8 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 | Etapa 2.1.2 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.1.3 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.1.4 | **CONCLUÍDA E CERTIFICADA** |
-| Próxima execução | **2.1.5 — Schemas do Core Corporativo** |
+| Etapa 2.1.5 | **CONCLUÍDA E CERTIFICADA** |
+| Próxima execução | **2.1.6 — API do Core Corporativo** |
 
 ---
 
@@ -1387,4 +1390,4 @@ estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**ETAPA 2.1.5 — SCHEMAS DO CORE CORPORATIVO.**
+**ETAPA 2.1.6 — API DO CORE CORPORATIVO.**
