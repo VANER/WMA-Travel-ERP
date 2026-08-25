@@ -567,7 +567,11 @@ Certificação: `Docs/certification/PHASE_2_1_4_CORE_SERVICES_CERTIFICATION.md`.
 
 ### 2.1.5 — Schemas
 
+**Status:** EM EXECUÇÃO
+
 Implementar contratos de entrada e saída.
+
+Contrato: `Docs/CORE_SCHEMAS.md`.
 
 ### 2.1.6 — API
 

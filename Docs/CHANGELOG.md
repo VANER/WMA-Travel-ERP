@@ -6,6 +6,8 @@
 
 ### Adicionado
 
+- schemas Pydantic de entrada e saída para as nove autoridades corporativas;
+- testes de limites, defaults, campos administrados pelo servidor e conversão ORM da etapa 2.1.5;
 - services cadastrais das nove autoridades corporativas, com commit e rollback explícitos;
 - testes dos limites transacionais e da propagação de falhas da etapa 2.1.4;
 - certificação da etapa 2.1.4 com validação real na baseline e no CI Linux/PostgreSQL;

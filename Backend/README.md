@@ -73,6 +73,9 @@ nunca confirmam a transação autonomamente. Consulte `Docs/CORE_REPOSITORIES.md
 Os services cadastrais ficam em `app/modules/corporativo/services.py` e controlam commit e rollback de cada caso
 de uso atômico. Consulte `Docs/CORE_SERVICES.md` antes de adicionar regras ou orquestrações.
 
+Os contratos Pydantic de entrada e saída ficam em `app/modules/corporativo/schemas.py`. Consulte
+`Docs/CORE_SCHEMAS.md` para os campos expostos, defaults e validações da etapa 2.1.5.
+
 Um teste arquitetural impede imports diretos entre implementações internas dos domínios. A comunicação deverá
 usar interfaces, serviços ou contratos internos explícitos quando os casos de uso forem implementados.
 
