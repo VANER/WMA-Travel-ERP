@@ -59,8 +59,8 @@ Este manual contempla:
 
 O estado oficial de execução está consolidado em `PHASE_2_EXECUTION_ORDER.md`. A Fase 1 está concluída e
 certificada; a Fase 2 está em execução, com a fundação 2.0 e o Core Corporativo 2.1 concluídos e certificados.
-A etapa 2.2 — Segurança e Controle de Acesso está em execução; as etapas 2.2.1, 2.2.2 e 2.2.3 estão certificadas,
-e a próxima etapa é a 2.2.4 — Tokens e Sessões.
+A etapa 2.2 — Segurança e Controle de Acesso está em execução; as etapas 2.2.1 a 2.2.4 estão certificadas, e a
+próxima etapa é a 2.2.5 — Perfis.
 
 ---
 
@@ -137,6 +137,7 @@ WMA_TRAVEL_ERP/
 | SECURITY.md | Política de segurança |
 | AUTHENTICATION.md | Contrato e limites da autenticação humana 2.2.2 |
 | CREDENTIAL_HASHING.md | Política e limites do hash de credenciais 2.2.3 |
+| TOKENS_AND_SESSIONS.md | Política e limites de tokens e sessões humanas 2.2.4 |
 | STYLE_GUIDE.md | Padrões de desenvolvimento |
 | DBA_FRAMEWORK.md | Framework DBA |
 | PHASE_2_ROADMAP.md | Planejamento oficial da Fase 2 |

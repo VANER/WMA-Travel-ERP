@@ -11,7 +11,7 @@ from app.modules.corporativo.models import (
     Pessoa,
     TipoDocumento,
 )
-from app.modules.seguranca.models import Usuario
+from app.modules.seguranca.models import SessaoUsuario, Usuario
 
 __all__ = [
     "Cliente",
@@ -22,6 +22,7 @@ __all__ = [
     "Localidade",
     "ParametroSistema",
     "Pessoa",
+    "SessaoUsuario",
     "TipoDocumento",
     "Usuario",
 ]

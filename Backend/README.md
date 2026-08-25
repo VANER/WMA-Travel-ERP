@@ -34,6 +34,11 @@ As configurações usam o prefixo `WMA_` e são validadas na inicialização:
 | `WMA_DATABASE_POOL_TIMEOUT` | 1 a 120 segundos | Espera por uma conexão. Padrão: 30. |
 | `WMA_DATABASE_POOL_RECYCLE` | 60 a 86400 segundos | Renovação preventiva. Padrão: 1800. |
 | `WMA_DATABASE_CONNECT_TIMEOUT` | 1 a 30 segundos | Limite por tentativa de conexão. Padrão: 5. |
+| `WMA_TOKEN_SIGNING_KEY` | Segredo com 32 ou mais caracteres | Obrigatório, injetado por secret e oculto no `repr`. |
+| `WMA_TOKEN_ISSUER` | Texto não vazio | Emissor esperado nos access tokens. |
+| `WMA_TOKEN_AUDIENCE` | Texto não vazio | Audiência exclusiva da API. |
+| `WMA_ACCESS_TOKEN_TTL_MINUTES` | 5 a 30 minutos | Padrão: 15. |
+| `WMA_REFRESH_TOKEN_TTL_DAYS` | 1 a 90 dias | Padrão: 30. |
 
 O `.env` é destinado somente ao ambiente local e permanece ignorado pelo Git. Produção deve injetar variáveis
 por um mecanismo seguro de secrets compatível com a infraestrutura escolhida.
@@ -110,8 +115,8 @@ O teste executa apenas consultas de leitura e não cria, remove ou altera objeto
 preparado previamente pelo operador.
 
 No GitHub Actions, a suíte completa usa um serviço efêmero `postgres:18`, sem volume persistente. O workflow
-executa verificação de dependências, lint, formato, tipagem, testes rápidos e de integração, cobertura mínima e
-validação e aplicação da árvore Alembic no banco descartável.
+executa verificação de dependências, lint, formato, tipagem, testes rápidos e de integração, cobertura mínima,
+restaura o dump certificado e aplica a árvore Alembic no banco descartável.
 
 Para atualizar os locks após uma mudança intencional de dependências:
 

@@ -6,6 +6,9 @@
 
 ### Adicionado
 
+- access token JWT com algoritmo e claims fixos e refresh token opaco com rotação de uso único;
+- persistência auditável de sessões humanas com revogação por família e migration aditiva;
+- configuração segura, lockfiles, contrato e testes da etapa 2.2.4;
 - política Argon2id explícita para geração, verificação e detecção de rehash de credenciais;
 - verificação fictícia para identidades ausentes ou hashes inválidos e limite de entrada contra abuso;
 - contrato e testes da etapa 2.2.3, sem antecipar persistência, tokens, sessões ou migrations;

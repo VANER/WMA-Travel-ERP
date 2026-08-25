@@ -343,6 +343,17 @@ url = "https://files.pythonhosted.org/packages/71/46/17f022dd3e953bf20a04a028a21
 sha256 = "2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9"
 
 [[packages]]
+name = "pyjwt"
+version = "2.13.0"
+
+[[packages.wheels]]
+name = "pyjwt-2.13.0-py3-none-any.whl"
+url = "https://files.pythonhosted.org/packages/a3/5e/ecf12fdb62546d64385c158514e9b2b671f7832108ef2ecd2020ce0af2d1/pyjwt-2.13.0-py3-none-any.whl"
+
+[packages.wheels.hashes]
+sha256 = "66adcc2aff09b3f1bbd95fc1e1577df8ac8723c978552fd43304c8a290ac5728"
+
+[[packages]]
 name = "pytest"
 version = "9.1.1"
 
