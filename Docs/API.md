@@ -108,7 +108,7 @@ A API segue os seguintes padrões:
 
 | Tecnologia | Utilização |
 | ------------ | -------------- |
-| Python 3.12+ | Linguagem |
+| Python 3.13+ | Linguagem |
 | FastAPI | Framework REST |
 | SQLAlchemy | ORM |
 | Alembic | Migrações |
