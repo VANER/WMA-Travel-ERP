@@ -13,6 +13,7 @@
 - recusa explícita de identificador e credencial vazios na autenticação;
 - fidelidade do comentário de `public.usuario` comprovada por `alembic check` contra a baseline restaurada;
 - validação integral da etapa 2.2.2 em PostgreSQL 18 descartável, com 171 testes e cobertura total;
+- certificação da etapa 2.2.2 com validação completa no CI Linux/PostgreSQL;
 - inventário verificável das identidades humanas, técnicas e legadas para a etapa 2.2.1;
 - modelo conceitual de identidade e registro das lacunas estruturais anteriores à autenticação;
 - certificação da etapa 2.2.1 com validação completa no CI Linux/PostgreSQL;

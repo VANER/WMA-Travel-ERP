@@ -8,7 +8,7 @@
 
 **Data:** 25/08/2026
 
-**Status:** IMPLEMENTADA E VALIDADA LOCALMENTE; CERTIFICAÇÃO CI PENDENTE
+**Status:** APROVADA E CERTIFICADA
 
 ## 2. Objetivo
 
@@ -86,4 +86,8 @@ markdownlint dos documentos alterados .... OK
 git diff --check ......................... OK
 ```
 
-A certificação formal permanece condicionada à execução equivalente no CI Linux/PostgreSQL.
+## 8. Evidência CI
+
+O PR #33 foi aprovado na execução `32894861102`, em Ubuntu, Python 3.13 e PostgreSQL 18, com todos os gates do
+backend aprovados. A certificação consolidada está em
+`Docs/certification/PHASE_2_2_2_AUTHENTICATION_CERTIFICATION.md`.
