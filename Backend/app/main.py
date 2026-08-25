@@ -18,11 +18,16 @@ OPENAPI_TAGS = [
     {
         "name": "health",
         "description": "Disponibilidade do processo e das dependências técnicas.",
-    }
+    },
+    {
+        "name": "core-corporativo",
+        "description": "Cadastros corporativos compartilhados pelos módulos do ERP.",
+    },
 ]
 
 COMMON_ERROR_RESPONSES: dict[int | str, dict[str, Any]] = {
     404: {"model": ErrorResponse, "description": "Recurso não encontrado."},
+    409: {"model": ErrorResponse, "description": "Conflito com dados existentes."},
     405: {"model": ErrorResponse, "description": "Método HTTP não permitido."},
     422: {"model": ErrorResponse, "description": "Dados de entrada inválidos."},
     500: {"model": ErrorResponse, "description": "Falha interna não detalhada."},

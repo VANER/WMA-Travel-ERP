@@ -577,7 +577,11 @@ Certificação: `Docs/certification/PHASE_2_1_5_CORE_SCHEMAS_CERTIFICATION.md`.
 
 ### 2.1.6 — API
 
+**Status:** EM VALIDAÇÃO
+
 Criar endpoints necessários.
+
+Contrato: `Docs/CORE_API.md`.
 
 ### 2.1.7 — Testes
 

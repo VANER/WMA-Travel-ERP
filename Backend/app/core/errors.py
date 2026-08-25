@@ -5,6 +5,7 @@ import logging
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
+from sqlalchemy.exc import IntegrityError
 from starlette.exceptions import HTTPException
 
 logger = logging.getLogger(__name__)
@@ -89,9 +90,25 @@ async def database_unavailable_handler(request: Request, exc: Exception) -> JSON
     )
 
 
+async def integrity_error_handler(request: Request, exc: Exception) -> JSONResponse:
+    """Converte violações de integridade em conflito sem expor o banco."""
+    logger.warning("Conflito de integridade", extra={"exception_type": type(exc).__name__})
+    return JSONResponse(
+        status_code=409,
+        content={
+            "success": False,
+            "message": "O recurso conflita com dados existentes.",
+            "code": "RESOURCE_CONFLICT",
+            "errors": [],
+            "correlation_id": _correlation_id(request),
+        },
+    )
+
+
 def register_exception_handlers(app: FastAPI) -> None:
     """Registra os handlers globais da aplicação."""
     app.add_exception_handler(RequestValidationError, validation_error_handler)  # type: ignore[arg-type]
     app.add_exception_handler(HTTPException, http_error_handler)  # type: ignore[arg-type]
     app.add_exception_handler(DatabaseUnavailableError, database_unavailable_handler)
+    app.add_exception_handler(IntegrityError, integrity_error_handler)
     app.add_exception_handler(Exception, unexpected_error_handler)

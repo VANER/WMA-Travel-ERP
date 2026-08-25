@@ -6,8 +6,10 @@ from app.core.config import get_settings
 from app.core.errors import DatabaseUnavailableError
 from app.core.schemas import DatabaseHealthResponse, ErrorResponse, HealthResponse
 from app.db.session import database_is_available
+from app.modules.corporativo.router import router as corporativo_router
 
 router = APIRouter()
+router.include_router(corporativo_router)
 
 
 @router.get("/health", response_model=HealthResponse, tags=["health"])
