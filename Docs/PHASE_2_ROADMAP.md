@@ -236,7 +236,7 @@ Certificação: `Docs/certification/PHASE_2_0_11_FOUNDATION_CERTIFICATION.md`.
 
 **Duração:** 3 semanas.
 
-**Status:** EM EXECUÇÃO — etapa 2.1.2 concluída; próxima etapa 2.1.3
+**Status:** EM EXECUÇÃO — etapa 2.1.3 concluída; próxima etapa 2.1.4
 
 Implementar serviços corporativos compartilhados.
 
@@ -247,6 +247,10 @@ Certificação: `Docs/certification/PHASE_2_1_1_CORE_INVENTORY_CERTIFICATION.md`
 Models certificados: `Docs/CORE_MODELS.md`.
 
 Certificação: `Docs/certification/PHASE_2_1_2_CORE_MODELS_CERTIFICATION.md`.
+
+Repositories certificados: `Docs/CORE_REPOSITORIES.md`.
+
+Certificação: `Docs/certification/PHASE_2_1_3_CORE_REPOSITORIES_CERTIFICATION.md`.
 
 ### Escopo
 
@@ -930,11 +934,10 @@ FASE 2 CERTIFICADA
 
 A próxima atividade do WMA Travel ERP será:
 
-**ETAPA 2.1.3 — REPOSITORIES DO CORE CORPORATIVO**
+**ETAPA 2.1.4 — SERVICES DO CORE CORPORATIVO**
 
 As etapas 2.0.1 a 2.0.11 da arquitetura e fundação do backend estão concluídas, certificadas e integradas à
-`main`. As etapas 2.1.1 e 2.1.2 do Core Corporativo estão concluídas e a execução deve continuar pelos
-repositories.
+`main`. As etapas 2.1.1 a 2.1.3 do Core Corporativo estão concluídas e a execução deve continuar pelos services.
 
 ---
 
@@ -969,7 +972,9 @@ repositories.
 
 **ETAPA 2.1.2:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
-**PRÓXIMA ETAPA:** 2.1.3 — Repositories do Core Corporativo
+**ETAPA 2.1.3:** CONCLUÍDA, CERTIFICADA E INTEGRADA
+
+**PRÓXIMA ETAPA:** 2.1.4 — Services do Core Corporativo
 
 ---
 

@@ -49,9 +49,9 @@
 
 **Status:** INICIADA EM 18/08/2026
 
-**Progresso:** fundação 2.0 e etapa 2.1.1 concluídas, certificadas e integradas
+**Progresso:** fundação 2.0 e etapas 2.1.1 a 2.1.3 concluídas, certificadas e integradas
 
-**Próxima etapa:** 2.1.2 — Models do Core Corporativo
+**Próxima etapa:** 2.1.4 — Services do Core Corporativo
 
 **Branch inicial:** `feature/fase-2-backend-api`
 
@@ -61,7 +61,7 @@ A Fase 2 utilizará a baseline certificada como fundação para o desenvolviment
 das camadas de aplicação e integração.
 
 **Versão do Documento:** 1.0.0
-**Última Atualização:** 22/08/2026
+**Última Atualização:** 25/08/2026
 **Status:** Fase 1 encerrada; Fase 2 em execução
 
 ---

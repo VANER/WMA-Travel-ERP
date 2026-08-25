@@ -6,6 +6,9 @@
 
 ### Adicionado
 
+- repositories tipados das nove autoridades corporativas, sem commit autônomo e com paginação limitada;
+- testes dos contratos de persistência e dos limites transacionais da etapa 2.1.3;
+- certificação da etapa 2.1.3 com validação real na baseline e no CI Linux/PostgreSQL;
 - models SQLAlchemy das nove autoridades do Core Corporativo, com registro Alembic e testes de fidelidade;
 - validação de ausência de diferenças entre os models 2.1.2 e uma restauração descartável da baseline;
 - evidência aditiva da reauditoria completa da fundação 2.0;
