@@ -557,11 +557,13 @@ Certificação: `Docs/certification/PHASE_2_1_3_CORE_REPOSITORIES_CERTIFICATION.
 
 ### 2.1.4 — Services
 
-**Status:** EM EXECUÇÃO
+**Status:** CONCLUÍDA E CERTIFICADA
 
 Implementar regras corporativas.
 
 Contrato: `Docs/CORE_SERVICES.md`.
+
+Certificação: `Docs/certification/PHASE_2_1_4_CORE_SERVICES_CERTIFICATION.md`.
 
 ### 2.1.5 — Schemas
 
@@ -1366,7 +1368,8 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 | Etapa 2.1.1 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Etapa 2.1.2 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.1.3 | **CONCLUÍDA E CERTIFICADA** |
-| Próxima execução | **2.1.4 — Services do Core Corporativo** |
+| Etapa 2.1.4 | **CONCLUÍDA E CERTIFICADA** |
+| Próxima execução | **2.1.5 — Schemas do Core Corporativo** |
 
 ---
 
@@ -1380,4 +1383,4 @@ estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**ETAPA 2.1.4 — SERVICES DO CORE CORPORATIVO.**
+**ETAPA 2.1.5 — SCHEMAS DO CORE CORPORATIVO.**

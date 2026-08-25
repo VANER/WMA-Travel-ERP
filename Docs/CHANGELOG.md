@@ -8,6 +8,7 @@
 
 - services cadastrais das nove autoridades corporativas, com commit e rollback explícitos;
 - testes dos limites transacionais e da propagação de falhas da etapa 2.1.4;
+- certificação da etapa 2.1.4 com validação real na baseline e no CI Linux/PostgreSQL;
 - repositories tipados das nove autoridades corporativas, sem commit autônomo e com paginação limitada;
 - testes dos contratos de persistência e dos limites transacionais da etapa 2.1.3;
 - certificação da etapa 2.1.3 com validação real na baseline e no CI Linux/PostgreSQL;

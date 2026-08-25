@@ -4,7 +4,9 @@
 
 **Etapa:** 2.1.4 — Services do Core Corporativo
 
-**Status:** EM EXECUÇÃO
+**Status:** CONCLUÍDA E CERTIFICADA
+
+Certificação: `Docs/certification/PHASE_2_1_4_CORE_SERVICES_CERTIFICATION.md`.
 
 Esta etapa implementa os casos de uso cadastrais mínimos sobre os repositories certificados na 2.1.3. Não inclui
 schemas de entrada e saída, endpoints, autenticação ou regras ainda não autorizadas pela documentação do domínio.
