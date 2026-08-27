@@ -49,8 +49,9 @@ from app.modules.corporativo.services import (
     PessoaService,
     TipoDocumentoService,
 )
+from app.modules.seguranca.authorization import exigir_core_cadastrar, exigir_core_visualizar
 
-router = APIRouter(tags=["core-corporativo"])
+router = APIRouter(tags=["core-corporativo"], dependencies=[Depends(exigir_core_visualizar)])
 SessionDep = Annotated[Session, Depends(get_session)]
 Offset = Annotated[int, Query(ge=0)]
 Limite = Annotated[int, Query(ge=1, le=1000)]
@@ -75,7 +76,12 @@ def obter_localidade(identifier: Identifier, session: SessionDep) -> Localidade:
     return _required(LocalidadeService(session).obter(identifier))
 
 
-@router.post("/localidades", response_model=LocalidadeResponse, status_code=status.HTTP_201_CREATED)
+@router.post(
+    "/localidades",
+    response_model=LocalidadeResponse,
+    status_code=status.HTTP_201_CREATED,
+    dependencies=[Depends(exigir_core_cadastrar)],
+)
 def cadastrar_localidade(payload: LocalidadeCreate, session: SessionDep) -> Localidade:
     return LocalidadeService(session).cadastrar(Localidade(**payload.model_dump()))
 
@@ -90,7 +96,12 @@ def obter_pessoa(identifier: Identifier, session: SessionDep) -> Pessoa:
     return _required(PessoaService(session).obter(identifier))
 
 
-@router.post("/pessoas", response_model=PessoaResponse, status_code=status.HTTP_201_CREATED)
+@router.post(
+    "/pessoas",
+    response_model=PessoaResponse,
+    status_code=status.HTTP_201_CREATED,
+    dependencies=[Depends(exigir_core_cadastrar)],
+)
 def cadastrar_pessoa(payload: PessoaCreate, session: SessionDep) -> Pessoa:
     return PessoaService(session).cadastrar(Pessoa(**payload.model_dump()))
 
@@ -105,7 +116,12 @@ def obter_empresa(identifier: Identifier, session: SessionDep) -> Empresa:
     return _required(EmpresaService(session).obter(identifier))
 
 
-@router.post("/empresas", response_model=EmpresaResponse, status_code=status.HTTP_201_CREATED)
+@router.post(
+    "/empresas",
+    response_model=EmpresaResponse,
+    status_code=status.HTTP_201_CREATED,
+    dependencies=[Depends(exigir_core_cadastrar)],
+)
 def cadastrar_empresa(payload: EmpresaCreate, session: SessionDep) -> Empresa:
     return EmpresaService(session).cadastrar(Empresa(**payload.model_dump()))
 
@@ -120,7 +136,12 @@ def obter_cliente(identifier: Identifier, session: SessionDep) -> Cliente:
     return _required(ClienteService(session).obter(identifier))
 
 
-@router.post("/clientes", response_model=ClienteResponse, status_code=status.HTTP_201_CREATED)
+@router.post(
+    "/clientes",
+    response_model=ClienteResponse,
+    status_code=status.HTTP_201_CREATED,
+    dependencies=[Depends(exigir_core_cadastrar)],
+)
 def cadastrar_cliente(payload: ClienteCreate, session: SessionDep) -> Cliente:
     return ClienteService(session).cadastrar(Cliente(**payload.model_dump()))
 
@@ -138,7 +159,10 @@ def obter_fornecedor(identifier: Identifier, session: SessionDep) -> Fornecedor:
 
 
 @router.post(
-    "/fornecedores", response_model=FornecedorResponse, status_code=status.HTTP_201_CREATED
+    "/fornecedores",
+    response_model=FornecedorResponse,
+    status_code=status.HTTP_201_CREATED,
+    dependencies=[Depends(exigir_core_cadastrar)],
 )
 def cadastrar_fornecedor(payload: FornecedorCreate, session: SessionDep) -> Fornecedor:
     return FornecedorService(session).cadastrar(Fornecedor(**payload.model_dump()))
@@ -157,7 +181,10 @@ def obter_tipo_documento(identifier: Identifier, session: SessionDep) -> TipoDoc
 
 
 @router.post(
-    "/tipos-documento", response_model=TipoDocumentoResponse, status_code=status.HTTP_201_CREATED
+    "/tipos-documento",
+    response_model=TipoDocumentoResponse,
+    status_code=status.HTTP_201_CREATED,
+    dependencies=[Depends(exigir_core_cadastrar)],
 )
 def cadastrar_tipo_documento(payload: TipoDocumentoCreate, session: SessionDep) -> TipoDocumento:
     return TipoDocumentoService(session).cadastrar(TipoDocumento(**payload.model_dump()))
@@ -175,7 +202,12 @@ def obter_documento(identifier: Identifier, session: SessionDep) -> Documento:
     return _required(DocumentoService(session).obter(identifier))
 
 
-@router.post("/documentos", response_model=DocumentoResponse, status_code=status.HTTP_201_CREATED)
+@router.post(
+    "/documentos",
+    response_model=DocumentoResponse,
+    status_code=status.HTTP_201_CREATED,
+    dependencies=[Depends(exigir_core_cadastrar)],
+)
 def cadastrar_documento(payload: DocumentoCreate, session: SessionDep) -> Documento:
     return DocumentoService(session).cadastrar(Documento(**payload.model_dump()))
 
@@ -196,6 +228,7 @@ def obter_configuracao_empresa(identifier: Identifier, session: SessionDep) -> C
     "/configuracoes-empresa",
     response_model=ConfiguracaoEmpresaResponse,
     status_code=status.HTTP_201_CREATED,
+    dependencies=[Depends(exigir_core_cadastrar)],
 )
 def cadastrar_configuracao_empresa(
     payload: ConfiguracaoEmpresaCreate, session: SessionDep
@@ -221,6 +254,7 @@ def obter_parametro_sistema(identifier: Identifier, session: SessionDep) -> Para
     "/parametros-sistema",
     response_model=ParametroSistemaResponse,
     status_code=status.HTTP_201_CREATED,
+    dependencies=[Depends(exigir_core_cadastrar)],
 )
 def cadastrar_parametro_sistema(
     payload: ParametroSistemaCreate, session: SessionDep

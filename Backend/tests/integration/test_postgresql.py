@@ -14,6 +14,8 @@ from app.db.base import Base
 from app.db.session import create_db_engine, database_is_available, get_session
 from app.main import create_app
 from app.modules.corporativo import models as _corporativo_models  # noqa: F401
+from app.modules.seguranca.authorization import exigir_core_cadastrar, exigir_core_visualizar
+from app.modules.seguranca.rbac import ContextoRbac
 
 pytestmark = pytest.mark.postgresql
 
@@ -30,6 +32,13 @@ def _corporate_database_client(postgresql_test_url: str) -> Generator[TestClient
             yield session
 
     application.dependency_overrides[get_session] = session_dependency
+    contexto = ContextoRbac(
+        id_usuario=1,
+        papeis=("ADMIN",),
+        permissoes=frozenset({"CORE_VISUALIZAR", "CORE_CADASTRAR"}),
+    )
+    application.dependency_overrides[exigir_core_visualizar] = lambda: contexto
+    application.dependency_overrides[exigir_core_cadastrar] = lambda: contexto
     Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
     try:

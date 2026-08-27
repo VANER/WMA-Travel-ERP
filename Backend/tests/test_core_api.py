@@ -12,6 +12,8 @@ from sqlalchemy.orm import Session
 from app.db.base import Base
 from app.db.session import get_session
 from app.main import app
+from app.modules.seguranca.authorization import exigir_core_cadastrar, exigir_core_visualizar
+from app.modules.seguranca.rbac import ContextoRbac
 
 RESOURCES = (
     ("localidades", {"cidade": "Recife", "pais": "Brasil"}, "id_localidade"),
@@ -41,10 +43,19 @@ RESOURCES = (
 @contextmanager
 def _overridden_session(session: Session) -> Iterator[None]:
     app.dependency_overrides[get_session] = lambda: session
+    contexto = ContextoRbac(
+        id_usuario=1,
+        papeis=("ADMIN",),
+        permissoes=frozenset({"CORE_VISUALIZAR", "CORE_CADASTRAR"}),
+    )
+    app.dependency_overrides[exigir_core_visualizar] = lambda: contexto
+    app.dependency_overrides[exigir_core_cadastrar] = lambda: contexto
     try:
         yield
     finally:
         app.dependency_overrides.pop(get_session, None)
+        app.dependency_overrides.pop(exigir_core_visualizar, None)
+        app.dependency_overrides.pop(exigir_core_cadastrar, None)
 
 
 @pytest.mark.parametrize(("resource", "_payload", "_identifier"), RESOURCES)
