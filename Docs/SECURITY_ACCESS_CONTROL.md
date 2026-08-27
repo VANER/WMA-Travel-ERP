@@ -37,23 +37,27 @@ A solicitação tem resultado uniforme para contas ausentes ou inativas. O token
 revoga todas as sessões do usuário.
 
 A entrega é definida pela porta `NotificadorRecuperacao`. Nenhum token bruto é retornado pela API, persistido ou
-registrado em log. O adaptador externo de email deve ser integrado quando a infraestrutura de notificações for
-definida; até lá, o caso de uso permanece disponível somente pela camada de serviço.
+registrado em log. `POST /api/v1/auth/recovery/request` responde `202` com um adaptador injetado e `503` quando o
+transporte não foi configurado. `POST /api/v1/auth/recovery/reset` consome o token sem depender do transporte.
 
 ## Auditoria
 
 `public.evento_seguranca` registra código, resultado, usuário e sessão opcionais, IP, agente e detalhes JSON. O
-registrador rejeita chaves conhecidas de senha, credencial e tokens. Login, refresh e logout registram eventos
-estruturados; falhas de login não persistem o email apresentado.
+registrador rejeita chaves conhecidas de senha, credencial e tokens. Login, refresh, logout, recuperação e todas
+as decisões de autorização registram eventos estruturados; falhas de login não persistem o email apresentado.
 
-`evento_seguranca` é uma trilha append-only: possui somente `created_at` e não aceita atualização ou exclusão pela
-camada de aplicação. Por não ser tabela cadastral ou transacional mutável, não recebe os campos de versionamento.
+`evento_seguranca` é uma trilha append-only: a migration `202608262200` instala um trigger PostgreSQL que rejeita
+`UPDATE` e `DELETE`. Por não ser tabela cadastral ou transacional mutável, não recebe campos de versionamento.
+
+A autorização revalida `usuario.ativo` e `deleted_at` em cada requisição. Se a conta deixar de ser válida, todas
+as sessões do usuário são revogadas antes da resposta `401`.
 
 As alterações de concessões em `perfil_permissao` também usam os triggers corporativos de atualização e auditoria.
 
 ## Migrations
 
 - `202608252300_perfil_permissao.py`: relação RBAC, índices, triggers e permissões iniciais do Core;
-- `202608252330_recuperacao_auditoria.py`: tokens de recuperação e eventos de segurança.
+- `202608252330_recuperacao_auditoria.py`: tokens de recuperação e eventos de segurança;
+- `202608262200_evento_seguranca_append_only.py`: imutabilidade da trilha de eventos.
 
 As duas revisions são aditivas, lineares e possuem downgrade limitado aos objetos criados.

@@ -17,3 +17,12 @@ class TokenResponse(BaseModel):
     refresh_token: str
     token_type: str
     expires_in: int
+
+
+class RecuperacaoRequest(BaseModel):
+    email: str = Field(min_length=3, max_length=150)
+
+
+class RedefinicaoRequest(BaseModel):
+    token: str = Field(min_length=32, max_length=512)
+    nova_credencial: str = Field(min_length=1, max_length=1024)

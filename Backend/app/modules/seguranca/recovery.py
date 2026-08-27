@@ -35,7 +35,7 @@ class RecuperacaoService:
         usuarios: UsuarioRepository,
         recuperacoes: RecuperacaoRepository,
         sessoes: SessaoUsuarioRepository,
-        notificador: NotificadorRecuperacao,
+        notificador: NotificadorRecuperacao | None,
         politica_hash: PoliticaHashArgon2id,
         clock: Callable[[], datetime] = lambda: datetime.now(UTC),
     ) -> None:
@@ -50,6 +50,8 @@ class RecuperacaoService:
         usuario = self.usuarios.buscar_por_email(email)
         if usuario is None or usuario.ativo is not True or usuario.deleted_at is not None:
             return
+        if self.notificador is None:
+            raise RuntimeError("notificador de recuperacao nao configurado")
         agora = _utc_sem_fuso(self._clock())
         token = token_urlsafe(RECOVERY_TOKEN_BYTES)
         self.recuperacoes.adicionar(
