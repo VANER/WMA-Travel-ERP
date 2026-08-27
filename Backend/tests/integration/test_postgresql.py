@@ -2,7 +2,9 @@
 
 from collections.abc import Generator
 from contextlib import contextmanager
+from datetime import UTC, date, datetime, timedelta
 from unittest.mock import patch
+from uuid import uuid4
 
 import pytest
 from fastapi.testclient import TestClient
@@ -15,7 +17,16 @@ from app.db.session import create_db_engine, database_is_available, get_session
 from app.main import create_app
 from app.modules.corporativo import models as _corporativo_models  # noqa: F401
 from app.modules.seguranca.authorization import exigir_core_cadastrar, exigir_core_visualizar
+from app.modules.seguranca.models import (
+    PerfilAcesso,
+    PerfilPermissao,
+    Permissao,
+    SessaoUsuario,
+    Usuario,
+    UsuarioPerfil,
+)
 from app.modules.seguranca.rbac import ContextoRbac
+from app.modules.seguranca.tokens import CodecTokenAcesso
 
 pytestmark = pytest.mark.postgresql
 
@@ -145,3 +156,72 @@ def test_core_api_persists_complete_flow_in_postgresql(postgresql_test_url: str)
         duplicate = client.post("/api/v1/localidades", json=locality_payload)
         assert duplicate.status_code == 409
         assert duplicate.json()["code"] == "RESOURCE_CONFLICT"
+
+
+def test_auth_rbac_real_revalida_usuario_e_revoga_sessao(
+    postgresql_test_url: str,
+) -> None:
+    settings = Settings(database_url=postgresql_test_url, environment="test")
+    engine = create_db_engine(settings)
+    session_factory = sessionmaker(bind=engine, expire_on_commit=False)
+    application = create_app()
+
+    def session_dependency() -> Generator[Session]:
+        with session_factory() as session:
+            yield session
+
+    application.dependency_overrides[get_session] = session_dependency
+    Base.metadata.drop_all(engine)
+    Base.metadata.create_all(engine)
+    id_sessao = uuid4()
+    agora = datetime.now(UTC).replace(tzinfo=None)
+    try:
+        with session_factory() as session:
+            session.add_all(
+                [
+                    Usuario(id_usuario=7, nome="Ana", email="ana@example.com", ativo=True),
+                    PerfilAcesso(
+                        id_perfil=1, codigo="ADMIN", descricao="Administrador", ativo=True
+                    ),
+                    Permissao(
+                        id_permissao=1,
+                        codigo="CORE_VISUALIZAR",
+                        descricao="Visualizar Core",
+                    ),
+                ]
+            )
+            session.flush()
+            session.add_all(
+                [
+                    UsuarioPerfil(id_usuario=7, id_perfil=1, data_inicio=date.today()),
+                    PerfilPermissao(id_perfil=1, id_permissao=1),
+                    SessaoUsuario(
+                        id_sessao=id_sessao,
+                        id_usuario=7,
+                        id_familia=id_sessao,
+                        token_refresh_hash="a" * 64,
+                        data_expiracao=agora + timedelta(minutes=30),
+                    ),
+                ]
+            )
+            session.commit()
+
+        token = CodecTokenAcesso(settings).emitir(7, id_sessao, datetime.now(UTC))
+        headers = {"Authorization": f"Bearer {token}"}
+        with TestClient(application) as client:
+            assert client.get("/api/v1/localidades", headers=headers).status_code == 200
+            with session_factory() as session:
+                usuario = session.get(Usuario, 7)
+                assert usuario is not None
+                usuario.ativo = False
+                session.commit()
+            assert client.get("/api/v1/localidades", headers=headers).status_code == 401
+
+        with session_factory() as session:
+            sessao = session.get(SessaoUsuario, id_sessao)
+            assert sessao is not None
+            assert sessao.revogado_em is not None
+    finally:
+        application.dependency_overrides.clear()
+        Base.metadata.drop_all(engine)
+        engine.dispose()

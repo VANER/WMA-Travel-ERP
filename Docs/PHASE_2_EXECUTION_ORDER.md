@@ -666,6 +666,8 @@ Contrato consolidado: `Docs/SECURITY_ACCESS_CONTROL.md`.
 
 Certificação: `Docs/certification/PHASE_2_2_SECURITY_ACCESS_CERTIFICATION.md`.
 
+Recertificação de hardening: `Docs/certification/PHASE_2_2_SECURITY_HARDENING.md`.
+
 ### Ordem
 
 1. modelo de identidade;

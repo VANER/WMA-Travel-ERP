@@ -32,6 +32,14 @@ class UsuarioRepository:
     def buscar_por_id(self, id_usuario: int) -> Usuario | None:
         return self.session.get(Usuario, id_usuario)
 
+    def buscar_ativo_por_id(self, id_usuario: int) -> Usuario | None:
+        statement = select(Usuario).where(
+            Usuario.id_usuario == id_usuario,
+            Usuario.ativo.is_(True),
+            Usuario.deleted_at.is_(None),
+        )
+        return self.session.scalar(statement)
+
 
 class SessaoUsuarioRepository:
     """Persiste o ciclo de vida sem controlar a transacao externa."""

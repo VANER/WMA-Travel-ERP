@@ -1,6 +1,7 @@
 """Recuperacao de acesso e auditoria de seguranca."""
 
 from datetime import UTC, datetime, timedelta
+from pathlib import Path
 from typing import cast
 from unittest.mock import MagicMock, create_autospec
 from uuid import uuid4
@@ -23,6 +24,7 @@ from app.modules.seguranca.repositories import (
 )
 
 NOW = datetime(2026, 8, 25, 20, tzinfo=UTC)
+BACKEND_ROOT = Path(__file__).resolve().parents[1]
 
 
 def _service() -> tuple[RecuperacaoService, MagicMock, MagicMock, MagicMock, MagicMock]:
@@ -110,3 +112,14 @@ def test_auditoria_rejeita_segredos_e_persiste_evento_estruturado() -> None:
     session.add.assert_called_once_with(evento)
     with pytest.raises(ValueError):
         auditor.registrar("LOGIN", "NEGADO", detalhes={"token": "segredo"})
+
+
+def test_migration_torna_evento_seguranca_append_only() -> None:
+    migration = (
+        BACKEND_ROOT / "migrations/versions/202608262200_evento_seguranca_append_only.py"
+    ).read_text(encoding="utf-8")
+
+    assert 'down_revision: str | Sequence[str] | None = "202608252330"' in migration
+    assert "BEFORE UPDATE OR DELETE ON public.evento_seguranca" in migration
+    assert "fn_bloqueia_mutacao_evento_seguranca" in migration
+    assert "DROP TRIGGER IF EXISTS trg_bloqueia_mutacao" in migration

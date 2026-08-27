@@ -9,8 +9,23 @@ from app.core.config import Settings, get_settings
 from app.db.session import get_session
 from app.modules.seguranca.audit import AuditorSeguranca
 from app.modules.seguranca.passwords import PoliticaHashArgon2id
-from app.modules.seguranca.repositories import SessaoUsuarioRepository, UsuarioRepository
-from app.modules.seguranca.schemas import LoginRequest, RefreshRequest, TokenResponse
+from app.modules.seguranca.recovery import (
+    NotificadorRecuperacao,
+    RecuperacaoInvalidaError,
+    RecuperacaoService,
+)
+from app.modules.seguranca.repositories import (
+    RecuperacaoRepository,
+    SessaoUsuarioRepository,
+    UsuarioRepository,
+)
+from app.modules.seguranca.schemas import (
+    LoginRequest,
+    RecuperacaoRequest,
+    RedefinicaoRequest,
+    RefreshRequest,
+    TokenResponse,
+)
 from app.modules.seguranca.services import AutenticacaoNegadaError, AutenticacaoService
 from app.modules.seguranca.tokens import CodecTokenAcesso, SessaoService, TokenInvalidoError
 
@@ -19,8 +34,28 @@ SessionDep = Annotated[Session, Depends(get_session)]
 SettingsDep = Annotated[Settings, Depends(get_settings)]
 
 
+def obter_notificador_recuperacao() -> NotificadorRecuperacao:
+    """Exige um adaptador de entrega explicitamente configurado pela aplicacao."""
+    raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE)
+
+
+NotificadorDep = Annotated[NotificadorRecuperacao, Depends(obter_notificador_recuperacao)]
+
+
 def _sessao_service(session: Session, settings: Settings) -> SessaoService:
     return SessaoService(SessaoUsuarioRepository(session), CodecTokenAcesso(settings), settings)
+
+
+def _recuperacao_service(
+    session: Session, notificador: NotificadorRecuperacao | None = None
+) -> RecuperacaoService:
+    return RecuperacaoService(
+        UsuarioRepository(session),
+        RecuperacaoRepository(session),
+        SessaoUsuarioRepository(session),
+        notificador,
+        PoliticaHashArgon2id(),
+    )
 
 
 def _auditar(
@@ -95,4 +130,42 @@ def logout(
     _sessao_service(session, settings).revogar(payload.refresh_token)
     _auditar(session, request, "LOGOUT", "SUCESSO")
     session.commit()
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
+
+
+@router.post("/recovery/request", status_code=status.HTTP_202_ACCEPTED)
+def solicitar_recuperacao(
+    payload: RecuperacaoRequest,
+    request: Request,
+    session: SessionDep,
+    notificador: NotificadorDep,
+) -> Response:
+    try:
+        _recuperacao_service(session, notificador).solicitar(payload.email)
+        _auditar(session, request, "RECUPERACAO_SOLICITADA", "SUCESSO")
+        session.commit()
+    except Exception:
+        session.rollback()
+        raise
+    return Response(status_code=status.HTTP_202_ACCEPTED)
+
+
+@router.post("/recovery/reset", status_code=status.HTTP_204_NO_CONTENT)
+def redefinir_credencial(
+    payload: RedefinicaoRequest,
+    request: Request,
+    session: SessionDep,
+) -> Response:
+    try:
+        _recuperacao_service(session).redefinir(payload.token, payload.nova_credencial)
+        _auditar(session, request, "CREDENCIAL_REDEFINIDA", "SUCESSO")
+        session.commit()
+    except RecuperacaoInvalidaError as exc:
+        session.rollback()
+        _auditar(session, request, "CREDENCIAL_REDEFINIDA", "NEGADO")
+        session.commit()
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST) from exc
+    except Exception:
+        session.rollback()
+        raise
     return Response(status_code=status.HTTP_204_NO_CONTENT)
