@@ -39,6 +39,8 @@ revoga todas as sessões do usuário.
 A entrega é definida pela porta `NotificadorRecuperacao`. Nenhum token bruto é retornado pela API, persistido ou
 registrado em log. `POST /api/v1/auth/recovery/request` responde `202` com um adaptador injetado e `503` quando o
 transporte não foi configurado. `POST /api/v1/auth/recovery/reset` consome o token sem depender do transporte.
+O hash e o evento de solicitação são confirmados no banco antes da entrega do token. Falhas do transportador
+retornam `503` e geram `RECUPERACAO_ENTREGUE/ERRO`, sem registrar o token nos detalhes da auditoria.
 
 ## Auditoria
 
