@@ -166,6 +166,11 @@ def test_solicitacao_recuperacao_retorna_resposta_uniforme_e_audita(
         id_usuario=7, nome="Ana", email="ana@example.com", ativo=True
     )
     notificador = create_autospec(NotificadorRecuperacao, instance=True)
+
+    def confirmar_commit_anterior(_email: str, _token: str) -> None:
+        assert session.commit.call_count == 1
+
+    notificador.enviar.side_effect = confirmar_commit_anterior
     app.dependency_overrides[get_session] = lambda: session
     app.dependency_overrides[obter_notificador_recuperacao] = lambda: notificador
     try:
@@ -176,8 +181,34 @@ def test_solicitacao_recuperacao_retorna_resposta_uniforme_e_audita(
 
     assert response.status_code == 202
     notificador.enviar.assert_called_once()
-    assert session.add.call_count == 2
-    session.commit.assert_called_once()
+    assert session.add.call_count == 3
+    assert session.commit.call_count == 2
+
+
+def test_falha_na_entrega_ocorre_depois_do_commit_e_e_auditada(client: TestClient) -> None:
+    session = create_autospec(Session, instance=True)
+    session.scalar.return_value = Usuario(
+        id_usuario=7, nome="Ana", email="ana@example.com", ativo=True
+    )
+    notificador = create_autospec(NotificadorRecuperacao, instance=True)
+
+    def falhar_depois_do_commit(_email: str, _token: str) -> None:
+        assert session.commit.call_count == 1
+        raise RuntimeError("transporte indisponivel")
+
+    notificador.enviar.side_effect = falhar_depois_do_commit
+    app.dependency_overrides[get_session] = lambda: session
+    app.dependency_overrides[obter_notificador_recuperacao] = lambda: notificador
+    try:
+        response = client.post("/api/v1/auth/recovery/request", json={"email": "ana@example.com"})
+    finally:
+        app.dependency_overrides.pop(get_session, None)
+        app.dependency_overrides.pop(obter_notificador_recuperacao, None)
+
+    assert response.status_code == 503
+    assert session.rollback.call_count == 1
+    assert session.add.call_count == 3
+    assert session.commit.call_count == 2
 
 
 def test_solicitacao_recuperacao_sem_notificador_retorna_503(client: TestClient) -> None:

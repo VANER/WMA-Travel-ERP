@@ -46,14 +46,11 @@ def _sessao_service(session: Session, settings: Settings) -> SessaoService:
     return SessaoService(SessaoUsuarioRepository(session), CodecTokenAcesso(settings), settings)
 
 
-def _recuperacao_service(
-    session: Session, notificador: NotificadorRecuperacao | None = None
-) -> RecuperacaoService:
+def _recuperacao_service(session: Session) -> RecuperacaoService:
     return RecuperacaoService(
         UsuarioRepository(session),
         RecuperacaoRepository(session),
         SessaoUsuarioRepository(session),
-        notificador,
         PoliticaHashArgon2id(),
     )
 
@@ -141,12 +138,22 @@ def solicitar_recuperacao(
     notificador: NotificadorDep,
 ) -> Response:
     try:
-        _recuperacao_service(session, notificador).solicitar(payload.email)
+        entrega = _recuperacao_service(session).solicitar(payload.email)
         _auditar(session, request, "RECUPERACAO_SOLICITADA", "SUCESSO")
         session.commit()
     except Exception:
         session.rollback()
         raise
+    if entrega is not None:
+        try:
+            notificador.enviar(entrega.email, entrega.token)
+        except Exception as exc:
+            session.rollback()
+            _auditar(session, request, "RECUPERACAO_ENTREGUE", "ERRO")
+            session.commit()
+            raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE) from exc
+        _auditar(session, request, "RECUPERACAO_ENTREGUE", "SUCESSO")
+        session.commit()
     return Response(status_code=status.HTTP_202_ACCEPTED)
 
 

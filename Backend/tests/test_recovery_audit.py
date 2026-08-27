@@ -13,7 +13,6 @@ from app.modules.seguranca.audit import AuditorSeguranca
 from app.modules.seguranca.models import RecuperacaoCredencial, Usuario
 from app.modules.seguranca.passwords import PoliticaHashArgon2id
 from app.modules.seguranca.recovery import (
-    NotificadorRecuperacao,
     RecuperacaoInvalidaError,
     RecuperacaoService,
 )
@@ -27,44 +26,41 @@ NOW = datetime(2026, 8, 25, 20, tzinfo=UTC)
 BACKEND_ROOT = Path(__file__).resolve().parents[1]
 
 
-def _service() -> tuple[RecuperacaoService, MagicMock, MagicMock, MagicMock, MagicMock]:
+def _service() -> tuple[RecuperacaoService, MagicMock, MagicMock, MagicMock]:
     usuarios = MagicMock(spec=UsuarioRepository)
     recuperacoes = MagicMock(spec=RecuperacaoRepository)
     sessoes = MagicMock(spec=SessaoUsuarioRepository)
-    notificador = create_autospec(NotificadorRecuperacao, instance=True)
     politica = MagicMock(spec=PoliticaHashArgon2id)
-    service = RecuperacaoService(
-        usuarios, recuperacoes, sessoes, notificador, politica, clock=lambda: NOW
-    )
-    return service, usuarios, recuperacoes, sessoes, notificador
+    service = RecuperacaoService(usuarios, recuperacoes, sessoes, politica, clock=lambda: NOW)
+    return service, usuarios, recuperacoes, sessoes
 
 
-def test_solicitacao_persiste_apenas_hash_e_notifica_token_opaco() -> None:
-    service, usuarios, recuperacoes, _sessoes, notificador = _service()
+def test_solicitacao_persiste_apenas_hash_e_retorna_token_opaco_efemero() -> None:
+    service, usuarios, recuperacoes, _sessoes = _service()
     usuarios.buscar_por_email.return_value = Usuario(
         id_usuario=7, nome="Ana", email="ana@example.com", ativo=True
     )
 
-    service.solicitar("ana@example.com")
+    entrega = service.solicitar("ana@example.com")
 
+    assert entrega is not None
     registro = recuperacoes.adicionar.call_args.args[0]
-    token = notificador.enviar.call_args.args[1]
     assert len(registro.token_hash) == 64
-    assert token not in registro.token_hash
+    assert entrega.token not in registro.token_hash
+    assert entrega.email == "ana@example.com"
     assert registro.data_expiracao == NOW.replace(tzinfo=None) + timedelta(minutes=30)
 
 
 def test_solicitacao_inexistente_tem_resultado_uniforme() -> None:
-    service, usuarios, recuperacoes, _sessoes, notificador = _service()
+    service, usuarios, recuperacoes, _sessoes = _service()
     usuarios.buscar_por_email.return_value = None
 
-    service.solicitar("ausente@example.com")
+    assert service.solicitar("ausente@example.com") is None
     recuperacoes.adicionar.assert_not_called()
-    notificador.enviar.assert_not_called()
 
 
 def test_redefinicao_e_de_uso_unico_e_revoga_sessoes() -> None:
-    service, usuarios, recuperacoes, sessoes, _notificador = _service()
+    service, usuarios, recuperacoes, sessoes = _service()
     registro = RecuperacaoCredencial(
         id_recuperacao=uuid4(),
         id_usuario=7,
@@ -85,7 +81,7 @@ def test_redefinicao_e_de_uso_unico_e_revoga_sessoes() -> None:
 
 @pytest.mark.parametrize("registro", [None, "utilizado", "expirado"])
 def test_redefinicao_nega_token_invalido(registro: str | None) -> None:
-    service, _usuarios, recuperacoes, _sessoes, _notificador = _service()
+    service, _usuarios, recuperacoes, _sessoes = _service()
     if registro is None:
         recuperacoes.buscar_por_hash_para_atualizacao.return_value = None
     else:

@@ -58,6 +58,7 @@ A API expõe `GET /health`, `GET /api/v1/health`, `GET /api/v1/health/database`,
 `/api/v1/auth/logout`. Recuperação usa `/api/v1/auth/recovery/request` e `/api/v1/auth/recovery/reset`; a
 solicitação exige uma implementação autorizada de `NotificadorRecuperacao`. O Core Corporativo exige bearer token
 e permissões RBAC explícitas.
+O hash da recuperação é confirmado antes do envio; indisponibilidade do transportador retorna `503` e é auditada.
 
 O router principal usa o prefixo `/api` e agrega routers versionados, começando por `/v1`. Rotas inexistentes,
 métodos não permitidos, validações, indisponibilidade do banco e falhas internas retornam o contrato de erro

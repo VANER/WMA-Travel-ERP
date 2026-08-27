@@ -1,6 +1,7 @@
 """Recuperacao de credenciais com token opaco de uso unico."""
 
 from collections.abc import Callable
+from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from hashlib import sha256
 from secrets import token_urlsafe
@@ -27,6 +28,14 @@ class NotificadorRecuperacao(Protocol):
     def enviar(self, email: str, token: str) -> None: ...
 
 
+@dataclass(frozen=True, slots=True)
+class EntregaRecuperacao:
+    """Segredo efemero entregue somente depois da persistencia do respectivo hash."""
+
+    email: str
+    token: str
+
+
 class RecuperacaoService:
     """Emite e consome recuperacoes sem expor a existencia da identidade."""
 
@@ -35,23 +44,19 @@ class RecuperacaoService:
         usuarios: UsuarioRepository,
         recuperacoes: RecuperacaoRepository,
         sessoes: SessaoUsuarioRepository,
-        notificador: NotificadorRecuperacao | None,
         politica_hash: PoliticaHashArgon2id,
         clock: Callable[[], datetime] = lambda: datetime.now(UTC),
     ) -> None:
         self.usuarios = usuarios
         self.recuperacoes = recuperacoes
         self.sessoes = sessoes
-        self.notificador = notificador
         self.politica_hash = politica_hash
         self._clock = clock
 
-    def solicitar(self, email: str) -> None:
+    def solicitar(self, email: str) -> EntregaRecuperacao | None:
         usuario = self.usuarios.buscar_por_email(email)
         if usuario is None or usuario.ativo is not True or usuario.deleted_at is not None:
-            return
-        if self.notificador is None:
-            raise RuntimeError("notificador de recuperacao nao configurado")
+            return None
         agora = _utc_sem_fuso(self._clock())
         token = token_urlsafe(RECOVERY_TOKEN_BYTES)
         self.recuperacoes.adicionar(
@@ -62,7 +67,7 @@ class RecuperacaoService:
                 data_expiracao=agora + RECOVERY_TTL,
             )
         )
-        self.notificador.enviar(usuario.email, token)
+        return EntregaRecuperacao(usuario.email, token)
 
     def redefinir(self, token: str, nova_credencial: str) -> None:
         agora = _utc_sem_fuso(self._clock())
