@@ -58,9 +58,8 @@ Este manual contempla:
 - documentação de padronização.
 
 O estado oficial de execução está consolidado em `PHASE_2_EXECUTION_ORDER.md`. A Fase 1 está concluída e
-certificada; a Fase 2 está em execução, com a fundação 2.0 e o Core Corporativo 2.1 concluídos e certificados.
-A etapa 2.2 — Segurança e Controle de Acesso está em execução; as etapas 2.2.1 a 2.2.4 estão certificadas, e a
-próxima etapa é a 2.2.5 — Perfis.
+certificada; a Fase 2 está em execução, com a fundação 2.0, o Core Corporativo 2.1 e a etapa 2.2 concluídos e
+certificados. A próxima etapa é a 2.3 — Governança de API.
 
 ---
 

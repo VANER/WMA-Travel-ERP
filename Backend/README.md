@@ -54,7 +54,8 @@ uvicorn app.main:app --reload
 ```
 
 A API expõe `GET /health`, `GET /api/v1/health`, `GET /api/v1/health/database`, `/docs`, `/redoc` e
-`/openapi.json`.
+`/openapi.json`. Sessões humanas usam `POST /api/v1/auth/login`, `/api/v1/auth/refresh` e
+`/api/v1/auth/logout`. O Core Corporativo exige bearer token e permissões RBAC explícitas.
 
 O router principal usa o prefixo `/api` e agrega routers versionados, começando por `/v1`. Rotas inexistentes,
 métodos não permitidos, validações, indisponibilidade do banco e falhas internas retornam o contrato de erro
@@ -87,6 +88,9 @@ listagem paginada e cadastro para as nove autoridades. Consulte `Docs/CORE_API.m
 
 O gate consolidado do Core Corporativo está registrado em
 `Docs/certification/PHASE_2_1_CORE_CORPORATE_CERTIFICATION.md`.
+
+Segurança, RBAC, recuperação e auditoria estão descritos em `Docs/SECURITY_ACCESS_CONTROL.md`. A certificação
+consolidada está em `Docs/certification/PHASE_2_2_SECURITY_ACCESS_CERTIFICATION.md`.
 
 Um teste arquitetural impede imports diretos entre implementações internas dos domínios. A comunicação deverá
 usar interfaces, serviços ou contratos internos explícitos quando os casos de uso forem implementados.

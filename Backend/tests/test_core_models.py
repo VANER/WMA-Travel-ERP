@@ -177,18 +177,33 @@ EXPECTED_REGISTERED_MODELS = {
     "ConfiguracaoEmpresa",
     "Documento",
     "Empresa",
+    "EventoSeguranca",
     "Fornecedor",
     "Localidade",
     "ParametroSistema",
+    "PerfilAcesso",
+    "PerfilPermissao",
+    "Permissao",
+    "RecuperacaoCredencial",
     "Pessoa",
     "SessaoUsuario",
     "TipoDocumento",
     "Usuario",
+    "UsuarioPerfil",
 }
 
 
 def test_core_models_register_only_the_inventory_authorities() -> None:
-    security_tables = {"usuario", "sessao_usuario"}
+    security_tables = {
+        "perfil_acesso",
+        "perfil_permissao",
+        "permissao",
+        "recuperacao_credencial",
+        "sessao_usuario",
+        "evento_seguranca",
+        "usuario",
+        "usuario_perfil",
+    }
     table_names = {
         table.name for table in Base.metadata.tables.values() if table.name not in security_tables
     }
