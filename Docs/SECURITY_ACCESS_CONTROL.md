@@ -36,11 +36,16 @@ O serviço de recuperação gera token opaco de 32 bytes, persiste somente SHA-2
 A solicitação tem resultado uniforme para contas ausentes ou inativas. O token é de uso único e a redefinição
 revoga todas as sessões do usuário.
 
-A entrega é definida pela porta `NotificadorRecuperacao`. Nenhum token bruto é retornado pela API, persistido ou
-registrado em log. `POST /api/v1/auth/recovery/request` responde `202` com um adaptador injetado e `503` quando o
-transporte não foi configurado. `POST /api/v1/auth/recovery/reset` consome o token sem depender do transporte.
+A entrega é definida pela porta `NotificadorRecuperacao` e implementada pelo adaptador SMTP SSL da HostGator.
+Nenhum token bruto é retornado pela API, persistido ou registrado em log. O destinatário é exclusivamente o email
+da conta localizada pelo serviço. `POST /api/v1/auth/recovery/request` responde `202` quando o transportador conclui
+e `503` quando a senha SMTP não foi configurada ou a entrega falha. `POST /api/v1/auth/recovery/reset` consome o
+token sem depender do transporte.
 O hash e o evento de solicitação são confirmados no banco antes da entrega do token. Falhas do transportador
 retornam `503` e geram `RECUPERACAO_ENTREGUE/ERRO`, sem registrar o token nos detalhes da auditoria.
+
+O ambiente usa `WMA_SMTP_HOST`, `WMA_SMTP_PORT`, `WMA_SMTP_USERNAME`, `WMA_SMTP_PASSWORD`, `WMA_SMTP_SENDER` e
+`WMA_RECOVERY_URL`. A senha é obrigatória para ativar a entrega e permanece fora do Git.
 
 ## Auditoria
 

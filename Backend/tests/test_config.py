@@ -74,3 +74,31 @@ def test_settings_repr_does_not_expose_database_url() -> None:
     settings = Settings(database_url=VALID_DATABASE_URL)
 
     assert VALID_DATABASE_URL not in repr(settings)
+
+
+def test_smtp_password_is_optional_and_hidden() -> None:
+    settings = Settings(database_url=VALID_DATABASE_URL, smtp_password="segredo-smtp")
+
+    assert settings.smtp_password is not None
+    assert "segredo-smtp" not in repr(settings)
+    assert settings.smtp_host == "mail.wmatravel.com.br"
+    assert settings.smtp_port == 465
+
+
+def test_smtp_configuration_rejects_header_injection() -> None:
+    with pytest.raises(ValidationError):
+        Settings(database_url=VALID_DATABASE_URL, smtp_sender="vaner@wmatravel.com.br\nBcc:x@y.com")
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("smtp_password", ""),
+        ("smtp_username", "usuario-invalido"),
+        ("smtp_sender", "vaner @wmatravel.com.br"),
+        ("recovery_url", "http://wmatravel.com.br/redefinir-senha"),
+    ],
+)
+def test_smtp_configuration_rejects_unsafe_values(field: str, value: str) -> None:
+    with pytest.raises(ValidationError):
+        Settings.model_validate({"database_url": VALID_DATABASE_URL, field: value})

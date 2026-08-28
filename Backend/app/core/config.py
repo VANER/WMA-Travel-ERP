@@ -3,7 +3,7 @@
 from functools import lru_cache
 from typing import Literal, Self
 
-from pydantic import Field, SecretStr, field_validator, model_validator
+from pydantic import Field, HttpUrl, SecretStr, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from sqlalchemy.engine import make_url
 from sqlalchemy.exc import ArgumentError
@@ -31,6 +31,12 @@ class Settings(BaseSettings):
     token_audience: str = Field(default="wma-travel-erp-api", min_length=1, max_length=100)
     access_token_ttl_minutes: int = Field(default=15, ge=5, le=30)
     refresh_token_ttl_days: int = Field(default=30, ge=1, le=90)
+    smtp_host: str = Field(default="mail.wmatravel.com.br", min_length=1, max_length=255)
+    smtp_port: int = Field(default=465, ge=1, le=65535)
+    smtp_username: str = Field(default="vaner@wmatravel.com.br", min_length=3, max_length=254)
+    smtp_password: SecretStr | None = Field(default=None, repr=False, min_length=1)
+    smtp_sender: str = Field(default="vaner@wmatravel.com.br", min_length=3, max_length=254)
+    recovery_url: HttpUrl = HttpUrl("https://wmatravel.com.br/redefinir-senha")
 
     @field_validator("database_url")
     @classmethod
@@ -52,6 +58,28 @@ class Settings(BaseSettings):
         if self.environment == "production" and self.log_level == "DEBUG":
             raise ValueError("log_level DEBUG não é permitido em production")
         return self
+
+    @field_validator("smtp_host", "smtp_username", "smtp_sender")
+    @classmethod
+    def validate_smtp_header_values(cls, value: str) -> str:
+        """Impede quebra de headers e comandos SMTP por configuracao."""
+        if "\r" in value or "\n" in value:
+            raise ValueError("configuracao SMTP contem quebra de linha")
+        return value
+
+    @field_validator("smtp_username", "smtp_sender")
+    @classmethod
+    def validate_smtp_addresses(cls, value: str) -> str:
+        if value.count("@") != 1 or any(character.isspace() for character in value):
+            raise ValueError("endereco SMTP invalido")
+        return value
+
+    @field_validator("recovery_url")
+    @classmethod
+    def validate_recovery_url(cls, value: HttpUrl) -> HttpUrl:
+        if value.scheme != "https":
+            raise ValueError("recovery_url deve usar HTTPS")
+        return value
 
 
 @lru_cache

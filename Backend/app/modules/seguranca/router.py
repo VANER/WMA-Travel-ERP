@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 
 from app.core.config import Settings, get_settings
 from app.db.session import get_session
+from app.integrations.email_hostgator import NotificadorRecuperacaoHostGator
 from app.modules.seguranca.audit import AuditorSeguranca
 from app.modules.seguranca.passwords import PoliticaHashArgon2id
 from app.modules.seguranca.recovery import (
@@ -34,9 +35,11 @@ SessionDep = Annotated[Session, Depends(get_session)]
 SettingsDep = Annotated[Settings, Depends(get_settings)]
 
 
-def obter_notificador_recuperacao() -> NotificadorRecuperacao:
-    """Exige um adaptador de entrega explicitamente configurado pela aplicacao."""
-    raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE)
+def obter_notificador_recuperacao(settings: SettingsDep) -> NotificadorRecuperacao:
+    """Ativa o SMTP autorizado somente quando o segredo foi injetado no ambiente."""
+    if settings.smtp_password is None:
+        raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE)
+    return NotificadorRecuperacaoHostGator(settings)
 
 
 NotificadorDep = Annotated[NotificadorRecuperacao, Depends(obter_notificador_recuperacao)]
