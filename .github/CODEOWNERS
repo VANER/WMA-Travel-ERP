@@ -1,0 +1,11 @@
+# Contrato e governança da API
+/Backend/app/api/ @VANER
+/Backend/app/main.py @VANER
+/Backend/app/modules/**/router.py @VANER
+/Backend/openapi.json @VANER
+/Backend/scripts/*openapi* @VANER
+/Backend/tests/test_openapi*.py @VANER
+/Docs/API*.md @VANER
+/Docs/architecture/ADR-005-API-STANDARDS.md @VANER
+/Docs/architecture/ADR-016-API-GOVERNANCE.md @VANER
+/.github/workflows/backend-ci.yml @VANER

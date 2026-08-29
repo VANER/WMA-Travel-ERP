@@ -58,7 +58,12 @@ def create_app() -> FastAPI:
     register_exception_handlers(application)
     application.include_router(api_router, prefix="/api")
 
-    @application.get("/health", response_model=HealthResponse, tags=["health"])
+    @application.get(
+        "/health",
+        response_model=HealthResponse,
+        tags=["health"],
+        operation_id="health_health_get",
+    )
     def health() -> HealthResponse:
         return HealthResponse(status="ok", version=settings.app_version)
 

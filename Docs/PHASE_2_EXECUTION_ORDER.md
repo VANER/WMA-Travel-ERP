@@ -713,42 +713,101 @@ Auditoria
 
 ---
 
-## 7. PLANEJAMENTO LEGADO — Comercial
+## 7. ETAPA 2.3 — Governança de API
+
+**Dependência:** 2.0 a 2.2
+
+**Duração estimada:** 5 a 7 dias úteis
+
+**Status:** EM EXECUÇÃO
+
+### 2.3.1 — Inventário e Coerência Documental
+
+**Status:** CONCLUÍDA
+
+Inventariar o contrato publicado, reconciliar o planejamento e eliminar divergências entre documentação e
+implementação. Evidência: `API_GOVERNANCE_INVENTORY.md`.
+
+### 2.3.2 — Identificadores de Operação
+
+**Status:** CONCLUÍDA
+
+Definir convenção estável e declarar `operationId` explicitamente sem quebrar o snapshot vigente.
+
+### 2.3.3 — Paginação, Filtros e Ordenação
+
+**Status:** CONCLUÍDA
+
+Formalizar o contrato atual `offset`/`limite` e decidir as extensões compatíveis de filtros e ordenação.
+
+### 2.3.4 — Matriz de Respostas
+
+**Status:** CONCLUÍDA
+
+Definir respostas obrigatórias por classe de endpoint e controles executáveis correspondentes.
+
+### 2.3.5 — Propriedade e Aprovação
+
+**Status:** CONCLUÍDA
+
+Definir responsáveis, aprovadores, evidências de mudança e exceções emergenciais.
+
+### 2.3.6 — Auditoria Integral
+
+**Status:** VALIDAÇÃO LOCAL CONCLUÍDA; CI PENDENTE
+
+Executar lint, tipagem, testes, cobertura, PostgreSQL, migrations, snapshot e classificador de compatibilidade.
+
+### 2.3.7 — Certificação
+
+**Status:** EM VALIDAÇÃO; CI E INTEGRAÇÃO PENDENTES
+
+Consolidar evidências locais e do CI, integrar por pull request e validar o workflow pós-merge.
+
+Rascunho controlado: `certification/PHASE_2_3_API_GOVERNANCE_CERTIFICATION.md`.
+
+#### Gate 2.3 --- Critério de Saída
+
+**GOVERNANÇA DE API: CERTIFICADA**
+
+---
+
+## Apêndice A — Planejamento Legado Comercial
 
 > **Estado:** suspenso para reprogramação. A etapa oficial 2.3 é Governança de API, conforme a ADR-016. Os
 > identificadores abaixo são mantidos apenas como registro do planejamento anterior e não autorizam execução.
 
 **Dependência:** 2.1 e 2.2
 
-### 2.3.1 — Inventário Comercial
+### Legado 2.3.1 — Inventário Comercial
 
 Auditar banco existente antes de qualquer migration.
 
-### 2.3.2 — Clientes
+### Legado 2.3.2 — Clientes
 
 Implementar serviços comerciais sobre cadastro corporativo.
 
-### 2.3.3 — Leads
+### Legado 2.3.3 — Leads
 
 Implementar captação e acompanhamento.
 
-### 2.3.4 — CRM
+### Legado 2.3.4 — CRM
 
 Implementar relacionamento e histórico.
 
-### 2.3.5 — Fornecedores e Operadoras
+### Legado 2.3.5 — Fornecedores e Operadoras
 
 Implementar regras comerciais.
 
-### 2.3.6 — Oportunidades
+### Legado 2.3.6 — Oportunidades
 
 Implementar pipeline comercial.
 
-### 2.3.7 — Propostas
+### Legado 2.3.7 — Propostas
 
 Implementar proposta e itens.
 
-### 2.3.8 — Condições Comerciais
+### Legado 2.3.8 — Condições Comerciais
 
 Implementar:
 
@@ -757,23 +816,23 @@ Implementar:
 - condições;
 - comissões.
 
-### 2.3.9 — Vendas
+### Legado 2.3.9 — Vendas
 
 Implementar venda e itens.
 
-### 2.3.10 — Contratos
+### Legado 2.3.10 — Contratos
 
 Integrar contratos quando aplicável.
 
-### 2.3.11 — API Comercial
+### Legado 2.3.11 — API Comercial
 
 Disponibilizar endpoints versionados.
 
-### 2.3.12 — Testes
+### Legado 2.3.12 — Testes
 
 Executar testes funcionais e de integração.
 
-### 2.3.13 — Certificação
+### Legado 2.3.13 — Certificação
 
 Fluxo principal:
 
@@ -791,7 +850,7 @@ Venda
 Reserva/Contrato
 ```
 
-#### Gate 2.3
+#### Gate legado Comercial
 
 **MÓDULO COMERCIAL: CERTIFICADO**
 

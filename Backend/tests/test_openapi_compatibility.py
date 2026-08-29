@@ -3,7 +3,7 @@
 from copy import deepcopy
 from typing import Any
 
-from scripts.check_openapi_compatibility import find_breaking_changes
+from scripts.check_openapi_compatibility import _load_git_snapshot, find_breaking_changes
 
 JsonObject = dict[str, Any]
 
@@ -132,3 +132,10 @@ def test_global_security_and_new_enum_restriction_are_breaking() -> None:
 
     assert "autenticação global passou a ser obrigatória" in changes
     assert "schema Item.id: restrição enum adicionada" in changes
+
+
+def test_git_snapshot_is_loaded_from_repository_root() -> None:
+    snapshot = _load_git_snapshot("HEAD")
+
+    assert snapshot is not None
+    assert snapshot["info"]["title"] == "WMA Travel ERP API"

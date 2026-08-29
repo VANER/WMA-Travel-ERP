@@ -27,6 +27,26 @@ regras verificáveis para compatibilidade, depreciação e revisão do contrato.
 9. Coleções potencialmente grandes devem adotar paginação antes de uso produtivo externo.
 10. Erros seguem a ADR-011 e devem preservar o correlation ID definido pela ADR-012.
 
+### Convenção de `operationId`
+
+- toda operação declara `operation_id` explicitamente no decorator FastAPI;
+- identificadores usam ASCII, `snake_case` e terminam com o método HTTP em minúsculas;
+- os identificadores publicados no snapshot inicial permanecem imutáveis no `/api/v1`;
+- novas operações usam a sequência `acao_recurso_contexto_metodo` sem depender do nome interno da função;
+- renomear um identificador publicado é breaking change e exige o tratamento definido nesta ADR.
+
+### Paginação, filtros e ordenação
+
+- coleções atuais usam `offset` com default 0 e `limite` com default 100, limitado ao intervalo de 1 a 1000;
+- o retorno atual permanece uma lista JSON simples, sem totalização implícita;
+- cada filtro deve ser declarado e tipado no OpenAPI do recurso; campos ou expressões arbitrárias são proibidos;
+- pesquisa textual, quando aprovada, usa `search` com limites de tamanho e campos pesquisáveis definidos;
+- ordenação configurável, quando aprovada, usa `sort` e `order`, com campos permitidos por allowlist e ordem
+  restrita a `asc` ou `desc`;
+- sem esses parâmetros, a ordem deve permanecer determinística pelo identificador do recurso;
+- adicionar filtro ou ordenação opcional é mudança aditiva; alterar defaults, limites ou formato de retorno exige
+  análise de compatibilidade.
+
 ## Classificação de compatibilidade
 
 | Classe | Exemplos | Tratamento |

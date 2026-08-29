@@ -59,7 +59,7 @@ Este manual contempla:
 
 O estado oficial de execução está consolidado em `PHASE_2_EXECUTION_ORDER.md`. A Fase 1 está concluída e
 certificada; a Fase 2 está em execução, com a fundação 2.0, o Core Corporativo 2.1 e a etapa 2.2 concluídos e
-certificados. A próxima etapa é a 2.3 — Governança de API.
+certificados. A etapa 2.3 — Governança de API está em execução.
 
 ---
 
@@ -132,6 +132,8 @@ WMA_TRAVEL_ERP/
 | DATA_DICTIONARY.md | Dicionário de dados |
 | API.md | APIs REST |
 | API_GOVERNANCE_INVENTORY.md | Inventário e pendências da governança da API 2.3 |
+| API_RESPONSE_MATRIX.md | Matriz normativa de respostas HTTP da API v1 |
+| API_CHANGE_GOVERNANCE.md | Propriedade, aprovação e exceções de mudança da API |
 | DEPLOYMENT.md | Processo de implantação |
 | GOVERNANCE.md | Governança do projeto |
 | SECURITY.md | Política de segurança |
@@ -143,6 +145,7 @@ WMA_TRAVEL_ERP/
 | PHASE_2_ROADMAP.md | Planejamento oficial da Fase 2 |
 | PHASE_2_EXECUTION_ORDER.md | Ordem, gates e status das etapas da Fase 2 |
 | certification/ | Evidências das etapas certificadas da Fase 2 |
+| certification/PHASE_2_3_API_GOVERNANCE_CERTIFICATION.md | Certificação controlada da governança de API |
 
 ---
 

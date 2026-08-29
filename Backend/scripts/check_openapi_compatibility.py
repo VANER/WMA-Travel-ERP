@@ -11,6 +11,7 @@ from typing import Any
 
 HTTP_METHODS = {"get", "post", "put", "patch", "delete"}
 OPENAPI_PATH = Path(__file__).resolve().parents[1] / "openapi.json"
+REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 JsonObject = dict[str, Any]
 
 
@@ -217,6 +218,7 @@ def _load_git_snapshot(base_ref: str) -> JsonObject | None:
         capture_output=True,
         text=True,
         encoding="utf-8",
+        cwd=REPOSITORY_ROOT,
     )
     if not tree.stdout.strip():
         return None
@@ -226,6 +228,7 @@ def _load_git_snapshot(base_ref: str) -> JsonObject | None:
         capture_output=True,
         text=True,
         encoding="utf-8",
+        cwd=REPOSITORY_ROOT,
     )
     return _load_json(result.stdout)
 

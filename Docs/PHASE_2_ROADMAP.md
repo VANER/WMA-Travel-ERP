@@ -7,7 +7,7 @@
 **Fase anterior:** Fase 1 — Fundação e Banco de Dados
 **Status da Fase 1:** Concluída e certificada
 **Fase atual:** Fase 2 — Backend, API e Integrações
-**Status atual:** etapa 2.2 certificada; próxima etapa 2.3
+**Status atual:** etapa 2.2 certificada; etapa 2.3 em execução
 **Marco inicial:** `phase-1-final-2026-08-18`
 
 **Branch inicial:** `feature/fase-2-backend-api`
@@ -69,7 +69,7 @@ A Fase 2 seguirá os seguintes princípios:
 | 2.0 | Arquitetura e Fundação Backend | 3 semanas | Fase 1 |
 | 2.1 | Core Corporativo | 3 semanas | 2.0 |
 | 2.2 | Segurança e Controle de Acesso | 3 semanas | 2.0–2.1 |
-| 2.3 | Governança de API | a definir | 2.0–2.2 |
+| 2.3 | Governança de API | 5 a 7 dias úteis | 2.0–2.2 |
 | 2.4 | Financeiro | 5 semanas | 2.1–2.3 |
 | 2.5 | Turismo | 6 semanas | 2.3–2.4 |
 | 2.6 | Bike Tour | 4 semanas | 2.5 |
@@ -372,7 +372,34 @@ Auditoria
 
 ---
 
-## 7. PLANEJAMENTO LEGADO — Comercial
+## 7. ETAPA 2.3 — Governança de API
+
+**Duração estimada:** 5 a 7 dias úteis.
+
+**Status:** EM EXECUÇÃO.
+
+### Ordem
+
+1. inventário e coerência documental;
+2. identificadores de operação estáveis;
+3. paginação, filtros e ordenação;
+4. matriz de respostas;
+5. propriedade e aprovação;
+6. auditoria integral;
+7. certificação.
+
+#### Gate 2.3
+
+- contrato OpenAPI versionado e compatível;
+- documentação coerente com a implementação;
+- mudanças incompatíveis bloqueadas no CI;
+- processo de aprovação definido;
+- testes e integrações aprovados;
+- certificação publicada.
+
+---
+
+## Apêndice A — Planejamento Legado Comercial
 
 > **Estado:** suspenso para reprogramação. A etapa oficial 2.3 é Governança de API, conforme a ADR-016. Os
 > identificadores abaixo são mantidos apenas como registro do planejamento anterior e não autorizam execução.
@@ -411,7 +438,7 @@ Venda
 Reserva/Contrato
 ```
 
-#### Gate 2.3
+#### Gate legado Comercial
 
 **MÓDULO COMERCIAL: OPERACIONAL**
 
@@ -1037,7 +1064,7 @@ Acesso.
 
 **CORE CORPORATIVO 2.1:** CERTIFICADO
 
-**PRÓXIMA ETAPA:** 2.3 — Governança de API
+**ETAPA ATUAL:** 2.3 — Governança de API, em execução
 
 ---
 

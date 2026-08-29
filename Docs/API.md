@@ -1,6 +1,10 @@
 # API do WMA Travel ERP
 
 > Documentação oficial da API REST do WMA Travel ERP.
+>
+> **Estado do documento:** especificação evolutiva. O contrato executável vigente é `Backend/openapi.json`.
+> Endpoint, integração ou capacidade ausente desse snapshot deve ser tratado como planejamento, mesmo quando as
+> seções históricas abaixo descrevem o estado-alvo. Exemplos planejados não autorizam uso em produção.
 
 ---
 
@@ -255,9 +259,12 @@ Accept: application/json
 
 ## 10. Formato das Respostas
 
-As respostas deverão seguir estrutura padronizada.
+Respostas de sucesso usam o schema específico declarado no OpenAPI. Não existe envelope universal de sucesso no
+contrato atual: detalhes retornam o recurso tipado, coleções retornam listas e respostas `204` não possuem corpo.
 
-### Sucesso
+### Sucesso planejado com envelope
+
+O formato abaixo somente poderá ser usado por contrato futuro que o declare explicitamente:
 
 ```json
 {
@@ -269,7 +276,7 @@ As respostas deverão seguir estrutura padronizada.
 
 ---
 
-### Erro
+### Erro vigente
 
 ```json
 {
@@ -283,17 +290,16 @@ As respostas deverão seguir estrutura padronizada.
 
 ### Metadados
 
-Quando necessário:
+Quando um contrato específico declarar metadados de paginação, estes deverão refletir os parâmetros efetivamente
+implementados. As coleções atuais do Core Corporativo retornam uma lista JSON simples e não informam totalização.
 
 ```json
 {
   "success": true,
   "data": [],
   "pagination": {
-    "page": 1,
-    "page_size": 20,
-    "total": 250,
-    "pages": 13
+    "offset": 0,
+    "limite": 100
   }
 }
 ```
@@ -612,48 +618,45 @@ A API deverá seguir as seguintes recomendações:
 
 ## 26. Paginação
 
-Todos os endpoints que retornam coleções deverão suportar paginação.
+Todos os endpoints que retornam coleções potencialmente grandes deverão suportar paginação. O contrato atual do
+Core Corporativo utiliza deslocamento e limite, preservando os nomes publicados no OpenAPI.
 
 ### Parâmetros
 
-| Parâmetro | Tipo | Obrigatório | Descrição |
-| ----------- | ------ | ----------- | ----------- |
-| page | Integer | Não | Número da página |
-| page_size | Integer | Não | Quantidade de registros |
-| sort | String | Não | Campo para ordenação |
-| order | String | Não | ASC ou DESC |
+| Parâmetro | Tipo | Obrigatório | Default | Limites | Descrição |
+| --- | --- | --- | ---: | --- | --- |
+| offset | Integer | Não | 0 | mínimo 0 | Registros ignorados desde o início |
+| limite | Integer | Não | 100 | 1 a 1000 | Quantidade máxima de registros retornados |
 
 ### Exemplo
 
 ```http
-GET /api/v1/clientes?page=1&page_size=20
+GET /api/v1/clientes?offset=0&limite=20
 ```
 
 ### Resposta
 
 ```json
-{
-  "success": true,
-  "data": [],
-  "pagination": {
-    "page": 1,
-    "page_size": 20,
-    "total_records": 250,
-    "total_pages": 13
-  }
-}
+[]
 ```
+
+O retorno atual não inclui total de registros. Adicionar envelope ou totalização exige decisão contratual aditiva;
+substituir a lista por outro formato no `/api/v1` constitui breaking change.
 
 ---
 
 ## 27. Ordenação
 
-A API permite ordenar os resultados utilizando os parâmetros:
+A ordenação configurável ainda não integra o contrato atual do Core Corporativo. As coleções são ordenadas
+deterministicamente por seu identificador. Quando aprovada para um recurso, a extensão poderá utilizar:
 
 ```text
 sort
 order
 ```
+
+`sort` deverá aceitar somente campos publicados em uma allowlist do recurso. `order` será restrito a `asc` ou
+`desc`. Parâmetros desconhecidos ou valores fora do contrato deverão produzir erro de validação.
 
 ### Exemplo
 
@@ -671,7 +674,8 @@ GET /api/v1/clientes?sort=data_cadastro&order=desc
 
 ## 28. Pesquisa
 
-Os recursos poderão implementar pesquisa textual.
+Os recursos poderão implementar pesquisa textual por `search`, declarando no OpenAPI o limite de tamanho e os
+campos pesquisáveis. O parâmetro não autoriza expressões SQL, nomes arbitrários de campos ou operadores livres.
 
 ### Exemplo
 
@@ -682,14 +686,15 @@ GET /api/v1/clientes?search=João
 Também poderão ser utilizadas pesquisas compostas.
 
 ```http
-GET /api/v1/clientes?search=João&page=2
+GET /api/v1/clientes?search=João&offset=20&limite=20
 ```
 
 ---
 
 ## 29. Filtros
 
-Os endpoints poderão disponibilizar filtros específicos.
+Os endpoints poderão disponibilizar filtros específicos, tipados e documentados individualmente no OpenAPI. Não
+existe filtro genérico por campo ou expressão.
 
 Exemplo:
 
@@ -711,9 +716,9 @@ GET /api/v1/clientes?data_inicio=2026-01-01&data_fim=2026-12-31
 
 ---
 
-## 30. Upload de Arquivos
+## 30. Upload de Arquivos Planejado
 
-A API suporta envio de arquivos.
+O envio de arquivos está planejado e não integra o snapshot atual.
 
 Formato:
 
@@ -740,7 +745,7 @@ O tamanho máximo deverá ser configurável.
 
 ---
 
-## 31. Download de Arquivos
+## 31. Download de Arquivos Planejado
 
 Os documentos poderão ser recuperados através de endpoints específicos.
 
@@ -933,7 +938,10 @@ Todos os endpoints deverão seguir as seguintes recomendações:
 
 ---
 
-## 41. Endpoints da API
+## 41. Catálogo Planejado de Endpoints
+
+As seções 42 a 63 preservam o catálogo funcional planejado. Somente os caminhos presentes em
+`Backend/openapi.json` estão implementados.
 
 Os endpoints da API estão organizados por módulos do ERP.
 
@@ -1388,7 +1396,9 @@ Rotas inexistentes e métodos não permitidos seguem o contrato de erro padrão 
 
 ---
 
-## 65. Informações da API
+## 65. Informações da API Planejadas
+
+Este endpoint ainda não integra o contrato vigente.
 
 Base URL
 
@@ -1408,7 +1418,9 @@ Informações disponibilizadas:
 
 ---
 
-## 66. Exemplos de Requisições
+## 66. Exemplos Planejados de Requisições
+
+Os exemplos desta seção representam o estado-alvo e não substituem os schemas do OpenAPI vigente.
 
 ### Consultar Cliente
 
@@ -1463,7 +1475,9 @@ Resposta
 
 ---
 
-## 67. Estrutura Padronizada das Respostas
+## 67. Estrutura Planejada das Respostas
+
+Esta seção preserva o envelope planejado. O contrato atual segue a regra da seção 10.
 
 ### Sucesso
 
@@ -1533,9 +1547,9 @@ Formato:
 
 ---
 
-## 70. Integrações Externas
+## 70. Integrações Externas Planejadas
 
-A API suporta integração com:
+A arquitetura prevê integração futura com:
 
 - Gateway de Pagamento
 - PIX
