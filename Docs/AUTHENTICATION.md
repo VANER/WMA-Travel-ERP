@@ -10,6 +10,10 @@
 
 **Status:** APROVADA E CERTIFICADA
 
+> **Nota de evolução:** este documento preserva as fronteiras deliberadas da etapa 2.2.2. As decisões então
+> adiadas foram tratadas nas etapas 2.2.3 e 2.2.4 e na certificação consolidada da 2.2; o estado operacional atual
+> está descrito em `SECURITY_ACCESS_CONTROL.md`.
+
 ## 2. Objetivo
 
 Definir e implementar a orquestração mínima que confirma uma identidade humana de `public.usuario`, sem
@@ -54,8 +58,9 @@ Esta etapa não inclui:
 - recuperação, ativação ou bloqueio de contas;
 - migration ou alteração da baseline.
 
-O model `Usuario` apenas reflete a tabela certificada. A próxima etapa deve decidir e implementar a política de
-hash antes que um adaptador concreto de `VerificadorCredencial` seja conectado.
+No encerramento da 2.2.2, o model `Usuario` apenas refletia a tabela certificada. A política de hash e o adaptador
+concreto de `VerificadorCredencial` foram implementados posteriormente na 2.2.3, sem alterar retroativamente o
+escopo desta etapa.
 
 ## 6. Critérios de conclusão
 

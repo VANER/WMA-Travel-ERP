@@ -1,8 +1,10 @@
 # Inventário de Governança da API
 
-**Etapa:** preparação da 2.3 - Governança de API  
-**Data do inventário:** 28/08/2026  
-**Estado:** inventário concluído; escopo executivo reconciliado pela ADR-016
+**Etapa:** 2.3 - Governança de API
+
+**Data do inventário:** 28/08/2026
+
+**Estado:** concluído e incorporado à certificação da etapa 2.3
 
 ## 1. Objetivo
 
@@ -41,27 +43,29 @@ rotas, schema de banco ou artefatos históricos.
 As decisões de compatibilidade, ciclo de vida, depreciação e retirada de versões foram aprovadas pela ADR-016.
 O contrato de paginação vigente foi formalizado como `offset`/`limite` em `API.md`.
 
-## 5. Pendências para o gate
+## 5. Encerramento das pendências do gate
 
-1. validar integrações PostgreSQL no CI Linux;
-2. consolidar a auditoria e a certificação da etapa.
+1. integrações PostgreSQL validadas no CI Linux;
+2. auditoria e certificação consolidadas no PR #43;
+3. integração e CI pós-merge aprovados em `main`.
 
 O classificador deverá ser ampliado quando novos formatos de schema forem adotados.
 
 ## 6. Não conformidade documental resolvida
 
 **GOV-API-001:** `AGENTS.md`, `Docs/README.md`, `Docs/PROJECT_DOCUMENTATION.md` e
-`Docs/architecture/README.md` declaram a próxima etapa como **2.3 - Governança de API**. Entretanto,
+`Docs/architecture/README.md` declaravam a próxima etapa como **2.3 - Governança de API**. Entretanto,
 `Docs/PHASE_2_ROADMAP.md` e `Docs/PHASE_2_EXECUTION_ORDER.md` definiam **2.3 - Comercial** e seus respectivos
 subitens.
 
 A ADR-016 resolveu a divergência de forma aditiva: a etapa oficial 2.3 é Governança de API. O bloco Comercial foi
 marcado como planejamento legado suspenso, preservando seu conteúdo até a reprogramação das etapas subsequentes.
 
-## 7. Critério para prosseguir
+## 7. Resultado
 
-A próxima entrega da governança da API exige:
+A etapa atendeu aos critérios definidos:
 
-- concluir os itens da seção 5;
-- manter os controles automatizados coerentes com a ADR-016;
-- validação integral do backend e certificação própria da etapa.
+- itens da seção 5 concluídos;
+- controles automatizados coerentes com a ADR-016;
+- backend integralmente validado;
+- certificação publicada em `certification/PHASE_2_3_API_GOVERNANCE_CERTIFICATION.md`.

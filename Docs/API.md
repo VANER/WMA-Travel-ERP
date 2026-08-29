@@ -189,7 +189,7 @@ As URLs deverão:
 
 ## 8. Métodos HTTP
 
-| Método | Finalidad |
+| Método | Finalidade |
 | ------ | -------------------- |
 | GET | Consulta |
 | POST | Inclusão |
