@@ -21,6 +21,12 @@ O repositório não escolhe nem ativa SMTP automaticamente. O endpoint de solici
 aplicação não injetar uma implementação autorizada de `NotificadorRecuperacao`. Essa decisão evita envio de token
 sensível para destino não aprovado.
 
+### Atualização Posterior
+
+Em 27 de agosto de 2026, o transporte foi explicitamente autorizado e integrado. Em 28 de agosto de 2026, o
+provedor efetivo foi confirmado como Titan Email. A restrição acima permanece como registro da decisão vigente
+na data desta recertificação e foi superada pela certificação Titan aditiva.
+
 ## Gate
 
 Validação local executada em 26 de agosto de 2026:

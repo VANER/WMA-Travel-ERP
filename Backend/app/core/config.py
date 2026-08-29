@@ -31,7 +31,7 @@ class Settings(BaseSettings):
     token_audience: str = Field(default="wma-travel-erp-api", min_length=1, max_length=100)
     access_token_ttl_minutes: int = Field(default=15, ge=5, le=30)
     refresh_token_ttl_days: int = Field(default=30, ge=1, le=90)
-    smtp_host: str = Field(default="mail.wmatravel.com.br", min_length=1, max_length=255)
+    smtp_host: str = Field(default="smtp.titan.email", min_length=1, max_length=255)
     smtp_port: int = Field(default=465, ge=1, le=65535)
     smtp_username: str = Field(default="vaner@wmatravel.com.br", min_length=3, max_length=254)
     smtp_password: SecretStr | None = Field(default=None, repr=False, min_length=1)

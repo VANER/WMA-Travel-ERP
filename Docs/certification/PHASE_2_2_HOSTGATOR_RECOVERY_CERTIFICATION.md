@@ -2,9 +2,14 @@
 
 ## Resultado
 
-**Status:** APROVADA LOCALMENTE
+**Status:** SUBSTITUÍDA PELA CERTIFICAÇÃO TITAN
 
 **Data:** 27/08/2026
+
+**Substituição:** 28/08/2026
+
+Esta evidência preserva a configuração inicialmente assumida. O provedor efetivo foi posteriormente confirmado
+como Titan Email; a configuração vigente está em `PHASE_2_2_TITAN_RECOVERY_CERTIFICATION.md`.
 
 ## Escopo Autorizado
 

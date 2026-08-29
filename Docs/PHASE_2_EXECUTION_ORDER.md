@@ -671,7 +671,7 @@ Recertificação de hardening: `Docs/certification/PHASE_2_2_SECURITY_HARDENING.
 Hardening transacional da recuperação:
 `Docs/certification/PHASE_2_2_RECOVERY_TRANSACTION_HARDENING.md`.
 
-Integração HostGator: `Docs/certification/PHASE_2_2_HOSTGATOR_RECOVERY_CERTIFICATION.md`.
+Integração Titan Email: `Docs/certification/PHASE_2_2_TITAN_RECOVERY_CERTIFICATION.md`.
 
 ### Ordem
 

@@ -1,4 +1,4 @@
-"""Testes do transporte SMTP HostGator sem egress de rede."""
+"""Testes do transporte SMTP Titan sem egress de rede."""
 
 from email.message import EmailMessage
 from unittest.mock import MagicMock, patch
@@ -7,7 +7,7 @@ import pytest
 from fastapi import HTTPException
 
 from app.core.config import Settings
-from app.integrations.email_hostgator import NotificadorRecuperacaoHostGator, _adicionar_token
+from app.integrations.email_titan import NotificadorRecuperacaoTitan, _adicionar_token
 from app.modules.seguranca.router import obter_notificador_recuperacao
 
 DATABASE_URL = "postgresql+psycopg://wma_test@localhost:5432/wma_test"
@@ -15,7 +15,7 @@ DATABASE_URL = "postgresql+psycopg://wma_test@localhost:5432/wma_test"
 
 def test_notificador_exige_segredo_smtp() -> None:
     with pytest.raises(ValueError, match="senha SMTP"):
-        NotificadorRecuperacaoHostGator(Settings(database_url=DATABASE_URL))
+        NotificadorRecuperacaoTitan(Settings(database_url=DATABASE_URL))
 
 
 def test_dependencia_ativa_somente_com_segredo_smtp() -> None:
@@ -26,7 +26,7 @@ def test_dependencia_ativa_somente_com_segredo_smtp() -> None:
     notificador = obter_notificador_recuperacao(
         Settings(database_url=DATABASE_URL, smtp_password="segredo-smtp")
     )
-    assert isinstance(notificador, NotificadorRecuperacaoHostGator)
+    assert isinstance(notificador, NotificadorRecuperacaoTitan)
 
 
 def test_notificador_usa_ssl_autenticado_e_destinatario_da_conta() -> None:
@@ -36,15 +36,15 @@ def test_notificador_usa_ssl_autenticado_e_destinatario_da_conta() -> None:
     contexto_cliente.__enter__.return_value = cliente
 
     with (
-        patch("app.integrations.email_hostgator.ssl.create_default_context") as criar_contexto,
+        patch("app.integrations.email_titan.ssl.create_default_context") as criar_contexto,
         patch(
-            "app.integrations.email_hostgator.smtplib.SMTP_SSL", return_value=contexto_cliente
+            "app.integrations.email_titan.smtplib.SMTP_SSL", return_value=contexto_cliente
         ) as smtp_ssl,
     ):
-        NotificadorRecuperacaoHostGator(settings).enviar("ana@example.com", "token opaco")
+        NotificadorRecuperacaoTitan(settings).enviar("ana@example.com", "token opaco")
 
     smtp_ssl.assert_called_once_with(
-        "mail.wmatravel.com.br", 465, timeout=15, context=criar_contexto.return_value
+        "smtp.titan.email", 465, timeout=15, context=criar_contexto.return_value
     )
     cliente.login.assert_called_once_with("vaner@wmatravel.com.br", "segredo-smtp")
     mensagem = cliente.send_message.call_args.args[0]

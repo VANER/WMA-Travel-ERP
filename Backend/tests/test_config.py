@@ -81,7 +81,7 @@ def test_smtp_password_is_optional_and_hidden() -> None:
 
     assert settings.smtp_password is not None
     assert "segredo-smtp" not in repr(settings)
-    assert settings.smtp_host == "mail.wmatravel.com.br"
+    assert settings.smtp_host == "smtp.titan.email"
     assert settings.smtp_port == 465
 
 

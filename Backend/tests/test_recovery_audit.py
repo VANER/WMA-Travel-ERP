@@ -59,6 +59,18 @@ def test_solicitacao_inexistente_tem_resultado_uniforme() -> None:
     recuperacoes.adicionar.assert_not_called()
 
 
+def test_solicitacao_aceita_relogio_utc_sem_fuso() -> None:
+    service, usuarios, recuperacoes, _sessoes = _service()
+    service._clock = lambda: NOW.replace(tzinfo=None)
+    usuarios.buscar_por_email.return_value = Usuario(
+        id_usuario=7, nome="Ana", email="ana@example.com", ativo=True
+    )
+
+    assert service.solicitar("ana@example.com") is not None
+    registro = recuperacoes.adicionar.call_args.args[0]
+    assert registro.data_expiracao == NOW.replace(tzinfo=None) + timedelta(minutes=30)
+
+
 def test_redefinicao_e_de_uso_unico_e_revoga_sessoes() -> None:
     service, usuarios, recuperacoes, sessoes = _service()
     registro = RecuperacaoCredencial(
@@ -98,6 +110,22 @@ def test_redefinicao_nega_token_invalido(registro: str | None) -> None:
         service.redefinir("invalido", "nova")
 
 
+def test_redefinicao_nega_usuario_inativo() -> None:
+    service, usuarios, recuperacoes, _sessoes = _service()
+    recuperacoes.buscar_por_hash_para_atualizacao.return_value = RecuperacaoCredencial(
+        id_recuperacao=uuid4(),
+        id_usuario=7,
+        token_hash="a" * 64,
+        data_expiracao=(NOW + timedelta(minutes=1)).replace(tzinfo=None),
+    )
+    usuarios.buscar_por_id.return_value = Usuario(
+        id_usuario=7, nome="Ana", email="ana@example.com", ativo=False
+    )
+
+    with pytest.raises(RecuperacaoInvalidaError):
+        service.redefinir("invalido", "nova")
+
+
 def test_auditoria_rejeita_segredos_e_persiste_evento_estruturado() -> None:
     session = create_autospec(Session, instance=True)
     auditor = AuditorSeguranca(session)
@@ -108,6 +136,8 @@ def test_auditoria_rejeita_segredos_e_persiste_evento_estruturado() -> None:
     session.add.assert_called_once_with(evento)
     with pytest.raises(ValueError):
         auditor.registrar("LOGIN", "NEGADO", detalhes={"token": "segredo"})
+    with pytest.raises(ValueError, match="resultado"):
+        auditor.registrar("LOGIN", "DESCONHECIDO")
 
 
 def test_migration_torna_evento_seguranca_append_only() -> None:
