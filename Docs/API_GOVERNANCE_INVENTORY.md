@@ -33,6 +33,7 @@ rotas, schema de banco ou artefatos históricos.
 | presença de resposta de sucesso | `Backend/tests/test_openapi.py` | Coberto |
 | schemas de erro cobertos | `Backend/tests/test_openapi.py` e `Backend/tests/test_errors.py` | Coberto |
 | correlation ID | `Backend/tests/test_errors.py` e testes de middleware | Coberto |
+| snapshot canônico do contrato | `Backend/openapi.json` e CI | Coberto |
 
 ## 4. Decisões ainda necessárias
 
@@ -43,7 +44,7 @@ Antes do gate da etapa, devem ser decididos e documentados:
 3. convenção estável para `operationId`;
 4. padrão de paginação, filtros e ordenação;
 5. matriz obrigatória de respostas por classe de endpoint;
-6. processo de revisão e comparação automatizada do contrato OpenAPI;
+6. ampliar o classificador quando novos formatos de schema forem adotados;
 7. propriedade e aprovação de mudanças de contrato.
 
 ## 5. Não conformidade documental resolvida

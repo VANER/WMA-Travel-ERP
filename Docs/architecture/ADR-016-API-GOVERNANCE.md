@@ -46,8 +46,13 @@ O conjunto mínimo de CI deve verificar:
 - schemas de sucesso e erro nos contratos aplicáveis;
 - testes automatizados e cobertura integral exigida pelo projeto.
 
-A comparação automatizada entre contratos de branches permanece uma evolução necessária antes da certificação
-da etapa 2.3.
+O snapshot canônico `Backend/openapi.json` deve acompanhar a aplicação. O comando
+`python scripts/export_openapi.py --check` fiscaliza essa correspondência no CI, enquanto o diff do snapshot torna
+mudanças de contrato visíveis para revisão no pull request.
+
+Em pull requests, `python scripts/check_openapi_compatibility.py` compara o snapshot com a branch-base e bloqueia
+remoções, novas obrigatoriedades e alterações incompatíveis conhecidas. O classificador é conservador e deve ser
+ampliado quando o projeto adotar novas construções OpenAPI.
 
 ## Consequências
 
