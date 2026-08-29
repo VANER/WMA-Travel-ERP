@@ -131,6 +131,7 @@ WMA_TRAVEL_ERP/
 | DATABASE_STANDARDS.md | Padrões técnicos do banco |
 | DATA_DICTIONARY.md | Dicionário de dados |
 | API.md | APIs REST |
+| API_GOVERNANCE_INVENTORY.md | Inventário e pendências da governança da API 2.3 |
 | DEPLOYMENT.md | Processo de implantação |
 | GOVERNANCE.md | Governança do projeto |
 | SECURITY.md | Política de segurança |

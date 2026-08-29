@@ -69,7 +69,7 @@ A Fase 2 seguirá os seguintes princípios:
 | 2.0 | Arquitetura e Fundação Backend | 3 semanas | Fase 1 |
 | 2.1 | Core Corporativo | 3 semanas | 2.0 |
 | 2.2 | Segurança e Controle de Acesso | 3 semanas | 2.0–2.1 |
-| 2.3 | Comercial | 5 semanas | 2.1–2.2 |
+| 2.3 | Governança de API | a definir | 2.0–2.2 |
 | 2.4 | Financeiro | 5 semanas | 2.1–2.3 |
 | 2.5 | Turismo | 6 semanas | 2.3–2.4 |
 | 2.6 | Bike Tour | 4 semanas | 2.5 |
@@ -80,6 +80,9 @@ A Fase 2 seguirá os seguintes princípios:
 | 2.11 | Auditoria e Observabilidade | 3 semanas | transversal |
 | 2.12 | Qualidade e Hardening | 4 semanas | todas |
 | 2.13 | Certificação da Fase 2 | 2 semanas | 2.12 |
+
+As linhas 2.4 a 2.13 preservam a projeção anterior e serão reprogramadas antes de sua execução para reinserir o
+módulo Comercial sem sobrepor a etapa 2.3.
 
 **Estimativa sequencial total:** aproximadamente 56 semanas.
 
@@ -369,7 +372,10 @@ Auditoria
 
 ---
 
-## 7. ETAPA 2.3 — Comercial
+## 7. PLANEJAMENTO LEGADO — Comercial
+
+> **Estado:** suspenso para reprogramação. A etapa oficial 2.3 é Governança de API, conforme a ADR-016. Os
+> identificadores abaixo são mantidos apenas como registro do planejamento anterior e não autorizam execução.
 
 **Duração:** 5 semanas.
 
@@ -832,7 +838,7 @@ Resultado esperado:
 | M2.0 | Backend operacional |
 | M2.1 | Core operacional |
 | M2.2 | Segurança certificada |
-| M2.3 | Comercial operacional |
+| M2.3 | Governança de API certificada |
 | M2.4 | Financeiro operacional |
 | M2.5 | Turismo operacional |
 | M2.6 | Bike Tour operacional |
@@ -934,7 +940,7 @@ FASE 1 CERTIFICADA
         ↓
 2.2 Segurança
         ↓
-2.3 Comercial
+2.3 Governança de API
         ↓
 2.4 Financeiro
         ↓
