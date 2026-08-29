@@ -6,7 +6,7 @@
 
 **Data da auditoria local:** 29/08/2026
 
-**Status:** EM VALIDAÇÃO --- NÃO CERTIFICADA
+**Status:** AUDITORIA APROVADA --- MERGE E CI PÓS-MERGE PENDENTES
 
 ## 1. Objetivo
 
@@ -65,16 +65,20 @@ módulos operacionais da Fase 2.
 | Markdownlint | 13 documentos aprovados |
 | `git diff --check` | Aprovado |
 
-## 6. Evidências remotas pendentes
+## 6. Evidências remotas
 
-Antes da certificação final, registrar:
+| Evidência | Resultado |
+| --- | --- |
+| pull request | [#43](https://github.com/VANER/WMA-Travel-ERP/pull/43) |
+| commit auditado | `fa8c066527c918f9dae2ab04d19827f623d7fe52` |
+| Backend CI | [run 33249820518](https://github.com/VANER/WMA-Travel-ERP/actions/runs/33249820518) |
+| job Linux/Python 3.13 | `99093459926`, aprovado em 1 min 3 s |
+| testes e integrações PostgreSQL | Aprovados |
+| baseline e migrations | Restauração e aplicação aprovadas |
+| contrato OpenAPI | Snapshot e compatibilidade contra a branch-base aprovados |
 
-- número e URL do pull request;
-- commit auditado;
-- execução do Backend CI em Linux/Python 3.13;
-- quatro integrações PostgreSQL aprovadas;
-- restauração da baseline e aplicação das migrations;
-- classificador executado contra a branch-base real;
+Permanecem pendentes antes da certificação final:
+
 - merge commit e CI pós-merge.
 
 ## 7. Critério de encerramento

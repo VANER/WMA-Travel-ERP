@@ -754,13 +754,13 @@ Definir responsáveis, aprovadores, evidências de mudança e exceções emergen
 
 ### 2.3.6 — Auditoria Integral
 
-**Status:** VALIDAÇÃO LOCAL CONCLUÍDA; CI PENDENTE
+**Status:** CONCLUÍDA
 
 Executar lint, tipagem, testes, cobertura, PostgreSQL, migrations, snapshot e classificador de compatibilidade.
 
 ### 2.3.7 — Certificação
 
-**Status:** EM VALIDAÇÃO; CI E INTEGRAÇÃO PENDENTES
+**Status:** AUDITORIA APROVADA; MERGE E CI PÓS-MERGE PENDENTES
 
 Consolidar evidências locais e do CI, integrar por pull request e validar o workflow pós-merge.
 
