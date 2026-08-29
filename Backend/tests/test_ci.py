@@ -33,15 +33,20 @@ def test_backend_workflow_runs_all_quality_gates() -> None:
     required_commands = {
         "python -m pip check",
         "ruff check .",
-        "ruff format --check app tests migrations",
-        "mypy app tests",
+        "ruff format --check app tests migrations scripts",
+        "mypy app tests scripts",
         "pytest -W error --run-postgresql --cov=app --cov-report=term-missing",
+        "python scripts/export_openapi.py --check",
+        'python scripts/check_openapi_compatibility.py --base-ref "$WMA_OPENAPI_BASE_REF"',
         "alembic heads",
         "alembic upgrade head",
     }
 
     for command in required_commands:
         assert f"run: {command}" in workflow
+
+    assert "fetch-depth: 0" in workflow
+    assert "if: github.event_name == 'pull_request'" in workflow
 
 
 def test_backend_workflow_installs_linux_lock_without_resolving_dependencies() -> None:

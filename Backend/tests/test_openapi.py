@@ -1,6 +1,11 @@
 """Testes do contrato OpenAPI e das interfaces de documentação."""
 
+import json
+from pathlib import Path
+
 from fastapi.testclient import TestClient
+
+OPENAPI_SNAPSHOT = Path(__file__).resolve().parents[1] / "openapi.json"
 
 
 def test_documentation_interfaces_are_available(client: TestClient) -> None:
@@ -78,3 +83,9 @@ def test_openapi_operations_have_governance_metadata(client: TestClient) -> None
         any(status_code.startswith("2") for status_code in operation["responses"])
         for operation in operations
     )
+
+
+def test_openapi_matches_versioned_contract(client: TestClient) -> None:
+    expected = json.loads(OPENAPI_SNAPSHOT.read_text(encoding="utf-8"))
+
+    assert client.get("/openapi.json").json() == expected

@@ -49,6 +49,8 @@ jobs:
     steps:
       - name: Obter código
         uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
 
       - name: Configurar Python
         uses: actions/setup-python@v7
@@ -71,13 +73,22 @@ jobs:
         run: ruff check .
 
       - name: Verificar formatação
-        run: ruff format --check app tests migrations
+        run: ruff format --check app tests migrations scripts
 
       - name: Verificar tipos
-        run: mypy app tests
+        run: mypy app tests scripts
 
       - name: Executar testes rápidos e integração PostgreSQL
         run: pytest -W error --run-postgresql --cov=app --cov-report=term-missing
+
+      - name: Verificar contrato OpenAPI versionado
+        run: python scripts/export_openapi.py --check
+
+      - name: Classificar compatibilidade do contrato OpenAPI
+        if: github.event_name == 'pull_request'
+        env:
+          WMA_OPENAPI_BASE_REF: origin/${{ github.base_ref }}
+        run: python scripts/check_openapi_compatibility.py --base-ref "$WMA_OPENAPI_BASE_REF"
 
       - name: Verificar árvore de migrations
         run: alembic heads
