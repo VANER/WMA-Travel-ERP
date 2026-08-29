@@ -16,9 +16,32 @@ from app.main import app
 from app.modules.seguranca.authorization import exigir_permissao, obter_contexto_rbac
 from app.modules.seguranca.models import RecuperacaoCredencial, SessaoUsuario, Usuario
 from app.modules.seguranca.rbac import ContextoRbac
-from app.modules.seguranca.recovery import NotificadorRecuperacao
-from app.modules.seguranca.router import obter_notificador_recuperacao
-from app.modules.seguranca.tokens import CodecTokenAcesso
+from app.modules.seguranca.recovery import (
+    NotificadorRecuperacao,
+    RecuperacaoInvalidaError,
+    RecuperacaoService,
+)
+from app.modules.seguranca.router import (
+    login,
+    logout,
+    obter_notificador_recuperacao,
+    redefinir_credencial,
+    refresh,
+    solicitar_recuperacao,
+)
+from app.modules.seguranca.schemas import (
+    LoginRequest,
+    RecuperacaoRequest,
+    RedefinicaoRequest,
+    RefreshRequest,
+)
+from app.modules.seguranca.services import AutenticacaoNegadaError
+from app.modules.seguranca.tokens import (
+    CodecTokenAcesso,
+    ParTokens,
+    SessaoService,
+    TokenInvalidoError,
+)
 
 
 def _request() -> Request:
@@ -158,6 +181,87 @@ def test_login_inicia_sessao_e_confirma_transacao(client: TestClient) -> None:
     session.commit.assert_called_once()
 
 
+def test_login_nega_credencial_e_audita() -> None:
+    session = create_autospec(Session, instance=True)
+    with (
+        patch(
+            "app.modules.seguranca.router.AutenticacaoService.autenticar",
+            side_effect=AutenticacaoNegadaError,
+        ),
+        pytest.raises(HTTPException) as error,
+    ):
+        login(
+            LoginRequest(email="ana@example.com", credencial="invalida"),
+            _request(),
+            session,
+            get_settings(),
+        )
+
+    assert error.value.status_code == 401
+    session.rollback.assert_called_once()
+    session.commit.assert_called_once()
+
+
+def test_login_reverte_falha_inesperada() -> None:
+    session = create_autospec(Session, instance=True)
+    with (
+        patch(
+            "app.modules.seguranca.router.AutenticacaoService.autenticar",
+            side_effect=RuntimeError("falha"),
+        ),
+        pytest.raises(RuntimeError, match="falha"),
+    ):
+        login(
+            LoginRequest(email="ana@example.com", credencial="credencial"),
+            _request(),
+            session,
+            get_settings(),
+        )
+
+    session.rollback.assert_called_once()
+
+
+def test_refresh_retorna_novo_par_e_confirma_transacao() -> None:
+    session = create_autospec(Session, instance=True)
+    service = create_autospec(SessaoService, instance=True)
+    service.renovar.return_value = ParTokens("access", "refresh", "Bearer", 900)
+    with patch("app.modules.seguranca.router._sessao_service", return_value=service):
+        response = refresh(
+            RefreshRequest(refresh_token="r" * 32), _request(), session, get_settings()
+        )
+
+    assert response.access_token == "access"
+    session.commit.assert_called_once()
+
+
+def test_refresh_nega_token_invalido_e_audita() -> None:
+    session = create_autospec(Session, instance=True)
+    service = create_autospec(SessaoService, instance=True)
+    service.renovar.side_effect = TokenInvalidoError
+    with (
+        patch("app.modules.seguranca.router._sessao_service", return_value=service),
+        pytest.raises(HTTPException) as error,
+    ):
+        refresh(RefreshRequest(refresh_token="r" * 32), _request(), session, get_settings())
+
+    assert error.value.status_code == 401
+    session.rollback.assert_called_once()
+    session.commit.assert_called_once()
+
+
+def test_logout_revoga_e_confirma_transacao() -> None:
+    session = create_autospec(Session, instance=True)
+    service = create_autospec(SessaoService, instance=True)
+    with patch("app.modules.seguranca.router._sessao_service", return_value=service):
+        response = logout(
+            RefreshRequest(refresh_token="r" * 32), _request(), session, get_settings()
+        )
+
+    assert response.status_code == 204
+    service.revogar.assert_called_once_with("r" * 32)
+    session.commit.assert_called_once()
+
+
 def test_solicitacao_recuperacao_retorna_resposta_uniforme_e_audita(
     client: TestClient,
 ) -> None:
@@ -211,6 +315,22 @@ def test_falha_na_entrega_ocorre_depois_do_commit_e_e_auditada(client: TestClien
     assert session.commit.call_count == 2
 
 
+def test_solicitacao_reverte_falha_antes_da_persistencia() -> None:
+    session = create_autospec(Session, instance=True)
+    service = create_autospec(RecuperacaoService, instance=True)
+    service.solicitar.side_effect = RuntimeError("falha")
+    notificador = create_autospec(NotificadorRecuperacao, instance=True)
+    with (
+        patch("app.modules.seguranca.router._recuperacao_service", return_value=service),
+        pytest.raises(RuntimeError, match="falha"),
+    ):
+        solicitar_recuperacao(
+            RecuperacaoRequest(email="ana@example.com"), _request(), session, notificador
+        )
+
+    session.rollback.assert_called_once()
+
+
 def test_solicitacao_recuperacao_sem_notificador_retorna_503(client: TestClient) -> None:
     response = client.post("/api/v1/auth/recovery/request", json={"email": "ana@example.com"})
 
@@ -245,3 +365,35 @@ def test_redefinicao_http_altera_hash_revoga_sessoes_e_audita(client: TestClient
     session.execute.assert_called_once()
     session.add.assert_called_once()
     session.commit.assert_called_once()
+
+
+def test_redefinicao_nega_token_invalido_e_audita() -> None:
+    session = create_autospec(Session, instance=True)
+    service = create_autospec(RecuperacaoService, instance=True)
+    service.redefinir.side_effect = RecuperacaoInvalidaError
+    with (
+        patch("app.modules.seguranca.router._recuperacao_service", return_value=service),
+        pytest.raises(HTTPException) as error,
+    ):
+        redefinir_credencial(
+            RedefinicaoRequest(token="t" * 32, nova_credencial="nova"), _request(), session
+        )
+
+    assert error.value.status_code == 400
+    session.rollback.assert_called_once()
+    session.commit.assert_called_once()
+
+
+def test_redefinicao_reverte_falha_inesperada() -> None:
+    session = create_autospec(Session, instance=True)
+    service = create_autospec(RecuperacaoService, instance=True)
+    service.redefinir.side_effect = RuntimeError("falha")
+    with (
+        patch("app.modules.seguranca.router._recuperacao_service", return_value=service),
+        pytest.raises(RuntimeError, match="falha"),
+    ):
+        redefinir_credencial(
+            RedefinicaoRequest(token="t" * 32, nova_credencial="nova"), _request(), session
+        )
+
+    session.rollback.assert_called_once()

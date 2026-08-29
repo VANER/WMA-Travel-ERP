@@ -1,4 +1,4 @@
-"""Entrega SMTP de recuperacao pela conta HostGator autorizada."""
+"""Entrega SMTP de recuperacao pela conta Titan Email autorizada."""
 
 import smtplib
 import ssl
@@ -10,7 +10,7 @@ from app.core.config import Settings
 SMTP_TIMEOUT_SECONDS = 15
 
 
-class NotificadorRecuperacaoHostGator:
+class NotificadorRecuperacaoTitan:
     """Envia link de uso unico por SMTP SSL sem registrar o token."""
 
     def __init__(self, settings: Settings) -> None:
