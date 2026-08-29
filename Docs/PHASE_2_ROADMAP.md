@@ -7,7 +7,7 @@
 **Fase anterior:** Fase 1 — Fundação e Banco de Dados
 **Status da Fase 1:** Concluída e certificada
 **Fase atual:** Fase 2 — Backend, API e Integrações
-**Status atual:** etapa 2.2 certificada; etapa 2.3 em execução
+**Status atual:** etapas 2.0 a 2.3 concluídas, certificadas e integradas
 **Marco inicial:** `phase-1-final-2026-08-18`
 
 **Branch inicial:** `feature/fase-2-backend-api`
@@ -376,7 +376,7 @@ Auditoria
 
 **Duração estimada:** 5 a 7 dias úteis.
 
-**Status:** EM EXECUÇÃO.
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA.
 
 ### Ordem
 
@@ -1011,11 +1011,10 @@ FASE 2 CERTIFICADA
 
 A próxima atividade do WMA Travel ERP será:
 
-**ETAPA 2.2 — SEGURANÇA E CONTROLE DE ACESSO**
+**REPROGRAMAÇÃO FORMAL DAS ETAPAS FUNCIONAIS POSTERIORES À 2.3**
 
-As etapas 2.0.1 a 2.0.11 da arquitetura e fundação do backend estão concluídas, certificadas e integradas à
-`main`. O Core Corporativo 2.1 está concluído e certificado; a execução deve continuar por Segurança e Controle de
-Acesso.
+As etapas 2.0 a 2.3 estão concluídas, certificadas e integradas à `main`. O bloco Comercial legado permanece
+suspenso até que as etapas funcionais posteriores sejam reprogramadas sem sobrepor a Governança de API 2.3.
 
 ---
 
@@ -1064,7 +1063,7 @@ Acesso.
 
 **CORE CORPORATIVO 2.1:** CERTIFICADO
 
-**ETAPA ATUAL:** 2.3 — Governança de API, em execução
+**PRÓXIMA AÇÃO:** reprogramação formal das etapas funcionais posteriores à 2.3
 
 ---
 

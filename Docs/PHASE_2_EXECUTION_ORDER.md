@@ -719,7 +719,7 @@ Auditoria
 
 **Duração estimada:** 5 a 7 dias úteis
 
-**Status:** EM EXECUÇÃO
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 ### 2.3.1 — Inventário e Coerência Documental
 
@@ -760,11 +760,11 @@ Executar lint, tipagem, testes, cobertura, PostgreSQL, migrations, snapshot e cl
 
 ### 2.3.7 — Certificação
 
-**Status:** AUDITORIA APROVADA; MERGE E CI PÓS-MERGE PENDENTES
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 Consolidar evidências locais e do CI, integrar por pull request e validar o workflow pós-merge.
 
-Rascunho controlado: `certification/PHASE_2_3_API_GOVERNANCE_CERTIFICATION.md`.
+Certificação: `certification/PHASE_2_3_API_GOVERNANCE_CERTIFICATION.md`.
 
 #### Gate 2.3 --- Critério de Saída
 
@@ -1520,18 +1520,20 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 | Etapa 2.1.7 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Etapa 2.1.8 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Core Corporativo 2.1 | **CERTIFICADO** |
-| Próxima execução | **2.2 — Segurança e Controle de Acesso** |
+| Etapa 2.2 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| Etapa 2.3 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| Próxima execução | **REPROGRAMAÇÃO FORMAL DAS ETAPAS POSTERIORES** |
 
 ---
 
 ### Declaração de Continuidade
 
-A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0.1 a 2.0.11 foram concluídas, certificadas e
-integradas à `main`. A etapa 2.0.11 foi integrada pelo PR #17 no commit `a04a2da`.
+A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0 a 2.3 foram concluídas, certificadas e
+integradas à `main`. A Governança de API 2.3 foi integrada pelo PR #43 no commit `0153b99`.
 
 O desenvolvimento deverá seguir a sequência, dependências, gates e regras
 estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**ETAPA 2.2 — SEGURANÇA E CONTROLE DE ACESSO.**
+**REPROGRAMAÇÃO FORMAL DAS ETAPAS FUNCIONAIS POSTERIORES À 2.3.**
