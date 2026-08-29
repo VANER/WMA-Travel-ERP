@@ -1,8 +1,8 @@
 # Política de Segurança — WMA Travel ERP
 
-**Versão do Documento:** 1.0.0
-**Última Atualização:** 09/08/2026
-**Status:** Rascunho Inicial
+**Versão do Documento:** 1.1.0
+**Última Atualização:** 29/08/2026
+**Status:** VIGENTE — EVOLUÇÃO CONTROLADA
 
 ---
 
