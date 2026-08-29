@@ -713,7 +713,10 @@ Auditoria
 
 ---
 
-## 7. ETAPA 2.3 — Comercial
+## 7. PLANEJAMENTO LEGADO — Comercial
+
+> **Estado:** suspenso para reprogramação. A etapa oficial 2.3 é Governança de API, conforme a ADR-016. Os
+> identificadores abaixo são mantidos apenas como registro do planejamento anterior e não autorizam execução.
 
 **Dependência:** 2.1 e 2.2
 
@@ -1385,7 +1388,7 @@ docs(phase2): certify phase 2
 | M2.0 | Fundação Backend/API certificada |
 | M2.1 | Core certificado |
 | M2.2 | Segurança certificada |
-| M2.3 | Comercial certificado |
+| M2.3 | Governança de API certificada |
 | M2.4 | Financeiro certificado |
 | M2.5 | Turismo certificado |
 | M2.6 | Bike Tour certificado |

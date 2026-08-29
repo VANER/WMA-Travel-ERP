@@ -59,3 +59,22 @@ def test_openapi_operation_ids_are_unique(client: TestClient) -> None:
     ]
 
     assert len(operation_ids) == len(set(operation_ids))
+
+
+def test_openapi_operations_have_governance_metadata(client: TestClient) -> None:
+    schema = client.get("/openapi.json").json()
+    operations = [
+        operation
+        for path_item in schema["paths"].values()
+        for method, operation in path_item.items()
+        if method in {"get", "post", "put", "patch", "delete"}
+    ]
+
+    assert operations
+    assert all(operation.get("operationId") for operation in operations)
+    assert all(operation.get("tags") for operation in operations)
+    assert all("responses" in operation for operation in operations)
+    assert all(
+        any(status_code.startswith("2") for status_code in operation["responses"])
+        for operation in operations
+    )

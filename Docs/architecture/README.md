@@ -41,6 +41,7 @@ consequências, regras e critérios de reavaliação.
 | ADR-013 | [Convenções de Código e Estrutura Modular](ADR-013-CODE-CONVENTIONS.md) | APROVADA |
 | ADR-014 | [Limites Transacionais entre Módulos](ADR-014-TRANSACTION-BOUNDARIES.md) | APROVADA |
 | ADR-015 | [Integração com wmatravel.com.br](ADR-015-WEBSITE-INTEGRATION.md) | APROVADA |
+| ADR-016 | [Governança e Ciclo de Vida da API](ADR-016-API-GOVERNANCE.md) | APROVADA |
 
 ## Relação com a execução
 
