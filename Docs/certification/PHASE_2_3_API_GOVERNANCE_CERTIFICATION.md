@@ -6,7 +6,7 @@
 
 **Data da auditoria local:** 29/08/2026
 
-**Status:** AUDITORIA APROVADA --- MERGE E CI PÓS-MERGE PENDENTES
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 ## 1. Objetivo
 
@@ -73,16 +73,18 @@ módulos operacionais da Fase 2.
 | commit auditado | `fa8c066527c918f9dae2ab04d19827f623d7fe52` |
 | Backend CI | [run 33249820518](https://github.com/VANER/WMA-Travel-ERP/actions/runs/33249820518) |
 | job Linux/Python 3.13 | `99093459926`, aprovado em 1 min 3 s |
+| commit final do PR | `7e8524a03124df06fe8e17ef27d1c66c23ec404f` |
+| CI final do PR | [run 33249948865](https://github.com/VANER/WMA-Travel-ERP/actions/runs/33249948865) |
+| job final do PR | `99093804577`, aprovado em 56 s |
 | testes e integrações PostgreSQL | Aprovados |
 | baseline e migrations | Restauração e aplicação aprovadas |
 | contrato OpenAPI | Snapshot e compatibilidade contra a branch-base aprovados |
-
-Permanecem pendentes antes da certificação final:
-
-- merge commit e CI pós-merge.
+| merge do PR #43 | `0153b99ddd5f55aefadf012df50a898a05318302` |
+| CI pós-merge em `main` | [run 33250003168](https://github.com/VANER/WMA-Travel-ERP/actions/runs/33250003168) |
+| job pós-merge | `99093947309`, aprovado em 1 min 14 s |
 
 ## 7. Critério de encerramento
 
-O status somente poderá mudar para **CONCLUÍDA, CERTIFICADA E INTEGRADA** depois que todas as evidências da
-seção 6 forem registradas e os checks permanecerem aprovados. Este documento, no estado atual, não autoriza o
-início do módulo Comercial nem a renumeração das etapas subsequentes.
+Todas as evidências da seção 6 foram registradas e permaneceram aprovadas após o merge. A etapa 2.3 está encerrada
+com nota operacional **10/10**. O módulo Comercial legado continua suspenso até a reprogramação formal das etapas
+subsequentes, sem reutilizar a numeração reservada à Governança de API.
