@@ -2,7 +2,7 @@
 
 **Etapa:** preparação da 2.3 - Governança de API  
 **Data do inventário:** 28/08/2026  
-**Estado:** inventário inicial concluído; escopo executivo reconciliado pela ADR-016
+**Estado:** inventário concluído; escopo executivo reconciliado pela ADR-016
 
 ## 1. Objetivo
 
@@ -29,25 +29,26 @@ rotas, schema de banco ou artefatos históricos.
 | metadata OpenAPI | `Backend/tests/test_openapi.py` | Coberto |
 | documentação interativa | `Backend/tests/test_openapi.py` | Coberto |
 | identificadores de operação únicos | `Backend/tests/test_openapi.py` | Coberto |
+| `operationId` explícito e estável | decorators FastAPI e `Backend/tests/test_openapi.py` | Coberto |
 | tags em todas as operações | `Backend/tests/test_openapi.py` | Coberto |
 | presença de resposta de sucesso | `Backend/tests/test_openapi.py` | Coberto |
 | schemas de erro cobertos | `Backend/tests/test_openapi.py` e `Backend/tests/test_errors.py` | Coberto |
 | correlation ID | `Backend/tests/test_errors.py` e testes de middleware | Coberto |
 | snapshot canônico do contrato | `Backend/openapi.json` e CI | Coberto |
 
-## 4. Decisões ainda necessárias
+## 4. Decisões consolidadas
 
-Antes do gate da etapa, devem ser decididos e documentados:
+As decisões de compatibilidade, ciclo de vida, depreciação e retirada de versões foram aprovadas pela ADR-016.
+O contrato de paginação vigente foi formalizado como `offset`/`limite` em `API.md`.
 
-1. política de compatibilidade e mudanças breaking;
-2. ciclo de vida, depreciação e retirada de versões;
-3. convenção estável para `operationId`;
-4. padrão de paginação, filtros e ordenação;
-5. matriz obrigatória de respostas por classe de endpoint;
-6. ampliar o classificador quando novos formatos de schema forem adotados;
-7. propriedade e aprovação de mudanças de contrato.
+## 5. Pendências para o gate
 
-## 5. Não conformidade documental resolvida
+1. validar integrações PostgreSQL no CI Linux;
+2. consolidar a auditoria e a certificação da etapa.
+
+O classificador deverá ser ampliado quando novos formatos de schema forem adotados.
+
+## 6. Não conformidade documental resolvida
 
 **GOV-API-001:** `AGENTS.md`, `Docs/README.md`, `Docs/PROJECT_DOCUMENTATION.md` e
 `Docs/architecture/README.md` declaram a próxima etapa como **2.3 - Governança de API**. Entretanto,
@@ -57,10 +58,10 @@ subitens.
 A ADR-016 resolveu a divergência de forma aditiva: a etapa oficial 2.3 é Governança de API. O bloco Comercial foi
 marcado como planejamento legado suspenso, preservando seu conteúdo até a reprogramação das etapas subsequentes.
 
-## 6. Critério para prosseguir
+## 7. Critério para prosseguir
 
 A próxima entrega da governança da API exige:
 
-- política normativa aprovada para os itens da seção 4;
-- controles automatizados coerentes com essa política;
+- concluir os itens da seção 5;
+- manter os controles automatizados coerentes com a ADR-016;
 - validação integral do backend e certificação própria da etapa.

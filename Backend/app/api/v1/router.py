@@ -14,7 +14,12 @@ router.include_router(corporativo_router)
 router.include_router(seguranca_router)
 
 
-@router.get("/health", response_model=HealthResponse, tags=["health"])
+@router.get(
+    "/health",
+    response_model=HealthResponse,
+    tags=["health"],
+    operation_id="health_api_v1_health_get",
+)
 def health() -> HealthResponse:
     """Informa a disponibilidade do processo da API v1."""
     settings = get_settings()
@@ -26,6 +31,7 @@ def health() -> HealthResponse:
     response_model=DatabaseHealthResponse,
     responses={503: {"model": ErrorResponse}},
     tags=["health"],
+    operation_id="database_health_api_v1_health_database_get",
 )
 def database_health() -> DatabaseHealthResponse:
     """Confirma conectividade mínima com o PostgreSQL sem alterar dados."""

@@ -6,6 +6,7 @@ from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
 from sqlalchemy.orm import Session
 
 from app.core.config import Settings, get_settings
+from app.core.schemas import ErrorResponse
 from app.db.session import get_session
 from app.integrations.email_titan import NotificadorRecuperacaoTitan
 from app.modules.seguranca.audit import AuditorSeguranca
@@ -75,7 +76,12 @@ def _auditar(
     )
 
 
-@router.post("/login", response_model=TokenResponse)
+@router.post(
+    "/login",
+    response_model=TokenResponse,
+    operation_id="login_api_v1_auth_login_post",
+    responses={401: {"model": ErrorResponse, "description": "Credenciais inválidas."}},
+)
 def login(
     payload: LoginRequest, request: Request, session: SessionDep, settings: SettingsDep
 ) -> TokenResponse:
@@ -102,7 +108,12 @@ def login(
     )
 
 
-@router.post("/refresh", response_model=TokenResponse)
+@router.post(
+    "/refresh",
+    response_model=TokenResponse,
+    operation_id="refresh_api_v1_auth_refresh_post",
+    responses={401: {"model": ErrorResponse, "description": "Refresh token inválido."}},
+)
 def refresh(
     payload: RefreshRequest, request: Request, session: SessionDep, settings: SettingsDep
 ) -> TokenResponse:
@@ -123,7 +134,11 @@ def refresh(
     )
 
 
-@router.post("/logout", status_code=status.HTTP_204_NO_CONTENT)
+@router.post(
+    "/logout",
+    status_code=status.HTTP_204_NO_CONTENT,
+    operation_id="logout_api_v1_auth_logout_post",
+)
 def logout(
     payload: RefreshRequest, request: Request, session: SessionDep, settings: SettingsDep
 ) -> Response:
@@ -133,7 +148,14 @@ def logout(
     return Response(status_code=status.HTTP_204_NO_CONTENT)
 
 
-@router.post("/recovery/request", status_code=status.HTTP_202_ACCEPTED)
+@router.post(
+    "/recovery/request",
+    status_code=status.HTTP_202_ACCEPTED,
+    operation_id="solicitar_recuperacao_api_v1_auth_recovery_request_post",
+    responses={
+        503: {"model": ErrorResponse, "description": "Entrega temporariamente indisponível."}
+    },
+)
 def solicitar_recuperacao(
     payload: RecuperacaoRequest,
     request: Request,
@@ -160,7 +182,12 @@ def solicitar_recuperacao(
     return Response(status_code=status.HTTP_202_ACCEPTED)
 
 
-@router.post("/recovery/reset", status_code=status.HTTP_204_NO_CONTENT)
+@router.post(
+    "/recovery/reset",
+    status_code=status.HTTP_204_NO_CONTENT,
+    operation_id="redefinir_credencial_api_v1_auth_recovery_reset_post",
+    responses={400: {"model": ErrorResponse, "description": "Token de recuperação inválido."}},
+)
 def redefinir_credencial(
     payload: RedefinicaoRequest,
     request: Request,

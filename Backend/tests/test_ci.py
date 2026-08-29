@@ -4,6 +4,8 @@ from pathlib import Path
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 WORKFLOW_PATH = REPOSITORY_ROOT / ".github" / "workflows" / "backend-ci.yml"
+CODEOWNERS_PATH = REPOSITORY_ROOT / ".github" / "CODEOWNERS"
+PULL_REQUEST_TEMPLATE_PATH = REPOSITORY_ROOT / ".github" / "pull_request_template.md"
 
 
 def _workflow() -> str:
@@ -54,3 +56,31 @@ def test_backend_workflow_installs_linux_lock_without_resolving_dependencies() -
 
     assert "python -m pip install -r pylock.linux.toml" in workflow
     assert "python -m pip install --no-deps -e ." in workflow
+
+
+def test_api_contract_has_owner_and_pull_request_evidence() -> None:
+    codeowners = CODEOWNERS_PATH.read_text(encoding="utf-8")
+    template = PULL_REQUEST_TEMPLATE_PATH.read_text(encoding="utf-8")
+
+    for governed_path in (
+        "/Backend/app/api/",
+        "/Backend/app/main.py",
+        "/Backend/app/modules/**/router.py",
+        "/Backend/openapi.json",
+        "/Backend/scripts/*openapi*",
+        "/Backend/tests/test_openapi*.py",
+        "/Docs/API*.md",
+        "/Docs/architecture/ADR-005-API-STANDARDS.md",
+        "/Docs/architecture/ADR-016-API-GOVERNANCE.md",
+        "/.github/workflows/backend-ci.yml",
+    ):
+        assert f"{governed_path} @VANER" in codeowners
+
+    for evidence in (
+        "compatibilidade",
+        "Backend/openapi.json",
+        "Testes de contrato",
+        "Proprietário do contrato",
+        "Exceção emergencial",
+    ):
+        assert evidence in template
