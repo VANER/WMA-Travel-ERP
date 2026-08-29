@@ -2,7 +2,7 @@
 
 ## Resultado
 
-**Status:** APROVADA LOCALMENTE
+**Status:** APROVADA E CERTIFICADA
 
 **Data:** 28/08/2026
 
@@ -36,5 +36,10 @@ Validação local executada em 28 de agosto de 2026:
 - head Alembic único: `202608262200`;
 - markdownlint dos documentos alterados: aprovado.
 
-O CI remoto permanece como gate da integração. O teste de envio real exige a senha operacional da conta e não
-integra a certificação automatizada.
+## Evidência Linux e PostgreSQL
+
+O workflow da PR #40 foi aprovado na execução `33222780055`, em Ubuntu, Python 3.13 e PostgreSQL 18. O commit
+validado foi `b554635b6d5ba08ca2690ae06f93dbc7889c28ac`. O CI aprovou lint, formatação, mypy, 239 testes sem skips,
+cobertura de 100%, restauração da baseline, head Alembic e aplicação das migrations.
+
+O teste de envio real exige a senha operacional da conta e não integra a certificação automatizada.
