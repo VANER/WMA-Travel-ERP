@@ -10,7 +10,7 @@
 
 **Data:** 30/08/2026
 
-**Status:** APROVADA E CERTIFICADA; INTEGRAÇÃO PENDENTE
+**Status:** APROVADA, CERTIFICADA E INTEGRADA
 
 ## 1. Objetivo
 
@@ -81,16 +81,21 @@ Migration criada ......................... NÃO APLICÁVEL
 | testes e integrações PostgreSQL | Aprovados |
 | baseline e migrations | Restauração e aplicação aprovadas |
 | contrato OpenAPI | Snapshot e compatibilidade aprovados |
+| commit final do PR | `a46550c` |
+| CI final do PR | [run 33326258814](https://github.com/VANER/WMA-Travel-ERP/actions/runs/33326258814) |
+| job final do PR | `99296799846`, aprovado em 1 min 11 s |
+| merge do PR #47 | `28db82a5ba97aa1484c2c8e9dbc6a3ff642499dd` |
+| CI pós-merge em `main` | [run 33326342384](https://github.com/VANER/WMA-Travel-ERP/actions/runs/33326342384) |
+| job pós-merge | `99297032415`, aprovado em 1 min 12 s |
 
-## 7. Pendências de integração
+## 7. Critério de encerramento
 
-- aprovar o CI do commit final do PR;
-- registrar o merge e a execução pós-merge antes de declarar a etapa integrada;
-- somente então atualizar a próxima execução oficial para 2.4.2 — Clientes.
+O CI do commit final, o merge e a execução pós-merge permaneceram aprovados. A etapa está integrada à `main`, e a
+próxima execução autorizada é a 2.4.2 — Clientes.
 
 ## 8. Resultado
 
-**ETAPA 2.4.1 — INVENTÁRIO COMERCIAL: APROVADA E CERTIFICADA**
+**ETAPA 2.4.1 — INVENTÁRIO COMERCIAL: APROVADA, CERTIFICADA E INTEGRADA**
 
-A etapa não está declarada integrada nem libera a 2.4.2 enquanto as evidências de merge e pós-merge da seção 7 não
-forem registradas.
+A baseline foi preservada, todas as evidências locais e remotas foram aprovadas e a 2.4.2 — Clientes está
+formalmente autorizada para execução.
