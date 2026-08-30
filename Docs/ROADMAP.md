@@ -51,7 +51,7 @@
 
 **Progresso:** etapas 2.0 a 2.3 concluídas, certificadas e integradas
 
-**Próxima ação:** reprogramação formal das etapas funcionais posteriores à 2.3
+**Etapa atual:** 2.4.1 — Inventário Comercial
 
 **Branch inicial:** `feature/fase-2-backend-api`
 

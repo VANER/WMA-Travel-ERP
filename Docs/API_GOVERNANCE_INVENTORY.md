@@ -60,6 +60,7 @@ subitens.
 
 A ADR-016 resolveu a divergência de forma aditiva: a etapa oficial 2.3 é Governança de API. O bloco Comercial foi
 marcado como planejamento legado suspenso, preservando seu conteúdo até a reprogramação das etapas subsequentes.
+A ADR-017 concluiu essa reprogramação posteriormente e instituiu o Comercial como etapa 2.4.
 
 ## 7. Resultado
 
