@@ -111,34 +111,34 @@ FASE 1 — CERTIFICADA
 2.3 — COMERCIAL
         │
         ▼
-2.4 — FINANCEIRO
+2.5 — FINANCEIRO
         │
         ▼
-2.5 — TURISMO
+2.6 — TURISMO
         │
         ▼
-2.6 — BIKE TOUR
+2.7 — BIKE TOUR
         │
         ▼
-2.7 — WMA TRAVEL WEBSITE
+2.8 — WMA TRAVEL WEBSITE
         │
         ▼
-2.8 — FISCAL
+2.9 — FISCAL
         │
         ▼
-2.9 — INTEGRAÇÕES EXTERNAS
+2.10 — INTEGRAÇÕES EXTERNAS
         │
         ▼
-2.10 — BI / DW
+2.11 — BI / DW
         │
         ▼
-2.11 — AUDITORIA E OBSERVABILIDADE
+2.12 — AUDITORIA E OBSERVABILIDADE
         │
         ▼
-2.12 — QUALIDADE E HARDENING
+2.13 — QUALIDADE E HARDENING
         │
         ▼
-2.13 — CERTIFICAÇÃO FINAL
+2.14 — CERTIFICAÇÃO FINAL
         │
         ▼
 FASE 2 — CERTIFICADA
@@ -644,7 +644,7 @@ Política e limites: `Docs/CREDENTIAL_HASHING.md`.
 
 Certificação: `Docs/certification/PHASE_2_2_3_CREDENTIAL_HASHING_CERTIFICATION.md`.
 
-### 2.2.4 — Tokens e Sessões
+### 2.2.5 — Tokens e Sessões
 
 **Status:** CONCLUÍDA E CERTIFICADA
 
@@ -652,7 +652,7 @@ Política e limites: `Docs/TOKENS_AND_SESSIONS.md`.
 
 Certificação: `Docs/certification/PHASE_2_2_4_TOKENS_SESSIONS_CERTIFICATION.md`.
 
-### 2.2.5 a 2.2.12 — Controle de Acesso
+### 2.2.6 a 2.2.13 — Controle de Acesso
 
 **Status:** CONCLUÍDAS E CERTIFICADAS
 
@@ -660,7 +660,7 @@ Perfis, roles, permissions, autorização, proteção de endpoints, recuperaçã
 
 Contrato consolidado: `Docs/SECURITY_ACCESS_CONTROL.md`.
 
-### 2.2.13 — Certificação
+### 2.2.14 — Certificação
 
 **Status:** CONCLUÍDA
 
@@ -772,42 +772,41 @@ Certificação: `certification/PHASE_2_3_API_GOVERNANCE_CERTIFICATION.md`.
 
 ---
 
-## Apêndice A — Planejamento Legado Comercial
+## 8. ETAPA 2.4 — Comercial
 
-> **Estado:** suspenso para reprogramação. A etapa oficial 2.3 é Governança de API, conforme a ADR-016. Os
-> identificadores abaixo são mantidos apenas como registro do planejamento anterior e não autorizam execução.
+**Status:** PLANEJADA; 2.4.1 AUTORIZADA PARA EXECUÇÃO
 
-**Dependência:** 2.1 e 2.2
+**Dependência:** 2.1 a 2.3
 
-### Legado 2.3.1 — Inventário Comercial
+### 2.4.1 — Inventário Comercial
 
 Auditar banco existente antes de qualquer migration.
 
-### Legado 2.3.2 — Clientes
+### 2.4.2 — Clientes
 
 Implementar serviços comerciais sobre cadastro corporativo.
 
-### Legado 2.3.3 — Leads
+### 2.4.3 — Leads
 
 Implementar captação e acompanhamento.
 
-### Legado 2.3.4 — CRM
+### 2.4.4 — CRM
 
 Implementar relacionamento e histórico.
 
-### Legado 2.3.5 — Fornecedores e Operadoras
+### 2.4.5 — Fornecedores e Operadoras
 
 Implementar regras comerciais.
 
-### Legado 2.3.6 — Oportunidades
+### 2.4.6 — Oportunidades
 
 Implementar pipeline comercial.
 
-### Legado 2.3.7 — Propostas
+### 2.4.7 — Propostas
 
 Implementar proposta e itens.
 
-### Legado 2.3.8 — Condições Comerciais
+### 2.4.8 — Condições Comerciais
 
 Implementar:
 
@@ -816,23 +815,23 @@ Implementar:
 - condições;
 - comissões.
 
-### Legado 2.3.9 — Vendas
+### 2.4.9 — Vendas
 
 Implementar venda e itens.
 
-### Legado 2.3.10 — Contratos
+### 2.4.10 — Contratos
 
 Integrar contratos quando aplicável.
 
-### Legado 2.3.11 — API Comercial
+### 2.4.11 — API Comercial
 
 Disponibilizar endpoints versionados.
 
-### Legado 2.3.12 — Testes
+### 2.4.12 — Testes
 
 Executar testes funcionais e de integração.
 
-### Legado 2.3.13 — Certificação
+### 2.4.13 — Certificação
 
 Fluxo principal:
 
@@ -850,15 +849,15 @@ Venda
 Reserva/Contrato
 ```
 
-#### Gate legado Comercial
+#### Gate 2.4
 
 **MÓDULO COMERCIAL: CERTIFICADO**
 
 ---
 
-## 8. ETAPA 2.4 — Financeiro
+## 9. ETAPA 2.5 — Financeiro
 
-**Dependência:** 2.1, 2.2 e integração Comercial
+**Dependência:** 2.1 a 2.4
 
 A estrutura F1-FIN certificada será preservada.
 
@@ -907,13 +906,13 @@ Movimentação
 Conciliação
 ```
 
-#### Gate 2.4
+#### Gate 2.5
 
 **MÓDULO FINANCEIRO: CERTIFICADO**
 
 ---
 
-## 9. ETAPA 2.5 — Turismo
+## 10. ETAPA 2.6 — Turismo
 
 **Dependência:** Comercial e Financeiro
 
@@ -957,13 +956,13 @@ Serviços
 Operação
 ```
 
-#### Gate 2.5
+#### Gate 2.6
 
 **MÓDULO TURISMO: CERTIFICADO**
 
 ---
 
-## 10. ETAPA 2.6 — Bike Tour
+## 11. ETAPA 2.7 — Bike Tour
 
 **Dependência:** Turismo
 
@@ -987,19 +986,19 @@ Operação
 16. testes;
 17. certificação.
 
-#### Gate 2.6
+#### Gate 2.7
 
 **MÓDULO BIKE TOUR: CERTIFICADO**
 
 ---
 
-## 11. ETAPA 2.7 — Integração wmatravel.com.br
+## 12. ETAPA 2.8 — Integração wmatravel.com.br
 
 **Dependência:** Comercial, Financeiro e Turismo
 
 O ERP será o núcleo corporativo e o site será um canal digital.
 
-### 2.7.1 — Inventário do Site
+### 2.8.1 — Inventário do Site
 
 Mapear:
 
@@ -1014,11 +1013,11 @@ Mapear:
 - formulários;
 - campos personalizados.
 
-### 2.7.2 — Mapeamento Site ↔ ERP
+### 2.8.2 — Mapeamento Site ↔ ERP
 
 Definir correspondência entre entidades.
 
-### 2.7.3 — Segurança da Integração
+### 2.8.3 — Segurança da Integração
 
 Implementar:
 
@@ -1030,7 +1029,7 @@ Implementar:
 - validação;
 - auditoria.
 
-### 2.7.4 — Catálogo
+### 2.8.4 — Catálogo
 
 ERP → site:
 
@@ -1041,7 +1040,7 @@ ERP → site:
 - disponibilidade;
 - vagas.
 
-### 2.7.5 — Comercial
+### 2.8.5 — Comercial
 
 Site → ERP:
 
@@ -1051,7 +1050,7 @@ Site → ERP:
 - reserva;
 - passageiros.
 
-### 2.7.6 — Financeiro
+### 2.8.6 — Financeiro
 
 Integrar:
 
@@ -1061,19 +1060,19 @@ Integrar:
 - cancelamento;
 - estorno.
 
-### 2.7.7 — Webhooks
+### 2.8.7 — Webhooks
 
 Implementar eventos necessários.
 
-### 2.7.8 — Reconciliação
+### 2.8.8 — Reconciliação
 
 Garantir que site e ERP permaneçam consistentes.
 
-### 2.7.9 — Testes
+### 2.8.9 — Testes
 
 Testar fluxos ponta a ponta.
 
-### 2.7.10 — Certificação
+### 2.8.10 — Certificação
 
 Arquitetura obrigatória:
 
@@ -1091,13 +1090,13 @@ wmatravel.com.br
 
 É proibido acesso direto do WordPress ao PostgreSQL corporativo.
 
-#### Gate 2.7
+#### Gate 2.8
 
 **WMATRAVEL.COM.BR ↔ ERP: CERTIFICADO**
 
 ---
 
-## 12. ETAPA 2.8 — Fiscal
+## 13. ETAPA 2.9 — Fiscal
 
 **Dependência:** Comercial e Financeiro
 
@@ -1132,13 +1131,13 @@ Documento fiscal
 Tributos
 ```
 
-#### Gate 2.8
+#### Gate 2.9
 
 **MÓDULO FISCAL: CERTIFICADO**
 
 ---
 
-## 13. ETAPA 2.9 — Integrações Externas
+## 14. ETAPA 2.10 — Integrações Externas
 
 **Dependência:** Fundação e módulos correspondentes
 
@@ -1168,13 +1167,13 @@ integrations/
 10. testes;
 11. certificação.
 
-#### Gate 2.9
+#### Gate 2.10
 
 **INTEGRAÇÕES EXTERNAS: CERTIFICADAS**
 
 ---
 
-## 14. ETAPA 2.10 — BI/DW
+## 15. ETAPA 2.11 — BI/DW
 
 **Dependência:** Dados operacionais dos módulos
 
@@ -1207,13 +1206,13 @@ Fiscal ───────┤
 Website ──────┘
 ```
 
-#### Gate 2.10
+#### Gate 2.11
 
 **BI/DW: CERTIFICADO**
 
 ---
 
-## 15. ETAPA 2.11 — Auditoria e Observabilidade
+## 16. ETAPA 2.12 — Auditoria e Observabilidade
 
 Esta etapa é transversal e deverá ser preparada desde a Fundação.
 
@@ -1232,91 +1231,91 @@ Esta etapa é transversal e deverá ser preparada desde a Fundação.
 11. testes;
 12. certificação.
 
-#### Gate 2.11
+#### Gate 2.12
 
 **AUDITORIA E OBSERVABILIDADE: CERTIFICADAS**
 
 ---
 
-## 16. ETAPA 2.12 — Qualidade e Hardening
+## 17. ETAPA 2.13 — Qualidade e Hardening
 
 **Dependência:** Módulos concluídos
 
-### 2.12.1 — Testes Unitários
+### 2.13.1 — Testes Unitários
 
 Validar regras isoladas.
 
-### 2.12.2 — Testes de Integração
+### 2.13.2 — Testes de Integração
 
 Validar módulos e banco.
 
-### 2.12.3 — Testes de API
+### 2.13.3 — Testes de API
 
 Validar contratos REST.
 
-### 2.12.4 — Testes de Banco
+### 2.13.4 — Testes de Banco
 
 Validar integridade e transações.
 
-### 2.12.5 — Testes de Migrations
+### 2.13.5 — Testes de Migrations
 
 Validar `upgrade` e `downgrade`.
 
-### 2.12.6 — Testes de Segurança
+### 2.13.6 — Testes de Segurança
 
 Validar autenticação e autorização.
 
-### 2.12.7 — Testes de Integrações
+### 2.13.7 — Testes de Integrações
 
 Validar sistemas externos.
 
-### 2.12.8 — Testes Website ↔ ERP
+### 2.13.8 — Testes Website ↔ ERP
 
 Validar fluxos ponta a ponta.
 
-### 2.12.9 — Performance
+### 2.13.9 — Performance
 
 Avaliar endpoints críticos.
 
-### 2.12.10 — Regressão
+### 2.13.10 — Regressão
 
 Garantir que funcionalidades existentes não foram quebradas.
 
-### 2.12.11 — Documentação
+### 2.13.11 — Documentação
 
 Validar documentação técnica e operacional.
 
-### 2.12.12 — Gate de Qualidade
+### 2.13.12 — Gate de Qualidade
 
 Nenhuma falha crítica poderá permanecer aberta.
 
-#### Gate 2.12
+#### Gate 2.13
 
 **QUALIDADE E HARDENING: APROVADOS**
 
 ---
 
-## 17. ETAPA 2.13 — Certificação Final da Fase 2
+## 18. ETAPA 2.14 — Certificação Final da Fase 2
 
 Executar auditoria completa.
 
-### 2.13.1 — Arquitetura
+### 2.14.1 — Arquitetura
 
 Confirmar aderência às ADRs.
 
-### 2.13.2 — Backend
+### 2.14.2 — Backend
 
 Validar aplicação e dependências.
 
-### 2.13.3 — Banco
+### 2.14.3 — Banco
 
 Validar migrations e integridade.
 
-### 2.13.4 — Segurança
+### 2.14.4 — Segurança
 
 Validar autenticação e autorização.
 
-### 2.13.5 — Módulos
+### 2.14.5 — Módulos
 
 Certificar:
 
@@ -1327,31 +1326,31 @@ Certificar:
 - Bike Tour;
 - Fiscal.
 
-### 2.13.6 — Website
+### 2.14.6 — Website
 
 Certificar integração com `wmatravel.com.br`.
 
-### 2.13.7 — Integrações
+### 2.14.7 — Integrações
 
 Certificar serviços externos.
 
-### 2.13.8 — BI/DW
+### 2.14.8 — BI/DW
 
 Certificar camada analítica.
 
-### 2.13.9 — Observabilidade
+### 2.14.9 — Observabilidade
 
 Certificar logs, métricas e auditoria.
 
-### 2.13.10 — Qualidade
+### 2.14.10 — Qualidade
 
 Confirmar testes e gates.
 
-### 2.13.11 — Documentação
+### 2.14.11 — Documentação
 
 Confirmar documentação final.
 
-### 2.13.12 — Git
+### 2.14.12 — Git
 
 Validar:
 
@@ -1366,7 +1365,7 @@ Validar:
 
 ---
 
-## 18. Gate Final
+## 19. Gate Final
 
 A Fase 2 somente poderá ser encerrada quando:
 
@@ -1400,7 +1399,7 @@ Resultado esperado:
 
 ---
 
-## 19. Regra de Conclusão por Etapa
+## 20. Regra de Conclusão por Etapa
 
 Nenhuma etapa será considerada concluída apenas porque o código foi escrito.
 
@@ -1418,7 +1417,7 @@ Cada etapa deverá possuir:
 
 ---
 
-## 20. Política de Commits
+## 21. Política de Commits
 
 Utilizar commits pequenos e rastreáveis.
 
@@ -1440,7 +1439,7 @@ docs(phase2): certify phase 2
 
 ---
 
-## 21. Marcos Oficiais
+## 22. Marcos Oficiais
 
 | Marco | Resultado |
 | --- | --- |
@@ -1448,50 +1447,37 @@ docs(phase2): certify phase 2
 | M2.1 | Core certificado |
 | M2.2 | Segurança certificada |
 | M2.3 | Governança de API certificada |
-| M2.4 | Financeiro certificado |
-| M2.5 | Turismo certificado |
-| M2.6 | Bike Tour certificado |
-| M2.7 | Website integrado e certificado |
-| M2.8 | Fiscal certificado |
-| M2.9 | Integrações certificadas |
-| M2.10 | BI/DW certificado |
-| M2.11 | Observabilidade certificada |
-| M2.12 | Qualidade aprovada |
-| M2.13 | Fase 2 certificada |
+| M2.4 | Comercial certificado |
+| M2.5 | Financeiro certificado |
+| M2.6 | Turismo certificado |
+| M2.7 | Bike Tour certificado |
+| M2.8 | Website integrado e certificado |
+| M2.9 | Fiscal certificado |
+| M2.10 | Integrações certificadas |
+| M2.11 | BI/DW certificado |
+| M2.12 | Observabilidade certificada |
+| M2.13 | Qualidade aprovada |
+| M2.14 | Fase 2 certificada |
 
 ---
 
-## 22. Ordem Imediata de Trabalho
+## 23. Ordem Imediata de Trabalho
 
-A execução começa obrigatoriamente por:
+A execução corrente começa obrigatoriamente por:
 
 ```text
-2.0.1.1 — ADR-001 — Monólito Modular
+ADR-017 — Reprogramação Funcional da Fase 2
                ↓
-2.0.1.2 — ADR-002 — Stack Tecnológica
+2.4.1 — Inventário Comercial
                ↓
-2.0.1.3 — ADR-003 — Persistência
-               ↓
-2.0.1.4 — ADR-004 — Migrations
-               ↓
-2.0.1.5 — ADR-005 — API
-               ↓
-2.0.1.6 — ADR-006 — Configuração e Secrets
-               ↓
-2.0.1.7 — ADR-007 — Testes
-               ↓
-2.0.1.8 — ADR-008 — Integrações
-               ↓
-CERTIFICAÇÃO 2.0.1
-               ↓
-BOOTSTRAP DO BACKEND
+2.4.2 — Clientes
 ```
 
-Não iniciar módulos funcionais antes da aprovação da fundação correspondente.
+Não iniciar a 2.4.2 antes da auditoria, aprovação e certificação do inventário 2.4.1.
 
 ---
 
-## 23. Status Atual
+## 24. Status Atual
 
 | Item | Status |
 | --- | --- |
@@ -1499,6 +1485,7 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 | Baseline Fase 1 | **CONGELADA** |
 | Fase 2 | **INICIADA** |
 | ADR-001 | **APROVADA** |
+| ADR-017 | **APROVADA** |
 | Etapa 2.0.1 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.0.2 | **CONCLUÍDA E CERTIFICADA** |
 | Etapa 2.0.3 | **CONCLUÍDA E CERTIFICADA** |
@@ -1522,7 +1509,8 @@ Não iniciar módulos funcionais antes da aprovação da fundação corresponden
 | Core Corporativo 2.1 | **CERTIFICADO** |
 | Etapa 2.2 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Etapa 2.3 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
-| Próxima execução | **REPROGRAMAÇÃO FORMAL DAS ETAPAS POSTERIORES** |
+| Reprogramação funcional | **CONCLUÍDA PELA ADR-017** |
+| Próxima execução | **2.4.1 — INVENTÁRIO COMERCIAL** |
 
 ---
 
@@ -1536,4 +1524,4 @@ estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**REPROGRAMAÇÃO FORMAL DAS ETAPAS FUNCIONAIS POSTERIORES À 2.3.**
+**ETAPA 2.4.1 — INVENTÁRIO COMERCIAL.**

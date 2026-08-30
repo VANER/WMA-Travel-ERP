@@ -59,7 +59,8 @@ Este manual contempla:
 
 O estado oficial de execução está consolidado em `PHASE_2_EXECUTION_ORDER.md`. A Fase 1 está concluída e
 certificada; a Fase 2 está em execução, com a fundação 2.0, o Core Corporativo 2.1, a etapa 2.2 e a Governança de
-API 2.3 concluídos, certificados e integrados. As etapas funcionais posteriores aguardam reprogramação formal.
+API 2.3 concluídos, certificados e integrados. A ADR-017 reprogramou as etapas funcionais, e a execução atual é o
+Inventário Comercial 2.4.1.
 
 ---
 

@@ -70,21 +70,21 @@ A Fase 2 seguirá os seguintes princípios:
 | 2.1 | Core Corporativo | 3 semanas | 2.0 |
 | 2.2 | Segurança e Controle de Acesso | 3 semanas | 2.0–2.1 |
 | 2.3 | Governança de API | 5 a 7 dias úteis | 2.0–2.2 |
-| 2.4 | Financeiro | 5 semanas | 2.1–2.3 |
-| 2.5 | Turismo | 6 semanas | 2.3–2.4 |
-| 2.6 | Bike Tour | 4 semanas | 2.5 |
-| 2.7 | Integração wmatravel.com.br | 5 semanas | 2.3–2.5 |
-| 2.8 | Fiscal | 5 semanas | 2.3–2.4 |
-| 2.9 | Integrações Externas | 4 semanas | módulos operacionais |
-| 2.10 | BI/DW | 4 semanas | módulos operacionais |
-| 2.11 | Auditoria e Observabilidade | 3 semanas | transversal |
-| 2.12 | Qualidade e Hardening | 4 semanas | todas |
-| 2.13 | Certificação da Fase 2 | 2 semanas | 2.12 |
+| 2.4 | Comercial | 5 semanas | 2.1–2.3 |
+| 2.5 | Financeiro | 5 semanas | 2.1–2.4 |
+| 2.6 | Turismo | 6 semanas | 2.4–2.5 |
+| 2.7 | Bike Tour | 4 semanas | 2.6 |
+| 2.8 | Integração wmatravel.com.br | 5 semanas | 2.3–2.6 |
+| 2.9 | Fiscal | 5 semanas | 2.3–2.5 |
+| 2.10 | Integrações Externas | 4 semanas | módulos operacionais |
+| 2.11 | BI/DW | 4 semanas | módulos operacionais |
+| 2.12 | Auditoria e Observabilidade | 3 semanas | transversal |
+| 2.13 | Qualidade e Hardening | 4 semanas | todas |
+| 2.14 | Certificação da Fase 2 | 2 semanas | 2.13 |
 
-As linhas 2.4 a 2.13 preservam a projeção anterior e serão reprogramadas antes de sua execução para reinserir o
-módulo Comercial sem sobrepor a etapa 2.3.
+A sequência 2.4 a 2.14 foi reprogramada pela ADR-017 para reinserir o módulo Comercial sem sobrepor a etapa 2.3.
 
-**Estimativa sequencial total:** aproximadamente 56 semanas.
+**Estimativa sequencial total:** aproximadamente 61 semanas.
 
 A duração poderá ser reduzida com execução paralela de atividades que não
 possuam dependência técnica direta.
@@ -322,7 +322,7 @@ Política e limites: `Docs/CREDENTIAL_HASHING.md`.
 
 Certificação: `Docs/certification/PHASE_2_2_3_CREDENTIAL_HASHING_CERTIFICATION.md`.
 
-### 2.2.4 — Tokens e Sessões
+### 2.2.5 — Tokens e Sessões
 
 Política e limites: `Docs/TOKENS_AND_SESSIONS.md`.
 
@@ -399,10 +399,11 @@ Auditoria
 
 ---
 
-## Apêndice A — Planejamento Legado Comercial
+## 8. ETAPA 2.4 — Comercial
 
-> **Estado:** suspenso para reprogramação. A etapa oficial 2.3 é Governança de API, conforme a ADR-016. Os
-> identificadores abaixo são mantidos apenas como registro do planejamento anterior e não autorizam execução.
+**Status:** PLANEJADA; 2.4.1 AUTORIZADA PARA EXECUÇÃO.
+
+**Dependência:** 2.1 a 2.3.
 
 **Duração:** 5 semanas.
 
@@ -438,13 +439,13 @@ Venda
 Reserva/Contrato
 ```
 
-#### Gate legado Comercial
+#### Gate 2.4
 
 **MÓDULO COMERCIAL: OPERACIONAL**
 
 ---
 
-## 8. ETAPA 2.4 — Financeiro
+## 9. ETAPA 2.5 — Financeiro
 
 **Duração:** 5 semanas.
 
@@ -489,13 +490,13 @@ Movimentação
 Conciliação
 ```
 
-#### Gate 2.4
+#### Gate 2.5
 
 **MÓDULO FINANCEIRO: OPERACIONAL**
 
 ---
 
-## 9. ETAPA 2.5 — Turismo
+## 10. ETAPA 2.6 — Turismo
 
 **Duração:** 6 semanas.
 
@@ -532,13 +533,13 @@ Serviços
 Operação
 ```
 
-#### Gate 2.5
+#### Gate 2.6
 
 **MÓDULO TURISMO: OPERACIONAL**
 
 ---
 
-## 10. ETAPA 2.6 — Bike Tour
+## 11. ETAPA 2.7 — Bike Tour
 
 **Duração:** 4 semanas.
 
@@ -572,20 +573,20 @@ Operação
 Pontos de controle
 ```
 
-#### Gate 2.6
+#### Gate 2.7
 
 **MÓDULO BIKE TOUR: OPERACIONAL**
 
 ---
 
-## 11. ETAPA 2.7 — Integração wmatravel.com.br
+## 12. ETAPA 2.8 — Integração wmatravel.com.br
 
 **Duração:** 5 semanas.
 
 O ERP será tratado como sistema corporativo central e o site como canal
 digital integrado.
 
-### 2.7.1 — Inventário
+### 2.8.1 — Inventário
 
 Mapear:
 
@@ -600,7 +601,7 @@ Mapear:
 - plugins;
 - campos personalizados.
 
-### 2.7.2 — Mapeamento
+### 2.8.2 — Mapeamento
 
 Definir:
 
@@ -615,11 +616,11 @@ Data de viagem   <-> Saída
 Passageiro       <-> Passageiro
 ```
 
-### 2.7.3 — API
+### 2.8.3 — API
 
 Implementar endpoints específicos para o canal digital.
 
-### 2.7.4 — Sincronização
+### 2.8.4 — Sincronização
 
 ERP → site:
 
@@ -640,7 +641,7 @@ Site → ERP:
 - passageiros;
 - pagamentos.
 
-### 2.7.5 — Webhooks
+### 2.8.5 — Webhooks
 
 Eventos previstos:
 
@@ -654,7 +655,7 @@ pagamento.aprovado
 pagamento.estornado
 ```
 
-### 2.7.6 — Segurança
+### 2.8.6 — Segurança
 
 Obrigatório:
 
@@ -670,13 +671,13 @@ Obrigatório:
 
 É proibido acesso direto do WordPress ao PostgreSQL do ERP.
 
-#### Gate 2.7
+#### Gate 2.8
 
 **SITE ↔ ERP: INTEGRAÇÃO CERTIFICADA**
 
 ---
 
-## 12. ETAPA 2.8 — Fiscal
+## 13. ETAPA 2.9 — Fiscal
 
 **Duração:** 5 semanas.
 
@@ -707,13 +708,13 @@ Documento fiscal
 Tributos
 ```
 
-#### Gate 2.8
+#### Gate 2.9
 
 **MÓDULO FISCAL: OPERACIONAL**
 
 ---
 
-## 13. ETAPA 2.9 — Integrações Externas
+## 14. ETAPA 2.10 — Integrações Externas
 
 **Duração:** 4 semanas.
 
@@ -739,13 +740,13 @@ Possíveis integrações:
 - serviços turísticos;
 - sistemas futuros.
 
-### Gate 2.9
+### Gate 2.10
 
 **CAMADA DE INTEGRAÇÕES: APROVADA**
 
 ---
 
-## 14. ETAPA 2.10 — BI/DW
+## 15. ETAPA 2.11 — BI/DW
 
 **Duração:** 4 semanas.
 
@@ -770,13 +771,13 @@ Fiscal ───────┤
 Site ─────────┘
 ```
 
-#### Gate 2.10
+#### Gate 2.11
 
 **CAMADA ANALÍTICA: OPERACIONAL**
 
 ---
 
-## 15. ETAPA 2.11 — Auditoria e Observabilidade
+## 16. ETAPA 2.12 — Auditoria e Observabilidade
 
 **Duração:** 3 semanas.
 
@@ -792,13 +793,13 @@ Site ─────────┘
 - alertas;
 - histórico de integrações.
 
-#### Gate 2.11
+#### Gate 2.12
 
 **OBSERVABILIDADE: APROVADA**
 
 ---
 
-## 16. ETAPA 2.12 — Qualidade e Hardening
+## 17. ETAPA 2.13 — Qualidade e Hardening
 
 **Duração:** 4 semanas.
 
@@ -820,13 +821,13 @@ Executar:
 
 Nenhuma falha crítica poderá permanecer aberta.
 
-### Gate 2.12
+### Gate 2.13
 
 **QUALIDADE: APROVADA**
 
 ---
 
-## 17. ETAPA 2.13 — Certificação Final
+## 18. ETAPA 2.14 — Certificação Final
 
 **Duração:** 2 semanas.
 
@@ -858,7 +859,7 @@ Resultado esperado:
 
 ---
 
-## 18. Marcos Oficiais
+## 19. Marcos Oficiais
 
 | Marco | Resultado esperado |
 | --- | --- |
@@ -866,20 +867,21 @@ Resultado esperado:
 | M2.1 | Core operacional |
 | M2.2 | Segurança certificada |
 | M2.3 | Governança de API certificada |
-| M2.4 | Financeiro operacional |
-| M2.5 | Turismo operacional |
-| M2.6 | Bike Tour operacional |
-| M2.7 | Site integrado |
-| M2.8 | Fiscal operacional |
-| M2.9 | Integrações operacionais |
-| M2.10 | BI/DW operacional |
-| M2.11 | Observabilidade ativa |
-| M2.12 | Qualidade aprovada |
-| M2.13 | Fase 2 certificada |
+| M2.4 | Comercial operacional |
+| M2.5 | Financeiro operacional |
+| M2.6 | Turismo operacional |
+| M2.7 | Bike Tour operacional |
+| M2.8 | Site integrado |
+| M2.9 | Fiscal operacional |
+| M2.10 | Integrações operacionais |
+| M2.11 | BI/DW operacional |
+| M2.12 | Observabilidade ativa |
+| M2.13 | Qualidade aprovada |
+| M2.14 | Fase 2 certificada |
 
 ---
 
-## 19. Estratégia de Execução
+## 20. Estratégia de Execução
 
 A execução deverá seguir ciclos pequenos:
 
@@ -914,7 +916,7 @@ documentação estiverem consistentes.
 
 ---
 
-## 20. Política para Alterações no Banco
+## 21. Política para Alterações no Banco
 
 A baseline da Fase 1 não deverá ser modificada retroativamente.
 
@@ -954,7 +956,7 @@ Toda alteração persistente posterior à Fase 1 deve:
 
 ---
 
-## 21. Prioridade de Execução
+## 22. Prioridade de Execução
 
 A sequência oficial será:
 
@@ -969,32 +971,34 @@ FASE 1 CERTIFICADA
         ↓
 2.3 Governança de API
         ↓
-2.4 Financeiro
+2.4 Comercial
         ↓
-2.5 Turismo
+2.5 Financeiro
         ↓
-2.6 Bike Tour
+2.6 Turismo
         ↓
-2.7 wmatravel.com.br
+2.7 Bike Tour
         ↓
-2.8 Fiscal
+2.8 wmatravel.com.br
         ↓
-2.9 Integrações
+2.9 Fiscal
         ↓
-2.10 BI/DW
+2.10 Integrações
         ↓
-2.11 Observabilidade
+2.11 BI/DW
         ↓
-2.12 Qualidade
+2.12 Observabilidade
         ↓
-2.13 Certificação
+2.13 Qualidade
+        ↓
+2.14 Certificação
         ↓
 FASE 2 CERTIFICADA
 ```
 
 ---
 
-## 22. Gate Inicial
+## 23. Gate Inicial
 
 - [x] Fase 1 certificada.
 - [x] Tag final publicada e conferida.
@@ -1007,14 +1011,14 @@ FASE 2 CERTIFICADA
 
 ---
 
-## 23. Próxima Ação Oficial
+## 24. Próxima Ação Oficial
 
 A próxima atividade do WMA Travel ERP será:
 
-**REPROGRAMAÇÃO FORMAL DAS ETAPAS FUNCIONAIS POSTERIORES À 2.3**
+**ETAPA 2.4.1 — INVENTÁRIO COMERCIAL**
 
-As etapas 2.0 a 2.3 estão concluídas, certificadas e integradas à `main`. O bloco Comercial legado permanece
-suspenso até que as etapas funcionais posteriores sejam reprogramadas sem sobrepor a Governança de API 2.3.
+As etapas 2.0 a 2.3 estão concluídas, certificadas e integradas à `main`. A ADR-017 reprogramou as etapas futuras,
+e a execução deve continuar pelo inventário Comercial 2.4.1.
 
 ---
 
@@ -1063,7 +1067,7 @@ suspenso até que as etapas funcionais posteriores sejam reprogramadas sem sobre
 
 **CORE CORPORATIVO 2.1:** CERTIFICADO
 
-**PRÓXIMA AÇÃO:** reprogramação formal das etapas funcionais posteriores à 2.3
+**ETAPA ATUAL:** 2.4.1 — Inventário Comercial
 
 ---
 
