@@ -8,3 +8,7 @@ progressivamente por interfaces, serviços ou contratos internos explícitos.
 
 Os pacotes começam somente com sua declaração de fronteira. Models, repositories, services, schemas e routers
 serão adicionados quando o respectivo caso de uso entrar no escopo.
+
+O contrato de Cliente publicado em `shared/clientes.py` é implementado pelo adaptador do Core em
+`corporativo/clientes.py` e consumido pelos casos de uso em `comercial/clientes.py`. O Comercial não importa o
+model cadastral nem assume sua autoridade.

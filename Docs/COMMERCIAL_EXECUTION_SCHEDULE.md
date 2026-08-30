@@ -10,7 +10,7 @@
 
 **Dependências de entrada:** etapas 2.1, 2.2 e 2.3 concluídas, certificadas e integradas
 
-**Estado:** EM EXECUÇÃO; 2.4.1 INTEGRADA E 2.4.2 AUTORIZADA
+**Estado:** EM EXECUÇÃO; 2.4.2 APROVADA LOCALMENTE E AGUARDANDO CERTIFICAÇÃO REMOTA
 
 ## 2. Objetivo
 
@@ -63,7 +63,7 @@ deslocadas; não são executadas em paralelo para compensar o atraso.
 
 ### 2.4.2 — Clientes
 
-**Estado:** AUTORIZADA PARA EXECUÇÃO
+**Estado:** APROVADA LOCALMENTE; CERTIFICAÇÃO REMOTA E INTEGRAÇÃO PENDENTES
 
 **Entregas:**
 
@@ -73,6 +73,10 @@ deslocadas; não são executadas em paralelo para compensar o atraso.
 - contrato interno entre Comercial e Core documentado.
 
 **Gate:** operações comerciais de Cliente aprovadas, sem nova autoridade cadastral.
+
+Contrato: `Docs/COMMERCIAL_CLIENTS.md`.
+
+Certificação local: `Docs/certification/PHASE_2_4_2_COMMERCIAL_CLIENTS_CERTIFICATION.md`.
 
 ### 2.4.3 — Leads
 

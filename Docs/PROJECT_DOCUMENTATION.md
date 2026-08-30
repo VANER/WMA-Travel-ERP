@@ -135,6 +135,7 @@ WMA_TRAVEL_ERP/
 | API_GOVERNANCE_INVENTORY.md | Inventário e encerramento da governança da API 2.3 |
 | COMMERCIAL_INVENTORY.md | Inventário das autoridades, relações e lacunas comerciais da etapa 2.4.1 |
 | COMMERCIAL_EXECUTION_SCHEDULE.md | Cronograma oficial, entregas e gates da etapa Comercial 2.4 |
+| COMMERCIAL_CLIENTS.md | Contrato interno e casos de uso comerciais de Cliente da etapa 2.4.2 |
 | API_RESPONSE_MATRIX.md | Matriz normativa de respostas HTTP da API v1 |
 | API_CHANGE_GOVERNANCE.md | Propriedade, aprovação e exceções de mudança da API |
 | DEPLOYMENT.md | Processo de implantação |
@@ -150,6 +151,7 @@ WMA_TRAVEL_ERP/
 | certification/ | Evidências das etapas certificadas da Fase 2 |
 | certification/PHASE_2_3_API_GOVERNANCE_CERTIFICATION.md | Certificação final da governança de API |
 | certification/PHASE_2_4_1_COMMERCIAL_INVENTORY_CERTIFICATION.md | Aprovação local do inventário Comercial |
+| certification/PHASE_2_4_2_COMMERCIAL_CLIENTS_CERTIFICATION.md | Aprovação local dos serviços de Cliente |
 
 ---
 
