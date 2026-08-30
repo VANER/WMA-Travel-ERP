@@ -401,11 +401,16 @@ Auditoria
 
 ## 8. ETAPA 2.4 — Comercial
 
-**Status:** PLANEJADA; 2.4.1 AUTORIZADA PARA EXECUÇÃO.
+**Status:** EM EXECUÇÃO; 2.4.1 CERTIFICADA E AGUARDANDO INTEGRAÇÃO.
 
 **Dependência:** 2.1 a 2.3.
 
 **Duração:** 5 semanas.
+
+**Cronograma oficial:** `Docs/COMMERCIAL_EXECUTION_SCHEDULE.md`.
+
+O cronograma distribui as subetapas 2.4.1 a 2.4.13 em cinco ciclos semanais, define entregas, dependências e gates
+e preserva a execução sequencial. A 2.4.2 permanece bloqueada até a certificação e integração da 2.4.1.
 
 ### Escopo
 
