@@ -8,7 +8,7 @@
 
 **Data do levantamento:** 30/08/2026
 
-**Status:** CONCLUÍDO LOCALMENTE; CERTIFICAÇÃO E INTEGRAÇÃO PENDENTES
+**Status:** APROVADO E CERTIFICADO; INTEGRAÇÃO PENDENTE
 
 ## 2. Objetivo e limites
 
@@ -185,4 +185,5 @@ Operadora exige decisão explícita: especialização de fornecedor, papel comer
 - [x] gates automatizados adicionados contra o dump oficial;
 - [x] validações locais consolidadas na certificação;
 - [x] integrações validadas em PostgreSQL local descartável;
-- [ ] validação em CI Linux e integração no repositório registradas.
+- [x] validação em CI Linux/PostgreSQL registrada;
+- [ ] merge e validação pós-merge registrados.

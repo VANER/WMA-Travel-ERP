@@ -774,7 +774,7 @@ Certificação: `certification/PHASE_2_3_API_GOVERNANCE_CERTIFICATION.md`.
 
 ## 8. ETAPA 2.4 — Comercial
 
-**Status:** EM EXECUÇÃO; 2.4.1 APROVADA LOCALMENTE E AGUARDANDO CERTIFICAÇÃO REMOTA
+**Status:** EM EXECUÇÃO; 2.4.1 CERTIFICADA E AGUARDANDO INTEGRAÇÃO
 
 **Dependência:** 2.1 a 2.3
 
@@ -786,11 +786,11 @@ Certificação: `certification/PHASE_2_3_API_GOVERNANCE_CERTIFICATION.md`.
 
 Auditar banco existente antes de qualquer migration.
 
-**Status:** APROVADA LOCALMENTE; CERTIFICAÇÃO REMOTA E INTEGRAÇÃO PENDENTES
+**Status:** APROVADA E CERTIFICADA; INTEGRAÇÃO PENDENTE
 
 Inventário: `Docs/COMMERCIAL_INVENTORY.md`.
 
-Certificação local: `Docs/certification/PHASE_2_4_1_COMMERCIAL_INVENTORY_CERTIFICATION.md`.
+Certificação: `Docs/certification/PHASE_2_4_1_COMMERCIAL_INVENTORY_CERTIFICATION.md`.
 
 ### 2.4.2 — Clientes
 
@@ -1522,8 +1522,8 @@ Não iniciar a 2.4.2 antes da auditoria, aprovação e certificação do invent�
 | Etapa 2.2 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Etapa 2.3 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Reprogramação funcional | **CONCLUÍDA PELA ADR-017** |
-| Etapa 2.4.1 | **APROVADA LOCALMENTE; CERTIFICAÇÃO REMOTA E INTEGRAÇÃO PENDENTES** |
-| Próxima ação | **CERTIFICAR E INTEGRAR O INVENTÁRIO COMERCIAL 2.4.1** |
+| Etapa 2.4.1 | **APROVADA E CERTIFICADA; INTEGRAÇÃO PENDENTE** |
+| Próxima ação | **INTEGRAR O INVENTÁRIO COMERCIAL 2.4.1** |
 
 ---
 
@@ -1537,4 +1537,4 @@ estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**CERTIFICAÇÃO REMOTA E INTEGRAÇÃO DA ETAPA 2.4.1 — INVENTÁRIO COMERCIAL.**
+**INTEGRAÇÃO DA ETAPA 2.4.1 — INVENTÁRIO COMERCIAL.**

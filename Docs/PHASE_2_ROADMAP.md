@@ -401,7 +401,7 @@ Auditoria
 
 ## 8. ETAPA 2.4 — Comercial
 
-**Status:** EM EXECUÇÃO; 2.4.1 APROVADA LOCALMENTE E AGUARDANDO CERTIFICAÇÃO REMOTA.
+**Status:** EM EXECUÇÃO; 2.4.1 CERTIFICADA E AGUARDANDO INTEGRAÇÃO.
 
 **Dependência:** 2.1 a 2.3.
 
