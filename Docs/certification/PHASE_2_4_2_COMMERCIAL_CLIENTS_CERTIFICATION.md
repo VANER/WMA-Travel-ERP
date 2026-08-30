@@ -10,7 +10,7 @@
 
 **Data:** 30/08/2026
 
-**Status:** APROVADA E CERTIFICADA; INTEGRAÇÃO PENDENTE
+**Status:** APROVADA, CERTIFICADA E INTEGRADA
 
 ## 1. Objetivo
 
@@ -82,16 +82,21 @@ estrutural permanece pendente de migration aditiva autorizada.
 | arquitetura modular | Aprovada |
 | baseline e migrations | Restauração e aplicação aprovadas |
 | contrato OpenAPI | Snapshot e compatibilidade aprovados |
+| commit final do PR | `c66defdc8144a31e94b5ee4579aac7a725e8a927` |
+| CI final do PR | [run 33328078331](https://github.com/VANER/WMA-Travel-ERP/actions/runs/33328078331) |
+| job final do PR | `99301663471`, aprovado em 1 min 13 s |
+| merge do PR #49 | `6e24f64c8e81cbad6fa2678238c670742b19ac6b` |
+| CI pós-merge em `main` | [run 33328179748](https://github.com/VANER/WMA-Travel-ERP/actions/runs/33328179748) |
+| job pós-merge | `99301934021`, aprovado em 1 min 11 s |
 
-## 7. Pendências de integração
+## 7. Critério de encerramento
 
-- aprovar o CI do commit final do PR;
-- registrar merge e CI pós-merge;
-- liberar a 2.4.3 — Leads somente após integração.
+O CI do commit final, o merge e a execução pós-merge permaneceram aprovados. A etapa está integrada à `main`, e a
+próxima execução autorizada é a 2.4.3 — Leads.
 
 ## 8. Resultado
 
-**ETAPA 2.4.2 — CLIENTES: APROVADA E CERTIFICADA**
+**ETAPA 2.4.2 — CLIENTES: APROVADA, CERTIFICADA E INTEGRADA**
 
-A etapa não está declarada integrada e não libera a 2.4.3 enquanto as evidências de merge e pós-merge não forem
-registradas.
+As autoridades foram preservadas, todas as evidências locais e remotas foram aprovadas e a 2.4.3 — Leads está
+formalmente autorizada para execução.

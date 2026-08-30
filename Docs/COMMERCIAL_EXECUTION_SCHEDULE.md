@@ -10,7 +10,7 @@
 
 **Dependências de entrada:** etapas 2.1, 2.2 e 2.3 concluídas, certificadas e integradas
 
-**Estado:** EM EXECUÇÃO; 2.4.2 CERTIFICADA E AGUARDANDO INTEGRAÇÃO
+**Estado:** EM EXECUÇÃO; 2.4.2 INTEGRADA E 2.4.3 AUTORIZADA
 
 ## 2. Objetivo
 
@@ -63,7 +63,7 @@ deslocadas; não são executadas em paralelo para compensar o atraso.
 
 ### 2.4.2 — Clientes
 
-**Estado:** APROVADA E CERTIFICADA; INTEGRAÇÃO PENDENTE
+**Estado:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 **Entregas:**
 
@@ -80,7 +80,7 @@ Certificação: `Docs/certification/PHASE_2_4_2_COMMERCIAL_CLIENTS_CERTIFICATION
 
 ### 2.4.3 — Leads
 
-**Estado:** PLANEJADA
+**Estado:** AUTORIZADA PARA EXECUÇÃO
 
 **Entregas:**
 
