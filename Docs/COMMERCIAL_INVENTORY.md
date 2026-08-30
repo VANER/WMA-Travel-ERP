@@ -8,7 +8,7 @@
 
 **Data do levantamento:** 30/08/2026
 
-**Status:** APROVADO E CERTIFICADO; INTEGRAÇÃO PENDENTE
+**Status:** APROVADO, CERTIFICADO E INTEGRADO
 
 ## 2. Objetivo e limites
 
@@ -186,4 +186,4 @@ Operadora exige decisão explícita: especialização de fornecedor, papel comer
 - [x] validações locais consolidadas na certificação;
 - [x] integrações validadas em PostgreSQL local descartável;
 - [x] validação em CI Linux/PostgreSQL registrada;
-- [ ] merge e validação pós-merge registrados.
+- [x] merge e validação pós-merge registrados.

@@ -51,7 +51,7 @@
 
 **Progresso:** etapas 2.0 a 2.3 concluídas, certificadas e integradas
 
-**Etapa atual:** 2.4.1 — Inventário Comercial
+**Etapa atual:** 2.4.2 — Clientes
 
 **Branch inicial:** `feature/fase-2-backend-api`
 

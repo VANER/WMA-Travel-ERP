@@ -774,7 +774,7 @@ Certificação: `certification/PHASE_2_3_API_GOVERNANCE_CERTIFICATION.md`.
 
 ## 8. ETAPA 2.4 — Comercial
 
-**Status:** EM EXECUÇÃO; 2.4.1 CERTIFICADA E AGUARDANDO INTEGRAÇÃO
+**Status:** EM EXECUÇÃO; 2.4.1 INTEGRADA E 2.4.2 AUTORIZADA
 
 **Dependência:** 2.1 a 2.3
 
@@ -786,7 +786,7 @@ Certificação: `certification/PHASE_2_3_API_GOVERNANCE_CERTIFICATION.md`.
 
 Auditar banco existente antes de qualquer migration.
 
-**Status:** APROVADA E CERTIFICADA; INTEGRAÇÃO PENDENTE
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 Inventário: `Docs/COMMERCIAL_INVENTORY.md`.
 
@@ -796,7 +796,7 @@ Certificação: `Docs/certification/PHASE_2_4_1_COMMERCIAL_INVENTORY_CERTIFICATI
 
 Implementar serviços comerciais sobre cadastro corporativo.
 
-**Status:** BLOQUEADA PELA 2.4.1
+**Status:** AUTORIZADA PARA EXECUÇÃO
 
 ### 2.4.3 — Leads
 
@@ -1522,8 +1522,8 @@ Não iniciar a 2.4.2 antes da auditoria, aprovação e certificação do invent�
 | Etapa 2.2 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Etapa 2.3 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Reprogramação funcional | **CONCLUÍDA PELA ADR-017** |
-| Etapa 2.4.1 | **APROVADA E CERTIFICADA; INTEGRAÇÃO PENDENTE** |
-| Próxima ação | **INTEGRAR O INVENTÁRIO COMERCIAL 2.4.1** |
+| Etapa 2.4.1 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| Próxima execução | **2.4.2 — CLIENTES** |
 
 ---
 
@@ -1537,4 +1537,4 @@ estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**INTEGRAÇÃO DA ETAPA 2.4.1 — INVENTÁRIO COMERCIAL.**
+**ETAPA 2.4.2 — CLIENTES.**
