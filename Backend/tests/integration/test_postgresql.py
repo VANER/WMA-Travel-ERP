@@ -15,7 +15,9 @@ from app.core.config import Settings
 from app.db.base import Base
 from app.db.session import create_db_engine, database_is_available, get_session
 from app.main import create_app
+from app.modules.comercial.clientes import ClienteComercialService, HabilitarCliente
 from app.modules.corporativo import models as _corporativo_models  # noqa: F401
+from app.modules.corporativo.clientes import CadastroClienteCorporativoSqlAlchemy
 from app.modules.seguranca.authorization import exigir_core_cadastrar, exigir_core_visualizar
 from app.modules.seguranca.models import (
     PerfilAcesso,
@@ -223,5 +225,40 @@ def test_auth_rbac_real_revalida_usuario_e_revoga_sessao(
             assert sessao.revogado_em is not None
     finally:
         application.dependency_overrides.clear()
+        Base.metadata.drop_all(engine)
+        engine.dispose()
+
+
+def test_comercial_habilita_cliente_sobre_autoridade_corporativa(
+    postgresql_test_url: str,
+) -> None:
+    settings = Settings(database_url=postgresql_test_url, environment="test")
+    engine = create_db_engine(settings)
+    session_factory = sessionmaker(bind=engine, expire_on_commit=False)
+    Base.metadata.drop_all(engine)
+    Base.metadata.create_all(engine)
+    try:
+        with session_factory() as session:
+            localidade = _corporativo_models.Localidade(cidade="Natal", uf="RN", pais="Brasil")
+            session.add(localidade)
+            session.flush()
+            pessoa = _corporativo_models.Pessoa(
+                tipo_pessoa="FISICA",
+                nome_razao_social="Cliente Comercial",
+                id_localidade=localidade.id_localidade,
+            )
+            session.add(pessoa)
+            session.commit()
+
+            service = ClienteComercialService(
+                session,
+                CadastroClienteCorporativoSqlAlchemy(session),
+            )
+            cliente = service.habilitar(HabilitarCliente(pessoa.id_pessoa, "COM-001"))
+
+            assert cliente.id_pessoa == pessoa.id_pessoa
+            assert cliente.codigo_cliente == "COM-001"
+            assert service.obter_por_pessoa(pessoa.id_pessoa) == cliente
+    finally:
         Base.metadata.drop_all(engine)
         engine.dispose()

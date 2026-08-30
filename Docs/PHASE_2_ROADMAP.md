@@ -401,7 +401,7 @@ Auditoria
 
 ## 8. ETAPA 2.4 — Comercial
 
-**Status:** EM EXECUÇÃO; 2.4.1 INTEGRADA E 2.4.2 AUTORIZADA.
+**Status:** EM EXECUÇÃO; 2.4.2 CERTIFICADA E AGUARDANDO INTEGRAÇÃO.
 
 **Dependência:** 2.1 a 2.3.
 
@@ -1074,7 +1074,7 @@ futuras, e a execução deve continuar pelos serviços comerciais de Clientes da
 
 **ETAPA 2.4.1:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
-**ETAPA ATUAL:** 2.4.2 — Clientes
+**ETAPA ATUAL:** 2.4.2 — Clientes, certificada e aguardando integração
 
 ---
 

@@ -774,7 +774,7 @@ Certificação: `certification/PHASE_2_3_API_GOVERNANCE_CERTIFICATION.md`.
 
 ## 8. ETAPA 2.4 — Comercial
 
-**Status:** EM EXECUÇÃO; 2.4.1 INTEGRADA E 2.4.2 AUTORIZADA
+**Status:** EM EXECUÇÃO; 2.4.2 CERTIFICADA E AGUARDANDO INTEGRAÇÃO
 
 **Dependência:** 2.1 a 2.3
 
@@ -796,7 +796,11 @@ Certificação: `Docs/certification/PHASE_2_4_1_COMMERCIAL_INVENTORY_CERTIFICATI
 
 Implementar serviços comerciais sobre cadastro corporativo.
 
-**Status:** AUTORIZADA PARA EXECUÇÃO
+**Status:** APROVADA E CERTIFICADA; INTEGRAÇÃO PENDENTE
+
+Contrato: `Docs/COMMERCIAL_CLIENTS.md`.
+
+Certificação: `Docs/certification/PHASE_2_4_2_COMMERCIAL_CLIENTS_CERTIFICATION.md`.
 
 ### 2.4.3 — Leads
 
@@ -1523,7 +1527,8 @@ Não iniciar a 2.4.2 antes da auditoria, aprovação e certificação do invent�
 | Etapa 2.3 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Reprogramação funcional | **CONCLUÍDA PELA ADR-017** |
 | Etapa 2.4.1 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
-| Próxima execução | **2.4.2 — CLIENTES** |
+| Etapa 2.4.2 | **APROVADA E CERTIFICADA; INTEGRAÇÃO PENDENTE** |
+| Próxima ação | **INTEGRAR CLIENTES 2.4.2** |
 
 ---
 
@@ -1537,4 +1542,4 @@ estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**ETAPA 2.4.2 — CLIENTES.**
+**INTEGRAÇÃO DA ETAPA 2.4.2 — CLIENTES.**
