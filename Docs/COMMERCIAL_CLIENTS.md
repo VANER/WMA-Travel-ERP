@@ -8,7 +8,7 @@
 
 **Data:** 30/08/2026
 
-**Status:** APROVADA E CERTIFICADA; INTEGRAÇÃO PENDENTE
+**Status:** APROVADA, CERTIFICADA E INTEGRADA
 
 ## 2. Objetivo e limites
 
@@ -104,4 +104,4 @@ permanece registrada para decisão estrutural antes de fluxos concorrentes de pr
 - [x] integração PostgreSQL local aprovada;
 - [x] limitação concorrente documentada sem migration indevida;
 - [x] CI Linux/PostgreSQL aprovado;
-- [ ] merge e validação pós-merge registrados.
+- [x] merge e validação pós-merge registrados.
