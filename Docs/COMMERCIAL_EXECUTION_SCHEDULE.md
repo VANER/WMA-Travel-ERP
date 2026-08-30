@@ -10,7 +10,7 @@
 
 **Dependências de entrada:** etapas 2.1, 2.2 e 2.3 concluídas, certificadas e integradas
 
-**Estado:** EM EXECUÇÃO; 2.4.2 APROVADA LOCALMENTE E AGUARDANDO CERTIFICAÇÃO REMOTA
+**Estado:** EM EXECUÇÃO; 2.4.2 CERTIFICADA E AGUARDANDO INTEGRAÇÃO
 
 ## 2. Objetivo
 
@@ -63,7 +63,7 @@ deslocadas; não são executadas em paralelo para compensar o atraso.
 
 ### 2.4.2 — Clientes
 
-**Estado:** APROVADA LOCALMENTE; CERTIFICAÇÃO REMOTA E INTEGRAÇÃO PENDENTES
+**Estado:** APROVADA E CERTIFICADA; INTEGRAÇÃO PENDENTE
 
 **Entregas:**
 
@@ -76,7 +76,7 @@ deslocadas; não são executadas em paralelo para compensar o atraso.
 
 Contrato: `Docs/COMMERCIAL_CLIENTS.md`.
 
-Certificação local: `Docs/certification/PHASE_2_4_2_COMMERCIAL_CLIENTS_CERTIFICATION.md`.
+Certificação: `Docs/certification/PHASE_2_4_2_COMMERCIAL_CLIENTS_CERTIFICATION.md`.
 
 ### 2.4.3 — Leads
 

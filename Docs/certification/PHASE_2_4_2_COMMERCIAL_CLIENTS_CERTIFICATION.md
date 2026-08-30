@@ -10,7 +10,7 @@
 
 **Data:** 30/08/2026
 
-**Status:** APROVADA LOCALMENTE; CERTIFICAÇÃO REMOTA E INTEGRAÇÃO PENDENTES
+**Status:** APROVADA E CERTIFICADA; INTEGRAÇÃO PENDENTE
 
 ## 1. Objetivo
 
@@ -70,15 +70,28 @@ Endpoint criado ......................... NÃO APLICÁVEL
 mas não substitui uma constraint em concorrência real. A etapa não altera silenciosamente o schema; a decisão
 estrutural permanece pendente de migration aditiva autorizada.
 
-## 6. Pendências de encerramento
+## 6. Evidências remotas
 
-- validar em CI Linux/PostgreSQL;
-- registrar PR, commits, merge e CI pós-merge;
+| Evidência | Resultado |
+| --- | --- |
+| pull request | [#49](https://github.com/VANER/WMA-Travel-ERP/pull/49) |
+| commit auditado | `66327a59e95b383685fb1cf3d839c60fdaa7433d` |
+| Backend CI | [run 33327899335](https://github.com/VANER/WMA-Travel-ERP/actions/runs/33327899335) |
+| job Linux/Python 3.13 | `99301191472`, aprovado em 1 min |
+| testes e integrações PostgreSQL | Aprovados |
+| arquitetura modular | Aprovada |
+| baseline e migrations | Restauração e aplicação aprovadas |
+| contrato OpenAPI | Snapshot e compatibilidade aprovados |
+
+## 7. Pendências de integração
+
+- aprovar o CI do commit final do PR;
+- registrar merge e CI pós-merge;
 - liberar a 2.4.3 — Leads somente após integração.
 
-## 7. Resultado
+## 8. Resultado
 
-**ETAPA 2.4.2 — CLIENTES: APROVADA LOCALMENTE**
+**ETAPA 2.4.2 — CLIENTES: APROVADA E CERTIFICADA**
 
-A etapa não está declarada integrada e não libera a 2.4.3 enquanto as evidências remotas e pós-merge não forem
+A etapa não está declarada integrada e não libera a 2.4.3 enquanto as evidências de merge e pós-merge não forem
 registradas.
