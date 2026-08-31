@@ -109,3 +109,5 @@ def exigir_permissao(codigo: str) -> Callable[..., ContextoRbac]:
 
 exigir_core_visualizar = exigir_permissao("CORE_VISUALIZAR")
 exigir_core_cadastrar = exigir_permissao("CORE_CADASTRAR")
+exigir_comercial_visualizar = exigir_permissao("COMERCIAL_VISUALIZAR")
+exigir_comercial_gerenciar = exigir_permissao("COMERCIAL_GERENCIAR")

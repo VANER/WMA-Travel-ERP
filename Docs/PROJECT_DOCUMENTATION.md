@@ -136,6 +136,7 @@ WMA_TRAVEL_ERP/
 | COMMERCIAL_INVENTORY.md | Inventário das autoridades, relações e lacunas comerciais da etapa 2.4.1 |
 | COMMERCIAL_EXECUTION_SCHEDULE.md | Cronograma oficial, entregas e gates da etapa Comercial 2.4 |
 | COMMERCIAL_CLIENTS.md | Contrato interno e casos de uso comerciais de Cliente da etapa 2.4.2 |
+| COMMERCIAL_MODULE.md | Modelo, regras, API e validação local das etapas 2.4.3 a 2.4.12 |
 | API_RESPONSE_MATRIX.md | Matriz normativa de respostas HTTP da API v1 |
 | API_CHANGE_GOVERNANCE.md | Propriedade, aprovação e exceções de mudança da API |
 | DEPLOYMENT.md | Processo de implantação |

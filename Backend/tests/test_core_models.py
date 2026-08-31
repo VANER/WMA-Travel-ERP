@@ -174,22 +174,34 @@ REQUIRED_COLUMNS = {
 
 EXPECTED_REGISTERED_MODELS = {
     "Cliente",
+    "CondicaoComercial",
     "ConfiguracaoEmpresa",
+    "Contrato",
     "Documento",
     "Empresa",
     "EventoSeguranca",
     "Fornecedor",
+    "FunilVenda",
+    "InteracaoLead",
+    "ItemProposta",
+    "ItemVenda",
+    "Lead",
     "Localidade",
+    "Operadora",
+    "Oportunidade",
+    "OrigemLead",
     "ParametroSistema",
     "PerfilAcesso",
     "PerfilPermissao",
     "Permissao",
+    "Proposta",
     "RecuperacaoCredencial",
     "Pessoa",
     "SessaoUsuario",
     "TipoDocumento",
     "Usuario",
     "UsuarioPerfil",
+    "Venda",
 }
 
 
@@ -204,8 +216,23 @@ def test_core_models_register_only_the_inventory_authorities() -> None:
         "usuario",
         "usuario_perfil",
     }
+    commercial_tables = {
+        "condicao_comercial",
+        "contrato",
+        "funil_vendas",
+        "interacao_lead",
+        "item_proposta",
+        "item_venda",
+        "lead",
+        "operadora",
+        "oportunidade",
+        "origem_lead",
+        "proposta",
+        "venda",
+    }
+    excluded_tables = security_tables | commercial_tables
     table_names = {
-        table.name for table in Base.metadata.tables.values() if table.name not in security_tables
+        table.name for table in Base.metadata.tables.values() if table.name not in excluded_tables
     }
 
     assert table_names == set(EXPECTED_COLUMNS)
@@ -237,6 +264,7 @@ def test_core_models_preserve_historical_constraint_names() -> None:
         "uk_tipo_documento_codigo",
         "uk_parametro_sistema_codigo",
         "uk_localidade_cidade_uf_pais",
+        "uq_cliente_id_pessoa",
     }
 
     foreign_keys = {

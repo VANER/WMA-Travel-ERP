@@ -43,6 +43,7 @@ consequências, regras e critérios de reavaliação.
 | ADR-015 | [Integração com wmatravel.com.br](ADR-015-WEBSITE-INTEGRATION.md) | APROVADA |
 | ADR-016 | [Governança e Ciclo de Vida da API](ADR-016-API-GOVERNANCE.md) | APROVADA |
 | ADR-017 | [Reprogramação Funcional da Fase 2](ADR-017-PHASE-2-FUNCTIONAL-REPROGRAMMING.md) | APROVADA |
+| ADR-018 | [Modelo de Dados Comercial Integrado](ADR-018-COMMERCIAL-DATA-MODEL.md) | APROVADA |
 
 ## Relação com a execução
 
@@ -54,4 +55,5 @@ estas decisões.
 
 A fundação 2.0 foi concluída e certificada após estas decisões. O status corrente da Fase 2 é mantido em
 `../PHASE_2_EXECUTION_ORDER.md`; as etapas 2.1, 2.2, 2.3, 2.4.1 e 2.4.2 estão concluídas, certificadas e integradas.
-A ADR-017 reprogramou as etapas funcionais, e a próxima execução autorizada é 2.4.3 — Leads.
+As etapas 2.4.3 a 2.4.12 estão implementadas e aprovadas localmente; a certificação remota 2.4.13 permanece
+pendente e a etapa 2.5 continua bloqueada.

@@ -18,7 +18,12 @@ from app.main import create_app
 from app.modules.comercial.clientes import ClienteComercialService, HabilitarCliente
 from app.modules.corporativo import models as _corporativo_models  # noqa: F401
 from app.modules.corporativo.clientes import CadastroClienteCorporativoSqlAlchemy
-from app.modules.seguranca.authorization import exigir_core_cadastrar, exigir_core_visualizar
+from app.modules.seguranca.authorization import (
+    exigir_comercial_gerenciar,
+    exigir_comercial_visualizar,
+    exigir_core_cadastrar,
+    exigir_core_visualizar,
+)
 from app.modules.seguranca.models import (
     PerfilAcesso,
     PerfilPermissao,
@@ -48,10 +53,19 @@ def _corporate_database_client(postgresql_test_url: str) -> Generator[TestClient
     contexto = ContextoRbac(
         id_usuario=1,
         papeis=("ADMIN",),
-        permissoes=frozenset({"CORE_VISUALIZAR", "CORE_CADASTRAR"}),
+        permissoes=frozenset(
+            {
+                "COMERCIAL_GERENCIAR",
+                "COMERCIAL_VISUALIZAR",
+                "CORE_VISUALIZAR",
+                "CORE_CADASTRAR",
+            }
+        ),
     )
     application.dependency_overrides[exigir_core_visualizar] = lambda: contexto
     application.dependency_overrides[exigir_core_cadastrar] = lambda: contexto
+    application.dependency_overrides[exigir_comercial_visualizar] = lambda: contexto
+    application.dependency_overrides[exigir_comercial_gerenciar] = lambda: contexto
     Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
     try:
@@ -262,3 +276,110 @@ def test_comercial_habilita_cliente_sobre_autoridade_corporativa(
     finally:
         Base.metadata.drop_all(engine)
         engine.dispose()
+
+
+def test_comercial_api_executes_full_conversion_flow(postgresql_test_url: str) -> None:
+    """Exercita Lead, fornecedor, pipeline, proposta, venda e contrato reais."""
+    with _corporate_database_client(postgresql_test_url) as client:
+        locality = client.post("/api/v1/localidades", json={"cidade": "Fortaleza"}).json()
+        person = client.post(
+            "/api/v1/pessoas",
+            json={
+                "tipo_pessoa": "JURIDICA",
+                "nome_razao_social": "Operadora Integração",
+                "id_localidade": locality["id_localidade"],
+            },
+        ).json()
+        client_record = client.post(
+            "/api/v1/clientes", json={"id_pessoa": person["id_pessoa"]}
+        ).json()
+        supplier = client.post(
+            "/api/v1/fornecedores", json={"id_pessoa": person["id_pessoa"]}
+        ).json()
+        operator = client.post(
+            "/api/v1/comercial/operadoras",
+            json={"id_fornecedor": supplier["id_fornecedor"], "codigo": "OP-INT"},
+        )
+        assert operator.status_code == 201
+
+        lead = client.post("/api/v1/comercial/leads", json={"nome": "Lead Integração"}).json()
+        assert (
+            client.post(
+                "/api/v1/comercial/interacoes",
+                json={"id_lead": lead["id_lead"], "tipo": "EMAIL"},
+            ).status_code
+            == 201
+        )
+        opportunity = client.post(
+            "/api/v1/comercial/oportunidades",
+            json={
+                "id_lead": lead["id_lead"],
+                "id_cliente": client_record["id_cliente"],
+                "titulo": "Viagem de integração",
+            },
+        ).json()
+        proposal = client.post(
+            "/api/v1/comercial/propostas",
+            json={
+                "id_oportunidade": opportunity["id_oportunidade"],
+                "id_cliente": client_record["id_cliente"],
+                "numero": "PROP-INT",
+                "data_emissao": "2026-08-31",
+                "data_validade": "2026-09-30",
+            },
+        ).json()
+        item = client.post(
+            "/api/v1/comercial/itens-proposta",
+            json={
+                "id_proposta": proposal["id_proposta"],
+                "descricao": "Pacote turístico",
+                "quantidade": "2.00",
+                "valor_unitario": "500.00",
+                "desconto": "100.00",
+            },
+        )
+        assert item.json()["valor_total"] == "900.00"
+        assert (
+            client.post(
+                "/api/v1/comercial/condicoes",
+                json={
+                    "id_proposta": proposal["id_proposta"],
+                    "tipo": "PAGAMENTO",
+                    "descricao": "À vista",
+                    "data_inicio": "2026-08-31",
+                },
+            ).status_code
+            == 201
+        )
+        for proposal_status in ("ENVIADA", "ACEITA"):
+            response = client.post(
+                f"/api/v1/comercial/propostas/{proposal['id_proposta']}/status",
+                json={"status": proposal_status},
+            )
+            assert response.status_code == 200
+        sale = client.post(
+            "/api/v1/comercial/vendas",
+            json={
+                "id_proposta": proposal["id_proposta"],
+                "numero_venda": "VENDA-INT",
+                "data_venda": "2026-08-31",
+            },
+        ).json()
+        document_type = client.post(
+            "/api/v1/tipos-documento",
+            json={"codigo": "CONTRATO-INT", "descricao": "Contrato integração"},
+        ).json()
+        document = client.post(
+            "/api/v1/documentos",
+            json={"id_tipo_documento": document_type["id_tipo_documento"]},
+        ).json()
+        contract = client.post(
+            "/api/v1/comercial/contratos",
+            json={
+                "id_documento": document["id_documento"],
+                "id_venda": sale["id_venda"],
+                "status": "ATIVO",
+            },
+        )
+        assert contract.status_code == 201
+        assert client.get("/api/v1/comercial/vendas").json()[0]["valor_liquido"] == "900.00"
