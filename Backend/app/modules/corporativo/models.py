@@ -122,7 +122,10 @@ class Cliente(AuditColumnsMixin, Base):
     """Papel de cliente atribuído a uma pessoa."""
 
     __tablename__ = "cliente"
-    __table_args__ = (UniqueConstraint("codigo_cliente", name="uk_cliente_codigo_cliente"),)
+    __table_args__ = (
+        UniqueConstraint("codigo_cliente", name="uk_cliente_codigo_cliente"),
+        UniqueConstraint("id_pessoa", name="uq_cliente_id_pessoa"),
+    )
 
     id_cliente: Mapped[int] = mapped_column(Integer, primary_key=True)
     id_pessoa: Mapped[int] = mapped_column(

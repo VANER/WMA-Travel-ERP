@@ -1,5 +1,19 @@
 """Registro central dos models gerenciados pelo Alembic."""
 
+from app.modules.comercial.models import (
+    CondicaoComercial,
+    Contrato,
+    FunilVenda,
+    InteracaoLead,
+    ItemProposta,
+    ItemVenda,
+    Lead,
+    Operadora,
+    Oportunidade,
+    OrigemLead,
+    Proposta,
+    Venda,
+)
 from app.modules.corporativo.models import (
     Cliente,
     ConfiguracaoEmpresa,
@@ -24,20 +38,32 @@ from app.modules.seguranca.models import (
 
 __all__ = [
     "Cliente",
+    "CondicaoComercial",
     "ConfiguracaoEmpresa",
+    "Contrato",
     "Documento",
     "Empresa",
     "EventoSeguranca",
     "Fornecedor",
+    "FunilVenda",
+    "InteracaoLead",
+    "ItemProposta",
+    "ItemVenda",
+    "Lead",
     "Localidade",
+    "Operadora",
+    "Oportunidade",
+    "OrigemLead",
     "ParametroSistema",
     "PerfilAcesso",
     "PerfilPermissao",
     "Permissao",
+    "Proposta",
     "RecuperacaoCredencial",
     "Pessoa",
     "SessaoUsuario",
     "TipoDocumento",
     "Usuario",
     "UsuarioPerfil",
+    "Venda",
 ]
