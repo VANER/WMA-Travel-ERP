@@ -10,7 +10,7 @@
 
 **Dependências de entrada:** etapas 2.1, 2.2 e 2.3 concluídas, certificadas e integradas
 
-**Estado:** IMPLEMENTAÇÃO 2.4.3–2.4.12 APROVADA LOCALMENTE; 2.4.13 REMOTA PENDENTE
+**Estado:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 ## 2. Objetivo
 
@@ -210,7 +210,7 @@ Certificação: `Docs/certification/PHASE_2_4_2_COMMERCIAL_CLIENTS_CERTIFICATION
 
 ### 2.4.13 — Certificação
 
-**Estado:** CANDIDATA LOCAL; CI, PR, MERGE E PÓS-MERGE PENDENTES
+**Estado:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 **Entregas:**
 
@@ -250,4 +250,4 @@ A etapa 2.4 somente poderá ser declarada concluída quando:
 - a documentação e a certificação final estiverem publicadas;
 - o merge e a execução pós-merge tiverem sido registrados.
 
-Até esse gate, a etapa 2.5 — Financeiro permanece bloqueada.
+O gate foi aprovado pelo PR #51 e pelo CI pós-merge; a etapa 2.5 — Financeiro está autorizada.
