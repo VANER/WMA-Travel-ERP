@@ -74,14 +74,14 @@ O cabeçalho usa uma H1 e um bloco de metadados. Somente campos aplicáveis são
 ```markdown
 # WMA Travel ERP — Título do Documento
 
-> **Projeto:** WMA Travel ERP  
-> **Empresa:** WMA Travel Ltda.  
-> **Fase:** Fase 2 — Backend, API e Integrações  
-> **Etapa:** 2.X — Nome  
-> **Módulo:** Nome  
-> **Tipo de documento:** Documento Técnico  
-> **Versão:** 1.0  
-> **Data:** DD/MM/AAAA  
+> **Projeto:** WMA Travel ERP
+> **Empresa:** WMA Travel Ltda.
+> **Fase:** Fase 2 — Backend, API e Integrações
+> **Etapa:** 2.X — Nome
+> **Módulo:** Nome
+> **Tipo de documento:** Documento Técnico
+> **Versão:** 1.0
+> **Data:** DD/MM/AAAA
 > **Status:** STATUS CONTROLADO
 ```
 
@@ -161,7 +161,7 @@ escritos manualmente nem permite ocultar links quebrados ou metadados contradit�
 | Repositório | `VANER/WMA-Travel-ERP` |
 | Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
 
-**WMA Travel ERP — Documento oficial e versionado do projeto.**  
+**WMA Travel ERP — Documento oficial e versionado do projeto.**
 **Copyright © 2026 WMA Travel Ltda. Todos os direitos reservados.**
 
 Alterações neste documento devem ser versionadas e manter a rastreabilidade pelo Git.
