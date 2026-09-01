@@ -54,6 +54,5 @@ estas decisões.
 ## Continuidade da execução
 
 A fundação 2.0 foi concluída e certificada após estas decisões. O status corrente da Fase 2 é mantido em
-`../PHASE_2_EXECUTION_ORDER.md`; as etapas 2.1, 2.2, 2.3, 2.4.1 e 2.4.2 estão concluídas, certificadas e integradas.
-As etapas 2.4.3 a 2.4.12 estão implementadas e aprovadas localmente; a certificação remota 2.4.13 permanece
-pendente e a etapa 2.5 continua bloqueada.
+`../PHASE_2_EXECUTION_ORDER.md`; as etapas 2.1 a 2.4 estão concluídas, certificadas e integradas, e a próxima
+execução autorizada é 2.5 — Financeiro.

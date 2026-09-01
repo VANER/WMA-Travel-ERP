@@ -6,7 +6,7 @@
 
 **Etapas:** 2.4.3 a 2.4.12
 
-**Estado:** IMPLEMENTADAS E APROVADAS LOCALMENTE
+**Estado:** CONCLUÍDAS, CERTIFICADAS E INTEGRADAS
 
 ## 2. Escopo entregue
 
@@ -77,8 +77,7 @@ Todas as rotas exigem `COMERCIAL_VISUALIZAR`; operações mutáveis também exig
 
 Os números finais devem ser atualizados na certificação 2.4.13 após a última execução da suíte.
 
-## 7. Pendência de encerramento
+## 7. Encerramento
 
-A implementação e a certificação local não autorizam declarar a etapa integrada. O encerramento 2.4.13 ainda
-depende de commit solicitado pelo responsável, CI Linux/PostgreSQL, pull request, merge e validação pós-merge.
-Até esse gate, a etapa 2.5 permanece bloqueada.
+O PR #51, o CI Linux/PostgreSQL, o merge e a validação pós-merge foram aprovados. A etapa 2.4 está concluída,
+certificada e integrada, e a etapa 2.5 — Financeiro está formalmente autorizada.

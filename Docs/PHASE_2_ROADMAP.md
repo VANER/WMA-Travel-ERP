@@ -401,7 +401,7 @@ Auditoria
 
 ## 8. ETAPA 2.4 — Comercial
 
-**Status:** EM EXECUÇÃO; 2.4.2 INTEGRADA E 2.4.3 AUTORIZADA.
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA.
 
 **Dependência:** 2.1 a 2.3.
 
@@ -409,9 +409,8 @@ Auditoria
 
 **Cronograma oficial:** `Docs/COMMERCIAL_EXECUTION_SCHEDULE.md`.
 
-O cronograma distribui as subetapas 2.4.1 a 2.4.13 em cinco ciclos semanais, define entregas, dependências e gates
-e preserva a execução sequencial. As etapas 2.4.1 e 2.4.2 foram concluídas, certificadas e integradas; a 2.4.3 está
-autorizada.
+O cronograma distribuiu as subetapas 2.4.1 a 2.4.13 em cinco ciclos semanais. Todas foram concluídas, certificadas
+e integradas pelo PR #51 e pelo CI pós-merge da `main`.
 
 ### Escopo
 
@@ -1021,10 +1020,10 @@ FASE 2 CERTIFICADA
 
 A próxima atividade do WMA Travel ERP será:
 
-**ETAPA 2.4.3 — LEADS**
+**ETAPA 2.5 — FINANCEIRO**
 
-As etapas 2.0 a 2.3, a 2.4.1 e a 2.4.2 estão concluídas, certificadas e integradas à `main`. A ADR-017 reprogramou
-as etapas futuras, e a execução deve continuar por Leads na 2.4.3.
+As etapas 2.0 a 2.4 estão concluídas, certificadas e integradas à `main`. A ADR-017 reprogramou as etapas
+funcionais, e a execução deve continuar pelo módulo Financeiro na 2.5.
 
 ---
 
@@ -1077,7 +1076,9 @@ as etapas futuras, e a execução deve continuar por Leads na 2.4.3.
 
 **ETAPA 2.4.2:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
-**ETAPA ATUAL:** 2.4.3 — Leads
+**ETAPA 2.4:** CONCLUÍDA, CERTIFICADA E INTEGRADA
+
+**ETAPA ATUAL:** 2.5 — Financeiro
 
 ---
 

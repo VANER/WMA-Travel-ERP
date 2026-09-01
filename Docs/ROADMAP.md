@@ -49,9 +49,9 @@
 
 **Status:** INICIADA EM 18/08/2026
 
-**Progresso:** etapas 2.0 a 2.3 concluídas, certificadas e integradas
+**Progresso:** etapas 2.0 a 2.4 concluídas, certificadas e integradas
 
-**Etapa atual:** 2.4.13 — Certificação remota do módulo Comercial
+**Etapa atual:** 2.5 — Financeiro
 
 **Branch inicial:** `feature/fase-2-backend-api`
 

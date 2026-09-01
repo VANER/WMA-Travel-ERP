@@ -1,4 +1,4 @@
-# WMA Travel ERP — Candidata à Certificação da Etapa 2.4
+# WMA Travel ERP — Certificação da Etapa 2.4
 
 ## Módulo Comercial
 
@@ -10,7 +10,7 @@
 
 **Data:** 31/08/2026
 
-**Status:** IMPLEMENTAÇÃO COMPLETA E APROVADA LOCALMENTE; INTEGRAÇÃO REMOTA PENDENTE
+**Status:** APROVADA, CERTIFICADA E INTEGRADA
 
 ## 1. Escopo auditado
 
@@ -49,19 +49,21 @@ Rollback da migration ............................... OK
 Cobertura integral do código novo ................... OK
 ```
 
-## 4. Evidências remotas pendentes
+## 4. Evidências remotas
 
 | Evidência | Estado |
 | --- | --- |
-| commit auditado | Pendente de autorização explícita |
-| CI Linux/Python 3.13/PostgreSQL | Pendente |
-| pull request | Pendente |
-| merge em `main` | Pendente |
-| CI pós-merge | Pendente |
+| commit auditado | `698925e2de27d139a3ba3928c56e8cb6510f7475` |
+| pull request | [#51](https://github.com/VANER/WMA-Travel-ERP/pull/51) |
+| CI final do PR | [run 33344724386](https://github.com/VANER/WMA-Travel-ERP/actions/runs/33344724386) |
+| job Linux/Python 3.13/PostgreSQL | `99346572371`, aprovado em 1 min 8 s |
+| merge em `main` | `7d103d801a44ebe35fc4a806399076bf2f6361d9` |
+| CI pós-merge | [run 33344829611](https://github.com/VANER/WMA-Travel-ERP/actions/runs/33344829611) |
+| job pós-merge | `99346859697`, aprovado em 1 min 18 s |
 
-## 5. Resultado local
+## 5. Resultado
 
-**ETAPA 2.4 — IMPLEMENTAÇÃO COMPLETA E CANDIDATA À CERTIFICAÇÃO FINAL**
+**ETAPA 2.4 — COMERCIAL: APROVADA, CERTIFICADA E INTEGRADA**
 
-A etapa não deve ser declarada integrada nem liberar a 2.5 antes do preenchimento das evidências remotas e da
-validação pós-merge exigidas pelo cronograma oficial.
+As evidências locais, o CI do PR, o merge e a validação pós-merge foram aprovados. A etapa 2.5 — Financeiro está
+formalmente autorizada para execução.

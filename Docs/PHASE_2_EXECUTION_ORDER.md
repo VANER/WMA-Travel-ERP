@@ -774,7 +774,7 @@ Certificação: `certification/PHASE_2_3_API_GOVERNANCE_CERTIFICATION.md`.
 
 ## 8. ETAPA 2.4 — Comercial
 
-**Status:** EM EXECUÇÃO; 2.4.2 INTEGRADA E 2.4.3 AUTORIZADA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 **Dependência:** 2.1 a 2.3
 
@@ -806,7 +806,7 @@ Certificação: `Docs/certification/PHASE_2_4_2_COMMERCIAL_CLIENTS_CERTIFICATION
 
 Implementar captação e acompanhamento.
 
-**Status:** AUTORIZADA PARA EXECUÇÃO
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 ### 2.4.4 — CRM
 
@@ -1530,7 +1530,8 @@ Não iniciar a 2.4.2 antes da auditoria, aprovação e certificação do invent�
 | Reprogramação funcional | **CONCLUÍDA PELA ADR-017** |
 | Etapa 2.4.1 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Etapa 2.4.2 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
-| Próxima execução | **2.4.3 — LEADS** |
+| Etapa 2.4 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| Próxima execução | **2.5 — FINANCEIRO** |
 
 ---
 
@@ -1544,4 +1545,4 @@ estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**ETAPA 2.4.3 — LEADS.**
+**ETAPA 2.5 — FINANCEIRO.**
