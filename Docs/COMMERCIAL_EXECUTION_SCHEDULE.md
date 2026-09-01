@@ -10,7 +10,7 @@
 
 **Dependências de entrada:** etapas 2.1, 2.2 e 2.3 concluídas, certificadas e integradas
 
-**Estado:** CONCLUÍDA, CERTIFICADA E INTEGRADA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 ## 2. Objetivo
 
@@ -50,7 +50,7 @@ deslocadas; não são executadas em paralelo para compensar o atraso.
 
 ### 2.4.1 — Inventário Comercial
 
-**Estado:** CONCLUÍDA, CERTIFICADA E INTEGRADA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 **Entregas:**
 
@@ -63,7 +63,7 @@ deslocadas; não são executadas em paralelo para compensar o atraso.
 
 ### 2.4.2 — Clientes
 
-**Estado:** CONCLUÍDA, CERTIFICADA E INTEGRADA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 **Entregas:**
 
@@ -80,7 +80,7 @@ Certificação: `Docs/certification/PHASE_2_4_2_COMMERCIAL_CLIENTS_CERTIFICATION
 
 ### 2.4.3 — Leads
 
-**Estado:** IMPLEMENTADA E APROVADA LOCALMENTE
+**Status:** IMPLEMENTADA E APROVADA LOCALMENTE
 
 **Entregas:**
 
@@ -93,7 +93,7 @@ Certificação: `Docs/certification/PHASE_2_4_2_COMMERCIAL_CLIENTS_CERTIFICATION
 
 ### 2.4.4 — CRM
 
-**Estado:** IMPLEMENTADA E APROVADA LOCALMENTE
+**Status:** IMPLEMENTADA E APROVADA LOCALMENTE
 
 **Entregas:**
 
@@ -106,7 +106,7 @@ Certificação: `Docs/certification/PHASE_2_4_2_COMMERCIAL_CLIENTS_CERTIFICATION
 
 ### 2.4.5 — Fornecedores e Operadoras
 
-**Estado:** IMPLEMENTADA E APROVADA LOCALMENTE
+**Status:** IMPLEMENTADA E APROVADA LOCALMENTE
 
 **Entregas:**
 
@@ -119,7 +119,7 @@ Certificação: `Docs/certification/PHASE_2_4_2_COMMERCIAL_CLIENTS_CERTIFICATION
 
 ### 2.4.6 — Oportunidades
 
-**Estado:** IMPLEMENTADA E APROVADA LOCALMENTE
+**Status:** IMPLEMENTADA E APROVADA LOCALMENTE
 
 **Entregas:**
 
@@ -132,7 +132,7 @@ Certificação: `Docs/certification/PHASE_2_4_2_COMMERCIAL_CLIENTS_CERTIFICATION
 
 ### 2.4.7 — Propostas
 
-**Estado:** IMPLEMENTADA E APROVADA LOCALMENTE
+**Status:** IMPLEMENTADA E APROVADA LOCALMENTE
 
 **Entregas:**
 
@@ -145,7 +145,7 @@ Certificação: `Docs/certification/PHASE_2_4_2_COMMERCIAL_CLIENTS_CERTIFICATION
 
 ### 2.4.8 — Condições Comerciais
 
-**Estado:** IMPLEMENTADA E APROVADA LOCALMENTE
+**Status:** IMPLEMENTADA E APROVADA LOCALMENTE
 
 **Entregas:**
 
@@ -158,7 +158,7 @@ Certificação: `Docs/certification/PHASE_2_4_2_COMMERCIAL_CLIENTS_CERTIFICATION
 
 ### 2.4.9 — Vendas
 
-**Estado:** IMPLEMENTADA E APROVADA LOCALMENTE
+**Status:** IMPLEMENTADA E APROVADA LOCALMENTE
 
 **Entregas:**
 
@@ -171,7 +171,7 @@ Certificação: `Docs/certification/PHASE_2_4_2_COMMERCIAL_CLIENTS_CERTIFICATION
 
 ### 2.4.10 — Contratos
 
-**Estado:** IMPLEMENTADA E APROVADA LOCALMENTE
+**Status:** IMPLEMENTADA E APROVADA LOCALMENTE
 
 **Entregas:**
 
@@ -184,7 +184,7 @@ Certificação: `Docs/certification/PHASE_2_4_2_COMMERCIAL_CLIENTS_CERTIFICATION
 
 ### 2.4.11 — API Comercial
 
-**Estado:** IMPLEMENTADA E APROVADA LOCALMENTE
+**Status:** IMPLEMENTADA E APROVADA LOCALMENTE
 
 **Entregas:**
 
@@ -197,7 +197,7 @@ Certificação: `Docs/certification/PHASE_2_4_2_COMMERCIAL_CLIENTS_CERTIFICATION
 
 ### 2.4.12 — Testes
 
-**Estado:** IMPLEMENTADA E APROVADA LOCALMENTE
+**Status:** IMPLEMENTADA E APROVADA LOCALMENTE
 
 **Entregas:**
 
@@ -210,7 +210,7 @@ Certificação: `Docs/certification/PHASE_2_4_2_COMMERCIAL_CLIENTS_CERTIFICATION
 
 ### 2.4.13 — Certificação
 
-**Estado:** CONCLUÍDA, CERTIFICADA E INTEGRADA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 **Entregas:**
 

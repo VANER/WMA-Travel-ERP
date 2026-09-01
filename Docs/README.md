@@ -8,7 +8,7 @@
 **Data da certificação:** 17/08/2026
 **PostgreSQL:** 18.4
 **Baseline certificada:** `d63800e`
-**Fase atual:** Fase 2 — Backend e API
+**Fase atual:** Fase 2 — Backend, API e Integrações
 
 **Progresso da Fase 2:** etapas 2.0 a 2.4 concluídas, certificadas e integradas
 
@@ -69,7 +69,7 @@ Documentos de referência:
 > Plataforma Corporativa Integrada de Gestão Empresarial para Turismo, Serviços e Inteligência de Negócios.
 
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-blue)
-![Version](https://img.shields.io/badge/version-1.0.0-green)
+![Backend version](https://img.shields.io/badge/backend%20version-0.1.0.dev0-green)
 ![Database](https://img.shields.io/badge/database-PostgreSQL%2018-blue)
 ![Backend](https://img.shields.io/badge/backend-FastAPI-orange)
 ![Frontend](https://img.shields.io/badge/frontend-React-blue)
@@ -138,13 +138,8 @@ Documentos de referência:
   - [Instalar dependências](#instalar-dependências)
   - [Executar API](#executar-api)
   - [⚛️ Configuração do Frontend](#️-configuração-do-frontend)
-    - [Acessar diretório](#acessar-diretório-1)
-    - [Instalar dependências](#instalar-dependências-1)
-    - [Executar aplicação](#executar-aplicação)
   - [📱 Configuração Mobile](#-configuração-mobile)
   - [Tecnologia](#tecnologia)
-    - [Instalar dependências](#instalar-dependências-2)
-    - [Executar aplicação](#executar-aplicação-1)
     - [Aplicações previstas](#aplicações-previstas)
   - [🔢 Versionamento](#-versionamento)
   - [Semantic Versioning (SemVer)](#semantic-versioning-semver)
@@ -282,11 +277,11 @@ WMA Travel ERP
 │
 ├── Backend Python + FastAPI
 │
-├── Frontend React + TypeScript
+├── Frontend React + TypeScript (planejado)
 │
-├── Mobile Flutter
+├── Mobile Flutter (planejado)
 │
-├── Dashboard Microsoft Power BI
+├── Dashboard Microsoft Power BI (planejado)
 │
 └── Framework DBA
 ```
@@ -331,6 +326,8 @@ Responsabilidades:
 
 ## Frontend
 
+**Status:** PLANEJADO — NÃO IMPLEMENTADO
+
 Tecnologias utilizadas:
 
 - React
@@ -346,6 +343,8 @@ Responsável por:
 ---
 
 ## Mobile
+
+**Status:** PLANEJADO — NÃO IMPLEMENTADO
 
 Tecnologia:
 
@@ -395,50 +394,21 @@ Práticas:
 A organização do projeto segue uma arquitetura modular preparada para evolução contínua.
 
 ```text
-WMATRAVEL_ERP/
-│
-├── backend/
-│   ├── api/
-│   ├── core/
-│   ├── modules/
-│   ├── services/
-│   └── tests/
-│
-├── frontend/
-│   ├── src/
-│   ├── components/
-│   ├── pages/
-│   └── services/
-│
-├── mobile/
-│
-├── database/
+WMA Travel ERP/
+├── Backend/
+│   ├── app/
 │   ├── migrations/
 │   ├── scripts/
+│   └── tests/
+├── Database/
 │   ├── audit/
-│   └── certification/
-│
-├── docs/
-│   ├── architecture/
-│   ├── database/
-│   ├── api/
-│   └── guides/
-│
-├── scripts/
-│
-├── tests/
-│
-├── tools/
-│
-├── ci/
-│
-├── README.md
-├── CHANGELOG.md
-├── ROADMAP.md
-├── CONTRIBUTING.md
-├── CODE_OF_CONDUCT.md
-├── LICENSE
-└── VERSION
+│   ├── certification/
+│   ├── migrations/
+│   └── scripts/
+└── Docs/
+    ├── architecture/
+    ├── certification/
+    └── templates/
 ```
 
 ---
@@ -693,40 +663,42 @@ database/
 
 ## Acessar diretório
 
-```bash
-cd backend
+```powershell
+cd Backend
 ```
 
 ## Criar ambiente virtual Python
 
-```bash
-python -m venv venv
+```powershell
+py -3.13 -m venv .venv
 ```
 
 ## Ativar ambiente virtual
 
 ### Windows
 
-```bash
-venv\Scripts\activate
+```powershell
+.\.venv\Scripts\Activate.ps1
 ```
 
 ### Linux / Mac
 
 ```bash
-source venv/bin/activate
+source .venv/bin/activate
 ```
 
 ## Instalar dependências
 
-```bash
-pip install -r requirements.txt
+```powershell
+python -m pip install --upgrade pip
+python -m pip install -r pylock.windows.toml
+python -m pip install --no-deps -e .
 ```
 
 ## Executar API
 
-```bash
-uvicorn main:app --reload
+```powershell
+uvicorn app.main:app --reload
 ```
 
 API disponível em:
@@ -739,29 +711,8 @@ http://localhost:8000
 
 ## ⚛️ Configuração do Frontend
 
-### Acessar diretório
-
-```bash
-cd frontend
-```
-
-### Instalar dependências
-
-```bash
-npm install
-```
-
-### Executar aplicação
-
-```bash
-npm run dev
-```
-
-Frontend disponível em:
-
-```text
-http://localhost:3000
-```
+O Frontend permanece planejado e ainda não possui diretório, manifesto de dependências ou comando executável.
+Sua implementação depende de escopo explícito da fase correspondente.
 
 ---
 
@@ -771,17 +722,8 @@ http://localhost:3000
 
 - Flutter
 
-### Instalar dependências
-
-```bash
-flutter pub get
-```
-
-### Executar aplicação
-
-```bash
-flutter run
-```
+O aplicativo Mobile permanece planejado e ainda não possui diretório, manifesto de dependências ou comando
+executável. Sua implementação depende de escopo explícito da fase correspondente.
 
 ### Aplicações previstas
 
@@ -804,10 +746,10 @@ Formato:
 MAJOR.MINOR.PATCH
 ```
 
-Exemplo:
+Exemplo do Backend atual:
 
 ```text
-1.0.0
+0.1.0.dev0
 ```
 
 ## Definição das versões
@@ -818,11 +760,8 @@ Exemplo:
 | MINOR | Inclusão de novas funcionalidades |
 | PATCH | Correções e melhorias |
 
-Versão atual:
-
-```text
-1.0.0
-```
+A versão executável do Backend é mantida em `Backend/pyproject.toml`. O estágio da entrega integral do ERP é
+controlado pelas fases, gates e certificações, sem um arquivo `VERSION` independente.
 
 ---
 
@@ -845,7 +784,6 @@ A documentação oficial do projeto é organizada para facilitar:
 | CONTRIBUTING.md | Guia de contribuição |
 | CODE_OF_CONDUCT.md | Código de conduta |
 | LICENSE | Licenciamento |
-| VERSION | Controle de versão |
 
 ---
 

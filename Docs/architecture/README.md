@@ -1,6 +1,6 @@
 # WMA Travel ERP --- Architecture Decision Records
 
-## Fase 2 --- Backend, API e Integrações
+## Fase 2 — Backend, API e Integrações
 
 **Etapa:** 2.0.1 --- Arquitetura Tecnológica\
 **Data-base:** 18/08/2026\

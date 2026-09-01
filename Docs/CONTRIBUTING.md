@@ -1,10 +1,12 @@
-# Guia de Contribuição
+# WMA Travel ERP — Guia de Contribuição
 
-**Projeto:** WMA Travel ERP
-
-**Versão:** 1.0.0
-
-**Última atualização:** 29/07/2026
+> **Projeto:** WMA Travel ERP
+> **Empresa:** WMA Travel Ltda.
+> **Fase:** Fase 2 — Backend, API e Integrações
+> **Tipo de documento:** Guia Institucional
+> **Versão:** 1.1.0
+> **Data:** 01/09/2026
+> **Status:** VIGENTE
 
 ---
 
@@ -45,23 +47,19 @@ Todo desenvolvimento deve respeitar os seguintes princípios:
 ## Estrutura do projeto
 
 ```text
-WMATRAVEL_ERP/
-├── backend/
-├── frontend/
-├── mobile/
-├── database/
-├── docs/
-├── scripts/
-├── tests/
-├── ci/
-├── tools/
-├── README.md
-├── CHANGELOG.md
-├── ROADMAP.md
-├── CONTRIBUTING.md
-├── CODE_OF_CONDUCT.md
-├── LICENSE
-└── VERSION
+WMA Travel ERP/
+├── Backend/
+│   ├── app/
+│   ├── migrations/
+│   └── tests/
+├── Database/
+│   ├── certification/
+│   ├── migrations/
+│   └── scripts/
+└── Docs/
+    ├── architecture/
+    ├── certification/
+    └── templates/
 ```
 
 Cada diretório possui responsabilidade específica e não deve conter arquivos de outros domínios.
@@ -73,7 +71,7 @@ Cada diretório possui responsabilidade específica e não deve conter arquivos 
 Todo desenvolvimento deverá seguir o fluxo abaixo:
 
 1. Criar uma Issue.
-2. Criar uma Branch.
+2. Criar uma branch a partir de `main`.
 3. Desenvolver a funcionalidade.
 4. Executar os testes.
 5. Atualizar a documentação quando necessário.
@@ -93,30 +91,24 @@ Alterações diretas na branch principal não são permitidas.
 main
 ```
 
-Contém apenas versões estáveis.
+Contém a linha estável e integrada. Toda alteração entra por pull request com os gates obrigatórios aprovados.
 
-### Develop
-
-```text
-develop
-```
-
-Integra todas as funcionalidades aprovadas.
-
-### Feature
+### Funcionalidade
 
 ```text
-feature/nome-da-funcionalidade
+feat/nome-da-funcionalidade
 ```
 
 Exemplos:
 
 ```text
-feature/financeiro
-feature/dashboard
-feature/clientes
-feature/plano-contas
+feat/2.5-financeiro
+feat/dashboard
+feat/clientes
+feat/plano-contas
 ```
+
+O prefixo histórico `feature/*` continua reconhecido, mas novas entregas funcionais usam `feat/*`.
 
 ### Fix
 
@@ -131,21 +123,29 @@ fix/index-cliente
 fix/fk-pedido
 ```
 
-### Hotfix
+### Documentação
+
+```text
+docs/nome-da-revisao
+```
+
+Use `docs/*` para documentação, certificações e reconciliações de status sem alteração funcional.
+
+### Hotfix excepcional
 
 ```text
 hotfix/correcao-producao
 ```
 
-Destinada exclusivamente a correções críticas.
+Destinada exclusivamente a correções críticas de produção, quando esse fluxo for formalmente autorizado.
 
-### Release
+### Release excepcional
 
 ```text
 release/1.1.0
 ```
 
-Utilizada para preparação de novas versões.
+Utilizada para preparação de versões quando houver uma janela formal de release. Não é uma branch permanente.
 
 ---
 
@@ -449,8 +449,17 @@ Antes de iniciar uma nova implementação:
 
 ---
 
-## Direitos autorais
+## Controle do Documento
 
-Copyright © 2026 WMA Travel Ltda.
+| Campo | Informação |
+| --- | --- |
+| Projeto | WMA Travel ERP |
+| Empresa | WMA Travel Ltda. |
+| Versão | 1.1.0 |
+| Status | VIGENTE |
+| Última atualização | 01/09/2026 |
+| Repositório | `VANER/WMA-Travel-ERP` |
+| Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
 
-Todos os direitos reservados.
+**WMA Travel ERP — Documento oficial e versionado do projeto.**
+**Copyright © 2026 WMA Travel Ltda. Todos os direitos reservados.**

@@ -1,14 +1,18 @@
-# Governança do Projeto — WMA Travel ERP
+# WMA Travel ERP — Governança do Projeto
 
-**Versão do Documento:** 1.1.0
-**Última Atualização:** 29/08/2026
-**Status:** VIGENTE — EVOLUÇÃO CONTROLADA
+> **Projeto:** WMA Travel ERP
+> **Empresa:** WMA Travel Ltda.
+> **Fase:** Fase 2 — Backend, API e Integrações
+> **Tipo de documento:** Norma de Governança
+> **Versão:** 1.2.0
+> **Data:** 01/09/2026
+> **Status:** VIGENTE
 
 ---
 
 ## Índice
 
-- [Governança do Projeto — WMA Travel ERP](#governança-do-projeto--wma-travel-erp)
+- [WMA Travel ERP — Governança do Projeto](#wma-travel-erp--governança-do-projeto)
   - [Índice](#índice)
   - [1. Objetivo](#1-objetivo)
   - [2. Escopo](#2-escopo)
@@ -92,8 +96,9 @@ O projeto segue **Versionamento Semântico** (`MAJOR.MINOR.PATCH`):
 - `MINOR`: nova funcionalidade compatível com versões anteriores;
 - `PATCH`: correção que não altera comportamento externo.
 
-A versão vigente do projeto é mantida no arquivo `VERSION`, na raiz do repositório, como string
-simples (exemplo: `0.1.0-dev`), e todo incremento deve ser refletido em `CHANGELOG.md`.
+A versão executável de cada componente deve ser mantida em seu manifesto. Atualmente, o Backend declara sua
+versão em `Backend/pyproject.toml`. O estágio do ERP é controlado pelas fases, gates e certificações, e todo
+incremento integrado deve ser refletido em `CHANGELOG.md`.
 
 ---
 
@@ -167,5 +172,17 @@ tabela duplicada) devem ser:
 
 ---
 
-**Copyright © 2026 WMA Travel Ltda.**
-**Todos os direitos reservados.**
+## Controle do Documento
+
+| Campo | Informação |
+| --- | --- |
+| Projeto | WMA Travel ERP |
+| Empresa | WMA Travel Ltda. |
+| Versão | 1.2.0 |
+| Status | VIGENTE |
+| Última atualização | 01/09/2026 |
+| Repositório | `VANER/WMA-Travel-ERP` |
+| Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
+
+**WMA Travel ERP — Documento oficial e versionado do projeto.**
+**Copyright © 2026 WMA Travel Ltda. Todos os direitos reservados.**

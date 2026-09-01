@@ -1,14 +1,20 @@
-# Processo de Implantação — WMA Travel ERP
+# WMA Travel ERP — Processo de Implantação
 
-**Versão do Documento:** 1.1.0
-**Última Atualização:** 29/08/2026
-**Status:** PLANEJAMENTO CONTROLADO — IMPLANTAÇÃO NÃO INICIADA
+> **Projeto:** WMA Travel ERP
+> **Empresa:** WMA Travel Ltda.
+> **Fase:** Fase 2 — Backend, API e Integrações
+> **Tipo de documento:** Planejamento de Implantação
+> **Versão:** 1.2.0
+> **Data:** 01/09/2026
+> **Status:** PLANEJADA
+
+A implantação permanece não iniciada.
 
 ---
 
 ## Índice
 
-- [Processo de Implantação — WMA Travel ERP](#processo-de-implantação--wma-travel-erp)
+- [WMA Travel ERP — Processo de Implantação](#wma-travel-erp--processo-de-implantação)
   - [Índice](#índice)
   - [1. Objetivo](#1-objetivo)
   - [2. Ambientes](#2-ambientes)
@@ -166,5 +172,17 @@ disponibilidade durante a atualização, com verificação de saúde (`fn_health
 
 ---
 
-**Copyright © 2026 WMA Travel Ltda.**
-**Todos os direitos reservados.**
+## Controle do Documento
+
+| Campo | Informação |
+| --- | --- |
+| Projeto | WMA Travel ERP |
+| Empresa | WMA Travel Ltda. |
+| Versão | 1.2.0 |
+| Status | PLANEJADA |
+| Última atualização | 01/09/2026 |
+| Repositório | `VANER/WMA-Travel-ERP` |
+| Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
+
+**WMA Travel ERP — Documento oficial e versionado do projeto.**
+**Copyright © 2026 WMA Travel Ltda. Todos os direitos reservados.**

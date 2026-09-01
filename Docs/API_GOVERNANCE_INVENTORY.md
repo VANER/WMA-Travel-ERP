@@ -4,7 +4,7 @@
 
 **Data do inventário:** 28/08/2026
 
-**Estado:** concluído e incorporado à certificação da etapa 2.3
+**Status:** CONCLUÍDO E INCORPORADO À CERTIFICAÇÃO DA ETAPA 2.3
 
 ## 1. Objetivo
 

@@ -1,10 +1,16 @@
-# API do WMA Travel ERP
+# WMA Travel ERP — API REST
 
-> Documentação oficial da API REST do WMA Travel ERP.
->
-> **Estado do documento:** especificação evolutiva. O contrato executável vigente é `Backend/openapi.json`.
-> Endpoint, integração ou capacidade ausente desse snapshot deve ser tratado como planejamento, mesmo quando as
-> seções históricas abaixo descrevem o estado-alvo. Exemplos planejados não autorizam uso em produção.
+> **Projeto:** WMA Travel ERP
+> **Empresa:** WMA Travel Ltda.
+> **Fase:** Fase 2 — Backend, API e Integrações
+> **Tipo de documento:** Documentação Técnica
+> **Versão:** 1.0
+> **Data:** 01/09/2026
+> **Status:** VIGENTE
+
+O contrato executável vigente é `Backend/openapi.json`. Endpoint, integração ou capacidade ausente desse snapshot
+deve ser tratado como planejamento, mesmo quando as seções históricas abaixo descrevem o estado-alvo. Exemplos
+planejados não autorizam uso em produção.
 
 ---
 
@@ -1759,5 +1765,17 @@ Toda alteração deverá ser registrada também no arquivo **CHANGELOG.md**.
 
 ---
 
-**Copyright © 2026 WMA Travel Ltda.**
-**Todos os direitos reservados.**
+## Controle do Documento
+
+| Campo | Informação |
+| --- | --- |
+| Projeto | WMA Travel ERP |
+| Empresa | WMA Travel Ltda. |
+| Versão | 1.0 |
+| Status | VIGENTE |
+| Última atualização | 01/09/2026 |
+| Repositório | `VANER/WMA-Travel-ERP` |
+| Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
+
+**WMA Travel ERP — Documento oficial e versionado do projeto.**
+**Copyright © 2026 WMA Travel Ltda. Todos os direitos reservados.**
