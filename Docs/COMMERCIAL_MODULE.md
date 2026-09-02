@@ -6,7 +6,7 @@
 
 **Etapas:** 2.4.3 a 2.4.12
 
-**Estado:** CONCLUÍDAS, CERTIFICADAS E INTEGRADAS
+**Status:** CONCLUÍDAS, CERTIFICADAS E INTEGRADAS
 
 ## 2. Escopo entregue
 

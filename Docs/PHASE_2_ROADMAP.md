@@ -1,13 +1,16 @@
 # WMA Travel ERP — Cronograma Oficial da Fase 2
 
-## Backend, API, Módulos Operacionais e Integrações
+> **Projeto:** WMA Travel ERP
+> **Empresa:** WMA Travel Ltda.
+> **Fase:** Fase 2 — Backend, API e Integrações
+> **Tipo de documento:** Planejamento
+> **Versão:** 1.1
+> **Data:** 01/09/2026
+> **Status:** EM EXECUÇÃO
 
-**Versão:** 1.0
-**Data de planejamento:** 18/08/2026
 **Fase anterior:** Fase 1 — Fundação e Banco de Dados
-**Status da Fase 1:** Concluída e certificada
-**Fase atual:** Fase 2 — Backend, API e Integrações
-**Status atual:** etapas 2.0 a 2.3 concluídas, certificadas e integradas
+**Status da Fase 1:** CONCLUÍDA E CERTIFICADA
+**Status atual:** etapas 2.0 a 2.4 concluídas, certificadas e integradas
 **Marco inicial:** `phase-1-final-2026-08-18`
 
 **Branch inicial:** `feature/fase-2-backend-api`
@@ -322,7 +325,7 @@ Política e limites: `Docs/CREDENTIAL_HASHING.md`.
 
 Certificação: `Docs/certification/PHASE_2_2_3_CREDENTIAL_HASHING_CERTIFICATION.md`.
 
-### 2.2.5 — Tokens e Sessões
+### 2.2.4 — Tokens e Sessões
 
 Política e limites: `Docs/TOKENS_AND_SESSIONS.md`.
 
@@ -1082,6 +1085,17 @@ funcionais, e a execução deve continuar pelo módulo Financeiro na 2.5.
 
 ---
 
-**WMA Travel ERP**
-**Cronograma Oficial — Fase 2**
-**Backend, API, Módulos Operacionais e Integrações**
+## Controle do Documento
+
+| Campo | Informação |
+| --- | --- |
+| Projeto | WMA Travel ERP |
+| Empresa | WMA Travel Ltda. |
+| Versão | 1.1 |
+| Status | EM EXECUÇÃO |
+| Última atualização | 01/09/2026 |
+| Repositório | `VANER/WMA-Travel-ERP` |
+| Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
+
+**WMA Travel ERP — Documento oficial e versionado do projeto.**
+**Copyright © 2026 WMA Travel Ltda. Todos os direitos reservados.**

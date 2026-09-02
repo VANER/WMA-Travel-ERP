@@ -45,7 +45,7 @@
 - Marco definitivo: tag `phase-1-final-2026-08-18`
 - Transição para Fase 2: AUTORIZADA
 
-## Fase 2 — Backend e API
+## Fase 2 — Backend, API e Integrações
 
 **Status:** INICIADA EM 18/08/2026
 

@@ -1,6 +1,12 @@
 # WMA Travel ERP — Manual Mestre da Documentação
 
-> Documento oficial de navegação da documentação do projeto **WMA Travel ERP**.
+> **Projeto:** WMA Travel ERP
+> **Empresa:** WMA Travel Ltda.
+> **Fase:** Fase 2 — Backend, API e Integrações
+> **Tipo de documento:** Manual Mestre
+> **Versão:** 1.1.0
+> **Data:** 01/09/2026
+> **Status:** VIGENTE
 
 ---
 
@@ -83,28 +89,25 @@ A documentação está organizada nas seguintes categorias:
 ## 4. Estrutura do Projeto
 
 ```text
-WMA_TRAVEL_ERP/
-
-├── README.md
-├── CHANGELOG.md
-├── ROADMAP.md
-├── CONTRIBUTING.md
-├── CODE_OF_CONDUCT.md
-├── LICENSE
-├── VERSION
-│
-├── docs/
-│   ├── PROJECT_DOCUMENTATION.md
-│   ├── ARCHITECTURE.md
-│   ├── DATABASE_GUIDE.md
-│   ├── DATABASE_STANDARDS.md
-│   ├── DATA_DICTIONARY.md
-│   ├── API.md
-│   ├── DEPLOYMENT.md
-│   ├── GOVERNANCE.md
-│   ├── SECURITY.md
-│   ├── STYLE_GUIDE.md
-│   └── DBA_FRAMEWORK.md
+WMA Travel ERP/
+├── Backend/
+│   ├── README.md
+│   ├── app/
+│   ├── migrations/
+│   └── tests/
+├── Database/
+│   ├── README.md
+│   ├── audit/
+│   ├── certification/
+│   ├── migrations/
+│   └── scripts/
+└── Docs/
+    ├── architecture/
+    ├── certification/
+    ├── templates/
+    ├── PROJECT_DOCUMENTATION.md
+    ├── PHASE_2_EXECUTION_ORDER.md
+    └── README.md
 ```
 
 ---
@@ -119,7 +122,6 @@ WMA_TRAVEL_ERP/
 | CONTRIBUTING.md | Processo de contribuição |
 | CODE_OF_CONDUCT.md | Código de conduta |
 | LICENSE | Licenciamento |
-| VERSION | Versão oficial |
 
 ---
 
@@ -128,6 +130,9 @@ WMA_TRAVEL_ERP/
 | Documento | Finalidade |
 | ---------------------- | -------------------------- |
 | ARCHITECTURE.md | Arquitetura corporativa |
+| CODE_STANDARDS.md | Norma oficial de Python, API, arquitetura e qualidade |
+| DOCUMENTATION_STANDARDS.md | Norma oficial de famílias, metadados, status e templates |
+| DOCUMENTATION_INVENTORY.md | Inventário e classificação das famílias documentais |
 | DATABASE_GUIDE.md | Guia do banco de dados |
 | DATABASE_STANDARDS.md | Padrões técnicos do banco |
 | DATA_DICTIONARY.md | Dicionário de dados |
@@ -137,6 +142,7 @@ WMA_TRAVEL_ERP/
 | COMMERCIAL_EXECUTION_SCHEDULE.md | Cronograma oficial, entregas e gates da etapa Comercial 2.4 |
 | COMMERCIAL_CLIENTS.md | Contrato interno e casos de uso comerciais de Cliente da etapa 2.4.2 |
 | COMMERCIAL_MODULE.md | Modelo, regras, API e validação local das etapas 2.4.3 a 2.4.12 |
+| FINANCIAL_DOCUMENTATION_GATE.md | Fontes, entregáveis e critérios de entrada da etapa Financeiro 2.5 |
 | API_RESPONSE_MATRIX.md | Matriz normativa de respostas HTTP da API v1 |
 | API_CHANGE_GOVERNANCE.md | Propriedade, aprovação e exceções de mudança da API |
 | DEPLOYMENT.md | Processo de implantação |
@@ -150,9 +156,14 @@ WMA_TRAVEL_ERP/
 | PHASE_2_ROADMAP.md | Planejamento oficial da Fase 2 |
 | PHASE_2_EXECUTION_ORDER.md | Ordem, gates e status das etapas da Fase 2 |
 | certification/ | Evidências das etapas certificadas da Fase 2 |
+| templates/CERTIFICATION_TEMPLATE.md | Template obrigatório para novas certificações |
+| templates/TECHNICAL_DOCUMENT_TEMPLATE.md | Template para novas entregas técnicas |
+| templates/EXECUTION_SCHEDULE_TEMPLATE.md | Template para cronogramas de execução |
+| templates/ADR_TEMPLATE.md | Template para novas decisões arquiteturais |
 | certification/PHASE_2_3_API_GOVERNANCE_CERTIFICATION.md | Certificação final da governança de API |
 | certification/PHASE_2_4_1_COMMERCIAL_INVENTORY_CERTIFICATION.md | Aprovação local do inventário Comercial |
 | certification/PHASE_2_4_2_COMMERCIAL_CLIENTS_CERTIFICATION.md | Aprovação local dos serviços de Cliente |
+| certification/PHASE_2_4_COMMERCIAL_CERTIFICATION.md | Certificação consolidada do módulo Comercial |
 
 ---
 
@@ -351,12 +362,14 @@ Para novos colaboradores recomenda-se a seguinte sequência:
 | ------------------ | ----------------------------- |
 | Documento | PROJECT_DOCUMENTATION.md |
 | Projeto | WMA Travel ERP |
+| Empresa | WMA Travel Ltda. |
 | Tipo | Manual Mestre da Documentação |
-| Versão | 1.0.0 |
-| Status | Oficial |
+| Versão | 1.1.0 |
+| Status | VIGENTE — EVOLUÇÃO CONTROLADA |
 | Responsável | WMA Travel Ltda. |
 | Compatibilidade | Markdownlint |
-| Última atualização | 2026 |
+| Última atualização | 01/09/2026 |
+| Repositório | `VANER/WMA-Travel-ERP` |
 
 ---
 
@@ -368,5 +381,5 @@ Alterações estruturais na documentação deverão ser registradas no **CHANGEL
 
 ---
 
-**Copyright © 2026 WMA Travel Ltda.**
-**Todos os direitos reservados.**
+**WMA Travel ERP — Documento oficial e versionado do projeto.**
+**Copyright © 2026 WMA Travel Ltda. Todos os direitos reservados.**

@@ -76,7 +76,7 @@ O schema `auditoria` possui 34 tabelas no estado certificado. As tabelas centrai
 | `catalogo_coluna` | Catálogo técnico das colunas do banco |
 | `script` | Registro de scripts de correção/migração vinculados ao framework |
 
-> **Estado certificado:** as 34 tabelas do schema `auditoria` possuem chave primária. As tabelas de regras,
+> **Status certificado:** as 34 tabelas do schema `auditoria` possuem chave primária. As tabelas de regras,
 > execuções, resultados e score estão estruturalmente disponíveis, mas ainda não possuem carga operacional.
 
 ---

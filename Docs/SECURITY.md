@@ -1,14 +1,18 @@
-# Política de Segurança — WMA Travel ERP
+# WMA Travel ERP — Política de Segurança
 
-**Versão do Documento:** 1.1.0
-**Última Atualização:** 29/08/2026
-**Status:** VIGENTE — EVOLUÇÃO CONTROLADA
+> **Projeto:** WMA Travel ERP
+> **Empresa:** WMA Travel Ltda.
+> **Fase:** Fase 2 — Backend, API e Integrações
+> **Tipo de documento:** Norma de Segurança
+> **Versão:** 1.2.0
+> **Data:** 01/09/2026
+> **Status:** VIGENTE
 
 ---
 
 ## Índice
 
-- [Política de Segurança — WMA Travel ERP](#política-de-segurança--wma-travel-erp)
+- [WMA Travel ERP — Política de Segurança](#wma-travel-erp--política-de-segurança)
   - [Índice](#índice)
   - [1. Objetivo](#1-objetivo)
   - [2. Escopo](#2-escopo)
@@ -166,5 +170,17 @@ operação, com política de retenção mínima definida antes de sua efetiva ut
 
 ---
 
-**Copyright © 2026 WMA Travel Ltda.**
-**Todos os direitos reservados.**
+## Controle do Documento
+
+| Campo | Informação |
+| --- | --- |
+| Projeto | WMA Travel ERP |
+| Empresa | WMA Travel Ltda. |
+| Versão | 1.2.0 |
+| Status | VIGENTE |
+| Última atualização | 01/09/2026 |
+| Repositório | `VANER/WMA-Travel-ERP` |
+| Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
+
+**WMA Travel ERP — Documento oficial e versionado do projeto.**
+**Copyright © 2026 WMA Travel Ltda. Todos os direitos reservados.**

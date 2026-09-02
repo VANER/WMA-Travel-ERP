@@ -1,23 +1,16 @@
 # WMA Travel ERP — Ordem de Execução Oficial da Fase 2
 
-> Backend, API, módulos operacionais, integrações e certificação.
-
-**Documento:** Ordem de Execução da Fase 2
-
-**Versão:** 1.0
-
-**Data:** 18/08/2026
-
-**Status:** Oficial para execução
+> **Projeto:** WMA Travel ERP
+> **Empresa:** WMA Travel Ltda.
+> **Fase:** Fase 2 — Backend, API e Integrações
+> **Tipo de documento:** Planejamento de Execução
+> **Versão:** 1.1
+> **Data:** 01/09/2026
+> **Status:** EM EXECUÇÃO
 
 **Fase anterior:** Fase 1 — Concluída e certificada
-
 **Marco da Fase 1:** `phase-1-final-2026-08-18`
-
-**Fase atual:** Fase 2 — Backend, API e Integrações
-
 **Arquitetura:** Monólito Modular
-
 **Banco:** PostgreSQL 18.x
 
 ---
@@ -644,7 +637,7 @@ Política e limites: `Docs/CREDENTIAL_HASHING.md`.
 
 Certificação: `Docs/certification/PHASE_2_2_3_CREDENTIAL_HASHING_CERTIFICATION.md`.
 
-### 2.2.5 — Tokens e Sessões
+### 2.2.4 — Tokens e Sessões
 
 **Status:** CONCLUÍDA E CERTIFICADA
 
@@ -652,7 +645,7 @@ Política e limites: `Docs/TOKENS_AND_SESSIONS.md`.
 
 Certificação: `Docs/certification/PHASE_2_2_4_TOKENS_SESSIONS_CERTIFICATION.md`.
 
-### 2.2.6 a 2.2.13 — Controle de Acesso
+### 2.2.5 a 2.2.12 — Controle de Acesso
 
 **Status:** CONCLUÍDAS E CERTIFICADAS
 
@@ -660,7 +653,7 @@ Perfis, roles, permissions, autorização, proteção de endpoints, recuperaçã
 
 Contrato consolidado: `Docs/SECURITY_ACCESS_CONTROL.md`.
 
-### 2.2.14 — Certificação
+### 2.2.13 — Certificação
 
 **Status:** CONCLUÍDA
 
@@ -878,6 +871,8 @@ Reserva/Contrato
 **Dependência:** 2.1 a 2.4
 
 A estrutura F1-FIN certificada será preservada.
+
+Gate documental de entrada: `Docs/FINANCIAL_DOCUMENTATION_GATE.md`.
 
 ### Ordem
 
@@ -1481,17 +1476,16 @@ docs(phase2): certify phase 2
 
 ## 23. Ordem Imediata de Trabalho
 
-A execução corrente começa obrigatoriamente por:
+A execução corrente continua obrigatoriamente por:
 
 ```text
-ADR-017 — Reprogramação Funcional da Fase 2
+2.4 — Comercial certificado e integrado
                ↓
-2.4.1 — Inventário Comercial
-               ↓
-2.4.2 — Clientes
+2.5 — Financeiro
 ```
 
-Não iniciar a 2.4.2 antes da auditoria, aprovação e certificação do inventário 2.4.1.
+Não iniciar a implementação funcional da 2.5 antes do inventário financeiro, da aprovação do escopo e da
+definição dos respectivos gates técnicos e funcionais.
 
 ---
 
@@ -1537,8 +1531,8 @@ Não iniciar a 2.4.2 antes da auditoria, aprovação e certificação do invent�
 
 ### Declaração de Continuidade
 
-A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0 a 2.3 foram concluídas, certificadas e
-integradas à `main`. A Governança de API 2.3 foi integrada pelo PR #43 no commit `0153b99`.
+A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0 a 2.4 foram concluídas, certificadas e
+integradas à `main`. O módulo Comercial 2.4 foi encerrado pelo PR #52 após a integração funcional do PR #51.
 
 O desenvolvimento deverá seguir a sequência, dependências, gates e regras
 estabelecidos neste documento.
@@ -1546,3 +1540,20 @@ estabelecidos neste documento.
 **Próxima ação oficial:**
 
 **ETAPA 2.5 — FINANCEIRO.**
+
+---
+
+## Controle do Documento
+
+| Campo | Informação |
+| --- | --- |
+| Projeto | WMA Travel ERP |
+| Empresa | WMA Travel Ltda. |
+| Versão | 1.1 |
+| Status | EM EXECUÇÃO |
+| Última atualização | 01/09/2026 |
+| Repositório | `VANER/WMA-Travel-ERP` |
+| Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
+
+**WMA Travel ERP — Documento oficial e versionado do projeto.**
+**Copyright © 2026 WMA Travel Ltda. Todos os direitos reservados.**

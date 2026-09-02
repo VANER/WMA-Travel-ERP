@@ -1,0 +1,78 @@
+name: Documentation CI
+
+on:
+  pull_request:
+    paths:
+      - ".cspell.json"
+      - ".markdownlint.jsonc"
+      - ".markdownlintignore"
+      - ".github/workflows/documentation-ci.yml"
+      - "Docs/**"
+  push:
+    branches:
+      - main
+    paths:
+      - ".cspell.json"
+      - ".markdownlint.jsonc"
+      - ".markdownlintignore"
+      - ".github/workflows/documentation-ci.yml"
+      - "Docs/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: documentation-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Markdown e ortografia
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Obter código
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+
+      - name: Instalar validadores documentais
+        run: >-
+          npm install --global
+          markdownlint-cli2@0.20.0
+          cspell@9.7.0
+          @cspell/dict-pt-br@2.4.2
+
+      - name: Executar Markdownlint
+        shell: bash
+        run: |
+          mapfile -t markdown_files < <(
+            git ls-files '*.md' |
+              grep -Ev '^Docs/DATA_DICTIONARY\.md$'
+          )
+          markdownlint-cli2 "${markdown_files[@]}"
+
+      - name: Executar cSpell nos documentos vivos
+        shell: bash
+        run: |
+          cspell link add @cspell/dict-pt-br
+          mapfile -t living_documents < <(
+            git ls-files '*.md' |
+              grep -Ev '^(Database/certification/|Docs/certification/)' |
+              grep -Ev '^Docs/(RELATORIO_FASE_1|PHASE_1_TO_PHASE_2_TRANSITION)\.md$'
+          )
+          cspell --no-progress --no-summary "${living_documents[@]}"
+
+      - name: Verificar whitespace do pull request
+        if: github.event_name == 'pull_request'
+        run: git diff --check "${{ github.event.pull_request.base.sha }}...HEAD"
+
+      - name: Verificar whitespace do push
+        if: github.event_name == 'push'
+        run: git show --check --oneline HEAD

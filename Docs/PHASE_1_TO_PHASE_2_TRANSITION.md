@@ -4,7 +4,7 @@
 
 **Data:** 17/08/2026
 **Fase encerrada:** Fase 1 — Fundação e Banco de Dados
-**Próxima fase:** Fase 2 — Backend e API
+**Próxima fase:** Fase 2 — Backend, API e Integrações
 **PostgreSQL:** 18.4
 **Baseline estrutural 10.12.2:** `d63800e`
 **Implementação financeira F1-FIN:** `33fe492`

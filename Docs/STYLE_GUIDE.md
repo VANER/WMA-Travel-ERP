@@ -1,14 +1,18 @@
-# Guia de Padrões de Desenvolvimento — WMA Travel ERP
+# WMA Travel ERP — Guia de Padrões de Desenvolvimento
 
-**Versão do Documento:** 1.1.0
-**Última Atualização:** 29/08/2026
-**Status:** VIGENTE — EVOLUÇÃO CONTROLADA
+> **Projeto:** WMA Travel ERP
+> **Empresa:** WMA Travel Ltda.
+> **Fase:** Fase 2 — Backend, API e Integrações
+> **Tipo de documento:** Guia Resumido
+> **Versão:** 1.2.0
+> **Data:** 01/09/2026
+> **Status:** VIGENTE
 
 ---
 
 ## Índice
 
-- [Guia de Padrões de Desenvolvimento — WMA Travel ERP](#guia-de-padrões-de-desenvolvimento--wma-travel-erp)
+- [WMA Travel ERP — Guia de Padrões de Desenvolvimento](#wma-travel-erp--guia-de-padrões-de-desenvolvimento)
   - [Índice](#índice)
   - [1. Objetivo](#1-objetivo)
   - [2. Padrões SQL](#2-padrões-sql)
@@ -45,10 +49,10 @@ Os padrões de nomenclatura de tabelas, campos e objetos de banco estão definid
 
 | Ferramenta | Finalidade |
 | ---------- | -------------------------------------- |
-| `black` | Formatação automática de código |
-| `ruff` | Lint rápido e correção de estilo |
-| `pylint` | Análise estática adicional |
-| `mypy` | Checagem de tipos estáticos |
+| `ruff check` | Lint e organização de imports |
+| `ruff format` | Formatação automática de código |
+| `mypy` | Checagem estrita de tipos estáticos |
+| `pytest` | Testes automatizados e cobertura |
 
 Convenções gerais:
 
@@ -94,7 +98,7 @@ Tipos permitidos: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`.
 
 ## 7. Padrões de Documentação Markdown
 
-Toda documentação do projeto segue as regras configuradas em `_markdownlint.jsonc`, com destaque
+Toda documentação do projeto segue as regras configuradas em `.markdownlint.jsonc`, com destaque
 para:
 
 | Regra | Descrição |
@@ -112,19 +116,24 @@ para:
 Documentos devem ser compatíveis com VS Code, GitHub, MkDocs e Docusaurus, e escritos em
 português do Brasil.
 
+Novas certificações devem partir de `templates/CERTIFICATION_TEMPLATE.md`. Novos documentos de entrega técnica
+devem partir de `templates/TECHNICAL_DOCUMENT_TEMPLATE.md`, removendo campos não aplicáveis somente quando a
+decisão permanecer explícita no documento final.
+
 ---
 
 ## 8. Estrutura de Branches
 
 ```text
-main        → produção
-develop     → integração contínua
-feature/*   → novas funcionalidades
-fix/*       → correções pontuais
-release/*   → preparação de versão
+main        → linha estável e integrada
+feat/*      → funcionalidades da etapa corrente
+feature/*   → funcionalidades históricas ou incrementais
+fix/*       → correções técnicas
+docs/*      → documentação e certificações
 ```
 
-Toda `feature/*` e `fix/*` é integrada a `develop` via pull request revisado.
+Toda branch de trabalho é criada a partir de `main` e retorna diretamente para `main` por pull request revisado,
+com os gates obrigatórios aprovados. O projeto não mantém uma branch permanente `develop`.
 
 ---
 
@@ -140,10 +149,24 @@ Toda `feature/*` e `fix/*` é integrada a `develop` via pull request revisado.
 ## 10. Documentos Relacionados
 
 - DATABASE_GUIDE.md
+- CODE_STANDARDS.md
+- DOCUMENTATION_STANDARDS.md
 - CONTRIBUTING.md
 - GOVERNANCE.md
 
 ---
 
-**Copyright © 2026 WMA Travel Ltda.**
-**Todos os direitos reservados.**
+## Controle do Documento
+
+| Campo | Informação |
+| --- | --- |
+| Projeto | WMA Travel ERP |
+| Empresa | WMA Travel Ltda. |
+| Versão | 1.2.0 |
+| Status | VIGENTE |
+| Última atualização | 01/09/2026 |
+| Repositório | `VANER/WMA-Travel-ERP` |
+| Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
+
+**WMA Travel ERP — Documento oficial e versionado do projeto.**
+**Copyright © 2026 WMA Travel Ltda. Todos os direitos reservados.**
