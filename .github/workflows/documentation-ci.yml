@@ -2,12 +2,6 @@ name: Documentation CI
 
 on:
   pull_request:
-    paths:
-      - ".cspell.json"
-      - ".markdownlint.jsonc"
-      - ".markdownlintignore"
-      - ".github/workflows/documentation-ci.yml"
-      - "Docs/**"
   push:
     branches:
       - main
