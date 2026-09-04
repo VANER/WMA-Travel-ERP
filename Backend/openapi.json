@@ -164,6 +164,80 @@
         "title": "ClienteResponse",
         "type": "object"
       },
+      "ConciliacaoCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "data_conciliacao": {
+            "format": "date",
+            "title": "Data Conciliacao",
+            "type": "string"
+          },
+          "observacao": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Observacao"
+          }
+        },
+        "required": [
+          "data_conciliacao"
+        ],
+        "title": "ConciliacaoCreate",
+        "type": "object"
+      },
+      "ConciliacaoResponse": {
+        "properties": {
+          "conciliado": {
+            "title": "Conciliado",
+            "type": "boolean"
+          },
+          "data_conciliacao": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Data Conciliacao"
+          },
+          "id_conciliacao": {
+            "title": "Id Conciliacao",
+            "type": "integer"
+          },
+          "id_movimento": {
+            "title": "Id Movimento",
+            "type": "integer"
+          },
+          "observacao": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Observacao"
+          }
+        },
+        "required": [
+          "id_conciliacao",
+          "id_movimento",
+          "data_conciliacao",
+          "conciliado",
+          "observacao"
+        ],
+        "title": "ConciliacaoResponse",
+        "type": "object"
+      },
       "CondicaoComercialCreate": {
         "additionalProperties": false,
         "properties": {
@@ -2238,6 +2312,344 @@
         "title": "ItemPropostaResponse",
         "type": "object"
       },
+      "LancamentoCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "acrescimo": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "number"
+              },
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,13}|(?=[\\d.]{1,16}0*$)\\d{0,13}\\.\\d{0,2}0*$)",
+                "type": "string"
+              }
+            ],
+            "default": "0",
+            "title": "Acrescimo"
+          },
+          "chave_idempotencia": {
+            "anyOf": [
+              {
+                "maxLength": 100,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Chave Idempotencia"
+          },
+          "competencia": {
+            "format": "date",
+            "title": "Competencia",
+            "type": "string"
+          },
+          "desconto": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "number"
+              },
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,13}|(?=[\\d.]{1,16}0*$)\\d{0,13}\\.\\d{0,2}0*$)",
+                "type": "string"
+              }
+            ],
+            "default": "0",
+            "title": "Desconto"
+          },
+          "descricao": {
+            "anyOf": [
+              {
+                "maxLength": 300,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Descricao"
+          },
+          "emissao": {
+            "format": "date",
+            "title": "Emissao",
+            "type": "string"
+          },
+          "id_cliente": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id Cliente"
+          },
+          "id_conta": {
+            "exclusiveMinimum": 0.0,
+            "title": "Id Conta",
+            "type": "integer"
+          },
+          "id_empresa": {
+            "exclusiveMinimum": 0.0,
+            "title": "Id Empresa",
+            "type": "integer"
+          },
+          "id_fornecedor": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id Fornecedor"
+          },
+          "id_status": {
+            "exclusiveMinimum": 0.0,
+            "title": "Id Status",
+            "type": "integer"
+          },
+          "id_tipo_lancamento": {
+            "exclusiveMinimum": 0.0,
+            "title": "Id Tipo Lancamento",
+            "type": "integer"
+          },
+          "juros": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "number"
+              },
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,13}|(?=[\\d.]{1,16}0*$)\\d{0,13}\\.\\d{0,2}0*$)",
+                "type": "string"
+              }
+            ],
+            "default": "0",
+            "title": "Juros"
+          },
+          "multa": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "number"
+              },
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,13}|(?=[\\d.]{1,16}0*$)\\d{0,13}\\.\\d{0,2}0*$)",
+                "type": "string"
+              }
+            ],
+            "default": "0",
+            "title": "Multa"
+          },
+          "numero": {
+            "maxLength": 30,
+            "minLength": 1,
+            "title": "Numero",
+            "type": "string"
+          },
+          "parcelas": {
+            "items": {
+              "$ref": "#/components/schemas/ParcelaCreate"
+            },
+            "minItems": 1,
+            "title": "Parcelas",
+            "type": "array"
+          },
+          "valor_bruto": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0.0,
+                "type": "number"
+              },
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,13}|(?=[\\d.]{1,16}0*$)\\d{0,13}\\.\\d{0,2}0*$)",
+                "type": "string"
+              }
+            ],
+            "title": "Valor Bruto"
+          },
+          "vencimento": {
+            "format": "date",
+            "title": "Vencimento",
+            "type": "string"
+          }
+        },
+        "required": [
+          "numero",
+          "id_empresa",
+          "id_tipo_lancamento",
+          "id_status",
+          "id_conta",
+          "competencia",
+          "emissao",
+          "vencimento",
+          "valor_bruto",
+          "parcelas"
+        ],
+        "title": "LancamentoCreate",
+        "type": "object"
+      },
+      "LancamentoResponse": {
+        "properties": {
+          "acrescimo": {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "title": "Acrescimo",
+            "type": "string"
+          },
+          "chave_idempotencia": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Chave Idempotencia"
+          },
+          "competencia": {
+            "format": "date",
+            "title": "Competencia",
+            "type": "string"
+          },
+          "desconto": {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "title": "Desconto",
+            "type": "string"
+          },
+          "emissao": {
+            "format": "date",
+            "title": "Emissao",
+            "type": "string"
+          },
+          "id_cliente": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id Cliente"
+          },
+          "id_conta": {
+            "title": "Id Conta",
+            "type": "integer"
+          },
+          "id_empresa": {
+            "title": "Id Empresa",
+            "type": "integer"
+          },
+          "id_fornecedor": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id Fornecedor"
+          },
+          "id_lancamento": {
+            "title": "Id Lancamento",
+            "type": "integer"
+          },
+          "id_status": {
+            "title": "Id Status",
+            "type": "integer"
+          },
+          "id_tipo_lancamento": {
+            "title": "Id Tipo Lancamento",
+            "type": "integer"
+          },
+          "id_venda_origem": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id Venda Origem"
+          },
+          "juros": {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "title": "Juros",
+            "type": "string"
+          },
+          "multa": {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "title": "Multa",
+            "type": "string"
+          },
+          "numero": {
+            "title": "Numero",
+            "type": "string"
+          },
+          "saldo": {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "title": "Saldo",
+            "type": "string"
+          },
+          "valor_bruto": {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "title": "Valor Bruto",
+            "type": "string"
+          },
+          "valor_liquido": {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "title": "Valor Liquido",
+            "type": "string"
+          },
+          "valor_pago": {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "title": "Valor Pago",
+            "type": "string"
+          },
+          "vencimento": {
+            "format": "date",
+            "title": "Vencimento",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id_lancamento",
+          "numero",
+          "id_empresa",
+          "id_tipo_lancamento",
+          "id_status",
+          "id_conta",
+          "id_cliente",
+          "id_fornecedor",
+          "id_venda_origem",
+          "chave_idempotencia",
+          "competencia",
+          "emissao",
+          "vencimento",
+          "valor_bruto",
+          "desconto",
+          "acrescimo",
+          "juros",
+          "multa",
+          "valor_liquido",
+          "valor_pago",
+          "saldo"
+        ],
+        "title": "LancamentoResponse",
+        "type": "object"
+      },
       "LeadCreate": {
         "additionalProperties": false,
         "properties": {
@@ -3010,6 +3422,191 @@
         "title": "OportunidadeResponse",
         "type": "object"
       },
+      "PagamentoCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "data_pagamento": {
+            "format": "date",
+            "title": "Data Pagamento",
+            "type": "string"
+          },
+          "desconto": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "number"
+              },
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+                "type": "string"
+              }
+            ],
+            "default": "0",
+            "title": "Desconto"
+          },
+          "documento": {
+            "anyOf": [
+              {
+                "maxLength": 100,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Documento"
+          },
+          "id_conta_bancaria": {
+            "exclusiveMinimum": 0.0,
+            "title": "Id Conta Bancaria",
+            "type": "integer"
+          },
+          "id_forma_pagamento": {
+            "exclusiveMinimum": 0.0,
+            "title": "Id Forma Pagamento",
+            "type": "integer"
+          },
+          "id_tipo_movimentacao": {
+            "exclusiveMinimum": 0.0,
+            "title": "Id Tipo Movimentacao",
+            "type": "integer"
+          },
+          "juros": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "number"
+              },
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+                "type": "string"
+              }
+            ],
+            "default": "0",
+            "title": "Juros"
+          },
+          "multa": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "number"
+              },
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+                "type": "string"
+              }
+            ],
+            "default": "0",
+            "title": "Multa"
+          },
+          "valor": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0.0,
+                "type": "number"
+              },
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,13}|(?=[\\d.]{1,16}0*$)\\d{0,13}\\.\\d{0,2}0*$)",
+                "type": "string"
+              }
+            ],
+            "title": "Valor"
+          }
+        },
+        "required": [
+          "id_conta_bancaria",
+          "id_forma_pagamento",
+          "id_tipo_movimentacao",
+          "data_pagamento",
+          "valor",
+          "chave_idempotencia"
+        ],
+        "title": "PagamentoCreate",
+        "type": "object"
+      },
+      "PagamentoResponse": {
+        "properties": {
+          "chave_idempotencia": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Chave Idempotencia"
+          },
+          "data_pagamento": {
+            "format": "date",
+            "title": "Data Pagamento",
+            "type": "string"
+          },
+          "desconto": {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "title": "Desconto",
+            "type": "string"
+          },
+          "id_conta_bancaria": {
+            "title": "Id Conta Bancaria",
+            "type": "integer"
+          },
+          "id_pagamento": {
+            "title": "Id Pagamento",
+            "type": "integer"
+          },
+          "id_pagamento_estornado": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id Pagamento Estornado"
+          },
+          "id_parcela": {
+            "title": "Id Parcela",
+            "type": "integer"
+          },
+          "juros": {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "title": "Juros",
+            "type": "string"
+          },
+          "multa": {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "title": "Multa",
+            "type": "string"
+          },
+          "valor": {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "title": "Valor",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id_pagamento",
+          "id_parcela",
+          "id_conta_bancaria",
+          "data_pagamento",
+          "valor",
+          "juros",
+          "desconto",
+          "multa",
+          "chave_idempotencia",
+          "id_pagamento_estornado"
+        ],
+        "title": "PagamentoResponse",
+        "type": "object"
+      },
       "ParametroSistemaCreate": {
         "additionalProperties": false,
         "description": "Entrada para cadastro de parâmetro global.",
@@ -3232,6 +3829,87 @@
           "codigo"
         ],
         "title": "ParametroSistemaResponse",
+        "type": "object"
+      },
+      "ParcelaCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "valor": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0.0,
+                "type": "number"
+              },
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,13}|(?=[\\d.]{1,16}0*$)\\d{0,13}\\.\\d{0,2}0*$)",
+                "type": "string"
+              }
+            ],
+            "title": "Valor"
+          },
+          "vencimento": {
+            "format": "date",
+            "title": "Vencimento",
+            "type": "string"
+          }
+        },
+        "required": [
+          "vencimento",
+          "valor"
+        ],
+        "title": "ParcelaCreate",
+        "type": "object"
+      },
+      "PeriodoCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "competencia": {
+            "format": "date",
+            "title": "Competencia",
+            "type": "string"
+          }
+        },
+        "required": [
+          "competencia"
+        ],
+        "title": "PeriodoCreate",
+        "type": "object"
+      },
+      "PeriodoResponse": {
+        "properties": {
+          "competencia": {
+            "format": "date",
+            "title": "Competencia",
+            "type": "string"
+          },
+          "fechado": {
+            "title": "Fechado",
+            "type": "boolean"
+          },
+          "fechado_em": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fechado Em"
+          },
+          "id_periodo_financeiro": {
+            "title": "Id Periodo Financeiro",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id_periodo_financeiro",
+          "competencia",
+          "fechado",
+          "fechado_em"
+        ],
+        "title": "PeriodoResponse",
         "type": "object"
       },
       "PessoaCreate": {
@@ -4088,6 +4766,117 @@
         "title": "TokenResponse",
         "type": "object"
       },
+      "TransferenciaCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "data_transferencia": {
+            "format": "date",
+            "title": "Data Transferencia",
+            "type": "string"
+          },
+          "id_conta_destino": {
+            "exclusiveMinimum": 0.0,
+            "title": "Id Conta Destino",
+            "type": "integer"
+          },
+          "id_conta_origem": {
+            "exclusiveMinimum": 0.0,
+            "title": "Id Conta Origem",
+            "type": "integer"
+          },
+          "id_tipo_entrada": {
+            "exclusiveMinimum": 0.0,
+            "title": "Id Tipo Entrada",
+            "type": "integer"
+          },
+          "id_tipo_saida": {
+            "exclusiveMinimum": 0.0,
+            "title": "Id Tipo Saida",
+            "type": "integer"
+          },
+          "observacao": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Observacao"
+          },
+          "valor": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0.0,
+                "type": "number"
+              },
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,13}|(?=[\\d.]{1,16}0*$)\\d{0,13}\\.\\d{0,2}0*$)",
+                "type": "string"
+              }
+            ],
+            "title": "Valor"
+          }
+        },
+        "required": [
+          "id_conta_origem",
+          "id_conta_destino",
+          "id_tipo_saida",
+          "id_tipo_entrada",
+          "data_transferencia",
+          "valor",
+          "chave_idempotencia"
+        ],
+        "title": "TransferenciaCreate",
+        "type": "object"
+      },
+      "TransferenciaResponse": {
+        "properties": {
+          "codigo": {
+            "title": "Codigo",
+            "type": "string"
+          },
+          "data_transferencia": {
+            "format": "date",
+            "title": "Data Transferencia",
+            "type": "string"
+          },
+          "id_conta_destino": {
+            "title": "Id Conta Destino",
+            "type": "integer"
+          },
+          "id_conta_origem": {
+            "title": "Id Conta Origem",
+            "type": "integer"
+          },
+          "id_transferencia": {
+            "title": "Id Transferencia",
+            "type": "integer"
+          },
+          "valor": {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "title": "Valor",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id_transferencia",
+          "id_conta_origem",
+          "id_conta_destino",
+          "data_transferencia",
+          "valor",
+          "codigo"
+        ],
+        "title": "TransferenciaResponse",
+        "type": "object"
+      },
       "TransicaoStatus": {
         "additionalProperties": false,
         "properties": {
@@ -4130,6 +4919,49 @@
           "data_venda"
         ],
         "title": "VendaCreate",
+        "type": "object"
+      },
+      "VendaFinanceiroCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "emissao": {
+            "format": "date",
+            "title": "Emissao",
+            "type": "string"
+          },
+          "id_conta": {
+            "exclusiveMinimum": 0.0,
+            "title": "Id Conta",
+            "type": "integer"
+          },
+          "id_status": {
+            "exclusiveMinimum": 0.0,
+            "title": "Id Status",
+            "type": "integer"
+          },
+          "id_tipo_lancamento": {
+            "exclusiveMinimum": 0.0,
+            "title": "Id Tipo Lancamento",
+            "type": "integer"
+          },
+          "vencimentos": {
+            "items": {
+              "format": "date",
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Vencimentos",
+            "type": "array"
+          }
+        },
+        "required": [
+          "id_conta",
+          "id_tipo_lancamento",
+          "id_status",
+          "emissao",
+          "vencimentos"
+        ],
+        "title": "VendaFinanceiroCreate",
         "type": "object"
       },
       "VendaResponse": {
@@ -8138,6 +8970,909 @@
         "summary": "Obter Empresa",
         "tags": [
           "core-corporativo"
+        ]
+      }
+    },
+    "/api/v1/financeiro/lancamentos": {
+      "get": {
+        "operationId": "listar_lancamentos",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limite",
+            "required": false,
+            "schema": {
+              "default": 100,
+              "maximum": 1000,
+              "minimum": 1,
+              "title": "Limite",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/LancamentoResponse"
+                  },
+                  "title": "Response Listar Lancamentos",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticação ausente ou inválida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissão insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Recurso não encontrado."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflito com dados existentes."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada inválidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Falha interna não detalhada."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Listar Lancamentos",
+        "tags": [
+          "financeiro"
+        ]
+      },
+      "post": {
+        "operationId": "criar_lancamento_financeiro",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LancamentoCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LancamentoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticação ausente ou inválida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissão insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Recurso não encontrado."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflito com dados existentes."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada inválidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Falha interna não detalhada."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Cadastrar Lancamento",
+        "tags": [
+          "financeiro"
+        ]
+      }
+    },
+    "/api/v1/financeiro/movimentacoes/{identifier}/conciliacao": {
+      "post": {
+        "operationId": "conciliar_movimentacao",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConciliacaoCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConciliacaoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticação ausente ou inválida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissão insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Recurso não encontrado."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflito com dados existentes."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada inválidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Falha interna não detalhada."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Cadastrar Conciliacao",
+        "tags": [
+          "financeiro"
+        ]
+      }
+    },
+    "/api/v1/financeiro/parcelas/{identifier}/pagamentos": {
+      "post": {
+        "operationId": "liquidar_parcela_financeira",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PagamentoCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagamentoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticação ausente ou inválida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissão insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Recurso não encontrado."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflito com dados existentes."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada inválidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Falha interna não detalhada."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Cadastrar Pagamento",
+        "tags": [
+          "financeiro"
+        ]
+      }
+    },
+    "/api/v1/financeiro/periodos": {
+      "post": {
+        "operationId": "criar_periodo_financeiro",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PeriodoCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PeriodoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticação ausente ou inválida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissão insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Recurso não encontrado."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflito com dados existentes."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada inválidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Falha interna não detalhada."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Cadastrar Periodo",
+        "tags": [
+          "financeiro"
+        ]
+      }
+    },
+    "/api/v1/financeiro/periodos/{identifier}/fechamento": {
+      "post": {
+        "operationId": "fechar_periodo_financeiro",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PeriodoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticação ausente ou inválida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissão insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Recurso não encontrado."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflito com dados existentes."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada inválidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Falha interna não detalhada."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Fechar",
+        "tags": [
+          "financeiro"
+        ]
+      }
+    },
+    "/api/v1/financeiro/transferencias": {
+      "post": {
+        "operationId": "transferir_entre_contas",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransferenciaCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransferenciaResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticação ausente ou inválida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissão insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Recurso não encontrado."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflito com dados existentes."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada inválidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Falha interna não detalhada."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Cadastrar Transferencia",
+        "tags": [
+          "financeiro"
+        ]
+      }
+    },
+    "/api/v1/financeiro/vendas/{identifier}/lancamento": {
+      "post": {
+        "operationId": "gerar_financeiro_da_venda",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VendaFinanceiroCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LancamentoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticação ausente ou inválida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissão insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Recurso não encontrado."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflito com dados existentes."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada inválidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Falha interna não detalhada."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Cadastrar Financeiro Venda",
+        "tags": [
+          "financeiro"
         ]
       }
     },
