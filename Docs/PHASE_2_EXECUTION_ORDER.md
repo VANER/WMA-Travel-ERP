@@ -870,6 +870,8 @@ Reserva/Contrato
 
 **Dependência:** 2.1 a 2.4
 
+**Status:** CERTIFICADA LOCALMENTE, PENDENTE DE CI E INTEGRAÇÃO REMOTA
+
 A estrutura F1-FIN certificada será preservada.
 
 Gate documental de entrada: `Docs/FINANCIAL_DOCUMENTATION_GATE.md`.

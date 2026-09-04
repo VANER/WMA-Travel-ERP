@@ -66,6 +66,8 @@ def _corporate_database_client(postgresql_test_url: str) -> Generator[TestClient
     application.dependency_overrides[exigir_core_cadastrar] = lambda: contexto
     application.dependency_overrides[exigir_comercial_visualizar] = lambda: contexto
     application.dependency_overrides[exigir_comercial_gerenciar] = lambda: contexto
+    with engine.begin() as connection:
+        connection.execute(text("CREATE SCHEMA IF NOT EXISTS financeiro"))
     Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
     try:

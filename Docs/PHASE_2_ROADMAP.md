@@ -457,6 +457,8 @@ Reserva/Contrato
 
 **Duração:** 5 semanas.
 
+**Status:** CERTIFICADA LOCALMENTE, PENDENTE DE CI E INTEGRAÇÃO REMOTA.
+
 A estrutura F1-FIN certificada será utilizada como fundação.
 
 ### Escopo
@@ -1081,7 +1083,7 @@ funcionais, e a execução deve continuar pelo módulo Financeiro na 2.5.
 
 **ETAPA 2.4:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
-**ETAPA ATUAL:** 2.5 — Financeiro
+**ETAPA ATUAL:** 2.5 — Financeiro, certificada localmente e pendente de CI e integração remota
 
 ---
 

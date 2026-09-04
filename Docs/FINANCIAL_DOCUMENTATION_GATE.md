@@ -56,14 +56,14 @@ O inventário da 2.5 deve identificar, sem alterar o banco:
 
 | ID | Entregável | Resultado esperado | Status |
 | --- | --- | --- | --- |
-| FIN-DOC-01 | Inventário financeiro | Objetos, autoridades, relações e lacunas identificados | PENDENTE |
-| FIN-DOC-02 | Matriz funcional | Fluxos e regras ligados às estruturas existentes | PENDENTE |
-| FIN-DOC-03 | Matriz de rastreabilidade | Requisito → dado → serviço → API → teste | PENDENTE |
-| FIN-DOC-04 | Fronteiras de domínio | Core, Comercial, Financeiro e Fiscal delimitados | PENDENTE |
-| FIN-DOC-05 | Política transacional | Commit, rollback, estorno e idempotência definidos | PENDENTE |
-| FIN-DOC-06 | Segurança e alçadas | Permissões, segregação de funções e auditoria definidas | PENDENTE |
-| FIN-DOC-07 | Plano de testes | Cenários normais, limites, falhas e regressões definidos | PENDENTE |
-| FIN-DOC-08 | Decisão de schema | Ausência de delta ou migration aditiva justificada | PENDENTE |
+| FIN-DOC-01 | Inventário financeiro | Objetos, autoridades, relações e lacunas identificados | APROVADO |
+| FIN-DOC-02 | Matriz funcional | Fluxos e regras ligados às estruturas existentes | APROVADO |
+| FIN-DOC-03 | Matriz de rastreabilidade | Requisito → dado → serviço → API → teste | APROVADO |
+| FIN-DOC-04 | Fronteiras de domínio | Core, Comercial, Financeiro e Fiscal delimitados | APROVADO |
+| FIN-DOC-05 | Política transacional | Commit, rollback, estorno e idempotência definidos | APROVADO |
+| FIN-DOC-06 | Segurança e alçadas | Permissões, segregação de funções e auditoria definidas | APROVADO |
+| FIN-DOC-07 | Plano de testes | Cenários normais, limites, falhas e regressões definidos | APROVADO |
+| FIN-DOC-08 | Decisão de schema | Ausência de delta ou migration aditiva justificada | APROVADO |
 
 ## 5. Decisões que não podem ser presumidas
 
@@ -94,8 +94,8 @@ Ausência de decisão não autoriza a criação de uma regra implícita no códi
 
 ## 7. Próxima execução autorizada
 
-Executar somente o inventário financeiro `FIN-DOC-01`, por leitura da baseline, catálogo documentado e código
-existente. Models, services, schemas, API e migrations permanecem bloqueados até a aprovação desse inventário.
+Implementar a etapa 2.5 conforme `Docs/FINANCIAL_IMPLEMENTATION_DESIGN.md`. Toda evolução estrutural deve ser
+aditiva; a baseline, os scripts F1-FIN e as certificações históricas permanecem imutáveis.
 
 ---
 

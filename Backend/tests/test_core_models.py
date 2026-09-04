@@ -173,24 +173,37 @@ REQUIRED_COLUMNS = {
 }
 
 EXPECTED_REGISTERED_MODELS = {
+    "Banco",
+    "Categoria",
+    "CentroCusto",
+    "Classificacao",
     "Cliente",
+    "Conciliacao",
     "CondicaoComercial",
     "ConfiguracaoEmpresa",
     "Contrato",
+    "Conta",
+    "ContaBancaria",
     "Documento",
     "Empresa",
     "EventoSeguranca",
     "Fornecedor",
     "FunilVenda",
+    "Grupo",
     "InteracaoLead",
     "ItemProposta",
     "ItemVenda",
     "Lead",
+    "Lancamento",
     "Localidade",
+    "Movimentacao",
     "Operadora",
     "Oportunidade",
     "OrigemLead",
     "ParametroSistema",
+    "Pagamento",
+    "Parcela",
+    "PeriodoFinanceiro",
     "PerfilAcesso",
     "PerfilPermissao",
     "Permissao",
@@ -199,6 +212,7 @@ EXPECTED_REGISTERED_MODELS = {
     "Pessoa",
     "SessaoUsuario",
     "TipoDocumento",
+    "Transferencia",
     "Usuario",
     "UsuarioPerfil",
     "Venda",
@@ -230,13 +244,47 @@ def test_core_models_register_only_the_inventory_authorities() -> None:
         "proposta",
         "venda",
     }
-    excluded_tables = security_tables | commercial_tables
+    financial_tables = {
+        "afac",
+        "ativo_imobilizado",
+        "banco",
+        "caixa",
+        "capital_social",
+        "cartao",
+        "categoria",
+        "centro_custo",
+        "classificacao",
+        "conciliacao_bancaria",
+        "conta",
+        "conta_bancaria",
+        "depreciacao_ativo",
+        "distribuicao_lucro",
+        "emprestimo",
+        "emprestimo_parcela",
+        "fatura_cartao",
+        "fatura_cartao_item",
+        "grupo",
+        "lancamento",
+        "lancamento_parcela",
+        "movimentacao_bancaria",
+        "pagamento",
+        "periodo_financeiro",
+        "pro_labore",
+        "subcategoria",
+        "transferencia",
+        "tributo",
+    }
+    excluded_tables = security_tables | commercial_tables | financial_tables
     table_names = {
         table.name for table in Base.metadata.tables.values() if table.name not in excluded_tables
     }
 
     assert table_names == set(EXPECTED_COLUMNS)
-    assert all(table.schema is None for table in Base.metadata.tables.values())
+    assert all(
+        table.schema is None
+        for table in Base.metadata.tables.values()
+        if table.name not in financial_tables
+    )
     assert set(registered_models.__all__) == EXPECTED_REGISTERED_MODELS
 
 
