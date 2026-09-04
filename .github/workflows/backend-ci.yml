@@ -98,7 +98,7 @@ jobs:
           createuser --host localhost --username wma_test postgres
           dropdb --if-exists --host localhost --username wma_test wma_phase2_test
           createdb --host localhost --username wma_test wma_phase2_test
-          psql postgresql://wma_test@localhost:5432/wma_phase2_test -v ON_ERROR_STOP=1 -f ../Database/scripts/WmaTravelERP.sql
+          DB_HOST=localhost DB_NAME=wma_phase2_test DB_USER=wma_test ../Database/install.sh
 
       - name: Aplicar migrations no PostgreSQL descartável
         run: alembic upgrade head
