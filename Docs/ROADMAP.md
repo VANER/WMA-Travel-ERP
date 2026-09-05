@@ -49,9 +49,9 @@
 
 **Status:** INICIADA EM 18/08/2026
 
-**Progresso:** etapas 2.0 a 2.5 concluídas, certificadas e integradas
+**Progresso:** etapas 2.0 a 2.6 concluídas, certificadas e integradas
 
-**Etapa atual:** 2.6 — Turismo, certificada e aguardando integração
+**Próxima etapa:** 2.7 — Bike Tour
 
 **Branch inicial:** `feature/fase-2-backend-api`
 

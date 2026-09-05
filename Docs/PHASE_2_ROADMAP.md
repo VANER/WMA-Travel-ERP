@@ -10,7 +10,7 @@
 
 **Fase anterior:** Fase 1 — Fundação e Banco de Dados
 **Status da Fase 1:** CONCLUÍDA E CERTIFICADA
-**Status atual:** etapas 2.0 a 2.5 concluídas, certificadas e integradas
+**Status atual:** etapas 2.0 a 2.6 concluídas, certificadas e integradas
 **Marco inicial:** `phase-1-final-2026-08-18`
 
 **Branch inicial:** `feature/fase-2-backend-api`
@@ -510,12 +510,12 @@ Conciliação
 
 **Duração:** 6 semanas.
 
-**Status:** EM EXECUÇÃO — GATE DOCUMENTAL.
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA.
 
-Branch sugerida após o merge do PR `#56`: `feature/2.6-turismo`.
+Branch de implementação integrada pelo PR `#57`: `feature/2.6-turismo`.
 
-Os entregáveis `TUR-DOC-01` a `TUR-DOC-08` foram aprovados. A implementação está certificada e aguarda integração;
-a Etapa 2.7 permanece bloqueada até a integração da 2.6.
+Os entregáveis `TUR-DOC-01` a `TUR-DOC-08` foram aprovados. A implementação foi certificada e integrada à
+`main` pelo PR #57.
 
 ### Escopo
 
@@ -1032,10 +1032,10 @@ FASE 2 CERTIFICADA
 
 A próxima atividade do WMA Travel ERP será:
 
-**ETAPA 2.6 — TURISMO**
+**ETAPA 2.7 — BIKE TOUR**
 
-As etapas 2.0 a 2.5 estão concluídas, certificadas e integradas à `main`. A ADR-017 reprogramou as etapas
-funcionais, e a execução deve continuar pelo módulo Turismo na 2.6.
+As etapas 2.0 a 2.6 estão concluídas, certificadas e integradas à `main`. A ADR-017 reprogramou as etapas
+funcionais, e a execução deve continuar pelo módulo Bike Tour na 2.7.
 
 ---
 
@@ -1092,9 +1092,9 @@ funcionais, e a execução deve continuar pelo módulo Turismo na 2.6.
 
 **ETAPA 2.5:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
-**ETAPA ATUAL:** 2.6 — Turismo, certificada e aguardando integração
+**ETAPA 2.6:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
-**PRÓXIMA ENTREGA:** integração da Etapa 2.6 por pull request e CI
+**PRÓXIMA ETAPA:** 2.7 — Bike Tour
 
 ---
 

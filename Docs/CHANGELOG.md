@@ -20,7 +20,15 @@
 - integrado RBAC de Turismo e sincronizado o contrato OpenAPI;
 - restauração da baseline e ciclo `upgrade → downgrade → upgrade` aprovados no PostgreSQL 18.4;
 - aprovados 322 testes, incluindo integração PostgreSQL 7/7, com cobertura de 100%;
-- certificada localmente a Etapa 2.6, mantendo a integração remota como próxima ação.
+- certificada localmente a Etapa 2.6, antes de sua integração remota.
+
+### 05/09/2026 — Fechamento pós-merge da Etapa 2.6
+
+- integrado o PR #57, com o commit funcional `935d2c1` e o merge commit `679ecdc`;
+- aprovados os checks Documentation CI e Backend CI do pull request;
+- aprovados o Documentation CI pós-merge `33989883222` e o Backend CI pós-merge `33989883235`;
+- sincronizada a documentação viva com o estado concluído, certificado e integrado de Turismo;
+- definida a Etapa 2.7 — Bike Tour como próxima etapa oficial da Fase 2.
 
 ### 04/09/2026 — Início documental da Etapa 2.6
 

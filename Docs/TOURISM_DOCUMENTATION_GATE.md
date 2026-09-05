@@ -8,7 +8,7 @@
 > **Tipo de documento:** Gate Documental
 > **Versão:** 1.0
 > **Data:** 04/09/2026
-> **Status:** APROVADO
+> **Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 ## 1. Objetivo
 
@@ -63,10 +63,11 @@ negócio.
 - [x] contratos de API e matriz de respostas definidos;
 - [x] plano de testes e decisão de schema aprovados.
 
-## 6. Próxima execução autorizada
+## 6. Resultado e próxima execução autorizada
 
-Os entregáveis `TUR-DOC-01` a `TUR-DOC-08` estão aprovados. O gate autoriza a implementação e certificação da
-Etapa 2.6 conforme a ADR-019. A Etapa 2.7 permanece bloqueada até a integração da 2.6.
+Os entregáveis `TUR-DOC-01` a `TUR-DOC-08` permanecem aprovados. A implementação e a certificação autorizadas
+por este gate foram concluídas e integradas à `main` pelo PR #57. A próxima execução autorizada é a Etapa 2.7 —
+Bike Tour.
 
 ---
 
@@ -77,8 +78,8 @@ Etapa 2.6 conforme a ADR-019. A Etapa 2.7 permanece bloqueada até a integraçã
 | Projeto | WMA Travel ERP |
 | Empresa | WMA Travel Ltda. |
 | Versão | 1.0 |
-| Status | APROVADO |
-| Última atualização | 04/09/2026 |
+| Status | CONCLUÍDA, CERTIFICADA E INTEGRADA |
+| Última atualização | 05/09/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 | Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
 
