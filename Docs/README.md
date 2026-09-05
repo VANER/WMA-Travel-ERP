@@ -10,9 +10,9 @@
 **Baseline certificada:** `d63800e`
 **Fase atual:** Fase 2 — Backend, API e Integrações
 
-**Progresso da Fase 2:** etapas 2.0 a 2.4 concluídas, certificadas e integradas
+**Progresso da Fase 2:** etapas 2.0 a 2.5 concluídas, certificadas e integradas
 
-**Etapa atual:** 2.5 — Financeiro
+**Próxima etapa oficial:** 2.6 — Turismo
 
 A Fase 1 do WMA Travel ERP foi formalmente concluída após a validação da
 fundação do banco de dados, incluindo auditoria estrutural, reconstrução

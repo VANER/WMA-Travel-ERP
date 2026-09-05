@@ -6,19 +6,19 @@
 > **Etapa:** 2.5 — Financeiro
 > **Módulo:** Financeiro
 > **Tipo de documento:** Gate Documental
-> **Versão:** 1.0
-> **Data:** 01/09/2026
-> **Status:** PLANEJADA
+> **Versão:** 1.1
+> **Data:** 04/09/2026
+> **Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
-A etapa permanece planejada. Este documento autoriza apenas o inventário `FIN-DOC-01`, não a implementação.
+O gate documental foi integralmente cumprido. Os entregáveis `FIN-DOC-01` a `FIN-DOC-08` foram aprovados antes
+da implementação e permanecem como evidência de entrada da Etapa 2.5.
 
 ## 1. Objetivo
 
-Definir as fontes de verdade, os entregáveis documentais e os critérios mínimos que antecedem a implementação da
-etapa 2.5, preservando integralmente a baseline e as evidências certificadas da Fase 1.
+Registrar as fontes de verdade, os entregáveis documentais e os critérios que antecederam a implementação da
+Etapa 2.5, preservando integralmente a baseline e as evidências certificadas da Fase 1.
 
-Este gate não autoriza alterações de schema, migrations, models, API ou regras financeiras. A primeira execução
-funcional permanece o inventário verificável do domínio Financeiro.
+A implementação resultante foi concluída, certificada e integrada pelo PR `#55`, com validação pós-merge na `main`.
 
 ## 2. Fontes de verdade
 
@@ -35,24 +35,24 @@ funcional permanece o inventário verificável do domínio Financeiro.
 | `Docs/architecture/ADR-014-TRANSACTION-BOUNDARIES.md` | Autoridade dos limites transacionais |
 | `Docs/architecture/ADR-017-PHASE-2-FUNCTIONAL-REPROGRAMMING.md` | Posicionamento oficial da etapa 2.5 |
 
-Em caso de divergência, a baseline certificada deve ser preservada e a inconsistência deve ser registrada no
-inventário. Nenhum artefato histórico pode ser corrigido retroativamente para acomodar a implementação.
+Em caso de divergência, a baseline certificada deve ser preservada. Nenhum artefato histórico pode ser corrigido
+retroativamente para acomodar implementações posteriores.
 
-## 3. Escopo documental de entrada
+## 3. Escopo documental validado
 
-O inventário da 2.5 deve identificar, sem alterar o banco:
+O inventário e os documentos da 2.5 identificaram:
 
-- tabelas, views, sequences, constraints, índices, funções, procedures e triggers financeiros;
+- objetos e estruturas financeiras relevantes;
 - autoridades de dados entre `public` e `financeiro`;
 - relacionamentos com Core Corporativo e Comercial;
 - estruturas refletíveis por SQLAlchemy e lacunas de mapeamento;
-- regras já impostas pelo banco e regras apenas presumidas por nomes ou comentários;
-- campos monetários, datas, status, auditoria, soft delete e versionamento;
+- regras impostas pelo banco e regras funcionais;
+- campos monetários, datas, status e auditoria;
 - riscos de concorrência, duplicidade, arredondamento e integridade transacional;
-- ausências que exigiriam migration aditiva;
-- objetos históricos que devem permanecer somente como referência certificada.
+- impacto estrutural tratado por migration aditiva;
+- objetos históricos preservados como referência certificada.
 
-## 4. Entregáveis obrigatórios antes da implementação
+## 4. Entregáveis obrigatórios
 
 | ID | Entregável | Resultado esperado | Status |
 | --- | --- | --- | --- |
@@ -65,37 +65,26 @@ O inventário da 2.5 deve identificar, sem alterar o banco:
 | FIN-DOC-07 | Plano de testes | Cenários normais, limites, falhas e regressões definidos | APROVADO |
 | FIN-DOC-08 | Decisão de schema | Ausência de delta ou migration aditiva justificada | APROVADO |
 
-## 5. Decisões que não podem ser presumidas
+## 5. Critérios de implementação — fechamento
 
-O inventário deve registrar como decisão pendente, até validação funcional expressa:
+- [x] `FIN-DOC-01` a `FIN-DOC-08` concluídos;
+- [x] inconsistências entre documentação, dump e código registradas;
+- [x] nenhuma alteração retroativa em baseline, scripts F1-FIN ou certificações;
+- [x] autoridades de dados e limites transacionais aprovados;
+- [x] critérios de aceite verificáveis definidos;
+- [x] impacto estrutural avaliado antes da revision Alembic;
+- [x] validação em PostgreSQL descartável executada;
+- [x] documentação técnica e certificação publicadas;
+- [x] PR `#55` integrado à `main`;
+- [x] Documentation CI pós-merge `#10` aprovado;
+- [x] Backend CI pós-merge `#105` aprovado.
 
-- regime de caixa, competência e respectivas fronteiras;
-- regras de fechamento e reabertura de período;
-- cancelamento, estorno, reversão e reprocessamento;
-- pagamentos parciais, antecipações, juros, multas, descontos e abatimentos;
-- tolerâncias e tratamento de divergências na conciliação;
-- alçadas de criação, aprovação, pagamento e baixa;
-- integração idempotente entre Comercial e Financeiro;
-- moeda, câmbio e precisão além do padrão monetário certificado;
-- fronteira entre os domínios Financeiro, Contábil e Fiscal.
+## 6. Decisão final
 
-Ausência de decisão não autoriza a criação de uma regra implícita no código.
+O Gate Documental da Etapa 2.5 está concluído. A implementação Financeira foi certificada e integrada à `main`
+no commit `f098243a7f708e6818dc8b834abcbadf87bd2ac8`.
 
-## 6. Critérios para iniciar implementação
-
-- [ ] `FIN-DOC-01` a `FIN-DOC-08` concluídos ou explicitamente classificados como não aplicáveis;
-- [ ] inconsistências entre documentação, dump e código registradas;
-- [ ] nenhuma alteração retroativa em baseline, scripts F1-FIN ou certificações;
-- [ ] autoridades de dados e limites transacionais aprovados;
-- [ ] critérios de aceite verificáveis definidos;
-- [ ] impacto estrutural avaliado antes de qualquer revision Alembic;
-- [ ] plano de validação em PostgreSQL local descartável definido;
-- [ ] documentação técnica preparada a partir do template oficial.
-
-## 7. Próxima execução autorizada
-
-Implementar a etapa 2.5 conforme `Docs/FINANCIAL_IMPLEMENTATION_DESIGN.md`. Toda evolução estrutural deve ser
-aditiva; a baseline, os scripts F1-FIN e as certificações históricas permanecem imutáveis.
+A próxima etapa funcional autorizada pelo cronograma é a **2.6 — Turismo**.
 
 ---
 
@@ -105,9 +94,9 @@ aditiva; a baseline, os scripts F1-FIN e as certificações históricas permanec
 | --- | --- |
 | Projeto | WMA Travel ERP |
 | Empresa | WMA Travel Ltda. |
-| Versão | 1.0 |
-| Status | PLANEJADA |
-| Última atualização | 01/09/2026 |
+| Versão | 1.1 |
+| Status | CONCLUÍDA, CERTIFICADA E INTEGRADA |
+| Última atualização | 04/09/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 | Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
 

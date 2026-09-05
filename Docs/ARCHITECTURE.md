@@ -215,12 +215,13 @@ diretamente (schema fixo) pela função `fn_log_auditoria()`, que já está
 instanciada como trigger em 21 tabelas sensíveis (`pessoa`, `empresa`,
 `usuario`, módulo fiscal e módulo financeiro). Mover a tabela para `logs.*`
 exige atualizar a função no mesmo movimento, sob risco de quebrar os
-triggers já validados. Como o módulo financeiro está em desenvolvimento
-ativo, essa reorganização fica planejada para ser executada junto com a
-consolidação `financeiro.*` → `public.*` (ver `02_consolidar_financeiro_public.sql`,
-atualmente adiado), e não isoladamente.
+triggers já validados. Durante o desenvolvimento do módulo Financeiro, essa
+reorganização foi mantida junto da consolidação `financeiro.*` → `public.*`
+(ver `02_consolidar_financeiro_public.sql`, atualmente adiado), e não como
+mudança isolada. A conclusão da Etapa 2.5 não autoriza essa alteração de schema
+sem nova análise de dependências e ADR aplicável.
 
-**Quando migrar:** revisitar após o módulo financeiro estabilizar. A
+**Quando migrar:** revisitar em escopo futuro explicitamente autorizado. A
 migração deve mover as tabelas via `ALTER TABLE ... SET SCHEMA`, atualizar
 `fn_log_auditoria()` para gravar em `logs.log_auditoria`, e validar os 21
 triggers dependentes antes do `COMMIT`.
