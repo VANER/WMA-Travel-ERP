@@ -8,13 +8,15 @@
 > **Tipo de documento:** Gate Documental
 > **Versão:** 1.1
 > **Data:** 04/09/2026
-> **Status:** CONCLUÍDA
+> **Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
-O gate documental foi integralmente cumprido. Os entregáveis `FIN-DOC-01` a `FIN-DOC-08` foram aprovados antes da implementação e permanecem como evidência de entrada da Etapa 2.5.
+O gate documental foi integralmente cumprido. Os entregáveis `FIN-DOC-01` a `FIN-DOC-08` foram aprovados antes
+da implementação e permanecem como evidência de entrada da Etapa 2.5.
 
 ## 1. Objetivo
 
-Registrar as fontes de verdade, os entregáveis documentais e os critérios que antecederam a implementação da etapa 2.5, preservando integralmente a baseline e as evidências certificadas da Fase 1.
+Registrar as fontes de verdade, os entregáveis documentais e os critérios que antecederam a implementação da
+Etapa 2.5, preservando integralmente a baseline e as evidências certificadas da Fase 1.
 
 A implementação resultante foi concluída, certificada e integrada pelo PR `#55`, com validação pós-merge na `main`.
 
@@ -33,7 +35,8 @@ A implementação resultante foi concluída, certificada e integrada pelo PR `#5
 | `Docs/architecture/ADR-014-TRANSACTION-BOUNDARIES.md` | Autoridade dos limites transacionais |
 | `Docs/architecture/ADR-017-PHASE-2-FUNCTIONAL-REPROGRAMMING.md` | Posicionamento oficial da etapa 2.5 |
 
-Em caso de divergência, a baseline certificada deve ser preservada. Nenhum artefato histórico pode ser corrigido retroativamente para acomodar implementações posteriores.
+Em caso de divergência, a baseline certificada deve ser preservada. Nenhum artefato histórico pode ser corrigido
+retroativamente para acomodar implementações posteriores.
 
 ## 3. Escopo documental validado
 
@@ -78,7 +81,8 @@ O inventário e os documentos da 2.5 identificaram:
 
 ## 6. Decisão final
 
-O Gate Documental da Etapa 2.5 está concluído. A implementação Financeira foi certificada e integrada à `main` no commit `f098243a7f708e6818dc8b834abcbadf87bd2ac8`.
+O Gate Documental da Etapa 2.5 está concluído. A implementação Financeira foi certificada e integrada à `main`
+no commit `f098243a7f708e6818dc8b834abcbadf87bd2ac8`.
 
 A próxima etapa funcional autorizada pelo cronograma é a **2.6 — Turismo**.
 
@@ -91,7 +95,7 @@ A próxima etapa funcional autorizada pelo cronograma é a **2.6 — Turismo**.
 | Projeto | WMA Travel ERP |
 | Empresa | WMA Travel Ltda. |
 | Versão | 1.1 |
-| Status | CONCLUÍDA |
+| Status | CONCLUÍDA, CERTIFICADA E INTEGRADA |
 | Última atualização | 04/09/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 | Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |

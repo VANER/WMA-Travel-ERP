@@ -5,12 +5,12 @@
 > **Fase:** Fase 2 — Backend, API e Integrações
 > **Tipo de documento:** Planejamento
 > **Versão:** 1.1
-> **Data:** 01/09/2026
+> **Data:** 04/09/2026
 > **Status:** EM EXECUÇÃO
 
 **Fase anterior:** Fase 1 — Fundação e Banco de Dados
 **Status da Fase 1:** CONCLUÍDA E CERTIFICADA
-**Status atual:** etapas 2.0 a 2.4 concluídas, certificadas e integradas
+**Status atual:** etapas 2.0 a 2.5 concluídas, certificadas e integradas
 **Marco inicial:** `phase-1-final-2026-08-18`
 
 **Branch inicial:** `feature/fase-2-backend-api`
@@ -457,7 +457,7 @@ Reserva/Contrato
 
 **Duração:** 5 semanas.
 
-**Status:** CERTIFICADA LOCALMENTE, PENDENTE DE CI E INTEGRAÇÃO REMOTA.
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA.
 
 A estrutura F1-FIN certificada será utilizada como fundação.
 
@@ -502,13 +502,17 @@ Conciliação
 
 #### Gate 2.5
 
-**MÓDULO FINANCEIRO: OPERACIONAL**
+**MÓDULO FINANCEIRO: CONCLUÍDO, CERTIFICADO E INTEGRADO**
 
 ---
 
 ## 10. ETAPA 2.6 — Turismo
 
 **Duração:** 6 semanas.
+
+**Status:** PRÓXIMA ETAPA OFICIAL.
+
+Branch sugerida após o merge do PR `#56`: `feature/2.6-turismo`.
 
 ### Escopo
 
@@ -1017,7 +1021,7 @@ FASE 2 CERTIFICADA
 - [x] Branch da Fase 2 criada a partir do marco final.
 - [x] Backend inicial criado.
 - [x] Pipeline de testes do backend configurado.
-- [ ] Primeira migration da Fase 2 validada, quando necessária.
+- [x] Migrations da Fase 2 validadas em árvore linear.
 
 ---
 
@@ -1025,10 +1029,10 @@ FASE 2 CERTIFICADA
 
 A próxima atividade do WMA Travel ERP será:
 
-**ETAPA 2.5 — FINANCEIRO**
+**ETAPA 2.6 — TURISMO**
 
-As etapas 2.0 a 2.4 estão concluídas, certificadas e integradas à `main`. A ADR-017 reprogramou as etapas
-funcionais, e a execução deve continuar pelo módulo Financeiro na 2.5.
+As etapas 2.0 a 2.5 estão concluídas, certificadas e integradas à `main`. A ADR-017 reprogramou as etapas
+funcionais, e a execução deve continuar pelo módulo Turismo na 2.6.
 
 ---
 
@@ -1083,7 +1087,9 @@ funcionais, e a execução deve continuar pelo módulo Financeiro na 2.5.
 
 **ETAPA 2.4:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
-**ETAPA ATUAL:** 2.5 — Financeiro, certificada localmente e pendente de CI e integração remota
+**ETAPA 2.5:** CONCLUÍDA, CERTIFICADA E INTEGRADA
+
+**PRÓXIMA ETAPA OFICIAL:** 2.6 — Turismo
 
 ---
 
@@ -1095,7 +1101,7 @@ funcionais, e a execução deve continuar pelo módulo Financeiro na 2.5.
 | Empresa | WMA Travel Ltda. |
 | Versão | 1.1 |
 | Status | EM EXECUÇÃO |
-| Última atualização | 01/09/2026 |
+| Última atualização | 04/09/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 | Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
 

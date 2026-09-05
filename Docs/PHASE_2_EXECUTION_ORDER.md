@@ -870,7 +870,7 @@ Reserva/Contrato
 
 **Dependência:** 2.1 a 2.4
 
-**Status:** CERTIFICADA LOCALMENTE, PENDENTE DE CI E INTEGRAÇÃO REMOTA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 A estrutura F1-FIN certificada será preservada.
 
@@ -930,6 +930,10 @@ Conciliação
 ## 10. ETAPA 2.6 — Turismo
 
 **Dependência:** Comercial e Financeiro
+
+**Status:** PRÓXIMA ETAPA AUTORIZADA
+
+Branch sugerida após o merge do PR `#56`: `feature/2.6-turismo`.
 
 ### Ordem
 
@@ -1481,12 +1485,12 @@ docs(phase2): certify phase 2
 A execução corrente continua obrigatoriamente por:
 
 ```text
-2.4 — Comercial certificado e integrado
+2.5 — Financeiro certificado e integrado
                ↓
-2.5 — Financeiro
+2.6 — Turismo
 ```
 
-Não iniciar a implementação funcional da 2.5 antes do inventário financeiro, da aprovação do escopo e da
+Não iniciar a implementação funcional da 2.6 antes do inventário de Turismo, da aprovação do escopo e da
 definição dos respectivos gates técnicos e funcionais.
 
 ---
@@ -1527,21 +1531,22 @@ definição dos respectivos gates técnicos e funcionais.
 | Etapa 2.4.1 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Etapa 2.4.2 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Etapa 2.4 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
-| Próxima execução | **2.5 — FINANCEIRO** |
+| Etapa 2.5 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| Próxima execução | **2.6 — TURISMO** |
 
 ---
 
 ### Declaração de Continuidade
 
-A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0 a 2.4 foram concluídas, certificadas e
-integradas à `main`. O módulo Comercial 2.4 foi encerrado pelo PR #52 após a integração funcional do PR #51.
+A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0 a 2.5 foram concluídas, certificadas e
+integradas à `main`. O módulo Financeiro 2.5 foi encerrado pelo PR #55 e pelo CI pós-merge aprovado.
 
 O desenvolvimento deverá seguir a sequência, dependências, gates e regras
 estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**ETAPA 2.5 — FINANCEIRO.**
+**ETAPA 2.6 — TURISMO.**
 
 ---
 
@@ -1553,7 +1558,7 @@ estabelecidos neste documento.
 | Empresa | WMA Travel Ltda. |
 | Versão | 1.1 |
 | Status | EM EXECUÇÃO |
-| Última atualização | 01/09/2026 |
+| Última atualização | 04/09/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 | Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
 

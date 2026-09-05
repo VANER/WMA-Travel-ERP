@@ -31,6 +31,7 @@
 | cobertura | 100% |
 | Alembic heads | `202609030100 (head)` |
 | PostgreSQL real | Dump + F1-FIN (37 tabelas), upgrade, downgrade e novo upgrade aprovados |
+| Ciclo Alembic | `upgrade` → `downgrade` → `upgrade` aprovado; head linear `202609030100` |
 | PR de integração | `#55` — merge concluído |
 | Commit de integração | `f098243a7f708e6818dc8b834abcbadf87bd2ac8` |
 | Documentation CI pós-merge | Run `#10` — SUCCESS |

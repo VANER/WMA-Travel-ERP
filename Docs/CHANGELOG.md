@@ -4,6 +4,14 @@
 
 ## [Não Publicado]
 
+### 04/09/2026 — Fechamento pós-merge da Etapa 2.5
+
+- encerrada formalmente a Etapa 2.5 — Financeiro após a integração do PR `#55`;
+- registrado o merge commit `f098243` como marco de integração do módulo Financeiro;
+- confirmados o Documentation CI pós-merge `#10` e o Backend CI pós-merge `#105`, ambos aprovados;
+- sincronizada a documentação financeira viva com o estado concluído, certificado e integrado;
+- definida a Etapa 2.6 — Turismo como próxima etapa oficial da Fase 2.
+
 ### Adicionado
 
 - access token JWT com algoritmo e claims fixos e refresh token opaco com rotação de uso único;

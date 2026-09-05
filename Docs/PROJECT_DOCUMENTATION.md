@@ -64,9 +64,8 @@ Este manual contempla:
 - documentação de padronização.
 
 O estado oficial de execução está consolidado em `PHASE_2_EXECUTION_ORDER.md`. A Fase 1 está concluída e
-certificada; a Fase 2 está em execução, com a fundação 2.0, o Core Corporativo 2.1, as etapas 2.2 e 2.3 e o módulo
-Comercial 2.4 concluídos, certificados e integrados. A ADR-017 reprogramou as etapas funcionais, e a execução atual
-é a etapa 2.5 — Financeiro.
+certificada; a Fase 2 está em execução, com as etapas 2.0 a 2.5 concluídas, certificadas e integradas. A ADR-017
+reprogramou as etapas funcionais, e a próxima etapa oficial é a 2.6 — Turismo.
 
 ---
 
