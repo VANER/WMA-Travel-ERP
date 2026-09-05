@@ -101,7 +101,10 @@ FASE 1 — CERTIFICADA
 2.2 — SEGURANÇA E ACESSO
         │
         ▼
-2.3 — COMERCIAL
+2.3 — GOVERNANÇA DE API
+        │
+        ▼
+2.4 — COMERCIAL
         │
         ▼
 2.5 — FINANCEIRO
@@ -923,7 +926,7 @@ Conciliação
 
 #### Gate 2.5
 
-**MÓDULO FINANCEIRO: CERTIFICADO**
+**MÓDULO FINANCEIRO: CONCLUÍDO, CERTIFICADO E INTEGRADO**
 
 ---
 
