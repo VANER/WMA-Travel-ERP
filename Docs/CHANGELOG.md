@@ -12,6 +12,26 @@
 - sincronizada a documentação financeira viva com o estado concluído, certificado e integrado;
 - definida a Etapa 2.6 — Turismo como próxima etapa oficial da Fase 2.
 
+### 05/09/2026 — Implementação da Etapa 2.6
+
+- concluídos os entregáveis documentais `TUR-DOC-01` a `TUR-DOC-08` e aprovada a ADR-019;
+- implementados models, schemas, repositories, services e rotas versionadas de Turismo;
+- criada a migration aditiva `202609050100` para saída, vagas, correlação e permissões;
+- integrado RBAC de Turismo e sincronizado o contrato OpenAPI;
+- restauração da baseline e ciclo `upgrade → downgrade → upgrade` aprovados no PostgreSQL 18.4;
+- aprovados 322 testes, incluindo integração PostgreSQL 7/7, com cobertura de 100%;
+- certificada localmente a Etapa 2.6, mantendo a integração remota como próxima ação.
+
+### 04/09/2026 — Início documental da Etapa 2.6
+
+- iniciado o gate documental de Turismo sem antecipação de código funcional;
+- aprovado o inventário `TUR-DOC-01` com 13 tabelas operacionais, autoridades e lacunas registradas;
+- aprovada `TUR-DOC-02` — Matriz funcional de Turismo, com atores, fluxo, estados e invariantes;
+- aprovada `TUR-DOC-03` com 16 requisitos rastreados até dados, serviço, API planejada e teste;
+- aprovada `TUR-DOC-04`, preservando autoridades e a correlação entre Comercial, Turismo e Financeiro;
+- aprovada `TUR-DOC-05`, com regras de capacidade, concorrência, idempotência e compensação;
+- aprovados segurança, plano de testes e decisão aditiva de schema em `TUR-DOC-06` a `TUR-DOC-08`.
+
 ### Adicionado
 
 - access token JWT com algoritmo e claims fixos e refresh token opaco com rotação de uso único;

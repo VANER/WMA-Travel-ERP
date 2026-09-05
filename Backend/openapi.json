@@ -997,6 +997,39 @@
         "title": "DatabaseHealthResponse",
         "type": "object"
       },
+      "DisponibilidadeResponse": {
+        "properties": {
+          "capacidade": {
+            "title": "Capacidade",
+            "type": "integer"
+          },
+          "disponibilidade": {
+            "title": "Disponibilidade",
+            "type": "integer"
+          },
+          "id_saida": {
+            "title": "Id Saida",
+            "type": "integer"
+          },
+          "vagas_bloqueadas": {
+            "title": "Vagas Bloqueadas",
+            "type": "integer"
+          },
+          "vagas_confirmadas": {
+            "title": "Vagas Confirmadas",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id_saida",
+          "capacidade",
+          "vagas_bloqueadas",
+          "vagas_confirmadas",
+          "disponibilidade"
+        ],
+        "title": "DisponibilidadeResponse",
+        "type": "object"
+      },
       "DocumentoCreate": {
         "additionalProperties": false,
         "description": "Entrada para cadastro de documento.",
@@ -4546,6 +4579,291 @@
           "refresh_token"
         ],
         "title": "RefreshRequest",
+        "type": "object"
+      },
+      "ReservaAcao": {
+        "additionalProperties": false,
+        "properties": {
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          }
+        },
+        "required": [
+          "chave_idempotencia"
+        ],
+        "title": "ReservaAcao",
+        "type": "object"
+      },
+      "ReservaCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "codigo_reserva": {
+            "maxLength": 30,
+            "minLength": 1,
+            "title": "Codigo Reserva",
+            "type": "string"
+          },
+          "expira_em": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expira Em"
+          },
+          "id_cliente": {
+            "exclusiveMinimum": 0.0,
+            "title": "Id Cliente",
+            "type": "integer"
+          },
+          "id_contrato": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id Contrato"
+          },
+          "id_item_venda": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id Item Venda"
+          },
+          "id_saida": {
+            "exclusiveMinimum": 0.0,
+            "title": "Id Saida",
+            "type": "integer"
+          },
+          "id_venda": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id Venda"
+          },
+          "quantidade_passageiros": {
+            "exclusiveMinimum": 0.0,
+            "title": "Quantidade Passageiros",
+            "type": "integer"
+          },
+          "valor_total": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "number"
+              },
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,13}|(?=[\\d.]{1,16}0*$)\\d{0,13}\\.\\d{0,2}0*$)",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Valor Total"
+          }
+        },
+        "required": [
+          "codigo_reserva",
+          "id_cliente",
+          "id_saida",
+          "quantidade_passageiros",
+          "chave_idempotencia"
+        ],
+        "title": "ReservaCreate",
+        "type": "object"
+      },
+      "ReservaResponse": {
+        "properties": {
+          "codigo_reserva": {
+            "title": "Codigo Reserva",
+            "type": "string"
+          },
+          "data_reserva": {
+            "format": "date",
+            "title": "Data Reserva",
+            "type": "string"
+          },
+          "id_cliente": {
+            "title": "Id Cliente",
+            "type": "integer"
+          },
+          "id_pacote": {
+            "title": "Id Pacote",
+            "type": "integer"
+          },
+          "id_reserva": {
+            "title": "Id Reserva",
+            "type": "integer"
+          },
+          "id_saida": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id Saida"
+          },
+          "quantidade_passageiros": {
+            "title": "Quantidade Passageiros",
+            "type": "integer"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "valor_total": {
+            "anyOf": [
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Valor Total"
+          },
+          "versao": {
+            "title": "Versao",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id_reserva",
+          "codigo_reserva",
+          "id_cliente",
+          "id_pacote",
+          "id_saida",
+          "data_reserva",
+          "quantidade_passageiros",
+          "valor_total",
+          "status",
+          "versao"
+        ],
+        "title": "ReservaResponse",
+        "type": "object"
+      },
+      "SaidaCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "capacidade": {
+            "minimum": 0.0,
+            "title": "Capacidade",
+            "type": "integer"
+          },
+          "codigo": {
+            "maxLength": 30,
+            "minLength": 1,
+            "title": "Codigo",
+            "type": "string"
+          },
+          "data_fim": {
+            "format": "date",
+            "title": "Data Fim",
+            "type": "string"
+          },
+          "data_inicio": {
+            "format": "date",
+            "title": "Data Inicio",
+            "type": "string"
+          },
+          "id_pacote": {
+            "exclusiveMinimum": 0.0,
+            "title": "Id Pacote",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id_pacote",
+          "codigo",
+          "data_inicio",
+          "data_fim",
+          "capacidade"
+        ],
+        "title": "SaidaCreate",
+        "type": "object"
+      },
+      "SaidaResponse": {
+        "properties": {
+          "capacidade": {
+            "title": "Capacidade",
+            "type": "integer"
+          },
+          "codigo": {
+            "title": "Codigo",
+            "type": "string"
+          },
+          "data_fim": {
+            "format": "date",
+            "title": "Data Fim",
+            "type": "string"
+          },
+          "data_inicio": {
+            "format": "date",
+            "title": "Data Inicio",
+            "type": "string"
+          },
+          "id_pacote": {
+            "title": "Id Pacote",
+            "type": "integer"
+          },
+          "id_saida": {
+            "title": "Id Saida",
+            "type": "integer"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "versao": {
+            "title": "Versao",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id_saida",
+          "id_pacote",
+          "codigo",
+          "data_inicio",
+          "data_fim",
+          "capacidade",
+          "status",
+          "versao"
+        ],
+        "title": "SaidaResponse",
         "type": "object"
       },
       "TipoDocumentoCreate": {
@@ -11712,6 +12030,685 @@
         "summary": "Obter Tipo Documento",
         "tags": [
           "core-corporativo"
+        ]
+      }
+    },
+    "/api/v1/turismo/reservas": {
+      "post": {
+        "operationId": "criar_reserva_turistica",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReservaCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReservaResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticação ausente ou inválida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissão insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Recurso não encontrado."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflito com dados existentes."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada inválidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Falha interna não detalhada."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Cadastrar Reserva",
+        "tags": [
+          "turismo"
+        ]
+      }
+    },
+    "/api/v1/turismo/reservas/{identifier}/cancelamento": {
+      "post": {
+        "operationId": "cancelar_reserva_turistica",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReservaAcao"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReservaResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticação ausente ou inválida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissão insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Recurso não encontrado."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflito com dados existentes."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada inválidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Falha interna não detalhada."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Cancelar",
+        "tags": [
+          "turismo"
+        ]
+      }
+    },
+    "/api/v1/turismo/reservas/{identifier}/confirmacao": {
+      "post": {
+        "operationId": "confirmar_reserva_turistica",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReservaAcao"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReservaResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticação ausente ou inválida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissão insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Recurso não encontrado."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflito com dados existentes."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada inválidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Falha interna não detalhada."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Confirmar",
+        "tags": [
+          "turismo"
+        ]
+      }
+    },
+    "/api/v1/turismo/saidas": {
+      "get": {
+        "operationId": "listar_saidas_turisticas",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limite",
+            "required": false,
+            "schema": {
+              "default": 100,
+              "maximum": 1000,
+              "minimum": 1,
+              "title": "Limite",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/SaidaResponse"
+                  },
+                  "title": "Response Listar Saidas Turisticas",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticação ausente ou inválida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissão insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Recurso não encontrado."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflito com dados existentes."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada inválidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Falha interna não detalhada."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Listar Saidas",
+        "tags": [
+          "turismo"
+        ]
+      },
+      "post": {
+        "operationId": "criar_saida_turistica",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaidaCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SaidaResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticação ausente ou inválida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissão insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Recurso não encontrado."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflito com dados existentes."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada inválidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Falha interna não detalhada."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Cadastrar Saida",
+        "tags": [
+          "turismo"
+        ]
+      }
+    },
+    "/api/v1/turismo/saidas/{identifier}/disponibilidade": {
+      "get": {
+        "operationId": "consultar_disponibilidade_turistica",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisponibilidadeResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticação ausente ou inválida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissão insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Recurso não encontrado."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflito com dados existentes."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada inválidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Falha interna não detalhada."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Consultar Disponibilidade",
+        "tags": [
+          "turismo"
         ]
       }
     },

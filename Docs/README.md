@@ -12,7 +12,7 @@
 
 **Progresso da Fase 2:** etapas 2.0 a 2.5 concluídas, certificadas e integradas
 
-**Próxima etapa oficial:** 2.6 — Turismo
+**Etapa atual:** 2.6 — Turismo, certificada e aguardando integração
 
 A Fase 1 do WMA Travel ERP foi formalmente concluída após a validação da
 fundação do banco de dados, incluindo auditoria estrutural, reconstrução

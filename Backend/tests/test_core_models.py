@@ -274,7 +274,16 @@ def test_core_models_register_only_the_inventory_authorities() -> None:
         "transferencia",
         "tributo",
     }
-    excluded_tables = security_tables | commercial_tables | financial_tables
+    tourism_tables = {
+        "alocacao_vaga",
+        "destino",
+        "pacote_viagem",
+        "produto_turistico",
+        "reserva",
+        "reserva_correlacao",
+        "saida_turistica",
+    }
+    excluded_tables = security_tables | commercial_tables | financial_tables | tourism_tables
     table_names = {
         table.name for table in Base.metadata.tables.values() if table.name not in excluded_tables
     }
@@ -285,7 +294,15 @@ def test_core_models_register_only_the_inventory_authorities() -> None:
         for table in Base.metadata.tables.values()
         if table.name not in financial_tables
     )
-    assert set(registered_models.__all__) == EXPECTED_REGISTERED_MODELS
+    assert set(registered_models.__all__) == EXPECTED_REGISTERED_MODELS | {
+        "AlocacaoVaga",
+        "Destino",
+        "PacoteViagem",
+        "ProdutoTuristico",
+        "Reserva",
+        "ReservaCorrelacao",
+        "SaidaTuristica",
+    }
 
 
 def test_core_model_columns_and_nullability_match_the_baseline() -> None:

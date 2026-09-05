@@ -934,9 +934,11 @@ Conciliação
 
 **Dependência:** Comercial e Financeiro
 
-**Status:** PRÓXIMA ETAPA AUTORIZADA
+**Status:** EM EXECUÇÃO — GATE DOCUMENTAL
 
 Branch sugerida após o merge do PR `#56`: `feature/2.6-turismo`.
+
+Gate documental de entrada: `Docs/TOURISM_DOCUMENTATION_GATE.md`.
 
 ### Ordem
 
@@ -1549,7 +1551,7 @@ estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**ETAPA 2.6 — TURISMO.**
+**INTEGRAÇÃO DA ETAPA 2.6 — TURISMO POR PULL REQUEST E CI.**
 
 ---
 

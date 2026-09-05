@@ -18,6 +18,7 @@ from app.main import create_app
 from app.modules.comercial.clientes import ClienteComercialService, HabilitarCliente
 from app.modules.corporativo import models as _corporativo_models  # noqa: F401
 from app.modules.corporativo.clientes import CadastroClienteCorporativoSqlAlchemy
+from app.modules.corporativo.models import Cliente, Localidade, Pessoa
 from app.modules.seguranca.authorization import (
     exigir_comercial_gerenciar,
     exigir_comercial_visualizar,
@@ -34,6 +35,16 @@ from app.modules.seguranca.models import (
 )
 from app.modules.seguranca.rbac import ContextoRbac
 from app.modules.seguranca.tokens import CodecTokenAcesso
+from app.modules.turismo.models import PacoteViagem, ProdutoTuristico
+from app.modules.turismo.schemas import ReservaAcao, ReservaCreate, SaidaCreate
+from app.modules.turismo.services import (
+    RegraTurismoError,
+    cancelar_reserva,
+    confirmar_reserva,
+    criar_reserva,
+    criar_saida,
+    obter_disponibilidade,
+)
 
 pytestmark = pytest.mark.postgresql
 
@@ -111,6 +122,81 @@ def test_database_health_uses_real_postgresql(postgresql_test_url: str) -> None:
         assert response.status_code == 200
         assert response.json() == {"status": "ok", "database": "available"}
     finally:
+        engine.dispose()
+
+
+def test_turismo_preserva_ultima_vaga_e_idempotencia_no_postgresql(
+    postgresql_test_url: str,
+) -> None:
+    """Valida o núcleo transacional de Turismo contra PostgreSQL real."""
+    engine = create_db_engine(Settings(database_url=postgresql_test_url, environment="test"))
+    with engine.begin() as connection:
+        connection.execute(text("CREATE SCHEMA IF NOT EXISTS financeiro"))
+    Base.metadata.drop_all(engine)
+    Base.metadata.create_all(engine)
+    try:
+        with Session(engine) as session:
+            localidade = Localidade(cidade="Curitiba", uf="PR", pais="Brasil")
+            session.add(localidade)
+            session.flush()
+            session.add(
+                Pessoa(
+                    id_pessoa=1,
+                    tipo_pessoa="FISICA",
+                    nome_razao_social="Cliente Turismo",
+                    id_localidade=localidade.id_localidade,
+                )
+            )
+            session.flush()
+            session.add(Cliente(id_cliente=1, id_pessoa=1, codigo_cliente="TUR-1"))
+            session.add(
+                ProdutoTuristico(
+                    id_produto=1,
+                    codigo="PROD-1",
+                    nome="Produto",
+                    tipo_produto="PACOTE",
+                )
+            )
+            session.flush()
+            session.add(PacoteViagem(id_pacote=1, id_produto=1, codigo_pacote="PAC-1"))
+            session.commit()
+
+            saida = criar_saida(
+                session,
+                SaidaCreate(
+                    id_pacote=1,
+                    codigo="SAI-1",
+                    data_inicio=date(2026, 10, 1),
+                    data_fim=date(2026, 10, 2),
+                    capacidade=1,
+                ),
+            )
+            payload = ReservaCreate(
+                codigo_reserva="RES-1",
+                id_cliente=1,
+                id_saida=saida.id_saida,
+                quantidade_passageiros=1,
+                chave_idempotencia="turismo:reserva:1",
+            )
+            reserva = criar_reserva(session, payload)
+            assert criar_reserva(session, payload).id_reserva == reserva.id_reserva
+            assert obter_disponibilidade(session, saida.id_saida).disponibilidade == 0
+            with pytest.raises(RegraTurismoError, match="capacidade"):
+                criar_reserva(
+                    session,
+                    payload.model_copy(
+                        update={
+                            "codigo_reserva": "RES-2",
+                            "chave_idempotencia": "turismo:reserva:2",
+                        }
+                    ),
+                )
+            action = ReservaAcao(chave_idempotencia="turismo:acao:1")
+            assert confirmar_reserva(session, reserva.id_reserva, action).status == "CONFIRMADA"
+            assert cancelar_reserva(session, reserva.id_reserva, action).status == "CANCELADA"
+            assert obter_disponibilidade(session, saida.id_saida).disponibilidade == 1
+    finally:
+        Base.metadata.drop_all(engine)
         engine.dispose()
 
 
