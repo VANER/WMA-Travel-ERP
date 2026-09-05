@@ -10,12 +10,14 @@ from app.modules.comercial.router import router as comercial_router
 from app.modules.corporativo.router import router as corporativo_router
 from app.modules.financeiro.router import router as financeiro_router
 from app.modules.seguranca.router import router as seguranca_router
+from app.modules.turismo.router import router as turismo_router
 
 router = APIRouter()
 router.include_router(comercial_router)
 router.include_router(corporativo_router)
 router.include_router(financeiro_router)
 router.include_router(seguranca_router)
+router.include_router(turismo_router)
 
 
 @router.get(

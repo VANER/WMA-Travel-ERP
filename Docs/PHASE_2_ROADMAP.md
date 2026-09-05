@@ -510,9 +510,12 @@ Conciliação
 
 **Duração:** 6 semanas.
 
-**Status:** PRÓXIMA ETAPA OFICIAL.
+**Status:** EM EXECUÇÃO — GATE DOCUMENTAL.
 
 Branch sugerida após o merge do PR `#56`: `feature/2.6-turismo`.
+
+Os entregáveis `TUR-DOC-01` a `TUR-DOC-08` foram aprovados. A implementação está certificada e aguarda integração;
+a Etapa 2.7 permanece bloqueada até a integração da 2.6.
 
 ### Escopo
 
@@ -1089,7 +1092,9 @@ funcionais, e a execução deve continuar pelo módulo Turismo na 2.6.
 
 **ETAPA 2.5:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
-**PRÓXIMA ETAPA OFICIAL:** 2.6 — Turismo
+**ETAPA ATUAL:** 2.6 — Turismo, certificada e aguardando integração
+
+**PRÓXIMA ENTREGA:** integração da Etapa 2.6 por pull request e CI
 
 ---
 
