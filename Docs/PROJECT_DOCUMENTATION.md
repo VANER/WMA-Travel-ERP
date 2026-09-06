@@ -64,9 +64,8 @@ Este manual contempla:
 - documentação de padronização.
 
 O estado oficial de execução está consolidado em `PHASE_2_EXECUTION_ORDER.md`. A Fase 1 está concluída e
-certificada; a Fase 2 está em execução, com as etapas 2.0 a 2.5 concluídas, certificadas e integradas. A ADR-017
-reprogramou as etapas funcionais, e a etapa 2.6 — Turismo está certificada e aguardando integração remota. A
-implementação funcional da etapa 2.7 ainda não está autorizada.
+certificada; a Fase 2 está em execução, com as etapas 2.0 a 2.6 concluídas, certificadas e integradas. A ADR-017
+reprogramou as etapas funcionais, e a etapa 2.7 — Bike Tour é a próxima execução autorizada.
 
 ---
 

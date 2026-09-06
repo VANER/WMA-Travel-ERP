@@ -5,7 +5,7 @@
 > **Fase:** Fase 2 — Backend, API e Integrações
 > **Etapa:** 2.6 — Turismo
 > **Data:** 05/09/2026
-> **Status:** CERTIFICADA
+> **Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 ## 1. Escopo certificado
 
@@ -56,8 +56,20 @@ banco local descartável e as evoluções da Fase 2 foram aplicadas somente pelo
 
 ## 5. Resultado
 
-A Etapa 2.6 está implementada e certificada. A integração remota depende de commit, push, pull request e CI; a
-Etapa 2.7 — Bike Tour permanece bloqueada até essa integração.
+A Etapa 2.6 está concluída, certificada e integrada à `main` pelo PR #57. O commit funcional `935d2c1` foi
+integrado pelo merge commit `679ecdc99f8b28ae97e767c156731c9c176c6cb1`.
+
+Os checks do PR e os workflows pós-merge foram aprovados:
+
+| Evidência remota | Resultado |
+| --- | --- |
+| PR #57 | integrado |
+| Documentation CI do PR | aprovado |
+| Backend CI do PR | aprovado |
+| Documentation CI pós-merge | execução `33989883222`, aprovada |
+| Backend CI pós-merge | execução `33989883235`, aprovada |
+
+A próxima etapa oficial é a 2.7 — Bike Tour.
 
 ---
 
@@ -68,7 +80,7 @@ Etapa 2.7 — Bike Tour permanece bloqueada até essa integração.
 | Projeto | WMA Travel ERP |
 | Etapa | 2.6 — Turismo |
 | Migration | `202609050100` |
-| Status | CERTIFICADA |
+| Status | CONCLUÍDA, CERTIFICADA E INTEGRADA |
 | Última atualização | 05/09/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 

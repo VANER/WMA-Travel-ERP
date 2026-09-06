@@ -2,7 +2,7 @@
 
 > **Etapa:** 2.6 — Turismo
 > **Data:** 05/09/2026
-> **Status:** CERTIFICADA
+> **Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 ## Escopo implementado
 

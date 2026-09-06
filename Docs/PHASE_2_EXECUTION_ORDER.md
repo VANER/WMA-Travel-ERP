@@ -934,9 +934,9 @@ Conciliação
 
 **Dependência:** Comercial e Financeiro
 
-**Status:** EM EXECUÇÃO — GATE DOCUMENTAL
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
-Branch sugerida após o merge do PR `#56`: `feature/2.6-turismo`.
+Branch de implementação integrada pelo PR `#57`: `feature/2.6-turismo`.
 
 Gate documental de entrada: `Docs/TOURISM_DOCUMENTATION_GATE.md`.
 
@@ -1490,12 +1490,12 @@ docs(phase2): certify phase 2
 A execução corrente continua obrigatoriamente por:
 
 ```text
-2.5 — Financeiro certificado e integrado
+2.6 — Turismo certificado e integrado
                ↓
-2.6 — Turismo
+2.7 — Bike Tour
 ```
 
-Não iniciar a implementação funcional da 2.6 antes do inventário de Turismo, da aprovação do escopo e da
+A implementação funcional da 2.7 deve começar pelo inventário de Bike Tour, pela aprovação do escopo e pela
 definição dos respectivos gates técnicos e funcionais.
 
 ---
@@ -1537,21 +1537,22 @@ definição dos respectivos gates técnicos e funcionais.
 | Etapa 2.4.2 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Etapa 2.4 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Etapa 2.5 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
-| Próxima execução | **2.6 — TURISMO** |
+| Etapa 2.6 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| Próxima execução | **2.7 — BIKE TOUR** |
 
 ---
 
 ### Declaração de Continuidade
 
-A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0 a 2.5 foram concluídas, certificadas e
-integradas à `main`. O módulo Financeiro 2.5 foi encerrado pelo PR #55 e pelo CI pós-merge aprovado.
+A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0 a 2.6 foram concluídas, certificadas e
+integradas à `main`. O módulo Turismo 2.6 foi encerrado pelo PR #57 e pelos workflows pós-merge aprovados.
 
 O desenvolvimento deverá seguir a sequência, dependências, gates e regras
 estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**INTEGRAÇÃO DA ETAPA 2.6 — TURISMO POR PULL REQUEST E CI.**
+**ETAPA 2.7 — BIKE TOUR.**
 
 ---
 
