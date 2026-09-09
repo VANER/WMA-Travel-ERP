@@ -59,16 +59,45 @@ com confirmação de que:
 5. a credencial antiga não autentica mais em testes de validação;
 6. a nova credencial não foi versionada em Git.
 
-## 5. Decisão final
+## 5. Encerramento do incidente
 
-O incidente foi encerrado com evidência técnica e operacional. A mitigação no
-repositório e a revogação/rotação no provedor são tratadas como fases distintas,
-mas ambas foram concluídas no escopo do incidente.
+No dia 09/09/2026, o responsável confirmou que:
 
-A reescrita do histórico Git não foi executada porque não havia necessidade
-adicional de limpeza de histórico após a remoção da exposição do segredo,
-validada pela revisão da infraestrutura, pelos testes e pela ausência de
-segredo em arquivos versionados.
+- a credencial antiga foi revogada;
+- a nova credencial foi criada e utilizada apenas em ambiente local ou de execução controlada;
+- a autenticação via `SMTP_SSL` foi validada com sucesso;
+- o envio real do e-mail foi concluído com sucesso;
+- a credencial antiga deixou de autenticar em validações;
+- a nova credencial não foi versionada em Git.
 
-> Estado final: mitigação no repositório concluída; revogação e rotação da
-> credencial do provedor concluídas; incidente formal encerrado com evidência.
+A correção foi conduzida em duas frentes: remoção da exposição do segredo no repositório e rotação da
+credencial junto ao provedor SMTP. A reescrita do histórico Git não foi realizada, porque não havia necessidade
+adicional de alteração retroativa e a preservação da rastreabilidade do projeto foi considerada preferível.
+
+> Encerramento: mitigação concluída; rotação da credencial concluída; incidente encerrado com evidência
+> técnica, operacional e documental.
+
+## 6. Ressalva de auditoria complementar
+
+As evidências acima validam o encerramento do ambiente existente. Esta auditoria não repetiu login nem envio em
+produção e não teve acesso a evidência de implantação em produção. Até o presente momento, não existe
+implantação em produção.
+
+A ausência de segredo na versão atual não elimina a necessidade de preservar o histórico do Git e a revogação da
+credencial antiga. Os testes do adaptador SMTP foram realizados localmente e não substituem a validação do
+provedor nem a checagem final em ambiente de produção.
+
+### 6.1 Atestação do responsável
+
+Em 09/09/2026, Vaner atestou: "testes realizados e documentados". A confirmação foi registrada e referenciada
+na seção 2 deste documento. Nenhum valor de credencial foi solicitado ou incluído nesta evidência.
+
+### 6.2 Abrangência final confirmada
+
+- Responsável: Vaner
+- Data: 09/09/2026
+- Ambiente: local no VS Code; produção ainda não existe
+- Referência: seções 2 e 4
+
+A validação da operação SMTP em produção, antes da primeira implantação, permanece obrigatória e deve ser
+executada sem reutilizar ou divulgar a credencial revogada.

@@ -4,6 +4,17 @@
 
 ## [Não Publicado]
 
+### 09/09/2026 — Auditoria complementar de governança e SMTP
+
+- configurados os checks de Backend, documentação e segredos como obrigatórios na regra da branch padrão;
+- mantida atualização obrigatória da branch, sem bypass, com bloqueio de exclusão e force push;
+- removidos filtros de caminhos para garantir execução dos gates e evidência pós-merge no mesmo SHA;
+- corrigidas marcações de auditoria sem evidência e delimitada a pendência de validação SMTP em produção;
+- isolada a configuração dos testes SMTP do ambiente externo e do arquivo local;
+- acrescentada validação de reversão e reaplicação da última migration no CI;
+- reconciliado o status integrado da etapa 2.2 e atualizado o estado vigente em AGENTS.md;
+- preservados o histórico certificado e o gate documental de Bike Tour.
+
 ### 09/09/2026 — Fechamento pós-merge do hardening da Etapa 2.6
 
 - integrado o PR #59
