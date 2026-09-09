@@ -332,7 +332,21 @@ def test_solicitacao_reverte_falha_antes_da_persistencia() -> None:
 
 
 def test_solicitacao_recuperacao_sem_notificador_retorna_503(client: TestClient) -> None:
-    response = client.post("/api/v1/auth/recovery/request", json={"email": "ana@example.com"})
+    session = create_autospec(Session, instance=True)
+    session.scalar.return_value = Usuario(
+        id_usuario=7, nome="Ana", email="ana@example.com", ativo=True
+    )
+
+    def notificador_indisponivel() -> NotificadorRecuperacao:
+        raise HTTPException(status_code=503, detail="Entrega temporariamente indisponível.")
+
+    app.dependency_overrides[get_session] = lambda: session
+    app.dependency_overrides[obter_notificador_recuperacao] = notificador_indisponivel
+    try:
+        response = client.post("/api/v1/auth/recovery/request", json={"email": "ana@example.com"})
+    finally:
+        app.dependency_overrides.pop(get_session, None)
+        app.dependency_overrides.pop(obter_notificador_recuperacao, None)
 
     assert response.status_code == 503
 
