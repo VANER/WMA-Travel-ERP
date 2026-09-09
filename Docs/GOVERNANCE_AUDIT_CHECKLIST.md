@@ -2,7 +2,7 @@
 
 > **Projeto:** WMA Travel ERP
 > **Data:** 09/09/2026
-> **Status:** PROTEÇÃO VERIFICADA; AUDITORIA SMTP E INTEGRAÇÃO PENDENTES
+> **Status:** PROTEÇÃO E SMTP AUDITADOS; INTEGRAÇÃO PENDENTE
 
 ## 1. Objetivo
 
@@ -39,8 +39,8 @@ Essa declaração é uma evidência documental existente, não uma nova verifica
 
 - [x] Rotação e revogação declaradas no registro existente.
 - [x] Decisão de preservar o histórico Git registrada.
-- [ ] Identificar responsável, data e referência da confirmação operacional de produção ou sua inexistência.
-- [ ] Concluir a auditoria operacional sem publicar credenciais ou mensagens de clientes.
+- [x] Vaner confirmou em 09/09/2026: testes locais documentados; ainda não existe produção.
+- [x] Auditoria documental SMTP concluída para o ambiente existente, sem divulgar credenciais.
 
 Remover o segredo da versão atual não remove cópias históricas. Preservar o histórico depende da revogação
 registrada; não significa que o histórico está livre do segredo antigo. Não serão reescritos marcos certificados.
@@ -50,7 +50,7 @@ Testes unitários usam transporte simulado e não comprovam autenticação ou en
 
 - [ ] Revisar o PR #63, encontrado aberto com Backend CI vermelho; não integrá-lo nesse estado.
 - [ ] Concluir validação e integração da correção de governança, vinculadas ao SHA resultante.
-- [ ] Inventariar branches antigas e confirmar ausência de uso antes de eventual remoção.
+- [x] Branches inventariadas; remoção depende da confirmação de ausência de uso.
 - [ ] Aprovar entregáveis do [gate Bike Tour](BIKE_TOUR_DOCUMENTATION_GATE.md) antes da implementação.
 
 As etapas 2.0 a 2.6 permanecem integradas. A próxima etapa é 2.7, inicialmente documental.
@@ -90,3 +90,8 @@ nem de trabalho ativo; nenhuma branch foi removida nesta auditoria.
 | `fix/2.0-foundation-pending-items` | #24 | PR integrado; uso atual não confirmado |
 | `fix/2.0.4-certification` | #6 | PR integrado; uso atual não confirmado |
 | `security/remove-exposed-smtp-credentials` | #54 | PR integrado; uso atual não confirmado |
+
+## 6. Evidência da regressão
+
+A [auditoria complementar](certification/GOVERNANCE_SMTP_AUDIT_2026_09_09.md) registra 408 testes aprovados,
+cobertura de 100%, PostgreSQL real e ciclo Alembic concluído. Publicação e integração continuam pendentes.

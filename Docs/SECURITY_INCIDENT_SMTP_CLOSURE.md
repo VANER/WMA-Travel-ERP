@@ -77,8 +77,8 @@ segredo em arquivos versionados.
 
 As afirmações de encerramento acima são o registro operacional preexistente. Esta auditoria não repetiu
 login nem envio real e não teve acesso a evidência identificada de implantação em produção.
-Falta registrar responsável, data e referência da validação em produção, ou confirmar que ela ainda não existe.
-O encerramento declarado do incidente não equivale à conclusão dessa verificação complementar.
+Vaner confirmou em 09/09/2026 que ainda não existe implantação de produção.
+A validação de produção é requisito da futura implantação, não pendência do ambiente atual.
 
 A ausência de segredo na versão atual não comprova ausência no histórico Git. A decisão registrada de não
 reescrever o histórico preserva os marcos certificados e depende da revogação da credencial antiga.
@@ -91,3 +91,11 @@ A referência documental é a seção 2 deste registro; a confirmação identifi
 pela validação operacional já declarada.
 Vaner esclareceu que os testes foram locais, no VS Code; portanto, não comprovam configuração em produção.
 Nenhum valor de credencial foi solicitado ou incluído nesta evidência.
+
+### 6.2 Abrangência final confirmada
+
+Responsável: Vaner. Data: 09/09/2026. Ambiente: local, no VS Code; produção ainda não existe.
+Referência: testes operacionais declarados nas seções 2 e 4, confirmados pelo responsável nesta revisão.
+O incidente permanece encerrado no ambiente existente, com revogação e rotação atestadas pelo responsável.
+Antes da primeira implantação, validar a injeção externa do segredo e a operação SMTP no ambiente de produção.
+Essa validação futura não deve reutilizar nem publicar a credencial revogada.
