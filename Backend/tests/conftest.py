@@ -1,11 +1,20 @@
 """Fixtures da suíte de testes HTTP."""
 
 import os
+import tempfile
 from collections.abc import Generator
+from pathlib import Path
 
 import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy.engine import make_url
+
+base_temp_dir = (Path(__file__).resolve().parent / ".tmp").resolve()
+base_temp_dir.mkdir(exist_ok=True)
+
+tempfile.tempdir = str(base_temp_dir)
+for env_name in ("TMPDIR", "TEMP", "TMP"):
+    os.environ.setdefault(env_name, str(base_temp_dir))
 
 os.environ.setdefault(
     "WMA_DATABASE_URL",
