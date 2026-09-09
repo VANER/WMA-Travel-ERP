@@ -72,3 +72,22 @@ segredo em arquivos versionados.
 
 > Estado final: mitigação no repositório concluída; revogação e rotação da
 > credencial do provedor concluídas; incidente formal encerrado com evidência.
+
+## 6. Ressalva da auditoria complementar de 09/09/2026
+
+As afirmações de encerramento acima são o registro operacional preexistente. Esta auditoria não repetiu
+login nem envio real e não teve acesso a evidência identificada de implantação em produção.
+Falta registrar responsável, data e referência da validação em produção, ou confirmar que ela ainda não existe.
+O encerramento declarado do incidente não equivale à conclusão dessa verificação complementar.
+
+A ausência de segredo na versão atual não comprova ausência no histórico Git. A decisão registrada de não
+reescrever o histórico preserva os marcos certificados e depende da revogação da credencial antiga.
+Os testes do adaptador SMTP usam simulação e não substituem evidência do provedor.
+
+### 6.1 Atestação do responsável
+
+Em 09/09/2026, Vaner confirmou nesta revisão: "teste realizados e documentados".
+A referência documental é a seção 2 deste registro; a confirmação identifica o responsável e a data
+pela validação operacional já declarada.
+Vaner esclareceu que os testes foram locais, no VS Code; portanto, não comprovam configuração em produção.
+Nenhum valor de credencial foi solicitado ou incluído nesta evidência.

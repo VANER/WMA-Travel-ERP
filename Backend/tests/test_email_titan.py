@@ -20,7 +20,8 @@ def make_settings(**overrides: object) -> Settings:
         "token_signing_key": "x" * 32,
     }
     payload: dict[str, object] = {**base, **overrides}
-    return Settings(_env_file=None, **cast(dict[str, Any], payload))
+    with patch.dict("os.environ", {}, clear=True):
+        return Settings(_env_file=None, **cast(dict[str, Any], payload))
 
 
 def test_notificador_exige_segredo_smtp() -> None:
@@ -28,7 +29,7 @@ def test_notificador_exige_segredo_smtp() -> None:
         NotificadorRecuperacaoTitan(make_settings())
 
 
-def test_dependencia_ativa_somente_com_segredo_smtp() -> None:
+def test_requisito_ativa_somente_com_segredo_smtp() -> None:
     with pytest.raises(HTTPException) as error:
         obter_notificador_recuperacao(make_settings())
 
@@ -37,7 +38,7 @@ def test_dependencia_ativa_somente_com_segredo_smtp() -> None:
     assert isinstance(notificador, NotificadorRecuperacaoTitan)
 
 
-def test_notificador_usa_ssl_autenticado_e_destinatario_da_conta() -> None:
+def test_notificador_usa_ssl_autenticado_e_email_do_destino() -> None:
     settings = make_settings(smtp_password="segredo-smtp")
     cliente = MagicMock()
     contexto_cliente = MagicMock()

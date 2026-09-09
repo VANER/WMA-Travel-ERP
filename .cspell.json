@@ -42,6 +42,7 @@
         "/\\b[A-Za-z]:\\\\[^\\s]*/g"
     ],
     "words": [
+        "Vaner",
         "YYYYMMDDHHMM",
         "condicao",
         "confrelid",

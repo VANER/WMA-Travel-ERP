@@ -2,17 +2,9 @@ name: Backend CI
 
 on:
   pull_request:
-    paths:
-      - "Backend/**"
-      - "Database/migrations/**"
-      - ".github/workflows/backend-ci.yml"
   push:
     branches:
       - main
-    paths:
-      - "Backend/**"
-      - "Database/migrations/**"
-      - ".github/workflows/backend-ci.yml"
 
 permissions:
   contents: read
@@ -103,4 +95,10 @@ jobs:
           DB_HOST=localhost DB_NAME=wma_phase2_test DB_USER=wma_test bash ../Database/install.sh
 
       - name: Aplicar migrations no PostgreSQL descartável
+        run: alembic upgrade head
+
+      - name: Validar reversão da última migration
+        run: alembic downgrade -1
+
+      - name: Reaplicar última migration
         run: alembic upgrade head

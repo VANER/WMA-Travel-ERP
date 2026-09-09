@@ -607,11 +607,11 @@ Certificação consolidada: `Docs/certification/PHASE_2_1_CORE_CORPORATE_CERTIFI
 
 **Dependência:** 2.0 e 2.1
 
-**Status:** CONCLUÍDA E CERTIFICADA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 ### 2.2.1 — Inventário e Modelo de Identidade
 
-**Status:** CONCLUÍDA E CERTIFICADA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 Identificar autoridades humanas e técnicas, relações certificadas, duplicidades e lacunas antes da autenticação.
 
@@ -621,7 +621,7 @@ Certificação: `Docs/certification/PHASE_2_2_1_IDENTITY_INVENTORY_CERTIFICATION
 
 ### 2.2.2 — Autenticação
 
-**Status:** CONCLUÍDA E CERTIFICADA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 Implementar autenticação sem antecipar tokens, sessões ou autorização.
 
@@ -634,7 +634,7 @@ das etapas seguintes.
 
 ### 2.2.3 — Hash de Credenciais
 
-**Status:** CONCLUÍDA E CERTIFICADA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 Política e limites: `Docs/CREDENTIAL_HASHING.md`.
 
@@ -642,7 +642,7 @@ Certificação: `Docs/certification/PHASE_2_2_3_CREDENTIAL_HASHING_CERTIFICATION
 
 ### 2.2.4 — Tokens e Sessões
 
-**Status:** CONCLUÍDA E CERTIFICADA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 Política e limites: `Docs/TOKENS_AND_SESSIONS.md`.
 
@@ -650,7 +650,7 @@ Certificação: `Docs/certification/PHASE_2_2_4_TOKENS_SESSIONS_CERTIFICATION.md
 
 ### 2.2.5 a 2.2.12 — Controle de Acesso
 
-**Status:** CONCLUÍDAS E CERTIFICADAS
+**Status:** CONCLUÍDAS, CERTIFICADAS E INTEGRADAS
 
 Perfis, roles, permissions, autorização, proteção de endpoints, recuperação, auditoria e testes foram integrados.
 
@@ -1564,7 +1564,7 @@ estabelecidos neste documento.
 | Empresa | WMA Travel Ltda. |
 | Versão | 1.1 |
 | Status | EM EXECUÇÃO |
-| Última atualização | 04/09/2026 |
+| Última atualização | 09/09/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 | Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
 

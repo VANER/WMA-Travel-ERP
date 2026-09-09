@@ -2,79 +2,91 @@
 
 > **Projeto:** WMA Travel ERP
 > **Data:** 09/09/2026
-> **Status:** RASTREIO ATUALIZADO; GATES EXTERNOS DO GITHUB PENDENTES DE CONFIGURAÇÃO MANUAL
+> **Status:** PROTEÇÃO VERIFICADA; AUDITORIA SMTP E INTEGRAÇÃO PENDENTES
 
 ## 1. Objetivo
 
-Este checklist consolida os gates de governança que devem ser confirmados antes da liberação da Etapa 2.7 — Bike Tour.
+Consolidar evidências verificáveis antes da implementação da Etapa 2.7 — Bike Tour.
+Esta revisão substitui marcações anteriores sem evidência suficiente; não altera certificações históricas.
 
-## 2. Status atual
+## 2. Proteção verificada no GitHub
 
-- [x] `main` com documentação atualizada para 2.0 a 2.6 concluídas,
-  certificadas e integradas
-- [x] `2.5` Financeiro documentado como concluído, certificado e integrado
-- [x] `2.6` Turismo documentado como concluído, certificado e integrado
-- [x] `2.7` Bike Tour documentado como gate documental e implementação
-  funcional bloqueada
-- [x] documento de gate documental da 2.7 registrado em
-  `Docs/BIKE_TOUR_DOCUMENTATION_GATE.md`
-- [x] restrição de implementação funcional da 2.7 explicitamente registrada em
-  `Docs/PHASE_2_EXECUTION_ORDER.md` e `Docs/PHASE_2_ROADMAP.md`
-- [x] proteção real da branch `main` configurada no GitHub com required status
-  checks
-- [x] required status checks `Backend CI` e `Documentation CI` obrigatórios na
-  `main`
-- [x] branch atualizada antes do merge configurada na `main`
-- [x] bloqueio de merge com checks vermelhos habilitado no GitHub
-- [x] branches antigas identificadas e revisadas para remoção ou arquivamento
-  após confirmação de integração
-- [x] incidente SMTP formalmente documentado e encerrado com evidência externa
-  de revogação e rotação
-- [x] secret scanning e push protection habilitados no GitHub
-- [x] gate automatizado de secret scanning no CI ativo
-- [x] documentação de segurança reforçada com regra de placeholders e
-  proibição de segredos reais em `.env`, YAML e scripts
-- [x] 2.7 liberada apenas após aprovação do inventário e da fronteira de
-  domínio
+A API do GitHub confirmou a regra ativa `22152693`, aplicada à branch padrão, sem atores com bypass.
+A auditoria encontrou apenas o check documental obrigatório e corrigiu a configuração em 09/09/2026.
 
-## 3. Evidência e ação obrigatória
+| Workflow | Nome exato do check obrigatório | Origem |
+| --- | --- | --- |
+| Backend CI | `Python 3.13` | GitHub Actions, integração `15368` |
+| Documentation CI | `Markdown e ortografia` | GitHub Actions, integração `15368` |
+| Secret Scan | `Secret scan` | GitHub Actions, integração `15368` |
 
-### 3.1 Proteção da `main`
+- [x] Regra ativa com os três checks obrigatórios.
+- [x] Branch atualizada antes do merge: política estrita habilitada.
+- [x] Sem bypass; exclusão e atualização não fast-forward bloqueadas.
+- [x] Pull request obrigatório; check ausente ou vermelho impede integração.
+- [x] Secret scanning e push protection habilitados.
+- [ ] Workflows sem filtros de caminhos integrados e CI pós-merge aprovado.
 
-A proteção da branch `main` não pode ser editada por arquivo do repositório.
-A configuração precisa ser feita no painel de regras do GitHub ou via API do
-GitHub por um mantenedor autorizado.
+Os filtros de caminhos do Backend CI foram removidos nesta correção para que todos os PRs emitam o check.
+O Documentation CI também passa a executar em todo push para `main`, permitindo auditar o mesmo SHA.
 
-Os requisitos mínimos devem ser:
+Evidência: [regra da branch padrão](https://github.com/VANER/WMA-Travel-ERP/rules/22152693).
 
-- `Backend CI` obrigatório
-- `Documentation CI` obrigatório
-- `Require branches to be up to date before merging`
-- `Require status checks to pass before merging`
-- `Do not allow bypassing the above settings`
-- `Branch protection` com `Block force pushes` e `Prevent branch deletion`
+## 3. SMTP e histórico
 
-### 3.2 Incidente SMTP
+O [registro SMTP](SECURITY_INCIDENT_SMTP_CLOSURE.md) declara revogação, rotação e validação operacional local.
+Essa declaração é uma evidência documental existente, não uma nova verificação do provedor nesta auditoria.
 
-O risco foi mitigado no repositório por remoção do segredo e pela atualização de
-`.env.example`, mas o encerramento formal exige confirmação externa do
-provedor e registro da rotação do segredo.
+- [x] Rotação e revogação declaradas no registro existente.
+- [x] Decisão de preservar o histórico Git registrada.
+- [ ] Identificar responsável, data e referência da confirmação operacional de produção ou sua inexistência.
+- [ ] Concluir a auditoria operacional sem publicar credenciais ou mensagens de clientes.
 
-### 3.3 Aprovação da 2.7
+Remover o segredo da versão atual não remove cópias históricas. Preservar o histórico depende da revogação
+registrada; não significa que o histórico está livre do segredo antigo. Não serão reescritos marcos certificados.
+Testes unitários usam transporte simulado e não comprovam autenticação ou entrega no provedor.
 
-A 2.7 deve seguir a ordem:
+## 4. Pendências e transição
 
-1. inventário Bike Tour
-2. fronteiras com Turismo, Comercial e Financeiro
-3. mapa de requisitos
-4. decisão sobre migrations
-5. plano de testes
-6. critérios de certificação
-7. gate de aprovação antes de implementação funcional
+- [ ] Revisar o PR #63, encontrado aberto com Backend CI vermelho; não integrá-lo nesse estado.
+- [ ] Concluir validação e integração da correção de governança, vinculadas ao SHA resultante.
+- [ ] Inventariar branches antigas e confirmar ausência de uso antes de eventual remoção.
+- [ ] Aprovar entregáveis do [gate Bike Tour](BIKE_TOUR_DOCUMENTATION_GATE.md) antes da implementação.
 
-## 4. Conclusão
+As etapas 2.0 a 2.6 permanecem integradas. A próxima etapa é 2.7, inicialmente documental.
+Não há certificação de ausência absoluta de riscos nem liberação funcional enquanto existirem gates pendentes.
 
-A documentação e os gates de qualidade do repositório foram ajustados para
-refletir o estado real da execução. O que continua sendo externo ao código é a
-configuração final da proteção da `main` e a validação externa de rotação do
-SMTP no provedor.
+<!-- cspell:ignore fundacao certificacao -->
+
+## 5. Inventário de branches remanescentes
+
+Consulta à API do GitHub em 09/09/2026. PR integrado não comprova ausência de commits posteriores
+nem de trabalho ativo; nenhuma branch foi removida nesta auditoria.
+
+| Branch | Referência | Decisão |
+| --- | --- | --- |
+| `chore/local-remaining-fixes` | PR #63 aberto | Preservar até substituição validada |
+| `chore/project-standardization` | #53 | PR integrado; uso atual não confirmado |
+| `docs/atualizar-status-fase-2` | #12 | PR integrado; uso atual não confirmado |
+| `docs/close-phase-2.5-post-merge` | #56 | PR integrado; uso atual não confirmado |
+| `docs/close-phase-2.6-hardening-post-merge` | #60 | PR integrado; uso atual não confirmado |
+| `docs/finalizar-etapa-2.0.9` | #14 | PR integrado; uso atual não confirmado |
+| `docs/finalizar-etapa-2.0.10` | #16 | PR integrado; uso atual não confirmado |
+| `docs/finalizar-etapa-2.0.11` | #18 | PR integrado; uso atual não confirmado |
+| `docs/registrar-auditoria-final-fundacao-2.0` | #20 | PR integrado; uso atual não confirmado |
+| `feat/financeiro-2.5` | #55 | PR integrado; uso atual não confirmado |
+| `feature/2.0.2-backend-bootstrap` | #3 | PR integrado; uso atual não confirmado |
+| `feature/2.0.3-modular-structure` | #4 | PR integrado; uso atual não confirmado |
+| `feature/2.0.4-backend-configuration` | #5 | PR integrado; uso atual não confirmado |
+| `feature/2.0.5-postgresql-sqlalchemy` | #8 | PR integrado; uso atual não confirmado |
+| `feature/2.0.6-alembic-migrations` | #9 | PR integrado; uso atual não confirmado |
+| `feature/2.0.7-api-base` | #10 | PR integrado; uso atual não confirmado |
+| `feature/2.0.8-openapi` | #11 | PR integrado; uso atual não confirmado |
+| `feature/2.0.9-testes-iniciais` | #13 | PR integrado; uso atual não confirmado |
+| `feature/2.0.10-github-actions` | #15 | PR integrado; uso atual não confirmado |
+| `feature/2.0.11-certificacao-fundacao` | #17 | PR integrado; uso atual não confirmado |
+| `fix/close-smtp-security-incident` | #62 | PR integrado; uso atual não confirmado |
+| `fix/security-smtp-mitigation` | #61 | PR integrado; uso atual não confirmado |
+| `fix/2.0-foundation-pending-items` | #24 | PR integrado; uso atual não confirmado |
+| `fix/2.0.4-certification` | #6 | PR integrado; uso atual não confirmado |
+| `security/remove-exposed-smtp-credentials` | #54 | PR integrado; uso atual não confirmado |

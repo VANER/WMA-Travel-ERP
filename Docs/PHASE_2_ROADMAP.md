@@ -297,7 +297,7 @@ Certificação: `Docs/certification/PHASE_2_1_5_CORE_SCHEMAS_CERTIFICATION.md`.
 
 **Duração:** 3 semanas.
 
-**Status:** CONCLUÍDA E CERTIFICADA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 ### 2.2.1 — Inventário e Modelo de Identidade
 
@@ -313,7 +313,7 @@ Implementar autenticação sem antecipar tokens, sessões ou autorização.
 
 Contrato: `Docs/AUTHENTICATION.md`.
 
-**Status:** CONCLUÍDA E CERTIFICADA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 Certificação: `Docs/certification/PHASE_2_2_2_AUTHENTICATION_CERTIFICATION.md`.
 
@@ -321,7 +321,7 @@ Certificação: `Docs/certification/PHASE_2_2_2_AUTHENTICATION_CERTIFICATION.md`
 
 Política e limites: `Docs/CREDENTIAL_HASHING.md`.
 
-**Status:** CONCLUÍDA E CERTIFICADA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 Certificação: `Docs/certification/PHASE_2_2_3_CREDENTIAL_HASHING_CERTIFICATION.md`.
 
@@ -329,7 +329,7 @@ Certificação: `Docs/certification/PHASE_2_2_3_CREDENTIAL_HASHING_CERTIFICATION
 
 Política e limites: `Docs/TOKENS_AND_SESSIONS.md`.
 
-**Status:** CONCLUÍDA E CERTIFICADA
+**Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 Certificação: `Docs/certification/PHASE_2_2_4_TOKENS_SESSIONS_CERTIFICATION.md`.
 
@@ -1106,7 +1106,7 @@ funcionais, e a execução deve continuar pelo módulo Bike Tour na 2.7.
 | Empresa | WMA Travel Ltda. |
 | Versão | 1.1 |
 | Status | EM EXECUÇÃO |
-| Última atualização | 04/09/2026 |
+| Última atualização | 09/09/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 | Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
 

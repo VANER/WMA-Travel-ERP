@@ -33,6 +33,12 @@
 
 ---
 
+## Estado auditado em 09/09/2026
+
+As etapas 2.0 a 2.6 estão concluídas, certificadas e integradas; isso inclui Financeiro 2.5 e Turismo 2.6.
+A próxima etapa oficial é Bike Tour 2.7, com implementação condicionada ao gate documental.
+A [auditoria de governança](GOVERNANCE_AUDIT_CHECKLIST.md) registra proteção da branch e evidências SMTP.
+
 ## 1. Objetivo
 
 Este documento centraliza toda a documentação oficial do
@@ -367,7 +373,7 @@ Para novos colaboradores recomenda-se a seguinte sequência:
 | Status | VIGENTE — EVOLUÇÃO CONTROLADA |
 | Responsável | WMA Travel Ltda. |
 | Compatibilidade | Markdownlint |
-| Última atualização | 01/09/2026 |
+| Última atualização | 09/09/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 
 ---
