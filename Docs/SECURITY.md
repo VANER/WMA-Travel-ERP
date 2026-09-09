@@ -59,7 +59,7 @@ React, aplicativo Flutter e pipelines de CI/CD.
 ## 4. Criptografia
 
 | Camada | Padrão |
-| ------------------- | ------------------------------------- |
+| --------------------- | --------------------------- |
 | Dados em repouso | AES-256 |
 | Dados em trânsito | TLS 1.3 |
 | Autenticação de banco | SCRAM-SHA-256 |
@@ -116,9 +116,23 @@ O WMA Travel ERP trata dados pessoais de clientes, fornecedores e participantes 
 
 ## 9. Gestão de Segredos e Credenciais
 
-- Nenhuma credencial de banco, API key ou secret deve ser versionada em Git;
+- Nenhuma credencial de banco, API key, token ou secret deve ser versionada em Git;
 - Variáveis sensíveis devem ser injetadas via variáveis de ambiente ou cofre de segredos;
+- Arquivos `.env`, YAML, scripts, documentação e exemplos de configuração devem
+  conter apenas placeholders;
+- `.env.example` deve ser o único arquivo versionado com nomes de variáveis e
+  valores ilustrativos, nunca segredos reais;
+- O repositório deve habilitar `secret scanning` e `push protection` no GitHub;
+- Quando disponível, o CI deve incluir um gate automatizado de varredura de
+  segredos antes do merge;
+- Qualquer incidente de vazamento exige revogação, rotação, validação de
+  produção e registro formal do encerramento;
 - Rotação periódica de credenciais de serviço.
+
+> Regra de proteção: nenhum segredo real pode aparecer em `.env`,
+> `docker-compose`, YAML, scripts de automação, testes ou documentação viva.
+> Qualquer caso confirmado deve ser tratado como incidente de segurança e
+> encerrado com evidência documental.
 
 ---
 
@@ -154,7 +168,7 @@ operação, com política de retenção mínima definida antes de sua efetiva ut
 ## 13. Glossário
 
 | Termo | Significado |
-| ----- | -------------------------------------- |
+| ----- | ------------------------------ |
 | RBAC | Role-Based Access Control |
 | JWT | JSON Web Token |
 | LGPD | Lei Geral de Proteção de Dados |
@@ -173,7 +187,7 @@ operação, com política de retenção mínima definida antes de sua efetiva ut
 ## Controle do Documento
 
 | Campo | Informação |
-| --- | --- |
+| ------------------ | ------------------------------- |
 | Projeto | WMA Travel ERP |
 | Empresa | WMA Travel Ltda. |
 | Versão | 1.2.0 |
