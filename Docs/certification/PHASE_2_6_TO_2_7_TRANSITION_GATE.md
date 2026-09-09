@@ -108,3 +108,5 @@ Os documentos Bike Tour em elaboração são alterações locais adicionais e n�
 
 A [matriz do gate 2.7](../BIKE_TOUR_GATE_AUDIT.md) preserva os bloqueadores documentais reais.
 **ETAPA 2.7 = BLOQUEADA.**
+
+<!-- cspell:ignore transicao -->
