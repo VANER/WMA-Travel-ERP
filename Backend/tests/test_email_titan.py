@@ -13,32 +13,45 @@ from app.modules.seguranca.router import obter_notificador_recuperacao
 DATABASE_URL = "postgresql+psycopg://wma_test@localhost:5432/wma_test"
 
 
+def make_settings(**overrides: object) -> Settings:
+    base = {
+        "database_url": DATABASE_URL,
+        "token_signing_key": "x" * 32,
+        "_env_file": None,
+    }
+    base.update(overrides)
+    return Settings(**base)
+
+
 def test_notificador_exige_segredo_smtp() -> None:
     with pytest.raises(ValueError, match="senha SMTP"):
-        NotificadorRecuperacaoTitan(Settings(database_url=DATABASE_URL))
+        NotificadorRecuperacaoTitan(make_settings())
 
 
 def test_dependencia_ativa_somente_com_segredo_smtp() -> None:
     with pytest.raises(HTTPException) as error:
-        obter_notificador_recuperacao(Settings(database_url=DATABASE_URL))
+        obter_notificador_recuperacao(make_settings())
 
     assert error.value.status_code == 503
     notificador = obter_notificador_recuperacao(
-        Settings(database_url=DATABASE_URL, smtp_password="segredo-smtp")
+        make_settings(smtp_password="segredo-smtp")
     )
     assert isinstance(notificador, NotificadorRecuperacaoTitan)
 
 
 def test_notificador_usa_ssl_autenticado_e_destinatario_da_conta() -> None:
-    settings = Settings(database_url=DATABASE_URL, smtp_password="segredo-smtp")
+    settings = make_settings(smtp_password="segredo-smtp")
     cliente = MagicMock()
     contexto_cliente = MagicMock()
     contexto_cliente.__enter__.return_value = cliente
 
     with (
-        patch("app.integrations.email_titan.ssl.create_default_context") as criar_contexto,
         patch(
-            "app.integrations.email_titan.smtplib.SMTP_SSL", return_value=contexto_cliente
+            "app.integrations.email_titan.ssl.create_default_context"
+        ) as criar_contexto,
+        patch(
+            "app.integrations.email_titan.smtplib.SMTP_SSL",
+            return_value=contexto_cliente,
         ) as smtp_ssl,
     ):
         NotificadorRecuperacaoTitan(settings).enviar("ana@example.com", "token opaco")
