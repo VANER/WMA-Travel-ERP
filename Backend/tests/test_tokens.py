@@ -31,6 +31,12 @@ NOW = datetime.now(UTC).replace(microsecond=0)
 BACKEND_ROOT = Path(__file__).parents[1]
 
 
+@pytest.fixture(autouse=True)
+def atualizar_instante_do_teste(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Evita expirar tokens durante a espera entre coleta e execução da suíte."""
+    monkeypatch.setitem(globals(), "NOW", datetime.now(UTC).replace(microsecond=0))
+
+
 def _settings() -> Settings:
     return Settings(database_url=DATABASE_URL, token_signing_key=SIGNING_KEY)
 
