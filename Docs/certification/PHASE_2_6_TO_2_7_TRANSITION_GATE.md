@@ -81,3 +81,30 @@ O único bloqueio relevante para a implementação funcional da 2.7 passa a ser 
 inventário, as fronteiras de domínio, os requisitos e os critérios de aceite para o
 módulo. A implementação funcional da 2.7 continua não autorizada até a aprovação
 desse gate.
+
+## 5. Adendo de auditoria do gate
+
+Consulta ao GitHub em 09/09/2026 confirmou o
+[PR #65 integrado](https://github.com/VANER/WMA-Travel-ERP/pull/65) em
+`5856477a13d1919627197c775fdcfe3b693d5605`, com os três checks do PR aprovados.
+No mesmo SHA da `main`, também foram aprovados:
+
+- [Backend CI](https://github.com/VANER/WMA-Travel-ERP/actions/runs/34389139893);
+- [Documentation CI](https://github.com/VANER/WMA-Travel-ERP/actions/runs/34389139783);
+- [Secret Scan](https://github.com/VANER/WMA-Travel-ERP/actions/runs/34389139993).
+
+O Backend CI inclui PostgreSQL real, cobertura, OpenAPI, restauração da baseline e ciclo de reversão/reaplicação.
+A compatibilidade OpenAPI é verificada no PR; esse passo é pulado por condição no push pós-merge.
+A linha `PENDENTE` da seção 2 representa o estado histórico daquela execução local, superado por esta evidência.
+Os resultados e tempos históricos foram preservados; não representam falha atual nem nova medição desta auditoria.
+
+O [registro SMTP](../SECURITY_INCIDENT_SMTP_CLOSURE.md), seção 6, identifica Vaner, data de 09/09/2026,
+testes locais no VS Code e ausência de produção. A validação em produção é requisito da futura implantação.
+A decisão de não reescrever o histórico está registrada; isso não significa ausência do segredo antigo no histórico.
+
+O HEAD local desta auditoria é `74685c6`; `origin/main` aponta para `5856477`. Os históricos divergem,
+mas `git diff HEAD origin/main` não mostrou diferenças de conteúdo versionado. Não houve sincronização ou reset.
+Os documentos Bike Tour em elaboração são alterações locais adicionais e não estão cobertos pelos CIs acima.
+
+A [matriz do gate 2.7](../BIKE_TOUR_GATE_AUDIT.md) preserva os bloqueadores documentais reais.
+**ETAPA 2.7 = BLOQUEADA.**

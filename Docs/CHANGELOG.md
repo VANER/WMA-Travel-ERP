@@ -4,6 +4,18 @@
 
 ## [Não Publicado]
 
+### 09/09/2026 — Auditoria documental do gate Bike Tour
+
+- corrigida a sequência entre aprovação do plano, decisão de banco e execução dos testes futuros;
+- identificadas explicitamente como propostas as definições de Bike Tour ainda sem aceite;
+
+- conciliados, com autorização do responsável, somente os pré-requisitos de regressão integrada e registro SMTP;
+
+- registrada matriz de requisitos, evidências e ações necessárias para aceite;
+- acrescentado adendo de evidências posteriores ao gate de transição, preservando os resultados históricos;
+- preservados os oito entregáveis locais em elaboração, sem aprovação ou implementação funcional;
+- mantida a Etapa 2.7 bloqueada para implementação.
+
 ### 09/09/2026 — Auditoria complementar de governança e SMTP
 
 - configurados os checks de Backend, documentação e segredos como obrigatórios na regra da branch padrão;
