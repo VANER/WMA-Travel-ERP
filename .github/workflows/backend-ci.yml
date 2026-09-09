@@ -4,12 +4,14 @@ on:
   pull_request:
     paths:
       - "Backend/**"
+      - "Database/migrations/**"
       - ".github/workflows/backend-ci.yml"
   push:
     branches:
       - main
     paths:
       - "Backend/**"
+      - "Database/migrations/**"
       - ".github/workflows/backend-ci.yml"
 
 permissions:

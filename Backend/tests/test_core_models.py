@@ -281,6 +281,7 @@ def test_core_models_register_only_the_inventory_authorities() -> None:
         "produto_turistico",
         "reserva",
         "reserva_correlacao",
+        "reserva_operacao",
         "saida_turistica",
     }
     excluded_tables = security_tables | commercial_tables | financial_tables | tourism_tables
@@ -301,6 +302,7 @@ def test_core_models_register_only_the_inventory_authorities() -> None:
         "ProdutoTuristico",
         "Reserva",
         "ReservaCorrelacao",
+        "ReservaOperacao",
         "SaidaTuristica",
     }
 

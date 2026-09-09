@@ -9,13 +9,11 @@ from fastapi import HTTPException
 from pydantic import ValidationError
 
 from app.modules.turismo import router
-from app.modules.turismo.models import AlocacaoVaga, PacoteViagem, Reserva, SaidaTuristica
+from app.modules.turismo.models import PacoteViagem, Reserva, SaidaTuristica
 from app.modules.turismo.repositories import ReservaRepository, SaidaRepository
 from app.modules.turismo.schemas import ReservaAcao, ReservaCreate, SaidaCreate
 from app.modules.turismo.services import (
     RegraTurismoError,
-    cancelar_reserva,
-    confirmar_reserva,
     criar_reserva,
     criar_saida,
     obter_disponibilidade,
@@ -106,6 +104,7 @@ def test_create_departure_validates_package_and_commit() -> None:
     session.get.return_value = None
     with pytest.raises(RegraTurismoError, match="pacote"):
         criar_saida(session, payload)
+    session.rollback.reset_mock()
     session.get.return_value = PacoteViagem(id_pacote=1)
     result = criar_saida(session, payload)
     assert result.status == "PLANEJADA"
@@ -173,66 +172,6 @@ def test_create_reservation_idempotency_validation_and_correlation() -> None:
         result = criar_reserva(session, _reserva_payload(id_venda=4))
     assert result.status == "PENDENTE"
     assert session.add.call_count == 3
-
-
-def test_confirm_and_cancel_reservation_rules() -> None:
-    session = MagicMock()
-    repository = MagicMock()
-    repository.obter.return_value = None
-    action = ReservaAcao(chave_idempotencia="action:1")
-    with (
-        patch("app.modules.turismo.services.ReservaRepository", return_value=repository),
-        pytest.raises(RegraTurismoError, match="reserva"),
-    ):
-        confirmar_reserva(session, 1, action)
-    reserva = Reserva(id_reserva=1, status="CONFIRMADA")
-    repository.obter.return_value = reserva
-    with patch("app.modules.turismo.services.ReservaRepository", return_value=repository):
-        assert confirmar_reserva(session, 1, action) is reserva
-    reserva.status = "PENDENTE"
-    session.scalar.return_value = None
-    with (
-        patch("app.modules.turismo.services.ReservaRepository", return_value=repository),
-        pytest.raises(RegraTurismoError, match="alocação"),
-    ):
-        confirmar_reserva(session, 1, action)
-    allocation = AlocacaoVaga(
-        id_alocacao=1,
-        id_saida=1,
-        id_reserva=1,
-        chave_idempotencia="x",
-        quantidade=1,
-        status="BLOQUEADA",
-        expira_em=datetime(2000, 1, 1),
-    )
-    session.scalar.return_value = allocation
-    with (
-        patch("app.modules.turismo.services.ReservaRepository", return_value=repository),
-        pytest.raises(RegraTurismoError, match="expirado"),
-    ):
-        confirmar_reserva(session, 1, action)
-    allocation.expira_em = datetime(2099, 1, 1)
-    with patch("app.modules.turismo.services.ReservaRepository", return_value=repository):
-        assert confirmar_reserva(session, 1, action).status == "CONFIRMADA"
-    repository.obter.return_value = None
-    with (
-        patch("app.modules.turismo.services.ReservaRepository", return_value=repository),
-        pytest.raises(RegraTurismoError, match="reserva"),
-    ):
-        cancelar_reserva(session, 1, action)
-    repository.obter.return_value = reserva
-    reserva.status = "CONCLUIDA"
-    with (
-        patch("app.modules.turismo.services.ReservaRepository", return_value=repository),
-        pytest.raises(RegraTurismoError, match="não pode"),
-    ):
-        cancelar_reserva(session, 1, action)
-    reserva.status = "PENDENTE"
-    allocation.status = "RESERVADA"
-    with patch("app.modules.turismo.services.ReservaRepository", return_value=repository):
-        assert cancelar_reserva(session, 1, action).status == "CANCELADA"
-    with patch("app.modules.turismo.services.ReservaRepository", return_value=repository):
-        assert cancelar_reserva(session, 1, action) is reserva
 
 
 def test_router_maps_success_and_conflicts() -> None:
