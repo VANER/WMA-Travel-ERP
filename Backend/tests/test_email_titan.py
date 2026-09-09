@@ -18,10 +18,11 @@ def make_settings(**overrides: object) -> Settings:
     base: dict[str, object] = {
         "database_url": DATABASE_URL,
         "token_signing_key": "x" * 32,
+        "smtp_password": None,
     }
     payload: dict[str, object] = {**base, **overrides}
     with patch.dict("os.environ", {}, clear=True):
-        return Settings(_env_file=None, **cast(dict[str, Any], payload))
+        return Settings.model_validate(cast(dict[str, Any], payload))
 
 
 def test_notificador_exige_segredo_smtp() -> None:

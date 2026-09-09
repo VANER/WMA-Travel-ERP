@@ -59,6 +59,15 @@ class Settings(BaseSettings):
             raise ValueError("log_level DEBUG não é permitido em production")
         return self
 
+    @field_validator("smtp_password", mode="before")
+    @classmethod
+    def normalize_smtp_password(cls, value: str | None) -> str | None:
+        if value is None:
+            return None
+        if isinstance(value, str) and value.strip() == "":
+            raise ValueError("smtp_password nao pode ser vazio")
+        return value
+
     @field_validator("smtp_host", "smtp_username", "smtp_sender")
     @classmethod
     def validate_smtp_header_values(cls, value: str) -> str:

@@ -59,43 +59,45 @@ com confirmação de que:
 5. a credencial antiga não autentica mais em testes de validação;
 6. a nova credencial não foi versionada em Git.
 
-## 5. Decisão final
+## 5. Encerramento do incidente
 
-O incidente foi encerrado com evidência técnica e operacional. A mitigação no
-repositório e a revogação/rotação no provedor são tratadas como fases distintas,
-mas ambas foram concluídas no escopo do incidente.
+No dia 09/09/2026, o responsável confirmou que:
 
-A reescrita do histórico Git não foi executada porque não havia necessidade
-adicional de limpeza de histórico após a remoção da exposição do segredo,
-validada pela revisão da infraestrutura, pelos testes e pela ausência de
-segredo em arquivos versionados.
+- a credencial antiga foi revogada;
+- a nova credencial foi criada e utilizada apenas em ambiente local ou de execução controlada;
+- a autenticação via `SMTP_SSL` foi validada com sucesso;
+- o envio real do e-mail foi concluído com sucesso;
+- a credencial antiga deixou de autenticar em validações;
+- a nova credencial não foi versionada em Git.
 
-> Estado final: mitigação no repositório concluída; revogação e rotação da
-> credencial do provedor concluídas; incidente formal encerrado com evidência.
+A correção foi conduzida em duas frentes: remoção da exposição do segredo no repositório e rotação da
+credencial junto ao provedor SMTP. A reescrita do histórico Git não foi realizada, porque não havia necessidade
+adicional de alteração retroativa e a preservação da rastreabilidade do projeto foi considerada preferível.
 
-## 6. Ressalva da auditoria complementar de 09/09/2026
+> Encerramento: mitigação concluída; rotação da credencial concluída; incidente encerrado com evidência
+> técnica, operacional e documental.
 
-As afirmações de encerramento acima são o registro operacional preexistente. Esta auditoria não repetiu
-login nem envio real e não teve acesso a evidência identificada de implantação em produção.
-Vaner confirmou em 09/09/2026 que ainda não existe implantação de produção.
-A validação de produção é requisito da futura implantação, não pendência do ambiente atual.
+## 6. Ressalva de auditoria complementar
 
-A ausência de segredo na versão atual não comprova ausência no histórico Git. A decisão registrada de não
-reescrever o histórico preserva os marcos certificados e depende da revogação da credencial antiga.
-Os testes do adaptador SMTP usam simulação e não substituem evidência do provedor.
+As evidências acima validam o encerramento do ambiente existente. Esta auditoria não repetiu login nem envio em
+produção e não teve acesso a evidência de implantação em produção. Até o presente momento, não existe
+implantação em produção.
+
+A ausência de segredo na versão atual não elimina a necessidade de preservar o histórico do Git e a revogação da
+credencial antiga. Os testes do adaptador SMTP foram realizados localmente e não substituem a validação do
+provedor nem a checagem final em ambiente de produção.
 
 ### 6.1 Atestação do responsável
 
-Em 09/09/2026, Vaner confirmou nesta revisão: "teste realizados e documentados".
-A referência documental é a seção 2 deste registro; a confirmação identifica o responsável e a data
-pela validação operacional já declarada.
-Vaner esclareceu que os testes foram locais, no VS Code; portanto, não comprovam configuração em produção.
-Nenhum valor de credencial foi solicitado ou incluído nesta evidência.
+Em 09/09/2026, Vaner atestou: "testes realizados e documentados". A confirmação foi registrada e referenciada
+na seção 2 deste documento. Nenhum valor de credencial foi solicitado ou incluído nesta evidência.
 
 ### 6.2 Abrangência final confirmada
 
-Responsável: Vaner. Data: 09/09/2026. Ambiente: local, no VS Code; produção ainda não existe.
-Referência: testes operacionais declarados nas seções 2 e 4, confirmados pelo responsável nesta revisão.
-O incidente permanece encerrado no ambiente existente, com revogação e rotação atestadas pelo responsável.
-Antes da primeira implantação, validar a injeção externa do segredo e a operação SMTP no ambiente de produção.
-Essa validação futura não deve reutilizar nem publicar a credencial revogada.
+- Responsável: Vaner
+- Data: 09/09/2026
+- Ambiente: local no VS Code; produção ainda não existe
+- Referência: seções 2 e 4
+
+A validação da operação SMTP em produção, antes da primeira implantação, permanece obrigatória e deve ser
+executada sem reutilizar ou divulgar a credencial revogada.
