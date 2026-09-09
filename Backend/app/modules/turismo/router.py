@@ -11,7 +11,9 @@ from app.modules.seguranca.authorization import (
     exigir_turismo_gerenciar,
     exigir_turismo_operar,
     exigir_turismo_visualizar,
+    obter_contexto_rbac,
 )
+from app.modules.seguranca.rbac import ContextoRbac
 from app.modules.turismo.models import Reserva, SaidaTuristica
 from app.modules.turismo.repositories import SaidaRepository
 from app.modules.turismo.schemas import (
@@ -23,6 +25,7 @@ from app.modules.turismo.schemas import (
     SaidaResponse,
 )
 from app.modules.turismo.services import (
+    RecursoTurismoNaoEncontradoError,
     RegraTurismoError,
     cancelar_reserva,
     confirmar_reserva,
@@ -46,8 +49,9 @@ Offset = Annotated[int, Query(ge=0)]
 Limite = Annotated[int, Query(ge=1, le=1000)]
 
 
-def _conflict(exc: RegraTurismoError) -> HTTPException:
-    return HTTPException(status_code=status.HTTP_409_CONFLICT, detail=str(exc))
+def _erro_http(exc: RegraTurismoError) -> HTTPException:
+    code = 404 if isinstance(exc, RecursoTurismoNaoEncontradoError) else 409
+    return HTTPException(status_code=code, detail=str(exc))
 
 
 @router.get("/saidas", response_model=list[SaidaResponse], operation_id="listar_saidas_turisticas")
@@ -62,18 +66,28 @@ def listar_saidas(
     response_model=SaidaResponse,
     status_code=status.HTTP_201_CREATED,
     dependencies=[Depends(exigir_turismo_gerenciar)],
+    responses={
+        404: {"model": ErrorResponse, "description": "Recurso referenciado não encontrado."},
+        409: {
+            "model": ErrorResponse,
+            "description": "Capacidade, estado ou unicidade incompatível.",
+        },
+    },
     operation_id="criar_saida_turistica",
 )
 def cadastrar_saida(payload: SaidaCreate, session: SessionDep) -> SaidaTuristica:
     try:
         return criar_saida(session, payload)
     except RegraTurismoError as exc:
-        raise _conflict(exc) from exc
+        raise _erro_http(exc) from exc
 
 
 @router.get(
     "/saidas/{identifier}/disponibilidade",
     response_model=DisponibilidadeResponse,
+    responses={
+        404: {"model": ErrorResponse, "description": "Recurso referenciado não encontrado."}
+    },
     operation_id="consultar_disponibilidade_turistica",
 )
 def consultar_disponibilidade(
@@ -82,7 +96,7 @@ def consultar_disponibilidade(
     try:
         return obter_disponibilidade(session, identifier)
     except RegraTurismoError as exc:
-        raise _conflict(exc) from exc
+        raise _erro_http(exc) from exc
 
 
 @router.post(
@@ -90,36 +104,71 @@ def consultar_disponibilidade(
     response_model=ReservaResponse,
     status_code=status.HTTP_201_CREATED,
     dependencies=[Depends(exigir_turismo_operar)],
+    responses={
+        404: {"model": ErrorResponse, "description": "Recurso referenciado não encontrado."},
+        409: {
+            "model": ErrorResponse,
+            "description": "Capacidade, estado ou unicidade incompatível.",
+        },
+    },
     operation_id="criar_reserva_turistica",
 )
 def cadastrar_reserva(payload: ReservaCreate, session: SessionDep) -> Reserva:
     try:
         return criar_reserva(session, payload)
     except RegraTurismoError as exc:
-        raise _conflict(exc) from exc
+        raise _erro_http(exc) from exc
 
 
 @router.post(
     "/reservas/{identifier}/confirmacao",
     response_model=ReservaResponse,
     dependencies=[Depends(exigir_turismo_operar)],
+    responses={
+        404: {"model": ErrorResponse, "description": "Recurso referenciado não encontrado."},
+        409: {
+            "model": ErrorResponse,
+            "description": "Capacidade, estado ou unicidade incompatível.",
+        },
+    },
     operation_id="confirmar_reserva_turistica",
 )
-def confirmar(identifier: Identifier, payload: ReservaAcao, session: SessionDep) -> Reserva:
+def confirmar(
+    identifier: Identifier,
+    payload: ReservaAcao,
+    session: SessionDep,
+    contexto: Annotated[ContextoRbac | None, Depends(obter_contexto_rbac)] = None,
+) -> ReservaResponse:
     try:
-        return confirmar_reserva(session, identifier, payload)
+        return confirmar_reserva(
+            session, identifier, payload, id_usuario=contexto.id_usuario if contexto else None
+        )
     except RegraTurismoError as exc:
-        raise _conflict(exc) from exc
+        raise _erro_http(exc) from exc
 
 
 @router.post(
     "/reservas/{identifier}/cancelamento",
     response_model=ReservaResponse,
     dependencies=[Depends(exigir_turismo_operar)],
+    responses={
+        404: {"model": ErrorResponse, "description": "Recurso referenciado não encontrado."},
+        409: {
+            "model": ErrorResponse,
+            "description": "Capacidade, estado ou unicidade incompatível.",
+        },
+    },
     operation_id="cancelar_reserva_turistica",
 )
-def cancelar(identifier: Identifier, payload: ReservaAcao, session: SessionDep) -> Reserva:
+def cancelar(
+    identifier: Identifier,
+    payload: ReservaAcao,
+    session: SessionDep,
+    contexto: Annotated[ContextoRbac | None, Depends(obter_contexto_rbac)] = None,
+) -> ReservaResponse:
     try:
-        return cancelar_reserva(session, identifier, payload)
+        return cancelar_reserva(
+            session, identifier, payload, id_usuario=contexto.id_usuario if contexto else None
+        )
     except RegraTurismoError as exc:
-        raise _conflict(exc) from exc
+        raise _erro_http(exc) from exc

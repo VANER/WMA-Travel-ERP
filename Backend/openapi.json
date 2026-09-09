@@ -12085,7 +12085,7 @@
                 }
               }
             },
-            "description": "Recurso não encontrado."
+            "description": "Recurso referenciado não encontrado."
           },
           "405": {
             "content": {
@@ -12105,7 +12105,7 @@
                 }
               }
             },
-            "description": "Conflito com dados existentes."
+            "description": "Capacidade, estado ou unicidade incompatível."
           },
           "422": {
             "content": {
@@ -12203,7 +12203,7 @@
                 }
               }
             },
-            "description": "Recurso não encontrado."
+            "description": "Recurso referenciado não encontrado."
           },
           "405": {
             "content": {
@@ -12223,7 +12223,7 @@
                 }
               }
             },
-            "description": "Conflito com dados existentes."
+            "description": "Capacidade, estado ou unicidade incompatível."
           },
           "422": {
             "content": {
@@ -12321,7 +12321,7 @@
                 }
               }
             },
-            "description": "Recurso não encontrado."
+            "description": "Recurso referenciado não encontrado."
           },
           "405": {
             "content": {
@@ -12341,7 +12341,7 @@
                 }
               }
             },
-            "description": "Conflito com dados existentes."
+            "description": "Capacidade, estado ou unicidade incompatível."
           },
           "422": {
             "content": {
@@ -12550,7 +12550,7 @@
                 }
               }
             },
-            "description": "Recurso não encontrado."
+            "description": "Recurso referenciado não encontrado."
           },
           "405": {
             "content": {
@@ -12570,7 +12570,7 @@
                 }
               }
             },
-            "description": "Conflito com dados existentes."
+            "description": "Capacidade, estado ou unicidade incompatível."
           },
           "422": {
             "content": {
@@ -12658,7 +12658,7 @@
                 }
               }
             },
-            "description": "Recurso não encontrado."
+            "description": "Recurso referenciado não encontrado."
           },
           "405": {
             "content": {

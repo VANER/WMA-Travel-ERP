@@ -4,6 +4,16 @@
 
 ## [Não Publicado]
 
+### 08/09/2026 — Hardening complementar de Turismo
+
+- separados recursos ausentes (`404`) de conflitos de capacidade e estado (`409`);
+- persistidas respostas idempotentes de confirmação e cancelamento com escopo de ator, recurso e operação;
+- ampliado rollback para toda a unidade transacional e validada a correlação Comercial;
+- adicionada migration `202609080100`, preservando a baseline e as revisões anteriores;
+- acrescentados testes de concorrência PostgreSQL, rollback, RBAC, correlação e expiração;
+- documentado o processamento explícito da expiração, sem scheduler;
+- criada certificação complementar, com integração remota pendente.
+
 ### 04/09/2026 — Fechamento pós-merge da Etapa 2.5
 
 - encerrada formalmente a Etapa 2.5 — Financeiro após a integração do PR `#55`;

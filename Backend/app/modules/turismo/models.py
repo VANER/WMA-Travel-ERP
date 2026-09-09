@@ -4,12 +4,14 @@ from datetime import date, datetime
 from decimal import Decimal
 
 from sqlalchemy import (
+    JSON,
     Boolean,
     CheckConstraint,
     Date,
     DateTime,
     ForeignKey,
     Identity,
+    Index,
     Integer,
     Numeric,
     String,
@@ -103,6 +105,13 @@ class SaidaTuristica(AuditMixin, Base):
 
 class Reserva(LegacyAuditMixin, Base):
     __tablename__ = "reserva"
+    __table_args__ = (
+        CheckConstraint(
+            "quantidade_passageiros IS NOT NULL AND quantidade_passageiros > 0",
+            name="quantidade_passageiros",
+        ),
+        CheckConstraint("valor_total >= 0", name="valor_total"),
+    )
     id_reserva: Mapped[int] = mapped_column(Integer, primary_key=True)
     codigo_reserva: Mapped[str] = mapped_column(String(30), nullable=False)
     id_cliente: Mapped[int] = mapped_column(ForeignKey("cliente.id_cliente"))
@@ -121,6 +130,8 @@ class AlocacaoVaga(AuditMixin, Base):
     __table_args__ = (
         CheckConstraint("quantidade > 0", name="quantidade"),
         UniqueConstraint("chave_idempotencia", name="uq_alocacao_vaga_chave"),
+        UniqueConstraint("id_reserva", name="uq_alocacao_vaga_id_reserva"),
+        Index("idx_alocacao_vaga_id_saida_status_expira_em", "id_saida", "status", "expira_em"),
     )
     id_alocacao: Mapped[int] = mapped_column(Integer, Identity(), primary_key=True)
     id_saida: Mapped[int] = mapped_column(ForeignKey("saida_turistica.id_saida"))
@@ -143,3 +154,27 @@ class ReservaCorrelacao(AuditMixin, Base):
     id_item_venda: Mapped[int | None] = mapped_column(ForeignKey("item_venda.id_item"))
     id_contrato: Mapped[int | None] = mapped_column(ForeignKey("contrato.id_contrato"))
     chave_idempotencia: Mapped[str] = mapped_column(String(100), nullable=False)
+
+
+class ReservaOperacao(AuditMixin, Base):
+    """Resultado imutável de uma ação, no escopo de reserva e operação."""
+
+    __tablename__ = "reserva_operacao"
+    __table_args__ = (
+        UniqueConstraint(
+            "id_reserva",
+            "operacao",
+            "id_usuario",
+            "chave_idempotencia",
+            name="uq_reserva_operacao_intencao",
+            postgresql_nulls_not_distinct=True,
+        ),
+        CheckConstraint("operacao IN ('CONFIRMAR', 'CANCELAR')", name="operacao"),
+        {"comment": "Resultados originais para repeticao idempotente de acoes de reserva."},
+    )
+    id_reserva_operacao: Mapped[int] = mapped_column(Integer, Identity(), primary_key=True)
+    id_reserva: Mapped[int] = mapped_column(ForeignKey("reserva.id_reserva"), nullable=False)
+    id_usuario: Mapped[int | None] = mapped_column(ForeignKey("usuario.id_usuario"))
+    operacao: Mapped[str] = mapped_column(String(20), nullable=False)
+    chave_idempotencia: Mapped[str] = mapped_column(String(100), nullable=False)
+    resultado: Mapped[dict[str, object]] = mapped_column(JSON, nullable=False)

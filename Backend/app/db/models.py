@@ -58,6 +58,7 @@ from app.modules.turismo.models import (
     ProdutoTuristico,
     Reserva,
     ReservaCorrelacao,
+    ReservaOperacao,
     SaidaTuristica,
 )
 
@@ -104,6 +105,7 @@ __all__ = [
     "RecuperacaoCredencial",
     "Reserva",
     "ReservaCorrelacao",
+    "ReservaOperacao",
     "Pessoa",
     "SessaoUsuario",
     "SaidaTuristica",

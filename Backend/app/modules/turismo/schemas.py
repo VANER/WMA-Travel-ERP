@@ -1,6 +1,6 @@
 """Contratos Pydantic da API de Turismo."""
 
-from datetime import date, datetime
+from datetime import UTC, date, datetime
 from decimal import Decimal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
@@ -61,8 +61,13 @@ class ReservaCreate(TurismoInput):
 
     @model_validator(mode="after")
     def validar_expiracao(self) -> "ReservaCreate":
-        if self.expira_em is not None and self.expira_em <= datetime.now():
-            raise ValueError("expiração do bloqueio deve estar no futuro")
+        if self.expira_em is not None:
+            if self.expira_em.tzinfo is not None:
+                self.expira_em = self.expira_em.astimezone(UTC).replace(tzinfo=None)
+            if self.expira_em <= datetime.now(UTC).replace(tzinfo=None):
+                raise ValueError("expiração do bloqueio deve estar no futuro")
+        if self.id_item_venda is not None and self.id_venda is None:
+            raise ValueError("item de venda requer id_venda")
         return self
 
 

@@ -15,7 +15,7 @@ class SaidaRepository:
     def obter(self, identifier: int, *, bloquear: bool = False) -> SaidaTuristica | None:
         statement = select(SaidaTuristica).where(SaidaTuristica.id_saida == identifier)
         if bloquear:
-            statement = statement.with_for_update()
+            statement = statement.with_for_update().execution_options(populate_existing=True)
         return self.session.scalar(statement)
 
     def listar(self, offset: int, limite: int) -> list[SaidaTuristica]:
@@ -54,5 +54,5 @@ class ReservaRepository:
     def obter(self, identifier: int, *, bloquear: bool = False) -> Reserva | None:
         statement = select(Reserva).where(Reserva.id_reserva == identifier)
         if bloquear:
-            statement = statement.with_for_update()
+            statement = statement.with_for_update().execution_options(populate_existing=True)
         return self.session.scalar(statement)
