@@ -1,11 +1,12 @@
 """Testes do transporte SMTP Titan sem egress de rede."""
 
 from email.message import EmailMessage
-from typing import Any, cast
+from typing import Any
 from unittest.mock import MagicMock, patch
 
 import pytest
 from fastapi import HTTPException
+from pydantic import SecretStr
 
 from app.core.config import Settings
 from app.integrations.email_titan import NotificadorRecuperacaoTitan, _adicionar_token
@@ -15,12 +16,15 @@ DATABASE_URL = "postgresql+psycopg://wma_test@localhost:5432/wma_test"
 
 
 def make_settings(**overrides: object) -> Settings:
-    base: dict[str, object] = {
+    base: dict[str, Any] = {
         "database_url": DATABASE_URL,
         "token_signing_key": "x" * 32,
+        "smtp_password": None,
     }
-    payload: dict[str, object] = {**base, **overrides}
-    return Settings(_env_file=None, **cast(dict[str, Any], payload))
+    base.update(overrides)
+    if "smtp_password" in base and base["smtp_password"] is not None:
+        base["smtp_password"] = SecretStr(str(base["smtp_password"]))
+    return Settings.model_construct(**base)
 
 
 def test_notificador_exige_segredo_smtp() -> None:
@@ -33,7 +37,9 @@ def test_dependencia_ativa_somente_com_segredo_smtp() -> None:
         obter_notificador_recuperacao(make_settings())
 
     assert error.value.status_code == 503
-    notificador = obter_notificador_recuperacao(make_settings(smtp_password="segredo-smtp"))
+    notificador = obter_notificador_recuperacao(
+        make_settings(smtp_password="segredo-smtp")
+    )
     assert isinstance(notificador, NotificadorRecuperacaoTitan)
 
 
@@ -44,7 +50,9 @@ def test_notificador_usa_ssl_autenticado_e_destinatario_da_conta() -> None:
     contexto_cliente.__enter__.return_value = cliente
 
     with (
-        patch("app.integrations.email_titan.ssl.create_default_context") as criar_contexto,
+        patch(
+            "app.integrations.email_titan.ssl.create_default_context"
+        ) as criar_contexto,
         patch(
             "app.integrations.email_titan.smtplib.SMTP_SSL",
             return_value=contexto_cliente,
