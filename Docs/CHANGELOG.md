@@ -6,7 +6,8 @@
 
 ### 09/09/2026 — Fechamento pós-merge do hardening da Etapa 2.6
 
-- integrado o PR #59 eat(turismo): harden reservations and certify phase 2.6;
+- integrado o PR #59
+- feat(turismo): harden reservations and certify phase 2.6;
 - registrado o merge commit 3836a2892fe5f3e01cb1f10801b82724806856bb;
 - aprovados Documentation CI e Backend CI do pull request;
 - aprovado Documentation CI pós-merge #21, execução 34299788133;
