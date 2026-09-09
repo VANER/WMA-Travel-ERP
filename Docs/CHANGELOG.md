@@ -1,5 +1,9 @@
 # Changelog
 
+<!-- WMA_PHASE_1_CHANGELOG_CLOSE -->
+
+## [Não Publicado]
+
 ### 09/09/2026 — Fechamento pós-merge do hardening da Etapa 2.6
 
 - integrado o PR #59 eat(turismo): harden reservations and certify phase 2.6;
@@ -10,10 +14,6 @@
 - certificação complementar de hardening atualizada para CONCLUÍDA, CERTIFICADA E INTEGRADA;
 - mantida a certificação original da Etapa 2.6 como evidência histórica;
 - autorizada a abertura da Etapa 2.7 — Bike Tour.
-
-<!-- WMA_PHASE_1_CHANGELOG_CLOSE -->
-
-## [Não Publicado]
 
 ### 08/09/2026 — Hardening complementar de Turismo
 

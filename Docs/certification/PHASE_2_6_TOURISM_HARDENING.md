@@ -54,14 +54,21 @@ A expiração lógica é imediata; consultas não gravam. A rotina interna `expi
 A execução cabe à manutenção operacional; scheduler e expurgo automático de snapshots ficam fora do escopo.
 Detalhes operacionais estão em `Docs/TOURISM_MODULE.md`.
 
-PR, CI Linux, revisão e integração em `main`: **PENDENTES**. Nenhuma aprovação remota é inferida de testes locais.
-A execução da 2.7 permanece condicionada ao hardening verde e integrado, conforme solicitado.
+O [PR #59](https://github.com/VANER/WMA-Travel-ERP/pull/59) foi integrado em 09/09/2026 (UTC),
+com merge commit `3836a2892fe5f3e01cb1f10801b82724806856bb`.
+
+| Evidência pós-merge | Resultado |
+| --- | --- |
+| [Documentation CI](https://github.com/VANER/WMA-Travel-ERP/actions/runs/34299788133) | APROVADO |
+| [Backend CI Linux](https://github.com/VANER/WMA-Travel-ERP/actions/runs/34299788124) | APROVADO |
+
+O fechamento documental é registrado no [PR #60](https://github.com/VANER/WMA-Travel-ERP/pull/60).
+A próxima etapa é a abertura do gate documental da 2.7, antes de qualquer implementação.
 
 ## 5. Resultado e rastreabilidade
 
-**Hardening aprovado em todos os gates locais e em certificação.**
+**Hardening concluído, certificado e integrado à `main` pelo PR #59.**
 
-A conclusão permanece condicionada ao PR, CI remoto e integração em `main`.
-A certificação original e a tag `phase-1-certified` foram preservadas.
+A certificação original e a tag `phase-1-final-2026-08-18` foram preservadas.
 
 **WMA Travel ERP — Documento complementar de certificação.**
