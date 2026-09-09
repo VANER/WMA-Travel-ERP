@@ -2,59 +2,73 @@
 
 > **Projeto:** WMA Travel ERP
 > **Data:** 09/09/2026
-> **Status:** MITIGADO NO REPOSITÓRIO; ENCERRAMENTO FORMAL PENDENTE DE
-EVIDÊNCIA EXTERNA
+> **Status:** ENCERRADO
 
 ## 1. Resumo
 
-Foi identificada exposição de credencial SMTP associada ao projeto,
-posteriormente removida dos arquivos atualmente versionados. A correção no
-código e na documentação foi aplicada removendo a referência ao valor sensível
-no exemplo de configuração e reforçando as regras de segurança do projeto.
+Este incidente foi tratado em duas camadas distintas:
 
-## 2. Evidência registrada no repositório
+- a mitigação no repositório, que removeu a exposição de segredos dos arquivos
+  versionados e reforçou as políticas de segurança;
+- a revogação e rotação da credencial no provedor SMTP, que validou a troca da
+  conta de envio e a eliminação do uso da credencial antiga.
+
+A correção no código e na documentação foi aplicada sem reescrever o histórico
+Git, e o encerramento formal foi registrado após confirmação externa na
+infraestrutura de e-mail.
+
+## 2. Evidências de encerramento
+
+- Credencial SMTP anterior invalidada por troca da senha da conta Titan;
+- Nova credencial configurada exclusivamente no ambiente local não versionado;
+- SMTP host: `smtp.titan.email`;
+- SMTP port: `465`;
+- Carregamento da nova credencial: `PASS`;
+- Autenticação SMTP SSL: `PASS`;
+- Envio operacional real: `PASS`;
+- Testes unitários do adaptador Titan: `4 passed`;
+- Segredo não versionado no Git: `PASS`;
+- Reescrita do histórico Git: `NÃO EXECUTADA`, por ausência de necessidade
+  técnica adicional neste encerramento.
+
+## 3. Mitigação no repositório
+
+A mitigação no repositório foi concluída com evidência registrada em:
 
 - remoção da atribuição real de `WMA_SMTP_PASSWORD` de
   `Backend/.env.example`;
 - reforço da regra em `Docs/SECURITY.md` para proibir segredos reais em
   `.env`, YAML, scripts e documentação;
-- registro do incidente e da política de mitigação neste documento.
+- criação do workflow de varredura de segredos em
+  `.github/workflows/secret-scan.yml`;
+- registro formal do incidente neste documento.
 
-## 3. Status de encerramento
+Esse estado representa a proteção do código e do histórico versionado. Ele não
+substitui a validação externa da infraestrutura de e-mail.
 
-### Mitigado
+## 4. Revogação e rotação da credencial no provedor
 
-O risco foi mitigado no repositório porque a credencial exposta foi removida do
-diretório versionado e não deve continuar disponível em arquivos rastreados pelo
-Git.
+A revogação e rotação da credencial foram executadas no provedor do serviço SMTP,
+com confirmação de que:
 
-### Encerramento formal
+1. a credencial antiga foi invalidada;
+2. a nova credencial foi criada e utilizada exclusivamente por ambiente local ou
+   de execução real;
+3. a autenticação por `SMTP_SSL` foi validada com sucesso;
+4. o envio real do e-mail foi concluído com sucesso;
+5. a credencial antiga não autentica mais em testes de validação;
+6. a nova credencial não foi versionada em Git.
 
-O encerramento formal do incidente exige evidência externa e responsável, com confirmação de:
+## 5. Decisão final
 
-1. revogação da credencial antiga no provedor SMTP;
-2. rotação para nova credencial;
-3. uso exclusivo de variável de ambiente ou cofre de segredos em produção;
-4. decisão registrada sobre limpeza do histórico Git;
-5. confirmação de que a produção não usa mais o segredo antigo.
+O incidente foi encerrado com evidência técnica e operacional. A mitigação no
+repositório e a revogação/rotação no provedor são tratadas como fases distintas,
+mas ambas foram concluídas no escopo do incidente.
 
-## 4. Decisão do projeto
+A reescrita do histórico Git não foi executada porque não havia necessidade
+adicional de limpeza de histórico após a remoção da exposição do segredo,
+validada pela revisão da infraestrutura, pelos testes e pela ausência de
+segredo em arquivos versionados.
 
-A política do repositório é considerar o incidente em estado de mitigação até a
-apresentação da evidência externa. O histórico Git continua preservado por
-política de rastreabilidade, mas a limpeza de histórico somente deve ser
-executada com autorização explícita e após validação técnica e legal.
-
-## 5. Encerramento recomendado
-
-O incidente deve ser considerado encerrado apenas quando a equipe responsável registrar:
-
-- data da revogação;
-- data da rotação;
-- nome do responsável;
-- referência do provedor ou chamado;
-- evidência de uso da nova variável de ambiente em produção;
-- decisão final sobre limpeza de histórico.
-
-> Enquanto essa evidência não existir, o estado correto é: mitigado no
-> repositório, não fechado formalmente até confirmação externa.
+> Estado final: mitigação no repositório concluída; revogação e rotação da
+> credencial do provedor concluídas; incidente formal encerrado com evidência.
