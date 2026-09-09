@@ -3,7 +3,7 @@
 > **Projeto:** WMA Travel ERP
 > **Etapa:** 2.6 — Hardening
 > **Data:** 08/09/2026
-> **Status:** EM CERTIFICAÇÃO
+> **Status:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
 ## 1. Objetivo e escopo
 
