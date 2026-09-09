@@ -1,3 +1,5 @@
+<!-- cspell:words alocacao -->
+
 # Módulo Turismo
 
 > **Etapa:** 2.6 — Turismo
