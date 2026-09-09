@@ -33,9 +33,7 @@ def test_dependencia_ativa_somente_com_segredo_smtp() -> None:
         obter_notificador_recuperacao(make_settings())
 
     assert error.value.status_code == 503
-    notificador = obter_notificador_recuperacao(
-        make_settings(smtp_password="segredo-smtp")
-    )
+    notificador = obter_notificador_recuperacao(make_settings(smtp_password="segredo-smtp"))
     assert isinstance(notificador, NotificadorRecuperacaoTitan)
 
 
@@ -46,9 +44,7 @@ def test_notificador_usa_ssl_autenticado_e_destinatario_da_conta() -> None:
     contexto_cliente.__enter__.return_value = cliente
 
     with (
-        patch(
-            "app.integrations.email_titan.ssl.create_default_context"
-        ) as criar_contexto,
+        patch("app.integrations.email_titan.ssl.create_default_context") as criar_contexto,
         patch(
             "app.integrations.email_titan.smtplib.SMTP_SSL",
             return_value=contexto_cliente,
