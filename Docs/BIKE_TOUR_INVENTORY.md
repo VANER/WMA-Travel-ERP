@@ -8,7 +8,7 @@
 > **Tipo de documento:** Documento técnico
 > **Versão:** 1.0
 > **Data:** 09/09/2026
-> **Status:** EM ELABORAÇÃO
+> **Status:** PRONTO PARA ACEITE
 
 As definições específicas de Bike Tour neste documento são propostas em revisão, sem aceite registrado.
 A linguagem normativa descreve o comportamento pretendido e não constitui aprovação do gate.
@@ -33,7 +33,7 @@ A autoridade de Bike Tour deve permanecer especializada e derivada de Core e Tur
 clientes, fornecedores, localidades, reservas, vagas, passageiros, produtos ou contratos comerciais.
 
 | Domínio | Autoridade consumida por Bike Tour |
-| --- | --- |
+| ---------------- | ----------------------------------------------------------------------------------------------------------- |
 | Core Corporativo | `cliente`, `fornecedor`, `localidade`, `identidade` |
 | Comercial | `venda`, `item_venda`, `contrato`, `condicao` |
 | Financeiro | responsabilidade financeira, cobrança, pagamento e estorno |
@@ -47,7 +47,7 @@ necessária deve manter a raiz já definida por Turismo e ampliar apenas o escop
 ## 3. Objetos existentes e reutilização
 
 | Objeto existente | Papel observado | Reuso esperado |
-| --- | --- | --- |
+| ----------------------------- | ---------------------------- | -------------------------------------------- |
 | `public.localidade` | local de operação e destino | referência de origem, destino e apoio |
 | `public.cliente` | cliente do sistema | referência de contratante e participante |
 | `public.fornecedor` | cadastro corporativo | referência de fornecedor e apoio operacional |
@@ -83,12 +83,54 @@ Os nomes conceituais de domínio neste inventário não são uma lista certifica
 de tabelas ou contratos executáveis. A conferência completa de FKs, colunas,
 migrations e interfaces permanece pendente do aceite de `BT-DOC-01`.
 
+### 3.2 Evidências consolidadas da baseline
+
+A revisão do dump oficial e do Backend confirmou que o domínio Turismo já
+possui estruturas que devem ser tratadas como autoridades existentes antes
+da implementação de Bike Tour.
+
+`produto_turistico.tipo_produto` possui a constraint `ck_tipo_produto`, que
+admite explicitamente `CICLOTURISMO`. Assim, a modalidade Bike Tour pode ser
+representada no catálogo turístico existente sem duplicação da entidade de
+produto.
+
+A cadeia estrutural existente inclui, entre outras relações verificadas:
+
+- `pacote_viagem.id_produto -> produto_turistico.id_produto`;
+- `reserva.id_pacote -> pacote_viagem.id_pacote`;
+- `passageiro.id_reserva -> reserva.id_reserva`;
+- `roteiro_viagem.id_pacote -> pacote_viagem.id_pacote`;
+- `roteiro_viagem.id_destino -> destino.id_destino`;
+- `checklist_viagem.id_pacote -> pacote_viagem.id_pacote`;
+- `fornecedor_turistico.id_fornecedor -> fornecedor.id_fornecedor`;
+- `hospedagem.id_fornecedor_turistico -> fornecedor_turistico.id_fornecedor_turistico`;
+- `transporte.id_fornecedor_turistico -> fornecedor_turistico.id_fornecedor_turistico`;
+- `ativo_imobilizado.id_categoria_ativo -> categoria_ativo.id_categoria_ativo`.
+
+O Backend também implementa autoridades do domínio Turismo para
+`ProdutoTuristico`, `PacoteViagem`, `SaidaTuristica`, `Reserva`,
+`AlocacaoVaga`, `ReservaCorrelacao` e `ReservaOperacao`.
+
+Essas evidências estabelecem reutilização obrigatória das autoridades
+existentes quando aplicáveis. Elas não autorizam inferir que
+`ativo_imobilizado` represente, isoladamente, disponibilidade operacional de
+bicicletas, nem que `colaborador` represente alocação de equipe Bike Tour.
+
+As views `vw_kpis_turismo` e `vw_rentabilidade_turismo` permanecem
+classificadas como estruturas analíticas e não como autoridades
+transacionais.
+
+Não foi identificada implementação funcional de Bike Tour além da fronteira
+de módulo existente. A definição dos atributos, agregados e relacionamentos
+específicos de Bike Tour permanece sujeita aos documentos subsequentes do
+gate.
+
 ## 4. Necessidades específicas do domínio
 
 Os itens abaixo estão na fronteira do domínio e não existem como entidade funcional certificada na baseline atual.
 
 | Necessidade específica | Escopo provável | Autoridade esperada |
-| --- | --- | --- |
+| -------------------------------- | --------------------------------------------- | ------------------- |
 | produto específico da modalidade | ciclo, distância, nível, apoio e regras | Bike Tour |
 | evento de Bike Tour | execução planejada e calendário | Bike Tour |
 | bicicleta ou equipamento | recurso alocado à inscrição | Bike Tour |
@@ -154,15 +196,15 @@ bloqueada até a aprovação do gate documental.
 ## Controle e Rastreabilidade
 
 | Campo | Informação |
-| --- | --- |
+| ------------------ | ------------------------------- |
 | Projeto | WMA Travel ERP |
 | Etapa | 2.7.1 — Inventário de Bike Tour |
 | Entregável | `BT-DOC-01` |
-| Status | EM ELABORAÇÃO |
+| Status | PRONTO PARA ACEITE |
 | Última atualização | 09/09/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 
 **WMA Travel ERP — Documento oficial e versionado do projeto.**
 **Copyright © 2026 WMA Travel Ltda. Todos os direitos reservados.**
 
-<!-- cspell:ignore kpis -->
+<!-- cspell:ignore kpis Alocacao Correlacao -->
