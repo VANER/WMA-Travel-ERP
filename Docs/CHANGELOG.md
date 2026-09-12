@@ -4,6 +4,21 @@
 
 ## [Não Publicado]
 
+### 11/09/2026 — Fechamento do gate documental Bike Tour 2.7
+
+- aprovados e aceitos BT-DOC-02 a BT-DOC-08 após auditoria semântica final;
+- aceita a ADR-020 com as decisões de domínio, transação, concorrência e schema da primeira versão;
+- concluídos os critérios de rastreabilidade, autoridades, API, RBAC, testes e delta aditivo de banco;
+- aprovados `git diff --check`, Markdownlint e CSpell para o conjunto documental Bike Tour;
+- fechado o gate documental da Etapa 2.7 e autorizada a implementação funcional de Bike Tour;
+- a autorização de implementação não certifica a Etapa 2.7 como concluída; os testes e gates executáveis pertencem à implementação.
+
+### 10/09/2026 — Aceite formal do inventário Bike Tour
+
+- registrado o aceite de Vaner para BT-DOC-01, versão 1.0 consolidada no commit `f94f421`;
+- fechado somente A1 e reconciliados os status do inventário, gate e matriz de auditoria;
+- mantidos A2–A8 pendentes e a implementação da Etapa 2.7 bloqueada.
+
 ### 09/09/2026 — Auditoria documental do gate Bike Tour
 
 - corrigida a sequência entre aprovação do plano, decisão de banco e execução dos testes futuros;
