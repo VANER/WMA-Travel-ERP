@@ -1,134 +1,131 @@
-<!-- cspell:words correlacao ciclista pedalista evento alocacao -->
-
-# Matriz de Rastreabilidade de Bike Tour
+# Contratos e Rastreabilidade de Bike Tour
 
 > **Projeto:** WMA Travel ERP
-> **Empresa:** WMA Travel Ltda.
-> **Fase:** Fase 2 — Backend, API e Integrações
-> **Etapa:** 2.7.3 — Matriz de Rastreabilidade (`BT-DOC-03`)
-> **Módulo:** Bike Tour
-> **Tipo de documento:** Documento de rastreabilidade
-> **Versão:** 1.0
-> **Data:** 09/09/2026
-> **Status:** EM ELABORAÇÃO
+> **Etapa:** 2.7 — Bike Tour (`BT-DOC-03`)
+> **Versão:** 1.1
+> **Data:** 10/09/2026
+> **Status:** APROVADO E ACEITO
 
-As definições específicas de Bike Tour neste documento são propostas em revisão, sem aceite registrado.
-A linguagem normativa descreve o comportamento pretendido e não constitui aprovação do gate.
+Este documento é uma proposta revisável, não aprovação de A3 ou autorização de código.
+O aceite de A1 permanece restrito ao inventário do commit `f94f421`.
 
-## 1. Objetivo e limite
+## 1. Convenções do contrato proposto
 
-Esta matriz liga requisitos de Bike Tour a dados, serviços, superfícies de API e evidências de teste. Os nomes de
-serviço e operação são identificadores de rastreabilidade e não constituem contratos implementados.
+Prefixo `/api/v1/biketour`. IDs positivos; nomes `{id}` se referem ao recurso pai do caminho.
+GET de lista usa offset >=0 e limite 1..100, padrão 20, ordenação por ID crescente, resposta lista de projeções.
+Toda mutação POST ou PATCH exige `chave_idempotencia` opaca.
+Alteração de recurso existente também exige `versao_esperada` inteira >=1.
+A chave de idempotência não substitui o controle otimista de versão.
+Toda mutação retorna o recurso atualizado com ID, status quando houver, versao e created_at/updated_at.
+Campos extras são rejeitados com 422; null somente para campos explicitamente opcionais.
 
-Nenhuma rota, payload, migration ou regra funcional é autorizada por este documento. O status final depende dos
-entregáveis de fronteiras, segurança, testes e schema.
+Legenda: V = BIKE_TOUR_VISUALIZAR; O = V + BIKE_TOUR_OPERAR; G = V + BIKE_TOUR_GERENCIAR.
+Todas as rotas: 401/403 para autenticação/autorização, 422 para validação, 503 para dependência indisponível,
+500 para falha inesperada. Rotas por ID ou referência podem retornar 404. Mutações podem retornar 409.
+Não criar novo envelope de erro: usar `ErrorResponse` de `Backend/app/core/schemas.py`.
+Preservar os códigos globais atuais; não prometer subcódigos de domínio que o handler ainda não implementa.
 
-## 2. Convenções
+## 2. Operações, dados e rastreabilidade
 
-- `BT-REQ`: requisito funcional de Bike Tour;
-- `atual`: estrutura já presente na baseline ou em módulos certificados;
-- `delta`: conceito que requer decisão arquitetural e schema posterior;
-- `/api/v1/biketour`: superfícies candidatas da API;
-- cada requisito deve possuir teste de autorização, validação e erro, além da evidência específica indicada.
+GETs retornam somente os campos do recurso descritos na seção 3, nunca ORM ou dados pessoais de origem.
+Cada POST tem operationId único, prefixado por `biketour_` mais o identificador da operação abaixo.
+Cada GET usa prefixo `biketour_consultar_` ou `biketour_listar_`, mais seu recurso, sem colisão.
 
-## 3. Requisitos e autoridade de dados
+| Operação | Método e caminho relativo | Entrada | Sucesso | Acesso | BT-REQ / teste |
+| --- | --- | --- | --- | --- | --- |
+| criar_produto | POST /produtos | Produto | 201 Produto | G | 001 / T01 |
+| listar_produtos | GET /produtos | Paginação | 200 lista | V | 001 / T01 |
+| alterar_produto | PATCH /produtos/{id} | Atributos ou ativo; versão/chave | 200 Produto | G | 001 / T01 |
+| criar_evento | POST /eventos | Evento | 201 Evento PLANEJADO | G | 002 / T02 |
+| listar_eventos | GET /eventos | Paginação | 200 lista | V | 002 / T02 |
+| consultar_evento | GET /eventos/{id} | ID | 200 Evento | V | 002 / T02 |
+| alterar_evento | PATCH /eventos/{id} | Período/capacidade; versão/chave | 200 Evento | G | 002 / T02 |
+| acao_evento | POST /eventos/{id}/acoes | ABRIR, INICIAR, CANCELAR ou CONCLUIR; motivo | 200 Evento | G | 002,012 / T02,T12 |
+| criar_recurso | POST /recursos | Recurso | 201 Recurso | G | 003 / T03 |
+| listar_recursos | GET /recursos | Paginação | 200 lista | V | 003 / T03 |
+| alterar_recurso | PATCH /recursos/{id} | Status; versão/chave | 200 Recurso | G | 003 / T03 |
+| consultar_disponibilidade | GET /eventos/{id}/disponibilidade | inicio, fim opcionais dentro do evento | 200 saldo e recursos elegíveis | V | 003 / T03,T15 |
+| bloquear_inscricao | POST /eventos/{id}/inscricoes | Inscrição, recursos e chave | 201 inscrição nova; 200 rebloqueio da mesma inscrição elegível | O | 004,011 / T04,T11 |
+| listar_inscricoes | GET /eventos/{id}/inscricoes | Paginação | 200 lista com origem_valida | V | 011 / T11 |
+| acao_inscricao | POST /inscricoes/{id}/acoes | CONFIRMAR, CANCELAR, PRESENCA, NO_SHOW ou CONCLUIR; motivo | 200 Inscrição | O | 005,012 / T05,T12 |
+| reacomodar_recursos | POST /inscricoes/{id}/recursos | IDs de recursos destino | 200 Inscrição e alocações | O | 003,005 / T18 |
+| consultar_correlacao | GET /inscricoes/{id}/origem | ID | 200 IDs comerciais opcionais | G | 006 / T06 |
+| definir_pontos | POST /eventos/{id}/pontos | Lista Ponto substitui rota em PLANEJADO | 200 lista Ponto | G | 007 / T07 |
+| registrar_passagem | POST /inscricoes/{id}/passagens | id_ponto, instante | 201 Passagem | O | 007 / T07 |
+| registrar_ocorrencia | POST /eventos/{id}/ocorrencias | Ocorrência | 201 Ocorrência | O | 008 / T08 |
+| alterar_ocorrencia | PATCH /ocorrencias/{id} | Status e motivo; versão/chave | 200 Ocorrência | O | 008 / T08 |
+| listar_ocorrencias | GET /eventos/{id}/ocorrencias | Paginação | 200 lista de códigos e estados | V | 008,013 / T08,T13 |
+| definir_logistica | POST /eventos/{id}/logistica | Lista Apoio | 200 plano de apoio | G | 009 / T09 |
+| definir_equipe | POST /eventos/{id}/equipe | Lista Guia | 200 equipe | G | 010 / T10 |
+| reconciliar_evento | POST /eventos/{id}/reconciliacao | cursor opcional; limite 1..100 | 200 IDs tratados, próximo cursor | O | 004,006 / T16,T19 |
+| expirar_evento | POST /eventos/{id}/expiracao | versão/chave | 200 IDs expirados | O | 004 / T16 |
+| avaliar_inscricao | POST /inscricoes/{id}/avaliacao | nota inteira 1..5 | 201 Avaliação | O | 012 / T12 |
+| relatorio_evento | GET /eventos/{id}/relatorio | ID | 200 contagens e IDs operacionais | V | 012,014 / T12,T14 |
+| listar_pendencias | GET /eventos/{id}/pendencias | Paginação/status | 200 lista | G | 006 / T06,T19 |
+| tratar_pendencia | POST /pendencias/{id}/tratamento | referencia_tratamento; motivo | 200 Pendência | G | 006 / T19 |
+| consultar_auditoria | GET /eventos/{id}/auditoria | Paginação | 200 trilha mínima | G | 014 / T14 |
 
-| ID | Requisito | Autoridade e dados relacionados |
+Definir equipe/logística substitui o conjunto atomicamente, incluindo as alocações de apoio, somente antes da abertura.
+Na inscrição, a origem comercial é lida, não recebida como payload. GET origem exige G para limitar exposição.
+Relatório não retorna nome/documento de passageiro; ocorrência não aceita texto livre.
+
+## 3. Dicionário de payloads e respostas
+
+Todo campo listado é obrigatório, salvo indicação. Campos de resposta comuns: ID, versão e timestamps.
+O payload de atualização é parcial; pelo menos um atributo alterável é obrigatório. Referências de origem são imutáveis.
+
+| Tipo | Campos de entrada | Campos de resposta além dos comuns |
 | --- | --- | --- |
-| BT-REQ-001 | Definir produto de Bike Tour | Turismo: pacote e produto base; Bike Tour: produto específico |
-| BT-REQ-002 | Definir evento de Bike Tour | Turismo: saída base; Bike Tour: evento e data operacional |
-| BT-REQ-003 | Gerenciar disponibilidade do recurso | Bike Tour: bicicleta, acesso e bloqueio; Turismo: saída base |
-| BT-REQ-004 | Bloquear e expirar recurso | Bike Tour: alocação e validade; Turismo: saída e capacidade |
-| BT-REQ-005 | Confirmar inscrição | Turismo: reserva; Bike Tour: participante e recurso |
-| BT-REQ-006 | Correlacionar venda e evento | Comercial: venda e contrato; Bike Tour: evento e inscrição |
-| BT-REQ-007 | Registrar ponto de controle | Bike Tour: ponto, ordem e status |
-| BT-REQ-008 | Registrar ocorrência | Bike Tour: evento e trilha de ocorrência |
-| BT-REQ-009 | Gerenciar logística de apoio | Bike Tour: material, apoio e transporte |
-| BT-REQ-010 | Controlar equipe e guia | Bike Tour: pessoal e papel operacional |
-| BT-REQ-011 | Definir acompanhantes e participantes | Turismo: passageiro; Bike Tour: papel na rota |
-| BT-REQ-012 | Encerrar evento e preservar histórico | Bike Tour: evento, ocorrência e relatório |
-| BT-REQ-013 | Validar autorização e privacidade | Core e Segurança: RBAC; Bike Tour: dados de participante |
-| BT-REQ-014 | Auditar transições sensíveis | Auditoria: evento e contexto |
+| Produto | id_produto; distancia_km decimal >0; desnivel_m decimal >=0; nivel enum | Mesmos atributos, ativo |
+| Evento | id_saida; inicio/fim com fuso; capacidade 1..1000 | Mesmos atributos e status |
+| Recurso | codigo 1..30; tipo; id_ativo/id_guia/id_transporte opcionais conforme tipo | Campos de origem, tipo e status; sem cadastro externo |
+| Inscrição | id_reserva; id_passageiro; papel; id_bicicleta; ids_equipamentos opcionais únicos | IDs, papel, status, expira_em, alocações por ID |
+| Ponto | ordem >0; id_localidade; distancia_km >=0 | id_ponto, id_evento e os mesmos atributos |
+| Passagem | id_ponto; instante com fuso, dentro do evento e não futuro | id_inscricao, id_ponto e instante |
+| Ocorrência | id_inscricao opcional; tipo; gravidade; motivo enumerado | IDs, tipo, gravidade, motivo e status |
+| Guia | id_recurso tipo GUIA; papel LIDER/APOIO | id_evento, recurso, papel e id_alocacao |
+| Apoio | id_recurso tipo VEICULO/EQUIPAMENTO; finalidade | id_evento, recurso, finalidade e id_alocacao |
+| Avaliação | nota inteira 1..5 | id_inscricao e nota |
+| Pendência | Criada pelo sistema, não por payload público | IDs, tipo, status e referência de tratamento opcional |
 
-## 4. Serviços e operação de API planejados
+Motivo: código obrigatório em cancelamento, no-show, descarte, conclusão excepcional e tratamento.
+Códigos: SOLICITACAO, CLIMA, RECURSO_INDISPONIVEL, ORIGEM_INVALIDA, OPERACIONAL e TRATAMENTO_CONCLUIDO.
+Ocorrência: tipo ATRASO, MECANICA, INTERRUPCAO ou OUTRA; gravidade BAIXA, MEDIA ou ALTA.
+Não usar nota livre como código de motivo. Campo `instante` de passagem não altera o horário auditado do servidor.
 
-| ID | Serviço de aplicação candidato | Superfície de API candidata |
+## 4. Erros e precedência
+
+| Situação | HTTP | Efeito |
 | --- | --- | --- |
-| BT-REQ-001 | `ProdutoBikeTourService` | `/api/v1/biketour/produtos` |
-| BT-REQ-002 | `EventoBikeTourService` | `/api/v1/biketour/eventos` |
-| BT-REQ-003 | `DisponibilidadeBikeTourService` | `/api/v1/biketour/eventos/{id}/recursos` |
-| BT-REQ-004 | `RecursoBikeTourService` | `/api/v1/biketour/eventos/{id}/bloqueios` |
-| BT-REQ-005 | `InscricaoBikeTourService` | `/api/v1/biketour/inscricoes` |
-| BT-REQ-006 | `CorrelacaoBikeTourService` | operação interna versionada |
-| BT-REQ-007 | `PontoControleService` | `/api/v1/biketour/eventos/{id}/pontos-controle` |
-| BT-REQ-008 | `OcorrenciaBikeTourService` | `/api/v1/biketour/eventos/{id}/ocorrencias` |
-| BT-REQ-009 | `LogisticaBikeTourService` | `/api/v1/biketour/eventos/{id}/logistica` |
-| BT-REQ-010 | `EquipeBikeTourService` | `/api/v1/biketour/eventos/{id}/equipes` |
-| BT-REQ-011 | `ParticipanteBikeTourService` | `/api/v1/biketour/eventos/{id}/participantes` |
-| BT-REQ-012 | `ConclusaoEventoService` | `/api/v1/biketour/eventos/{id}/encerramento` |
-| BT-REQ-013 | `SegurancaBikeTourService` | autorização e dados sensíveis |
-| BT-REQ-014 | `AuditoriaBikeTourService` | consulta administrativa restrita |
+| Sem token / permissão | 401 / 403 | Rejeitar antes de consultar resposta idempotente |
+| Entrada malformada, enum/tamanho/intervalo inválido | 422 | Sem escrita |
+| ID não encontrado dentro do acesso permitido | 404 | Sem escrita |
+| Referências existentes porém incompatíveis | 409 | Sem escrita; ex.: passageiro de outra reserva |
+| Estado, versão, capacidade, duplicidade ou chave divergente | 409 | Rollback integral |
+| Dependência ou banco indisponível | 503 | Sem sucesso parcial |
+| Falha inesperada | 500 | Rollback; envelope seguro com correlação |
 
-## 5. Evidências de teste requeridas
+Após autenticação e validação estrutural, replay precede revalidação da versão antiga, mas nunca precede autorização.
+Inscrição confirmada com chave repetida após cancelamento retorna o resultado original sem reativar estado.
+OpenAPI futuro deve documentar respostas por rota e comparar compatibilidade contra a main; não será gerado agora.
 
-| ID | Evidência mínima de teste |
-| --- | --- |
-| BT-REQ-001 | produto sem rota ou nível inválido e rejeitado |
-| BT-REQ-002 | evento fora de período ou sem equipe válida e rejeitado |
-| BT-REQ-003 | disponibilidade por recurso respeita capacidade e bloqueios |
-| BT-REQ-004 | concorrência pela última bicicleta e bloqueio expira uma vez |
-| BT-REQ-005 | inscrição sem recurso ou evento válido e rejeitada |
-| BT-REQ-006 | correlação duplicada ou inexistente e rejeitada |
-| BT-REQ-007 | ponto de controle fora de ordem e rejeitado |
-| BT-REQ-008 | ocorrência sem evento ou sem gravidade e rejeitada |
-| BT-REQ-009 | logística sem material ou suporte e rejeitada |
-| BT-REQ-010 | equipe sem papel ou guia válido e rejeitada |
-| BT-REQ-011 | participante sem dados mínimos ou sem permissão e rejeitado |
-| BT-REQ-012 | encerramento sem evento ativo e rejeitado |
-| BT-REQ-013 | acesso sem permissão e negado |
-| BT-REQ-014 | alteração sensível gera evento e trilha auditável |
+## 5. Implementação rastreável futura
 
-## 6. Rastreabilidade transversal
+Produto/evento → caso de uso de configuração; recurso/apoio → alocação; inscrição → operação turística especializada;
+passagem/ocorrência → acompanhamento; pendência → reconciliação. Repositories escrevem somente tabelas de A8.
+Portas de A4 resolvem referências. T01–T25 de A7 comprovam regras, contratos e isolamento.
 
-| Controle | Requisitos atendidos | Documento responsável |
-| --- | --- | --- |
-| fronteiras de domínio | 001, 003, 005, 006, 011, 013 | `BT-DOC-04` |
-| concorrência e transação | 003, 004, 005, 009, 010, 012 | `BT-DOC-05` |
-| autorização e privacidade | 005, 011, 013, 014 | `BT-DOC-06` |
-| testes e regressão | 001 a 014 | `BT-DOC-07` |
-| persistência e schema | 001 a 014 | `BT-DOC-08` |
-
-## 7. Critério de cobertura
-
-Um requisito somente pode ser considerado implementado quando:
-
-1. autoridade e regra estiverem aprovadas no documento responsável;
-2. a representação de dados for compatível com a decisão de schema;
-3. o serviço não escrever em domínio privado de outro módulo;
-4. o contrato OpenAPI versionado tiver sido definido, se houver endpoint HTTP;
-5. testes de unidade, integração e autorização forem aplicáveis;
-6. evidências de regressão e migrations lineares forem preservadas.
-
-## 8. Conclusão
-
-A matriz de rastreabilidade estabelece a ligação essencial entre requisito, dado, serviço, API e teste. Ela fornece a
-base documental para o gate da etapa e permanece condicionada à aprovação dos entregáveis de fronteiras,
-segurança, testes e schema.
-
----
-
-## Controle e Rastreabilidade
+## Controle e aceite
 
 | Campo | Informação |
 | --- | --- |
-| Projeto | WMA Travel ERP |
-| Etapa | 2.7.3 — Matriz de Rastreabilidade de Bike Tour |
-| Entregável | `BT-DOC-03` |
-| Status | EM ELABORAÇÃO |
-| Última atualização | 09/09/2026 |
-| Repositório | `VANER/WMA-Travel-ERP` |
+| Entregável | BT-DOC-03, versão 1.1 |
+| Última atualização | 10/09/2026 |
+| Aceite | Vaner, 11/09/2026; auditoria semântica e gates documentais aprovados |
+| Implementação | Documento aceito; autorização global controlada pelo gate documental |
 
-**WMA Travel ERP — Documento oficial e versionado do projeto.**
-**Copyright © 2026 WMA Travel Ltda. Todos os direitos reservados.**
+<!-- cspell:ignore inscricao inscricoes ocorrencia ocorrencias logistica alocacao alocacoes correlacao -->
+<!-- cspell:ignore reacomodacao reconciliacao idempotencia versao btree gist payloads fixtures operationId -->
 
-<!-- cspell:ignore inscricoes Ocorrencia ocorrencias Logistica logistica -->
+<!-- cspell:ignore PRESENCA desnivel LIDER INDISPONIVEL CONCLUIDO INTERRUPCAO -->
+<!-- cspell:ignore rebloqueio -->

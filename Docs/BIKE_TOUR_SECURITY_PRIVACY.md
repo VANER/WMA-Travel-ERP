@@ -1,79 +1,84 @@
-<!-- cspell:words correlacao alocacao observabilidade -->
-
 # Segurança e Privacidade de Bike Tour
 
 > **Projeto:** WMA Travel ERP
-> **Empresa:** WMA Travel Ltda.
-> **Fase:** Fase 2 — Backend, API e Integrações
-> **Etapa:** 2.7.6 — Segurança e Privacidade (`BT-DOC-06`)
-> **Módulo:** Bike Tour
-> **Tipo de documento:** Documento de segurança e privacidade
-> **Versão:** 1.0
-> **Data:** 09/09/2026
-> **Status:** EM ELABORAÇÃO
+> **Etapa:** 2.7 — Bike Tour (`BT-DOC-06`)
+> **Tipo:** Documento técnico e funcional
+> **Versão:** 1.1
+> **Data:** 10/09/2026
+> **Status:** APROVADO E ACEITO
 
-As definições específicas de Bike Tour neste documento são propostas em revisão, sem aceite registrado.
-A linguagem normativa descreve o comportamento pretendido e não constitui aprovação do gate.
+A6 foi aprovado e aceito em 11/09/2026; a autorização global de implementação permanece controlada pelo gate documental.
+A1 permanece aceito no commit `f94f421`. Vaner confirmou em 10/09/2026 a reutilização de reserva e passageiro,
+com um evento por saída. As demais escolhas abaixo são propostas concretas para revisão do responsável.
 
-## 1. Objetivo
+## 1. Autorização por operação
 
-Definir autorização, minimização, retenção e auditoria aplicáveis ao domínio de Bike Tour. Permanecem vigentes
-`Docs/SECURITY.md`, `Docs/GOVERNANCE.md` e a autenticação central da API.
+Token e contexto RBAC usam a infraestrutura existente. ADMIN recebe explicitamente as permissões na migration;
+não haverá bypass implícito. Todo endpoint exige VISUALIZAR e, para mutação, a permissão adicional indicada.
 
-## 2. Permissões
-
-| Permissão | Alcance |
+| Permissão | Operações |
 | --- | --- |
-| `BIKE_TOUR_VISUALIZAR` | consultar eventos, recursos e disponibilidade |
-| `BIKE_TOUR_OPERAR` | confirmar inscrições, registrar ocorrências e atualizar ponto de controle |
-| `BIKE_TOUR_GERENCIAR` | configurar evento, recurso, equipe e logística |
+| BIKE_TOUR_VISUALIZAR | Listar eventos/recursos, disponibilidade, inscrições com IDs e relatórios agregados |
+| BIKE_TOUR_OPERAR | Bloquear, confirmar, cancelar inscrição, presença, passagens, ocorrências, reconciliação e avaliação |
+| BIKE_TOUR_GERENCIAR | Produto, evento, rota, recurso, equipe, apoio, abertura/início/encerramento e pendências externas |
 
-A visualização não implica acesso irrestrito a documentos, telefones, CPFs ou e-mails do participante.
+Não existe endpoint de autoatendimento de participante nesta etapa. Usuário sem vínculo RBAC não ganha acesso
+por ser passageiro. Gerenciar não concede operar implicitamente; papéis combinam permissões de forma explícita.
+Leitura de auditoria e pendências exige VISUALIZAR e GERENCIAR. Operar sem gerenciar não cancela evento inteiro.
+Escopo desta versão é corporativo, sem isolamento por filial presumido; eventual restrição futura exige novo contrato.
 
-## 3. Dados pessoais
+## 2. Dados mínimos e respostas
 
-- coletar somente dados necessários à operação e à obrigação aplicável;
-- nunca registrar dados sensíveis em logs, métricas, erros, correlação ou idempotência;
-- separar consulta operacional de acesso administrativo;
-- mascarar documento e CPF quando o valor integral não for necessário;
-- preservar correlação por identificadores internos;
-- aplicar retenção por finalidade antes de anonimizar ou excluir;
-- auditar acesso excepcional e toda mutação do participante.
+Bike Tour guarda IDs de passageiro/reserva e papel operacional, não nome, CPF, telefone, nascimento ou documento.
+Listagens expõem IDs e estados. Dados nominativos continuam sob contrato autorizado do domínio proprietário;
+nenhuma rota desta proposta precisa devolvê-los. Não coletar saúde, diagnóstico ou localização contínua.
 
-## 4. Auditoria e controles
+Ocorrência usa somente tipo, gravidade e motivo enumerados; sem texto livre ou dados clínicos.
+Campos pessoais extras são rejeitados por validação. Isso evita copiar PII para auditoria ou resposta idempotente.
+Avaliação usa somente nota de 1 a 5; relatório usa contagens e identificadores necessários.
 
-Toda rota ou operação de Bike Tour deve exigir token e permissão explicitamente. Eventos de mutação, alocação,
-expiração, ocorrência e encerramento devem ser gravados em auditoria com identificador do operador e da
-correlação.
+## 3. Retenção proposta para aceite operacional
 
-## 5. Riscos e tratamento
+Os prazos são escolhas operacionais propostas, não declaração de prazo legal obrigatório.
+Não alteram retenção de Turismo, Comercial, Financeiro ou registros históricos certificados.
 
-| Risco | Controle obrigatório |
-| --- | --- |
-| acesso excessivo a dados de participante | menor privilégio e resposta mínima |
-| vazamento em observabilidade | proibição de PII em logs e métricas |
-| inscrição duplicada | chave idempotente única |
-| elevação por rota | RBAC no servidor |
-| alteração não rastreada | trigger e identidade do ator |
-| recurso indevido atribuído | validação por evento e disponibilidade |
+| Categoria Bike Tour | Prazo proposto | Tratamento |
+| --- | --- | --- |
+| Resposta idempotente mínima | Pelo menos 90 dias após a operação | Compactar para hash, IDs, status HTTP e resultado mínimo reproduzível |
+| Chave/hash de operação e vínculos operacionais | 365 dias após encerramento/cancelamento | Revisão por gestor; retenção adicional exige motivo e nova data |
+| Trilha técnica nova do módulo | 365 dias | Revisão conforme política corporativa; sem apagar auditoria compartilhada |
 
-## 6. Conclusão
+Não há apagamento automático. A tarefa administrativa deve selecionar apenas o escopo Bike Tour e registrar
+contagem, período, ator e motivo. Pendência de tratamento ou preservação expressa suspende eliminação.
+Antes de excluir identificadores, anonimizar referências elegíveis ou preservar a integridade e registrar impedimento.
+Não encurtar unilateralmente prazos corporativos existentes. Esses prazos exigem aceite de A6 pelo responsável.
 
-O `BT-DOC-06` permanece em elaboração. Os requisitos de segurança e privacidade devem ser aprovados antes de
-qualquer implementação funcional da etapa 2.7.
+## 4. Idempotência, auditoria e segredos
 
----
+Chaves são opacas, de 1 a 100 caracteres, nunca nome/documento do passageiro. Persistir hash da chave e do payload
+normalizado; não armazenar tokens de autenticação. Replay exige autenticação e autorização atuais.
+Resposta reproduzível inclui somente IDs, versões, estados e horários, sem nota livre ou dados nominativos.
 
-## Controle e Rastreabilidade
+Toda transição grava ator, operação, recurso, instante UTC, versão anterior/nova e correlation_id na mesma transação.
+Triggers normativos de auditoria e updated_at devem ser instanciados, sem duplicar eventos funcionais por replay.
+Falha na gravação da auditoria aborta a mutação. Erros e logs não expõem payload, segredo ou mensagem SQL.
+
+## 5. Aceite verificável
+
+BT-DOC-07 testa usuário sem token, sem visualizar, visualizar sem operar, operar sem gerenciar e ADMIN explícito.
+Verifica também replay após revogação, respostas sem PII, rejeição de texto livre em ocorrência e falha de auditoria.
+Definições de retenção e escopo de acesso devem ser aceitas antes da implementação, sem alterar A1.
+
+## Controle e aceite
 
 | Campo | Informação |
 | --- | --- |
-| Projeto | WMA Travel ERP |
-| Etapa | 2.7.6 — Segurança e Privacidade de Bike Tour |
-| Entregável | `BT-DOC-06` |
-| Status | EM ELABORAÇÃO |
-| Última atualização | 09/09/2026 |
-| Repositório | `VANER/WMA-Travel-ERP` |
+| Entregável | BT-DOC-06, versão 1.1 |
+| Última atualização | 10/09/2026 |
+| Responsável pelo aceite | Vaner |
+| Evidência de aceite | Aceite formal registrado em 11/09/2026 após auditoria semântica e gates documentais aprovados |
+| Implementação | Documento aceito; autorização global controlada pelo gate documental |
 
-**WMA Travel ERP — Documento oficial e versionado do projeto.**
-**Copyright © 2026 WMA Travel Ltda. Todos os direitos reservados.**
+<!-- cspell:ignore CONCLUIDO EXECUCAO MANUTENCAO DISPONIVEL inscricao inscricoes ocorrencia ocorrencias -->
+<!-- cspell:ignore logistica alocacao alocacoes correlacao reacomodacao reconciliacao permissao -->
+<!-- cspell:ignore idempotencia versao obrigatorio disponivel proposta bike btree gist tstzrange offset -->

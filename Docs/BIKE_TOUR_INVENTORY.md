@@ -8,10 +8,11 @@
 > **Tipo de documento:** Documento técnico
 > **Versão:** 1.0
 > **Data:** 09/09/2026
-> **Status:** PRONTO PARA ACEITE
+> **Status:** APROVADO E ACEITO
 
-As definições específicas de Bike Tour neste documento são propostas em revisão, sem aceite registrado.
-A linguagem normativa descreve o comportamento pretendido e não constitui aprovação do gate.
+O inventário consolidado no commit `f94f421` foi aceito formalmente por Vaner em 10/09/2026.
+O aceite abrange o levantamento e suas lacunas; propostas de solução permanecem sujeitas a A2–A8.
+Este aceite não aprova o gate completo nem autoriza implementação funcional.
 
 ## 1. Objetivo e limite
 
@@ -80,8 +81,8 @@ bicicleta disponível, colaborador representa equipe alocada ou que views
 analíticas sejam autoridade transacional.
 
 Os nomes conceituais de domínio neste inventário não são uma lista certificada
-de tabelas ou contratos executáveis. A conferência completa de FKs, colunas,
-migrations e interfaces permanece pendente do aceite de `BT-DOC-01`.
+de tabelas ou contratos executáveis. As evidências consolidadas do levantamento estão na seção 3.2.
+O aceite desse levantamento está registrado na seção 9 e não aprova os contratos e decisões de A2–A8.
 
 ### 3.2 Evidências consolidadas da baseline
 
@@ -193,6 +194,23 @@ bloqueada até a aprovação do gate documental.
 
 ---
 
+## 9. Aceite formal
+
+| Campo | Evidência |
+| --- | --- |
+| Responsável | Vaner, responsável pelo projeto |
+| Data do aceite | 10/09/2026 |
+| Documento e versão | BT-DOC-01 — Inventário de Bike Tour, versão 1.0 |
+| Commit aceito | `f94f421d19bc118de0c645c917d9de4b88cb527c` |
+| Origem | Manifestação explícita do responsável nesta revisão |
+| Resultado | A1 fechado; BT-DOC-01 aprovado e aceito |
+
+> Aprovo e aceito formalmente o BT-DOC-01 — Inventário de Bike Tour,
+> versão consolidada no commit f94f421.
+
+O registro atualiza apenas status e rastreabilidade. O conteúdo técnico aceito permanece referenciado ao commit
+acima. As decisões da seção 7 seguem para os entregáveis subsequentes; A2–A8 continuam pendentes.
+
 ## Controle e Rastreabilidade
 
 | Campo | Informação |
@@ -200,8 +218,8 @@ bloqueada até a aprovação do gate documental.
 | Projeto | WMA Travel ERP |
 | Etapa | 2.7.1 — Inventário de Bike Tour |
 | Entregável | `BT-DOC-01` |
-| Status | PRONTO PARA ACEITE |
-| Última atualização | 09/09/2026 |
+| Status | APROVADO E ACEITO |
+| Última atualização | 10/09/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 
 **WMA Travel ERP — Documento oficial e versionado do projeto.**

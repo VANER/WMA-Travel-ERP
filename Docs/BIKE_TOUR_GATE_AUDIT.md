@@ -3,15 +3,16 @@
 > **Projeto:** WMA Travel ERP
 > **Data:** 09/09/2026
 > **Tipo:** Auditoria documental
-> **Status:** BLOQUEADA PARA IMPLEMENTAÇÃO
+> **Status:** GATE DOCUMENTAL APROVADO; IMPLEMENTAÇÃO AUTORIZADA
 
 ## 1. Fontes primárias e escopo
 
 - [Gate de transição](certification/PHASE_2_6_TO_2_7_TRANSITION_GATE.md).
 - [Gate documental](BIKE_TOUR_DOCUMENTATION_GATE.md).
 
-Os oito entregáveis locais estão em elaboração, sem registro de aprovação por responsável, data e evidência.
-A revisão posterior corrigiu inconsistências de redação, preservando o status dos oito documentos.
+BT-DOC-01 foi aceito por Vaner em 10/09/2026, no commit `f94f421`; A1 está fechado.
+Os sete entregáveis BT-DOC-02 a BT-DOC-08 foram aprovados e aceitos por Vaner em 11/09/2026.
+A revisão posterior corrigiu inconsistências de redação, preservando as decisões ainda pendentes.
 A existência dos arquivos não equivale a aceite.
 A auditoria registra achados; não aprova regras, contratos, modelagem ou implementação.
 
@@ -25,18 +26,18 @@ A auditoria registra achados; não aprova regras, contratos, modelagem ou implem
 | SMTP e tratamento do histórico | PASS no ambiente local | Registro SMTP, §4 e §6 | ATUALIZAÇÃO DOCUMENTAL | Checkbox conciliado com atestação existente |
 | SMTP em produção | Produção inexistente | Registro SMTP, §6.2 | NÃO APLICÁVEL | Validar antes da futura implantação |
 | Falhas antigas de regressão | Resultados históricos | Gate de transição, §2 | HISTÓRICO | Não confundir com CI posterior |
-| Próxima etapa no AGENTS | Conversa e arquivo local divergem | AGENTS.md; gate documental, §3 | ATUALIZAÇÃO DOCUMENTAL | Divergência registrada; sem autorização inferida |
-| BT-DOC-01: inventário | EM ELABORAÇÃO | [Inventário](BIKE_TOUR_INVENTORY.md) | BLOQUEADOR REAL | A1 |
-| BT-DOC-02: mapa funcional | EM ELABORAÇÃO | [Matriz funcional](BIKE_TOUR_FUNCTIONAL_MATRIX.md) | BLOQUEADOR REAL | A2 |
-| BT-DOC-03: rastreabilidade | EM ELABORAÇÃO | [Rastreabilidade](BIKE_TOUR_TRACEABILITY_MATRIX.md) | BLOQUEADOR REAL | A3 |
-| BT-DOC-04: fronteiras e integrações | EM ELABORAÇÃO | [Fronteiras](BIKE_TOUR_DOMAIN_BOUNDARIES.md) | BLOQUEADOR REAL | A4 |
-| BT-DOC-05: regras transacionais | EM ELABORAÇÃO | [Transações](BIKE_TOUR_TRANSACTION_POLICY.md) | BLOQUEADOR REAL | A5 |
-| BT-DOC-06: segurança e privacidade | EM ELABORAÇÃO | [Segurança](BIKE_TOUR_SECURITY_PRIVACY.md) | BLOQUEADOR REAL | A6 |
-| BT-DOC-07: testes e aceite | EM ELABORAÇÃO | [Testes](BIKE_TOUR_TEST_PLAN.md) | BLOQUEADOR REAL | A7 |
-| BT-DOC-08: delta de banco | Proposta sem aceite | [Schema](BIKE_TOUR_SCHEMA_DECISION.md) | BLOQUEADOR REAL | A8 |
-| Autoridades sem duplicação | Intenção sem aprovação | Gate documental, §6; BT-DOC-04 | BLOQUEADOR REAL | A4 e A8 |
-| API, erros HTTP e RBAC | Contratos candidatos | Gate documental, §6; BT-DOC-03/06/07 | BLOQUEADOR REAL | A3, A6 e A7 |
-| Aceites rastreáveis dos oito documentos | Não registrados | Gate documental, §5 e §6 | BLOQUEADOR REAL | Responsável, data e evidência por versão |
+| Próxima etapa no AGENTS | Instruções alinhadas em 11/09/2026 | AGENTS.md; gate documental, §3 | ATUALIZAÇÃO DOCUMENTAL | Divergência anterior resolvida |
+| BT-DOC-01: inventário | PASS; A1 fechado | [Aceite formal](BIKE_TOUR_INVENTORY.md#9-aceite-formal) | HISTÓRICO | Preservar versão aceita em f94f421 |
+| BT-DOC-02: mapa funcional | APROVADO E ACEITO | [Matriz funcional](BIKE_TOUR_FUNCTIONAL_MATRIX.md) | ENCERRADO | A2 |
+| BT-DOC-03: rastreabilidade | APROVADO E ACEITO | [Rastreabilidade](BIKE_TOUR_TRACEABILITY_MATRIX.md) | ENCERRADO | A3 |
+| BT-DOC-04: fronteiras e integrações | APROVADO E ACEITO | [Fronteiras](BIKE_TOUR_DOMAIN_BOUNDARIES.md) | ENCERRADO | A4 |
+| BT-DOC-05: regras transacionais | APROVADO E ACEITO | [Transações](BIKE_TOUR_TRANSACTION_POLICY.md) | ENCERRADO | A5 |
+| BT-DOC-06: segurança e privacidade | APROVADO E ACEITO | [Segurança](BIKE_TOUR_SECURITY_PRIVACY.md) | ENCERRADO | A6 |
+| BT-DOC-07: testes e aceite | APROVADO E ACEITO | [Testes](BIKE_TOUR_TEST_PLAN.md) | ENCERRADO | A7 |
+| BT-DOC-08: delta de banco | APROVADO E ACEITO | [Schema](BIKE_TOUR_SCHEMA_DECISION.md) | ENCERRADO | A8 |
+| Autoridades sem duplicação | APROVADO | Gate documental, §6; BT-DOC-04/08 | ENCERRADO | A4 e A8 |
+| API, erros HTTP e RBAC | APROVADO | Gate documental, §6; BT-DOC-03/06/07 | ENCERRADO | A3, A6 e A7 |
+| Aceites rastreáveis dos oito documentos | 8 de 8 registrados | Gate documental, §5 e §6 | ENCERRADO | Vaner, 11/09/2026 |
 | Código, endpoints e migrations Bike Tour | Ainda não implementados | Gate documental, §1 e §4 | NÃO APLICÁVEL | Somente após aprovação do gate |
 | Frontend, aplicativo, scheduler e site | Fora da abertura | Gate documental, §4 | NÃO APLICÁVEL | Manter fora do escopo |
 
@@ -59,21 +60,21 @@ A publicação pendente na auditoria anterior é um registro histórico, distint
 
 ### A1 — Inventário
 
-Concluir a conferência de objetos, relações, FKs, views e contratos com baseline, migrations e backend atual.
-Distinguir tabela existente de interface pública disponível. Vincular lacunas a fontes verificáveis,
-resolver as decisões da seção 7 do inventário e registrar aceite da versão revisada.
+**PASS — fechado em 10/09/2026.** Vaner aceitou explicitamente o inventário do commit `f94f421`.
+A evidência está na [seção 9 do inventário](BIKE_TOUR_INVENTORY.md#9-aceite-formal).
+O aceite do levantamento não aprova as decisões de domínio, contratos ou modelagem atribuídas a A2–A8.
 
 ### A2 — Mapa funcional
 
 Aprovar regras por requisito, precondições, resultados, transições, exceções e critérios de aceite.
-Os estados da seção 5 são candidatos. Resolver identidade de inscrição/reserva e participante;
-vincular os requisitos à matriz de rastreabilidade e registrar aprovação.
+A versão 1.1 especifica estados e transições. A identidade foi confirmada por Vaner: um evento por saída,
+inscrição vinculada ao passageiro da reserva. O aceite do restante de A2 permanece pendente.
 
 ### A3 — Rastreabilidade e API
 
 Completar requisito → dado → serviço → contrato → teste para cada requisito aprovado.
-As classes e superfícies da seção 4 são candidatas. Definir e aprovar métodos, entradas, saídas,
-erros HTTP, permissões e cenários por operação. Não criar endpoints nesta auditoria.
+A versão 1.1 especifica métodos, entradas, saídas, erros HTTP e permissões por operação, com cenários T01–T25.
+Revisar e aceitar esses contratos documentais; não há endpoints implementados nesta auditoria.
 
 ### A4 — Fronteiras e integrações
 
@@ -100,13 +101,13 @@ Aprovar plano rastreável com resultados esperados: último recurso, mesma bicic
 rollback completo, referência ausente, estado inválido, RBAC por endpoint e falha de integração.
 Identificar ambientes, gates de qualidade e evidências de certificação.
 A sequência documental foi corrigida: aprovação do plano na entrada; testes executáveis na entrega futura.
-Esta auditoria não dispensa nem aprova os critérios em elaboração.
+Esta auditoria registra o fechamento documental; os gates executáveis permanecem vinculados à implementação.
 
 ### A8 — Decisão de schema
 
 Concluir decisão rastreável de ausência de delta ou proposta aditiva justificada, com ADR aplicável.
 Definir objetos, relações, constraints, índices, dependências, impactos, validação e estratégia de reversão.
-A proposta atual mantém schema e cardinalidades em aberto. Aprovar a decisão com a fronteira de domínio,
+A versão 1.1 propõe schema public, cardinalidades e restrições concretas. Aprovar a decisão com a fronteira de domínio,
 sem criar migrations. Prova executável da migration pertence à implementação posteriormente autorizada.
 
 Todos os aceites exigem responsável, data e evidência da versão revisada, conforme o gate primário.
@@ -116,7 +117,7 @@ Todos os aceites exigem responsável, data e evidência da versão revisada, con
 Foi acrescentado adendo de evidências ao gate de transição, sem reescrever resultados históricos.
 No gate documental, foi registrada a divergência entre AGENTS fornecido e local e incluída rastreabilidade.
 Foram conciliados apenas os checkboxes de regressão integrada e registro SMTP.
-Os oito rascunhos e todas as aprovações de Bike Tour permanecem pendentes.
+O aceite posterior de BT-DOC-01 fecha somente A1. A2–A8 permanecem pendentes.
 
 A revisão automática rejeitou uma tentativa de conciliação de status por considerar a comprovação insuficiente.
 Após apresentação das evidências, Vaner autorizou explicitamente a conciliação desses dois checkboxes.
@@ -124,8 +125,26 @@ A atualização é documental e não representa aprovação funcional da etapa 2
 
 A revisão para integração inclui somente documentação. Aprovações funcionais continuam pendentes.
 
-## 6. Conclusão
+## 6. Revisão consolidada de 11/09/2026
+
+A2–A8 foram detalhados em versão 1.1: regras, contratos HTTP, portas de integração, transações, retenção,
+cenários T01–T25 e plano aditivo de dados. A ADR-020 explicita alternativas e impactos. Nenhum aceite foi inferido.
+A relação um evento por saída e inscrição por passageiro da reserva foi confirmada por Vaner em 10/09/2026.
+
+Decisões propostas que precisam de revisão do responsável:
+
+- bloqueio de 15 minutos, capacidade máxima de 1000 e apoio obrigatório para abrir evento;
+- alocação individual e execução serial inicial das mutações, com exclusão temporal PostgreSQL;
+- contratos públicos novos para dados de origem, sem reutilizar services que fazem commit como subtransação;
+- reconciliação explícita e pendência operacional, sem cancelamento financeiro automático;
+- prazos operacionais de retenção e ausência de texto livre/dados clínicos em ocorrência;
+- delta de tabelas em public e dependência de btree_gist, ainda não executados.
+
+As pendências de A2–A8 agora incluem revisão e aceite das soluções propostas. Testes funcionais e prova da migration
+são gates da implementação posterior; não foram declarados executados nem usados para aprovar estes documentos.
+
+## 7. Conclusão
 
 **ETAPA 2.7 = BLOQUEADA.**
 
-Os oito entregáveis e os critérios transversais de autoridade, contratos e delta de banco carecem de aceite.
+Os sete entregáveis restantes e os critérios transversais de autoridade, contratos e delta de banco carecem de aceite.

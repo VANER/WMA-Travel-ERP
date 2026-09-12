@@ -1,148 +1,118 @@
-<!-- cspell:words alocacao correlacao ciclismo pedalista ponto controle -->
-
 # Matriz Funcional de Bike Tour
 
 > **Projeto:** WMA Travel ERP
-> **Empresa:** WMA Travel Ltda.
-> **Fase:** Fase 2 — Backend, API e Integrações
-> **Etapa:** 2.7.2 — Matriz Funcional de Bike Tour (`BT-DOC-02`)
-> **Módulo:** Bike Tour
-> **Tipo de documento:** Documento funcional
-> **Versão:** 1.0
-> **Data:** 09/09/2026
-> **Status:** EM ELABORAÇÃO
+> **Etapa:** 2.7 — Bike Tour (`BT-DOC-02`)
+> **Tipo:** Documento técnico e funcional
+> **Versão:** 1.1
+> **Data:** 10/09/2026
+> **Status:** APROVADO E ACEITO
 
-As definições específicas de Bike Tour neste documento são propostas em revisão, sem aceite registrado.
-A linguagem normativa descreve o comportamento pretendido e não constitui aprovação do gate.
+A2 foi aprovado e aceito em 11/09/2026; a autorização global de implementação permanece controlada pelo gate documental.
+A1 permanece aceito no commit `f94f421`. Vaner confirmou em 10/09/2026 a reutilização de reserva e passageiro,
+com um evento por saída. As demais escolhas abaixo são propostas concretas para revisão do responsável.
 
-## 1. Objetivo e limite
+## 1. Identidades e alcance
 
-Este documento define as capacidades funcionais e os invariantes do domínio de Bike Tour antes da implementação.
-Ele relaciona requisitos ao inventário da etapa 2.7 sem autorizar schema, migration, endpoint ou código de
-produção.
+- Evento: especialização de uma `saida_turistica`; uma saída tem zero ou um evento Bike Tour.
+- Produto: atributos da modalidade ligados ao `produto_turistico` do tipo `CICLOTURISMO`; sem catálogo paralelo.
+- Rota: distância, nível e sequência de pontos vinculados ao evento; roteiro turístico geral continua em Turismo.
+- Inscrição: vínculo operacional de um `passageiro` de uma `reserva` da mesma saída. Não consome nova vaga turística.
+- Cliente contratante não é necessariamente passageiro. Não se cria cliente para representar participante.
+- Cada participante, inclusive acompanhante que pedala, precisa de passageiro próprio na reserva.
+- Uma bicicleta individual por inscrição; acessórios adicionais são recursos individuais opcionais.
+- Guias e veículos são recursos de apoio do evento; não são participantes nem ocupam vaga de inscrição.
+- Bicicleta própria pode ser cadastrada como recurso operacional sem patrimônio obrigatório, sem copiar proprietário.
 
-A etapa reutiliza a autoridade de Core, Comercial, Financeiro e Turismo. O domínio próprio refere-se a recursos e
-regras da modalidade: bicicletas, equipes, pontos de controle e logística específica.
+A existência de cadastro não comprova disponibilidade. Toda alocação usa intervalo com início inclusivo e fim exclusivo.
+Não há checkout público, inscrição autônoma, frontend, aplicativo, integração com site ou scheduler nesta etapa.
+O participante é o beneficiário; o operador autenticado registra presença e ocorrências por ele.
 
-## 2. Atores e responsabilidades
+## 2. Regras e resultados por requisito
 
-| Ator | Responsabilidade | Limite de autoridade |
+| ID BT-REQ | Entrada e precondição | Resultado e aceite |
 | --- | --- | --- |
-| Administrador de Bike Tour | configurar produto, rota e parâmetros operacionais | não altera fatos monetários |
-| Operação | preparar evento, pontos de controle e checklist específico | não altera contrato comercial |
-| Equipe de apoio | atender rota, suporte e manutenção | não confirma venda nem pagamento |
-| Participante | confirmar presença, acompanhar percurso e registrar ocorrências | acesso restrito ao próprio contexto |
-| Comercial | formalizar venda, item e contrato | não controla capacidade da rota |
-| Financeiro | tratar pagamento, cobrança e estorno | não altera disponibilidade do evento |
-| Turismo | manter pacote e saída base | não redefine modalidade de Bike Tour |
-| Auditor | consultar eventos e trilhas | sem mutação operacional |
+| 001 | Produto turístico ativo, tipo CICLOTURISMO; distância positiva e nível válido | Especialização única; produto ausente 404, duplicado 409 |
+| 002 | Saída existente; período do evento dentro das datas da saída; capacidade entre 1 e 1000 | Evento PLANEJADO único por saída; segunda criação 409 |
+| 003 | Recurso ATIVO; intervalo válido | Disponibilidade calculada por sobreposição em todos os eventos; não garante bloqueio |
+| 004 | Evento ABERTO; reserva elegível e passageiro vinculado; bicicleta livre | Inscrição PENDENTE e bloqueio por 15 minutos, limitado ao início do evento |
+| 005 | Bloqueio vigente; reserva turística CONFIRMADA | Inscrição CONFIRMADA e mesma alocação confirmada, sem vaga adicional em Turismo |
+| 006 | Inscrição com origem turística | Correlação consultada pela reserva; venda e contrato opcionais, nunca inseridos em Bike Tour |
+| 007 | Evento em execução; ponto pertencente à rota; inscrição presente | Passagem única; ordem crescente; repetição não duplica |
+| 008 | Evento existente; tipo e gravidade válidos | Ocorrência auditada; inexistência rejeitada, nunca registro parcialmente válido |
+| 009 | Evento planejado ou aberto; veículo/equipamento ATIVO e livre | Plano de apoio com alocações exclusivas; ausência ou conflito impede abertura |
+| 010 | Guia válido e recurso livre; papel LIDER ou APOIO | Equipe vinculada; um líder obrigatório para abrir; sobreposição entre eventos rejeitada |
+| 011 | Passageiro da reserva e mesma saída; papel PARTICIPANTE ou ACOMPANHANTE | Uma inscrição por evento e passageiro; sem duplicar pessoa ou dados pessoais |
+| 012 | Evento em execução, inscrições com resultado final e ocorrências graves tratadas | Evento CONCLUIDO; recursos liberados, histórico preservado |
+| 013 | Token válido e permissão por ação | 401 sem autenticação; 403 sem permissão; resposta com identificadores mínimos |
+| 014 | Qualquer mutação aceita | Ator, instante, correlação, versão e transição auditados na mesma transação |
 
-## 3. Fluxo funcional de referência
+Nível: INICIANTE, INTERMEDIARIO ou AVANCADO. Distância e desnível usam decimal; distância maior que zero,
+desnível não negativo. Período com fuso obrigatório, convertido para UTC. Capacidade do evento não excede a da saída.
+Abertura exige rota com pelo menos dois pontos, líder e veículo de apoio alocados; ausência produz 409.
+Confirmar inscrição não registra presença: presença é ato operacional distinto, após início do evento.
 
-1. Um produto ou pacote de Bike Tour é definido a partir de um pacote turístico base e de uma rota específica.
-2. Um evento materializa data, capacidade, nível, apoio e pontos de controle.
-3. O participante se inscreve ou é vinculado a uma reserva existente do pacote e a um recurso de bicicleta.
-4. A operação valida disponibilidade de recurso, equipe e ponto de controle por intervalo.
-5. A confirmação de inscrição aloca o recurso e registra a presença do participante.
-6. O percurso e os pontos de controle registram avanço, atraso, interrupção ou ocorrência.
-7. A logística de apoio registra suporte, manutenção e recursos complementares.
-8. O encerramento da rota gera relatórios de execução, ocorrências e evento final.
-9. O cancelamento ou a expiração de bloqueio libera o recurso e preserva histórico.
-10. O pós-evento grava avaliação e conclusões sem duplicar fato financeiro ou comercial.
+## 3. Estados e transições
 
-## 4. Matriz de capacidades
-
-| Capacidade | Entrada principal | Resultado funcional | Situação |
-| --- | --- | --- | --- |
-| definir produto de Bike Tour | rota, nível, duração e apoio | produto específico da modalidade | lacuna |
-| definir evento de Bike Tour | pacote base, data, capacidade e equipe | evento operacional identificável | lacuna |
-| gerir recurso de bicicleta | tipo, capacidade e disponibilidade | alocação por recurso | lacuna |
-| gerir equipe e guia | perfil, papel e escala | alocação operacional | lacuna |
-| gerir ponto de controle | ordem, localização e critério | acompanhamento do percurso | lacuna |
-| controlar presença e inscrição | participante, evento e recurso | inscrição rastreável | lacuna |
-| registrar ocorrência | evento, tipo e gravidade | histórico operacional | lacuna |
-| gerir logística de apoio | material, transporte e apoio | plano operacional coerente | lacuna |
-| consultar disponibilidade | evento e recurso | saldo e bloqueios explícitos | lacuna |
-| bloquear recurso | evento, recurso e validade | alocação temporária idempotente | lacuna |
-| confirmar inscrição | evento, participante e recurso | participação confirmada | lacuna |
-| concluir evento | status final, ocorrências e fechamento | evento encerrado e auditável | lacuna |
-| avaliar pós-evento | evento e consentimento | avaliação validada | lacuna |
-
-## 5. Conceitos e estados funcionais
-
-| Conceito | Estados funcionais candidatos | Regra central |
+| Agregado | Transições permitidas | Restrições |
 | --- | --- | --- |
-| Produto de Bike Tour | RASCUNHO, ATIVO, INATIVO | apenas produto ativo pode ser ofertado |
-| Evento | PLANEJADO, ABERTO, EM_EXECUCAO, CONCLUIDO, CANCELADO | mudança de período exige autorização |
-| Recurso | DISPONIVEL, BLOQUEADO, RESERVADO, EM_USO, MANUTENCAO | o recurso não pode exceder a capacidade |
-| Inscrição | PENDENTE, CONFIRMADA, EXPIRADA, CANCELADA, NO_SHOW | confirmação exige recurso válido |
-| Ponto de controle | AGENDADO, ATIVO, CONCLUIDO, CANCELADO | progresso deve seguir ordem esperada |
-| Ocorrência | ABERTA, EM_ANALISE, RESOLVIDA, IGNORADA | registro preserva trilha e contexto |
+| Produto específico | ATIVO ↔ INATIVO | Inativação impede novos eventos; não apaga eventos existentes |
+| Evento | PLANEJADO → ABERTO → EM_EXECUCAO → CONCLUIDO | Abrir exige preparação; iniciar exige horário e origem elegível |
+| Evento | PLANEJADO ou ABERTO → CANCELADO | Cancela inscrições ativas e libera recursos atomicamente |
+| Evento | EM_EXECUCAO → CANCELADO | Gestão, motivo e ocorrência; preserva passagens e fatos já executados |
+| Recurso | ATIVO ↔ INATIVO ou MANUTENCAO | Alteração bloqueada enquanto houver alocação ativa; reacomodar antes |
+| Inscrição | PENDENTE → CONFIRMADA, EXPIRADA ou CANCELADA | Expiração somente para pendente; confirmação exige bloqueio vigente |
+| Inscrição | CONFIRMADA → PRESENTE, NO_SHOW ou CANCELADA | Presença/no-show somente no evento iniciado; justificativa obrigatória |
+| Inscrição | PRESENTE → CONCLUIDA ou CANCELADA | Conclusão exige último ponto ou encerramento justificado por gestor |
+| Ocorrência | ABERTA → EM_ANALISE → RESOLVIDA ou DESCARTADA | Resolução ou descarte exige justificativa, sem apagar histórico |
 
-## 6. Invariantes de negócio
+Estados terminais não reabrem. Nova tentativa após expiração/cancelamento cria nova operação e reativa a mesma
+inscrição apenas enquanto o evento estiver ABERTO, mediante comando explícito de novo bloqueio; incrementa versão.
+A inscrição é única por evento e passageiro. A primeira criação retorna HTTP 201. Quando uma inscrição existente
+estiver elegível para novo bloqueio e o evento permanecer ABERTO, reutilizar a mesma inscrição, incrementar sua
+versão e retornar HTTP 200. Não criar segunda inscrição para o mesmo par evento/passageiro.
+A inscrição é única por evento e passageiro. A primeira criação retorna HTTP 201. Quando uma inscrição existente
+estiver elegível para novo bloqueio e o evento permanecer ABERTO, reutilizar a mesma inscrição, incrementar sua
+versão e retornar HTTP 200. Não criar segunda inscrição para o mesmo par evento/passageiro.
+Produto, período e capacidade do evento só mudam em PLANEJADO e sem inscrições/alocações ativas.
+Pontos só mudam antes da abertura. Alterações fora dessas condições retornam 409, mesmo com permissão de gestão.
 
-- uma rota de Bike Tour não pode duplicar venda, vaga ou reserva já pertencentes a Turismo;
-- um recurso só pode ser alocado a uma inscrição ativa por evento;
-- presença e deslocamento não podem ser registrados sem evento e recurso válidos;
-- a capacidade do recurso deve ser preservada por intervalo e por ordem de alocação;
-- confirmação, expiração e cancelamento devem ser idempotentes;
-- expiração de bloqueio libera o recurso uma única vez;
-- ocorrência severa deve preservar auditoria e rastreabilidade do evento;
-- Comercial e Financeiro permanecem autoridades de venda e cobrança;
-- dados pessoais do participante devem ser mínimos e controlados por RBAC;
-- qualquer transição relevante deve registrar ator, instante e correlação.
+## 4. Capacidade e casos compostos
 
-## 7. Cenários funcionais obrigatórios
+Bloqueios válidos e inscrições confirmadas/presentes não excedem a capacidade do evento.
+Participantes comprometidos são inscrições PENDENTES com bloqueio válido, CONFIRMADAS ou PRESENTES.
+CONCLUIDA, CANCELADA, EXPIRADA e NO_SHOW não consomem capacidade operacional e não mantêm alocações ativas.
+Participantes comprometidos são inscrições PENDENTES com bloqueio válido, CONFIRMADAS ou PRESENTES.
+CONCLUIDA, CANCELADA, EXPIRADA e NO_SHOW não consomem capacidade operacional e não mantêm alocações ativas.
+Bicicleta, guia e veículo não podem estar alocados em eventos que se sobrepõem; eventos consecutivos podem reutilizar.
+Reacomodação troca recursos na mesma inscrição/evento, apenas PENDENTE ou CONFIRMADA antes do início.
+Obter destino e liberar origem na mesma transação. NO_SHOW, cancelamento e conclusão liberam alocações ativas,
+preservando o intervalo e o histórico.
+Transferência para outra saída exige fluxo de Turismo e novo vínculo; não altera silenciosamente a reserva existente.
 
-| Cenário | Resultado esperado |
-| --- | --- |
-| duas inscrições para o mesmo recurso no mesmo intervalo | apenas uma permanece confirmada |
-| repetição da mesma inscrição | a operação não duplica alocação |
-| recurso bloqueado vencido | liberado uma vez e registrado |
-| grupo sem guia válido | operação rejeitada |
-| ponto de controle fora de ordem | transição rejeitada |
-| ocorrência sem evento | rejeição ou registro invalidado |
-| cancelamento de evento | participantes e recursos afetados rastreados |
-| no-show sem justificativa | evento permanece auditável e reprocessável |
-| reavaliação de evento concluído | rejeitada por política |
+Cancelamento Bike Tour não cancela automaticamente reserva, venda ou pagamento. Registra pendência operacional
+para avaliação pelo domínio de origem. A reserva cancelada em Turismo impede confirmação, presença e início;
+reconciliação explícita cancela o vínculo Bike Tour e libera recursos, preservando a origem e o histórico.
 
-## 8. Segurança, privacidade e auditoria
+Avaliação pós-evento: nota inteira de 1 a 5, uma por inscrição concluída, sem texto livre ou dados pessoais adicionais.
+Relatório do evento agrega inscrições, passagens e ocorrências; não cria fato comercial ou financeiro.
 
-Os dados pessoais do participante devem permanecer mínimos, restritos ao contexto do evento e protegidos por
-permissão específica. Logs, erros e métricas não podem expor CPF, documento, telefone ou e-mail de forma
-necessária.
+## 5. Dependências
 
-Toda alteração de recurso, disponibilidade, inscrição e ocorrência deve gerar evento de auditoria. O estado
-funcional permanece independente da persistência física.
+Contratos e testes estão em BT-DOC-03/07; as regras de transação em BT-DOC-05 e a decisão de dados em BT-DOC-08.
+A relação saída/evento e reserva/passageiro foi confirmada pelo responsável; as demais regras exigem aceite de A2.
 
-## 9. Decisões encaminhadas
-
-- `BT-DOC-03`: rastrear cada requisito a dado, serviço, API e teste;
-- `BT-DOC-04`: formalizar fronteiras e autoridade entre Core, Comercial, Financeiro, Turismo e Bike Tour;
-- `BT-DOC-05`: decidir transações, concorrência, expiração e compensação;
-- `BT-DOC-06`: definir autorização, minimização, retenção e auditoria;
-- `BT-DOC-07`: derivar o plano de testes a partir destes invariantes;
-- `BT-DOC-08`: definir schema e migrations aditivas do módulo.
-
-## 10. Conclusão
-
-A matriz funcional identifica o domínio próprio, as lacunas e os critérios mínimos para a próxima etapa documental.
-O escopo funcional continua bloqueado até a aprovação do gate documental.
-
----
-
-## Controle e Rastreabilidade
+## Controle e aceite
 
 | Campo | Informação |
 | --- | --- |
-| Projeto | WMA Travel ERP |
-| Etapa | 2.7.2 — Matriz Funcional de Bike Tour |
-| Entregável | `BT-DOC-02` |
-| Status | EM ELABORAÇÃO |
-| Última atualização | 09/09/2026 |
-| Repositório | `VANER/WMA-Travel-ERP` |
+| Entregável | BT-DOC-02, versão 1.1 |
+| Última atualização | 10/09/2026 |
+| Responsável pelo aceite | Vaner |
+| Evidência de aceite | Aceite formal registrado em 11/09/2026 após auditoria semântica e gates documentais aprovados |
+| Implementação | Documento aceito; autorização global controlada pelo gate documental |
 
-**WMA Travel ERP — Documento oficial e versionado do projeto.**
-**Copyright © 2026 WMA Travel Ltda. Todos os direitos reservados.**
+<!-- cspell:ignore CONCLUIDO EXECUCAO MANUTENCAO DISPONIVEL inscricao inscricoes ocorrencia ocorrencias -->
+<!-- cspell:ignore logistica alocacao alocacoes correlacao reacomodacao reconciliacao permissao -->
+<!-- cspell:ignore idempotencia versao obrigatorio disponivel proposta bike btree gist tstzrange offset -->
 
-<!-- cspell:ignore CONCLUIDO -->
+<!-- cspell:ignore LIDER AVANCADO CONCLUIDA -->

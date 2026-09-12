@@ -8,7 +8,7 @@
 > **Tipo de documento:** Gate documental
 > **Versão:** 1.0
 > **Data:** 09/09/2026
-> **Status:** ABERTO PARA PLANEJAMENTO; IMPLEMENTAÇÃO NÃO AUTORIZADA
+> **Status:** GATE FECHADO; IMPLEMENTAÇÃO AUTORIZADA
 
 ## 1. Objetivo
 
@@ -60,14 +60,14 @@ migration, classe de domínio ou rota deve ser criada antes da aprovação do ga
 
 | ID | Entregável | Evidência de aceite | Status |
 | --- | --- | --- | --- |
-| BT-DOC-01 | Inventário | Objetos, FKs, contratos existentes e lacunas com fontes verificáveis | EM ELABORAÇÃO |
-| BT-DOC-02 | Matriz funcional | Fluxos, estados e critérios de aceite por requisito | EM ELABORAÇÃO |
-| BT-DOC-03 | Rastreabilidade | Requisito → dado → serviço → API → teste | EM ELABORAÇÃO |
-| BT-DOC-04 | Fronteiras | Autoridade de cada entidade e contrato de integração | EM ELABORAÇÃO |
-| BT-DOC-05 | Política transacional | Capacidade, recursos exclusivos, idempotência, rollback e compensação | EM ELABORAÇÃO |
-| BT-DOC-06 | Segurança e privacidade | RBAC, dados necessários, retenção e trilha de auditoria | EM ELABORAÇÃO |
-| BT-DOC-07 | Plano de testes | Casos normais, limites, concorrência, falhas e regressão | EM ELABORAÇÃO |
-| BT-DOC-08 | Decisão de schema | ADR para ausência de delta ou migration aditiva justificada | EM ELABORAÇÃO |
+| BT-DOC-01 | Inventário | [Aceite formal, seção 9](BIKE_TOUR_INVENTORY.md#9-aceite-formal) | APROVADO E ACEITO |
+| BT-DOC-02 | Matriz funcional | Fluxos, estados e critérios de aceite por requisito | APROVADO E ACEITO |
+| BT-DOC-03 | Rastreabilidade | Requisito → dado → serviço → API → teste | APROVADO E ACEITO |
+| BT-DOC-04 | Fronteiras | Autoridade de cada entidade e contrato de integração | APROVADO E ACEITO |
+| BT-DOC-05 | Política transacional | Capacidade, recursos exclusivos, idempotência, rollback e compensação | APROVADO E ACEITO |
+| BT-DOC-06 | Segurança e privacidade | RBAC, dados necessários, retenção e trilha de auditoria | APROVADO E ACEITO |
+| BT-DOC-07 | Plano de testes | Casos normais, limites, concorrência, falhas e regressão | APROVADO E ACEITO |
+| BT-DOC-08 | Decisão de schema | ADR para ausência de delta ou migration aditiva justificada | APROVADO E ACEITO |
 
 Cada aprovação deve registrar responsável, data e evidência. A existência do arquivo não equivale à aprovação.
 
@@ -75,24 +75,26 @@ Cada aprovação deve registrar responsável, data e evidência. A existência d
 
 - [x] correção encontrada na regressão integrada e regressão final da `main` aprovada;
 - [x] situação SMTP e tratamento do histórico documentados com evidência do responsável;
-- [ ] `BT-DOC-01` a `BT-DOC-08` aprovados e rastreáveis;
-- [ ] autoridades preservadas, sem duplicação de reserva, vaga ou fatos financeiros;
-- [ ] contratos de API, erros HTTP, RBAC e critérios de teste aprovados;
-- [ ] delta de banco decidido sem modificar baseline, tags ou migrations históricas.
+- [x] `BT-DOC-01` a `BT-DOC-08` aprovados e rastreáveis;
+- [x] autoridades preservadas, sem duplicação de reserva, vaga ou fatos financeiros;
+- [x] contratos de API, erros HTTP, RBAC e critérios de teste aprovados;
+- [x] delta de banco decidido sem modificar baseline, tags ou migrations históricas.
 
 A evidência de regressão consultada refere-se à `main` remota do PR #65, não a uma igualdade entre branches locais.
 O [adendo do gate de transição](certification/PHASE_2_6_TO_2_7_TRANSITION_GATE.md#5-adendo-de-auditoria-do-gate)
 registra os três CIs pós-merge e o alcance da evidência SMTP.
 A [matriz de auditoria](BIKE_TOUR_GATE_AUDIT.md) detalha os bloqueadores e a evidência necessária para cada aceite.
-Os oito documentos locais em elaboração não possuem aprovação registrada e não foram aprovados nesta auditoria.
+BT-DOC-01 foi aceito por Vaner em 10/09/2026, no commit `f94f421`; A1 está fechado.
+BT-DOC-02 a BT-DOC-08 foram aprovados e aceitos por Vaner em 11/09/2026 após auditoria semântica e validação documental.
 Os dois pré-requisitos acima foram conciliados com autorização explícita de Vaner nesta revisão.
 A regressão está vinculada ao SHA `5856477`; a atestação SMTP cobre o ambiente local, sem produção existente.
-Os demais checkboxes permanecem pendentes e nenhum entregável Bike Tour foi aprovado.
+Todos os critérios documentais de abertura da implementação foram atendidos; A1–A8 estão fechados e rastreáveis.
 
 ## 7. Resultado e próxima execução autorizada
 
-A implementação funcional de Bike Tour permanece bloqueada até o atendimento integral dos critérios acima. Esta
-abertura documental não certifica a Etapa 2.7.
+Os critérios documentais foram integralmente atendidos. A implementação funcional de Bike Tour está autorizada.
+A autorização não certifica a Etapa 2.7 como concluída; a próxima execução é a implementação funcional
+conforme A2–A8 e ADR-020.
 
 ---
 
@@ -104,7 +106,7 @@ abertura documental não certifica a Etapa 2.7.
 | Empresa | WMA Travel Ltda. |
 | Etapa | 2.7 — Bike Tour |
 | Versão | 1.0 |
-| Status | ABERTO PARA PLANEJAMENTO; IMPLEMENTAÇÃO NÃO AUTORIZADA |
+| Status | GATE FECHADO; IMPLEMENTAÇÃO AUTORIZADA |
 | Última atualização | 09/09/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 | Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |

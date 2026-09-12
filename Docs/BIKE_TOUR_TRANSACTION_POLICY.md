@@ -1,254 +1,131 @@
 # Política Transacional de Bike Tour
 
 > **Projeto:** WMA Travel ERP
-> **Empresa:** WMA Travel Ltda.
-> **Fase:** Fase 2 — Backend, API e Integrações
-> **Etapa:** 2.7.5 — Política Transacional (`BT-DOC-05`)
-> **Módulo:** Bike Tour
-> **Tipo de documento:** Política Técnica e Funcional
-> **Versão:** 1.0
-> **Data:** 09/09/2026
-> **Status:** EM ELABORAÇÃO
+> **Etapa:** 2.7 — Bike Tour (`BT-DOC-05`)
+> **Tipo:** Documento técnico
+> **Versão:** 1.1
+> **Data:** 10/09/2026
+> **Status:** APROVADO E ACEITO
 
-As definições específicas de Bike Tour neste documento são propostas em revisão, sem aceite registrado.
-A linguagem normativa descreve o comportamento pretendido e não constitui aprovação do gate.
+A1 permanece aceito e A5 foi aprovado e aceito em 11/09/2026; a autorização global permanece controlada pelo gate.
+As relações reserva/passageiro e um evento por saída foram confirmadas por Vaner em 10/09/2026.
+As demais decisões são propostas para revisão conjunta com BT-DOC-02 a BT-DOC-08.
 
-## 1. Objetivo e limite
+## 1. Unidade de trabalho e isolamento
 
-Esta política define consistência, concorrência, idempotência, expiração e compensação para o domínio de Bike Tour.
-Ela descreve as regras transacionais esperadas para eventos, recursos, inscrições, blocos e ocorrências, sem
-aprovar tabelas, payloads ou código. A decisão física do
-delta será submetida em `BT-DOC-08` como requisito para a aprovação documental do gate.
+Todo comando mutável tem uma única transação PostgreSQL READ COMMITTED, controlada pelo caso de uso.
+Repositories não fazem commit. O adaptador do domínio de origem apenas lê projeções com bloqueio quando necessário.
+Nenhuma chamada SMTP, HTTP externo ou mutação financeira ocorre dentro dessa transação.
 
-As transações são locais ao domínio de Bike Tour. Integrações com Turismo, Comercial e Financeiro usam correlação,
-idempotência e recuperação explícita; não dependem de transação distribuída.
+Ordem proposta para a primeira versão:
 
-## 2. Termos normativos
+1. adquirir lock transacional consultivo exclusivo do módulo, chave reservada `(2700, 1)`;
+2. autenticar/autorização já realizada; consultar replay e proteger a linha da operação;
+3. obter projeções turísticas protegidas: saídas e reservas em ordem crescente, depois passageiros;
+4. bloquear recursos, eventos, inscrições e alocações em ordem crescente dentro de cada conjunto;
+5. expirar bloqueios elegíveis, validar, aplicar todas as escritas, gravar resultado e auditoria;
+6. confirmar uma vez; qualquer falha provoca rollback integral.
 
-| Termo | Definição |
+O lock consultivo serializa mutações Bike Tour, inclusive entre eventos, e dura até commit/rollback.
+É uma escolha conservadora para evitar ciclos na limpeza de alocações de outros eventos; não é lock em memória.
+O custo é limitar vazão de escrita do módulo. Sua substituição por locks granulares exige ADR e regressão de corrida.
+Leituras não adquirem o lock global. Writes fora do service continuam protegidos por FKs, checks e exclusão temporal.
+Lock timeout limitado a 5 segundos; contenção retorna 409 e resultado não é registrado como sucesso.
+
+## 2. Capacidade e recursos
+
+Participantes comprometidos = PENDENTE com bloqueio válido + CONFIRMADA + PRESENTE.
+CONCLUIDA, CANCELADA, EXPIRADA e NO_SHOW não consomem capacidade operacional e não mantêm alocações ativas.
+Esse total não excede a capacidade do evento nem a quantidade de passageiros elegíveis por reserva.
+A capacidade turística não é consumida novamente. Cada recurso individual tem capacidade um por intervalo.
+Guia e veículo de apoio usam alocação do evento; bicicleta e equipamento pessoal usam alocação da inscrição.
+
+Proteção de sobreposição: exclusão GiST por recurso e intervalo `[inicio, fim)`, para BLOQUEADA ou CONFIRMADA.
+A restrição não usa o relógio em seu predicado. Bloqueio vencido ainda ativo é primeiro marcado EXPIRADA sob lock;
+só então nova alocação é inserida. Isso impede conflito artificial de índice sem aceitar sobreposição real.
+Recursos em manutenção não recebem bloqueio. Inativação/manutenção com alocação ativa retorna 409.
+
+## 3. Idempotência observável
+
+Todos os POST/PATCH recebem `chave_idempotencia` opaca, 1 a 100 caracteres.
+Alterações de recursos existentes também exigem `versao_esperada` inteira >=1;
+idempotência não substitui controle otimista de versão.
+Escopo único = ator autenticado + operação + alvo; para criação o alvo é zero e o tipo da operação diferencia recursos.
+Persistir hash SHA-256 da chave e do payload canônico, IDs, status HTTP e corpo mínimo da resposta.
+Corpo canônico inclui ação, parâmetros, referências e versão esperada; exclui a própria chave e correlation_id.
+
+| Requisição | Resultado |
 | --- | --- |
-| Capacidade | limite efetivo de participantes e recursos por evento |
-| Disponibilidade | capacidade menos bloqueios válidos e alocações confirmadas |
-| Bloqueio | retenção temporária de recurso, com expiração obrigatória |
-| Alocação | vínculo de recurso a inscrição ou evento |
-| Liberação | reversão de bloqueio ou alocação elegível |
-| Chave idempotente | identificador estável da intenção mutável |
-| Correlação | identificador de ligação entre domínios distintos |
-| Compensação | operação nova que neutraliza efeito anterior de forma rastreável |
+| Mesma chave e mesmo payload | Mesmo status HTTP e corpo de negócio; sem nova auditoria funcional |
+| Mesma chave com payload diferente | 409; nenhuma alteração |
+| Repetição concorrente | Aguarda transação vencedora; retorna sua resposta persistida |
+| Falha antes do commit | Nenhuma operação bem-sucedida registrada; nova tentativa pode executar |
+| Nova chave com intenção duplicada | Unicidade de negócio e versão esperada continuam valendo |
+| Replay após perda da permissão | 401/403 antes de ler a resposta persistida |
 
-Disponibilidade é informação temporal. Uma leitura isolada não constitui garantia. Somente a confirmação dentro da
-mesma transação de Bike Tour produz capacidade operacional válida.
+O correlation_id do envelope de erro/headers pode mudar por requisição; resultado funcional não muda.
+Garantia de replay por pelo menos 90 dias após a operação. Após esse prazo, manter registro mínimo e rejeitar 409
+se não houver resposta preservada; nunca reinterpretar a chave conhecida como comando novo.
+Limpeza não remove tombstones de operações enquanto o recurso puder receber novos comandos.
 
-## 3. Equação e invariantes de capacidade
+## 4. Ciclo de vida dos bloqueios
 
-Para cada evento de Bike Tour e recurso específico:
+Criar inscrição gera PENDENTE e uma alocação BLOQUEADA por 15 minutos, limitada ao início do evento e à validade
+A inscrição é única por evento e passageiro. Em rebloqueio elegível, reutilizar a mesma inscrição, incrementar
+sua versão e criar somente as novas alocações necessárias; não inserir segunda inscrição.
+restante de eventual bloqueio turístico. Validade não positiva retorna 409. Confirmar exige reserva CONFIRMADA.
+Confirmar converte a mesma alocação para CONFIRMADA; não cria segundo consumo.
+Expiração marca alocação EXPIRADA e inscrição EXPIRADA na mesma transação, sem alterar a reserva de Turismo.
+Cancelamento libera alocações ativas, preserva inscrições e grava pendência operacional quando aplicável.
 
-```text
-disponibilidade = capacidade_efetiva - bloqueios_validos - alocacoes_confirmadas
-```
+Quem executa: serviço de comando realiza limpeza antes de calcular capacidade para mutação; operador também pode
+invocar expiração/reconciliação explícita. GET calcula saldo lógico, não altera banco e não gera auditoria de limpeza.
+Não há scheduler. Expiração física atrasada não permite confirmação de bloqueio logicamente vencido.
 
-Devem ser preservados em todo commit:
+## 5. Atomicidade dos comandos compostos
 
-- `capacidade_efetiva >= 0`;
-- `bloqueios_validos >= 0`;
-- `alocacoes_confirmadas >= 0`;
-- bloqueios válidos e confirmações não superam a capacidade efetiva;
-- cada alocação pertence a um único evento e a um único recurso;
-- um recurso não pode estar simultaneamente bloqueado e confirmado para a mesma intenção;
-- expiração ou cancelamento libera o efeito no máximo uma vez;
-- mudança do estado do evento não remove histórico de alocação confirmada;
-- capacidade não pode ser reduzida abaixo do total já comprometido;
-- histórico operacional não é apagado após cancelamento, conclusão ou no-show.
-
-A fonte física do saldo e da conferência será aprovada em `BT-DOC-08`.
-
-## 4. Unidades transacionais
-
-| Comando | Escritas atômicas obrigatórias |
+| Comando | Unidade indivisível |
 | --- | --- |
-| criar bloqueio | validar evento, recurso, capacidade e validade; registrar alocação |
-| confirmar inscrição | validar bloqueio ou saldo, registrar ocupação e transição |
-| expirar bloqueio | marcar expiração e liberar efeito uma vez |
-| cancelar inscrição | transicionar estado, liberar ocupação elegível e registrar motivo |
-| reacomodar recurso | reservar destino antes de compensar origem |
-| alterar evento | validar compromissos existentes e registrar justificativa |
-| registrar ocorrência | preservar contexto, gravidade e trilha de status |
-| encerrar evento | bloquear nova alocação e registrar fechamento |
+| Criar bloqueio | Inscrição, alocações, versão, resposta idempotente e auditoria |
+| Confirmar | Estado da inscrição, alocações confirmadas e resposta |
+| Cancelar inscrição | Estado terminal, liberação, pendência de origem, resposta e auditoria |
+| Reacomodar recursos | Validar destino, criar alocação destino, liberar origem e registrar vínculo |
+| Cancelar evento | Inscrições, apoio, recursos liberados e pendências, sem sucesso parcial |
+| Encerrar evento | Validar resultados finais, liberar apoio, estado final e resumo auditado |
+| Reconciliar origem | Validar origem acessível; cancelar vínculos inválidos e liberar recursos |
 
-Evento de integração decorrente de commit deve ser registrável na mesma unidade local da operação ou por mecanismo
-equivalente que impeça perda silenciosa.
+Lote de reconciliação tem limite 100 inscrições; cursor explícito. Cada lote é atômico e reporta se há mais itens.
+Cancelamento de evento não usa sucesso parcial: o comando inteiro é atômico, com limite operacional de 1000 inscrições
+por evento nesta proposta. Acima desse limite a criação/configuração retorna 422, antes de iniciar a operação.
 
-## 5. Concorrência
+## 6. Falhas e origem turística
 
-### 5.1 Regra de ordem transacional por evento
+Após commit Bike Tour, Turismo pode cancelar uma reserva. O vínculo fica inelegível para operação até reconciliação;
+leituras indicam origem inválida e os comandos críticos a revalidam. Não há promessa de sincronização imediata.
+Se a origem estiver indisponível, retornar 503 e preservar recursos, nunca tratar indisponibilidade como cancelamento.
 
-Comandos que alteram capacidade ou alocação do mesmo evento devem observar ordem única de commit. A futura
-implementação deve usar primitiva transacional compatível com PostgreSQL, como bloqueio de linha ou controle
-otimista com nova tentativa limitada.
+Consequências comerciais/financeiras são pendências com IDs, tipo e estado ABERTA/TRATADA, sem chamada externa.
+Gestor registra referência do tratamento na autoridade de origem. Reexecução não duplica pendência nem fato externo.
+Erro inesperado ou falha de auditoria reverte tudo e retorna envelope 500 sem detalhes internos.
 
-Não são aceitos:
+## 7. Validação obrigatória
 
-- leitura do saldo seguida de escrita sem proteção contra concorrência;
-- contador atualizado sem vínculo auditável com a alocação;
-- bloqueio apenas em memória ou dependente de uma única instância;
-- tratamento de indisponibilidade como sucesso parcial;
-- repetição infinita em contenção.
+BT-DOC-07 exige duas conexões PostgreSQL, corrida pela última bicicleta e entre eventos distintos,
+confirmação contra cancelamento, rollback após inscrição/alocação/pendência, replay e falha da origem.
+Não considerar testes sequenciais ou SQLite evidência de concorrência real.
 
-### 5.2 Último recurso
-
-Se duas intenções concorrentes disputarem o último recurso, somente uma pode confirmar a alocação. A perdedora
-recebe conflito estável, sem alocação parcial, contador negativo ou efeito inconsistente em Turismo ou Comercial.
-
-### 5.3 Ordem de aquisição
-
-Operações com mais de um recurso devem adquirir proteção em ordem determinística de identificador. Isso reduz
-deadlocks e preserva integridade do evento.
-
-## 6. Idempotência
-
-Todo comando mutável exposto a repetição deve exigir chave idempotente no escopo de ator, operação e recurso.
-
-| Repetição | Resultado obrigatório |
-| --- | --- |
-| mesma chave e mesmo conteúdo | retornar o resultado lógico original |
-| mesma chave e conteúdo diferente | rejeitar como conflito de idempotência |
-| chave nova para intenção equivalente | aplicar regras de unicidade do negócio |
-| repetição após timeout | consultar ou concluir resultado anterior sem duplicar efeito |
-
-A chave não substitui autorização, versionamento ou correlação. O prazo de retenção será definido com Segurança em
-`BT-DOC-06` e deve cobrir a janela de repetição e reconciliação.
-
-## 7. Ciclo de bloqueio e confirmação
-
-```text
-DISPONÍVEL -> BLOQUEADO -> CONFIRMADO
-                 |           |
-                 v           v
-             EXPIRADO    LIBERADO
-```
-
-1. bloqueio recebe instante de expiração definido no servidor;
-2. confirmação válida converte o efeito do bloqueio em alocação, sem consumir recurso extra;
-3. bloqueio vencido não pode ser confirmado;
-4. expiração lógica vale mesmo antes da limpeza física;
-5. liberação manual exige motivo, autorização e versão esperada;
-6. tarefa de expiração é repetível e não altera alocação confirmada;
-7. confirmação sem bloqueio, se admitida, usa a mesma proteção de capacidade.
-
-Relógio da aplicação e do banco devem usar instante com fuso normalizado. O cliente não decide validade do bloco.
-
-## 8. Confirmação e dependências comerciais e turísticas
-
-A inscrição de Bike Tour deve ser confirmada com as precondições operacionais e de origem aprovadas. O vínculo
-comercial ou turístico permanece externo ao domínio funcional do módulo, sem duplicação de venda, contrato ou
-reserva principal.
-
-Sequência normativa:
-
-1. Turismo ou Comercial registra a origem da intenção sob sua autoridade;
-2. Bike Tour recebe correlação e chave idempotente;
-3. Bike Tour valida evento, recurso e capacidade dentro da transação local;
-4. Bike Tour confirma a inscrição e registra o resultado correlacionado;
-5. consequência financeira ou comercial é encaminhada após o commit local;
-6. falha posterior entra em reconciliação, sem desfazer silenciosamente o commit.
-
-## 9. Cancelamento, expiração e no-show
-
-| Situação | Recurso | Inscrição | Efeito externo |
-| --- | --- | --- | --- |
-| bloqueio expirado | liberado uma vez | permanece sem confirmação | correlação encerrada |
-| inscrição pendente cancelada | liberado | CANCELADA | operação e origem notificadas |
-| inscrição confirmada cancelada | liberado conforme regra | CANCELADA | avaliação comercial e financeira |
-| cancelamento após início | recurso histórico preservado | transição documentada | política contratual aplicada |
-| no-show | recurso preservado em histórico | NO_SHOW | regra contratual aplicada por origem |
-
-Cancelamento não apaga evento, correlação, recurso ou histórico. Consequência monetária é decidida por Comercial e
-Financeiro; Bike Tour apenas registra a transição operacional e a correlação.
-
-## 10. Reacomodação e encerramento
-
-Reacomodação é operação composta, auditável e idempotente:
-
-1. validar elegibilidade e autorização;
-2. obter recurso no destino;
-3. registrar vínculo entre inscrição de origem e destino;
-4. confirmar novo estado;
-5. compensar alocação anterior conforme regra operacional;
-6. solicitar avaliação de diferenças a Comercial e Financeiro;
-7. reconciliar qualquer efeito externo pendente.
-
-Falha antes da nova confirmação preserva a inscrição original. Falha após confirmação exige estado intermediário
-recuperável; não é permitido liberar a origem primeiro e perder ambos os recursos.
-
-Ao encerrar um evento, Bike Tour deve bloquear novas alocações, identificar inscrições afetadas e registrar uma
-decisão individual de reacomodação, cancelamento ou fechamento. O evento só alcança `CONCLUIDO` com evidência
-suficiente para reconciliação.
-
-## 11. Compensação e reconciliação
-
-| Falha | Estado preservado | Recuperação |
-| --- | --- | --- |
-| timeout antes do commit | resultado desconhecido | consultar pela chave idempotente |
-| conflito de capacidade | nenhuma escrita parcial | informar indisponibilidade |
-| falha após confirmação local | inscrição confirmada | reenviar efeito externo com mesma correlação |
-| rejeição comercial definitiva | estado correlacionado pendente | compensação autorizada ou intervenção |
-| divergência de correlação | ambos os históricos preservados | fila de análise auditável |
-
-Compensação é um novo fato, nunca edição retroativa. Nova tentativa usa política limitada, espaçamento
-progressivo e classificação entre erro transitório e definitivo.
-
-## 12. Resultados de erro normativos
-
-O contrato de API futuro deve distinguir ao menos:
-
-- entrada inválida;
-- recurso ausente;
-- estado ou versão incompatível;
-- capacidade indisponível;
-- chave idempotente reutilizada com conteúdo divergente;
-- bloqueio expirado;
-- conflito de concorrência;
-- ação não autorizada;
-- dependência externa pendente ou indisponível.
-
-Erros não podem revelar existência de recurso fora do escopo do ator nem conter dados pessoais.
-
-## 13. Observabilidade mínima
-
-Métricas e registros devem permitir identificar contenção, conflitos, bloqueios expirados, tentativas, pendências
-de compensação e divergências de reconciliação. Não devem usar CPF, documento, e-mail ou nome do participante como
-rótulo operacional genérico.
-
-## 14. Critérios de aceite
-
-- invariantes permanecem verdadeiros sob concorrência;
-- o último recurso nunca é confirmado para duas intenções;
-- todo comando repetível possui comportamento idempotente verificável;
-- expiração e cancelamento liberam capacidade no máximo uma vez;
-- reacomodação não perde a origem antes de garantir o destino;
-- falha externa não produz escrita parcial entre autoridades;
-- as pendências de integração são rastreáveis e reconciliáveis;
-- testes de falha e concorrência são derivados em `BT-DOC-07`.
-
-## 15. Conclusão
-
-O `BT-DOC-05` define os limites transacionais e a estratégia de concorrência esperados para o módulo de Bike Tour.
-Ele permanece em elaboração e deve ser aprovado antes da implementação funcional da etapa 2.7.
-
----
-
-## Controle e Rastreabilidade
+## Controle e aceite
 
 | Campo | Informação |
 | --- | --- |
-| Projeto | WMA Travel ERP |
-| Etapa | 2.7.5 — Política Transacional de Bike Tour |
-| Entregável | `BT-DOC-05` |
-| Status | EM ELABORAÇÃO |
-| Última atualização | 09/09/2026 |
-| Repositório | `VANER/WMA-Travel-ERP` |
+| Entregável | BT-DOC-05, versão 1.1 |
+| Última atualização | 10/09/2026 |
+| Aceite | Vaner, 11/09/2026; auditoria semântica e gates documentais aprovados |
+| Implementação | Documento aceito; autorização global controlada pelo gate documental |
 
-**WMA Travel ERP — Documento oficial e versionado do projeto.**
-**Copyright © 2026 WMA Travel Ltda. Todos os direitos reservados.**
-
-<!-- cspell:ignore CONCLUIDO -->
+<!-- cspell:ignore CONCLUIDO EXECUCAO MANUTENCAO DISPONIVEL inscricao inscricoes ocorrencia ocorrencias -->
+<!-- cspell:ignore logistica alocacao alocacoes correlacao reacomodacao reconciliacao permissao -->
+<!-- cspell:ignore idempotencia versao obrigatorio disponivel btree gist tstzrange GiST gist idempotente -->
+<!-- cspell:ignore payloads timestamp timestamptz -->
+<!-- cspell:ignore rebloqueio -->
+<!-- cspell:ignore CONCLUIDA -->
