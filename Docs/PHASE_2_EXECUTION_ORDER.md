@@ -1495,8 +1495,12 @@ A execução corrente continua obrigatoriamente por:
 2.7 — Bike Tour
 ```
 
-A implementação funcional da 2.7 deve começar pelo inventário de Bike Tour, pela aprovação do escopo e pela
-definição dos respectivos gates técnicos e funcionais.
+Em 04/10/2026, Bike Tour 2.7 está implementado e possui evidências de certificação local. A próxima atividade
+é preparar a publicação do conjunto revisado; a integração remota ainda não foi iniciada.
+
+O [fechamento B06](certification/PHASE_2_7_BIKE_TOUR_RETENTION_CONTROL.md) registra retenção e T23 aprovados.
+O [fechamento B07](certification/PHASE_2_7_BIKE_TOUR_PHYSICAL_DATABASE.md) registra a reconstrução independente
+concluída em 02/10/2026. Esses resultados locais não equivalem a merge nem a aprovação do CI remoto.
 
 ---
 
@@ -1538,7 +1542,9 @@ definição dos respectivos gates técnicos e funcionais.
 | Etapa 2.4 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Etapa 2.5 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Etapa 2.6 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
-| Próxima execução | **2.7 — BIKE TOUR** |
+| Etapa 2.7 | **IMPLEMENTADA; CERTIFICAÇÃO LOCAL DOCUMENTADA** |
+| Integração remota da 2.7 | **NÃO INICIADA** |
+| Próxima execução | **PREPARAÇÃO DA PUBLICAÇÃO DA 2.7** |
 
 ---
 
@@ -1552,7 +1558,7 @@ estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**ETAPA 2.7 — BIKE TOUR.**
+**PREPARAR A PUBLICAÇÃO DA ETAPA 2.7 — BIKE TOUR, COM INTEGRAÇÃO REMOTA PENDENTE.**
 
 ---
 

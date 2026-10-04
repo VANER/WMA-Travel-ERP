@@ -57,6 +57,34 @@ Entrega: implementar casos abaixo e anexar evidências reais, sem reutilizar apr
 | T24 | Todos | Novo schema instala sobre baseline e reverte somente delta; extensão compartilhada preservada |
 | T25 | Todos | Compatibilidade das rotas existentes, coleção OpenAPI, paginação, 401/403/404/409/422/503/500 por contrato |
 
+### T23 — Retenção administrativa Bike Tour
+
+O critério T23 comprova o contrato de revisão e compactação, não um expurgo
+automático.
+
+A implementação deve provar, no mínimo:
+
+1. registro anterior ao prazo não é elegível;
+2. vínculo de evento somente é elegível após 365 dias do encerramento ou
+   cancelamento terminal;
+3. operação sem evento terminal usa `created_at` como marco;
+4. pendência `ABERTA` mantém retenção obrigatória;
+5. preservação expressa impede tratamento incompatível;
+6. extensão exige motivo e nova data;
+7. resposta idempotente permanece reproduzível por pelo menos 90 dias;
+8. após compactação, chave conhecida continua conhecida e nunca executa comando
+   novo;
+9. `operacao_bike_tour` não é fisicamente removida pelo controle da Etapa 2.7;
+10. auditoria corporativa compartilhada permanece inalterada;
+11. Turismo, Comercial e Financeiro permanecem inalterados;
+12. execução exige `BIKE_TOUR_GERENCIAR`;
+13. ator, `correlation_id`, período, motivo, contagens e impedimentos são
+    rastreáveis;
+14. falha provoca rollback integral;
+15. repetição administrativa é segura e não produz efeito duplicado.
+
+A prova física e os testes PostgreSQL pertencem aos gates posteriores do B06.
+
 ## 3. Concorrência reproduzível
 
 Usar duas sessões/conexões PostgreSQL independentes, sem SQLite e sem compartilhar Session entre threads.

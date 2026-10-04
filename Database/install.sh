@@ -69,7 +69,36 @@ echo "Diretorio: ${SCRIPT_DIR}"
 echo "Dump: ${DUMP_FILE}"
 
 psql_cmd() {
-  psql -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USER" "$@"
+  PGCLIENTENCODING=UTF8 \
+    psql -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USER" "$@"
+}
+
+psql_file() {
+  local sql_file="$1"
+  shift
+
+  local first_bytes
+  first_bytes="$(
+    od -An -tx1 -N3 "$sql_file" |
+      tr -d ' \n' |
+      tr '[:upper:]' '[:lower:]'
+  )"
+
+  if [ "$first_bytes" = "efbbbf" ]; then
+    local temp_file
+    temp_file="$(mktemp "${TMPDIR:-/tmp}/wma-sql-XXXXXX.sql")"
+
+    trap 'rm -f "$temp_file"' RETURN
+
+    tail -c +4 "$sql_file" > "$temp_file"
+
+    psql_cmd "$@" -f "$temp_file"
+
+    rm -f "$temp_file"
+    trap - RETURN
+  else
+    psql_cmd "$@" -f "$sql_file"
+  fi
 }
 
 # --- 1) Criar banco se não existir -------------------------------------------
@@ -99,10 +128,9 @@ if [ "$SKIP_RESTORE" = false ]; then
   echo "-> Restaurando dump completo..."
   echo "-> ${DUMP_FILE}"
 
-  psql_cmd \
+  psql_file "$DUMP_FILE" \
     -d "$DB_NAME" \
-    -v ON_ERROR_STOP=1 \
-    -f "$DUMP_FILE"
+    -v ON_ERROR_STOP=1
 
   echo "-> Restauracao concluida."
 
@@ -137,11 +165,10 @@ if [ "$SKIP_FINANCIAL" = false ]; then
     fi
 
     echo "  ${financial_file}"
-    psql_cmd \
+    psql_file "$financial_path" \
       -d "$DB_NAME" \
       -v ON_ERROR_STOP=1 \
-      -v expected_database="$DB_NAME" \
-      -f "$financial_path"
+      -v expected_database="$DB_NAME"
   done
 
   echo "-> Evolucao financeira concluida."
@@ -163,10 +190,9 @@ if [ "$WITH_VALIDATION" = true ]; then
     echo "-> Executando validacao:"
     echo "  ${VALIDATION_FILE}"
 
-    psql_cmd \
+    psql_file "$VALIDATION_FILE" \
       -d "$DB_NAME" \
-      -v ON_ERROR_STOP=1 \
-      -f "$VALIDATION_FILE"
+      -v ON_ERROR_STOP=1
 
     for certification_file in \
       "${SCRIPT_DIR}/scripts/F1_FIN/F1_FIN_12_AUDITORIA_INTEGRIDADE_FINANCEIRA.sql" \
@@ -177,11 +203,10 @@ if [ "$WITH_VALIDATION" = true ]; then
         exit 1
       fi
 
-      psql_cmd \
+      psql_file "$certification_file" \
         -d "$DB_NAME" \
         -v ON_ERROR_STOP=1 \
-        -v expected_database="$DB_NAME" \
-        -f "$certification_file"
+        -v expected_database="$DB_NAME"
     done
 
     echo "-> Validacao concluida."

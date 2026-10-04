@@ -11,6 +11,7 @@
 **Fase anterior:** Fase 1 — Fundação e Banco de Dados
 **Status da Fase 1:** CONCLUÍDA E CERTIFICADA
 **Status atual:** etapas 2.0 a 2.6 concluídas, certificadas e integradas
+**Bike Tour 2.7 em 04/10/2026:** implementado; certificação local documentada; integração remota não iniciada
 **Marco inicial:** `phase-1-final-2026-08-18`
 
 **Branch inicial:** `feature/fase-2-backend-api`
@@ -1032,10 +1033,14 @@ FASE 2 CERTIFICADA
 
 A próxima atividade do WMA Travel ERP será:
 
-**ETAPA 2.7 — BIKE TOUR**
+**PREPARAÇÃO DA PUBLICAÇÃO DA ETAPA 2.7 — BIKE TOUR**
 
 As etapas 2.0 a 2.6 estão concluídas, certificadas e integradas à `main`. A ADR-017 reprogramou as etapas
-funcionais, e a execução deve continuar pelo módulo Bike Tour na 2.7.
+funcionais. Bike Tour 2.7 está implementado, com certificação local documentada; a integração remota não foi iniciada.
+
+As evidências de [B06/T23](certification/PHASE_2_7_BIKE_TOUR_RETENTION_CONTROL.md) e
+[B07](certification/PHASE_2_7_BIKE_TOUR_PHYSICAL_DATABASE.md) sustentam o fechamento local.
+Publicação, revisão, CI remoto e merge permanecem etapas futuras; não se declara a 2.7 integrada à `main`.
 
 ---
 
@@ -1094,7 +1099,9 @@ funcionais, e a execução deve continuar pelo módulo Bike Tour na 2.7.
 
 **ETAPA 2.6:** CONCLUÍDA, CERTIFICADA E INTEGRADA
 
-**PRÓXIMA ETAPA:** 2.7 — Bike Tour
+**ETAPA 2.7:** IMPLEMENTADA; CERTIFICAÇÃO LOCAL DOCUMENTADA; INTEGRAÇÃO REMOTA NÃO INICIADA
+
+**PRÓXIMA AÇÃO:** preparação da publicação de Bike Tour 2.7
 
 ---
 

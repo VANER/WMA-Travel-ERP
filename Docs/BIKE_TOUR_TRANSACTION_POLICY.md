@@ -68,12 +68,34 @@ Garantia de replay por pelo menos 90 dias após a operação. Após esse prazo, 
 se não houver resposta preservada; nunca reinterpretar a chave conhecida como comando novo.
 Limpeza não remove tombstones de operações enquanto o recurso puder receber novos comandos.
 
+## 3.1 Retenção da idempotência
+
+A garantia de replay integral permanece por pelo menos 90 dias após a operação.
+
+Depois desse prazo, a revisão administrativa de retenção pode compactar o
+resultado persistido, desde que preserve informação mínima suficiente para que
+uma chave conhecida continue reconhecida como intenção anterior. A chave não
+pode voltar a ser interpretada como comando novo.
+
+O tombstone mínimo deve preservar a identidade necessária ao escopo idempotente
+e à detecção de divergência de payload, incluindo os hashes aplicáveis e os
+vínculos exigidos pela integridade referencial.
+
+A revisão de 365 dias definida em `BIKE_TOUR_SECURITY_PRIVACY.md` não autoriza
+exclusão física de `operacao_bike_tour` quando isso remover tombstone necessário,
+quebrar referência, alterar auditoria compartilhada ou afetar outro domínio.
+
+A execução administrativa futura deve usar a mesma disciplina transacional do
+módulo, com autorização anterior à leitura de informação protegida e registro
+de ator e `correlation_id`.
+
 ## 4. Ciclo de vida dos bloqueios
 
 Criar inscrição gera PENDENTE e uma alocação BLOQUEADA por 15 minutos, limitada ao início do evento e à validade
+restante de eventual bloqueio turístico. Validade não positiva retorna 409.
 A inscrição é única por evento e passageiro. Em rebloqueio elegível, reutilizar a mesma inscrição, incrementar
 sua versão e criar somente as novas alocações necessárias; não inserir segunda inscrição.
-restante de eventual bloqueio turístico. Validade não positiva retorna 409. Confirmar exige reserva CONFIRMADA.
+Confirmar exige reserva CONFIRMADA.
 Confirmar converte a mesma alocação para CONFIRMADA; não cria segundo consumo.
 Expiração marca alocação EXPIRADA e inscrição EXPIRADA na mesma transação, sem alterar a reserva de Turismo.
 Cancelamento libera alocações ativas, preserva inscrições e grava pendência operacional quando aplicável.
@@ -113,6 +135,21 @@ Erro inesperado ou falha de auditoria reverte tudo e retorna envelope 500 sem de
 BT-DOC-07 exige duas conexões PostgreSQL, corrida pela última bicicleta e entre eventos distintos,
 confirmação contra cancelamento, rollback após inscrição/alocação/pendência, replay e falha da origem.
 Não considerar testes sequenciais ou SQLite evidência de concorrência real.
+
+## 8. Incremento executado em 15/09/2026
+
+Implementada a unidade de trabalho em `app/modules/biketour/uow.py`, com repositório sem commit.
+A autorização explícita precede replay, inclusive para ADMIN; o comando começa com READ COMMITTED,
+timeout de cinco segundos e lock `(2700, 1)`. O resultado e os hashes são gravados no mesmo commit do estado.
+Sessão com transação anterior é rejeitada para impedir commit acidental de trabalho externo.
+
+Os 17 testes unitários cobrem autorização, replay, payload divergente e tradução de falhas.
+Quatro testes PostgreSQL comprovaram commit, rollback de estado/auditoria/chave, replay após exclusão lógica,
+revogação de permissão e contenção em conexões independentes. O teste concorrente verifica em `pg_locks`
+que a segunda conexão aguarda a primeira; somente um handler executa. Timeout retorna conflito sem escrita.
+As fixtures com commit removem exclusivamente seus registros sintéticos e conferem as contagens anteriores.
+
+Este incremento não certifica as corridas dos comandos de inscrição, alocação ou pendência, ainda pendentes.
 
 ## Controle e aceite
 

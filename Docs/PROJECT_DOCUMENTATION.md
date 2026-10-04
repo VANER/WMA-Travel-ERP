@@ -39,6 +39,15 @@ As etapas 2.0 a 2.6 estão concluídas, certificadas e integradas; isso inclui F
 A próxima etapa oficial é Bike Tour 2.7, com implementação condicionada ao gate documental.
 A [auditoria de governança](GOVERNANCE_AUDIT_CHECKLIST.md) registra proteção da branch e evidências SMTP.
 
+## Atualização de estado em 04/10/2026
+
+O estado de 09/09/2026 acima permanece como registro histórico. O gate documental de Bike Tour foi aprovado,
+e a implementação da 2.7 possui evidências de certificação local em
+[B06/T23](certification/PHASE_2_7_BIKE_TOUR_RETENTION_CONTROL.md) e
+[B07](certification/PHASE_2_7_BIKE_TOUR_PHYSICAL_DATABASE.md).
+A próxima atividade é preparar a publicação. A integração remota não foi iniciada; não há declaração de merge
+nem de aprovação do CI remoto para a 2.7.
+
 ## 1. Objetivo
 
 Este documento centraliza toda a documentação oficial do
@@ -71,7 +80,8 @@ Este manual contempla:
 
 O estado oficial de execução está consolidado em `PHASE_2_EXECUTION_ORDER.md`. A Fase 1 está concluída e
 certificada; a Fase 2 está em execução, com as etapas 2.0 a 2.6 concluídas, certificadas e integradas. A ADR-017
-reprogramou as etapas funcionais, e a etapa 2.7 — Bike Tour é a próxima execução autorizada.
+reprogramou as etapas funcionais. A etapa 2.7 — Bike Tour está implementada, com certificação local documentada
+e integração remota não iniciada. A execução corrente prepara sua publicação.
 
 ---
 

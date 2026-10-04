@@ -12,8 +12,9 @@
 
 ## 1. Objetivo
 
-Definir os documentos e critérios que devem preceder a implementação funcional de Bike Tour. Este gate autoriza
-apenas inventário, análise e decisões documentais; não autoriza models, migrations, endpoints ou regras de negócio.
+Definir os documentos e critérios que precedem a implementação funcional de Bike Tour. Antes do aceite,
+o escopo era apenas inventário, análise e decisões documentais. O aceite registrado nas seções 6 e 7 autoriza
+models, migrations, endpoints e regras de negócio, sem certificar a conclusão funcional da etapa.
 
 ## 2. Dependências satisfeitas
 

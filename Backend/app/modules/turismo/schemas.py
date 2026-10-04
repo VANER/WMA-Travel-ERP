@@ -86,3 +86,15 @@ class ReservaResponse(TurismoOutput):
 
 class ReservaAcao(TurismoInput):
     chave_idempotencia: str = Field(min_length=1, max_length=100)
+
+
+class PassageiroReservaCreate(TurismoInput):
+    ordem: int = Field(gt=0)
+
+
+class PassageiroReservaResponse(TurismoOutput):
+    id_passageiro: int
+    id_reserva: int
+    ordem: int
+    status: str
+    versao: int

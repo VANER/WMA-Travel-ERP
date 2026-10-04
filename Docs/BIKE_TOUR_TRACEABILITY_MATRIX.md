@@ -6,8 +6,8 @@
 > **Data:** 10/09/2026
 > **Status:** APROVADO E ACEITO
 
-Este documento é uma proposta revisável, não aprovação de A3 ou autorização de código.
-O aceite de A1 permanece restrito ao inventário do commit `f94f421`.
+O aceite de A3 foi registrado em 11/09/2026. A autorização de implementação está no gate documental;
+a aprovação do contrato não substitui a certificação funcional. A1 permanece no commit `f94f421`.
 
 ## 1. Convenções do contrato proposto
 
@@ -129,3 +129,33 @@ Portas de A4 resolvem referências. T01–T25 de A7 comprovam regras, contratos 
 
 <!-- cspell:ignore PRESENCA desnivel LIDER INDISPONIVEL CONCLUIDO INTERRUPCAO -->
 <!-- cspell:ignore rebloqueio -->
+
+## Retenção administrativa T23 — decisão B06
+
+O T23 utiliza o contrato de retenção de A6 e a política transacional de A5.
+
+A revisão ocorre aos 365 dias, usando encerramento/cancelamento terminal para
+vínculos ligados a evento e `created_at` para operação técnica/administrativa
+sem evento terminal identificável.
+
+O controle é administrativo, manual e autorizado por
+`BIKE_TOUR_GERENCIAR`. Não existe scheduler nem expurgo automático na Etapa
+2.7.
+
+A implementação deve preservar:
+
+- tombstone de chave idempotente conhecida;
+- integridade referencial de `operacao_bike_tour`;
+- pendências abertas e preservações expressas;
+- auditoria corporativa compartilhada;
+- objetos de Turismo, Comercial e Financeiro.
+
+B06-F4 fecha somente o contrato documental. O mecanismo físico e a evidência
+PostgreSQL permanecem abertos para B06-F5 e gates subsequentes.
+
+### Atualização de rastreabilidade em 04/10/2026
+
+O parágrafo anterior registra o limite histórico de B06-F4. O mecanismo administrativo e a prova física
+posteriores estão certificados no [fechamento B06/T23](certification/PHASE_2_7_BIKE_TOUR_RETENTION_CONTROL.md).
+A reconstrução independente está registrada no [fechamento B07](certification/PHASE_2_7_BIKE_TOUR_PHYSICAL_DATABASE.md).
+Esses fechamentos sustentam a certificação local; a integração remota da 2.7 ainda não foi iniciada.

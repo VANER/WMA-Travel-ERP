@@ -45,6 +45,7 @@ from app.modules.turismo.services import (
     criar_saida,
     obter_disponibilidade,
 )
+from tests.orm_schema import orm_test_tables
 
 pytestmark = pytest.mark.postgresql
 
@@ -79,14 +80,14 @@ def _corporate_database_client(postgresql_test_url: str) -> Generator[TestClient
     application.dependency_overrides[exigir_comercial_gerenciar] = lambda: contexto
     with engine.begin() as connection:
         connection.execute(text("CREATE SCHEMA IF NOT EXISTS financeiro"))
-    Base.metadata.drop_all(engine)
-    Base.metadata.create_all(engine)
+    Base.metadata.drop_all(engine, tables=orm_test_tables())
+    Base.metadata.create_all(engine, tables=orm_test_tables())
     try:
         with TestClient(application) as client:
             yield client
     finally:
         application.dependency_overrides.clear()
-        Base.metadata.drop_all(engine)
+        Base.metadata.drop_all(engine, tables=orm_test_tables())
         engine.dispose()
 
 
@@ -132,8 +133,8 @@ def test_turismo_preserva_ultima_vaga_e_idempotencia_no_postgresql(
     engine = create_db_engine(Settings(database_url=postgresql_test_url, environment="test"))
     with engine.begin() as connection:
         connection.execute(text("CREATE SCHEMA IF NOT EXISTS financeiro"))
-    Base.metadata.drop_all(engine)
-    Base.metadata.create_all(engine)
+    Base.metadata.drop_all(engine, tables=orm_test_tables())
+    Base.metadata.create_all(engine, tables=orm_test_tables())
     try:
         with Session(engine) as session:
             localidade = Localidade(cidade="Curitiba", uf="PR", pais="Brasil")
@@ -196,7 +197,7 @@ def test_turismo_preserva_ultima_vaga_e_idempotencia_no_postgresql(
             assert cancelar_reserva(session, reserva.id_reserva, action).status == "CANCELADA"
             assert obter_disponibilidade(session, saida.id_saida).disponibilidade == 1
     finally:
-        Base.metadata.drop_all(engine)
+        Base.metadata.drop_all(engine, tables=orm_test_tables())
         engine.dispose()
 
 
@@ -275,8 +276,8 @@ def test_auth_rbac_real_revalida_usuario_e_revoga_sessao(
             yield session
 
     application.dependency_overrides[get_session] = session_dependency
-    Base.metadata.drop_all(engine)
-    Base.metadata.create_all(engine)
+    Base.metadata.drop_all(engine, tables=orm_test_tables())
+    Base.metadata.create_all(engine, tables=orm_test_tables())
     id_sessao = uuid4()
     agora = datetime.now(UTC).replace(tzinfo=None)
     try:
@@ -327,7 +328,7 @@ def test_auth_rbac_real_revalida_usuario_e_revoga_sessao(
             assert sessao.revogado_em is not None
     finally:
         application.dependency_overrides.clear()
-        Base.metadata.drop_all(engine)
+        Base.metadata.drop_all(engine, tables=orm_test_tables())
         engine.dispose()
 
 
@@ -337,8 +338,8 @@ def test_comercial_habilita_cliente_sobre_autoridade_corporativa(
     settings = Settings(database_url=postgresql_test_url, environment="test")
     engine = create_db_engine(settings)
     session_factory = sessionmaker(bind=engine, expire_on_commit=False)
-    Base.metadata.drop_all(engine)
-    Base.metadata.create_all(engine)
+    Base.metadata.drop_all(engine, tables=orm_test_tables())
+    Base.metadata.create_all(engine, tables=orm_test_tables())
     try:
         with session_factory() as session:
             localidade = _corporativo_models.Localidade(cidade="Natal", uf="RN", pais="Brasil")
@@ -362,7 +363,7 @@ def test_comercial_habilita_cliente_sobre_autoridade_corporativa(
             assert cliente.codigo_cliente == "COM-001"
             assert service.obter_por_pessoa(pessoa.id_pessoa) == cliente
     finally:
-        Base.metadata.drop_all(engine)
+        Base.metadata.drop_all(engine, tables=orm_test_tables())
         engine.dispose()
 
 

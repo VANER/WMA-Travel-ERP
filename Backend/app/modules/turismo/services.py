@@ -11,14 +11,20 @@ from sqlalchemy.orm import Session
 from app.modules.turismo.models import (
     AlocacaoVaga,
     PacoteViagem,
+    PassageiroReserva,
     Reserva,
     ReservaCorrelacao,
     ReservaOperacao,
     SaidaTuristica,
 )
-from app.modules.turismo.repositories import ReservaRepository, SaidaRepository
+from app.modules.turismo.repositories import (
+    PassageiroReservaRepository,
+    ReservaRepository,
+    SaidaRepository,
+)
 from app.modules.turismo.schemas import (
     DisponibilidadeResponse,
+    PassageiroReservaCreate,
     ReservaAcao,
     ReservaCreate,
     ReservaResponse,
@@ -287,3 +293,55 @@ def expirar_bloqueios(session: Session, id_saida: int) -> int:
     ).all()
     session.commit()
     return len(identifiers)
+
+
+@_transacional
+def cadastrar_passageiro_reserva(
+    session: Session,
+    id_reserva: int,
+    payload: PassageiroReservaCreate,
+) -> PassageiroReserva:
+    """Cadastra participante individual no owner Turismo."""
+    reservas = ReservaRepository(session)
+    reserva = reservas.obter(
+        id_reserva,
+        bloquear=True,
+    )
+    if reserva is None:
+        raise RecursoTurismoNaoEncontradoError("reserva nao encontrada")
+
+    passageiros = PassageiroReservaRepository(session)
+
+    existentes = passageiros.listar_por_reserva(
+        id_reserva,
+        bloquear=True,
+    )
+
+    if any(passageiro.ordem == payload.ordem for passageiro in existentes):
+        raise RegraTurismoError("ordem de passageiro ja cadastrada")
+
+    if len(existentes) >= reserva.quantidade_passageiros:
+        raise RegraTurismoError("quantidade de passageiros da reserva excedida")
+
+    if payload.ordem > reserva.quantidade_passageiros:
+        raise RegraTurismoError("ordem excede quantidade de passageiros da reserva")
+
+    passageiro = PassageiroReserva(
+        id_reserva=id_reserva,
+        ordem=payload.ordem,
+        status="ATIVO",
+    )
+    session.add(passageiro)
+    session.commit()
+    session.refresh(passageiro)
+    return passageiro
+
+
+def listar_passageiros_reserva(
+    session: Session,
+    id_reserva: int,
+) -> list[PassageiroReserva]:
+    if ReservaRepository(session).obter(id_reserva) is None:
+        raise RecursoTurismoNaoEncontradoError("reserva nao encontrada")
+
+    return PassageiroReservaRepository(session).listar_por_reserva(id_reserva)
