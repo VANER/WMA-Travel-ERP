@@ -6,6 +6,7 @@ from app.core.config import get_settings
 from app.core.errors import DatabaseUnavailableError
 from app.core.schemas import DatabaseHealthResponse, ErrorResponse, HealthResponse
 from app.db.session import database_is_available
+from app.modules.biketour.router import router as biketour_router
 from app.modules.comercial.router import router as comercial_router
 from app.modules.corporativo.router import router as corporativo_router
 from app.modules.financeiro.router import router as financeiro_router
@@ -18,6 +19,15 @@ router.include_router(corporativo_router)
 router.include_router(financeiro_router)
 router.include_router(seguranca_router)
 router.include_router(turismo_router)
+router.include_router(
+    biketour_router,
+    prefix="/biketour",
+)
+router.include_router(
+    biketour_router,
+    prefix="/bike-tour",
+    include_in_schema=False,
+)
 
 
 @router.get(

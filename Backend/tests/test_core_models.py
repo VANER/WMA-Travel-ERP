@@ -278,13 +278,31 @@ def test_core_models_register_only_the_inventory_authorities() -> None:
         "alocacao_vaga",
         "destino",
         "pacote_viagem",
+        "passageiro_reserva",
         "produto_turistico",
         "reserva",
         "reserva_correlacao",
         "reserva_operacao",
         "saida_turistica",
     }
-    excluded_tables = security_tables | commercial_tables | financial_tables | tourism_tables
+    biketour_tables = {
+        "operacao_bike_tour",
+        "pendencia_bike_tour",
+        "produto_bike_tour",
+        "evento_bike_tour",
+        "recurso_bike_tour",
+        "inscricao_bike_tour",
+        "alocacao_recurso_bike_tour",
+        "equipe_bike_tour",
+        "logistica_bike_tour",
+        "ponto_controle_bike_tour",
+        "passagem_bike_tour",
+        "ocorrencia_bike_tour",
+        "avaliacao_bike_tour",
+    }
+    excluded_tables = (
+        security_tables | commercial_tables | financial_tables | tourism_tables | biketour_tables
+    )
     table_names = {
         table.name for table in Base.metadata.tables.values() if table.name not in excluded_tables
     }

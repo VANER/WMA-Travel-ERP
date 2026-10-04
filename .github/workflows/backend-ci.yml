@@ -72,8 +72,15 @@ jobs:
       - name: Verificar tipos
         run: mypy app tests scripts
 
-      - name: Executar testes rápidos e integração PostgreSQL
-        run: pytest -W error --run-postgresql --cov=app --cov-report=term-missing
+      - name: Executar testes rápidos com cobertura integral
+        run: pytest -W error --ignore=tests/integration --cov=app --cov-report=term-missing
+
+      - name: Executar integração PostgreSQL dos recortes ORM
+        env:
+          WMA_TEST_DATABASE_URL: postgresql+psycopg://wma_test@localhost:5432/wma_orm_test
+        run: |
+          createdb --host localhost --username wma_test wma_orm_test
+          pytest -W error tests/integration/test_postgresql.py tests/integration/test_turismo_postgresql_hardening.py --run-postgresql --no-cov
 
       - name: Verificar contrato OpenAPI versionado
         run: python scripts/export_openapi.py --check
@@ -102,3 +109,6 @@ jobs:
 
       - name: Reaplicar última migration
         run: alembic upgrade head
+
+      - name: Validar Bike Tour sobre a baseline migrada
+        run: pytest -W error tests/integration/test_biketour_api_postgresql.py tests/integration/test_biketour_postgresql.py tests/integration/test_biketour_operations_postgresql.py tests/integration/test_biketour_resource_hardening_postgresql.py tests/integration/test_biketour_idempotency_postgresql.py tests/integration/test_biketour_adversarial_postgresql.py tests/integration/test_biketour_uow_postgresql.py tests/integration/test_biketour_retention_postgresql.py --run-postgresql --no-cov

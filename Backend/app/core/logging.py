@@ -10,6 +10,11 @@ _correlation_id: ContextVar[str | None] = ContextVar("correlation_id", default=N
 _STANDARD_RECORD_ATTRIBUTES = set(logging.makeLogRecord({}).__dict__)
 
 
+def get_correlation_id() -> str | None:
+    """Fornece a correlacao da requisicao aos comandos sincronos."""
+    return _correlation_id.get()
+
+
 def bind_correlation_id(correlation_id: str) -> Token[str | None]:
     """Associa o identificador ao contexto assíncrono atual."""
     return _correlation_id.set(correlation_id)

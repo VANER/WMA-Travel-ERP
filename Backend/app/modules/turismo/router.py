@@ -14,10 +14,12 @@ from app.modules.seguranca.authorization import (
     obter_contexto_rbac,
 )
 from app.modules.seguranca.rbac import ContextoRbac
-from app.modules.turismo.models import Reserva, SaidaTuristica
+from app.modules.turismo.models import PassageiroReserva, Reserva, SaidaTuristica
 from app.modules.turismo.repositories import SaidaRepository
 from app.modules.turismo.schemas import (
     DisponibilidadeResponse,
+    PassageiroReservaCreate,
+    PassageiroReservaResponse,
     ReservaAcao,
     ReservaCreate,
     ReservaResponse,
@@ -27,10 +29,12 @@ from app.modules.turismo.schemas import (
 from app.modules.turismo.services import (
     RecursoTurismoNaoEncontradoError,
     RegraTurismoError,
+    cadastrar_passageiro_reserva,
     cancelar_reserva,
     confirmar_reserva,
     criar_reserva,
     criar_saida,
+    listar_passageiros_reserva,
     obter_disponibilidade,
 )
 
@@ -169,6 +173,62 @@ def cancelar(
     try:
         return cancelar_reserva(
             session, identifier, payload, id_usuario=contexto.id_usuario if contexto else None
+        )
+    except RegraTurismoError as exc:
+        raise _erro_http(exc) from exc
+
+
+@router.get(
+    "/reservas/{identifier}/passageiros",
+    response_model=list[PassageiroReservaResponse],
+    responses={
+        404: {
+            "model": ErrorResponse,
+            "description": "Reserva nao encontrada.",
+        },
+    },
+    operation_id="listar_passageiros_reserva_turistica",
+)
+def listar_passageiros(
+    identifier: Identifier,
+    session: SessionDep,
+) -> list[PassageiroReserva]:
+    try:
+        return listar_passageiros_reserva(
+            session,
+            identifier,
+        )
+    except RegraTurismoError as exc:
+        raise _erro_http(exc) from exc
+
+
+@router.post(
+    "/reservas/{identifier}/passageiros",
+    response_model=PassageiroReservaResponse,
+    status_code=status.HTTP_201_CREATED,
+    dependencies=[Depends(exigir_turismo_operar)],
+    responses={
+        404: {
+            "model": ErrorResponse,
+            "description": "Reserva nao encontrada.",
+        },
+        409: {
+            "model": ErrorResponse,
+            "description": ("Quantidade ou ordem de passageiro incompativel."),
+        },
+    },
+    operation_id="cadastrar_passageiro_reserva_turistica",
+)
+def cadastrar_passageiro(
+    identifier: Identifier,
+    payload: PassageiroReservaCreate,
+    session: SessionDep,
+) -> PassageiroReserva:
+    try:
+        return cadastrar_passageiro_reserva(
+            session,
+            identifier,
+            payload,
         )
     except RegraTurismoError as exc:
         raise _erro_http(exc) from exc

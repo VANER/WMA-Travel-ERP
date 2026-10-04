@@ -1,6 +1,167 @@
 {
   "components": {
     "schemas": {
+      "Alteracao": {
+        "additionalProperties": false,
+        "properties": {
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "versao_esperada": {
+            "minimum": 1.0,
+            "title": "Versao Esperada",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "chave_idempotencia",
+          "versao_esperada"
+        ],
+        "title": "Alteracao",
+        "type": "object"
+      },
+      "ApoioInput": {
+        "additionalProperties": false,
+        "properties": {
+          "finalidade": {
+            "enum": [
+              "TRANSPORTE",
+              "APOIO",
+              "MATERIAL"
+            ],
+            "title": "Finalidade",
+            "type": "string"
+          },
+          "id_recurso": {
+            "$ref": "#/components/schemas/Id"
+          }
+        },
+        "required": [
+          "id_recurso",
+          "finalidade"
+        ],
+        "title": "ApoioInput",
+        "type": "object"
+      },
+      "AuditoriaResponse": {
+        "properties": {
+          "ator": {
+            "title": "Ator",
+            "type": "integer"
+          },
+          "correlation_id": {
+            "format": "uuid",
+            "title": "Correlation Id",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "instante": {
+            "format": "date-time",
+            "title": "Instante",
+            "type": "string"
+          },
+          "operacao": {
+            "title": "Operacao",
+            "type": "string"
+          },
+          "status_http": {
+            "title": "Status Http",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "ator",
+          "operacao",
+          "instante",
+          "correlation_id",
+          "status_http"
+        ],
+        "title": "AuditoriaResponse",
+        "type": "object"
+      },
+      "AvaliacaoCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "nota": {
+            "maximum": 5.0,
+            "minimum": 1.0,
+            "title": "Nota",
+            "type": "integer"
+          },
+          "versao_esperada": {
+            "minimum": 1.0,
+            "title": "Versao Esperada",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "chave_idempotencia",
+          "versao_esperada",
+          "nota"
+        ],
+        "title": "AvaliacaoCreate",
+        "type": "object"
+      },
+      "AvaliacaoResponse": {
+        "properties": {
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "id_inscricao_bike_tour": {
+            "title": "Id Inscricao Bike Tour",
+            "type": "integer"
+          },
+          "nota": {
+            "title": "Nota",
+            "type": "integer"
+          },
+          "updated_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated At"
+          },
+          "versao": {
+            "title": "Versao",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "versao",
+          "created_at",
+          "updated_at",
+          "id_inscricao_bike_tour",
+          "nota"
+        ],
+        "title": "AvaliacaoResponse",
+        "type": "object"
+      },
       "ClienteCreate": {
         "additionalProperties": false,
         "description": "Entrada para cadastro de cliente.",
@@ -997,6 +1158,42 @@
         "title": "DatabaseHealthResponse",
         "type": "object"
       },
+      "DisponibilidadeBikeTourResponse": {
+        "properties": {
+          "capacidade": {
+            "title": "Capacidade",
+            "type": "integer"
+          },
+          "comprometidas": {
+            "title": "Comprometidas",
+            "type": "integer"
+          },
+          "id_evento_bike_tour": {
+            "title": "Id Evento Bike Tour",
+            "type": "integer"
+          },
+          "recursos": {
+            "items": {
+              "$ref": "#/components/schemas/RecursoResponse"
+            },
+            "title": "Recursos",
+            "type": "array"
+          },
+          "saldo": {
+            "title": "Saldo",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id_evento_bike_tour",
+          "capacidade",
+          "comprometidas",
+          "saldo",
+          "recursos"
+        ],
+        "title": "DisponibilidadeBikeTourResponse",
+        "type": "object"
+      },
       "DisponibilidadeResponse": {
         "properties": {
           "capacidade": {
@@ -1762,6 +1959,89 @@
         "title": "EmpresaResponse",
         "type": "object"
       },
+      "EquipeRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "equipe": {
+            "items": {
+              "$ref": "#/components/schemas/GuiaInput"
+            },
+            "maxItems": 100,
+            "title": "Equipe",
+            "type": "array"
+          },
+          "versao_esperada": {
+            "minimum": 1.0,
+            "title": "Versao Esperada",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "chave_idempotencia",
+          "versao_esperada",
+          "equipe"
+        ],
+        "title": "EquipeRequest",
+        "type": "object"
+      },
+      "EquipeResponse": {
+        "properties": {
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "id_evento_bike_tour": {
+            "title": "Id Evento Bike Tour",
+            "type": "integer"
+          },
+          "id_recurso_bike_tour": {
+            "title": "Id Recurso Bike Tour",
+            "type": "integer"
+          },
+          "papel": {
+            "title": "Papel",
+            "type": "string"
+          },
+          "updated_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated At"
+          },
+          "versao": {
+            "title": "Versao",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "versao",
+          "created_at",
+          "updated_at",
+          "id_evento_bike_tour",
+          "id_recurso_bike_tour",
+          "papel"
+        ],
+        "title": "EquipeResponse",
+        "type": "object"
+      },
       "ErrorDetail": {
         "description": "Detalhe seguro associado a um campo inválido.",
         "properties": {
@@ -1822,6 +2102,236 @@
           "correlation_id"
         ],
         "title": "ErrorResponse",
+        "type": "object"
+      },
+      "EventoAcaoRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "acao": {
+            "pattern": "^(ABRIR|INICIAR|CANCELAR|CONCLUIR)$",
+            "title": "Acao",
+            "type": "string"
+          },
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "motivo": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Motivo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "versao_esperada": {
+            "minimum": 1.0,
+            "title": "Versao Esperada",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "acao",
+          "versao_esperada",
+          "chave_idempotencia"
+        ],
+        "title": "EventoAcaoRequest",
+        "type": "object"
+      },
+      "EventoCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "capacidade": {
+            "maximum": 1000.0,
+            "minimum": 1.0,
+            "title": "Capacidade",
+            "type": "integer"
+          },
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "fim": {
+            "format": "date-time",
+            "title": "Fim",
+            "type": "string"
+          },
+          "id_saida": {
+            "exclusiveMinimum": 0.0,
+            "title": "Id Saida",
+            "type": "integer"
+          },
+          "inicio": {
+            "format": "date-time",
+            "title": "Inicio",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id_saida",
+          "inicio",
+          "fim",
+          "capacidade",
+          "chave_idempotencia"
+        ],
+        "title": "EventoCreate",
+        "type": "object"
+      },
+      "EventoResponse": {
+        "properties": {
+          "capacidade": {
+            "title": "Capacidade",
+            "type": "integer"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "fim": {
+            "format": "date-time",
+            "title": "Fim",
+            "type": "string"
+          },
+          "id_evento_bike_tour": {
+            "title": "Id Evento Bike Tour",
+            "type": "integer"
+          },
+          "id_saida": {
+            "title": "Id Saida",
+            "type": "integer"
+          },
+          "inicio": {
+            "format": "date-time",
+            "title": "Inicio",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "PLANEJADO",
+              "ABERTO",
+              "EM_EXECUCAO",
+              "CONCLUIDO",
+              "CANCELADO"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "updated_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated At"
+          },
+          "versao": {
+            "title": "Versao",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id_evento_bike_tour",
+          "id_saida",
+          "inicio",
+          "fim",
+          "capacidade",
+          "status",
+          "versao",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "EventoResponse",
+        "type": "object"
+      },
+      "EventoUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "capacidade": {
+            "anyOf": [
+              {
+                "maximum": 1000.0,
+                "minimum": 1.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Capacidade"
+          },
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "fim": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fim"
+          },
+          "inicio": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Inicio"
+          },
+          "versao_esperada": {
+            "minimum": 1.0,
+            "title": "Versao Esperada",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "versao_esperada",
+          "chave_idempotencia"
+        ],
+        "title": "EventoUpdate",
+        "type": "object"
+      },
+      "ExpiracaoResponse": {
+        "properties": {
+          "expiradas": {
+            "items": {
+              "type": "integer"
+            },
+            "title": "Expiradas",
+            "type": "array"
+          },
+          "id_evento_bike_tour": {
+            "title": "Id Evento Bike Tour",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id_evento_bike_tour",
+          "expiradas"
+        ],
+        "title": "ExpiracaoResponse",
         "type": "object"
       },
       "FornecedorCreate": {
@@ -2011,6 +2521,28 @@
         "title": "FornecedorResponse",
         "type": "object"
       },
+      "GuiaInput": {
+        "additionalProperties": false,
+        "properties": {
+          "id_recurso": {
+            "$ref": "#/components/schemas/Id"
+          },
+          "papel": {
+            "enum": [
+              "LIDER",
+              "APOIO"
+            ],
+            "title": "Papel",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id_recurso",
+          "papel"
+        ],
+        "title": "GuiaInput",
+        "type": "object"
+      },
       "HealthResponse": {
         "description": "Resposta do health check de processo.",
         "properties": {
@@ -2031,6 +2563,200 @@
           "version"
         ],
         "title": "HealthResponse",
+        "type": "object"
+      },
+      "Id": {
+        "exclusiveMinimum": 0.0,
+        "type": "integer"
+      },
+      "InscricaoAcao": {
+        "additionalProperties": false,
+        "properties": {
+          "acao": {
+            "enum": [
+              "CONFIRMAR",
+              "CANCELAR",
+              "PRESENCA",
+              "NO_SHOW",
+              "CONCLUIR"
+            ],
+            "title": "Acao",
+            "type": "string"
+          },
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "motivo": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Motivo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "versao_esperada": {
+            "minimum": 1.0,
+            "title": "Versao Esperada",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "chave_idempotencia",
+          "versao_esperada",
+          "acao"
+        ],
+        "title": "InscricaoAcao",
+        "type": "object"
+      },
+      "InscricaoCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "id_bicicleta": {
+            "$ref": "#/components/schemas/Id"
+          },
+          "id_passageiro": {
+            "$ref": "#/components/schemas/Id"
+          },
+          "id_reserva": {
+            "$ref": "#/components/schemas/Id"
+          },
+          "ids_equipamentos": {
+            "items": {
+              "$ref": "#/components/schemas/Id"
+            },
+            "maxItems": 20,
+            "title": "Ids Equipamentos",
+            "type": "array"
+          },
+          "papel": {
+            "enum": [
+              "PARTICIPANTE",
+              "CICLISTA",
+              "ACOMPANHANTE"
+            ],
+            "title": "Papel",
+            "type": "string"
+          },
+          "versao_esperada": {
+            "anyOf": [
+              {
+                "minimum": 1.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Versao Esperada"
+          }
+        },
+        "required": [
+          "chave_idempotencia",
+          "id_bicicleta",
+          "id_reserva",
+          "id_passageiro",
+          "papel"
+        ],
+        "title": "InscricaoCreate",
+        "type": "object"
+      },
+      "InscricaoResponse": {
+        "properties": {
+          "alocacoes": {
+            "items": {
+              "type": "integer"
+            },
+            "title": "Alocacoes",
+            "type": "array"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "expira_em": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expira Em"
+          },
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "id_evento_bike_tour": {
+            "title": "Id Evento Bike Tour",
+            "type": "integer"
+          },
+          "id_passageiro": {
+            "title": "Id Passageiro",
+            "type": "integer"
+          },
+          "id_reserva": {
+            "title": "Id Reserva",
+            "type": "integer"
+          },
+          "origem_valida": {
+            "title": "Origem Valida",
+            "type": "boolean"
+          },
+          "papel": {
+            "title": "Papel",
+            "type": "string"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "updated_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated At"
+          },
+          "versao": {
+            "title": "Versao",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "versao",
+          "created_at",
+          "updated_at",
+          "id_evento_bike_tour",
+          "id_reserva",
+          "id_passageiro",
+          "papel",
+          "status",
+          "expira_em",
+          "alocacoes",
+          "origem_valida"
+        ],
+        "title": "InscricaoResponse",
         "type": "object"
       },
       "InteracaoLeadCreate": {
@@ -3079,6 +3805,270 @@
         "title": "LoginRequest",
         "type": "object"
       },
+      "LogisticaRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "apoio": {
+            "items": {
+              "$ref": "#/components/schemas/ApoioInput"
+            },
+            "maxItems": 100,
+            "title": "Apoio",
+            "type": "array"
+          },
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "versao_esperada": {
+            "minimum": 1.0,
+            "title": "Versao Esperada",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "chave_idempotencia",
+          "versao_esperada",
+          "apoio"
+        ],
+        "title": "LogisticaRequest",
+        "type": "object"
+      },
+      "LogisticaResponse": {
+        "properties": {
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "finalidade": {
+            "title": "Finalidade",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "id_evento_bike_tour": {
+            "title": "Id Evento Bike Tour",
+            "type": "integer"
+          },
+          "id_recurso_bike_tour": {
+            "title": "Id Recurso Bike Tour",
+            "type": "integer"
+          },
+          "updated_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated At"
+          },
+          "versao": {
+            "title": "Versao",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "versao",
+          "created_at",
+          "updated_at",
+          "id_evento_bike_tour",
+          "id_recurso_bike_tour",
+          "finalidade"
+        ],
+        "title": "LogisticaResponse",
+        "type": "object"
+      },
+      "Motivo": {
+        "enum": [
+          "SOLICITACAO",
+          "CLIMA",
+          "RECURSO_INDISPONIVEL",
+          "ORIGEM_INVALIDA",
+          "OPERACIONAL",
+          "TRATAMENTO_CONCLUIDO"
+        ],
+        "type": "string"
+      },
+      "NivelBikeTour": {
+        "enum": [
+          "INICIANTE",
+          "INTERMEDIARIO",
+          "AVANCADO"
+        ],
+        "title": "NivelBikeTour",
+        "type": "string"
+      },
+      "OcorrenciaCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "gravidade": {
+            "enum": [
+              "BAIXA",
+              "MEDIA",
+              "ALTA"
+            ],
+            "title": "Gravidade",
+            "type": "string"
+          },
+          "id_inscricao": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Id"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "motivo": {
+            "$ref": "#/components/schemas/Motivo"
+          },
+          "tipo": {
+            "enum": [
+              "ATRASO",
+              "MECANICA",
+              "INTERRUPCAO",
+              "OUTRA"
+            ],
+            "title": "Tipo",
+            "type": "string"
+          }
+        },
+        "required": [
+          "chave_idempotencia",
+          "tipo",
+          "gravidade",
+          "motivo"
+        ],
+        "title": "OcorrenciaCreate",
+        "type": "object"
+      },
+      "OcorrenciaResponse": {
+        "properties": {
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "gravidade": {
+            "title": "Gravidade",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "id_evento_bike_tour": {
+            "title": "Id Evento Bike Tour",
+            "type": "integer"
+          },
+          "id_inscricao_bike_tour": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id Inscricao Bike Tour"
+          },
+          "motivo": {
+            "title": "Motivo",
+            "type": "string"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "tipo": {
+            "title": "Tipo",
+            "type": "string"
+          },
+          "updated_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated At"
+          },
+          "versao": {
+            "title": "Versao",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "versao",
+          "created_at",
+          "updated_at",
+          "id_evento_bike_tour",
+          "id_inscricao_bike_tour",
+          "tipo",
+          "gravidade",
+          "status",
+          "motivo"
+        ],
+        "title": "OcorrenciaResponse",
+        "type": "object"
+      },
+      "OcorrenciaUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "motivo": {
+            "$ref": "#/components/schemas/Motivo"
+          },
+          "status": {
+            "enum": [
+              "EM_ANALISE",
+              "RESOLVIDA",
+              "DESCARTADA"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "versao_esperada": {
+            "minimum": 1.0,
+            "title": "Versao Esperada",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "chave_idempotencia",
+          "versao_esperada",
+          "status",
+          "motivo"
+        ],
+        "title": "OcorrenciaUpdate",
+        "type": "object"
+      },
       "OperadoraCreate": {
         "additionalProperties": false,
         "properties": {
@@ -3453,6 +4443,60 @@
           "status"
         ],
         "title": "OportunidadeResponse",
+        "type": "object"
+      },
+      "OrigemResponse": {
+        "properties": {
+          "id_contrato": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id Contrato"
+          },
+          "id_item_venda": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id Item Venda"
+          },
+          "id_reserva": {
+            "title": "Id Reserva",
+            "type": "integer"
+          },
+          "id_venda": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id Venda"
+          },
+          "origem_valida": {
+            "title": "Origem Valida",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id_reserva",
+          "id_venda",
+          "id_item_venda",
+          "id_contrato",
+          "origem_valida"
+        ],
+        "title": "OrigemResponse",
         "type": "object"
       },
       "PagamentoCreate": {
@@ -3891,6 +4935,225 @@
           "valor"
         ],
         "title": "ParcelaCreate",
+        "type": "object"
+      },
+      "PassageiroReservaCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "ordem": {
+            "exclusiveMinimum": 0.0,
+            "title": "Ordem",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "ordem"
+        ],
+        "title": "PassageiroReservaCreate",
+        "type": "object"
+      },
+      "PassageiroReservaResponse": {
+        "properties": {
+          "id_passageiro": {
+            "title": "Id Passageiro",
+            "type": "integer"
+          },
+          "id_reserva": {
+            "title": "Id Reserva",
+            "type": "integer"
+          },
+          "ordem": {
+            "title": "Ordem",
+            "type": "integer"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "versao": {
+            "title": "Versao",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id_passageiro",
+          "id_reserva",
+          "ordem",
+          "status",
+          "versao"
+        ],
+        "title": "PassageiroReservaResponse",
+        "type": "object"
+      },
+      "PassagemCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "id_ponto": {
+            "$ref": "#/components/schemas/Id"
+          },
+          "instante": {
+            "format": "date-time",
+            "title": "Instante",
+            "type": "string"
+          },
+          "versao_esperada": {
+            "minimum": 1.0,
+            "title": "Versao Esperada",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "chave_idempotencia",
+          "versao_esperada",
+          "id_ponto",
+          "instante"
+        ],
+        "title": "PassagemCreate",
+        "type": "object"
+      },
+      "PassagemResponse": {
+        "properties": {
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "id_inscricao_bike_tour": {
+            "title": "Id Inscricao Bike Tour",
+            "type": "integer"
+          },
+          "id_ponto_controle_bike_tour": {
+            "title": "Id Ponto Controle Bike Tour",
+            "type": "integer"
+          },
+          "instante": {
+            "format": "date-time",
+            "title": "Instante",
+            "type": "string"
+          },
+          "updated_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated At"
+          },
+          "versao": {
+            "title": "Versao",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "versao",
+          "created_at",
+          "updated_at",
+          "id_inscricao_bike_tour",
+          "id_ponto_controle_bike_tour",
+          "instante"
+        ],
+        "title": "PassagemResponse",
+        "type": "object"
+      },
+      "PendenciaResponse": {
+        "properties": {
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "id_evento_bike_tour": {
+            "title": "Id Evento Bike Tour",
+            "type": "integer"
+          },
+          "id_inscricao_bike_tour": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id Inscricao Bike Tour"
+          },
+          "id_operacao_bike_tour": {
+            "title": "Id Operacao Bike Tour",
+            "type": "integer"
+          },
+          "motivo": {
+            "title": "Motivo",
+            "type": "string"
+          },
+          "referencia_tratamento": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Referencia Tratamento"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "tipo": {
+            "title": "Tipo",
+            "type": "string"
+          },
+          "updated_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated At"
+          },
+          "versao": {
+            "title": "Versao",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "versao",
+          "created_at",
+          "updated_at",
+          "id_evento_bike_tour",
+          "id_inscricao_bike_tour",
+          "id_operacao_bike_tour",
+          "tipo",
+          "status",
+          "motivo",
+          "referencia_tratamento"
+        ],
+        "title": "PendenciaResponse",
         "type": "object"
       },
       "PeriodoCreate": {
@@ -4334,6 +5597,321 @@
         "title": "PessoaResponse",
         "type": "object"
       },
+      "PontoInput": {
+        "additionalProperties": false,
+        "properties": {
+          "distancia_km": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "number"
+              },
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,11}0*$)\\d{0,8}\\.\\d{0,2}0*$)",
+                "type": "string"
+              }
+            ],
+            "title": "Distancia Km"
+          },
+          "id_localidade": {
+            "$ref": "#/components/schemas/Id"
+          },
+          "ordem": {
+            "exclusiveMinimum": 0.0,
+            "title": "Ordem",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "ordem",
+          "id_localidade",
+          "distancia_km"
+        ],
+        "title": "PontoInput",
+        "type": "object"
+      },
+      "PontoResponse": {
+        "properties": {
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "distancia_km": {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "title": "Distancia Km",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "id_evento_bike_tour": {
+            "title": "Id Evento Bike Tour",
+            "type": "integer"
+          },
+          "id_localidade": {
+            "title": "Id Localidade",
+            "type": "integer"
+          },
+          "ordem": {
+            "title": "Ordem",
+            "type": "integer"
+          },
+          "updated_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated At"
+          },
+          "versao": {
+            "title": "Versao",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "versao",
+          "created_at",
+          "updated_at",
+          "id_evento_bike_tour",
+          "ordem",
+          "id_localidade",
+          "distancia_km"
+        ],
+        "title": "PontoResponse",
+        "type": "object"
+      },
+      "PontosRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "pontos": {
+            "items": {
+              "$ref": "#/components/schemas/PontoInput"
+            },
+            "maxItems": 100,
+            "minItems": 2,
+            "title": "Pontos",
+            "type": "array"
+          },
+          "versao_esperada": {
+            "minimum": 1.0,
+            "title": "Versao Esperada",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "chave_idempotencia",
+          "versao_esperada",
+          "pontos"
+        ],
+        "title": "PontosRequest",
+        "type": "object"
+      },
+      "ProdutoCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "desnivel_m": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "number"
+              },
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,11}0*$)\\d{0,8}\\.\\d{0,2}0*$)",
+                "type": "string"
+              }
+            ],
+            "title": "Desnivel M"
+          },
+          "distancia_km": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0.0,
+                "type": "number"
+              },
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,11}0*$)\\d{0,8}\\.\\d{0,2}0*$)",
+                "type": "string"
+              }
+            ],
+            "title": "Distancia Km"
+          },
+          "id_produto": {
+            "exclusiveMinimum": 0.0,
+            "title": "Id Produto",
+            "type": "integer"
+          },
+          "nivel": {
+            "$ref": "#/components/schemas/NivelBikeTour"
+          }
+        },
+        "required": [
+          "id_produto",
+          "distancia_km",
+          "desnivel_m",
+          "nivel",
+          "chave_idempotencia"
+        ],
+        "title": "ProdutoCreate",
+        "type": "object"
+      },
+      "ProdutoResponse": {
+        "properties": {
+          "ativo": {
+            "title": "Ativo",
+            "type": "boolean"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "desnivel_m": {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "title": "Desnivel M",
+            "type": "string"
+          },
+          "distancia_km": {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "title": "Distancia Km",
+            "type": "string"
+          },
+          "id_produto": {
+            "title": "Id Produto",
+            "type": "integer"
+          },
+          "id_produto_bike_tour": {
+            "title": "Id Produto Bike Tour",
+            "type": "integer"
+          },
+          "nivel": {
+            "$ref": "#/components/schemas/NivelBikeTour"
+          },
+          "updated_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated At"
+          },
+          "versao": {
+            "title": "Versao",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id_produto_bike_tour",
+          "id_produto",
+          "distancia_km",
+          "desnivel_m",
+          "nivel",
+          "ativo",
+          "versao",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "ProdutoResponse",
+        "type": "object"
+      },
+      "ProdutoUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "ativo": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ativo"
+          },
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "desnivel_m": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "number"
+              },
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,11}0*$)\\d{0,8}\\.\\d{0,2}0*$)",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Desnivel M"
+          },
+          "distancia_km": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0.0,
+                "type": "number"
+              },
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,11}0*$)\\d{0,8}\\.\\d{0,2}0*$)",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Distancia Km"
+          },
+          "nivel": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/NivelBikeTour"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "versao_esperada": {
+            "minimum": 1.0,
+            "title": "Versao Esperada",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "versao_esperada",
+          "chave_idempotencia"
+        ],
+        "title": "ProdutoUpdate",
+        "type": "object"
+      },
       "PropostaCreate": {
         "additionalProperties": false,
         "properties": {
@@ -4529,6 +6107,108 @@
         "title": "PropostaResponse",
         "type": "object"
       },
+      "Reacomodacao": {
+        "additionalProperties": false,
+        "properties": {
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "id_bicicleta": {
+            "$ref": "#/components/schemas/Id"
+          },
+          "ids_equipamentos": {
+            "items": {
+              "$ref": "#/components/schemas/Id"
+            },
+            "maxItems": 20,
+            "title": "Ids Equipamentos",
+            "type": "array"
+          },
+          "versao_esperada": {
+            "minimum": 1.0,
+            "title": "Versao Esperada",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "chave_idempotencia",
+          "versao_esperada",
+          "id_bicicleta"
+        ],
+        "title": "Reacomodacao",
+        "type": "object"
+      },
+      "Reconciliacao": {
+        "additionalProperties": false,
+        "properties": {
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "cursor": {
+            "default": 0,
+            "minimum": 0.0,
+            "title": "Cursor",
+            "type": "integer"
+          },
+          "limite": {
+            "default": 100,
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "title": "Limite",
+            "type": "integer"
+          },
+          "versao_esperada": {
+            "minimum": 1.0,
+            "title": "Versao Esperada",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "chave_idempotencia",
+          "versao_esperada"
+        ],
+        "title": "Reconciliacao",
+        "type": "object"
+      },
+      "ReconciliacaoResponse": {
+        "properties": {
+          "id_evento_bike_tour": {
+            "title": "Id Evento Bike Tour",
+            "type": "integer"
+          },
+          "proximo_cursor": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Proximo Cursor"
+          },
+          "tratadas": {
+            "items": {
+              "type": "integer"
+            },
+            "title": "Tratadas",
+            "type": "array"
+          }
+        },
+        "required": [
+          "id_evento_bike_tour",
+          "tratadas",
+          "proximo_cursor"
+        ],
+        "title": "ReconciliacaoResponse",
+        "type": "object"
+      },
       "RecuperacaoRequest": {
         "properties": {
           "email": {
@@ -4542,6 +6222,183 @@
           "email"
         ],
         "title": "RecuperacaoRequest",
+        "type": "object"
+      },
+      "RecursoCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "codigo": {
+            "maxLength": 30,
+            "minLength": 1,
+            "title": "Codigo",
+            "type": "string"
+          },
+          "id_ativo": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Id"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "id_guia": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Id"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "id_transporte": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Id"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "tipo": {
+            "$ref": "#/components/schemas/TipoRecurso"
+          }
+        },
+        "required": [
+          "chave_idempotencia",
+          "codigo",
+          "tipo"
+        ],
+        "title": "RecursoCreate",
+        "type": "object"
+      },
+      "RecursoResponse": {
+        "properties": {
+          "codigo": {
+            "title": "Codigo",
+            "type": "string"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "id_ativo": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id Ativo"
+          },
+          "id_guia": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id Guia"
+          },
+          "id_transporte": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id Transporte"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "tipo": {
+            "$ref": "#/components/schemas/TipoRecurso"
+          },
+          "updated_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated At"
+          },
+          "versao": {
+            "title": "Versao",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "versao",
+          "created_at",
+          "updated_at",
+          "codigo",
+          "tipo",
+          "status",
+          "id_ativo",
+          "id_guia",
+          "id_transporte"
+        ],
+        "title": "RecursoResponse",
+        "type": "object"
+      },
+      "RecursoUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "DISPONIVEL",
+              "INDISPONIVEL",
+              "MANUTENCAO",
+              "INATIVO"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "versao_esperada": {
+            "minimum": 1.0,
+            "title": "Versao Esperada",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "chave_idempotencia",
+          "versao_esperada",
+          "status"
+        ],
+        "title": "RecursoUpdate",
         "type": "object"
       },
       "RedefinicaoRequest": {
@@ -4579,6 +6436,48 @@
           "refresh_token"
         ],
         "title": "RefreshRequest",
+        "type": "object"
+      },
+      "RelatorioEventoResponse": {
+        "properties": {
+          "id_evento_bike_tour": {
+            "title": "Id Evento Bike Tour",
+            "type": "integer"
+          },
+          "ids_inscricoes": {
+            "items": {
+              "type": "integer"
+            },
+            "title": "Ids Inscricoes",
+            "type": "array"
+          },
+          "inscricoes": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "title": "Inscricoes",
+            "type": "object"
+          },
+          "ocorrencias": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "title": "Ocorrencias",
+            "type": "object"
+          },
+          "passagens": {
+            "title": "Passagens",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id_evento_bike_tour",
+          "inscricoes",
+          "ids_inscricoes",
+          "passagens",
+          "ocorrencias"
+        ],
+        "title": "RelatorioEventoResponse",
         "type": "object"
       },
       "ReservaAcao": {
@@ -4774,6 +6673,180 @@
           "versao"
         ],
         "title": "ReservaResponse",
+        "type": "object"
+      },
+      "RevisaoRetencao": {
+        "additionalProperties": false,
+        "properties": {
+          "acao": {
+            "enum": [
+              "REVISAR",
+              "PRESERVAR",
+              "LIBERAR_HOLD",
+              "PRORROGAR",
+              "COMPACTAR"
+            ],
+            "title": "Acao",
+            "type": "string"
+          },
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "motivo": {
+            "$ref": "#/components/schemas/Motivo"
+          },
+          "nova_data": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nova Data"
+          },
+          "simular": {
+            "default": true,
+            "title": "Simular",
+            "type": "boolean"
+          },
+          "versao_esperada": {
+            "minimum": 1.0,
+            "title": "Versao Esperada",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "chave_idempotencia",
+          "versao_esperada",
+          "acao",
+          "motivo"
+        ],
+        "title": "RevisaoRetencao",
+        "type": "object"
+      },
+      "RevisaoRetencaoResponse": {
+        "properties": {
+          "acao": {
+            "title": "Acao",
+            "type": "string"
+          },
+          "ator": {
+            "title": "Ator",
+            "type": "integer"
+          },
+          "compactada": {
+            "title": "Compactada",
+            "type": "boolean"
+          },
+          "correlation_id": {
+            "title": "Correlation Id",
+            "type": "string"
+          },
+          "elegivel": {
+            "title": "Elegivel",
+            "type": "integer"
+          },
+          "id_evento_bike_tour": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id Evento Bike Tour"
+          },
+          "id_operacao_bike_tour": {
+            "title": "Id Operacao Bike Tour",
+            "type": "integer"
+          },
+          "impedimentos": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Impedimentos",
+            "type": "array"
+          },
+          "instante": {
+            "format": "date-time",
+            "title": "Instante",
+            "type": "string"
+          },
+          "motivo": {
+            "title": "Motivo",
+            "type": "string"
+          },
+          "nova_data": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nova Data"
+          },
+          "periodo_fim": {
+            "format": "date-time",
+            "title": "Periodo Fim",
+            "type": "string"
+          },
+          "periodo_inicio": {
+            "format": "date-time",
+            "title": "Periodo Inicio",
+            "type": "string"
+          },
+          "preservacao_expressa": {
+            "title": "Preservacao Expressa",
+            "type": "boolean"
+          },
+          "preservada": {
+            "title": "Preservada",
+            "type": "integer"
+          },
+          "processada": {
+            "title": "Processada",
+            "type": "integer"
+          },
+          "simular": {
+            "title": "Simular",
+            "type": "boolean"
+          },
+          "versao": {
+            "title": "Versao",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id_operacao_bike_tour",
+          "id_evento_bike_tour",
+          "versao",
+          "ator",
+          "correlation_id",
+          "instante",
+          "periodo_inicio",
+          "periodo_fim",
+          "acao",
+          "motivo",
+          "simular",
+          "elegivel",
+          "processada",
+          "preservada",
+          "impedimentos",
+          "preservacao_expressa",
+          "nova_data",
+          "compactada"
+        ],
+        "title": "RevisaoRetencaoResponse",
         "type": "object"
       },
       "SaidaCreate": {
@@ -5056,6 +7129,15 @@
         "title": "TipoDocumentoResponse",
         "type": "object"
       },
+      "TipoRecurso": {
+        "enum": [
+          "BICICLETA",
+          "EQUIPAMENTO",
+          "GUIA",
+          "VEICULO"
+        ],
+        "type": "string"
+      },
       "TokenResponse": {
         "properties": {
           "access_token": {
@@ -5209,6 +7291,39 @@
           "status"
         ],
         "title": "TransicaoStatus",
+        "type": "object"
+      },
+      "TratamentoRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "chave_idempotencia": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Chave Idempotencia",
+            "type": "string"
+          },
+          "motivo": {
+            "$ref": "#/components/schemas/Motivo"
+          },
+          "referencia_tratamento": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Referencia Tratamento",
+            "type": "string"
+          },
+          "versao_esperada": {
+            "minimum": 1.0,
+            "title": "Versao Esperada",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "chave_idempotencia",
+          "versao_esperada",
+          "referencia_tratamento",
+          "motivo"
+        ],
+        "title": "TratamentoRequest",
         "type": "object"
       },
       "VendaCreate": {
@@ -5894,6 +8009,4195 @@
         "summary": "Refresh",
         "tags": [
           "seguranca"
+        ]
+      }
+    },
+    "/api/v1/biketour/eventos": {
+      "get": {
+        "operationId": "biketour_listar_eventos",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limite",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "maximum": 100,
+              "minimum": 1,
+              "title": "Limite",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/EventoResponse"
+                  },
+                  "title": "Response Biketour Listar Eventos",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticacao ausente ou invalida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissao insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Recurso não encontrado."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflito com dados existentes."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada invalidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Erro interno sem exposicao de detalhes."
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dependencia ou banco indisponivel."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Listar Eventos",
+        "tags": [
+          "bike-tour"
+        ]
+      },
+      "post": {
+        "operationId": "biketour_criar_evento",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EventoCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticacao ausente ou invalida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissao insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Saida inexistente."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Origem, periodo, capacidade ou unicidade."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada invalidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Erro interno sem exposicao de detalhes."
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dependencia ou banco indisponivel."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Criar Evento Endpoint",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/eventos/{identifier}": {
+      "get": {
+        "operationId": "biketour_consultar_evento",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticacao ausente ou invalida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissao insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Evento inexistente."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflito com dados existentes."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada invalidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Erro interno sem exposicao de detalhes."
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dependencia ou banco indisponivel."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Consultar Evento",
+        "tags": [
+          "bike-tour"
+        ]
+      },
+      "patch": {
+        "operationId": "biketour_alterar_evento",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EventoUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticacao ausente ou invalida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissao insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Evento inexistente."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Estado, vinculos, limites ou versao."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada invalidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Erro interno sem exposicao de detalhes."
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dependencia ou banco indisponivel."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Alterar Evento Endpoint",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/eventos/{identifier}/acoes": {
+      "post": {
+        "operationId": "biketour_acionar_evento",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EventoAcaoRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticacao ausente ou invalida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissao insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Evento inexistente."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Transicao, preparacao ou versao incompativel."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada invalidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Erro interno sem exposicao de detalhes."
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dependencia ou banco indisponivel."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Acionar Evento Endpoint",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/eventos/{identifier}/auditoria": {
+      "get": {
+        "operationId": "biketour_consultar_auditoria",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limite",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "maximum": 100,
+              "minimum": 1,
+              "title": "Limite",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/AuditoriaResponse"
+                  },
+                  "title": "Response Biketour Consultar Auditoria",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Auditoria",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/eventos/{identifier}/disponibilidade": {
+      "get": {
+        "operationId": "biketour_consultar_disponibilidade",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "inicio",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Inicio"
+            }
+          },
+          {
+            "in": "query",
+            "name": "fim",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Fim"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limite",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "maximum": 100,
+              "minimum": 1,
+              "title": "Limite",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisponibilidadeBikeTourResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Disponibilidade",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/eventos/{identifier}/equipe": {
+      "post": {
+        "operationId": "biketour_definir_equipe",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EquipeRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/EquipeResponse"
+                  },
+                  "title": "Response Biketour Definir Equipe",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Definir Equipe",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/eventos/{identifier}/expiracao": {
+      "post": {
+        "operationId": "biketour_expirar_evento",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Alteracao"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpiracaoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Expirar",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/eventos/{identifier}/inscricoes": {
+      "get": {
+        "operationId": "biketour_listar_inscricoes",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limite",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "maximum": 100,
+              "minimum": 1,
+              "title": "Limite",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/InscricaoResponse"
+                  },
+                  "title": "Response Biketour Listar Inscricoes",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Listar Inscricoes",
+        "tags": [
+          "bike-tour"
+        ]
+      },
+      "post": {
+        "operationId": "biketour_bloquear_inscricao",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InscricaoCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Rebloqueio da inscricao existente."
+          },
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InscricaoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Bloquear",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/eventos/{identifier}/logistica": {
+      "post": {
+        "operationId": "biketour_definir_logistica",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LogisticaRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/LogisticaResponse"
+                  },
+                  "title": "Response Biketour Definir Logistica",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Definir Logistica",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/eventos/{identifier}/ocorrencias": {
+      "get": {
+        "operationId": "biketour_listar_ocorrencias",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limite",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "maximum": 100,
+              "minimum": 1,
+              "title": "Limite",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/OcorrenciaResponse"
+                  },
+                  "title": "Response Biketour Listar Ocorrencias",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Listar Ocorrencias",
+        "tags": [
+          "bike-tour"
+        ]
+      },
+      "post": {
+        "operationId": "biketour_registrar_ocorrencia",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OcorrenciaCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OcorrenciaResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Registrar Ocorrencia",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/eventos/{identifier}/pendencias": {
+      "get": {
+        "operationId": "biketour_listar_pendencias",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limite",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "maximum": 100,
+              "minimum": 1,
+              "title": "Limite",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "ABERTA",
+                    "TRATADA"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Status"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/PendenciaResponse"
+                  },
+                  "title": "Response Biketour Listar Pendencias",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Listar Pendencias",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/eventos/{identifier}/pontos": {
+      "post": {
+        "operationId": "biketour_definir_pontos",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PontosRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/PontoResponse"
+                  },
+                  "title": "Response Biketour Definir Pontos",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Definir Pontos",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/eventos/{identifier}/reconciliacao": {
+      "post": {
+        "operationId": "biketour_reconciliar_evento",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Reconciliacao"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReconciliacaoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Reconciliar",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/eventos/{identifier}/relatorio": {
+      "get": {
+        "operationId": "biketour_relatorio_evento",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RelatorioEventoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Relatorio",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/inscricoes/{identifier}/acoes": {
+      "post": {
+        "operationId": "biketour_acao_inscricao",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InscricaoAcao"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InscricaoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Acionar Inscricao",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/inscricoes/{identifier}/avaliacao": {
+      "post": {
+        "operationId": "biketour_avaliar_inscricao",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AvaliacaoCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AvaliacaoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Avaliar",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/inscricoes/{identifier}/origem": {
+      "get": {
+        "operationId": "biketour_consultar_correlacao",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrigemResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Consultar Correlacao",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/inscricoes/{identifier}/passagens": {
+      "post": {
+        "operationId": "biketour_registrar_passagem",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PassagemCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PassagemResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Registrar Passagem",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/inscricoes/{identifier}/recursos": {
+      "post": {
+        "operationId": "biketour_reacomodar_recursos",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Reacomodacao"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InscricaoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Reacomodar",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/ocorrencias/{identifier}": {
+      "patch": {
+        "operationId": "biketour_alterar_ocorrencia",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OcorrenciaUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OcorrenciaResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Alterar Ocorrencia",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/operacoes/{identifier}/retencao": {
+      "post": {
+        "operationId": "biketour_revisar_retencao",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RevisaoRetencao"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RevisaoRetencaoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Revisar",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/pendencias/{identifier}/tratamento": {
+      "post": {
+        "operationId": "biketour_tratar_pendencia",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TratamentoRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PendenciaResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Tratar Pendencia",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/produtos": {
+      "get": {
+        "operationId": "biketour_listar_produtos",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limite",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "maximum": 100,
+              "minimum": 1,
+              "title": "Limite",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ProdutoResponse"
+                  },
+                  "title": "Response Biketour Listar Produtos",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticacao ausente ou invalida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissao insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Recurso não encontrado."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflito com dados existentes."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada invalidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Erro interno sem exposicao de detalhes."
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dependencia ou banco indisponivel."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Listar Produtos",
+        "tags": [
+          "bike-tour"
+        ]
+      },
+      "post": {
+        "operationId": "biketour_criar_produto",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProdutoCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProdutoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticacao ausente ou invalida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissao insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Produto de origem inexistente."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Origem incompativel ou duplicidade."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada invalidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Erro interno sem exposicao de detalhes."
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dependencia ou banco indisponivel."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Criar Produto Endpoint",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/produtos/{identifier}": {
+      "patch": {
+        "operationId": "biketour_alterar_produto",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProdutoUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProdutoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticacao ausente ou invalida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissao insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Produto inexistente."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Versao ou chave em conflito."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada invalidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Erro interno sem exposicao de detalhes."
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dependencia ou banco indisponivel."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Alterar Produto Endpoint",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/recursos": {
+      "get": {
+        "operationId": "biketour_listar_recursos",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limite",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "maximum": 100,
+              "minimum": 1,
+              "title": "Limite",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/RecursoResponse"
+                  },
+                  "title": "Response Biketour Listar Recursos",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Listar Recursos",
+        "tags": [
+          "bike-tour"
+        ]
+      },
+      "post": {
+        "operationId": "biketour_criar_recurso",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecursoCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecursoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Criar Recurso",
+        "tags": [
+          "bike-tour"
+        ]
+      }
+    },
+    "/api/v1/biketour/recursos/{identifier}": {
+      "patch": {
+        "operationId": "biketour_alterar_recurso",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecursoUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecursoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Alterar Recurso",
+        "tags": [
+          "bike-tour"
         ]
       }
     },
@@ -12370,6 +18674,234 @@
           }
         ],
         "summary": "Confirmar",
+        "tags": [
+          "turismo"
+        ]
+      }
+    },
+    "/api/v1/turismo/reservas/{identifier}/passageiros": {
+      "get": {
+        "operationId": "listar_passageiros_reserva_turistica",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/PassageiroReservaResponse"
+                  },
+                  "title": "Response Listar Passageiros Reserva Turistica",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticação ausente ou inválida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissão insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Reserva nao encontrada."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflito com dados existentes."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada inválidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Falha interna não detalhada."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Listar Passageiros",
+        "tags": [
+          "turismo"
+        ]
+      },
+      "post": {
+        "operationId": "cadastrar_passageiro_reserva_turistica",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "schema": {
+              "exclusiveMinimum": 0,
+              "title": "Identifier",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PassageiroReservaCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PassageiroReservaResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Autenticação ausente ou inválida."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Permissão insuficiente."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Reserva nao encontrada."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Método HTTP não permitido."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Quantidade ou ordem de passageiro incompativel."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Dados de entrada inválidos."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Falha interna não detalhada."
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Cadastrar Passageiro",
         "tags": [
           "turismo"
         ]

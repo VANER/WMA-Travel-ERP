@@ -37,7 +37,7 @@ def test_backend_workflow_runs_all_quality_gates() -> None:
         "ruff check .",
         "ruff format --check app tests migrations scripts",
         "mypy app tests scripts",
-        "pytest -W error --run-postgresql --cov=app --cov-report=term-missing",
+        "pytest -W error --ignore=tests/integration --cov=app --cov-report=term-missing",
         "python scripts/export_openapi.py --check",
         'python scripts/check_openapi_compatibility.py --base-ref "$WMA_OPENAPI_BASE_REF"',
         "alembic heads",
@@ -49,6 +49,32 @@ def test_backend_workflow_runs_all_quality_gates() -> None:
 
     assert "fetch-depth: 0" in workflow
     assert "if: github.event_name == 'pull_request'" in workflow
+
+
+def test_backend_workflow_isolates_orm_from_migrated_baseline() -> None:
+    workflow = _workflow()
+    orm_start = workflow.index("- name: Executar integração PostgreSQL dos recortes ORM")
+    orm_end = workflow.index("- name:", orm_start + 1)
+    orm_step = workflow[orm_start:orm_end]
+    assert "WMA_TEST_DATABASE_URL:" in orm_step
+    assert "localhost:5432/wma_orm_test" in orm_step
+    assert "createdb --host localhost --username wma_test wma_orm_test" in orm_step
+    assert "wma_phase2_test" not in orm_step
+    assert "--run-postgresql --no-cov" in orm_step
+
+    baseline = workflow.index("- name: Restaurar baseline certificada")
+    upgrade = workflow.index("run: alembic upgrade head", baseline)
+    downgrade = workflow.index("run: alembic downgrade -1", upgrade)
+    reupgrade = workflow.index("run: alembic upgrade head", downgrade)
+    bike_start = workflow.index("- name: Validar Bike Tour sobre a baseline migrada")
+    assert orm_end < baseline < upgrade < downgrade < reupgrade < bike_start
+    bike_step = workflow[bike_start:]
+    assert "--run-postgresql --no-cov" in bike_step
+
+    integration = REPOSITORY_ROOT / "Backend" / "tests" / "integration"
+    for test_file in integration.glob("test_*.py"):
+        step = bike_step if test_file.name.startswith("test_biketour_") else orm_step
+        assert f"tests/integration/{test_file.name}" in step
 
 
 def test_backend_workflow_installs_linux_lock_without_resolving_dependencies() -> None:

@@ -42,6 +42,8 @@
         "/\\b[A-Za-z]:\\\\[^\\s]*/g"
     ],
     "words": [
+        "alocacao",
+        "rebloqueio",
         "Vaner",
         "YYYYMMDDHHMM",
         "condicao",

@@ -125,6 +125,50 @@ class Reserva(LegacyAuditMixin, Base):
     )
 
 
+class PassageiroReserva(AuditMixin, Base):
+    """Participante individual vinculado a uma reserva turistica."""
+
+    __tablename__ = "passageiro_reserva"
+    __table_args__ = (
+        UniqueConstraint(
+            "id_reserva",
+            "ordem",
+            name="uq_passageiro_reserva_reserva_ordem",
+        ),
+        CheckConstraint(
+            "ordem > 0",
+            name="ck_passageiro_reserva_ordem_positiva",
+        ),
+        CheckConstraint(
+            "status IN ('ATIVO', 'INATIVO')",
+            name="ck_passageiro_reserva_status",
+        ),
+        Index(
+            "idx_passageiro_reserva_id_reserva",
+            "id_reserva",
+        ),
+    )
+
+    id_passageiro: Mapped[int] = mapped_column(
+        Integer,
+        Identity(),
+        primary_key=True,
+    )
+    id_reserva: Mapped[int] = mapped_column(
+        ForeignKey("reserva.id_reserva"),
+        nullable=False,
+    )
+    ordem: Mapped[int] = mapped_column(
+        Integer,
+        nullable=False,
+    )
+    status: Mapped[str] = mapped_column(
+        String(20),
+        nullable=False,
+        server_default=text("'ATIVO'"),
+    )
+
+
 class AlocacaoVaga(AuditMixin, Base):
     __tablename__ = "alocacao_vaga"
     __table_args__ = (

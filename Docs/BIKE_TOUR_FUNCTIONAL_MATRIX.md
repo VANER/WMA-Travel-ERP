@@ -70,17 +70,12 @@ inscrição apenas enquanto o evento estiver ABERTO, mediante comando explícito
 A inscrição é única por evento e passageiro. A primeira criação retorna HTTP 201. Quando uma inscrição existente
 estiver elegível para novo bloqueio e o evento permanecer ABERTO, reutilizar a mesma inscrição, incrementar sua
 versão e retornar HTTP 200. Não criar segunda inscrição para o mesmo par evento/passageiro.
-A inscrição é única por evento e passageiro. A primeira criação retorna HTTP 201. Quando uma inscrição existente
-estiver elegível para novo bloqueio e o evento permanecer ABERTO, reutilizar a mesma inscrição, incrementar sua
-versão e retornar HTTP 200. Não criar segunda inscrição para o mesmo par evento/passageiro.
 Produto, período e capacidade do evento só mudam em PLANEJADO e sem inscrições/alocações ativas.
 Pontos só mudam antes da abertura. Alterações fora dessas condições retornam 409, mesmo com permissão de gestão.
 
 ## 4. Capacidade e casos compostos
 
 Bloqueios válidos e inscrições confirmadas/presentes não excedem a capacidade do evento.
-Participantes comprometidos são inscrições PENDENTES com bloqueio válido, CONFIRMADAS ou PRESENTES.
-CONCLUIDA, CANCELADA, EXPIRADA e NO_SHOW não consomem capacidade operacional e não mantêm alocações ativas.
 Participantes comprometidos são inscrições PENDENTES com bloqueio válido, CONFIRMADAS ou PRESENTES.
 CONCLUIDA, CANCELADA, EXPIRADA e NO_SHOW não consomem capacidade operacional e não mantêm alocações ativas.
 Bicicleta, guia e veículo não podem estar alocados em eventos que se sobrepõem; eventos consecutivos podem reutilizar.

@@ -5,7 +5,12 @@ from datetime import datetime
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from app.modules.turismo.models import AlocacaoVaga, Reserva, SaidaTuristica
+from app.modules.turismo.models import (
+    AlocacaoVaga,
+    PassageiroReserva,
+    Reserva,
+    SaidaTuristica,
+)
 
 
 class SaidaRepository:
@@ -56,3 +61,49 @@ class ReservaRepository:
         if bloquear:
             statement = statement.with_for_update().execution_options(populate_existing=True)
         return self.session.scalar(statement)
+
+
+class PassageiroReservaRepository:
+    """Persistencia do passageiro canonico pertencente a Turismo."""
+
+    def __init__(self, session: Session) -> None:
+        self.session = session
+
+    def obter(
+        self,
+        identifier: int,
+        *,
+        bloquear: bool = False,
+    ) -> PassageiroReserva | None:
+        statement = select(PassageiroReserva).where(PassageiroReserva.id_passageiro == identifier)
+        if bloquear:
+            statement = statement.with_for_update().execution_options(populate_existing=True)
+        return self.session.scalar(statement)
+
+    def listar_por_reserva(
+        self,
+        id_reserva: int,
+        *,
+        bloquear: bool = False,
+    ) -> list[PassageiroReserva]:
+        statement = (
+            select(PassageiroReserva)
+            .where(
+                PassageiroReserva.id_reserva == id_reserva,
+            )
+            .order_by(PassageiroReserva.ordem)
+        )
+        if bloquear:
+            statement = statement.with_for_update().execution_options(populate_existing=True)
+        return list(self.session.scalars(statement).all())
+
+    def quantidade_por_reserva(
+        self,
+        id_reserva: int,
+    ) -> int:
+        quantidade = self.session.scalar(
+            select(func.count(PassageiroReserva.id_passageiro)).where(
+                PassageiroReserva.id_reserva == id_reserva
+            )
+        )
+        return int(quantidade or 0)

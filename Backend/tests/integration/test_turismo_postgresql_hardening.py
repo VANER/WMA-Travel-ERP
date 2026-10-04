@@ -40,6 +40,7 @@ from app.modules.turismo.services import (
     expirar_bloqueios,
     obter_disponibilidade,
 )
+from tests.orm_schema import orm_test_tables
 
 pytestmark = pytest.mark.postgresql
 
@@ -49,8 +50,8 @@ def turismo_engine(postgresql_test_url: str) -> Generator[Engine]:
     engine = create_db_engine(Settings(database_url=postgresql_test_url, environment="test"))
     with engine.begin() as connection:
         connection.execute(text("CREATE SCHEMA IF NOT EXISTS financeiro"))
-    Base.metadata.drop_all(engine)
-    Base.metadata.create_all(engine)
+    Base.metadata.drop_all(engine, tables=orm_test_tables())
+    Base.metadata.create_all(engine, tables=orm_test_tables())
     source = (
         Path(__file__).parents[3] / "Database/migrations/202609080100_turismo_hardening.sql"
     ).read_text(encoding="utf-8")
@@ -100,7 +101,7 @@ def turismo_engine(postgresql_test_url: str) -> Generator[Engine]:
             session.commit()
         yield engine
     finally:
-        Base.metadata.drop_all(engine)
+        Base.metadata.drop_all(engine, tables=orm_test_tables())
         with engine.begin() as connection:
             connection.execute(text("DROP FUNCTION public.fn_validar_reserva_alocacao()"))
         engine.dispose()

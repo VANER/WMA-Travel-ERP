@@ -4,6 +4,59 @@
 
 ## [Não Publicado]
 
+### 04/10/2026 — Reconciliação documental da certificação local Bike Tour
+
+- reconciliados os documentos vivos com a implementação da 2.7 e suas evidências de certificação local;
+- referenciado o [fechamento B06/T23](certification/PHASE_2_7_BIKE_TOUR_RETENTION_CONTROL.md);
+- referenciado o [fechamento B07](certification/PHASE_2_7_BIKE_TOUR_PHYSICAL_DATABASE.md), de 02/10/2026,
+  com reconstrução independente concluída;
+- preservados os estados históricos de revisões, certificações e entradas anteriores deste changelog;
+- mantidas publicação e integração remota pendentes, sem declarar aprovação do CI remoto ou merge;
+- preservados os gates executáveis já certificados, sem repetir testes PostgreSQL ou exportação OpenAPI nesta revisão.
+
+### 15/09/2026 — Infraestrutura Bike Tour 130700
+
+- implementada unidade de trabalho com lock global, autorização explícita e replay atômico;
+- aprovados 17 testes unitários e quatro testes PostgreSQL de commit, rollback, replay e contenção;
+- corrigida resolução ORM das FKs legadas de recursos, sem incluir as tabelas proprietárias no DDL gerenciado;
+- adicionados models e migration de operações idempotentes e pendências externas conforme A4–A8;
+- preservadas unicidade histórica da chave, distinção de inscrição ausente, auditoria e ausência de PII duplicada;
+- validado o ciclo PostgreSQL 130600 → 130700 → 130600 → 130700, com catálogo reproduzido e zero resíduos;
+- aprovados 32 testes físicos novos e a regressão PostgreSQL Bike Tour consolidada de 99 testes;
+- aprovada a suíte geral com 524 testes e 100% de cobertura; Ruff, formatação e Mypy aprovados;
+- mantidas as camadas funcionais seguintes como pendentes, sem declarar a Etapa 2.7 concluída.
+
+### 14/09/2026 — Revisão dos gates do incremento Bike Tour
+
+- corrigido o inventário do teste Core para reconhecer o delta Bike Tour e o passageiro de Turismo;
+- cobertos os caminhos de repositórios, projeções e serviços de passageiros, atingindo 100% de cobertura de app;
+- separados no CI os testes ORM e os testes sobre baseline migrada, com regressão da ordem e dos arquivos executados;
+- aprovados 26 testes PostgreSQL ORM e 67 testes PostgreSQL Bike Tour em bancos locais descartáveis distintos;
+- aprovada a regressão geral com 512 testes e 100% de cobertura após a correção do gate do CI;
+- preservados os hashes das migrations e registrada a pendência de formatação da 130600 congelada;
+- resolvida, após autorização específica, a formatação da 130600; registrado novo hash com AST e SQL idênticos;
+- mantida a integração pendente dos gates restantes, sem declarar a Etapa 2.7 completa.
+
+### 13/09/2026 — Validação física do hardening Bike Tour 130600
+
+- corrigido, com autorização do responsável, o nome da CHECK da 130600 usando `op.f()`;
+- preservadas as migrations 130100-130500 e a constraint histórica de origem única;
+- corrigida a transação da fixture e adicionado patrimônio sintético com categoria e rollback;
+- executado ciclo PostgreSQL 130500 → 130600 → 130500 → 130600 no banco local descartável;
+- aprovados os 16 testes físicos da 130600 sem skips, com SQLSTATE 23505/23514 e zero resíduos;
+- aprovada a regressão PostgreSQL consolidada das camadas 130400/130500/130600 com 67 testes;
+- documentados o novo hash, as evidências e o limite deste gate no A8; a 130700 não foi iniciada.
+- registrada a pendência da suíte geral: inventário do metadata corporativo e cobertura 99,04%, sem reduzir gates.
+
+### 13/09/2026 — Delta operacional Bike Tour 130500
+
+- adicionados models e migration de equipe, logística, pontos, passagens, ocorrências e avaliações conforme A8;
+- implementados constraints, índices, comentários, auditoria corporativa e versão nas seis tabelas;
+- adicionados testes estruturais e PostgreSQL de integridade, exclusão lógica, auditoria e reversibilidade;
+- validado ciclo Alembic de upgrade, downgrade restrito e re-upgrade no banco local descartável;
+- preservadas as migrations 130100-130400 e registradas divergências anteriores no A8;
+- mantidas idempotência, pendências externas, serviços e API para incrementos posteriores da Etapa 2.7.
+
 ### 11/09/2026 — Fechamento do gate documental Bike Tour 2.7
 
 - aprovados e aceitos BT-DOC-02 a BT-DOC-08 após auditoria semântica final;

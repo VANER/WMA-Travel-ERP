@@ -1337,7 +1337,7 @@ Recursos:
 Base URL
 
 ```text
-/api/v1/bike-tour
+/api/v1/biketour
 ```
 
 Recursos:

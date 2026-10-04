@@ -53,6 +53,58 @@ contagem, período, ator e motivo. Pendência de tratamento ou preservação exp
 Antes de excluir identificadores, anonimizar referências elegíveis ou preservar a integridade e registrar impedimento.
 Não encurtar unilateralmente prazos corporativos existentes. Esses prazos exigem aceite de A6 pelo responsável.
 
+## 3.1 Contrato operacional de retenção T23
+
+Para a Etapa 2.7, retenção significa **revisão administrativa e compactação
+controlada**, não expurgo automático.
+
+A resposta idempotente mínima permanece reproduzível por pelo menos 90 dias
+após a operação. Depois desse período, o conteúdo elegível pode ser compactado,
+mas uma chave conhecida nunca volta a representar comando novo. Devem ser
+preservados os hashes e a identidade técnica mínima necessários para reconhecer
+a intenção anterior e aplicar o contrato de idempotência.
+
+`operacao_bike_tour` não sofre exclusão física como consequência da revisão de
+retenção da Etapa 2.7. A linha pode participar da integridade referencial de
+`pendencia_bike_tour` e funciona como tombstone de uma intenção conhecida.
+
+Chave/hash de operação e vínculos operacionais ligados a evento tornam-se
+elegíveis para revisão 365 dias após o encerramento ou cancelamento terminal do
+evento. Quando uma operação técnica ou administrativa não possuir evento
+terminal identificável, o marco de 365 dias é o `created_at` da própria
+operação.
+
+A trilha técnica nova do módulo também é revisada após 365 dias. O vencimento
+do prazo apenas torna o registro elegível para revisão administrativa. A
+decisão pode preservar o registro, compactar informação elegível ou anonimizar
+referências elegíveis, sempre sem quebrar integridade, idempotência ou
+rastreabilidade obrigatória.
+
+Pendência Bike Tour em estado `ABERTA` constitui retenção obrigatória dos
+registros necessários ao tratamento. Preservação expressa também suspende
+compactação, anonimização ou eliminação incompatível.
+
+Retenção adicional exige motivo e nova data de revisão.
+
+A ação administrativa de retenção:
+
+- exige `BIKE_TOUR_GERENCIAR`;
+- é explícita e manual;
+- não concede `BIKE_TOUR_OPERAR` implicitamente;
+- executa somente sobre objetos sob autoridade do Bike Tour;
+- preserva auditoria corporativa compartilhada;
+- preserva objetos sob autoridade de Turismo, Comercial e Financeiro;
+- registra ator, `correlation_id`, instante UTC, período avaliado, motivo,
+  quantidades elegível/processada/preservada e impedimentos;
+- deve ser transacional e repetível com segurança;
+- não admite sucesso parcial silencioso.
+
+Nenhum scheduler ou expurgo automático faz parte da Etapa 2.7.
+
+O desenho físico do controle administrativo, incluindo eventual migration,
+estrutura persistente, rota e payload, pertence ao gate B06-F5 e não é definido
+por este contrato documental.
+
 ## 4. Idempotência, auditoria e segredos
 
 Chaves são opacas, de 1 a 100 caracteres, nunca nome/documento do passageiro. Persistir hash da chave e do payload
