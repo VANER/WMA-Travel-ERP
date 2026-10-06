@@ -14,7 +14,11 @@
 
 **Bike Tour 2.7:** CONCLUÍDO, CERTIFICADO E INTEGRADO À MAIN em 04/10/2026
 
-**Próxima ação:** fechamento documental pós-merge da Etapa 2.7.
+**Próxima ação:** preparação da 2.8.1 — Inventário do Site.
+
+O [fechamento final da 2.7](certification/PHASE_2_7_BIKE_TOUR_FINAL_CLOSURE.md) consolida implementação
+e documentação integradas. O [plano da 2.8](WEBSITE_INTEGRATION_PREPARATION.md) registra o inventário
+externo pendente; ambiente de homologação ainda não confirmado.
 
 Evidências locais: [B06/T23](certification/PHASE_2_7_BIKE_TOUR_RETENTION_CONTROL.md) e
 [B07](certification/PHASE_2_7_BIKE_TOUR_PHYSICAL_DATABASE.md).

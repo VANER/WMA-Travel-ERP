@@ -5,7 +5,7 @@
 > **Fase:** Fase 2 — Backend, API e Integrações
 > **Tipo de documento:** Manual Mestre
 > **Versão:** 1.1.0
-> **Data:** 05/10/2026
+> **Data:** 06/10/2026
 > **Status:** VIGENTE
 
 ---
@@ -56,6 +56,13 @@ O feature commit `c241f3a` foi integrado pelo [PR #69](https://github.com/VANER/
 merge `ffcc09e`, em 04/10/2026. O CI do PR e os gates Backend CI, Documentation CI e Secret Scan pós-merge
 foram aprovados. A execução corrente é o fechamento documental pós-merge da Etapa 2.7.
 
+## Transição para a 2.8 em 06/10/2026
+
+O fechamento documental da 2.7 foi integrado pelo PR #70, merge `2e3c9e5`, com os três gates pós-merge
+aprovados. A [certificação final](certification/PHASE_2_7_BIKE_TOUR_FINAL_CLOSURE.md) consolida o encerramento.
+A execução corrente é a [preparação da 2.8.1](WEBSITE_INTEGRATION_PREPARATION.md), solicitada pelo responsável.
+O inventário externo e a homologação do site permanecem pendentes; a integração ainda não foi implementada.
+
 ## 1. Objetivo
 
 Este documento centraliza toda a documentação oficial do
@@ -89,7 +96,7 @@ Este manual contempla:
 O estado oficial de execução está consolidado em `PHASE_2_EXECUTION_ORDER.md`. A Fase 1 está concluída e
 certificada; a Fase 2 está em execução, com as etapas 2.0 a 2.7 concluídas, certificadas e integradas. A ADR-017
 reprogramou as etapas funcionais. A etapa 2.7 — Bike Tour está concluída, certificada e integrada à `main`
-pelo PR #69, merge `ffcc09e`. A execução corrente é seu fechamento documental pós-merge.
+pelo PR #69, merge `ffcc09e`, com fechamento documental no PR #70. A execução corrente prepara a 2.8.1.
 
 ---
 
@@ -171,6 +178,8 @@ WMA Travel ERP/
 | BIKE_TOUR_DOCUMENTATION_GATE.md | Gate documental aprovado e histórico de aceite |
 | BIKE_TOUR_TRACEABILITY_MATRIX.md | Rastreabilidade funcional e fechamento pós-merge da 2.7 |
 | BIKE_TOUR_RETENTION_OPERATIONS.md | Operação da retenção Bike Tour |
+| [Fechamento final Bike Tour](certification/PHASE_2_7_BIKE_TOUR_FINAL_CLOSURE.md) | Encerramento consolidado da 2.7 |
+| [Preparação Website](WEBSITE_INTEGRATION_PREPARATION.md) | Inventário, dependências e gates da 2.8 |
 | API_RESPONSE_MATRIX.md | Matriz normativa de respostas HTTP da API v1 |
 | API_CHANGE_GOVERNANCE.md | Propriedade, aprovação e exceções de mudança da API |
 | DEPLOYMENT.md | Processo de implantação |
@@ -396,7 +405,7 @@ Para novos colaboradores recomenda-se a seguinte sequência:
 | Status | VIGENTE — EVOLUÇÃO CONTROLADA |
 | Responsável | WMA Travel Ltda. |
 | Compatibilidade | Markdownlint |
-| Última atualização | 05/10/2026 |
+| Última atualização | 06/10/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 
 ---

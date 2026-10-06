@@ -5,7 +5,7 @@
 > **Fase:** Fase 2 — Backend, API e Integrações
 > **Tipo de documento:** Planejamento
 > **Versão:** 1.1
-> **Data:** 05/10/2026
+> **Data:** 06/10/2026
 > **Status:** EM EXECUÇÃO
 
 **Fase anterior:** Fase 1 — Fundação e Banco de Dados
@@ -599,7 +599,10 @@ Pontos de controle
 
 ## 12. ETAPA 2.8 — Integração wmatravel.com.br
 
-**Duração:** 5 semanas.
+**Duração:** 5 semanas, estimativa sujeita ao inventário e às dependências externas.
+
+Os blocos abaixo resumem temas; a sequência executiva 2.8.1–2.8.10 segue a ordem oficial.
+Consulte a correspondência e os gates no [plano de preparação](WEBSITE_INTEGRATION_PREPARATION.md).
 
 O ERP será tratado como sistema corporativo central e o site como canal
 digital integrado.
@@ -1033,7 +1036,7 @@ FASE 2 CERTIFICADA
 
 A próxima atividade do WMA Travel ERP será:
 
-**FECHAMENTO DOCUMENTAL PÓS-MERGE DA ETAPA 2.7 — BIKE TOUR**
+**PREPARAÇÃO DA ETAPA 2.8.1 — INVENTÁRIO DO SITE**
 
 As etapas 2.0 a 2.7 estão concluídas, certificadas e integradas à `main`. A ADR-017 reprogramou as etapas
 funcionais. Bike Tour 2.7 está concluído, certificado e integrado à `main` pelo
@@ -1042,7 +1045,10 @@ funcionais. Bike Tour 2.7 está concluído, certificado e integrado à `main` pe
 As evidências de [B06/T23](certification/PHASE_2_7_BIKE_TOUR_RETENTION_CONTROL.md) e
 [B07](certification/PHASE_2_7_BIKE_TOUR_PHYSICAL_DATABASE.md) sustentam o fechamento local.
 O feature commit `c241f3a` está contido no merge. O CI do PR foi aprovado, assim como Backend CI,
-Documentation CI e Secret Scan pós-merge. A execução corrente é o fechamento documental dessa integração.
+Documentation CI e Secret Scan pós-merge. O fechamento documental foi integrado no PR #70, merge `2e3c9e5`,
+com os três gates aprovados. A [certificação final](certification/PHASE_2_7_BIKE_TOUR_FINAL_CLOSURE.md)
+consolida a 2.7. O [plano da 2.8](WEBSITE_INTEGRATION_PREPARATION.md) orienta a preparação autorizada.
+Homologação, inventário real e contratos do site permanecem pendentes.
 
 ---
 
@@ -1103,7 +1109,7 @@ Documentation CI e Secret Scan pós-merge. A execução corrente é o fechamento
 
 **ETAPA 2.7:** CONCLUÍDA, CERTIFICADA E INTEGRADA À MAIN
 
-**PRÓXIMA AÇÃO:** fechamento documental pós-merge da Etapa 2.7
+**PRÓXIMA AÇÃO:** preparação da 2.8.1 — Inventário do Site
 
 ---
 
@@ -1115,7 +1121,7 @@ Documentation CI e Secret Scan pós-merge. A execução corrente é o fechamento
 | Empresa | WMA Travel Ltda. |
 | Versão | 1.1 |
 | Status | EM EXECUÇÃO |
-| Última atualização | 05/10/2026 |
+| Última atualização | 06/10/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 | Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
 

@@ -4,6 +4,14 @@
 
 ## [Não Publicado]
 
+### 06/10/2026 — Fechamento integral da 2.7 e preparação da 2.8
+
+- consolidado o encerramento de Bike Tour com os PRs #69 e #70 e os gates pós-merge aprovados;
+- registrada a preparação autorizada da integração do website, começando pela 2.8.1 — Inventário do Site;
+- definidos entregáveis, critérios de aceite e pendências de homologação, plugins, contratos e pagamentos;
+- esclarecida a numeração histórica da ADR-015 pela ADR-017 e a correspondência entre roadmap e ordem oficial;
+- preservadas as certificações anteriores, sem código de integração ou alterações no site produtivo.
+
 ### 06/10/2026 — Revisão final da documentação Bike Tour
 
 - corrigida a orientação do AGENTS.md para as revisions Alembic em `Backend/migrations/versions/`;

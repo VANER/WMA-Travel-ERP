@@ -1487,12 +1487,12 @@ docs(phase2): certify phase 2
 
 ## 23. Ordem Imediata de Trabalho
 
-A execução corrente continua obrigatoriamente por:
+A execução corrente autorizada é:
 
 ```text
-2.6 — Turismo certificado e integrado
+2.7 — Bike Tour encerrado
                ↓
-2.7 — Bike Tour
+2.8.1 — Inventário do Site (preparação da integração)
 ```
 
 Registro histórico anterior ao merge de 04/10/2026:
@@ -1507,7 +1507,10 @@ concluída em 02/10/2026. Esses resultados locais não equivalem a merge nem a a
 Estado corrente pós-merge: a Etapa 2.7 está **CONCLUÍDA, CERTIFICADA E INTEGRADA À MAIN**.
 O feature commit `c241f3a` foi integrado pelo [PR #69](https://github.com/VANER/WMA-Travel-ERP/pull/69),
 merge `ffcc09e`, em 04/10/2026. O CI do PR e Backend CI, Documentation CI e Secret Scan pós-merge
-foram aprovados. A execução corrente é o fechamento documental pós-merge da Etapa 2.7.
+foram aprovados. O fechamento documental foi integrado no PR #70, merge `2e3c9e5`, com os gates pós-merge
+aprovados. Consulte a [certificação final](certification/PHASE_2_7_BIKE_TOUR_FINAL_CLOSURE.md).
+A execução corrente prepara a 2.8.1 conforme o [plano da integração](WEBSITE_INTEGRATION_PREPARATION.md);
+o ambiente de homologação e o inventário externo ainda precisam ser confirmados.
 
 ---
 
@@ -1551,7 +1554,9 @@ foram aprovados. A execução corrente é o fechamento documental pós-merge da 
 | Etapa 2.6 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Etapa 2.7 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Integração remota da 2.7 | **PR #69; MERGE `ffcc09e`; CI DO PR E PÓS-MERGE APROVADOS** |
-| Execução corrente | **FECHAMENTO DOCUMENTAL PÓS-MERGE DA 2.7** |
+| Fechamento documental da 2.7 | **PR #70; MERGE `2e3c9e5`; GATES PÓS-MERGE APROVADOS** |
+| Etapa 2.8 | **EM PREPARAÇÃO; INVENTÁRIO EXTERNO PENDENTE** |
+| Execução corrente | **2.8.1 — INVENTÁRIO DO SITE** |
 
 ---
 
@@ -1565,7 +1570,7 @@ estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**FECHAMENTO DOCUMENTAL PÓS-MERGE DA ETAPA 2.7 — BIKE TOUR.**
+**PREPARAÇÃO DA ETAPA 2.8.1 — INVENTÁRIO DO SITE.**
 
 ---
 

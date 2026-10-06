@@ -58,4 +58,6 @@ estas decisões.
 A fundação 2.0 foi concluída e certificada após estas decisões. O status corrente da Fase 2 é mantido em
 [ordem de execução](../PHASE_2_EXECUTION_ORDER.md); as etapas 2.1 a 2.7 estão concluídas, certificadas
 e integradas. Bike Tour foi integrado pelo PR #69, merge `ffcc09e`, em 04/10/2026, com CI aprovado.
-O trabalho corrente é o fechamento documental pós-merge; uma etapa posterior exige autorização explícita.
+O fechamento documental foi integrado pelo PR #70. O trabalho corrente é a
+[preparação da 2.8](../WEBSITE_INTEGRATION_PREPARATION.md), começando pelo inventário do site.
+A numeração histórica da ADR-015 é interpretada conforme a reprogramação da ADR-017, sem alterar a ADR original.
