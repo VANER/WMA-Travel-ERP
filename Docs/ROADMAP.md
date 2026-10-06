@@ -56,7 +56,10 @@
 Feature `c241f3a`, [PR #69](https://github.com/VANER/WMA-Travel-ERP/pull/69), merge `ffcc09e`.
 CI do PR, Backend CI, Documentation CI e Secret Scan pós-merge aprovados.
 
-**Ação corrente:** fechamento documental pós-merge da Etapa 2.7. Uma etapa posterior exige autorização explícita.
+**Ação corrente:** preparação da 2.8.1 — Inventário do Site, solicitada após o fechamento da 2.7.
+
+O [fechamento final](certification/PHASE_2_7_BIKE_TOUR_FINAL_CLOSURE.md) referencia o PR #70 e seus gates.
+O [plano da 2.8](WEBSITE_INTEGRATION_PREPARATION.md) mantém homologação e contratos externos pendentes.
 
 **Branch inicial:** `feature/fase-2-backend-api`
 
@@ -66,7 +69,7 @@ A Fase 2 utilizará a baseline certificada como fundação para o desenvolviment
 das camadas de aplicação e integração.
 
 **Versão do Documento:** 1.0.0
-**Última Atualização:** 05/10/2026
+**Última Atualização:** 06/10/2026
 **Status:** Fase 1 encerrada; Fase 2 em execução
 
 ---

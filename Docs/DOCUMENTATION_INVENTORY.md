@@ -5,7 +5,7 @@
 > **Fase:** Fase 2 — Backend, API e Integrações
 > **Tipo de documento:** Auditoria Documental
 > **Versão:** 1.0
-> **Data:** 05/10/2026
+> **Data:** 06/10/2026
 > **Status:** VIGENTE
 
 ## 1. Objetivo
@@ -199,6 +199,13 @@ Documentos versionados ausentes do inventário inicial, sem alteração das evid
 | `Docs/certification/PHASE_2_7_BIKE_TOUR_RETENTION_CONTROL.md` | Certificação / evidência histórica |
 | `Docs/certification/PHASE_2_7_BIKE_TOUR_TEST_EVIDENCE.md` | Certificação / evidência histórica |
 
+### Fechamento e preparação em 06/10/2026
+
+| Documento | Família |
+| --- | --- |
+| `Docs/certification/PHASE_2_7_BIKE_TOUR_FINAL_CLOSURE.md` | Certificação |
+| `Docs/WEBSITE_INTEGRATION_PREPARATION.md` | Planejamento |
+
 ## 4. Interpretação
 
 A família determina o tratamento descrito em `Docs/DOCUMENTATION_STANDARDS.md`. Um documento pode conter contexto
@@ -214,7 +221,7 @@ histórico sem se tornar evidência imutável; prevalecem sua finalidade e sua a
 | Empresa | WMA Travel Ltda. |
 | Versão | 1.0 |
 | Status | VIGENTE |
-| Última atualização | 05/10/2026 |
+| Última atualização | 06/10/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 | Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
 
