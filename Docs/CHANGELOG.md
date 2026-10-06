@@ -4,6 +4,32 @@
 
 ## [Não Publicado]
 
+### 06/10/2026 — Revisão final da documentação Bike Tour
+
+- corrigida a orientação do AGENTS.md para as revisions Alembic em `Backend/migrations/versions/`;
+- diferenciados nome de arquivo e revision ID nos guias de migrations, conforme a implementação existente;
+- ajustados metadados e descrição do inventário, preservando registros históricos e certificações;
+- mantido o escopo exclusivamente documental, sem mudanças em código, banco ou contratos da API.
+
+### 05/10/2026 — Coesão documental após o fechamento Bike Tour
+
+- atualizado o estado corrente do AGENTS.md, dos índices e dos roadmaps até a Etapa 2.7 integrada;
+- reconciliados os READMEs do Backend e das migrations com os artefatos já versionados;
+- complementado o inventário documental e referenciadas as ADRs de Turismo e Bike Tour;
+- acrescentado contexto pós-merge aos gates, preservando decisões, certificações e resultados históricos;
+- mantidas as próximas etapas dependentes de autorização, sem antecipar Frontend ou Mobile.
+
+### 04/10/2026 — Fechamento pós-merge da Etapa 2.7 — Bike Tour
+
+- integrado o [PR #69](https://github.com/VANER/WMA-Travel-ERP/pull/69);
+- feature commit: `c241f3a76e837e11ffb04430f1dd2837754e2634`;
+- merge commit: `ffcc09edd54aa0256e19f1ad17d0fc041a50fe60`, de 04/10/2026;
+- aprovado o CI do pull request;
+- aprovados Backend CI, Documentation CI e Secret Scan pós-merge em `main`;
+- sincronizada a `main` local com o merge certificado, que contém o commit funcional;
+- Etapa 2.7 formalmente concluída, certificada e integrada à `main`;
+- preservadas as evidências históricas anteriores, inclusive os estados de certificação local e integração pendente.
+
 ### 04/10/2026 — Reconciliação documental da certificação local Bike Tour
 
 - reconciliados os documentos vivos com a implementação da 2.7 e suas evidências de certificação local;

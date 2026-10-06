@@ -5,7 +5,7 @@
 > **Fase:** Fase 2 — Backend, API e Integrações
 > **Tipo de documento:** Auditoria Documental
 > **Versão:** 1.0
-> **Data:** 01/09/2026
+> **Data:** 05/10/2026
 > **Status:** VIGENTE
 
 ## 1. Objetivo
@@ -150,6 +150,55 @@ altera a autoridade nem o conteúdo histórico de qualquer artefato.
 | `Docs/templates/TECHNICAL_DOCUMENT_TEMPLATE.md` | Template |
 | `Docs/TOKENS_AND_SESSIONS.md` | Documentação técnica |
 
+### Complemento do inventário em 05/10/2026
+
+Documentos versionados ausentes do inventário inicial, sem alteração das evidências históricas:
+
+| Documento | Família |
+| --- | --- |
+| `.github/pull_request_template.md` | Template |
+| `Docs/BIKE_TOUR_ALLOCATION_RELEASE_DECISION.md` | Documentação técnica |
+| `Docs/BIKE_TOUR_DOCUMENTATION_GATE.md` | Documentação técnica |
+| `Docs/BIKE_TOUR_DOMAIN_BOUNDARIES.md` | Documentação técnica |
+| `Docs/BIKE_TOUR_FUNCTIONAL_MATRIX.md` | Documentação técnica |
+| `Docs/BIKE_TOUR_GATE_AUDIT.md` | Auditoria histórica |
+| `Docs/BIKE_TOUR_IMPLEMENTATION_REVIEW.md` | Auditoria histórica |
+| `Docs/BIKE_TOUR_INVENTORY.md` | Auditoria |
+| `Docs/BIKE_TOUR_RETENTION_OPERATIONS.md` | Documentação técnica |
+| `Docs/BIKE_TOUR_SCHEMA_DECISION.md` | Documentação técnica |
+| `Docs/BIKE_TOUR_SECURITY_PRIVACY.md` | Documentação técnica |
+| `Docs/BIKE_TOUR_TEST_PLAN.md` | Documentação técnica |
+| `Docs/BIKE_TOUR_TRACEABILITY_MATRIX.md` | Documentação técnica |
+| `Docs/BIKE_TOUR_TRANSACTION_POLICY.md` | Documentação técnica |
+| `Docs/FINANCIAL_FUNCTIONAL_MATRIX.md` | Documentação técnica |
+| `Docs/FINANCIAL_IMPLEMENTATION_DESIGN.md` | Documentação técnica |
+| `Docs/FINANCIAL_INVENTORY.md` | Auditoria |
+| `Docs/FINANCIAL_MODULE.md` | Documentação técnica |
+| `Docs/GITHUB_RULESET_RECOMMENDATION.md` | Documentação técnica |
+| `Docs/GOVERNANCE_AUDIT_CHECKLIST.md` | Auditoria histórica |
+| `Docs/SECURITY_INCIDENT_SMTP_CLOSURE.md` | Documentação técnica |
+| `Docs/TOURISM_DOCUMENTATION_GATE.md` | Documentação técnica |
+| `Docs/TOURISM_DOMAIN_BOUNDARIES.md` | Documentação técnica |
+| `Docs/TOURISM_FUNCTIONAL_MATRIX.md` | Documentação técnica |
+| `Docs/TOURISM_INVENTORY.md` | Auditoria |
+| `Docs/TOURISM_MODULE.md` | Documentação técnica |
+| `Docs/TOURISM_SCHEMA_DECISION.md` | Documentação técnica |
+| `Docs/TOURISM_SECURITY_PRIVACY.md` | Documentação técnica |
+| `Docs/TOURISM_TEST_PLAN.md` | Documentação técnica |
+| `Docs/TOURISM_TRACEABILITY_MATRIX.md` | Documentação técnica |
+| `Docs/TOURISM_TRANSACTION_POLICY.md` | Documentação técnica |
+| `Docs/architecture/ADR-019-TOURISM-TRANSACTIONAL-MODEL.md` | ADR |
+| `Docs/architecture/ADR-020-BIKE-TOUR-DOCUMENTARY-DESIGN.md` | ADR |
+| `Docs/certification/GOVERNANCE_SMTP_AUDIT_2026_09_09.md` | Certificação / evidência histórica |
+| `Docs/certification/PHASE_2_5_FINANCIAL_CERTIFICATION.md` | Certificação / evidência histórica |
+| `Docs/certification/PHASE_2_6_TOURISM_CERTIFICATION.md` | Certificação / evidência histórica |
+| `Docs/certification/PHASE_2_6_TOURISM_HARDENING.md` | Certificação / evidência histórica |
+| `Docs/certification/PHASE_2_6_TO_2_7_TRANSITION_GATE.md` | Certificação / evidência histórica |
+| `Docs/certification/PHASE_2_7_BIKE_TOUR_PHYSICAL_DATABASE.md` | Certificação / evidência histórica |
+| `Docs/certification/PHASE_2_7_BIKE_TOUR_RETENTION_CONTRACT.md` | Certificação / evidência histórica |
+| `Docs/certification/PHASE_2_7_BIKE_TOUR_RETENTION_CONTROL.md` | Certificação / evidência histórica |
+| `Docs/certification/PHASE_2_7_BIKE_TOUR_TEST_EVIDENCE.md` | Certificação / evidência histórica |
+
 ## 4. Interpretação
 
 A família determina o tratamento descrito em `Docs/DOCUMENTATION_STANDARDS.md`. Um documento pode conter contexto
@@ -165,7 +214,7 @@ histórico sem se tornar evidência imutável; prevalecem sua finalidade e sua a
 | Empresa | WMA Travel Ltda. |
 | Versão | 1.0 |
 | Status | VIGENTE |
-| Última atualização | 01/09/2026 |
+| Última atualização | 05/10/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 | Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
 

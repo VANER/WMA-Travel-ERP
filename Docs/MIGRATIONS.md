@@ -17,7 +17,8 @@ O dump `Database/scripts/WmaTravelERP.sql` já contém a baseline integral da Fa
 
 ## Nomenclatura e encadeamento
 
-Arquivos e revision IDs usam `YYYYMMDDHHMM_descricao_curta`, em UTC, com letras minúsculas e `snake_case`.
+Os arquivos usam `YYYYMMDDHHMM_descricao_curta.py`; os revision IDs usam somente `YYYYMMDDHHMM`, em UTC.
+A descrição usa letras minúsculas e `snake_case`, conforme as revisions versionadas no Backend.
 Cada revision deve apontar para o head anterior em `down_revision`. A árvore deve permanecer linear; múltiplos
 heads exigem decisão arquitetural e plano de merge explícitos.
 
@@ -26,7 +27,7 @@ Exemplo:
 ```powershell
 cd Backend
 python -m alembic revision `
-  --rev-id 202608201530_adiciona_tabela_exemplo `
+  --rev-id 202610061530 `
   -m "adiciona tabela exemplo"
 ```
 
@@ -77,6 +78,15 @@ testes automatizados e nenhuma diferença não explicada contra a baseline.
 
 ## Primeiro ciclo da Fase 2
 
+Registro histórico da estrutura inicial, anterior às primeiras migrations funcionais:
+
 Enquanto não houver mudança estrutural aprovada, `migrations/versions/` permanece sem revisions e
 `python -m alembic heads` não imprime identificadores. A primeira revision futura terá `down_revision = None` e
 deverá conter somente o primeiro delta da Fase 2.
+
+## Estado versionado em 05/10/2026
+
+O diretório `Backend/migrations/versions/` contém as evoluções integradas da Fase 2.
+O head da entrega 2.7 é `202609170300`, incluindo dez migrations Bike Tour integradas pelo PR #69,
+merge `ffcc09e`. A situação de cada banco deve ser consultada separadamente; este registro não executa migrations.
+A [certificação física Bike Tour](certification/PHASE_2_7_BIKE_TOUR_PHYSICAL_DATABASE.md) preserva as evidências.

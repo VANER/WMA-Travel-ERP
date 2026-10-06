@@ -44,6 +44,8 @@ consequências, regras e critérios de reavaliação.
 | ADR-016 | [Governança e Ciclo de Vida da API](ADR-016-API-GOVERNANCE.md) | APROVADA |
 | ADR-017 | [Reprogramação Funcional da Fase 2](ADR-017-PHASE-2-FUNCTIONAL-REPROGRAMMING.md) | APROVADA |
 | ADR-018 | [Modelo de Dados Comercial Integrado](ADR-018-COMMERCIAL-DATA-MODEL.md) | APROVADA |
+| ADR-019 | [Modelo Transacional de Turismo](ADR-019-TOURISM-TRANSACTIONAL-MODEL.md) | APROVADA |
+| ADR-020 | [Desenho Documental Bike Tour](ADR-020-BIKE-TOUR-DOCUMENTARY-DESIGN.md) | APROVADA |
 
 ## Relação com a execução
 
@@ -54,5 +56,6 @@ estas decisões.
 ## Continuidade da execução
 
 A fundação 2.0 foi concluída e certificada após estas decisões. O status corrente da Fase 2 é mantido em
-`../PHASE_2_EXECUTION_ORDER.md`; as etapas 2.1 a 2.4 estão concluídas, certificadas e integradas, e a próxima
-execução autorizada é 2.5 — Financeiro.
+[ordem de execução](../PHASE_2_EXECUTION_ORDER.md); as etapas 2.1 a 2.7 estão concluídas, certificadas
+e integradas. Bike Tour foi integrado pelo PR #69, merge `ffcc09e`, em 04/10/2026, com CI aprovado.
+O trabalho corrente é o fechamento documental pós-merge; uma etapa posterior exige autorização explícita.

@@ -5,7 +5,7 @@
 > **Fase:** Fase 2 — Backend, API e Integrações
 > **Tipo de documento:** Planejamento de Execução
 > **Versão:** 1.1
-> **Data:** 01/09/2026
+> **Data:** 06/10/2026
 > **Status:** EM EXECUÇÃO
 
 **Fase anterior:** Fase 1 — Concluída e certificada
@@ -1495,12 +1495,19 @@ A execução corrente continua obrigatoriamente por:
 2.7 — Bike Tour
 ```
 
+Registro histórico anterior ao merge de 04/10/2026:
+
 Em 04/10/2026, Bike Tour 2.7 está implementado e possui evidências de certificação local. A próxima atividade
 é preparar a publicação do conjunto revisado; a integração remota ainda não foi iniciada.
 
 O [fechamento B06](certification/PHASE_2_7_BIKE_TOUR_RETENTION_CONTROL.md) registra retenção e T23 aprovados.
 O [fechamento B07](certification/PHASE_2_7_BIKE_TOUR_PHYSICAL_DATABASE.md) registra a reconstrução independente
 concluída em 02/10/2026. Esses resultados locais não equivalem a merge nem a aprovação do CI remoto.
+
+Estado corrente pós-merge: a Etapa 2.7 está **CONCLUÍDA, CERTIFICADA E INTEGRADA À MAIN**.
+O feature commit `c241f3a` foi integrado pelo [PR #69](https://github.com/VANER/WMA-Travel-ERP/pull/69),
+merge `ffcc09e`, em 04/10/2026. O CI do PR e Backend CI, Documentation CI e Secret Scan pós-merge
+foram aprovados. A execução corrente é o fechamento documental pós-merge da Etapa 2.7.
 
 ---
 
@@ -1542,23 +1549,23 @@ concluída em 02/10/2026. Esses resultados locais não equivalem a merge nem a a
 | Etapa 2.4 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Etapa 2.5 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Etapa 2.6 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
-| Etapa 2.7 | **IMPLEMENTADA; CERTIFICAÇÃO LOCAL DOCUMENTADA** |
-| Integração remota da 2.7 | **NÃO INICIADA** |
-| Próxima execução | **PREPARAÇÃO DA PUBLICAÇÃO DA 2.7** |
+| Etapa 2.7 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| Integração remota da 2.7 | **PR #69; MERGE `ffcc09e`; CI DO PR E PÓS-MERGE APROVADOS** |
+| Execução corrente | **FECHAMENTO DOCUMENTAL PÓS-MERGE DA 2.7** |
 
 ---
 
 ### Declaração de Continuidade
 
-A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0 a 2.6 foram concluídas, certificadas e
-integradas à `main`. O módulo Turismo 2.6 foi encerrado pelo PR #57 e pelos workflows pós-merge aprovados.
+A Fase 2 do WMA Travel ERP está formalmente em execução. As etapas 2.0 a 2.7 foram concluídas, certificadas e
+integradas à `main`. Bike Tour 2.7 foi encerrado pelo PR #69, merge `ffcc09e`, com os gates pós-merge aprovados.
 
 O desenvolvimento deverá seguir a sequência, dependências, gates e regras
 estabelecidos neste documento.
 
 **Próxima ação oficial:**
 
-**PREPARAR A PUBLICAÇÃO DA ETAPA 2.7 — BIKE TOUR, COM INTEGRAÇÃO REMOTA PENDENTE.**
+**FECHAMENTO DOCUMENTAL PÓS-MERGE DA ETAPA 2.7 — BIKE TOUR.**
 
 ---
 
@@ -1570,7 +1577,7 @@ estabelecidos neste documento.
 | Empresa | WMA Travel Ltda. |
 | Versão | 1.1 |
 | Status | EM EXECUÇÃO |
-| Última atualização | 09/09/2026 |
+| Última atualização | 06/10/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 | Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
 

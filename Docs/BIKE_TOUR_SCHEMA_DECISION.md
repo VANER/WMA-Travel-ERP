@@ -1,5 +1,13 @@
 # Decisão de Dados de Bike Tour
 
+> **Contexto de leitura — 05/10/2026:** as decisões e os estados datados deste documento preservam
+> o histórico dos respectivos gates. Bike Tour 2.7 foi concluído, certificado e integrado à `main`
+> em 04/10/2026 pelo PR #69, merge `ffcc09e`, com CI do PR e gates pós-merge aprovados.
+> Consulte o [fechamento de rastreabilidade](BIKE_TOUR_TRACEABILITY_MATRIX.md) para o estado vigente.
+> Esta nota não altera contratos, decisões de aceite nem resultados intermediários registrados.
+
+---
+
 > **Projeto:** WMA Travel ERP
 > **Etapa:** 2.7 — Bike Tour (`BT-DOC-08`)
 > **Tipo:** Documento técnico

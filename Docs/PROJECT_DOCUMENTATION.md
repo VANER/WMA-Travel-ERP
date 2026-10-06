@@ -5,7 +5,7 @@
 > **Fase:** Fase 2 — Backend, API e Integrações
 > **Tipo de documento:** Manual Mestre
 > **Versão:** 1.1.0
-> **Data:** 01/09/2026
+> **Data:** 05/10/2026
 > **Status:** VIGENTE
 
 ---
@@ -48,6 +48,14 @@ e a implementação da 2.7 possui evidências de certificação local em
 A próxima atividade é preparar a publicação. A integração remota não foi iniciada; não há declaração de merge
 nem de aprovação do CI remoto para a 2.7.
 
+## Fechamento pós-merge em 04/10/2026
+
+Os blocos datados anteriores preservam o estado histórico antes da integração. O estado corrente da
+Etapa 2.7 — Bike Tour é **CONCLUÍDA, CERTIFICADA E INTEGRADA À MAIN**.
+O feature commit `c241f3a` foi integrado pelo [PR #69](https://github.com/VANER/WMA-Travel-ERP/pull/69),
+merge `ffcc09e`, em 04/10/2026. O CI do PR e os gates Backend CI, Documentation CI e Secret Scan pós-merge
+foram aprovados. A execução corrente é o fechamento documental pós-merge da Etapa 2.7.
+
 ## 1. Objetivo
 
 Este documento centraliza toda a documentação oficial do
@@ -79,9 +87,9 @@ Este manual contempla:
 - documentação de padronização.
 
 O estado oficial de execução está consolidado em `PHASE_2_EXECUTION_ORDER.md`. A Fase 1 está concluída e
-certificada; a Fase 2 está em execução, com as etapas 2.0 a 2.6 concluídas, certificadas e integradas. A ADR-017
-reprogramou as etapas funcionais. A etapa 2.7 — Bike Tour está implementada, com certificação local documentada
-e integração remota não iniciada. A execução corrente prepara sua publicação.
+certificada; a Fase 2 está em execução, com as etapas 2.0 a 2.7 concluídas, certificadas e integradas. A ADR-017
+reprogramou as etapas funcionais. A etapa 2.7 — Bike Tour está concluída, certificada e integrada à `main`
+pelo PR #69, merge `ffcc09e`. A execução corrente é seu fechamento documental pós-merge.
 
 ---
 
@@ -158,6 +166,11 @@ WMA Travel ERP/
 | COMMERCIAL_CLIENTS.md | Contrato interno e casos de uso comerciais de Cliente da etapa 2.4.2 |
 | COMMERCIAL_MODULE.md | Modelo, regras, API e validação local das etapas 2.4.3 a 2.4.12 |
 | FINANCIAL_DOCUMENTATION_GATE.md | Fontes, entregáveis e critérios de entrada da etapa Financeiro 2.5 |
+| FINANCIAL_MODULE.md | Contratos e operação do Financeiro 2.5 |
+| TOURISM_MODULE.md | Contratos e operação do Turismo 2.6 |
+| BIKE_TOUR_DOCUMENTATION_GATE.md | Gate documental aprovado e histórico de aceite |
+| BIKE_TOUR_TRACEABILITY_MATRIX.md | Rastreabilidade funcional e fechamento pós-merge da 2.7 |
+| BIKE_TOUR_RETENTION_OPERATIONS.md | Operação da retenção Bike Tour |
 | API_RESPONSE_MATRIX.md | Matriz normativa de respostas HTTP da API v1 |
 | API_CHANGE_GOVERNANCE.md | Propriedade, aprovação e exceções de mudança da API |
 | DEPLOYMENT.md | Processo de implantação |
@@ -383,7 +396,7 @@ Para novos colaboradores recomenda-se a seguinte sequência:
 | Status | VIGENTE — EVOLUÇÃO CONTROLADA |
 | Responsável | WMA Travel Ltda. |
 | Compatibilidade | Markdownlint |
-| Última atualização | 09/09/2026 |
+| Última atualização | 05/10/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 
 ---

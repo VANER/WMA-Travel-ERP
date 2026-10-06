@@ -49,9 +49,14 @@
 
 **Status:** INICIADA EM 18/08/2026
 
-**Progresso:** etapas 2.0 a 2.6 concluídas, certificadas e integradas
+**Progresso:** etapas 2.0 a 2.7 concluídas, certificadas e integradas
 
-**Próxima etapa:** 2.7 — Bike Tour
+**Bike Tour 2.7:** CONCLUÍDO, CERTIFICADO E INTEGRADO À MAIN em 04/10/2026.
+
+Feature `c241f3a`, [PR #69](https://github.com/VANER/WMA-Travel-ERP/pull/69), merge `ffcc09e`.
+CI do PR, Backend CI, Documentation CI e Secret Scan pós-merge aprovados.
+
+**Ação corrente:** fechamento documental pós-merge da Etapa 2.7. Uma etapa posterior exige autorização explícita.
 
 **Branch inicial:** `feature/fase-2-backend-api`
 
@@ -61,7 +66,7 @@ A Fase 2 utilizará a baseline certificada como fundação para o desenvolviment
 das camadas de aplicação e integração.
 
 **Versão do Documento:** 1.0.0
-**Última Atualização:** 29/08/2026
+**Última Atualização:** 05/10/2026
 **Status:** Fase 1 encerrada; Fase 2 em execução
 
 ---
@@ -130,9 +135,13 @@ WMA Travel ERP
 
 ## Cronograma de Desenvolvimento
 
+O cronograma conceitual abaixo preserva a visão inicial do produto. A execução vigente reúne Backend e API
+na Fase 2, conforme [roadmap da Fase 2](PHASE_2_ROADMAP.md) e [ordem de execução](PHASE_2_EXECUTION_ORDER.md).
+As listas de recursos incluem objetivos futuros e não substituem os contratos certificados de cada módulo.
+
 ### Fase 1 - Fundação
 
-**Status:** Em Desenvolvimento
+**Status:** CONCLUÍDA E CERTIFICADA
 
 #### Banco de Dados
 
@@ -151,7 +160,7 @@ WMA Travel ERP
 
 ### Fase 2 - API
 
-**Status:** Planejado
+**Status:** EM EXECUÇÃO — etapas até 2.7 integradas
 
 #### Entregas da API
 
@@ -166,7 +175,7 @@ WMA Travel ERP
 
 ### Fase 3 - Back-end
 
-**Status:** Planejado
+**Status:** ESCOPO INCORPORADO À FASE 2 — referência ao planejamento inicial
 
 #### Tecnologias do Back-end
 
@@ -205,7 +214,7 @@ WMA Travel ERP
 
 ## Módulo Financeiro
 
-**Status:** Em Desenvolvimento
+**Status:** BACKEND 2.5 CONCLUÍDO, CERTIFICADO E INTEGRADO
 
 ### Recursos do Módulo Financeiro
 
@@ -238,7 +247,7 @@ WMA Travel ERP
 
 ## Módulo Comercial
 
-**Status:** Planejado
+**Status:** BACKEND 2.4 CONCLUÍDO, CERTIFICADO E INTEGRADO
 
 ### Recursos do Módulo Comercial
 
@@ -253,7 +262,7 @@ WMA Travel ERP
 
 ## Módulo Turismo
 
-**Status:** Planejado
+**Status:** BACKEND 2.6 CONCLUÍDO, CERTIFICADO E INTEGRADO
 
 ### Recursos do Módulo Turismo
 
@@ -268,7 +277,7 @@ WMA Travel ERP
 
 ## Módulo WMA Bike Tour
 
-**Status:** Planejado
+**Status:** BACKEND 2.7 CONCLUÍDO, CERTIFICADO E INTEGRADO À MAIN
 
 ### Recursos do WMA Bike Tour
 
@@ -311,7 +320,7 @@ WMA Travel ERP
 
 ## Banco de Dados Corporativo
 
-**Status:** Em Desenvolvimento
+**Status:** FASE 1 CERTIFICADA; EVOLUÇÃO ADITIVA NA FASE 2
 
 ### Meta do Banco de Dados
 
@@ -345,7 +354,7 @@ Criar um banco de dados corporativo certificado, seguro, escalável e preparado 
 
 ## Segurança
 
-**Status:** Em Desenvolvimento
+**Status:** BACKEND 2.2 CERTIFICADO E INTEGRADO
 
 ### Recursos de Segurança
 
@@ -376,7 +385,7 @@ Alcançar cobertura superior a 95% nos testes automatizados.
 
 ## DevOps
 
-**Status:** Planejado
+**Status:** CI IMPLEMENTADO; DEPLOY E INFRAESTRUTURA CONFORME ESCOPO AUTORIZADO
 
 ### Recursos de DevOps
 

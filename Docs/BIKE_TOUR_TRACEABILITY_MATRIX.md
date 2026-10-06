@@ -159,3 +159,12 @@ O parágrafo anterior registra o limite histórico de B06-F4. O mecanismo admini
 posteriores estão certificados no [fechamento B06/T23](certification/PHASE_2_7_BIKE_TOUR_RETENTION_CONTROL.md).
 A reconstrução independente está registrada no [fechamento B07](certification/PHASE_2_7_BIKE_TOUR_PHYSICAL_DATABASE.md).
 Esses fechamentos sustentam a certificação local; a integração remota da 2.7 ainda não foi iniciada.
+
+### Fechamento pós-merge em 04/10/2026
+
+O bloco anterior preserva o estado histórico anterior ao merge. A certificação funcional e local já documentada
+foi seguida pela integração do feature commit `c241f3a` pelo
+[PR #69](https://github.com/VANER/WMA-Travel-ERP/pull/69), merge `ffcc09e`, em 04/10/2026.
+O CI do PR e os gates Backend CI, Documentation CI e Secret Scan pós-merge foram aprovados.
+A Etapa 2.7 — Bike Tour está **CONCLUÍDA, CERTIFICADA E INTEGRADA À MAIN**.
+Os contratos funcionais, as tabelas de rastreabilidade e o histórico de A1–A8 e B06/B07 permanecem preservados.
