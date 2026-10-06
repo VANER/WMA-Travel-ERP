@@ -1,6 +1,10 @@
 # Backend — WMA Travel ERP
 
-Bootstrap da etapa 2.0.2 com Python 3.13+, FastAPI, SQLAlchemy 2, Alembic e pytest.
+Backend da Fase 2 com Python 3.13+, FastAPI, SQLAlchemy 2, Alembic e pytest.
+As etapas até 2.7 — Bike Tour estão concluídas, certificadas e integradas à `main`.
+A integração da 2.7 ocorreu em 04/10/2026 pelo PR #69, feature `c241f3a`, merge `ffcc09e`, com CI aprovado.
+Consulte a [ordem de execução](../Docs/PHASE_2_EXECUTION_ORDER.md) e a
+[rastreabilidade Bike Tour](../Docs/BIKE_TOUR_TRACEABILITY_MATRIX.md).
 
 ## Preparação no Windows
 

@@ -10,14 +10,16 @@
 **Baseline certificada:** `d63800e`
 **Fase atual:** Fase 2 — Backend, API e Integrações
 
-**Progresso da Fase 2:** etapas 2.0 a 2.6 concluídas, certificadas e integradas
+**Progresso da Fase 2:** etapas 2.0 a 2.7 concluídas, certificadas e integradas
 
-**Bike Tour 2.7 em 04/10/2026:** implementado; certificação local documentada; integração remota não iniciada
+**Bike Tour 2.7:** CONCLUÍDO, CERTIFICADO E INTEGRADO À MAIN em 04/10/2026
 
-**Próxima ação:** preparação da publicação de Bike Tour 2.7
+**Próxima ação:** fechamento documental pós-merge da Etapa 2.7.
 
 Evidências locais: [B06/T23](certification/PHASE_2_7_BIKE_TOUR_RETENTION_CONTROL.md) e
-[B07](certification/PHASE_2_7_BIKE_TOUR_PHYSICAL_DATABASE.md). Publicação, CI remoto e merge permanecem pendentes.
+[B07](certification/PHASE_2_7_BIKE_TOUR_PHYSICAL_DATABASE.md).
+O feature commit `c241f3a` foi integrado pelo [PR #69](https://github.com/VANER/WMA-Travel-ERP/pull/69),
+merge `ffcc09e`. O CI do PR foi aprovado, assim como Backend CI, Documentation CI e Secret Scan pós-merge.
 
 A Fase 1 do WMA Travel ERP foi formalmente concluída após a validação da
 fundação do banco de dados, incluindo auditoria estrutural, reconstrução
@@ -70,6 +72,12 @@ Documentos de referência:
 | 2.1.7 | Testes do Core Corporativo | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | 2.1.8 | Certificação do Core Corporativo | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | 2.2.1 | Inventário e Modelo de Identidade | **CONCLUÍDA E CERTIFICADA** |
+| 2.2 | Segurança e Controle de Acesso | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| 2.3 | Governança da API | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| 2.4 | Comercial | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| 2.5 | Financeiro | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| 2.6 | Turismo | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
+| 2.7 | Bike Tour — PR #69, merge `ffcc09e` | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 
 > Plataforma Corporativa Integrada de Gestão Empresarial para Turismo, Serviços e Inteligência de Negócios.
 
@@ -226,7 +234,8 @@ Os principais objetivos do projeto são:
 
 ## Plataforma Corporativa
 
-O WMA Travel ERP possui:
+A visão da plataforma reúne os recursos abaixo. A entrega corrente cobre Backend/API até a Etapa 2.7;
+Frontend, Mobile, dashboards e integrações futuras continuam sujeitos a escopo e autorização próprios:
 
 - Arquitetura modular;
 - Banco de dados PostgreSQL corporativo;
@@ -495,7 +504,9 @@ mantendo confiabilidade, desempenho e segurança.
 
 ## 📦 Módulos do ERP
 
-O **WMA Travel ERP** é composto por módulos integrados responsáveis pela gestão completa dos processos empresariais.
+O escopo dos módulos abaixo apresenta a visão do produto, incluindo funcionalidades futuras.
+As entregas efetivamente certificadas são delimitadas pela [ordem de execução](PHASE_2_EXECUTION_ORDER.md)
+e pelos contratos em [API](API.md); esta lista não declara todos os recursos planejados como implementados.
 
 ---
 
@@ -615,8 +626,7 @@ Antes de iniciar a instalação do **WMA Travel ERP**, certifique-se de possuir:
 
 - PostgreSQL 18;
 - Python 3.13 ou superior;
-- Node.js;
-- Flutter SDK;
+- Node.js para os validadores documentais;
 - Git;
 - Visual Studio Code.
 

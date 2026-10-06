@@ -6,9 +6,11 @@ Estas instruções valem para todo o repositório.
 
 O projeto está na Fase 2 — Backend e API. A Fase 1 foi encerrada pela tag imutável
 `phase-1-final-2026-08-18`. O backend FastAPI está sendo criado incrementalmente em `Backend/`; as etapas 2.0.1 a
-2.0.11, o Core Corporativo 2.1 e as etapas 2.2 a 2.6 estão concluídos, certificados e integrados.
-As etapas funcionais foram reprogramadas pela ADR-017; a próxima execução é o gate documental da
-2.7 — Bike Tour. A implementação depende da aprovação dos entregáveis em `Docs/BIKE_TOUR_DOCUMENTATION_GATE.md`.
+2.0.11, o Core Corporativo 2.1 e as etapas 2.2 a 2.7 estão concluídos, certificados e integrados.
+A Etapa 2.7 — Bike Tour foi integrada à `main` em 04/10/2026 pelo PR #69: feature `c241f3a`, merge `ffcc09e`.
+O CI do PR e os gates Backend CI, Documentation CI e Secret Scan pós-merge foram aprovados.
+As etapas funcionais seguem a ADR-017. O trabalho corrente é o fechamento documental pós-merge da 2.7;
+nenhuma etapa posterior está autorizada por este registro. Consulte `Docs/PHASE_2_EXECUTION_ORDER.md`.
 Frontend React e aplicativo Flutter continuam planejados e não devem ser antecipados sem escopo explícito.
 
 Nunca mova, recrie ou force a tag `phase-1-final-2026-08-18`. Não reescreva os dumps, scripts F1-FIN,
@@ -46,8 +48,9 @@ recente. Registre inconsistências encontradas em vez de resolvê-las silenciosa
 - PostgreSQL é o banco oficial. A baseline 10.12.2 está associada ao commit `d63800e`; o fechamento integral da
   Fase 1 está associado à tag `phase-1-final-2026-08-18`. Ambos devem permanecer reproduzíveis e auditáveis.
 - Não altere retroativamente o dump oficial, scripts F1-FIN ou migrations já aplicadas para introduzir mudanças
-  estruturais. Toda evolução de banco da Fase 2 deve ser uma migration nova, versionada e rastreável em
-  `Database/migrations/`.
+  estruturais. Toda evolução de banco da Fase 2 deve ser uma revision Alembic nova, versionada e rastreável em
+  `Backend/migrations/versions/`, conforme a ADR-004 e `Docs/MIGRATIONS.md`. `Database/migrations/` preserva
+  as referências históricas; não duplique ali as revisions do Backend.
 - Não reaplique migrations históricas sobre um banco restaurado de `Database/scripts/WmaTravelERP.sql`: o dump
   completo já contém o estado exportado.
 - Cada migration deve declarar objetivo, objetos e dependências afetados, validações pré e pós-aplicação e,
