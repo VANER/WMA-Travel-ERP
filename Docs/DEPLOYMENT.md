@@ -5,10 +5,12 @@
 > **Fase:** Fase 2 — Backend, API e Integrações
 > **Tipo de documento:** Planejamento de Implantação
 > **Versão:** 1.2.0
-> **Data:** 01/09/2026
+> **Data:** 07/10/2026
 > **Status:** PLANEJADA
 
-A implantação permanece não iniciada.
+Não há implantação produtiva certificada neste documento. O Backend/API até a 2.7 está integrado à `main`;
+a 2.8 está em preparação, com homologação do site e contratos externos pendentes. CI aprovado não comprova deploy.
+Consulte o [estado corrente](PROJECT_DOCUMENTATION.md) e o [plano da 2.8](WEBSITE_INTEGRATION_PREPARATION.md).
 
 ---
 
@@ -52,7 +54,8 @@ inicial, execução segura de scripts de banco de dados e o fluxo de entrega con
 ## 3. Pré-requisitos
 
 - PostgreSQL (versão compatível com os scripts em `WmaTravelERP.sql`);
-- Docker e Docker Compose;
+- Python 3.13+ e dependências do Backend conforme seu README;
+- Bash e `psql` para o instalador certificado; Docker é usado no CI, mas não há Compose de deploy versionado;
 - pgAdmin 4 (para backup/restore de staging);
 - Acesso ao repositório com permissões adequadas;
 - Variáveis de ambiente configuradas (ver seção 8).
@@ -61,51 +64,50 @@ inicial, execução segura de scripts de banco de dados e o fluxo de entrega con
 
 ## 4. Processo de Instalação Inicial
 
-1. Provisionar instância PostgreSQL;
-2. Restaurar o schema base a partir de `WmaTravelERP.sql`;
-3. Validar criação dos 5 schemas populados (`public`, `financeiro`, `auditoria`, `dw`, `config`) e
-   dos 3 schemas reservados (`logs`, `seguranca`, `util`);
-4. Executar rotina de health check (`fn_health_check`);
-5. Subir os serviços de backend via Docker Compose;
-6. Validar conectividade da API com o banco.
+Para reconstrução e testes, usar banco local descartável explicitamente identificado:
+
+1. Preparar PostgreSQL e confirmar o banco de destino antes de qualquer restauração;
+2. Reconstruir a Fase 1 pelo [instalador certificado](../Database/README.md), incluindo F1-FIN;
+3. Configurar o Backend e aplicar as revisions Alembic conforme [Migrations](MIGRATIONS.md);
+4. Verificar o head aplicado, a estrutura esperada e as validações do escopo;
+5. Iniciar a API conforme o [README do Backend](../Backend/README.md);
+6. Validar os health checks da API e a conectividade com o banco.
+
+Este fluxo local não autoriza restauração em produção. A implantação produtiva exige plano próprio de
+infraestrutura, secrets, backup, recuperação e aceite operacional; não existe comando Compose certificado.
 
 ---
 
 ## 5. Ordem de Execução dos Scripts SQL
 
-Scripts de migração devem ser executados **exclusivamente após validação em `wma_staging`**, na
-seguinte ordem:
+O instalador `Database/install.sh` coordena o dump histórico e os scripts F1-FIN.04 a F1-FIN.11;
+`--with-validation` executa as validações certificadas. Não reaplicar manualmente scripts históricos
+incorporados à baseline nem reconstruir scripts ausentes para simular uma migration antiga.
 
-1. `WmaTravelERP.sql` — schema base completo;
-2. `01_normalizar_3fn_enderecos.sql` — normalização 3FN de endereços;
-3. `02_consolidar_financeiro_public.sql` — consolidação de tabelas duplicadas
-   (**mantido em espera**: só deve ser executado após estabilização do módulo financeiro em
-   desenvolvimento ativo, para evitar quebra de FKs de `lancamento`, `pagamento` e
-   `movimentacao_bancaria`).
-
-Cada script segue o padrão `BEGIN`/`COMMIT`, registra sua execução em `auditoria.log_correcao` e
-inclui bloco de rollback comentado.
+Depois da fundação, as evoluções da Fase 2 seguem a cadeia Alembic em `Backend/migrations/versions/`.
+O head da entrega 2.7 é `202609170300`. O estado de cada banco deve ser consultado separadamente.
+A consolidação de schemas não faz parte deste procedimento e exige decisão explícita de arquitetura.
 
 ---
 
 ## 6. Pipeline de CI/CD
 
-Implementado via **GitHub Actions**, cobrindo minimamente:
+Implementado via GitHub Actions:
 
-```text
-Lint (markdownlint / cspell) → Testes → Build da Imagem Docker →
-Execução em Staging → Auditoria Estrutural (ICB) → Deploy Condicional
-```
+- Backend CI: dependências, lint, formatação, tipos, testes, OpenAPI, Alembic e PostgreSQL descartável;
+- Documentation CI: Markdownlint, CSpell e whitespace;
+- Secret Scan: verificação de segredos.
 
-O deploy para produção é bloqueado automaticamente se o ICB calculado em staging estiver abaixo
-do limite mínimo definido em `auditoria.configuracao` (ver `DBA_FRAMEWORK.md`).
+Os três checks são exigidos antes da integração e executados após o merge em `main`.
+Build de imagem, deploy em staging/produção e bloqueio de deploy por ICB não estão implementados nos
+workflows versionados; permanecem decisões futuras do plano de implantação.
 
 ---
 
 ## 7. Estratégia de Deployment
 
-Recomenda-se **rolling deployment**: substituição gradual das instâncias de backend, mantendo
-disponibilidade durante a atualização, com verificação de saúde (`fn_health_check`) entre etapas.
+A estratégia produtiva ainda precisa ser definida e validada no ambiente escolhido. Atualização gradual,
+rollback e verificações de saúde são requisitos a avaliar; não há execução produtiva certificada neste guia.
 
 ---
 
@@ -119,8 +121,11 @@ disponibilidade durante a atualização, com verificação de saúde (`fn_health
 | `WMA_DATABASE_POOL_TIMEOUT` | Tempo máximo de espera por conexão disponível |
 | `WMA_DATABASE_POOL_RECYCLE` | Intervalo de renovação preventiva das conexões |
 | `WMA_DATABASE_CONNECT_TIMEOUT` | Tempo máximo por tentativa de conexão PostgreSQL |
-| `JWT_SECRET` | Chave de assinatura dos tokens JWT |
-| `JWT_REFRESH_SECRET` | Chave de assinatura dos refresh tokens |
+| `WMA_TOKEN_SIGNING_KEY` | Segredo de assinatura de access tokens, com no mínimo 32 caracteres |
+| `WMA_TOKEN_ISSUER` | Emissor esperado dos tokens |
+| `WMA_TOKEN_AUDIENCE` | Audiência esperada da API |
+| `WMA_ACCESS_TOKEN_TTL_MINUTES` | Validade dos access tokens |
+| `WMA_REFRESH_TOKEN_TTL_DAYS` | Validade das sessões de renovação |
 | `WMA_ENVIRONMENT` | Identifica o ambiente (`development`, `test` ou `production`) |
 | `WMA_LOG_LEVEL` | Nível mínimo do logging técnico |
 
@@ -130,7 +135,7 @@ disponibilidade durante a atualização, com verificação de saúde (`fn_health
 
 ## 9. Rollback e Contingência
 
-- Todo script de migração inclui bloco de rollback comentado, pronto para uso;
+- Avaliar o `downgrade()` de cada revision; reversão não é presumida segura e exige teste em banco descartável;
 - Backups completos de produção devem ser realizados antes de qualquer execução estrutural;
 - Em caso de falha pós-deploy, o rollback prioriza restaurar o backup mais recente validado.
 
@@ -180,7 +185,7 @@ disponibilidade durante a atualização, com verificação de saúde (`fn_health
 | Empresa | WMA Travel Ltda. |
 | Versão | 1.2.0 |
 | Status | PLANEJADA |
-| Última atualização | 01/09/2026 |
+| Última atualização | 07/10/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 | Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
 

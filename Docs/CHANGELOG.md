@@ -4,6 +4,15 @@
 
 ## [Não Publicado]
 
+### 07/10/2026 — Alinhamento da documentação ao estado corrente
+
+- referenciado o PR #71 e seus gates pós-merge no estado corrente, mantendo a 2.8 em preparação;
+- corrigido o guia de implantação para distinguir CI, reconstrução local e deploy ainda não certificado;
+- alinhados nomes de configuração JWT e orientações Alembic com a implementação existente;
+- removida a orientação de reaplicar scripts históricos ausentes ou consolidar schemas automaticamente;
+- reconciliada a autoridade financeira com o inventário e o desenho integrado já certificados;
+- preservadas certificações, ADRs e entradas históricas, sem mudanças funcionais ou execução de banco.
+
 ### 06/10/2026 — Fechamento integral da 2.7 e preparação da 2.8
 
 - consolidado o encerramento de Bike Tour com os PRs #69 e #70 e os gates pós-merge aprovados;

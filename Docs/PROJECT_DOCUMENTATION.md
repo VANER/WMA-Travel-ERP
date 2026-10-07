@@ -5,7 +5,7 @@
 > **Fase:** Fase 2 — Backend, API e Integrações
 > **Tipo de documento:** Manual Mestre
 > **Versão:** 1.1.0
-> **Data:** 06/10/2026
+> **Data:** 07/10/2026
 > **Status:** VIGENTE
 
 ---
@@ -62,6 +62,25 @@ O fechamento documental da 2.7 foi integrado pelo PR #70, merge `2e3c9e5`, com o
 aprovados. A [certificação final](certification/PHASE_2_7_BIKE_TOUR_FINAL_CLOSURE.md) consolida o encerramento.
 A execução corrente é a [preparação da 2.8.1](WEBSITE_INTEGRATION_PREPARATION.md), solicitada pelo responsável.
 O inventário externo e a homologação do site permanecem pendentes; a integração ainda não foi implementada.
+
+## Estado corrente consolidado em 07/10/2026
+
+O [PR #71](https://github.com/VANER/WMA-Travel-ERP/pull/71), merge `d1d79de`, integrou o fechamento
+consolidado da 2.7 e o plano de preparação da 2.8. Os três gates pós-merge foram aprovados:
+[Backend CI](https://github.com/VANER/WMA-Travel-ERP/actions/runs/37439607149),
+[Documentation CI](https://github.com/VANER/WMA-Travel-ERP/actions/runs/37439607109) e
+[Secret Scan](https://github.com/VANER/WMA-Travel-ERP/actions/runs/37439606953).
+
+| Área | Estado atual |
+| --- | --- |
+| Fase 1 | Encerrada; baseline e tag histórica preservadas |
+| Etapas 2.0–2.7 | Concluídas, certificadas e integradas à main |
+| Etapa 2.8 | Preparação da 2.8.1; inventário externo e homologação pendentes |
+| Site produtivo | Nenhuma mudança ou teste de escrita realizado nesta preparação |
+| Frontend, Mobile, Fiscal e BI | Planejados; não certificados como implementados |
+| Implantação produtiva | Sem evidência de deploy certificado; CI não equivale a implantação |
+
+Os blocos datados anteriores são históricos. A pendência externa da 2.8 não reabre o fechamento Bike Tour.
 
 ## 1. Objetivo
 
@@ -405,7 +424,7 @@ Para novos colaboradores recomenda-se a seguinte sequência:
 | Status | VIGENTE — EVOLUÇÃO CONTROLADA |
 | Responsável | WMA Travel Ltda. |
 | Compatibilidade | Markdownlint |
-| Última atualização | 06/10/2026 |
+| Última atualização | 07/10/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 
 ---

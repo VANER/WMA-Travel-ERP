@@ -1,7 +1,9 @@
 # Database - WMA Travel ERP
 
-Camada de dados do WMA Travel ERP (PostgreSQL, multi-schema: `public`, `financeiro`, `auditoria`,
-`config`, `dw`, e os schemas reservados `logs`, `seguranca`, `util` — ainda não migrados).
+Camada de dados PostgreSQL do WMA Travel ERP. A fundação da Fase 1 e seus schemas são preservados
+pelo instalador certificado. A evolução funcional até Bike Tour 2.7 está em
+`Backend/migrations/versions/`, com head `202609170300`; consulte [Migrations](../Docs/MIGRATIONS.md).
+A tabela histórica abaixo descreve a Fase 1, não o catálogo completo após as revisions da Fase 2.
 
 ## Estrutura
 
@@ -18,10 +20,13 @@ Database/
 
 ## Uso rápido
 
+Confirmar que `wma_staging` é um banco local descartável antes da execução. O instalador pode criar o banco
+e restaurar sua estrutura; este exemplo não se destina a produção.
+
 ```bash
-export PGPASSWORD=<senha>
+export PGPASSWORD='<senha-local>'
 cd Database
-./install.sh --with-validation
+DB_NAME=wma_staging ./install.sh --with-validation
 ```
 
 O instalador restaura `scripts/WmaTravelERP.sql`, aplica os scripts persistentes F1-FIN.04 a F1-FIN.11 e, com

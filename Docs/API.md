@@ -12,6 +12,10 @@ O contrato executável vigente é `Backend/openapi.json`. Endpoint, integração
 deve ser tratado como planejamento, mesmo quando as seções históricas abaixo descrevem o estado-alvo. Exemplos
 planejados não autorizam uso em produção.
 
+Estado em 07/10/2026: Backend/API até Bike Tour 2.7 integrados e certificados. A integração do website 2.8
+está em preparação e não possui contratos externos aceitos neste registro. Consulte o
+[plano de integração](WEBSITE_INTEGRATION_PREPARATION.md) antes de propor endpoints para o canal digital.
+
 ---
 
 ## Índice

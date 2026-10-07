@@ -1,10 +1,18 @@
 # Arquitetura do WMA Travel ERP
 
 **Versão do Documento:** 1.0.0
-**Última Atualização:** 29/07/2026
+**Última Atualização:** 07/10/2026
 **Status:** Em Desenvolvimento
 
 ---
+
+## Estado de implementação
+
+O projeto utiliza o monólito modular definido nas [ADRs](architecture/README.md). Backend/API até a 2.7
+estão concluídos, certificados e integrados; a 2.8 prepara a integração do website e aguarda inventário externo.
+As camadas Web/Mobile, BI, alta disponibilidade e implantação descritas abaixo incluem a visão futura.
+Não há Dockerfile ou Compose de deploy versionado. Consulte [Implantação](DEPLOYMENT.md) e
+[o estado corrente](PROJECT_DOCUMENTATION.md) antes de tratar uma capacidade planejada como disponível.
 
 ## 1. Visão Geral
 
@@ -215,11 +223,10 @@ diretamente (schema fixo) pela função `fn_log_auditoria()`, que já está
 instanciada como trigger em 21 tabelas sensíveis (`pessoa`, `empresa`,
 `usuario`, módulo fiscal e módulo financeiro). Mover a tabela para `logs.*`
 exige atualizar a função no mesmo movimento, sob risco de quebrar os
-triggers já validados. Durante o desenvolvimento do módulo Financeiro, essa
-reorganização foi mantida junto da consolidação `financeiro.*` → `public.*`
-(ver `02_consolidar_financeiro_public.sql`, atualmente adiado), e não como
-mudança isolada. A conclusão da Etapa 2.5 não autoriza essa alteração de schema
-sem nova análise de dependências e ADR aplicável.
+triggers já validados. Essa justificativa pertence ao planejamento histórico da baseline.
+Na Fase 2, `financeiro` permanece autoridade das operações financeiras; cópias cadastrais legadas
+e mudanças de schema exigem análise específica conforme o [inventário financeiro](FINANCIAL_INVENTORY.md).
+A conclusão da Etapa 2.5 não autoriza consolidação nem mudança de schema sem nova análise e ADR aplicável.
 
 **Quando migrar:** revisitar em escopo futuro explicitamente autorizado. A
 migração deve mover as tabelas via `ALTER TABLE ... SET SCHEMA`, atualizar

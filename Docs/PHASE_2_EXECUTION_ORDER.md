@@ -15,6 +15,10 @@
 
 ---
 
+O fechamento consolidado da 2.7 e a preparação da 2.8 foram integrados pelo
+[PR #71](https://github.com/VANER/WMA-Travel-ERP/pull/71), merge `d1d79de`, com os três gates pós-merge
+aprovados. Consulte o [estado corrente consolidado](PROJECT_DOCUMENTATION.md#estado-corrente-consolidado-em-07102026).
+
 ## 1. Objetivo
 
 Este documento estabelece a ordem oficial de execução da Fase 2 do

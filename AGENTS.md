@@ -9,7 +9,8 @@ O projeto está na Fase 2 — Backend e API. A Fase 1 foi encerrada pela tag imu
 2.0.11, o Core Corporativo 2.1 e as etapas 2.2 a 2.7 estão concluídos, certificados e integrados.
 A Etapa 2.7 — Bike Tour foi integrada à `main` em 04/10/2026 pelo PR #69: feature `c241f3a`, merge `ffcc09e`.
 O CI do PR e os gates Backend CI, Documentation CI e Secret Scan pós-merge foram aprovados.
-O fechamento documental foi integrado pelo PR #70, merge `2e3c9e5`, com todos os gates pós-merge aprovados.
+O fechamento documental foi integrado pelo PR #70, merge `2e3c9e5`. O PR #71, merge `d1d79de`, integrou
+o fechamento consolidado e o plano da 2.8; Backend CI, Documentation CI e Secret Scan pós-merge passaram.
 As etapas funcionais seguem a ADR-017. A execução corrente autorizada é preparar a 2.8 — Integração do Website,
 começando pelo inventário 2.8.1, conforme `Docs/WEBSITE_INTEGRATION_PREPARATION.md`.
 Homologação e capacidades reais do site estão pendentes; contratos devem ser confirmados antes da implementação.

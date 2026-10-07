@@ -5,7 +5,7 @@
 > **Fase:** Fase 2 — Backend, API e Integrações
 > **Tipo de documento:** Norma de Governança
 > **Versão:** 1.2.0
-> **Data:** 01/09/2026
+> **Data:** 07/10/2026
 > **Status:** VIGENTE
 
 ---
@@ -64,13 +64,15 @@ Esta governança se aplica a:
 
 ## 4. Governança dos Schemas
 
-O schema `public` é a **fonte de verdade cadastral** do sistema: é referenciado por chaves
-estrangeiras de módulos fiscais, corporativos e de integração. O schema `financeiro` contém, hoje,
-tabelas majoritariamente autorreferenciadas, sem colunas de auditoria completas.
+O schema `public` é a fonte de verdade cadastral. O schema `financeiro` é a autoridade das operações
+financeiras, conforme o [inventário financeiro](FINANCIAL_INVENTORY.md) e o
+[desenho integrado](FINANCIAL_IMPLEMENTATION_DESIGN.md). As cópias cadastrais legadas não transferem
+a autoridade do Core e não autorizam consolidação automática.
 
 Regra de governança vigente:
 
-- Toda consolidação entre `public` e `financeiro` deve preservar `public` como schema de origem;
+- Alterações cadastrais devem preservar a autoridade do Core; operações financeiras permanecem no Financeiro;
+- Consolidação de cópias legadas exige decisão explícita e análise de dependências, sem mover tabelas por suposição;
 - Nenhuma tabela pode ser removida enquanto houver FK ativa apontando para ela;
 - Views não substituem tabelas como alvo de FK — scripts de consolidação devem considerar essa
   limitação do PostgreSQL antes de propor a troca de uma tabela por uma view.
@@ -180,7 +182,7 @@ tabela duplicada) devem ser:
 | Empresa | WMA Travel Ltda. |
 | Versão | 1.2.0 |
 | Status | VIGENTE |
-| Última atualização | 01/09/2026 |
+| Última atualização | 07/10/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 | Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
 

@@ -6,6 +6,10 @@ A integração da 2.7 ocorreu em 04/10/2026 pelo PR #69, feature `c241f3a`, merg
 Consulte a [ordem de execução](../Docs/PHASE_2_EXECUTION_ORDER.md) e a
 [rastreabilidade Bike Tour](../Docs/BIKE_TOUR_TRACEABILITY_MATRIX.md).
 
+O fechamento consolidado foi integrado pelo PR #71, merge `d1d79de`. A execução corrente é a preparação
+da integração do website 2.8; ambiente externo e contratos ainda precisam ser inventariados.
+Não há implantação produtiva certificada nem adaptador do website entregue por este marco.
+
 ## Preparação no Windows
 
 ```powershell

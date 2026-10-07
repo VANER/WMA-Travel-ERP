@@ -6,3 +6,6 @@ ou detalhes de fornecedores; integrações devem expor contratos internos explí
 `email_titan.py` implementa a porta de recuperação autorizada com SMTP SSL. O adaptador recebe configuração
 validada e não registra destinatário, senha ou token. Website, pagamentos e operadoras serão adicionados somente
 quando seus casos de uso e requisitos de segurança entrarem no escopo.
+
+A Etapa 2.8 está em preparação: o [plano do website](../../../Docs/WEBSITE_INTEGRATION_PREPARATION.md)
+registra inventário, homologação e contratos externos pendentes. Nenhum adaptador do website está certificado.

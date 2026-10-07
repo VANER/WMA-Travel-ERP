@@ -1,7 +1,7 @@
 # Padrões de Banco de Dados - WMA Travel ERP
 
 **Versão do Documento:** 1.0.0
-**Última Atualização:** 18/08/2026
+**Última Atualização:** 07/10/2026
 **Status:** Norma Aprovada para a Baseline Certificada
 
 ---
@@ -70,8 +70,8 @@ para os scripts de auditoria automatizada.
 - Dependências transitivas (uma coluna não-chave que depende de outra coluna não-chave, e não
   diretamente da chave primária) devem ser eliminadas, movendo o dado para a tabela de origem e
   referenciando-a por FK.
-  - Exemplo real corrigido pelo script `01_normalizar_3fn_enderecos.sql`: `pessoa.cidade`/`estado`
-    dependiam de `pessoa.id_localidade`, não diretamente de `pessoa.id_pessoa`.
+  - Exemplo histórico da normalização: `pessoa.cidade`/`estado` dependiam de `pessoa.id_localidade`,
+    não diretamente de `pessoa.id_pessoa`. O script original não está preservado; não deve ser recriado ou reaplicado.
 - Desnormalizações propositais (ex.: colunas de cache para performance de relatório) devem ser
   documentadas explicitamente no `DATA_DICTIONARY.md`, indicando a fonte de verdade.
 
@@ -81,12 +81,14 @@ para os scripts de auditoria automatizada.
 
 Quando dois schemas possuem tabelas com o mesmo nome ou mesmo propósito:
 
-- O schema com mais referências de FK externas e colunas de auditoria completas é a
-  **fonte de autoridade**.
-- O outro schema deve consolidar seus dados na tabela de autoridade e, durante o período de
-  transição, expor uma `VIEW` com o nome original para não quebrar consumidores existentes.
-- Situação atual documentada: `public.*` é autoridade cadastral (12+ FKs externas); as 11 tabelas
-  duplicadas em `financeiro.*` são consolidadas pelo script `02_consolidar_financeiro_public.sql`.
+- A autoridade é definida pelo domínio e pelas decisões arquiteturais; quantidade de FKs isoladamente não a define.
+- `public` preserva a autoridade cadastral e `financeiro` a autoridade das operações financeiras, conforme
+  [inventário financeiro](FINANCIAL_INVENTORY.md) e [desenho integrado](FINANCIAL_IMPLEMENTATION_DESIGN.md).
+- Cópias legadas não autorizam consolidação automática. Mudanças exigem análise de FKs, aprovação e migration aditiva.
+- Uma `VIEW` não substitui uma tabela referenciada por FK. O antigo plano de consolidação não é procedimento vigente.
+
+Reconciliação em 07/10/2026 com as decisões específicas já implementadas na Fase 2; sem mudança de schema.
+A baseline, as migrations aplicadas e suas evidências históricas permanecem preservadas.
 
 ---
 

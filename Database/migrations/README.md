@@ -1,6 +1,7 @@
 # Histórico de migrations
 
-Este diretório recebe toda alteração estrutural criada após a baseline certificada no commit `d63800e`.
+Este diretório preserva referências históricas do banco. As evoluções da Fase 2 são revisions Alembic em
+`Backend/migrations/versions/`, conforme a ADR-004 e o [guia de migrations](../../Docs/MIGRATIONS.md).
 
 ## Situação da Fase 1
 
@@ -16,8 +17,9 @@ As alterações históricas anteriores à certificação estão incorporadas ao 
 | 04 — PKs em `auditoria.*` | Original não preservado neste diretório | Sim |
 | 05 — triggers de auditoria | Original não preservado neste diretório | Sim |
 
-Os scripts `Database/scripts/F1_FIN/` compõem uma evolução controlada posterior à baseline e permanecem
-separados até a emissão da baseline consolidada da Fase 1.
+Os scripts `Database/scripts/F1_FIN/` compõem a evolução certificada da Fase 1, encerrada pela tag
+`phase-1-final-2026-08-18`. O instalador preserva sua aplicação controlada sobre o dump histórico.
+Essa composição não deve ser reescrita nem confundida com a cadeia Alembic da Fase 2.
 
 ## Regra para novas migrations
 
