@@ -38,7 +38,7 @@ A dependência da 2.9 em relação às etapas 2.3–2.5 permanece. O início de 
 implementação que dependa de Comercial ou Financeiro nem certifica essas dependências. A 2.10 mantém sua relação
 com módulos operacionais; 2.11 continua dependente dos módulos operacionais; 2.12 é transversal; 2.13 depende do
 conjunto funcional; e 2.14 depende da conclusão de 2.13, conforme a ordem oficial. O HOLD pode deslocar a duração
-calendária da 2.8 e das etapas dependentes; as estimativas existentes são mantidas até replanejamento aprovado.
+duração de calendário da 2.8 e das etapas dependentes; as estimativas existentes são mantidas até replanejamento aprovado.
 
 ## Restrições para certificação final
 
