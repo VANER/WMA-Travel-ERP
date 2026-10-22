@@ -4,13 +4,14 @@
 > **Empresa:** WMA Travel Ltda.
 > **Fase:** Fase 2 — Backend, API e Integrações
 > **Tipo de documento:** Planejamento
-> **Versão:** 1.1
-> **Data:** 06/10/2026
+> **Versão:** 1.2
+> **Data:** 20/10/2026
 > **Status:** EM EXECUÇÃO
 
 **Fase anterior:** Fase 1 — Fundação e Banco de Dados
 **Status da Fase 1:** CONCLUÍDA E CERTIFICADA
-**Status atual:** etapas 2.0 a 2.7 concluídas, certificadas e integradas
+**Status atual:** 2.7 concluída/certificada; 2.8 em HOLD temporário; inventário 2.9.1 em execução
+**Ação corrente:** revisão da proposta de fechamento documental da 2.9.1 com ressalvas; aprovação pendente.
 **Bike Tour 2.7:** CONCLUÍDO, CERTIFICADO E INTEGRADO À MAIN em 04/10/2026; PR #69, merge `ffcc09e`
 **Marco inicial:** `phase-1-final-2026-08-18`
 
@@ -21,6 +22,24 @@
 O fechamento consolidado da 2.7 e a preparação da 2.8 foram integrados pelo
 [PR #71](https://github.com/VANER/WMA-Travel-ERP/pull/71), merge `d1d79de`, com os três gates pós-merge
 aprovados. Consulte o [estado corrente consolidado](PROJECT_DOCUMENTATION.md#estado-corrente-consolidado-em-07102026).
+
+## Estado reprogramado em 19/10/2026
+
+| Etapa | Estado corrente |
+| --- | --- |
+| 2.7 — Bike Tour | CONCLUÍDA, CERTIFICADA E INTEGRADA |
+| 2.8 — Integração do Website | HOLD TEMPORÁRIO; retomada condicionada aos critérios da ADR-021 |
+| 2.9 — Fiscal | EM EXECUÇÃO — INVENTÁRIO FISCAL 2.9.1; não certificado |
+| 2.10 a 2.14 | PLANEJADAS; numeração e dependências preservadas |
+
+A prioridade do inventário da 2.9 não renumera etapas nem elimina dependências. A ordem funcional da ADR-017
+permanece; a 2.8 continua antes da 2.9 e em HOLD até satisfazer os critérios de retomada. Consulte a
+[ADR-021](architecture/ADR-021-PHASE-2-EXECUTION-REPROGRAMMING.md).
+
+Em 20/10/2026, foi preparada a [proposta de fechamento da 2.9.1](FISCAL_2_9_1_GATE.md), limitada ao inventário
+de estruturas, dependências referenciais e lacunas. A aceitação da rastreabilidade disponível e das limitações
+de validação depende de aprovação explícita. Não há encerramento formal, certificação funcional ou liberação
+produtiva. A implementação fiscal depende dos gates específicos posteriores; a 2.8 permanece em HOLD.
 
 ## 1. Objetivo
 
@@ -700,6 +719,8 @@ Obrigatório:
 
 **SITE ↔ ERP: INTEGRAÇÃO CERTIFICADA**
 
+Este é o critério de saída, não um resultado alcançado. Estado em 19/10/2026: **HOLD TEMPORÁRIO**.
+
 ---
 
 ## 13. ETAPA 2.9 — Fiscal
@@ -736,6 +757,9 @@ Tributos
 #### Gate 2.9
 
 **MÓDULO FISCAL: OPERACIONAL**
+
+Este é o critério de saída, não um resultado alcançado. A 2.9 está em execução apenas no inventário 2.9.1;
+implementação e certificação permanecem pendentes.
 
 ---
 
@@ -1038,9 +1062,12 @@ FASE 2 CERTIFICADA
 
 ## 24. Próxima Ação Oficial
 
-A próxima atividade do WMA Travel ERP será:
+Registro histórico anterior à reprogramação de 19/10/2026: a próxima atividade prevista era:
 
 **PREPARAÇÃO DA ETAPA 2.8.1 — INVENTÁRIO DO SITE**
+
+**Estado corrente em 20/10/2026:** 2.8 em HOLD conforme ADR-021; revisão e aprovação explícita da proposta
+de fechamento documental com ressalvas da 2.9.1. Esta prioridade de trabalho não altera a sequência oficial.
 
 As etapas 2.0 a 2.7 estão concluídas, certificadas e integradas à `main`. A ADR-017 reprogramou as etapas
 funcionais. Bike Tour 2.7 está concluído, certificado e integrado à `main` pelo
@@ -1113,7 +1140,9 @@ Homologação, inventário real e contratos do site permanecem pendentes.
 
 **ETAPA 2.7:** CONCLUÍDA, CERTIFICADA E INTEGRADA À MAIN
 
-**PRÓXIMA AÇÃO:** preparação da 2.8.1 — Inventário do Site
+**PRÓXIMA AÇÃO:** revisar e aprovar explicitamente a proposta de fechamento documental com ressalvas da 2.9.1.
+
+A preparação da 2.8.1 permanece suspensa pelos critérios da ADR-021. Esta proposta não autoriza a 2.9.2.
 
 ---
 
@@ -1123,9 +1152,9 @@ Homologação, inventário real e contratos do site permanecem pendentes.
 | --- | --- |
 | Projeto | WMA Travel ERP |
 | Empresa | WMA Travel Ltda. |
-| Versão | 1.1 |
+| Versão | 1.2 |
 | Status | EM EXECUÇÃO |
-| Última atualização | 06/10/2026 |
+| Última atualização | 20/10/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 | Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
 

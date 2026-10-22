@@ -4,8 +4,8 @@
 > **Empresa:** WMA Travel Ltda.
 > **Fase:** Fase 2 — Backend, API e Integrações
 > **Tipo de documento:** Planejamento de Execução
-> **Versão:** 1.1
-> **Data:** 06/10/2026
+> **Versão:** 1.2
+> **Data:** 20/10/2026
 > **Status:** EM EXECUÇÃO
 
 **Fase anterior:** Fase 1 — Concluída e certificada
@@ -1145,6 +1145,12 @@ wmatravel.com.br
 13. testes;
 14. certificação.
 
+O inventário 2.9.1 registra estruturas, dependências referenciais e lacunas. Sua
+[proposta de fechamento com ressalvas](FISCAL_2_9_1_GATE.md) aguarda aprovação explícita.
+Não exige solução dos contratos, emissão NFS-e ou testes funcionais das etapas seguintes.
+A aceitação limitada das evidências não certifica o módulo nem libera produção. O item seguinte, serviços
+(2.9.2), e os demais itens continuam sujeitos a escopo autorizado e gates próprios, sem antecipação.
+
 Fluxo:
 
 ```text
@@ -1162,6 +1168,9 @@ Tributos
 #### Gate 2.9
 
 **MÓDULO FISCAL: CERTIFICADO**
+
+Este é o critério de saída, não um resultado alcançado. A etapa 2.9 está em execução apenas no inventário 2.9.1;
+implementação e certificação permanecem pendentes, conforme a proposta do [gate 2.9.1](FISCAL_2_9_1_GATE.md).
 
 ---
 
@@ -1491,13 +1500,22 @@ docs(phase2): certify phase 2
 
 ## 23. Ordem Imediata de Trabalho
 
-A execução corrente autorizada é:
+A execução corrente reprogramada em 19/10/2026 é:
 
 ```text
 2.7 — Bike Tour encerrado
                ↓
-2.8.1 — Inventário do Site (preparação da integração)
+2.8 — HOLD TEMPORÁRIO (retomada conforme ADR-021)
+               ↓
+2.9.1 — Proposta de fechamento documental com ressalvas (aprovação pendente)
 ```
+
+Esta prioridade de trabalho não altera a numeração nem a ordem funcional registrada na ADR-017. As etapas 2.10 a
+2.14 permanecem planejadas, sujeitas às dependências já declaradas neste documento. O inventário da 2.9 não
+autoriza implementação, migration ou certificação sem os respectivos gates.
+
+Atualização de 20/10/2026: a ação corrente é revisar a proposta da 2.9.1. Não houve aceite formal de fechamento;
+o estado da etapa permanece em execução. O risco `trust` segue para tarefa independente de segurança.
 
 Registro histórico anterior ao merge de 04/10/2026:
 
@@ -1513,8 +1531,9 @@ O feature commit `c241f3a` foi integrado pelo [PR #69](https://github.com/VANER/
 merge `ffcc09e`, em 04/10/2026. O CI do PR e Backend CI, Documentation CI e Secret Scan pós-merge
 foram aprovados. O fechamento documental foi integrado no PR #70, merge `2e3c9e5`, com os gates pós-merge
 aprovados. Consulte a [certificação final](certification/PHASE_2_7_BIKE_TOUR_FINAL_CLOSURE.md).
-A execução corrente prepara a 2.8.1 conforme o [plano da integração](WEBSITE_INTEGRATION_PREPARATION.md);
-o ambiente de homologação e o inventário externo ainda precisam ser confirmados.
+Registro histórico: até 07/10/2026, a execução corrente preparava a 2.8.1 conforme o
+[plano da integração](WEBSITE_INTEGRATION_PREPARATION.md). A decisão de 19/10/2026 colocou a 2.8 em HOLD
+temporário; o ambiente de homologação e o inventário externo continuam pendentes.
 
 ---
 
@@ -1559,8 +1578,10 @@ o ambiente de homologação e o inventário externo ainda precisam ser confirmad
 | Etapa 2.7 | **CONCLUÍDA, CERTIFICADA E INTEGRADA** |
 | Integração remota da 2.7 | **PR #69; MERGE `ffcc09e`; CI DO PR E PÓS-MERGE APROVADOS** |
 | Fechamento documental da 2.7 | **PR #70; MERGE `2e3c9e5`; GATES PÓS-MERGE APROVADOS** |
-| Etapa 2.8 | **EM PREPARAÇÃO; INVENTÁRIO EXTERNO PENDENTE** |
-| Execução corrente | **2.8.1 — INVENTÁRIO DO SITE** |
+| Etapa 2.8 | **HOLD TEMPORÁRIO; critérios de retomada na ADR-021** |
+| Etapa 2.9 | **EM EXECUÇÃO — INVENTÁRIO FISCAL 2.9.1; NÃO CERTIFICADA** |
+| Etapas 2.10 a 2.14 | **PLANEJADAS; dependências preservadas** |
+| Execução corrente | **2.9.1 — PROPOSTA DE FECHAMENTO DOCUMENTAL; APROVAÇÃO PENDENTE** |
 
 ---
 
@@ -1572,9 +1593,10 @@ integradas à `main`. Bike Tour 2.7 foi encerrado pelo PR #69, merge `ffcc09e`, 
 O desenvolvimento deverá seguir a sequência, dependências, gates e regras
 estabelecidos neste documento.
 
-**Próxima ação oficial:**
+**Ação corrente:**
 
-**PREPARAÇÃO DA ETAPA 2.8.1 — INVENTÁRIO DO SITE.**
+**REVISÃO DA PROPOSTA DE FECHAMENTO DOCUMENTAL COM RESSALVAS DA 2.9.1, SEM ACEITE FORMAL.**
+A retomada da 2.8 depende dos critérios da ADR-021; implementação fiscal depende dos gates posteriores.
 
 ---
 
@@ -1584,9 +1606,9 @@ estabelecidos neste documento.
 | --- | --- |
 | Projeto | WMA Travel ERP |
 | Empresa | WMA Travel Ltda. |
-| Versão | 1.1 |
+| Versão | 1.2 |
 | Status | EM EXECUÇÃO |
-| Última atualização | 06/10/2026 |
+| Última atualização | 20/10/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 | Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
 

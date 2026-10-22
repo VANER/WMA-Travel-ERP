@@ -1,0 +1,35 @@
+﻿BEGIN
+tabela|restricao|tipo|definicao
+das|fk_das_empresa|FOREIGN KEY|FOREIGN KEY (id_empresa) REFERENCES empresa(id_empresa)
+das|das_competencia_not_null|NOT NULL|NOT NULL competencia
+das|das_id_das_not_null|NOT NULL|NOT NULL id_das
+das|das_id_empresa_not_null|NOT NULL|NOT NULL id_empresa
+das|pk_das|PRIMARY KEY|PRIMARY KEY (id_das)
+declaracao_fiscal|fk_declaracao_empresa|FOREIGN KEY|FOREIGN KEY (id_empresa) REFERENCES empresa(id_empresa)
+declaracao_fiscal|declaracao_fiscal_created_at_not_null|NOT NULL|NOT NULL created_at
+declaracao_fiscal|declaracao_fiscal_id_declaracao_not_null|NOT NULL|NOT NULL id_declaracao
+declaracao_fiscal|declaracao_fiscal_id_empresa_not_null|NOT NULL|NOT NULL id_empresa
+declaracao_fiscal|declaracao_fiscal_tipo_declaracao_not_null|NOT NULL|NOT NULL tipo_declaracao
+declaracao_fiscal|declaracao_fiscal_versao_not_null|NOT NULL|NOT NULL versao
+declaracao_fiscal|pk_declaracao_fiscal|PRIMARY KEY|PRIMARY KEY (id_declaracao)
+imposto|imposto_id_imposto_not_null|NOT NULL|NOT NULL id_imposto
+imposto|pk_imposto|PRIMARY KEY|PRIMARY KEY (id_imposto)
+imposto|uk_imposto_codigo|UNIQUE|UNIQUE (codigo)
+integracao_nfse|fk_integracao_nf|FOREIGN KEY|FOREIGN KEY (id_nota_fiscal) REFERENCES nota_fiscal(id_nota_fiscal)
+integracao_nfse|integracao_nfse_id_integracao_not_null|NOT NULL|NOT NULL id_integracao
+integracao_nfse|integracao_nfse_id_nota_fiscal_not_null|NOT NULL|NOT NULL id_nota_fiscal
+integracao_nfse|pk_integracao_nfse|PRIMARY KEY|PRIMARY KEY (id_integracao)
+nota_fiscal|fk_nf_cliente|FOREIGN KEY|FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)
+nota_fiscal|fk_nf_empresa|FOREIGN KEY|FOREIGN KEY (id_empresa) REFERENCES empresa(id_empresa)
+nota_fiscal|nota_fiscal_competencia_not_null|NOT NULL|NOT NULL competencia
+nota_fiscal|nota_fiscal_data_emissao_not_null|NOT NULL|NOT NULL data_emissao
+nota_fiscal|nota_fiscal_id_empresa_not_null|NOT NULL|NOT NULL id_empresa
+nota_fiscal|nota_fiscal_id_nota_fiscal_not_null|NOT NULL|NOT NULL id_nota_fiscal
+nota_fiscal|pk_nota_fiscal|PRIMARY KEY|PRIMARY KEY (id_nota_fiscal)
+simples_nacional|fk_simples_empresa|FOREIGN KEY|FOREIGN KEY (id_empresa) REFERENCES empresa(id_empresa)
+simples_nacional|simples_nacional_ano_not_null|NOT NULL|NOT NULL ano
+simples_nacional|simples_nacional_id_empresa_not_null|NOT NULL|NOT NULL id_empresa
+simples_nacional|simples_nacional_id_simples_not_null|NOT NULL|NOT NULL id_simples
+simples_nacional|pk_simples_nacional|PRIMARY KEY|PRIMARY KEY (id_simples)
+(31 linhas)
+COMMIT

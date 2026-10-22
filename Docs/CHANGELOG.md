@@ -4,6 +4,27 @@
 
 ## [Não Publicado]
 
+### 20/10/2026 — Proposta de fechamento documental condicionado da 2.9.1
+
+- delimitado o inventário às seis estruturas fiscais, metadados disponíveis, dependências referenciais e lacunas;
+- proposta aceitação condicionada da rastreabilidade disponível, sem registrar aceite formal do responsável;
+- definidos critérios verificáveis e encaminhamentos para segurança, modelagem, integrações e qualidade;
+- mantido `trust` como pendência P0 independente, sem alteração de configuração ou aprovação operacional;
+- registradas as limitações de validação: Markdownlint e CSpell não executados;
+- alinhada a próxima ação no roadmap e na ordem executiva à revisão da proposta, mantendo a 2.8 em HOLD;
+- preservadas ADR-021, numeração e sequência 2.8, 2.9 e 2.10–2.14, sem antecipar implementação fiscal;
+- conferidos destinos locais dos links Markdown nos seis documentos; Markdownlint/CSpell não executados;
+- nenhuma certificação funcional, liberação produtiva, execução SQL, migration ou publicação Git realizada.
+
+### 19/10/2026 — Reprogramação documental da Fase 2 e início do inventário fiscal
+
+- mantida a 2.7 como concluída, certificada e integrada;
+- colocada a execução da 2.8 em HOLD temporário, com critérios documentados para retomada;
+- iniciado documentalmente o inventário fiscal 2.9.1, sem declarar implementação ou certificação;
+- preservadas numeração, dependências e etapas planejadas 2.10 a 2.14;
+- criada a ADR-021 e consolidados inventário, análise de lacunas e gate fiscal;
+- nenhuma exclusão, alteração funcional, operação de banco ou migration foi realizada.
+
 ### 07/10/2026 — Alinhamento da documentação ao estado corrente
 
 - referenciado o PR #71 e seus gates pós-merge no estado corrente, mantendo a 2.8 em preparação;
