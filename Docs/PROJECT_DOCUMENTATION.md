@@ -5,7 +5,7 @@
 > **Fase:** Fase 2 — Backend, API e Integrações
 > **Tipo de documento:** Manual Mestre
 > **Versão:** 1.1.0
-> **Data:** 07/10/2026
+> **Data:** 06/10/2026
 > **Status:** VIGENTE
 
 ---
@@ -14,7 +14,6 @@
 
 - [WMA Travel ERP — Manual Mestre da Documentação](#wma-travel-erp--manual-mestre-da-documentação)
   - [Índice](#índice)
-  - [Estado corrente consolidado em 19/10/2026](#estado-corrente-consolidado-em-19102026)
   - [1. Objetivo](#1-objetivo)
   - [2. Escopo](#2-escopo)
   - [3. Organização da Documentação](#3-organização-da-documentação)
@@ -55,54 +54,14 @@ Os blocos datados anteriores preservam o estado histórico antes da integração
 Etapa 2.7 — Bike Tour é **CONCLUÍDA, CERTIFICADA E INTEGRADA À MAIN**.
 O feature commit `c241f3a` foi integrado pelo [PR #69](https://github.com/VANER/WMA-Travel-ERP/pull/69),
 merge `ffcc09e`, em 04/10/2026. O CI do PR e os gates Backend CI, Documentation CI e Secret Scan pós-merge
-foram aprovados. Naquela atualização, a execução corrente era o fechamento documental pós-merge da Etapa 2.7.
+foram aprovados. A execução corrente é o fechamento documental pós-merge da Etapa 2.7.
 
 ## Transição para a 2.8 em 06/10/2026
 
 O fechamento documental da 2.7 foi integrado pelo PR #70, merge `2e3c9e5`, com os três gates pós-merge
 aprovados. A [certificação final](certification/PHASE_2_7_BIKE_TOUR_FINAL_CLOSURE.md) consolida o encerramento.
-Na atualização de 06/10/2026, a execução corrente era a
-[preparação da 2.8.1](WEBSITE_INTEGRATION_PREPARATION.md), solicitada pelo responsável.
+A execução corrente é a [preparação da 2.8.1](WEBSITE_INTEGRATION_PREPARATION.md), solicitada pelo responsável.
 O inventário externo e a homologação do site permanecem pendentes; a integração ainda não foi implementada.
-
-## Estado corrente consolidado em 07/10/2026
-
-O [PR #71](https://github.com/VANER/WMA-Travel-ERP/pull/71), merge `d1d79de`, integrou o fechamento
-consolidado da 2.7 e o plano de preparação da 2.8. Os três gates pós-merge foram aprovados:
-[Backend CI](https://github.com/VANER/WMA-Travel-ERP/actions/runs/37439607149),
-[Documentation CI](https://github.com/VANER/WMA-Travel-ERP/actions/runs/37439607109) e
-[Secret Scan](https://github.com/VANER/WMA-Travel-ERP/actions/runs/37439606953).
-
-| Área | Estado em 07/10/2026 |
-| --- | --- |
-| Fase 1 | Encerrada; baseline e tag histórica preservadas |
-| Etapas 2.0–2.7 | Concluídas, certificadas e integradas à main |
-| Etapa 2.8 | Preparação da 2.8.1; inventário externo e homologação pendentes naquela data |
-| Site produtivo | Nenhuma mudança ou teste de escrita realizado nesta preparação |
-| Frontend, Mobile, Fiscal e BI | Planejados; não certificados como implementados |
-| Implantação produtiva | Sem evidência de deploy certificado; CI não equivale a implantação |
-
-Os blocos datados anteriores são históricos. A pendência externa da 2.8 não reabre o fechamento Bike Tour.
-
-## Estado corrente consolidado em 19/10/2026
-
-A atualização de 07/10/2026 acima permanece como histórico. A decisão documental atual mantém a 2.7 concluída,
-certificada e integrada; coloca a 2.8 em HOLD temporário; e inicia o inventário fiscal 2.9.1 sem declarar a etapa
-concluída ou certificada. As etapas 2.10 a 2.14 permanecem planejadas, com numeração e dependências preservadas.
-Consulte a [ADR-021](architecture/ADR-021-PHASE-2-EXECUTION-REPROGRAMMING.md), a
-[ordem oficial](PHASE_2_EXECUTION_ORDER.md) e o [gate fiscal](FISCAL_2_9_1_GATE.md).
-
-| Área | Estado em 19/10/2026 |
-| --- | --- |
-| Etapas 2.0–2.7 | Concluídas, certificadas e integradas |
-| Etapa 2.8 | HOLD temporário; critérios de retomada na ADR-021 |
-| Etapa 2.9.1 | Inventário fiscal em execução documental; não certificado |
-| Etapas 2.10–2.14 | Planejadas; dependências originais preservadas |
-| Banco atual | Não auditado nesta atualização |
-
-Atualização de 23/10/2026: a proposta do gate 2.9.1 continua sem aceite formal; o gate permanece aberto e a etapa
-em execução. A 2.9.2 não está autorizada. O escopo e os critérios propostos para essa etapa aguardam aprovação
-após a decisão formal da 2.9.1. A 2.8 continua em HOLD conforme ADR-021.
 
 ## 1. Objetivo
 
@@ -137,8 +96,7 @@ Este manual contempla:
 O estado oficial de execução está consolidado em `PHASE_2_EXECUTION_ORDER.md`. A Fase 1 está concluída e
 certificada; a Fase 2 está em execução, com as etapas 2.0 a 2.7 concluídas, certificadas e integradas. A ADR-017
 reprogramou as etapas funcionais. A etapa 2.7 — Bike Tour está concluída, certificada e integrada à `main`
-pelo PR #69, merge `ffcc09e`, com fechamento documental no PR #70. A preparação da 2.8.1 foi o estado
-registrado antes do HOLD da 2.8 em 19/10/2026.
+pelo PR #69, merge `ffcc09e`, com fechamento documental no PR #70. A execução corrente prepara a 2.8.1.
 
 ---
 
@@ -447,7 +405,7 @@ Para novos colaboradores recomenda-se a seguinte sequência:
 | Status | VIGENTE — EVOLUÇÃO CONTROLADA |
 | Responsável | WMA Travel Ltda. |
 | Compatibilidade | Markdownlint |
-| Última atualização | 07/10/2026 |
+| Última atualização | 06/10/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 
 ---

@@ -2,10 +2,6 @@
 
 <!-- WMA_PHASE_1_ROADMAP_CLOSE -->
 
-O fechamento consolidado da 2.7 e a preparação da 2.8 foram integrados pelo
-[PR #71](https://github.com/VANER/WMA-Travel-ERP/pull/71), merge `d1d79de`, com os três gates pós-merge
-aprovados. Consulte o [estado corrente consolidado](PROJECT_DOCUMENTATION.md#estado-corrente-consolidado-em-07102026).
-
 ## Fase 1 — Fundação e Banco de Dados
 
 **Status:** CONCLUÍDA E CERTIFICADA  
@@ -60,27 +56,10 @@ aprovados. Consulte o [estado corrente consolidado](PROJECT_DOCUMENTATION.md#est
 Feature `c241f3a`, [PR #69](https://github.com/VANER/WMA-Travel-ERP/pull/69), merge `ffcc09e`.
 CI do PR, Backend CI, Documentation CI e Secret Scan pós-merge aprovados.
 
-**Registro histórico da ação corrente em 07/10/2026:** preparação da 2.8.1 — Inventário do Site, solicitada após
-o fechamento da 2.7. A decisão posterior da ADR-021 colocou a etapa 2.8 em HOLD.
+**Ação corrente:** preparação da 2.8.1 — Inventário do Site, solicitada após o fechamento da 2.7.
 
 O [fechamento final](certification/PHASE_2_7_BIKE_TOUR_FINAL_CLOSURE.md) referencia o PR #70 e seus gates.
 O [plano da 2.8](WEBSITE_INTEGRATION_PREPARATION.md) mantém homologação e contratos externos pendentes.
-
-## Reprogramação corrente da Fase 2 — 19/10/2026
-
-- **2.7:** CONCLUÍDA / CERTIFICADA / INTEGRADA.
-- **2.8:** HOLD TEMPORÁRIO até cumprir os critérios de retomada da
-  [ADR-021](architecture/ADR-021-PHASE-2-EXECUTION-REPROGRAMMING.md).
-- **2.9:** EM EXECUÇÃO — INVENTÁRIO FISCAL 2.9.1; não concluído nem certificado.
-- **2.10 a 2.14:** PLANEJADAS, com numeração, escopo e dependências preservados.
-
-A ação corrente prioriza o inventário fiscal sem alterar a sequência numerada da ADR-017. O bloco de status
-anterior nesta página registra a decisão de 07/10/2026 e permanece como histórico. A etapa 2.8 continua pendente;
-esta antecipação não equivale à conclusão de dependências para etapas posteriores.
-
-Atualização de 23/10/2026: a 2.9.1 segue EM EXECUÇÃO com gate aberto até a decisão formal do responsável. A 2.8
-permanece em HOLD conforme ADR-021. A 2.9.2 ainda não está autorizada; consultar o
-[gate fiscal](FISCAL_2_9_1_GATE.md) para a proposta de critérios de entrada e saída, sujeita a aprovação.
 
 **Branch inicial:** `feature/fase-2-backend-api`
 

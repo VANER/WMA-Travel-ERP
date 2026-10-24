@@ -9,10 +9,10 @@
 > **Data:** 18/10/2026
 > **Status:** INICIADO — NÃO CERTIFICADO
 
-> **Nota de estado:** este é o registro histórico de início. O levantamento consolidado e a proposta corrente
-> estão em [FISCAL_2_9_1_INVENTORY.md](FISCAL_2_9_1_INVENTORY.md) e
-> [FISCAL_2_9_1_GATE.md](FISCAL_2_9_1_GATE.md). A 2.9.1 continua EM EXECUÇÃO até a aprovação formal; a 2.9.2
-> não está autorizada.
+**Nota de estado:** este é o registro histórico de início. O levantamento consolidado e a proposta corrente
+estão em [FISCAL_2_9_1_INVENTORY.md](FISCAL_2_9_1_INVENTORY.md) e
+[FISCAL_2_9_1_GATE.md](FISCAL_2_9_1_GATE.md). A 2.9.1 continua EM EXECUÇÃO até a aprovação formal; a 2.9.2
+não está autorizada.
 
 ## 1. Objetivo e escopo
 

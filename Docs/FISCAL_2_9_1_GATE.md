@@ -28,7 +28,7 @@ A matriz de auditoria foi aprovada para encaminhamento; isso não constitui acei
 | Estruturas fiscais físicas | CONCLUÍDO NO RECORTE | Seis tabelas; 88 colunas; 31 restrições; sete índices; seis FKs |
 | Banco auditado | EVIDÊNCIA FORNECIDA | PostgreSQL 18.4; wma_phase2_b07_20261001_test; wma_test |
 | Integridade estrutural | PARCIAL | Seis PKs; UNIQUE em imposto.codigo; sem CHECK e sem índices específicos nas FKs |
-| Acesso e segurança | PENDENTE | Privilégios relatados; `trust` informado em 20/10, não verificado agora |
+| Acesso e segurança | PENDENTE | Sem SELECT/escrita nas 249 tabelas; autenticação TCP local trust |
 | Rastreabilidade da coleta | PARCIAL | Saída local de restrições; demais resultados confirmados pelo responsável |
 | Backend, API, RBAC e testes | AUSENTE | Camadas, rotas, permissões e testes fiscais não encontrados |
 | Integração Comercial | AUSENTE | Venda disponível; consumo pelo Fiscal não implementado |
@@ -52,10 +52,9 @@ A [saída de restrições](../fiscal_2_9_1_constraints.txt) contém 31 linhas: s
 18 NOT NULL, sem CHECK. Ela termina em COMMIT, não em ROLLBACK, e não registra modo READ ONLY nem destino;
 essas informações são atribuídas ao responsável, sem alterar a evidência ou presumir execução do roteiro abaixo.
 
-O uso de `trust` no TCP local de `pg_hba.conf` foi informado pelo responsável em 20/10/2026 e permanece
-classificado como pendência P0, conforme a [análise de riscos](FISCAL_2_9_1_GAP_ANALYSIS.md). Esta revisão não
-verificou o estado atual nem alterou configuração. A restrição de privilégios do usuário não substitui a
-verificação de autenticação. Não há evidência de incidente ou acesso indevido nesta coleta.
+O `trust` no TCP local de `pg_hba.conf` é pendência P0, conforme a
+[análise de riscos](FISCAL_2_9_1_GAP_ANALYSIS.md). Não foi alterado. A restrição de privilégios do usuário não
+resolve a falha de autenticação. Não há evidência de incidente ou acesso indevido nesta coleta.
 
 ### Roteiro preliminar preservado da versão 0.2
 
@@ -66,6 +65,8 @@ limita cada instrução; não controla estabelecimento de conexão. É compatív
 A consulta de constraints e seus joins por nome não garantem cobertura nem pareamento de FKs compostas.
 Uma futura coleta deve revisar consultas por identidade de objetos em `pg_catalog`, sem ampliar permissões
 de negócio para contornar essas limitações. Nenhum SQL foi executado nesta revisão.
+
+<!-- cspell:ignore inet -->
 
 ```sql
 BEGIN TRANSACTION READ ONLY;
@@ -142,41 +143,9 @@ O destino e a condição de tratamento de cada lacuna estão na
 - Integrações: definir contratos Comercial/Financeiro, provedor e regras fiscais antes dos fluxos e homologação.
 - Qualidade funcional: implementar e testar API, RBAC e emissão nas etapas previstas, antes de certificar o módulo.
 
-A correção de `trust` não bloqueia por si só a conclusão documental condicionada deste inventário; permanece
-risco P0 informado em 20/10/2026, com estado atual não verificado e sem aceite de segurança operacional.
-Homologação NFS-e e solução dos contratos não são critérios de conclusão da 2.9.1. Nenhuma dessas tarefas está
-autorizada por este documento; a 2.9.2 e as demais etapas exigem gates próprios.
-
-## Proposta de gate de entrada e saída da 2.9.2
-
-A ordem oficial identifica a 2.9.2 como serviços, sem decompor seus casos de uso. Os critérios abaixo são uma
-proposta documental para aprovação do responsável; não constituem autorização de implementação.
-
-### Entrada proposta
-
-- decisão formal do gate 2.9.1, incluindo aceite ou rejeição explícita das ressalvas de rastreabilidade;
-- autorização expressa para iniciar a 2.9.2 e escopo de serviços aprovado pelo responsável fiscal;
-- casos de uso, atores, entradas, saídas, erros e fronteiras Fiscal/Comercial/Financeiro documentados;
-- invariantes, estados, idempotência e responsabilidade transacional definidos para cada operação aprovada;
-- controles de acesso, auditoria e tratamento de dados especificados;
-- decisão registrada sobre mudança de schema; se necessária, migration e gate próprios conforme ADR-004 e
-  `Docs/MIGRATIONS.md`;
-- plano de testes e ambiente de teste descartável identificados;
-- antes de qualquer conexão a banco, verificação de segurança do ambiente e resolução ou aceite explícito de
-  segurança para a pendência P0 `trust`.
-
-### Saída proposta
-
-- implementação restrita ao escopo e aos casos de uso autorizados;
-- testes automatizados aprovados para regras, estados, idempotência, autorização e falhas pertinentes;
-- integridade transacional demonstrada; migration aprovada e validada se o escopo exigir mudança estrutural;
-- documentação, riscos residuais e evidências de validação revisados;
-- aceite específico do gate da 2.9.2, sem declarar certificação integral do módulo Fiscal ou autorização para
-  produção.
-
-Documentos fiscais, regras tributárias, impostos, retenções, NFS-e, apuração, integrações Comercial/Financeiro/
-contábil, API, testes de integração e certificação permanecem nos itens próprios da sequência 2.9. Atribuí-los à
-2.9.2 requer decisão explícita de mudança de escopo. A proposta não muda a sequência 2.8, 2.9 e 2.10–2.14.
+A correção de `trust` não bloqueia por si só o fechamento deste inventário; permanece risco P0 sem aceite de
+segurança operacional. Homologação NFS-e e solução dos contratos não são critérios de conclusão da 2.9.1.
+Nenhuma dessas tarefas está autorizada por este documento; a 2.9.2 e as demais etapas exigem gates próprios.
 
 ## Consistência com planejamento e critérios de fechamento
 
@@ -187,9 +156,8 @@ A incorporação documental da coleta autorizada pelo responsável não atribui 
 
 Roadmap da Fase 2 e ordem executiva passam a apontar a revisão desta proposta como ação corrente, com a 2.8 em
 HOLD e 2.10–2.14 planejadas. Numeração e sequência oficial são preservadas. A ADR-021 permanece inalterada.
-O [roadmap geral](ROADMAP.md) e o [manual mestre](PROJECT_DOCUMENTATION.md) receberam atualização aditiva em
-23/10/2026 para registrar a 2.9.1 em execução, a 2.8 em HOLD e a 2.9.2 sem autorização. Textos anteriores
-permanecem identificados como históricos; nenhum deles registra o aceite formal.
+O [roadmap geral](ROADMAP.md), fora do escopo de edição, conserva Fiscal como Planejado na seção temática e
+inventário em execução no bloco corrente. Essa ressalva editorial não invalida o inventário nem libera operação.
 
 ### Matriz final proposta
 
@@ -197,18 +165,17 @@ PASS significa critério documental verificado; não representa aprovação form
 
 | Critério | Evidência verificável | Status | Bloqueante | Ação necessária |
 | --- | --- | --- | --- | --- |
-| Seis tabelas e metadados registrados | 88 colunas; 6 PKs; 6 FKs | CONCLUÍDO | Não | Ver inventário; manter recorte |
-| Restrições e índices registrados | 31 restrições; 7 índices | CONCLUÍDO | Não | Ver inventário; manter atribuição |
-| Dependências referenciais | Seis FKs com origem e destino | CONCLUÍDO | Não | Não inferir paridade ou transitivas |
-| Limitações de evidência | Coleta parcial; relatos; logs incompletos | CONCLUÍDO | Não | Registrar ressalva |
-| Lacunas com encaminhamento | Destino definido na análise | CONCLUÍDO | Não | Transferir aos gates próprios |
-| Escopo e sequência | Separado; 2.8 HOLD; 2.10–2.14 preservadas | CONCLUÍDO | Não | Preservar gates |
-| Markdownlint e CSpell | Não executados | RESSALVA | Não bloqueia proposta | Executar ou aceitar ressalva |
-| Aceite condicionado da rastreabilidade | Limitado às evidências declaradas | PENDENTE | Sim | Aprovação explícita |
-| Encerramento formal da 2.9.1 | Proposta; sem aceite atribuído | PENDENTE | Sim | Aprovação explícita do responsável |
-| Gate 2.9.2 | Escopo e critérios propostos | PENDENTE | Sim | Aprovar escopo e gate |
+| Seis tabelas e metadados registrados | 19 + 9 + 12 + 16 + 17 + 15 = 88 colunas; 6 PKs; 6 FKs | CONCLUÍDO | Não | Manter o recorte declarado |
+| Restrições e índices registrados | 31 restrições (6 PKs, 6 FKs, 1 UNIQUE, 18 NOT NULL); 7 índices | CONCLUÍDO | Não | Manter a atribuição das fontes |
+| Dependências referenciais | Seis FKs identificadas com origem e destino | CONCLUÍDO | Não | Não inferir paridade ou dependências transitivas |
+| Limitações de evidência | Coleta parcial; fatos relatados atribuídos; sem logs completos | CONCLUÍDO | Não | Submeter a ressalva ao responsável |
+| Lacunas com encaminhamento | Destino e condição registrados na análise de lacunas | CONCLUÍDO | Não | Transferir para gates próprios |
+| Escopo e sequência | Inventário separado de implementação; 2.8 HOLD; 2.10–2.14 preservadas | CONCLUÍDO | Não | Manter gates posteriores |
+| Markdownlint e CSpell | Não executados | RESSALVA | Não para conclusão documental condicionada | Executar quando disponíveis ou aceitar a limitação |
+| Aceite condicionado da rastreabilidade | Restrito às evidências enumeradas e limitações declaradas | PENDENTE DE APROVAÇÃO | Sim para encerramento formal | Decisão explícita do responsável |
+| Encerramento formal da 2.9.1 | Esta peça é proposta; nenhum aceite em nome do responsável | PENDENTE DE APROVAÇÃO | Sim para encerramento formal | Aprovação explícita do responsável |
 
-## Validação da proposta 0.4 — 20/10/2026
+## Validação desta revisão documental
 
 - Branch preservada: `docs/project-state-alignment`; HEAD `180beca586cda86a1006afae0b24ea399e768d57`.
 - `git diff --check` sem erros; os três arquivos ainda não rastreados receberam também verificação de whitespace
@@ -219,14 +186,6 @@ PASS significa critério documental verificado; não representa aprovação form
   não foram executados ou instalados. A conferência básica não substitui esses validadores nem o CI.
 - As alterações locais fora dos seis documentos e a evidência de restrições devem permanecer idênticas.
 - Nenhuma conexão, migration, alteração de banco, código, API ou teste; nenhum comando de publicação Git.
-
-## Revisão documental 0.5 — 23/10/2026
-
-- Checkout preservado em `docs/project-state-alignment`, HEAD `3faf9c5f930329a8fc6311d90f275f4335492cf6`;
-  alterações locais preexistentes preservadas.
-- `git diff --check` e destinos dos links locais foram conferidos após as atualizações desta revisão.
-- Markdownlint e CSpell não foram executados; nenhum validador foi instalado.
-- Nenhuma conexão PostgreSQL, SQL, migration, teste ou operação de publicação Git foi realizada.
 
 ## Decisão
 
@@ -244,7 +203,6 @@ migrations, emissão ou implementação da 2.9.2. A 2.8 permanece em HOLD confor
 | 0.2 | 19/10/2026 | Atualizado após auditoria estática; banco permanece não verificado |
 | 0.3 | 19/10/2026 | Evidências físicas fornecidas consolidadas; inventário estrutural separado do aceite do gate |
 | 0.4 | 20/10/2026 | Proposta de fechamento com ressalvas; critérios objetivos e pendências transferidas |
-| 0.5 | 23/10/2026 | Trust qualificado; gate 2.9.2 proposto, sem autorização |
 
 ## Controle do Documento
 
@@ -252,9 +210,9 @@ migrations, emissão ou implementação da 2.9.2. A 2.8 permanece em HOLD confor
 | --- | --- |
 | Projeto | WMA Travel ERP |
 | Empresa | WMA Travel Ltda. |
-| Versão | 0.5 |
+| Versão | 0.4 |
 | Status | EM EXECUÇÃO; NÃO CERTIFICADO |
-| Última atualização | 23/10/2026 |
+| Última atualização | 20/10/2026 |
 | Repositório | VANER/WMA-Travel-ERP |
 | Documento mestre | [PROJECT_DOCUMENTATION.md](PROJECT_DOCUMENTATION.md) |
 

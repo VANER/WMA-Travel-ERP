@@ -48,19 +48,17 @@ Prioridade não representa incidente ocorrido. Ausências estruturais não são,
 
 | Prioridade | Achado e natureza | Consequência potencial / encaminhamento |
 | --- | --- | --- |
-| P0 | `trust`: informado em 20/10; estado atual não verificado | Confirmar e tratar antes de ampliar acesso |
+| P0 | `trust` TCP local: falha confirmada | Tratar autenticação em tarefa própria |
 | P1 | Sem CHECK: ausência comprovada | Risco de valores inválidos; definir invariantes |
 | P1 | Rastreabilidade Comercial/Financeiro: contrato não demonstrado | Modelar origem e reconciliação |
 | P1 | Idempotência/estados: desenho não demonstrado | Risco de duplicação; definir transições |
 | P1 | Emissão NFS-e: capacidade não comprovada | Não liberar operação pelo default EMITIDA |
 | P1 | Sem SELECT/escrita nas 249 tabelas: limitação comprovada | Catálogo não valida dados/fluxos |
 | P2 | Sem índices específicos nas FKs: ausência comprovada | Risco de custo em joins; medir antes de criar |
-| P2 | Evidência local parcial; demais resultados relatados | Propor aceite limitado e complemento antes do uso |
+| P2 | Evidência local parcial; demais resultados relatados | Propor aceite limitado e complemento antes do uso estrutural |
 
-Uma regra PostgreSQL com método `trust` permite autenticação sem senha para conexões que correspondam a ela.
-O achado foi informado em 20/10/2026; esta revisão não confirmou a configuração atual, não a corrigiu nem
-aumentou privilégios de `wma_test`. A pendência permanece P0 e exige confirmação e tratamento pela equipe de
-segurança antes de ampliar acesso ou conectar um ambiente compartilhado. A rastreabilidade deve
+O `trust` dispensa senha para conexões que correspondam à regra, portanto exige tratamento antes de ampliar
+acesso. A tarefa não corrige essa configuração nem aumenta privilégios de `wma_test`. A rastreabilidade deve
 cobrir venda, item, contrato, obrigação financeira, cancelamento e reconciliação. Idempotência deve definir
 escopo de unicidade e repetição segura. Os riscos de índices incluem joins e verificações referenciais.
 
@@ -77,7 +75,7 @@ são destinos propostos; responsáveis nominais, prazos e execução dependem de
 | Pendência | Destino proposto | Condição para tratamento |
 | --- | --- | --- |
 | `trust` TCP e privilégios globais | Administração PostgreSQL / segurança | Antes de ampliar acesso |
-| Logs completos e dependências fora do recorte | Auditoria / arquitetura de dados | Antes da decisão estrutural |
+| Logs completos e dependências fora do recorte | Auditoria / arquitetura de dados | Antes de decisão estrutural dependente |
 | CHECK, idempotência e estados | Desenho fiscal e serviços posteriores | Antes de implementar regras afetadas |
 | Índices nas FKs | Modelagem / desempenho | Medir necessidade antes de propor migration |
 | Vínculos Comercial/Financeiro | Contratos e integrações fiscais | Antes de implementar os fluxos integrados |
@@ -85,38 +83,14 @@ são destinos propostos; responsáveis nominais, prazos e execução dependem de
 | Backend, API, RBAC e testes | Etapas funcionais correspondentes | Antes de certificar o módulo Fiscal |
 | Markdownlint/CSpell não executados | Revisão documental | Executar quando disponíveis ou aceitar ressalva |
 
-A solução de `trust` permanece independente: não bloqueia por si só a revisão documental do inventário, mantém
-prioridade P0 e não é aceita como configuração segura. Seu estado atual não foi verificado. Nenhuma conexão a
-banco deve ser feita para esta etapa documental; execução de validações com banco depende de tratamento ou aceite
-explícito de segurança para o ambiente. Sem SELECT nas tabelas, `wma_test` permite apenas o recorte de catálogo
-relatado, mas não comprova conteúdo nem comportamento de negócio.
+A solução de `trust` permanece independente: não bloqueia por si só o registro documental do inventário,
+não perde prioridade P0 e não é aceita como configuração segura por este fechamento. Sem SELECT nas tabelas,
+`wma_test` permite o recorte de catálogo relatado, mas não comprova conteúdo nem comportamento de negócio.
 
 Propõe-se aceitar a rastreabilidade disponível apenas para o recorte da 2.9.1, mediante aprovação explícita.
 Comparações integrais com dump/migrations e dependências transitivas ficam fora da conclusão proposta;
 devem ser verificadas antes de mudanças que delas dependam. Não se exige homologação NFS-e para concluir inventário.
 A ordem oficial continua preservada; estas pendências não são todas atribuídas à 2.9.2, cujo item é serviços.
-
-## Prontidão e lacunas da 2.9.2 — serviços
-
-A ordem de execução define a 2.9.2 apenas como “serviços”. Não há especificação aprovada dos casos de uso,
-contratos, regras, fronteiras de domínio ou critérios de aceite. Esta seção propõe os itens que o gate da 2.9.2
-deve resolver; não declara a etapa iniciada nem autoriza implementação.
-
-| Lacuna 2.9.2 | Evidência | Condição de entrada ou saída |
-| --- | --- | --- |
-| Casos de uso e atores | Não especificados | Responsável fiscal aprova operações, atores, resultados e erros |
-| Contratos entre domínios | Não demonstrados | Aprovar origem, correlação e reconciliação |
-| Estados e idempotência | Não especificados | Aprovar transições e repetição segura |
-| Segurança e auditoria | Sem implementação Fiscal demonstrada | Definir controles antes de expor dados |
-| Schema e migrations | Necessidade futura desconhecida | Decidir; migration exige gate próprio |
-| Testes e ambiente | Testes não identificados; `trust` não verificado | Definir plano; resolver P0 antes de conectar |
-| Aceite da 2.9.1 | Gate aberto, aprovação pendente | Aprovação explícita antes da 2.9.2 |
-| Etapas posteriores | Sequência oficial tem escopo próprio | Não transferir sem decisão aprovada |
-
-O gate proposto para a 2.9.2 deve conter escopo aprovado, dependências, entregáveis, critérios de entrada e saída,
-validação automatizada e responsável pelo aceite. Até lá, a prontidão para implementação é **NÃO APTO**.
-Preparação documental do gate não equivale à autorização de código, migration, conexão a banco, homologação ou
-produção.
 
 ## Evidências por camada
 
@@ -129,8 +103,7 @@ produção.
 - A preparação 0.2 usou apenas placeholders, sem ler `.env`. A confirmação posterior identifica
   `wma_phase2_b07_20261001_test`, PostgreSQL 18.4 e `wma_test`; não houve conexão nesta revisão documental.
 - O acesso informado restringe-se a catálogo em READ ONLY. A ausência de privilégios nas 249 tabelas não
-  comprova restrição global da role em todos os objetos. O achado `trust` é P0, foi informado em 20/10/2026 e
-  não foi verificado nesta revisão.
+  comprova restrição global da role em todos os objetos. A autenticação `trust` permanece pendente.
 
 ## Histórico de atualização
 
@@ -140,7 +113,6 @@ produção.
 | 0.2 | 19/10/2026 | Evidências estáticas de Backend, integrações, migrations e ambiente |
 | 0.3 | 19/10/2026 | Achados físicos recebidos e riscos P0/P1/P2, separados de falhas funcionais não comprovadas |
 | 0.4 | 20/10/2026 | Encaminhamento das lacunas e proposta de aceite condicionado da rastreabilidade |
-| 0.5 | 23/10/2026 | Trust qualificado; prontidão 2.9.2 encaminhada ao gate próprio |
 
 ## Saída requerida
 
@@ -154,9 +126,9 @@ ADR-004, `Docs/MIGRATIONS.md` quando aplicáveis e gate específico. Não há li
 | --- | --- |
 | Projeto | WMA Travel ERP |
 | Empresa | WMA Travel Ltda. |
-| Versão | 0.5 |
+| Versão | 0.4 |
 | Status | EM EXECUÇÃO; NÃO CERTIFICADO |
-| Última atualização | 23/10/2026 |
+| Última atualização | 20/10/2026 |
 | Repositório | VANER/WMA-Travel-ERP |
 | Documento mestre | [PROJECT_DOCUMENTATION.md](PROJECT_DOCUMENTATION.md) |
 

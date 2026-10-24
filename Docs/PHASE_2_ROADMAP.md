@@ -4,14 +4,14 @@
 > **Empresa:** WMA Travel Ltda.
 > **Fase:** Fase 2 — Backend, API e Integrações
 > **Tipo de documento:** Planejamento
-> **Versão:** 1.3
-> **Data:** 23/10/2026
+> **Versão:** 1.2
+> **Data:** 20/10/2026
 > **Status:** EM EXECUÇÃO
 
 **Fase anterior:** Fase 1 — Fundação e Banco de Dados
 **Status da Fase 1:** CONCLUÍDA E CERTIFICADA
 **Status atual:** 2.7 concluída/certificada; 2.8 em HOLD temporário; inventário 2.9.1 em execução
-**Ação corrente:** obter decisão formal sobre a proposta de fechamento da 2.9.1; gate da 2.9.2 ainda não aprovado.
+**Ação corrente:** revisão da proposta de fechamento documental da 2.9.1 com ressalvas; aprovação pendente.
 **Bike Tour 2.7:** CONCLUÍDO, CERTIFICADO E INTEGRADO À MAIN em 04/10/2026; PR #69, merge `ffcc09e`
 **Marco inicial:** `phase-1-final-2026-08-18`
 
@@ -40,10 +40,6 @@ Em 20/10/2026, foi preparada a [proposta de fechamento da 2.9.1](FISCAL_2_9_1_GA
 de estruturas, dependências referenciais e lacunas. A aceitação da rastreabilidade disponível e das limitações
 de validação depende de aprovação explícita. Não há encerramento formal, certificação funcional ou liberação
 produtiva. A implementação fiscal depende dos gates específicos posteriores; a 2.8 permanece em HOLD.
-
-Atualização de 23/10/2026: o gate 2.9.1 continua aberto e a etapa em execução, aguardando decisão formal do
-responsável. A 2.9.2 permanece não autorizada; escopo, dependências e critérios de entrada/saída são proposta
-documental sujeita a aprovação explícita. A 2.8 continua em HOLD conforme a ADR-021.
 
 ## 1. Objetivo
 
@@ -1068,11 +1064,10 @@ FASE 2 CERTIFICADA
 
 Registro histórico anterior à reprogramação de 19/10/2026: a próxima atividade prevista era:
 
-> Preparação da etapa 2.8.1 — Inventário do Site.
+**PREPARAÇÃO DA ETAPA 2.8.1 — INVENTÁRIO DO SITE**
 
-**Estado corrente em 23/10/2026:** 2.8 em HOLD conforme ADR-021; decisão formal da proposta de fechamento da
-2.9.1 pendente. Depois dessa decisão, o gate e o escopo da 2.9.2 deverão ser aprovados antes de qualquer
-implementação. Esta prioridade de trabalho não altera a sequência oficial.
+**Estado corrente em 20/10/2026:** 2.8 em HOLD conforme ADR-021; revisão e aprovação explícita da proposta
+de fechamento documental com ressalvas da 2.9.1. Esta prioridade de trabalho não altera a sequência oficial.
 
 As etapas 2.0 a 2.7 estão concluídas, certificadas e integradas à `main`. A ADR-017 reprogramou as etapas
 funcionais. Bike Tour 2.7 está concluído, certificado e integrado à `main` pelo
@@ -1145,11 +1140,9 @@ Homologação, inventário real e contratos do site permanecem pendentes.
 
 **ETAPA 2.7:** CONCLUÍDA, CERTIFICADA E INTEGRADA À MAIN
 
-**PRÓXIMA AÇÃO:** obter decisão explícita do responsável sobre a proposta de fechamento documental condicionado
-da 2.9.1; manter o gate aberto até o registro dessa decisão.
+**PRÓXIMA AÇÃO:** revisar e aprovar explicitamente a proposta de fechamento documental com ressalvas da 2.9.1.
 
-A preparação da 2.8.1 permanece suspensa pelos critérios da ADR-021. A proposta de gate da 2.9.2 ainda requer
-aprovação própria e não autoriza sua implementação.
+A preparação da 2.8.1 permanece suspensa pelos critérios da ADR-021. Esta proposta não autoriza a 2.9.2.
 
 ---
 
@@ -1159,9 +1152,9 @@ aprovação própria e não autoriza sua implementação.
 | --- | --- |
 | Projeto | WMA Travel ERP |
 | Empresa | WMA Travel Ltda. |
-| Versão | 1.3 |
+| Versão | 1.2 |
 | Status | EM EXECUÇÃO |
-| Última atualização | 23/10/2026 |
+| Última atualização | 20/10/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 | Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
 
