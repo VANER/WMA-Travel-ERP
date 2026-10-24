@@ -56,7 +56,6 @@ Prioridade não representa incidente ocorrido. Ausências estruturais não são,
 | P1 | Sem SELECT/escrita nas 249 tabelas: limitação comprovada | Catálogo não valida dados/fluxos |
 | P2 | Sem índices específicos nas FKs: ausência comprovada | Risco de custo em joins; medir antes de criar |
 | P2 | Evidência local parcial; demais resultados relatados | Propor aceite limitado e complemento antes do uso |
-|    |    | estrutural |
 
 Uma regra PostgreSQL com método `trust` permite autenticação sem senha para conexões que correspondam a ela.
 O achado foi informado em 20/10/2026; esta revisão não confirmou a configuração atual, não a corrigiu nem
@@ -78,8 +77,7 @@ são destinos propostos; responsáveis nominais, prazos e execução dependem de
 | Pendência | Destino proposto | Condição para tratamento |
 | --- | --- | --- |
 | `trust` TCP e privilégios globais | Administração PostgreSQL / segurança | Antes de ampliar acesso |
-| Logs completos e dependências fora do recorte | Auditoria / arquitetura de dados | Antes de decisão estrutural |
-|    |    | dependente |
+| Logs completos e dependências fora do recorte | Auditoria / arquitetura de dados | Antes da decisão estrutural |
 | CHECK, idempotência e estados | Desenho fiscal e serviços posteriores | Antes de implementar regras afetadas |
 | Índices nas FKs | Modelagem / desempenho | Medir necessidade antes de propor migration |
 | Vínculos Comercial/Financeiro | Contratos e integrações fiscais | Antes de implementar os fluxos integrados |
@@ -164,4 +162,3 @@ ADR-004, `Docs/MIGRATIONS.md` quando aplicáveis e gate específico. Não há li
 
 **WMA Travel ERP — Documento oficial e versionado do projeto.**
 **Copyright © 2026 WMA Travel Ltda. Todos os direitos reservados.**
-

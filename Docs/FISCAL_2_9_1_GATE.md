@@ -260,4 +260,3 @@ migrations, emissão ou implementação da 2.9.2. A 2.8 permanece em HOLD confor
 
 **WMA Travel ERP — Documento oficial e versionado do projeto.**
 **Copyright © 2026 WMA Travel Ltda. Todos os direitos reservados.**
-

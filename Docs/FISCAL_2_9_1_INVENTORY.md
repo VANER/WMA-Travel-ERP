@@ -222,4 +222,3 @@ sem decisão de escopo. Até a aprovação formal do gate próprio, a 2.9.2 perm
 
 **WMA Travel ERP — Documento oficial e versionado do projeto.**
 **Copyright © 2026 WMA Travel Ltda. Todos os direitos reservados.**
-

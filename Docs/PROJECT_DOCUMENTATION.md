@@ -462,4 +462,3 @@ Alterações estruturais na documentação deverão ser registradas no **CHANGEL
 
 **WMA Travel ERP — Documento oficial e versionado do projeto.**
 **Copyright © 2026 WMA Travel Ltda. Todos os direitos reservados.**
-
