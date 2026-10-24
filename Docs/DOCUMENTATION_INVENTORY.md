@@ -206,6 +206,15 @@ Documentos versionados ausentes do inventário inicial, sem alteração das evid
 | `Docs/certification/PHASE_2_7_BIKE_TOUR_FINAL_CLOSURE.md` | Certificação |
 | `Docs/WEBSITE_INTEGRATION_PREPARATION.md` | Planejamento |
 
+### Reprogramação e inventário fiscal em 19/10/2026
+
+| Documento | Família |
+| --- | --- |
+| `Docs/architecture/ADR-021-PHASE-2-EXECUTION-REPROGRAMMING.md` | ADR |
+| `Docs/FISCAL_2_9_1_INVENTORY.md` | Auditoria / inventário |
+| `Docs/FISCAL_2_9_1_GAP_ANALYSIS.md` | Auditoria / análise de lacunas |
+| `Docs/FISCAL_2_9_1_GATE.md` | Gate / planejamento |
+
 ## 4. Interpretação
 
 A família determina o tratamento descrito em `Docs/DOCUMENTATION_STANDARDS.md`. Um documento pode conter contexto
