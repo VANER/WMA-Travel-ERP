@@ -67,6 +67,8 @@ A consulta de constraints e seus joins por nome não garantem cobertura nem pare
 Uma futura coleta deve revisar consultas por identidade de objetos em `pg_catalog`, sem ampliar permissões
 de negócio para contornar essas limitações. Nenhum SQL foi executado nesta revisão.
 
+<!-- cspell:ignore inet -->
+
 ```sql
 BEGIN TRANSACTION READ ONLY;
 SET LOCAL statement_timeout = '5s';
