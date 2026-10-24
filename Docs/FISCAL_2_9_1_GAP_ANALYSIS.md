@@ -164,3 +164,4 @@ ADR-004, `Docs/MIGRATIONS.md` quando aplicáveis e gate específico. Não há li
 
 **WMA Travel ERP — Documento oficial e versionado do projeto.**
 **Copyright © 2026 WMA Travel Ltda. Todos os direitos reservados.**
+

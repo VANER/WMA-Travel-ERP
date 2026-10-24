@@ -121,3 +121,4 @@ Não há afirmação de conformidade tributária neste inventário técnico prel
 | 0.1 | 18/10/2026 | Início documental, inspeção da 2.7 e registro das pendências |
 
 Resultado: inventário fiscal iniciado, sem mudança funcional e sem certificação da 2.9.1.
+

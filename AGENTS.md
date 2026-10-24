@@ -139,3 +139,4 @@ explícito.
 
 Ao concluir, resuma arquivos alterados, impacto funcional, validações executadas e riscos ou pendências. Se não
 foi possível validar por ausência de PostgreSQL, Bash, dependências ou credenciais, diga isso claramente.
+
