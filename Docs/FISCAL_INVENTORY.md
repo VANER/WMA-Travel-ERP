@@ -9,6 +9,11 @@
 > **Data:** 18/10/2026
 > **Status:** INICIADO — NÃO CERTIFICADO
 
+**Nota de estado:** este é o registro histórico de início. O levantamento consolidado e a proposta corrente
+estão em [FISCAL_2_9_1_INVENTORY.md](FISCAL_2_9_1_INVENTORY.md) e
+[FISCAL_2_9_1_GATE.md](FISCAL_2_9_1_GATE.md). A 2.9.1 continua EM EXECUÇÃO até a aprovação formal; a 2.9.2
+não está autorizada.
+
 ## 1. Objetivo e escopo
 
 Iniciar o inventário fiscal solicitado pelo responsável, registrando estruturas existentes e pendências.
@@ -22,10 +27,9 @@ A [ordem oficial](PHASE_2_EXECUTION_ORDER.md) identifica Fiscal como 2.9 e inven
 primeiro item. As dependências declaradas são Comercial e Financeiro. O início deste levantamento decorre
 da solicitação de auditoria 2.7, limpeza e início 2.9.1, em 18/10/2026.
 
-O AGENTS.md e a ordem imediata ainda apontam para 2.8.1. Essa divergência de planejamento permanece explícita:
-o levantamento fiscal não encerra, substitui nem certifica o
-[inventário externo da 2.8](WEBSITE_INTEGRATION_PREPARATION.md).
-A reconciliação do cronograma e da execução corrente permanece pendente.
+Este registro de 18/10/2026 precede a reprogramação aprovada documentalmente pela ADR-021 em 19/10/2026.
+As referências da época à preparação da 2.8.1 são históricas: a 2.8 está atualmente em HOLD e não foi encerrada,
+substituída ou certificada pelo inventário fiscal. A sequência oficial continua preservada.
 
 ## 3. Auditoria documental e Git da 2.7
 
@@ -83,6 +87,11 @@ portanto, não são cópias idênticas que possam ser removidas por deduplicaç�
 Alterações do usuário, baseline, certificações, logs históricos e migrations aplicadas permanecem preservados.
 
 ## 7. Pendências e critérios de conclusão
+
+Esta lista registra questões levantadas no início do trabalho em 18/10/2026. O estado consolidado, as limitações
+de evidência e os destinos das pendências estão na [análise de lacunas](FISCAL_2_9_1_GAP_ANALYSIS.md).
+Não interpretar todos os itens abaixo como trabalho ainda não realizado na 2.9.1 ou como escopo automático da
+2.9.2.
 
 - Mapear colunas, PKs, FKs, índices, constraints, comentários, funções, triggers e views dos objetos candidatos.
 - Confrontar dump, migrations aplicáveis e catálogo de banco local descartável explicitamente identificado.
