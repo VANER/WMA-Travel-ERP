@@ -140,8 +140,9 @@ Foi possível consultar metadados em transações READ ONLY, sem acesso aos dado
 ausência de privilégios em sequências, funções, schemas, outros bancos ou por associação a outras roles.
 Consultas a `information_schema` podem omitir objetos por visibilidade; ausência de linhas não prova inexistência.
 
-A autenticação TCP local está configurada como `trust` em `pg_hba.conf`, conforme confirmação do responsável.
-É uma pendência de segurança comprovada, não uma evidência de invasão. Nenhuma configuração foi alterada.
+Em 20/10/2026, o responsável informou que a autenticação TCP local estava configurada como `trust` em
+`pg_hba.conf`. O achado permanece registrado como pendência P0; esta revisão não verificou a configuração atual.
+Não é evidência de invasão nem aceite de segurança. Nenhuma configuração foi alterada.
 
 ## Evidências e pendências
 
@@ -150,17 +151,52 @@ As pendências têm destino e condição de tratamento na
 sua solução depende de tarefas próprias e dos gates posteriores. Em particular:
 
 - evidências complementares e dependências fora do recorte: antes de decisão estrutural que delas dependa;
-- `trust` e privilégios além das tabelas: tarefa independente de segurança, antes de ampliar acesso;
+- `trust` (P0, estado atual não verificado) e privilégios além das tabelas: tarefa independente de segurança,
+  antes de ampliar acesso ou executar validações que exijam conexão;
 - vínculos, idempotência e estados: desenho e implementação fiscal posteriores, sem autorização implícita;
 - contratos, provedor, regras fiscais e homologação: etapas funcionais correspondentes, antes do aceite operacional;
-- Markdownlint/CSpell: validação documental posterior ou aceite explícito da limitação; não executados nesta proposta.
+- Markdownlint/CSpell: não executados; a limitação deve ser aceita formalmente ou os validadores devem ser executados
+  antes do fechamento formal.
 
 ## Resultado
 
 O inventário do recorte está preparado para conclusão documental com ressalvas, condicionado à aprovação
 explícita do [gate](FISCAL_2_9_1_GATE.md). A proposta não registra aceite formal: o estado continua **EM EXECUÇÃO**,
 **NÃO CERTIFICADO** até a decisão do responsável. Lacunas funcionais permanecem encaminhadas às etapas posteriores.
-A 2.8 continua em HOLD; não há autorização de implementação da 2.9.2 nem liberação para produção.
+A 2.8 continua em HOLD. A 2.9.2 ainda não está autorizada: sua proposta de escopo, critérios de entrada e saída
+deve ser aprovada após a decisão formal da 2.9.1. Este documento não certifica o módulo nem libera produção.
+
+## Prontidão da 2.9.2 — proposta de gate, não aprovada
+
+A ordem oficial denomina a 2.9.2 como serviços. O inventário não presume regras fiscais, emissão ou integrações
+pertencentes às etapas seguintes. Antes do início da implementação, o responsável deve aprovar:
+
+### Critérios de entrada propostos
+
+1. Decisão formal sobre o fechamento condicionado da 2.9.1, mantendo suas ressalvas e limites de evidência.
+2. Escopo funcional e casos de uso dos serviços, com ator, origem dos dados, resultados esperados e erros.
+3. Autoridade dos dados e fronteiras entre Fiscal, Comercial e Financeiro, incluindo origem da venda/serviço,
+   cliente, empresa e obrigação financeira.
+4. Estados, invariantes, idempotência, repetição segura e propriedade da transação para cada caso aprovado.
+5. Requisitos de autorização, auditoria, proteção e retenção de dados para os serviços definidos.
+6. Decisão documentada sobre necessidade de migration. Se houver mudança estrutural, exigir aprovação e gate
+   próprio conforme ADR-004 e `Docs/MIGRATIONS.md`.
+7. Plano de testes e ambiente descartável identificado. Não conectar a banco enquanto o achado P0 `trust`
+   permanecer sem tratamento ou aceite explícito de segurança para aquele ambiente.
+8. Aprovação explícita do escopo e do gate da 2.9.2; aprovação documental não autoriza produção.
+
+### Entregáveis e critérios de saída propostos
+
+- serviços implementados somente para os casos de uso aprovados, com contratos internos, validação e erros
+  documentados;
+- testes automatizados cobrindo resultados, limites, falhas, transações e idempotência quando aplicáveis;
+- controles de autorização e auditoria implementados e verificados quando o escopo expuser ou operar dados;
+- migration somente se necessária e autorizada, com revision linear, validação e rollback conforme as regras;
+- documentação e evidências de validação revisadas e aprovadas no gate específico da etapa.
+
+Documentos fiscais, regras tributárias, impostos, retenções, NFS-e, apuração, integrações externas, API e
+certificação continuam nas posições oficiais posteriores da sequência 2.9; não são transferidos para 2.9.2
+sem decisão de escopo. Até a aprovação formal do gate próprio, a 2.9.2 permanece **NÃO AUTORIZADA**.
 
 ## Histórico de atualização
 
@@ -170,6 +206,7 @@ A 2.8 continua em HOLD; não há autorização de implementação da 2.9.2 nem l
 | 0.2 | 19/10/2026 | Auditoria estática Backend, integrações, migrations e configuração; sem conexão DB |
 | 0.3 | 19/10/2026 | Consolidação das evidências físicas fornecidas; limites de acesso e pendência trust |
 | 0.4 | 20/10/2026 | Proposta de fechamento com ressalvas, escopo delimitado e pendências encaminhadas |
+| 0.5 | 23/10/2026 | Estado atual do risco trust qualificado; proposta de gate e critérios para 2.9.2 |
 
 ## Controle do Documento
 
@@ -177,9 +214,9 @@ A 2.8 continua em HOLD; não há autorização de implementação da 2.9.2 nem l
 | --- | --- |
 | Projeto | WMA Travel ERP |
 | Empresa | WMA Travel Ltda. |
-| Versão | 0.4 |
+| Versão | 0.5 |
 | Status | EM EXECUÇÃO; NÃO CERTIFICADO |
-| Última atualização | 20/10/2026 |
+| Última atualização | 23/10/2026 |
 | Repositório | VANER/WMA-Travel-ERP |
 | Documento mestre | [PROJECT_DOCUMENTATION.md](PROJECT_DOCUMENTATION.md) |
 
