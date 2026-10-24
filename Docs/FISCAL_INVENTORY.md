@@ -46,7 +46,7 @@ históricos. Eles não foram executados novamente nesta inspeção.
 | CI remoto e PostgreSQL | Não reexecutados nem consultados nesta inspeção |
 
 A conclusão desta inspeção é limitada à coerência documental e à ancestralidade local.
-Não constitui recertificação funcional, auditoria integral de segurança ou validação de produção.
+Não constitui nova certificação funcional, auditoria integral de segurança ou validação de produção.
 
 ## 4. Estruturas candidatas identificadas
 
