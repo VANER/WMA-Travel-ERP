@@ -4,8 +4,8 @@
 > **Empresa:** WMA Travel Ltda.
 > **Fase:** Fase 2 — Backend, API e Integrações
 > **Tipo de documento:** Planejamento de Execução
-> **Versão:** 1.2
-> **Data:** 20/10/2026
+> **Versão:** 1.3
+> **Data:** 23/10/2026
 > **Status:** EM EXECUÇÃO
 
 **Fase anterior:** Fase 1 — Concluída e certificada
@@ -14,6 +14,10 @@
 **Banco:** PostgreSQL 18.x
 
 ---
+
+O fechamento consolidado da 2.7 e a preparação da 2.8 foram integrados pelo
+[PR #71](https://github.com/VANER/WMA-Travel-ERP/pull/71), merge `d1d79de`, com os três gates pós-merge
+aprovados. Consulte o [estado corrente consolidado](PROJECT_DOCUMENTATION.md#estado-corrente-consolidado-em-07102026).
 
 ## 1. Objetivo
 
@@ -1496,22 +1500,26 @@ docs(phase2): certify phase 2
 
 ## 23. Ordem Imediata de Trabalho
 
-A execução corrente reprogramada em 19/10/2026 é:
+A sequência oficial permanece inalterada. A prioridade corrente registrada em 23/10/2026 é:
 
 ```text
 2.7 — Bike Tour encerrado
                ↓
 2.8 — HOLD TEMPORÁRIO (retomada conforme ADR-021)
                ↓
-2.9.1 — Proposta de fechamento documental com ressalvas (aprovação pendente)
+2.9.1 — Gate aberto; decisão formal sobre fechamento condicionado pendente
+               ↓
+2.9.2 — Escopo e gate a aprovar; implementação não autorizada
 ```
 
 Esta prioridade de trabalho não altera a numeração nem a ordem funcional registrada na ADR-017. As etapas 2.10 a
 2.14 permanecem planejadas, sujeitas às dependências já declaradas neste documento. O inventário da 2.9 não
 autoriza implementação, migration ou certificação sem os respectivos gates.
 
-Atualização de 20/10/2026: a ação corrente é revisar a proposta da 2.9.1. Não houve aceite formal de fechamento;
-o estado da etapa permanece em execução. O risco `trust` segue para tarefa independente de segurança.
+Atualização de 23/10/2026: a 2.9.1 permanece **EM EXECUÇÃO**, com gate aberto e sem aceite formal. O próximo
+ato é a decisão explícita do responsável. A proposta de escopo e gate da 2.9.2 não inicia nem autoriza a
+implementação. O achado `trust` permanece P0 conforme registro informado em 20/10/2026; seu estado atual não foi
+verificado e qualquer conexão exige tratamento ou aceite de segurança para o ambiente.
 
 Registro histórico anterior ao merge de 04/10/2026:
 
@@ -1575,9 +1583,10 @@ temporário; o ambiente de homologação e o inventário externo continuam pende
 | Integração remota da 2.7 | **PR #69; MERGE `ffcc09e`; CI DO PR E PÓS-MERGE APROVADOS** |
 | Fechamento documental da 2.7 | **PR #70; MERGE `2e3c9e5`; GATES PÓS-MERGE APROVADOS** |
 | Etapa 2.8 | **HOLD TEMPORÁRIO; critérios de retomada na ADR-021** |
-| Etapa 2.9 | **EM EXECUÇÃO — INVENTÁRIO FISCAL 2.9.1; NÃO CERTIFICADA** |
+| Etapa 2.9 | **EM EXECUÇÃO — 2.9.1 COM GATE ABERTO; NÃO CERTIFICADA** |
+| Etapa 2.9.2 | **NÃO AUTORIZADA — escopo e gate propostos aguardam aprovação** |
 | Etapas 2.10 a 2.14 | **PLANEJADAS; dependências preservadas** |
-| Execução corrente | **2.9.1 — PROPOSTA DE FECHAMENTO DOCUMENTAL; APROVAÇÃO PENDENTE** |
+| Execução corrente | **DECISÃO FORMAL DO GATE 2.9.1; 2.9.2 NÃO AUTORIZADA** |
 
 ---
 
@@ -1591,8 +1600,9 @@ estabelecidos neste documento.
 
 **Ação corrente:**
 
-**REVISÃO DA PROPOSTA DE FECHAMENTO DOCUMENTAL COM RESSALVAS DA 2.9.1, SEM ACEITE FORMAL.**
-A retomada da 2.8 depende dos critérios da ADR-021; implementação fiscal depende dos gates posteriores.
+**AGUARDAR DECISÃO FORMAL SOBRE O FECHAMENTO DOCUMENTAL CONDICIONADO DA 2.9.1.**
+A 2.8 permanece em HOLD conforme ADR-021. A 2.9.2 exige escopo e gate aprovados antes da implementação;
+etapas posteriores mantêm seus gates próprios.
 
 ---
 
@@ -1602,9 +1612,9 @@ A retomada da 2.8 depende dos critérios da ADR-021; implementação fiscal depe
 | --- | --- |
 | Projeto | WMA Travel ERP |
 | Empresa | WMA Travel Ltda. |
-| Versão | 1.2 |
+| Versão | 1.3 |
 | Status | EM EXECUÇÃO |
-| Última atualização | 20/10/2026 |
+| Última atualização | 23/10/2026 |
 | Repositório | `VANER/WMA-Travel-ERP` |
 | Documento mestre | `Docs/PROJECT_DOCUMENTATION.md` |
 

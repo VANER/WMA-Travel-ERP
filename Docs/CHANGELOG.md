@@ -4,6 +4,16 @@
 
 ## [Não Publicado]
 
+### 23/10/2026 — Alinhamento documental e prontidão condicionada da 2.9.2
+
+- mantidos o gate 2.9.1 aberto e a etapa em execução, sem aceite formal atribuído ao responsável;
+- qualificado `trust` como achado P0 informado em 20/10/2026, com estado atual não verificado;
+- propostos critérios de entrada/saída e entregáveis da 2.9.2, sem autorização de implementação;
+- esclarecidos os encaminhamentos de contratos, segurança, testes e migrations aos respectivos gates;
+- alinhados roadmap, ordem executiva, inventário preliminar e instruções correntes, preservando ADR-021;
+- mantidas a 2.8 em HOLD e a sequência 2.8, 2.9 e 2.10–2.14;
+- sem implementação funcional, certificação fiscal, liberação produtiva, acesso ao banco ou publicação Git.
+
 ### 20/10/2026 — Proposta de fechamento documental condicionado da 2.9.1
 
 - delimitado o inventário às seis estruturas fiscais, metadados disponíveis, dependências referenciais e lacunas;
@@ -128,7 +138,8 @@
 - concluídos os critérios de rastreabilidade, autoridades, API, RBAC, testes e delta aditivo de banco;
 - aprovados `git diff --check`, Markdownlint e CSpell para o conjunto documental Bike Tour;
 - fechado o gate documental da Etapa 2.7 e autorizada a implementação funcional de Bike Tour;
-- a autorização de implementação não certifica a Etapa 2.7 como concluída; os testes e gates executáveis pertencem à implementação.
+- a autorização de implementação não certifica a Etapa 2.7 como concluída; os testes e gates executáveis
+  pertencem à implementação.
 
 ### 10/09/2026 — Aceite formal do inventário Bike Tour
 
