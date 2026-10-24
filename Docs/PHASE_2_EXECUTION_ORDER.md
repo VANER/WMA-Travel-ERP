@@ -1509,17 +1509,18 @@ A sequência oficial permanece inalterada. A prioridade corrente registrada em 2
                ↓
 2.9.1 — Gate aberto; decisão formal sobre fechamento condicionado pendente
                ↓
-2.9.2 — Escopo e gate a aprovar; implementação não autorizada
+2.9.2 — Preparação documental; [proposta de gate](FISCAL_2_9_2_GATE_PROPOSAL.md) aguarda aprovação
 ```
 
 Esta prioridade de trabalho não altera a numeração nem a ordem funcional registrada na ADR-017. As etapas 2.10 a
 2.14 permanecem planejadas, sujeitas às dependências já declaradas neste documento. O inventário da 2.9 não
 autoriza implementação, migration ou certificação sem os respectivos gates.
 
-Atualização de 23/10/2026: a 2.9.1 permanece **EM EXECUÇÃO**, com gate aberto e sem aceite formal. O próximo
-ato é a decisão explícita do responsável. A proposta de escopo e gate da 2.9.2 não inicia nem autoriza a
-implementação. O achado `trust` permanece P0 conforme registro informado em 20/10/2026; seu estado atual não foi
-verificado e qualquer conexão exige tratamento ou aceite de segurança para o ambiente.
+Atualização de 24/10/2026: a 2.9.1 permanece **EM EXECUÇÃO**, com gate aberto e sem aceite formal. A decisão
+explícita do responsável sobre o fechamento e a rastreabilidade continua pendente. A proposta documental de gate
+da 2.9.2 está em preparação e aguarda aprovação após a decisão da 2.9.1; não autoriza implementação. O achado
+`trust` permanece P0 conforme registro informado em 20/10/2026; seu estado atual não foi verificado e qualquer
+conexão exige tratamento ou aceite de segurança para o ambiente.
 
 Registro histórico anterior ao merge de 04/10/2026:
 
@@ -1584,7 +1585,7 @@ temporário; o ambiente de homologação e o inventário externo continuam pende
 | Fechamento documental da 2.7 | **PR #70; MERGE `2e3c9e5`; GATES PÓS-MERGE APROVADOS** |
 | Etapa 2.8 | **HOLD TEMPORÁRIO; critérios de retomada na ADR-021** |
 | Etapa 2.9 | **EM EXECUÇÃO — 2.9.1 COM GATE ABERTO; NÃO CERTIFICADA** |
-| Etapa 2.9.2 | **NÃO AUTORIZADA — escopo e gate propostos aguardam aprovação** |
+| Etapa 2.9.2 | **PREPARAÇÃO DOCUMENTAL — proposta de gate aguarda aprovação; implementação NÃO AUTORIZADA** |
 | Etapas 2.10 a 2.14 | **PLANEJADAS; dependências preservadas** |
 | Execução corrente | **DECISÃO FORMAL DO GATE 2.9.1; 2.9.2 NÃO AUTORIZADA** |
 

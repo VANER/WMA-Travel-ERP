@@ -214,6 +214,7 @@ Documentos versionados ausentes do inventário inicial, sem alteração das evid
 | `Docs/FISCAL_2_9_1_INVENTORY.md` | Auditoria / inventário |
 | `Docs/FISCAL_2_9_1_GAP_ANALYSIS.md` | Auditoria / análise de lacunas |
 | `Docs/FISCAL_2_9_1_GATE.md` | Gate / planejamento |
+| `Docs/FISCAL_2_9_2_GATE_PROPOSAL.md` | Planejamento / proposta de gate |
 
 ## 4. Interpretação
 

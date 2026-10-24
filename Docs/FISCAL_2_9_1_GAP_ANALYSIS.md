@@ -4,7 +4,7 @@
 > **Fase:** Fase 2 — Backend, API e Integrações
 > **Tipo de documento:** Documento Técnico
 > **Data:** 20/10/2026
-> **Versão:** 0.4
+> **Versão:** 0.9
 > **Status:** EM EXECUÇÃO — NÃO CERTIFICADO
 > **Encaminhamento:** Proposta de conclusão documental com ressalvas; aprovação explícita pendente
 
@@ -56,6 +56,7 @@ Prioridade não representa incidente ocorrido. Ausências estruturais não são,
 | P1 | Sem SELECT/escrita nas 249 tabelas: limitação comprovada | Catálogo não valida dados/fluxos |
 | P2 | Sem índices específicos nas FKs: ausência comprovada | Risco de custo em joins; medir antes de criar |
 | P2 | Evidência local parcial; demais resultados relatados | Propor aceite limitado e complemento antes do uso |
+| Sem prioridade atribuída | Contagens diferem entre snapshot de teste e dump oficial | Reconciliar antes de serviços/migrations dependentes |
 
 Uma regra PostgreSQL com método `trust` permite autenticação sem senha para conexões que correspondam a ela.
 O achado foi informado em 20/10/2026; esta revisão não confirmou a configuração atual, não a corrigiu nem
@@ -78,12 +79,13 @@ são destinos propostos; responsáveis nominais, prazos e execução dependem de
 | --- | --- | --- |
 | `trust` TCP e privilégios globais | Administração PostgreSQL / segurança | Antes de ampliar acesso |
 | Logs completos e dependências fora do recorte | Auditoria / arquitetura de dados | Antes da decisão estrutural |
+| Contagens: `nota_fiscal` 19 no snapshot informado e 20 no dump; `simples_nacional` 17 e 15 | Auditoria / arquitetura de dados | Reconciliar por evidência autorizada antes de serviços ou migrations dependentes |
 | CHECK, idempotência e estados | Desenho fiscal e serviços posteriores | Antes de implementar regras afetadas |
 | Índices nas FKs | Modelagem / desempenho | Medir necessidade antes de propor migration |
 | Vínculos Comercial/Financeiro | Contratos e integrações fiscais | Antes de implementar os fluxos integrados |
 | Provedor, regras e emissão NFS-e | Responsável fiscal / integração NFS-e | Antes de homologação e aceite operacional |
 | Backend, API, RBAC e testes | Etapas funcionais correspondentes | Antes de certificar o módulo Fiscal |
-| Markdownlint/CSpell não executados | Revisão documental | Executar quando disponíveis ou aceitar ressalva |
+| Markdownlint/CSpell | Revisão documental | Execução anterior: zero ocorrências; revisão posterior da minuta ainda não revalidada |
 
 A solução de `trust` permanece independente: não bloqueia por si só a revisão documental do inventário, mantém
 prioridade P0 e não é aceita como configuração segura. Seu estado atual não foi verificado. Nenhuma conexão a
@@ -93,7 +95,9 @@ relatado, mas não comprova conteúdo nem comportamento de negócio.
 
 Propõe-se aceitar a rastreabilidade disponível apenas para o recorte da 2.9.1, mediante aprovação explícita.
 Comparações integrais com dump/migrations e dependências transitivas ficam fora da conclusão proposta;
-devem ser verificadas antes de mudanças que delas dependam. Não se exige homologação NFS-e para concluir inventário.
+devem ser verificadas antes de mudanças que delas dependam. A comparação estática desta revisão identificou a
+diferença de contagem descrita no inventário; ela não identifica os campos divergentes nem comprova o estado do
+banco atual. Não se exige homologação NFS-e para concluir inventário.
 A ordem oficial continua preservada; estas pendências não são todas atribuídas à 2.9.2, cujo item é serviços.
 
 ## Prontidão e lacunas da 2.9.2 — serviços
@@ -141,12 +145,19 @@ produção.
 | 0.3 | 19/10/2026 | Achados físicos recebidos e riscos P0/P1/P2, separados de falhas funcionais não comprovadas |
 | 0.4 | 20/10/2026 | Encaminhamento das lacunas e proposta de aceite condicionado da rastreabilidade |
 | 0.5 | 23/10/2026 | Trust qualificado; prontidão 2.9.2 encaminhada ao gate próprio |
+| 0.6 | 24/10/2026 | Minuta de decisão pendente; sem aceite formal |
+| 0.7 | 24/10/2026 | Markdownlint e CSpell executados nos documentos alterados; zero ocorrências |
+| 0.8 | 24/10/2026 | Responsável decisório identificado por declaração atual; decisão continua pendente |
+| 0.9 | 24/10/2026 | Divergência de contagem entre snapshot de teste e dump encaminhada |
 
 ## Saída requerida
 
 Submeter o fechamento documental com ressalvas à aprovação explícita, conforme o [gate](FISCAL_2_9_1_GATE.md).
-Não há aceite formal nesta proposta. Qualquer implementação ou alteração estrutural exige escopo próprio,
-ADR-004, `Docs/MIGRATIONS.md` quando aplicáveis e gate específico. Não há liberação para produção.
+O responsável pelo projeto declarou nesta conversa que toma as decisões do WMA Travel ERP e informou o nome
+Vâner de Menezes Lázaro e a função de proprietário do projeto. Esse registro atual não cria regra retroativa nem
+lhe atribui outro cargo organizacional. Não há aceite formal nesta proposta. Qualquer implementação ou alteração
+estrutural exige escopo próprio, ADR-004, `Docs/MIGRATIONS.md` quando aplicáveis e gate específico. Não há liberação
+para produção.
 
 ## Controle do Documento
 
@@ -154,9 +165,9 @@ ADR-004, `Docs/MIGRATIONS.md` quando aplicáveis e gate específico. Não há li
 | --- | --- |
 | Projeto | WMA Travel ERP |
 | Empresa | WMA Travel Ltda. |
-| Versão | 0.5 |
+| Versão | 0.9 |
 | Status | EM EXECUÇÃO; NÃO CERTIFICADO |
-| Última atualização | 23/10/2026 |
+| Última atualização | 24/10/2026 |
 | Repositório | VANER/WMA-Travel-ERP |
 | Documento mestre | [PROJECT_DOCUMENTATION.md](PROJECT_DOCUMENTATION.md) |
 

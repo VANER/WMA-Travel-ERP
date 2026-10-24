@@ -6,7 +6,7 @@
 > **Fase:** Fase 2 — Backend, API e Integrações
 > **Tipo de documento:** Documento Técnico
 > **Data:** 20/10/2026
-> **Versão:** 0.4
+> **Versão:** 0.8
 > **Status:** EM EXECUÇÃO — NÃO CERTIFICADO
 > **Encaminhamento:** Proposta de conclusão documental com ressalvas; aprovação explícita pendente
 
@@ -27,6 +27,10 @@ Não se declara paridade integral com o dump nem cobertura de funções, trigger
 Propõe-se aceitar condicionalmente a rastreabilidade disponível: saída local de restrições e confirmações do
 responsável, mantendo explícita a ausência de logs completos de colunas, índices, privilégios e READ ONLY.
 O aceite dessa limitação integra a proposta do [gate](FISCAL_2_9_1_GATE.md); não foi registrado em nome do responsável.
+O responsável pelo projeto declarou nesta conversa que toma as decisões do WMA Travel ERP e informou o nome
+Vâner de Menezes Lázaro e a função de proprietário do projeto. Esse registro atual não cria regra retroativa nem
+lhe atribui outro cargo organizacional. A decisão de fechamento e a aceitação dos limites de rastreabilidade seguem
+pendentes; não se atribui aceite.
 
 ## Estruturas efetivamente encontradas no PostgreSQL
 
@@ -72,6 +76,17 @@ para estas seis tabelas/colunas. A tabela NFS-e não declara versão de contrato
 idempotência, município ou chave externa de autorização. A tabela `imposto` não declara vigência, regra de
 incidência ou relação fiscal com nota/declaração. O default `EMITIDA` em `nota_fiscal` não prova autorização,
 transmissão ou resposta fiscal válida. Tudo acima descreve o arquivo dump, não o banco atual.
+
+### Divergência de contagem entre as fontes
+
+O inventário fornecido para o banco de teste informa 19 colunas em `nota_fiscal` e 17 em `simples_nacional`.
+Uma leitura estática do dump oficial encontrou 20 e 15, respectivamente. As outras quatro tabelas apresentam
+contagens iguais nas duas fontes. O total informado do teste é 88 colunas; o total contado no dump é 87.
+
+Não há log completo das colunas do banco de teste que permita identificar os campos diferentes. A diferença não
+comprova erro em qualquer fonte e não foi reconciliada nesta revisão. Está encaminhada à proposta de gate da
+[2.9.2](FISCAL_2_9_2_GATE_PROPOSAL.md) para resolução por evidência autorizada antes de serviços ou migrations
+que dependam desses objetos. A 2.9.1 não afirma paridade com o dump.
 
 ## Backend e API
 
@@ -155,8 +170,9 @@ sua solução depende de tarefas próprias e dos gates posteriores. Em particula
   antes de ampliar acesso ou executar validações que exijam conexão;
 - vínculos, idempotência e estados: desenho e implementação fiscal posteriores, sem autorização implícita;
 - contratos, provedor, regras fiscais e homologação: etapas funcionais correspondentes, antes do aceite operacional;
-- Markdownlint/CSpell: não executados; a limitação deve ser aceita formalmente ou os validadores devem ser executados
-  antes do fechamento formal.
+- Markdownlint-cli2 0.24.0 (markdownlint 0.42.0) e CSpell 10.4.0: execução anterior em 24/10/2026 nos quatro
+  documentos então alterados; zero ocorrências. A revisão posterior da minuta ainda não foi revalidada, e isso não
+  representa aprovação de CI.
 
 ## Resultado
 
@@ -170,6 +186,10 @@ deve ser aprovada após a decisão formal da 2.9.1. Este documento não certific
 
 A ordem oficial denomina a 2.9.2 como serviços. O inventário não presume regras fiscais, emissão ou integrações
 pertencentes às etapas seguintes. Antes do início da implementação, o responsável deve aprovar:
+
+A proposta detalhada de objetivo, escopo, dados candidatos, segurança, validação e critérios está em
+[FISCAL_2_9_2_GATE_PROPOSAL.md](FISCAL_2_9_2_GATE_PROPOSAL.md). O resumo abaixo permanece como registro do
+encaminhamento originado no inventário 2.9.1.
 
 ### Critérios de entrada propostos
 
@@ -207,6 +227,10 @@ sem decisão de escopo. Até a aprovação formal do gate próprio, a 2.9.2 perm
 | 0.3 | 19/10/2026 | Consolidação das evidências físicas fornecidas; limites de acesso e pendência trust |
 | 0.4 | 20/10/2026 | Proposta de fechamento com ressalvas, escopo delimitado e pendências encaminhadas |
 | 0.5 | 23/10/2026 | Estado atual do risco trust qualificado; proposta de gate e critérios para 2.9.2 |
+| 0.6 | 24/10/2026 | Papel decisor proposto; designação pendente, sem aceite formal |
+| 0.7 | 24/10/2026 | Markdownlint e CSpell executados nos documentos alterados; zero ocorrências |
+| 0.8 | 24/10/2026 | Responsável decisório identificado por declaração atual; decisão continua pendente |
+| 0.9 | 24/10/2026 | Divergência de contagem entre evidência de teste e dump registrada e encaminhada |
 
 ## Controle do Documento
 
@@ -214,9 +238,9 @@ sem decisão de escopo. Até a aprovação formal do gate próprio, a 2.9.2 perm
 | --- | --- |
 | Projeto | WMA Travel ERP |
 | Empresa | WMA Travel Ltda. |
-| Versão | 0.5 |
+| Versão | 0.9 |
 | Status | EM EXECUÇÃO; NÃO CERTIFICADO |
-| Última atualização | 23/10/2026 |
+| Última atualização | 24/10/2026 |
 | Repositório | VANER/WMA-Travel-ERP |
 | Documento mestre | [PROJECT_DOCUMENTATION.md](PROJECT_DOCUMENTATION.md) |
 

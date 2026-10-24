@@ -104,6 +104,10 @@ Atualização de 23/10/2026: a proposta do gate 2.9.1 continua sem aceite formal
 em execução. A 2.9.2 não está autorizada. O escopo e os critérios propostos para essa etapa aguardam aprovação
 após a decisão formal da 2.9.1. A 2.8 continua em HOLD conforme ADR-021.
 
+Atualização de 24/10/2026: foi preparada a [proposta documental de gate da 2.9.2](FISCAL_2_9_2_GATE_PROPOSAL.md).
+Ela aguarda aprovação após a decisão formal da 2.9.1 e não autoriza implementação. A 2.9.1 continua em execução
+com o gate aberto; a 2.8 permanece em HOLD.
+
 ## 1. Objetivo
 
 Este documento centraliza toda a documentação oficial do
@@ -222,6 +226,7 @@ WMA Travel ERP/
 | BIKE_TOUR_RETENTION_OPERATIONS.md | Operação da retenção Bike Tour |
 | [Fechamento final Bike Tour](certification/PHASE_2_7_BIKE_TOUR_FINAL_CLOSURE.md) | Encerramento consolidado da 2.7 |
 | [Preparação Website](WEBSITE_INTEGRATION_PREPARATION.md) | Inventário, dependências e gates da 2.8 |
+| [Proposta de gate Fiscal 2.9.2](FISCAL_2_9_2_GATE_PROPOSAL.md) | Escopo e critérios propostos; não aprovada |
 | API_RESPONSE_MATRIX.md | Matriz normativa de respostas HTTP da API v1 |
 | API_CHANGE_GOVERNANCE.md | Propriedade, aprovação e exceções de mudança da API |
 | DEPLOYMENT.md | Processo de implantação |
