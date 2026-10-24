@@ -11,7 +11,8 @@
 **Fase anterior:** Fase 1 — Fundação e Banco de Dados
 **Status da Fase 1:** CONCLUÍDA E CERTIFICADA
 **Status atual:** 2.7 concluída/certificada; 2.8 em HOLD temporário; inventário 2.9.1 em execução
-**Ação corrente:** obter decisão formal sobre a proposta de fechamento da 2.9.1; gate da 2.9.2 ainda não aprovado.
+**Ação corrente:** registrar decisão formal da 2.9.1 e revisar a proposta documental da 2.9.2; implementação não
+autorizada.
 **Bike Tour 2.7:** CONCLUÍDO, CERTIFICADO E INTEGRADO À MAIN em 04/10/2026; PR #69, merge `ffcc09e`
 **Marco inicial:** `phase-1-final-2026-08-18`
 
@@ -44,6 +45,10 @@ produtiva. A implementação fiscal depende dos gates específicos posteriores; 
 Atualização de 23/10/2026: o gate 2.9.1 continua aberto e a etapa em execução, aguardando decisão formal do
 responsável. A 2.9.2 permanece não autorizada; escopo, dependências e critérios de entrada/saída são proposta
 documental sujeita a aprovação explícita. A 2.8 continua em HOLD conforme a ADR-021.
+
+Atualização de 24/10/2026: a [proposta de gate da 2.9.2](FISCAL_2_9_2_GATE_PROPOSAL.md) foi preparada para
+revisão documental. Sua aprovação depende da decisão formal da 2.9.1 e não autoriza implementação. A 2.8
+permanece em HOLD conforme a ADR-021; a sequência oficial não foi alterada.
 
 ## 1. Objetivo
 
@@ -1145,11 +1150,11 @@ Homologação, inventário real e contratos do site permanecem pendentes.
 
 **ETAPA 2.7:** CONCLUÍDA, CERTIFICADA E INTEGRADA À MAIN
 
-**PRÓXIMA AÇÃO:** obter decisão explícita do responsável sobre a proposta de fechamento documental condicionado
-da 2.9.1; manter o gate aberto até o registro dessa decisão.
+**PRÓXIMA AÇÃO:** registrar a decisão explícita do responsável sobre o fechamento documental condicionado da
+2.9.1; manter o gate aberto até que a rastreabilidade e os demais critérios obrigatórios sejam resolvidos.
 
-A preparação da 2.8.1 permanece suspensa pelos critérios da ADR-021. A proposta de gate da 2.9.2 ainda requer
-aprovação própria e não autoriza sua implementação.
+A preparação da 2.8.1 permanece suspensa pelos critérios da ADR-021. A proposta de gate da 2.9.2 está em
+preparação documental, requer aprovação própria e não autoriza sua implementação.
 
 ---
 

@@ -4,6 +4,22 @@
 
 ## [Não Publicado]
 
+### 24/10/2026 — Minuta e validação documental da 2.9.1
+
+- corrigida a minuta para identificar Vâner de Menezes Lázaro como proprietário do projeto, conforme declaração atual
+  do responsável, sem atribuir cargo adicional ou aprovação;
+- mantidos pendentes a decisão explícita de fechamento condicionado e o aceite dos limites de rastreabilidade;
+- separados os efeitos da ressalva de rastreabilidade, do risco `trust` P0 e do gate posterior da 2.9.2;
+- Markdownlint-cli2 0.24.0 (markdownlint 0.42.0) e CSpell 10.4.0 reportaram zero ocorrências em execução anterior;
+- a versão atual passou em `git diff --check`; os validadores Markdown não foram repetidos nesta revisão;
+- corrigido o registro da matriz do gate para distinguir resultados anteriores da versão atual não revalidada;
+- corrigida a contagem da evidência: 35 linhas físicas, incluindo 31 entradas de restrições;
+- registrada a divergência entre contagens do snapshot de teste e do dump oficial, sem presumir qual representa o
+  banco atual;
+- preparada a proposta documental detalhada do gate 2.9.2, sem aprovação ou autorização de implementação;
+- harmonizadas as versões dos documentos fiscais 2.9.1, mantendo a etapa EM EXECUÇÃO e o gate ABERTO;
+- nenhuma certificação funcional, aprovação formal, autorização da 2.9.2 ou liberação para produção foi declarada.
+
 ### 23/10/2026 — Alinhamento documental e prontidão condicionada da 2.9.2
 
 - mantidos o gate 2.9.1 aberto e a etapa em execução, sem aceite formal atribuído ao responsável;
